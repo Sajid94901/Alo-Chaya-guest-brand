@@ -3,95 +3,141 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alo Chaya: Marketing & Brand Doctrine (The 15K ADR Playbook)</title>
+<title>Alo Chaya - Your Riverine Sanctuary Awaits</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-    body { scroll-behavior: smooth; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background-color: #f1f6f9; color: #0b1220; padding: 20px; }
-    .section { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 6px 18px rgba(3,15,30,0.06); margin-bottom: 24px; }
-    h1 { font-size: 2.5rem; font-weight: 800; color: #0b61a4; margin-bottom: 1rem; text-align: center; }
-    h2 { font-size: 1.8rem; font-weight: 700; color: #047857; margin-top: 1.5rem; margin-bottom: 1rem; border-bottom: 2px solid #e5e7eb; padding-bottom: 5px; }
-    h3 { font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 1rem; }
-    p, ul { font-size: 1rem; line-height: 1.6; margin-bottom: 1rem; }
-    .list-disc { list-style-type: disc; padding-left: 20px; }
-    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; padding-top: 20px; }
-    .gallery-item img { width: 100%; height: 200px; object-fit: cover; border-radius: 6px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-    .gallery-caption { text-align: center; font-size: 0.875rem; color: #4b5563; margin-top: 5px; }
-    .contact-info { background: #0b1220; color: white; padding: 20px; border-radius: 12px; margin-top: 30px; }
-    .contact-info a { color: #3b82f6; text-decoration: none; font-weight: 600; }
-    .footer-link { color: #3b82f6; text-decoration: none; font-size: 0.9rem; display: block; margin-top: 20px; }
+  :root { --primary-color: #064e3b; --secondary-color: #1e3a8a; }
+  body { font-family: 'Inter', system-ui, sans-serif; background-color: #f8fafc; color: #1e293b; line-height: 1.7; }
+  .section { padding: 4rem 1.5rem; }
+  .hero { display: flex; align-items: center; justify-content: center; min-height: 90vh; background: linear-gradient(rgba(10, 20, 30, 0.75), rgba(10, 20, 30, 0.75)), url('alochaya-riverside-sunset.jpg'); background-size: cover; background-position: center; color: white; text-align: center; }
+  .hero-content { max-width: 800px; }
+  .hero h1 { font-size: 3.5rem; font-weight: 800; }
+  h2 { font-size: 2.25rem; font-weight: 700; margin-bottom: 2rem; color: var(--primary-color); text-align: center; }
+  h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: var(--secondary-color); }
+  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+  .gallery-item img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s; }
+  .gallery-item button:hover img { transform: scale(1.05); }
+  .gallery-caption { text-align: center; font-size: 0.875rem; color: #4b5563; margin-top: 0.5rem; font-weight: 500; }
+  .button-link { display: inline-block; padding: 14px 28px; background-color: var(--primary-color); color: white; border-radius: 6px; text-decoration: none; font-weight: 600; margin-top: 1rem; transition: background-color 0.3s; }
+  .booking-section { background-color: var(--secondary-color); color: #e0e7ff; }
+  .booking-section h2 { color: white; }
+  .justified-text { text-align: justify; }
+  /* Modal Styles */
+  .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); }
+  .modal-content { background-color: #fefefe; margin: 10% auto; padding: 20px; border-radius: 8px; max-width: 500px; animation: fadeIn 0.3s; }
+  .modal-close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+  @keyframes fadeIn { from {opacity: 0} to {opacity: 1} }
 </style>
 </head>
 <body>
 
-<div class="container mx-auto max-w-6xl">
-    <div class="section text-center bg-gradient-to-br from-blue-50 to-green-100">
-        <h1>Alo Chaya: The Premium Riverine Brand Doctrine</h1>
-        <p class="text-xl text-gray-700">The 87.06 Bigha Story & The Foundation for **15,000 BDT ADR**.</p>
+<header class="hero">
+    <div class="hero-content">
+        <h1>Your Riverine Sanctuary Awaits</h1>
+        <p class="mt-4 text-xl text-gray-200">Escape the city and discover a world where luxury meets a century of heritage on the serene banks of the Meghna River.</p>
     </div>
+</header>
 
-    <div class="section">
-        <h2>1. Brand Identity: Kapferer's Prism</h2>
-        <p>Our brand is built on a non-replicable identity that justifies the premium pricing:</p>
-        <ul class="list-disc">
-            <li>**Physique:** 87.06 Bigha Scale, Private Lake, Heritage Architecture (The MM House).</li>
-            <li>**Personality:** Competent, Sincere, **Curated & Creative** (Inspired by 'The Lighthouse Tales' IP).</li>
-            <li>**Culture:** Bangladeshi Heritage, Eco-Conscious, Deep Storytelling.</li>
-            <li>**Reflection:** Affluent, Culturally Aware Professionals seeking genuine heritage and well-being.</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>2. Our Physique & Heritage (The Project Lead's Gallery)</h2>
-        <p>A showcase of the scale and unique components of the resort, including the heritage structures and the core asset (87.06 Bigha).</p>
-        
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="mm-house.jpg" alt="MM House"><div class="gallery-caption">MM House: The Founder's Home, Built by the Founder in 1995 to 1996</div></div>
-            <div class="gallery-item"><img src="bungalow.jpg" alt="Bungalow"><div class="gallery-caption">The Guest Bungalow</div></div>
-            <div class="gallery-item"><img src="alo-chaya-private-lake.webp" alt="Private Lake"><div class="gallery-caption">The Massive Private Lake</div></div>
-            <div class="gallery-item"><img src="alo-chaya-60000sqf-overview.jpg" alt="60000 sq ft building overview"><div class="gallery-caption">60,000 sq. ft. Building Overview</div></div>
-            <div class="gallery-item"><img src="alo-chaya-gate.jpg" alt="Alo Chaya Gate"><div class="gallery-caption">The Main Entrance Gate</div></div>
-            <div class="gallery-item"><img src="alo-chaya-gazebo.webp" alt="Alo Chaya Gazebo"><div class="gallery-caption">Riverside Gazebo</div></div>
-            <div class="gallery-item"><img src="mahmud-tower-replaced-fatima-mahal.jpg" alt="Mahmud Tower"><div class="gallery-caption">Mahmud Tower (Replacing Fatima Mahal)</div></div>
-            <div class="gallery-item"><img src="founders-father-in-law-sarkerbari-inheritor.jpg" alt="Father-in-Law"><div class="gallery-caption">Founder's Father-in-Law (Sarkerbari Inheritor)</div></div>
-            <div class="gallery-item"><img src="founders-grandfather-fatima-mahal-builder-owner.jpg" alt="Grandfather"><div class="gallery-caption">Founder's Paternal Grandfather</div></div>
-            <div class="gallery-item"><img src="sajid-hassan-founders-third-son-project-lead-author.jpg" alt="Sajid Hassan"><div class="gallery-caption">Project Lead & Author: Sajid Hassan</div></div>
-            <div class="gallery-item"><img src="strangers-of-the-lighthouse-rulebook-and-cover.jpg" alt="Lighthouse Rulebook"><div class="gallery-caption">The Lighthouse Tales (Brand IP)</div></div>
-            <div class="gallery-item"><img src="lighthouse-promo-v1-v2-s2.jpg" alt="Lighthouse Promo 1"><div class="gallery-caption">The Lighthouse Tales Promo Image 1</div></div>
-            <div class="gallery-item"><img src="lighthouse-promo-v2-s2.jpg" alt="Lighthouse Promo 2"><div class="gallery-caption">The Lighthouse Tales Promo Image 2</div></div>
+<main>
+    <section class="section bg-white">
+        <div class="container mx-auto max-w-5xl">
+            <h2>The Alo Chaya Experience</h2>
+            <p class="justified-text text-gray-700">Alo Chaya is not just a resort—it’s a century of heritage, thoughtfully curated into a riverine luxury experience. Located just 2.5 hours from Dhaka, our 87-bigha estate is a sanctuary where you awaken to sunlight dancing on the water. The 60,000 sq ft main facility features spacious rooms crafted with teak and bamboo, each offering more space (≈354 sq ft) than a typical Dhaka 5-star hotel.</p>
         </div>
-    </div>
-    
-    <div class="section">
-        <h2>3. Brand Media & IP Assets</h2>
-        <p>Explore the content that defines the Alo Chaya cultural experience, which justifies our premium pricing.</p>
-        <ul class="list-disc">
-            <li>Project Lead's Amazon Author Page (The Lighthouse Tales IP): <a href="https://www.amazon.com/s?k=sajid+hassan&rh=n%3A133140011&crid=2E1W9090QBML6&sprefix=sajid+hassan+%2Cdigital-text%2C422&ref=nb_sb_noss" target="_blank" class="text-blue-600 hover:underline">Link to Amazon</a></li>
-            <li>Facebook Live Video (Vision Presentation): <a href="https://www.facebook.com/watch/?v=3205338596428844&surface_type=vod&referral_source=vod_deeplink_unit" target="_blank" class="text-blue-600 hover:underline">Link to Facebook Video</a></li>
-            <li>Facebook Photo (Project Asset): <a href="https://www.facebook.com/photo.php?fbid=1258669435963579" target="_blank" class="text-blue-600 hover:underline">Link to Facebook Asset Photo</a></li>
-        </ul>
+    </section>
+
+    <div class="section" id="why-alochaya">
+      <div class="container mx-auto max-w-6xl">
+        <h2>Why Alo Chaya? The Unmatched Advantage</h2>
+        <p class="text-center text-gray-600 -mt-4 mb-8">Riverine scale, heritage, and intentional hospitality—close to Dhaka, but a world away.</p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="p-6 rounded-lg shadow-lg bg-white">
+                <h3>Competitive Snapshot</h3>
+                <p class="text-sm text-gray-600">Why settle for limited scale or conventional hotels?</p>
+                <ul class="list-disc pl-5 mt-4 text-justify space-y-2">
+                    <li><strong>Dusai Resort & Spa:</strong> A beautiful but remote ~7-hour journey from Dhaka.</li>
+                    <li><strong>Kaalmegha & The Palace:</strong> Luxurious, but with higher price points and less natural immersion.</li>
+                    <li><strong>Local Gazipur Resorts:</strong> Closer, but often crowded on weekends with smaller rooms and less privacy.</li>
+                </ul>
+                <blockquote class="mt-6 p-4 bg-green-50 border-l-4 border-green-500 text-green-800 font-semibold">
+                    The Alo Chaya Advantage: 87 Bighas of exclusive riverine luxury, a private fishing lake, and grand event lawns just 2.5 hours from Dhaka.
+                </blockquote>
+            </div>
+            <div class="p-6 rounded-lg shadow-lg bg-white">
+                <h3>Guest Pricing & Unmatched Value</h3>
+                <p class="text-sm text-gray-600">Experience more space, more privacy, and more serenity.</p>
+                <div class="mt-4">
+                    <div class="p-4 border rounded-lg mb-4">
+                        <div class="flex justify-between items-center"><p class="font-bold text-lg">Standard Deluxe Room</p><p class="text-3xl font-bold text-green-700">BDT 15,000</p></div>
+                        <p class="text-sm text-gray-500 line-through">Original Rate: BDT 20,000</p>
+                    </div>
+                    <div class="p-4 border rounded-lg">
+                        <div class="flex justify-between items-center"><p class="font-bold text-lg">Family Suite (River-Facing)</p><p class="text-3xl font-bold text-green-700">BDT 20,000</p></div>
+                        <p class="text-sm text-gray-500 line-through">Original Rate: BDT 25,000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
     </div>
 
-    <div class="section">
-        <h2>4. Marketing Action: The 7Ps</h2>
-        <ul class="list-disc">
-            <li>**Product:** Launch signature **wellness and cultural immersion packages**.</li>
-            <li>**Price:** Maintain the **15,000 BDT ADR** to anchor the brand in the premium segment.</li>
-            <li>**Promotion:** Digital storytelling focused on the riverine setting and The Lighthouse Tales narrative (Bypass Strategy).</li>
-            <li>**People:** Service delivery based on the **HEART Service Recovery Model**.</li>
-        </ul>
-    </div>
+    <section class="section bg-white">
+        <div class="container mx-auto max-w-7xl">
+            <h2>Our Heritage & Story</h2>
+            <p class="text-center text-gray-600 -mt-4 mb-8">Click on an image to discover the story behind Alo Chaya.</p>
+            <div class="gallery-grid">
+                <div class="gallery-item"><button data-modal="modal-daroga"><img src="founders-grandfather-fatima-mahal-builder-owner.jpg" alt="The Daroga"><div class="gallery-caption">The Daroga’s Vision</div></button></div>
+                <div class="gallery-item"><button data-modal="modal-sarkarbari"><img src="founders-father-in-law-sarkerbari-inheritor.jpg" alt="Sarkarbari Inheritor"><div class="gallery-caption">A Century of Community</div></button></div>
+                <div class="gallery-item"><button data-modal="modal-mahmud"><img src="mahmud-tower-replaced-fatima-mahal.jpg" alt="Mahmud Tower"><div class="gallery-caption">The Founder's Legacy</div></button></div>
+                <div class="gallery-item"><button data-modal="modal-sajid"><img src="sajid-hassan-founders-third-son-project-lead-author.jpg" alt="Sajid Hassan"><div class="gallery-caption">The Next Generation</div></button></div>
+                <div class="gallery-item"><img src="alo-chaya-60000sqf-overview.jpg" alt="60k overview"><div class="gallery-caption">The Main Facility</div></div>
+                <div class="gallery-item"><img src="alo-chaya-private-lake.webp" alt="Private Lake"><div class="gallery-caption">The Private Lake</div></div>
+                <div class="gallery-item"><img src="bungalow.jpg" alt="Guest Bungalow"><div class="gallery-caption">The Heritage Bungalow</div></div>
+                <div class="gallery-item"><img src="alo-chaya-gate.jpg" alt="Main Gate"><div class="gallery-caption">The Grand Entrance</div></div>
+            </div>
+        </div>
+    </section>
 
-    <div class="contact-info text-center">
-        <h3>Bookings & Contact</h3>
-        <p class="text-lg font-semibold mb-2">Email: <a href="mailto:alochayariverine.info@gmail.com">alochayariverine.info@gmail.com</a></p>
-        <p class="text-lg font-semibold mb-0">WhatsApp Contact: <a href="https://wa.me/8801327379392">01327379392</a> (Please send a message first)</p>
-    </div>
+    <section class="section booking-section">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2>Book Your Escape</h2>
+            <p>Experience the perfect blend of natural serenity and modern luxury. Contact our reservations team to plan your unforgettable getaway.</p>
+            <div class="mt-6">
+                <p class="text-lg"><strong>For Reservations & Enquiries:</strong></p>
+                <p class="text-lg">Phone: <strong>01327-379392</strong> (WhatsApp available)</p>
+                <p class="text-lg">Email: <strong>alochayariverine.info@gmail.com</strong></p>
+            </div>
+            <a href="tel:01327379392" class="button-link">Call to Book Now</a>
+        </div>
+    </section>
+</main>
 
-    <footer class="text-center py-6 text-gray-600">
-        <a href="investment.html" class="footer-link">View Investor Due Diligence Deck &rarr;</a> 
-        <p class="text-sm mt-2">An undertaking of M/S Hassan & Brothers & Hassan & Brothers Ltd.</p>
-    </footer>
-</div>
+<div id="modal-daroga" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>The Daroga’s Vision</h3><p>The story of Alo Chaya begins with our great-grandfather, "The Daroga," whose vision led to the acquisition of this pristine riverine land, the foundation of the Fatima Mahal, and our family's deep connection to this place.</p></div></div>
+<div id="modal-sarkarbari" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>A Century of Community</h3><p>Our maternal great-grandfather purchased the Sarkarbari land in 1912, establishing a century of deep community trust and local presence that is vital for our authentic, heritage-driven hospitality.</p></div></div>
+<div id="modal-mahmud" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>The Founder's Legacy</h3><p>Our father, Mahmudul Hassan, is the founder who built the first 5-room bungalow in 2009 and the Mahmud Tower (our primary collateral) in 2016, turning a family retreat into the foundation for a world-class resort.</p></div></div>
+<div id="modal-sajid" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>The Next Generation</h3><p>As Project Lead, Sajid Hassan brings modern strategic planning and a commitment to operational excellence, ensuring this multi-generational legacy continues to thrive and innovate.</p></div></div>
+
+<script>
+    document.querySelectorAll('[data-modal]').forEach(button => {
+        button.onclick = function() {
+            let modal = document.getElementById(this.dataset.modal);
+            modal.style.display = "block";
+        }
+    });
+    document.querySelectorAll('.modal-close').forEach(closeButton => {
+        closeButton.onclick = function() {
+            this.closest('.modal').style.display = "none";
+        }
+    });
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = "none";
+        }
+    }
+</script>
 
 </body>
 </html>
