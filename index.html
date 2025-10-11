@@ -17,11 +17,11 @@
   .hero h1 { font-size: 3.5rem; font-weight: 800; }
   h2 { font-size: 2.25rem; font-weight: 700; margin-bottom: 2rem; color: var(--primary-color); text-align: center; }
   h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: var(--secondary-color); }
-  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
-  .gallery-item img, .video-player { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-  .gallery-item button { width: 100%; background: none; border: none; padding: 0; cursor: pointer; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .gallery-item img, .video-player { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+  .gallery-item button { width: 100%; background: none; border: none; padding: 0; cursor: pointer; text-align: center; }
   .gallery-item button:hover img { transform: scale(1.05); transition: transform 0.3s; }
-  .gallery-caption { text-align: center; font-size: 0.875rem; color: #4b5563; margin-top: 0.5rem; font-weight: 500; }
+  .gallery-caption { font-size: 0.875rem; color: #4b5563; margin-top: 0.75rem; font-weight: 500; }
   .button-link { display: inline-block; padding: 14px 28px; background-color: var(--primary-color); color: white; border-radius: 6px; text-decoration: none; font-weight: 600; margin-top: 1rem; transition: background-color 0.3s; }
   .booking-section { background-color: var(--secondary-color); color: #e0e7ff; }
   .booking-section h2 { color: white; }
@@ -45,80 +45,63 @@
 <main>
     <section class="section bg-white">
         <div class="container mx-auto max-w-5xl">
-            <h2>The Alo Chaya Experience</h2>
+            <h2>Experience Alo Chaya</h2>
             <p class="justified-text text-gray-700">Alo Chaya is not just a resort—it’s a century of heritage, thoughtfully curated into a riverine luxury experience. Located just 2.5 hours from Dhaka, our 87-bigha estate is a sanctuary where you awaken to sunlight dancing on the water. The 60,000 sq ft main facility features spacious rooms crafted with teak and bamboo, each offering more space (≈354 sq ft) than a typical Dhaka 5-star hotel.</p>
         </div>
     </section>
 
     <section class="section">
         <div class="container mx-auto max-w-7xl">
-            <h2>A Virtual Tour of Your Escape</h2>
-             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <h2>A Virtual Tour: Experience a Day at Alo Chaya</h2>
+             <div class="gallery-grid">
                 <div class="p-4 rounded-lg shadow-lg bg-white">
                     <video class="video-player" controls poster="view-from-second-floor-at-dawn.jpg"><source src="early-morning-view.mp4" type="video/mp4"></video>
-                    <h3 class="mt-4">The Serenity of Dawn</h3>
+                    <div class="gallery-caption">The Serenity of Dawn</div>
                 </div>
                 <div class="p-4 rounded-lg shadow-lg bg-white">
                     <video class="video-player" controls poster="IMG-20251011-WA0017.jpg"><source src="family-suite.mp4" type="video/mp4"></video>
-                    <h3 class="mt-4">The Expansive Family Suite</h3>
+                    <div class="gallery-caption">The Expansive Family Suite</div>
                 </div>
                 <div class="p-4 rounded-lg shadow-lg bg-white">
-                    <video class="video-player" controls poster="IMG-20251011-WA0017.jpg"><source src="third-floor-room-1.mp4" type="video/mp4"></video>
-                    <h3 class="mt-4">Unmatched Space & Views</h3>
+                    <video class="video-player" controls poster="project-leads-room-on-second-floor.jpg"><source src="fourth-floor-spaces.mp4" type="video/mp4"></video>
+                    <div class="gallery-caption">Unmatched Space & Views</div>
+                </div>
+                <div class="p-4 rounded-lg shadow-lg bg-white">
+                    <video class="video-player" controls poster="view-from-bridge-near-gazebo-at-dusk.jpg"><source src="night-view.mp4" type="video/mp4"></video>
+                    <div class="gallery-caption">The Magic of the Evening</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="section bg-white" id="why-alochaya">
-      <div class="container mx-auto max-w-6xl">
-        <h2>Why Alo Chaya? The Unmatched Advantage</h2>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div class="p-6 rounded-lg shadow-lg bg-white border">
-                <h3>Competitive Snapshot</h3>
-                <ul class="list-disc pl-5 mt-4 text-justify space-y-2">
-                    <li><strong>Dusai Resort & Spa:</strong> A beautiful but remote ~7-hour journey from Dhaka.</li>
-                    <li><strong>Kaalmegha & The Palace:</strong> Luxurious, but with higher price points and less natural immersion.</li>
-                    <li><strong>Local Gazipur Resorts:</strong> Closer, but often crowded on weekends with smaller rooms and less privacy.</li>
-                </ul>
-                <blockquote class="mt-6 p-4 bg-green-50 border-l-4 border-green-500 text-green-800 font-semibold">
-                    The Alo Chaya Advantage: 87 Bighas of exclusive riverine luxury just 2.5 hours from Dhaka.
-                </blockquote>
-            </div>
-            <div class="p-6 rounded-lg shadow-lg bg-white border">
-                <h3>Guest Pricing & Unmatched Value</h3>
-                <div class="mt-4">
-                    <div class="p-4 border rounded-lg mb-4">
-                        <div class="flex justify-between items-center"><p class="font-bold text-lg">Standard Deluxe Room</p><p class="text-3xl font-bold text-green-700">BDT 15,000</p></div>
-                        <p class="text-sm text-gray-500 line-through">Original Rate: BDT 20,000</p>
-                    </div>
-                    <div class="p-4 border rounded-lg">
-                        <div class="flex justify-between items-center"><p class="font-bold text-lg">Family Suite (River-Facing)</p><p class="text-3xl font-bold text-green-700">BDT 20,000</p></div>
-                        <p class="text-sm text-gray-500 line-through">Original Rate: BDT 25,000</p>
-                    </div>
-                </div>
+    <section class="section bg-white">
+        <div class="container mx-auto max-w-7xl">
+            <h2>Our Heritage & Story</h2>
+            <p class="text-center text-gray-600 -mt-4 mb-8">Click on an image to discover the generations behind Alo Chaya.</p>
+            <div class="gallery-grid">
+                <div class="gallery-item"><button data-modal="modal-daroga"><img src="founders-grandfather-fatima-mahal-builder-owner.jpg" alt="The Daroga"><div class="gallery-caption">The Visionary (Great-Grandfather)</div></button></div>
+                <div class="gallery-item"><button data-modal="modal-founder"><img src="mm-house.jpg" alt="MM House, built by the Founder"><div class="gallery-caption">The Founder's Home (MM House)</div></button></div>
+                <div class="gallery-item"><button data-modal="modal-sajid"><img src="sajid-hassan-founders-third-son-project-lead-author.jpg" alt="Sajid Hassan"><div class="gallery-caption">The Next Generation (Project Lead)</div></button></div>
+                <div class="gallery-item"><button data-modal="modal-lead-room"><img src="project-leads-room-on-second-floor.jpg" alt="Project Lead's Room"><div class="gallery-caption">The Project Lead's Quarters</div></button></div>
             </div>
         </div>
-      </div>
-    </div>
+    </section>
 
     <section class="section">
         <div class="container mx-auto max-w-7xl">
-            <h2>Our Heritage & Story</h2>
-            <p class="text-center text-gray-600 -mt-4 mb-8">Click on an image to discover the story behind Alo Chaya.</p>
+            <h2>Explore the 87-Bigha Estate</h2>
             <div class="gallery-grid">
-                <div class="gallery-item"><button data-modal="modal-daroga"><img src="founders-grandfather-fatima-mahal-builder-owner.jpg" alt="The Daroga"><div class="gallery-caption">The Daroga’s Vision</div></button></div>
-                <div class="gallery-item"><button data-modal="modal-sarkarbari"><img src="mm-house.jpg" alt="Sarkarbari Inheritor"><div class="gallery-caption">A Century of Community</div></button></div>
-                <div class="gallery-item"><button data-modal="modal-sajid"><img src="sajid-hassan-founders-third-son-project-lead-author.jpg" alt="Sajid Hassan"><div class="gallery-caption">The Next Generation</div></button></div>
-                <div class="gallery-item"><img src="front-lawn.jpg" alt="Front Lawn"><div class="gallery-caption">The Grand Lawn</div></div>
-                <div class="gallery-item"><img src="alo-chaya-private-lake.webp" alt="Private Lake"><div class="gallery-caption">The Private Lake</div></div>
-                <div class="gallery-item"><img src="bungalow.jpg" alt="Guest Bungalow"><div class="gallery-caption">The Heritage Bungalow</div></div>
-                <div class="gallery-item"><img src="alo-chaya-gate.jpg" alt="Main Gate"><div class="gallery-caption">The Grand Entrance</div></div>
-                <div class="gallery-item"><img src="pathway.jpg" alt="Pathway"><div class="gallery-caption">Serene Walkways</div></div>
+                <div class="p-4 rounded-lg shadow-lg bg-white"><img src="front-lawn.jpg" alt="Front Lawn"><div class="gallery-caption">The Grand Lawn</div></div>
+                <div class="p-4 rounded-lg shadow-lg bg-white"><img src="alo-chaya-private-lake.webp" alt="Private Lake"><div class="gallery-caption">The Private Lake</div></div>
+                <div class="p-4 rounded-lg shadow-lg bg-white"><img src="side-view-of-the-dhonagoda-river.jpg" alt="Dhonagoda River"><div class="gallery-caption">The Dhonagoda Riverbank</div></div>
+                <div class="p-4 rounded-lg shadow-lg bg-white"><img src="alo-chaya-gate.jpg" alt="Main Gate"><div class="gallery-caption">The Grand Entrance</div></div>
+                <div class="p-4 rounded-lg shadow-lg bg-white"><img src="alo-chaya-gazebo.webp" alt="Gazebo"><div class="gallery-caption">The Riverside Gazebo</div></div>
+                <div class="p-4 rounded-lg shadow-lg bg-white"><img src="pathway.jpg" alt="Pathway"><div class="gallery-caption">Serene Walkways</div></div>
+                <div class="p-4 rounded-lg shadow-lg bg-white"><img src="bungalow.jpg" alt="The Heritage Bungalow"><div class="gallery-caption">The Heritage Bungalow</div></div>
             </div>
         </div>
     </section>
-
+    
     <section class="section booking-section">
         <div class="container mx-auto max-w-4xl text-center">
             <h2>Book Your Escape</h2>
@@ -133,9 +116,10 @@
     </section>
 </main>
 
-<div id="modal-daroga" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>The Daroga’s Vision</h3><p>The story of Alo Chaya begins with our great-grandfather, "The Daroga," whose vision led to the acquisition of this pristine riverine land, the foundation of the Fatima Mahal, and our family's deep connection to this place.</p></div></div>
-<div id="modal-sarkarbari" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>A Century of Community</h3><p>Our maternal great-grandfather purchased the Sarkarbari land in 1912, establishing a century of deep community trust and local presence that is vital for our authentic, heritage-driven hospitality.</p></div></div>
-<div id="modal-sajid" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>The Next Generation</h3><p>As Project Lead, Sajid Hassan brings modern strategic planning and a commitment to operational excellence, ensuring this multi-generational legacy continues to thrive and innovate.</p></div></div>
+<div id="modal-daroga" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>The Visionary: "The Daroga"</h3><p>The story of Alo Chaya begins with our great-grandfather, "The Daroga," whose vision led to the acquisition of this pristine riverine land, the foundation of the Fatima Mahal, and our family's deep connection to this place.</p></div></div>
+<div id="modal-founder" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>The Founder: Mahmudul Hassan</h3><p>Our father, the founder, translated a family vision into reality. He built the MM House and the original guest bungalow, laying the groundwork for the world-class resort that stands today. His work is the foundation of our legacy.</p></div></div>
+<div id="modal-sajid" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>The Next Generation: Sajid Hassan</h3><p>As Project Lead, Sajid Hassan brings modern strategic planning and a commitment to operational excellence, ensuring this multi-generational legacy continues to thrive and innovate for the next generation of guests.</p></div></div>
+<div id="modal-lead-room" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>The Project Lead's Quarters</h3><p>The Project Lead's personal quarters on the second floor, a testament to our hands-on commitment to quality and the guest experience. We live the brand, ensuring every detail is perfect.</p></div></div>
 
 <script>
     document.querySelectorAll('[data-modal]').forEach(button => {
