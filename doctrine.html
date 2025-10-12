@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <style>
   :root { --primary-color: #064e3b; --secondary-color: #1e3a8a; }
   html { scroll-behavior: smooth; }
@@ -19,22 +20,6 @@
   .booking-section { background-color: var(--secondary-color); color: #e0e7ff; padding: 4rem 1.5rem; }
   .booking-section h2 { color: white; }
   .justified-text { text-align: justify; }
-  /* Pyramid Styles */
-  .pyramid { margin-top: 1.5rem; }
-  .pyramid-level {
-    background-color: #e0e7ff;
-    border: 2px solid var(--secondary-color);
-    color: #1e293b;
-    padding: 1rem;
-    margin: 0 auto 0.5rem auto;
-    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
-    text-align: center;
-    font-weight: 600;
-  }
-  .pyramid-level:nth-child(1) { width: 40%; background-color: #c7d2fe; }
-  .pyramid-level:nth-child(2) { width: 60%; }
-  .pyramid-level:nth-child(3) { width: 80%; background-color: #e0e7ff; }
-  .pyramid-level:nth-child(4) { width: 100%; }
 </style>
 </head>
 <body>
@@ -50,76 +35,199 @@
     </div>
 </nav>
 
-<main class="container mx-auto max-w-4xl pt-24 px-4"> 
+<main class="container mx-auto max-w-5xl pt-24 px-4"> 
     
     <header class="text-center mb-12">
         <h1>The Alo Chaya Doctrine</h1>
         <p class="text-xl text-gray-600">The strategic and psychological framework behind our luxury riverine experience.</p>
     </header>
 
-    <div class="card">
-        <h2>Psychological Architecture</h2>
-        <p class="justified-text">Our entire guest and employee experience is engineered upon a deep understanding of human needs. We use Maslow's expanded hierarchy to build our internal culture and Vance Packard's hidden needs to design our guest journey.</p>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
-            <div>
-                <h3 class="text-center">Guest Journey (Packard's Needs)</h3>
-                <div class="pyramid">
-                    <div class="pyramid-level">Immortality</div>
-                    <div class="pyramid-level">Ego Gratification & Worth</div>
-                    <div class="pyramid-level">Creative Outlets & Power</div>
-                    <div class="pyramid-level">Emotional Security & Roots</div>
-                </div>
-            </div>
-            <div>
-                <h3 class="text-center">Employee Culture (Maslow's Hierarchy)</h3>
-                <div class="pyramid">
-                    <div class="pyramid-level">Transcendence</div>
-                    <div class="pyramid-level">Self-Actualization</div>
-                    <div class="pyramid-level">Esteem & Belonging</div>
-                    <div class="pyramid-level">Safety & Physiological Needs</div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <section id="psych-architecture" class="container mx-auto py-12 px-6">
+      <div class="max-w-5xl mx-auto space-y-6">
 
-    <div class="card">
-        <h2>The 7Ps Guest Promise</h2>
-        <ul class="list-disc pl-5 mt-4 space-y-2 text-gray-700">
-            <li><strong>Product:</strong> A world-class riverine resort with spacious rooms (≈354 sq ft), a private lake, curated wellness experiences, and artisanal gastronomy.</li>
-            <li><strong>Price:</strong> Premium, transparent pricing (anchored at 15,000 BDT ADR) that reflects the unmatched value, space, and exclusivity we offer.</li>
-            <li><strong>Place:</strong> An accessible 87-bigha sanctuary, just 2.5 hours from Dhaka, offering a true escape without the long journey.</li>
-            <li><strong>Promotion:</strong> An authentic story of heritage, quality, and deep strategic thinking, shared directly with our discerning guests.</li>
-            <li><strong>People:</strong> A team trained in our doctrine of dignified, attentive, and sincere hospitality, where each role is linked to fulfilling a specific guest need.</li>
-            <li><strong>Process:</strong> A seamless and personalized booking and stay experience, from your first inquiry to a fond farewell.</li>
-            <li><strong>Physical Evidence:</strong> The stunning 60,000 sq ft main facility, the manicured lawns, the heritage architecture (MM House), and every tangible detail that proves our commitment to quality.</li>
-        </ul>
-    </div>
-    
-    <div class="card">
-        <h2>Brand DNA (Kapferer's Prism)</h2>
-        <ul            <li><strong>Physique:</strong> 87 Bighas of riverine land, a 60,000 sq ft main facility, a private lake, heritage architecture, and premium natural materials.</li>
-            <li><strong>Personality:</strong> Sincere, Competent, Sophisticated, and Creative—inspired by our 'Lighthouse Tales' IP.</li>
-            <li><strong>Culture:</strong> Rooted in Bangladeshi heritage, eco-conscious hospitality, and a deep culture of storytelling and service excellence.</li>
-            <li><strong>Relationship:</strong> A personalized, high-trust partnership with our guests, making them feel like part of our extended family.</li>
-            <li><strong>Reflection:</strong> The discerning, culturally aware professional or family seeking genuine heritage, deep wellness, and a true escape.</li>
-            <li><strong>Self-Image:</strong> When at Alo Chaya, our guests feel valued, rejuvenated, connected to their roots, and part of an exclusive, meaningful story.</li>
-        </ul>
-    </div>
-</main>
+        <div class="text-center">
+          <h2 class="text-3xl font-extrabold text-[#064e3b]">Psychological Architecture & Wellness</h2>
+          <p class="mt-2 text-gray-600">How Maslow (expanded), Vance Packard's hidden needs, the Wellness Centre and the Project Lead IP <em>Ghuraba al Manara</em> form one integrated doctrine for guests and staff.</p>
+        </div>
+
+        <div x-data="{ open: 'maslow' }" class="space-y-4">
+          <div class="bg-white border rounded-lg shadow-sm overflow-hidden">
+            <button @click="open = (open === 'maslow' ? '' : 'maslow')" class="w-full flex justify-between items-center p-6">
+              <div>
+                <h3 class="text-xl font-semibold text-[#064e3b]">Maslow — Expanded 8-Stage Hierarchy (for Staff & Guests)</h3>
+                <p class="text-sm text-gray-500 mt-1">Physiological → Safety → Belonging → Esteem → Cognitive → Aesthetic → Self-Actualization → Transcendence</p>
+              </div>
+              <div class="text-2xl text-gray-400" x-text="open === 'maslow' ? '−' : '+'"></div>
+            </button>
+            <div x-show="open === 'maslow'" x-transition class="p-6 border-t">
+              <ol class="list-decimal pl-5 space-y-2 text-gray-700">
+                <li><strong>Physiological & Safety:</strong> dignified pay, secure shifts, hygienic guest environments.</li>
+                <li><strong>Belonging & Esteem:</strong> team rituals, recognition, mentoring and certificates.</li>
+                <li><strong>Cognitive & Aesthetic:</strong> training, craft mastery, appreciation for design and nature.</li>
+                <li><strong>Self-Actualization & Transcendence:</strong> leadership pathways, mentoring roles, Ghuraba al Manara initiation (IP).</li>
+              </ol>
+              <p class="mt-4 text-sm text-gray-600">(Map these stages to job roles & training modules in the doctrine's HR section.)</p>
+            </div>
+          </div>
+
+          <div class="bg-white border rounded-lg shadow-sm overflow-hidden">
+            <button @click="open = (open === 'packard' ? '' : 'packard')" class="w-full flex justify-between items-center p-6">
+              <div>
+                <h3 class="text-xl font-semibold text-[#064e3b]">Vance Packard — 8 Hidden Needs (Guest Psychology)</h3>
+                <p class="text-sm text-gray-500 mt-1">Immortality, Ego Gratification, Creative Outlets, Security, Belonging, Love Objects, Power, etc.</p>
+              </div>
+              <div class="text-2xl text-gray-400" x-text="open === 'packard' ? '−' : '+'"></div>
+            </button>
+            <div x-show="open === 'packard'" x-transition class="p-6 border-t">
+              <ul class="list-disc pl-6 text-gray-700 space-y-2">
+                <li><strong>Emotional Security & Roots:</strong> heritage tours, family rituals, private spaces.</li>
+                <li><strong>Reassurance of Worth & Ego:</strong> VIP arrival, personalized service, curated experiences.</li>
+                <li><strong>Creative Outlets & Love Objects:</strong> cultural workshops, culinary tokens to keep.</li>
+                <li><strong>Immortality & Legacy:</strong> commemorative family packages, storytelling (Lighthouse Tales IP).</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="bg-white border rounded-lg shadow-sm overflow-hidden">
+            <button @click="open = (open === 'wellness' ? '' : 'wellness')" class="w-full flex justify-between items-center p-6">
+              <div>
+                <h3 class="text-xl font-semibold text-[#064e3b]">Wellness Centre — Services mapped to Needs</h3>
+                <p class="text-sm text-gray-500 mt-1">How each therapy / program connects to a Maslow stage & Packard need.</p>
+              </div>
+              <div class="text-2xl text-gray-400" x-text="open === 'wellness' ? '−' : '+'"></div>
+            </button>
+            <div x-show="open === 'wellness'" x-transition class="p-6 border-t">
+              <table class="w-full text-sm text-gray-700 border-collapse">
+                <thead>
+                  <tr class="text-left">
+                    <th class="pb-2">Wellness Service</th>
+                    <th class="pb-2">Primary Need Fulfilled</th>
+                    <th class="pb-2">Trained Role</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="py-2">Guided Yoga & Meditation</td>
+                    <td>Self-Actualization, Transcendence</td>
+                    <td>Wellness Lead, Yoga Instructor</td>
+                  </tr>
+                  <tr class="bg-gray-50">
+                    <td class="py-2">Therapeutic River Walks & Forest Bathing</td>
+                    <td>Safety, Cognitive, Aesthetic</td>
+                    <td>Nature Guide, Wellbeing Host</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2">Personalized Nutrition & Culinary Workshops</td>
+                    <td>Physiological, Creative Outlets</td>
+                    <td>Chef Educator, Nutritionist</td>
+                  </tr>
+                  <tr class="bg-gray-50">
+                    <td class="py-2">Legacy Sessions (storytelling, family rituals)</td>
+                    <td>Immortality, Belonging</td>
+                    <td>Guest Relations, Cultural Curator</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="mt-4 text-sm text-gray-600">Put these items into the doctrine’s training modules (link them to the <code>hierarchy-of-skills.jpg</code> image and staff certification pathways).</p>
+            </div>
+          </div>
+
+        </div> <div x-data="{ node: null }" class="bg-white border rounded-lg shadow-sm p-6">
+          <div class="flex items-start gap-6">
+            <div class="flex-1">
+              <svg viewBox="0 0 800 420" class="w-full h-72" aria-hidden="true">
+                <g id="maslow-stack">
+                  <rect x="20" y="40" width="160" height="320" fill="#f8fafc" stroke="#064e3b" rx="8"></rect>
+                  <text x="100" y="70" text-anchor="middle" font-weight="700" fill="#064e3b">Maslow (8)</text>
+                  <g font-size="12" fill="#374151">
+                    <text x="30" y="100">Transcendence</text>
+                    <text x="30" y="124">Self-Actualization</text>
+                    <text x="30" y="148">Aesthetic</text>
+                    <text x="30" y="172">Cognitive</text>
+                    <text x="30" y="196">Esteem</text>
+                    <text x="30" y="220">Belonging</text>
+                    <text x="30" y="244">Safety</text>
+                    <text x="30" y="268">Physiological</text>
+                  </g>
+                </g>
+
+                <g id="wellness" transform="translate(230,120)">
+                  <rect x="0" y="0" width="180" height="120" fill="#ecfdf5" stroke="#064e3b" rx="8"></rect>
+                  <text x="90" y="24" text-anchor="middle" font-weight="700" fill="#064e3b">Wellness Centre</text>
+                  <text x="90" y="48" text-anchor="middle" font-size="12" fill="#065f46">Yoga • Nutrition • Therapy</text>
+                  <g><rect x="10" y="68" width="160" height="36" rx="6" fill="#fff"></rect><text x="90" y="92" text-anchor="middle" font-size="12" fill="#334155">Click to open mapping</text></g>
+                  <rect x="0" y="0" width="180" height="120" fill="transparent" @click="node = (node === 'wellness' ? null : 'wellness')" />
+                </g>
+
+                <g id="packard" transform="translate(460,40)">
+                  <rect x="0" y="0" width="240" height="120" fill="#fffbeb" stroke="#1e3a8a" rx="8"></rect>
+                  <text x="120" y="24" text-anchor="middle" font-weight="700" fill="#1e3a8a">Packard — Hidden Needs</text>
+                  <text x="120" y="48" text-anchor="middle" font-size="12" fill="#374151">Immortality, Ego, Power, Creative Outlets…</text>
+                  <rect x="0" y="0" width="240" height="120" fill="transparent" @click="node = (node === 'packard' ? null : 'packard')"/>
+                </g>
+
+                <g id="ghuraba" transform="translate(460,220)">
+                  <rect x="0" y="0" width="240" height="120" fill="#eef2ff" stroke="#1e3a8a" rx="8"></rect>
+                  <text x="120" y="26" text-anchor="middle" font-weight="700" fill="#1e3a8a">Ghuraba al Manara (IP)</text>
+                  <text x="120" y="50" text-anchor="middle" font-size="12" fill="#374151">Initiation program, legacy & mentor pathways</text>
+                  <rect x="0" y="0" width="240" height="120" fill="transparent" @click="node = (node === 'ghuraba' ? null : 'ghuraba')"/>
+                </g>
+
+                <line x1="180" y1="200" x2="230" y2="160" stroke="#94a3b8" stroke-width="2" /><line x1="410" y1="100" x2="460" y2="100" stroke="#94a3b8" stroke-width="2" /><line x1="410" y1="260" x2="460" y2="260" stroke="#94a3b8" stroke-width="2" /><line x1="310" y1="120" x2="410" y2="120" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 3" />
+              </svg>
+            </div>
+
+            <div class="w-96"><div class="p-4 bg-gray-50 rounded border h-full">
+              <template x-if="!node"><div>
+                <h4 class="text-lg font-semibold text-gray-800">Interactive Map</h4>
+                <p class="text-sm text-gray-600 mt-2">Click any block to see how the models connect. Example: click <em>Wellness Centre</em> to view services mapped to Maslow & Packard needs.</p>
+                <div class="mt-4 text-xs text-gray-500">Quick links:</div>
+                <ul class="mt-2 text-sm space-y-2">
+                  <li><a href="doctrine.html#training" class="text-blue-600 hover:underline">Doctrine — Training</a></li>
+                  <li><a href="doctrine.html#hr" class="text-blue-600 hover:underline">Doctrine — HR</a></li>
+                </ul>
+              </div></template>
+              <template x-if="node === 'wellness'"><div>
+                <h4 class="text-lg font-semibold text-[#064e3b]">Wellness Centre — Mapping</h4>
+                <p class="text-sm text-gray-700 mt-2">Translates Maslow stages into guest programs and staff certification.</p>
+                <ul class="list-disc pl-5 mt-3 text-sm text-gray-700 space-y-2">
+                  <li><strong>Physiological:</strong> Nutrition & restorative suites.</li>
+                  <li><strong>Safety:</strong> supervised therapies and certified staff.</li>
+                  <li><strong>Belonging/Esteem:</strong> group classes, recognition ceremonies.</li>
+                  <li><strong>Self-Actualization/Transcendence:</strong> the Ghuraba initiation pathway.</li>
+                </ul>
+              </div></template>
+              <template x-if="node === 'packard'"><div>
+                <h4 class="text-lg font-semibold text-[#1e3a8a]">Packard — Guest Hidden Needs</h4>
+                <p class="text-sm text-gray-700 mt-2">Design experiences that hit emotional levers:</p>
+                <ul class="list-disc pl-5 mt-3 text-sm text-gray-700 space-y-2">
+                  <li><strong>Immortality:</strong> legacy packages, story recording sessions.</li>
+                  <li><strong>Ego Gratification:</strong> VIP arrival, curated in-room surprises.</li>
+                  <li><strong>Creative Outlets:</strong> workshops, takeaways (love objects).</li>
+                </ul>
+              </div></template>
+              <template x-if="node === 'ghuraba'"><div>
+                <h4 class="text-lg font-semibold text-[#1e3a8a]">Ghuraba al Manara — Project Lead IP</h4>
+                <p class="text-sm text-gray-700 mt-2">A staged initiation & mentoring program for staff.</p>
+                <ol class="list-decimal pl-5 mt-3 text-sm text-gray-700 space-y-2">
+                  <li>Apprentice: foundational skills, Maslow basics.</li>
+                  <li>Practitioner: lead small programs, host legacy sessions.</li>
+                  <li>Mentor/Initiator: run Ghuraba retreats, certify others.</li>
+                </ol>
+              </div></template>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </main>
 
 <footer id="booking" class="booking-section mt-8">
     <div class="container mx-auto max-w-4xl text-center">
         <h2>Book Your Escape</h2>
-        <div class="mt-6">
-            <p class="text-lg"><strong>For Reservations & Enquiries:</strong></p>
-            <p class="text-lg">Phone: <strong>+8801327379392</strong> (WhatsApp available)</p>
-            <p class="text-lg">Email: <strong>alochayariverine.info@gmail.com</strong></p>
-        </div>
         <a href="tel:+8801327379392" class="mt-6 inline-block bg-white text-green-800 px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors">Call to Book Now</a>
     </div>
 </footer>
 
 </body>
 </html>
-          
