@@ -3,35 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alo Chaya - Your Riverine Sanctuary Awaits</title>
-<meta name="description" content="Your Riverine Sanctuary Awaits – Experience Alo Chaya’s heritage & luxury on the Meghna River.">
-<meta property="og:title" content="Alo Chaya - Your Riverine Sanctuary Awaits">
-<meta property="og:description" content="Experience Alo Chaya’s heritage & luxury on the Meghna River.">
-<meta property="og:image" content="view-from-second-floor-at-dawn.jpg">
+<title>Alo Chaya - The Unified Brand & Operations Doctrine</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <style>
   :root { --primary-color: #064e3b; --secondary-color: #1e3a8a; }
   html { scroll-behavior: smooth; }
   body { font-family: 'Inter', system-ui, sans-serif; background-color: #f8fafc; color: #1e293b; line-height: 1.7; }
-  .section { padding: 2rem 1.5rem; }
-  .hero { display: flex; align-items: center; justify-content: center; min-height: 90vh; background: linear-gradient(rgba(10, 20, 30, 0.75), rgba(10, 20, 30, 0.75)), url('view-from-second-floor-at-dawn.jpg'); background-size: cover; background-position: center; color: white; text-align: center; }
-  .hero-content { max-width: 800px; }
-  .hero h1 { font-size: 3.5rem; font-weight: 800; }
-  h2 { font-size: 2.25rem; font-weight: 700; color: var(--primary-color); }
+  h1 { font-size: 2.5rem; font-weight: 800; text-align: center; color: var(--primary-color); margin-bottom: 2rem; }
+  h2 { font-size: 2rem; font-weight: 700; color: var(--primary-color); margin-bottom: 1.5rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem;}
   h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: var(--secondary-color); }
-  .footer-link { color: #3b82f6; text-decoration: none; font-size: 0.9rem; }
-  /* Modal Styles */
-  .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); }
-  .modal-content { background-color: #fefefe; margin: 5% auto; padding: 20px; border-radius: 8px; max-width: 600px; animation: fadeInScale 0.4s; }
-  .modal-close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
-  @keyframes fadeInScale { 
-    from { opacity: 0; transform: scale(0.95); } 
-    to { opacity: 1; transform: scale(1); } 
+  .card { background: white; border-radius: 8px; padding: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1); margin-bottom: 2rem; }
+  .booking-section { background-color: var(--secondary-color); color: #e0e7ff; padding: 4rem 1.5rem; }
+  .booking-section h2 { color: white; }
+  .justified-text { text-align: justify; }
+  /* Pyramid Styles */
+  .pyramid { margin-top: 1.5rem; }
+  .pyramid-level {
+    background-color: #e0e7ff;
+    border: 2px solid var(--secondary-color);
+    color: #1e293b;
+    padding: 1rem;
+    margin: 0 auto 0.5rem auto;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+    text-align: center;
+    font-weight: 600;
   }
+  .pyramid-level:nth-child(1) { width: 40%; background-color: #c7d2fe; }
+  .pyramid-level:nth-child(2) { width: 60%; }
+  .pyramid-level:nth-child(3) { width: 80%; background-color: #e0e7ff; }
+  .pyramid-level:nth-child(4) { width: 100%; }
 </style>
 </head>
 <body>
@@ -42,148 +45,81 @@
         <div class="flex items-center space-x-6">
             <a href="index.html" class="text-gray-700 hover:text-green-800 font-semibold">Home</a>
             <a href="doctrine.html" class="text-gray-700 hover:text-green-800 font-semibold">Doctrine</a>
-            <a href="#booking" class="bg-green-800 text-white px-4 py-2 rounded-md font-semibold hover:bg-green-700 transition-colors">Book Now</a>
+            <a href="index.html#booking" class="bg-green-800 text-white px-4 py-2 rounded-md font-semibold hover:bg-green-700 transition-colors">Book Now</a>
         </div>
     </div>
 </nav>
 
-<header class="hero">
-    <div class="hero-content">
-        <h1>Your Riverine Sanctuary Awaits</h1>
-        <p class="mt-4 text-xl text-gray-200">Escape the city and discover a world where luxury meets a century of heritage on the serene banks of the Meghna River.</p>
-    </div>
-</header>
-
-<main class="container mx-auto max-w-5xl pt-16">
-    <div x-data="{ openSection: 1 }" class="space-y-4 py-8">
+<main class="container mx-auto max-w-4xl pt-24 px-4"> 
     
-        <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 1, 'shadow-sm': openSection !== 1 }">
-            <button @click="openSection = (openSection === 1 ? 0 : 1)" :aria-expanded="openSection === 1" class="w-full text-left flex justify-between items-center p-6 transition-colors duration-300 hover:bg-gray-50">
-                <h2 class="text-2xl font-bold m-0">Experience Alo Chaya</h2>
-                <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" :class="{ 'rotate-45': openSection === 1 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-            </button>
-            <div x-show="openSection === 1" class="px-6 pb-6 text-gray-700 text-justify" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-                <p>Alo Chaya is not just a resort—it’s a century of heritage, thoughtfully curated into a riverine luxury experience. Located just 2.5 hours from Dhaka, our 87-bigha estate is a sanctuary where you awaken to sunlight dancing on the water. The 60,000 sq ft main facility features spacious rooms crafted with teak and bamboo, each offering more space (≈354 sq ft) than a typical Dhaka 5-star hotel.</p>
-            </div>
-        </div>
+    <header class="text-center mb-12">
+        <h1>The Alo Chaya Doctrine</h1>
+        <p class="text-xl text-gray-600">The strategic and psychological framework behind our luxury riverine experience.</p>
+    </header>
+
+    <div class="card">
+        <h2>Psychological Architecture</h2>
+        <p class="justified-text">Our entire guest and employee experience is engineered upon a deep understanding of human needs. We use Maslow's expanded hierarchy to build our internal culture and Vance Packard's hidden needs to design our guest journey.</p>
         
-        <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 2, 'shadow-sm': openSection !== 2 }">
-            <button @click="openSection = (openSection === 2 ? 0 : 2)" :aria-expanded="openSection === 2" class="w-full text-left flex justify-between items-center p-6 transition-colors duration-300 hover:bg-gray-50">
-                <h2 class="text-2xl font-bold m-0">Our Philosophy: Engineered for Well-being</h2>
-                <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" :class="{ 'rotate-45': openSection === 2 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-            </button>
-            <div x-show="openSection === 2" class="px-6 pb-6" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-                <p class="pt-4 text-gray-700 text-justify">Your experience is meticulously designed to satisfy deep, subconscious needs for comfort, recognition, and fulfillment. We deliver not just luxury, but a profound sense of well-being.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
-                    <div>
-                        <h3>Fulfilling Your Hidden Needs (Vance Packard)</h3>
-                        <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
-                            <li><strong>Emotional Security & A Sense of Roots:</strong> Our serene, family-run heritage estate provides a sanctuary of safety and connection.</li>
-                            <li><strong>Reassurance of Worth & Ego Gratification:</strong> Our Concierge and Guest Relations team are dedicated to personalized service that makes you feel valued.</li>
-                            <li><strong>Creative Outlets & Love Objects:</strong> Culinary classes, art workshops, and family activities provide avenues for expression and bonding.</li>
-                            <li><strong>A Sense of Power & Immortality:</strong> Our wellness programs empower you to take charge of your health, creating timeless memories with loved ones.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>A Hierarchy of Fulfillment (Maslow)</h3>
-                        <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
-                           <li><strong>Love & Belonging:</strong> We foster a sense of community, from our communal dining experiences to our welcoming staff.</li>
-                           <li><strong>Esteem:</strong> We recognize your discerning taste with our high standards of service and quality.</li>
-                           <li><strong>Cognitive & Aesthetic Needs:</strong> The beauty of our architecture, the curated art, and the natural landscape stimulate the mind and soul.</li>
-                           <li><strong>Self-Actualization & Transcendence:</strong> We provide the perfect environment—through yoga, meditation, and quiet reflection—for you to reconnect with your best self.</li>
-                        </ul>
-                    </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+            <div>
+                <h3 class="text-center">Guest Journey (Packard's Needs)</h3>
+                <div class="pyramid">
+                    <div class="pyramid-level">Immortality</div>
+                    <div class="pyramid-level">Ego Gratification & Worth</div>
+                    <div class="pyramid-level">Creative Outlets & Power</div>
+                    <div class="pyramid-level">Emotional Security & Roots</div>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-center">Employee Culture (Maslow's Hierarchy)</h3>
+                <div class="pyramid">
+                    <div class="pyramid-level">Transcendence</div>
+                    <div class="pyramid-level">Self-Actualization</div>
+                    <div class="pyramid-level">Esteem & Belonging</div>
+                    <div class="pyramid-level">Safety & Physiological Needs</div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 3, 'shadow-sm': openSection !== 3 }">
-            <button @click="openSection = (openSection === 3 ? 0 : 3)" :aria-expanded="openSection === 3" class="w-full text-left flex justify-between items-center p-6 transition-colors duration-300 hover:bg-gray-50">
-                <h2 class="text-2xl font-bold m-0">Our 7-Point Guest Promise</h2>
-                <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" :class="{ 'rotate-45': openSection === 3 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-            </button>
-            <div x-show="openSection === 3" class="px-6 pb-6" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-                <ul class="list-disc pl-5 pt-4 space-y-3 text-gray-700 text-justify">
-                    <li><strong>Product:</strong> A world-class riverine resort with spacious rooms, a private lake, and curated wellness experiences.</li>
-                    <li><strong>Price:</strong> Premium, transparent pricing that reflects the unmatched value, space, and exclusivity we offer.</li>
-                    <li><strong>Place:</strong> An accessible 87-bigha sanctuary, just 2.5 hours from Dhaka.</li>
-                    <li><strong>Promotion:</strong> An authentic story of heritage and quality.</li>
-                    <li><strong>People:</strong> A team trained in our doctrine of dignified, attentive, and sincere hospitality.</li>
-                    <li><strong>Process:</strong> A seamless and personalized booking and stay experience.</li>
-                    <li><strong>Physical Evidence:</strong> The stunning 60,000 sq ft main facility, heritage architecture, and every detail that proves our commitment to quality.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 4, 'shadow-sm': openSection !== 4 }">
-            <button @click="openSection = (openSection === 4 ? 0 : 4)" :aria-expanded="openSection === 4" class="w-full text-left flex justify-between items-center p-6 transition-colors duration-300 hover:bg-gray-50">
-                <h2 class="text-2xl font-bold m-0">Our Heritage & Story</h2>
-                <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" :class="{ 'rotate-45': openSection === 4 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-            </button>
-            <div x-show="openSection === 4" class="px-6 pb-6" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-                <p class="text-gray-600 mb-6 text-center pt-4">Click any image to explore our lineage. Family history is central to the Alo Chaya story.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-daroga" class="w-full text-left"><img src="founders-grandfather-fatima-mahal-builder-owner.jpg" alt="The Daroga" class="w-full h-48 object-cover"><div class="p-3 text-sm"><strong>The Daroga (Great-Grandfather)</strong><div class="mt-1">Founder & builder of Fatima Mahal.</div></div></button></div>
-                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-abdul" class="w-full text-left"><img src="project-leads-grandfather-abdul-rashid.png" alt="Abdul Rashid" class="w-full h-48 object-cover"><div class="p-3 text-sm"><strong>Abdul Rashid (Grandfather)</strong><div class="mt-1">Preserver of the estate’s vision.</div></div></button></div>
-                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-mahmud" class="w-full text-left"><img src="mahmud-tower-replaced-fatima-mahal.jpg" alt="Mahmud Tower" class="w-full h-48 object-cover"><div class="p-3 text-sm"><strong>Mahmud Tower</strong><div class="mt-1">Successor to Fatima Mahal.</div></div></button></div>
-                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-mmhouse" class="w-full text-left"><img src="mm-house.jpg" alt="MM House" class="w-full h-48 object-cover"><div class="p-3 text-sm"><strong>MM House (Founder’s Home)</strong><div class="mt-1">Living heritage of Alo Chaya.</div></div></button></div>
-                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-sajid" class="w-full text-left"><img src="sajid-hassan-founders-third-son-project-lead-author.jpg" alt="Sajid Hassan" class="w-full h-48 object-cover"><div class="p-3 text-sm"><strong>Sajid Hassan (Project Lead)</strong><div class="mt-1">On-site steward, living the brand.</div></div></button></div>
-                </div>
-            </div>
-        </div>
+    <div class="card">
+        <h2>The 7Ps Guest Promise</h2>
+        <ul class="list-disc pl-5 mt-4 space-y-2 text-gray-700">
+            <li><strong>Product:</strong> A world-class riverine resort with spacious rooms (≈354 sq ft), a private lake, curated wellness experiences, and artisanal gastronomy.</li>
+            <li><strong>Price:</strong> Premium, transparent pricing (anchored at 15,000 BDT ADR) that reflects the unmatched value, space, and exclusivity we offer.</li>
+            <li><strong>Place:</strong> An accessible 87-bigha sanctuary, just 2.5 hours from Dhaka, offering a true escape without the long journey.</li>
+            <li><strong>Promotion:</strong> An authentic story of heritage, quality, and deep strategic thinking, shared directly with our discerning guests.</li>
+            <li><strong>People:</strong> A team trained in our doctrine of dignified, attentive, and sincere hospitality, where each role is linked to fulfilling a specific guest need.</li>
+            <li><strong>Process:</strong> A seamless and personalized booking and stay experience, from your first inquiry to a fond farewell.</li>
+            <li><strong>Physical Evidence:</strong> The stunning 60,000 sq ft main facility, the manicured lawns, the heritage architecture (MM House), and every tangible detail that proves our commitment to quality.</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h2>Brand DNA (Kapferer's Prism)</h2>
+        <ul            <li><strong>Physique:</strong> 87 Bighas of riverine land, a 60,000 sq ft main facility, a private lake, heritage architecture, and premium natural materials.</li>
+            <li><strong>Personality:</strong> Sincere, Competent, Sophisticated, and Creative—inspired by our 'Lighthouse Tales' IP.</li>
+            <li><strong>Culture:</strong> Rooted in Bangladeshi heritage, eco-conscious hospitality, and a deep culture of storytelling and service excellence.</li>
+            <li><strong>Relationship:</strong> A personalized, high-trust partnership with our guests, making them feel like part of our extended family.</li>
+            <li><strong>Reflection:</strong> The discerning, culturally aware professional or family seeking genuine heritage, deep wellness, and a true escape.</li>
+            <li><strong>Self-Image:</strong> When at Alo Chaya, our guests feel valued, rejuvenated, connected to their roots, and part of an exclusive, meaningful story.</li>
+        </ul>
     </div>
 </main>
 
-<section id="booking" class="booking-section">
+<footer id="booking" class="booking-section mt-8">
     <div class="container mx-auto max-w-4xl text-center">
         <h2>Book Your Escape</h2>
-        <p>Experience the perfect blend of natural serenity and modern luxury. Contact our reservations team to plan your unforgettable getaway.</p>
         <div class="mt-6">
             <p class="text-lg"><strong>For Reservations & Enquiries:</strong></p>
             <p class="text-lg">Phone: <strong>+8801327379392</strong> (WhatsApp available)</p>
             <p class="text-lg">Email: <strong>alochayariverine.info@gmail.com</strong></p>
         </div>
-        <a href="tel:+8801327379392" class="button-link">Call to Book Now</a>
+        <a href="tel:+8801327379392" class="mt-6 inline-block bg-white text-green-800 px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors">Call to Book Now</a>
     </div>
-</section>
-
-<footer class="text-center py-6 text-gray-600">
-    <a href="doctrine.html" class="footer-link hover:underline">Our Doctrine</a> 
-    <p class="text-sm mt-2">An undertaking of M/S Hassan & Brothers & Hassan & Brothers Ltd.</p>
 </footer>
-
-<div id="modal-daroga" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>The Visionary: Abdul Rashid Chowdhury (The Daroga)</h3><p>In the early 1900s, Abdul Rashid Chowdhury — remembered as "The Daroga" — laid the foundation of the Hassan dynasty. He acquired 72 bighas in what is now Dhanmondi 9A, Dhaka, and built the two-storied Fatima Mahal at 19 North South Road, Siddiq Bazaar. His foresight established both the family’s urban base and its enduring ethos of stewardship.</p><img src="founders-grandfather-fatima-mahal-builder-owner.jpg" alt="" class="w-full mt-3 rounded-lg"></div></div>
-<div id="modal-abdul" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Abdul Rashid (Grandfather)</h3><p>Son of the Daroga and preserver of the estate vision.</p><img src="project-leads-grandfather-abdul-rashid.png" alt="" class="w-full mt-3 rounded-lg"></div></div>
-<div id="modal-mahmud" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Mahmud Tower</h3><p>Successor to Fatima Mahal, supervised by Asif Hassan.</p><img src="mahmud-tower-replaced-fatima-mahal.jpg" alt="" class="w-full mt-3 rounded-lg"></div></div>
-<div id="modal-mmhouse" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>MM House (Founder’s Home)</h3><p>Living heritage shaping Alo Chaya.</p><img src="mm-house.jpg" alt="" class="w-full mt-3 rounded-lg"></div></div>
-<div id="modal-sajid" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Sajid Hassan (Project Lead)</h3><p>On-site steward ensuring we “live the brand.”</p><img src="sajid-hassan-founders-third-son-project-lead-author.jpg" alt="" class="w-full mt-3 rounded-lg"></div></div>
-
-<script>
-    // Modal Script
-    document.querySelectorAll('[data-modal]').forEach(button => {
-        button.onclick = function() {
-            let modal = document.getElementById(this.dataset.modal);
-            modal.style.display = "block";
-        }
-    });
-    document.querySelectorAll('.modal-close').forEach(closeButton => {
-        closeButton.onclick = function() {
-            this.closest('.modal').style.display = "none";
-        }
-    });
-    window.onclick = function(event) {
-        if (event.target.classList.contains('modal')) {
-            event.target.style.display = "none";
-        }
-    }
-    document.addEventListener('keydown', function (event) {
-        if (event.key === "Escape") {
-            document.querySelectorAll('.modal').forEach(modal => {
-                modal.style.display = "none";
-            });
-        }
-    });
-</script>
 
 </body>
 </html>
+          
