@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alo Chaya - Your Riverine Sanctuary Awaits</title>
+<meta name="description" content="Your Riverine Sanctuary Awaits – Experience Alo Chaya’s heritage & luxury on the Meghna River.">
+<meta property="og:title" content="Alo Chaya - Your Riverine Sanctuary Awaits">
+<meta property="og:description" content="Experience Alo Chaya’s heritage & luxury on the Meghna River.">
+<meta property="og:image" content="view-from-second-floor-at-dawn.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -11,6 +15,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <style>
   :root { --primary-color: #064e3b; --secondary-color: #1e3a8a; }
+  html { scroll-behavior: smooth; }
   body { font-family: 'Inter', system-ui, sans-serif; background-color: #f8fafc; color: #1e293b; line-height: 1.7; }
   .section { padding: 2rem 1.5rem; }
   .hero { display: flex; align-items: center; justify-content: center; min-height: 90vh; background: linear-gradient(rgba(10, 20, 30, 0.75), rgba(10, 20, 30, 0.75)), url('view-from-second-floor-at-dawn.jpg'); background-size: cover; background-position: center; color: white; text-align: center; }
@@ -18,18 +23,9 @@
   .hero h1 { font-size: 3.5rem; font-weight: 800; }
   h2 { font-size: 2.25rem; font-weight: 700; color: var(--primary-color); }
   h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: var(--secondary-color); }
-  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-  .gallery-item img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-  .gallery-item button { width: 100%; background: none; border: none; padding: 0; cursor: pointer; text-align: center; }
-  .gallery-item button:hover img { transform: scale(1.05); transition: transform 0.3s; }
-  .gallery-caption { font-size: 0.875rem; color: #4b5563; margin-top: 0.75rem; font-weight: 500; }
-  .button-link { display: inline-block; padding: 14px 28px; background-color: var(--primary-color); color: white; border-radius: 6px; text-decoration: none; font-weight: 600; margin-top: 1rem; transition: background-color 0.3s; }
-  .booking-section { background-color: var(--secondary-color); color: #e0e7ff; padding: 4rem 1.5rem; }
-  .booking-section h2 { color: white; }
-  .justified-text { text-align: justify; }
   /* Modal Styles */
   .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); }
-  .modal-content { background-color: #fefefe; margin: 10% auto; padding: 20px; border-radius: 8px; max-width: 500px; animation: fadeInScale 0.4s; }
+  .modal-content { background-color: #fefefe; margin: 5% auto; padding: 20px; border-radius: 8px; max-width: 600px; animation: fadeInScale 0.4s; }
   .modal-close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
   @keyframes fadeInScale { 
     from { opacity: 0; transform: scale(0.95); } 
@@ -39,6 +35,17 @@
 </head>
 <body>
 
+<nav class="bg-white/90 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-md">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-bold text-green-800">Alo Chaya</a>
+        <div class="flex items-center space-x-6">
+            <a href="index.html" class="text-gray-700 hover:text-green-800 font-semibold">Home</a>
+            <a href="doctrine.html" class="text-gray-700 hover:text-green-800 font-semibold">Doctrine</a>
+            <a href="#booking" class="bg-green-800 text-white px-4 py-2 rounded-md font-semibold hover:bg-green-700 transition-colors">Book Now</a>
+        </div>
+    </div>
+</nav>
+
 <header class="hero">
     <div class="hero-content">
         <h1>Your Riverine Sanctuary Awaits</h1>
@@ -46,7 +53,7 @@
     </div>
 </header>
 
-<main class="container mx-auto max-w-5xl">
+<main class="container mx-auto max-w-5xl pt-16">
     <div x-data="{ openSection: 1 }" class="space-y-4 py-8">
     
         <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 1, 'shadow-sm': openSection !== 1 }">
@@ -54,65 +61,78 @@
                 <h2 class="text-2xl font-bold m-0">Experience Alo Chaya</h2>
                 <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" :class="{ 'rotate-45': openSection === 1 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
             </button>
-            <div x-show="openSection === 1" class="px-6 pb-6 text-gray-700 justified-text" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2">
+            <div x-show="openSection === 1" class="px-6 pb-6 text-gray-700 text-justify" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2">
                 <p>Alo Chaya is not just a resort—it’s a century of heritage, thoughtfully curated into a riverine luxury experience. Located just 2.5 hours from Dhaka, our 87-bigha estate is a sanctuary where you awaken to sunlight dancing on the water. The 60,000 sq ft main facility features spacious rooms crafted with teak and bamboo, each offering more space (≈354 sq ft) than a typical Dhaka 5-star hotel.</p>
             </div>
         </div>
 
         <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 2, 'shadow-sm': openSection !== 2 }">
              <button @click="openSection = (openSection === 2 ? 0 : 2)" :aria-expanded="openSection === 2" class="w-full text-left flex justify-between items-center p-6 transition-colors duration-300 hover:bg-gray-50">
-                <h2 class="text-2xl font-bold m-0">Why Alo Chaya? The Unmatched Advantage</h2>
+                <h2 class="text-2xl font-bold m-0">Why Alo Chaya: The Unmatched Advantage</h2>
                 <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" :class="{ 'rotate-45': openSection === 2 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
             </button>
              <div x-show="openSection === 2" class="px-6 pb-6" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-4">
-                    <div>
-                        <h3>Our Unique Position</h3>
-                        <ul class="list-disc pl-5 mt-4 text-justify space-y-2 text-gray-700">
-                            <li>**International 5-Star Hotels (Sheraton, Westin, Marriott):** Offer small rooms (~350 sq ft) at high prices (BDT 28-38k) with zero natural immersion.</li>
-                            <li>**Remote High-End Resorts:** Beautiful, but require a full day of travel (~7 hours) to escape the city.</li>
-                            <li>**Local Weekend Retreats:** Closer, but often crowded with smaller rooms and limited privacy.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Guest Pricing & Unmatched Value</h3>
-                        <div class="mt-4">
-                            <div class="p-4 border rounded-lg mb-4">
-                                <div class="flex justify-between items-center"><p class="font-bold text-lg">Standard Deluxe Room</p><p class="text-3xl font-bold text-green-700">BDT 15,000</p></div>
-                                <p class="text-sm text-gray-500 line-through">Original Rate: BDT 20,000</p>
-                            </div>
-                            <div class="p-4 border rounded-lg">
-                                <div class="flex justify-between items-center"><p class="font-bold text-lg">Family Suite (River-Facing)</p><p class="text-3xl font-bold text-green-700">BDT 20,000</p></div>
-                                <p class="text-sm text-gray-500 line-through">Original Rate: BDT 25,000</p>
-                            </div>
-                        </div>
+                <ul class="list-disc pl-5 pt-4 space-y-3 text-gray-700 text-justify">
+                    <li>Rooted in generational craftsmanship and ethical stewardship.</li>
+                    <li>Strategic riverside architecture designed for tranquility.</li>
+                    <li>Run under the Hassan & Brothers dynasty’s integrated HR and Wellness Doctrine.</li>
+                    <li>Curated experiences blending heritage, comfort, and sustainability.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 3, 'shadow-sm': openSection !== 3 }">
+            <button @click="openSection = (openSection === 3 ? 0 : 3)" :aria-expanded="openSection === 3" class="w-full text-left flex justify-between items-center p-6 transition-colors duration-300 hover:bg-gray-50">
+                <h2 class="text-2xl font-bold m-0">Our Heritage & Story</h2>
+                <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" :class="{ 'rotate-45': openSection === 3 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+            </button>
+            <div x-show="openSection === 3" class="px-6 pb-6" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2">
+                <p class="text-gray-600 mb-6 text-center">Click any image to explore our lineage. Family history is central to the Alo Chaya story.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-daroga" class="w-full text-left"><img src="founders-grandfather-fatima-mahal-builder-owner.jpg" alt="The Daroga" class="w-full h-48 object-cover"><div class="p-3 text-sm text-gray-800"><strong>The Daroga (Great-Grandfather)</strong><div class="mt-1">Founder & builder of Fatima Mahal, the ancestral nucleus.</div></div></button></div>
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-abdul" class="w-full text-left"><img src="project-leads-grandfather-abdul-rashid.png" alt="Abdul Rashid" class="w-full h-48 object-cover"><div class="p-3 text-sm text-gray-800"><strong>Abdul Rashid (Paternal Grandfather)</strong><div class="mt-1">Son of the Daroga; preserver of the estate’s vision.</div></div></button></div>
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-grandfamily" class="w-full text-left"><img src="grandfather-family-full.jpg" alt="Family of Abdul Rashid" class="w-full h-48 object-cover"><div class="p-3 text-sm text-gray-800"><strong>Family of Abdul Rashid</strong><div class="mt-1">The generation that carried the family’s culture forward.</div></div></button></div>
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-daroga-children" class="w-full text-left"><img src="darogas-twelve-children-with-their-spouses.jpg" alt="Daroga's Children" class="w-full h-48 object-cover"><div class="p-3 text-sm text-gray-800"><strong>Daroga’s Children & Spouses</strong><div class="mt-1">Sustained the family legacy across decades.</div></div></button></div>
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-mahmud" class="w-full text-left"><img src="mahmud-tower-replaced-fatima-mahal.jpg" alt="Mahmud Tower" class="w-full h-48 object-cover"><div class="p-3 text-sm text-gray-800"><strong>Mahmud Tower</strong><div class="mt-1">Successor to Fatima Mahal, supervised by Asif Hassan.</div></div></button></div>
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-mmhouse" class="w-full text-left"><img src="mm-house.jpg" alt="MM House" class="w-full h-48 object-cover"><div class="p-3 text-sm text-gray-800"><strong>MM House (Founder’s Home)</strong><div class="mt-1">Living heritage shaping Alo Chaya.</div></div></button></div>
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-sajid" class="w-full text-left"><img src="sajid-hassan-founders-third-son-project-lead-author.jpg" alt="Sajid Hassan" class="w-full h-48 object-cover"><div class="p-3 text-sm text-gray-800"><strong>Sajid Hassan (Project Lead)</strong><div class="mt-1">On-site steward ensuring we “live the brand.”</div></div></button></div>
+                </div>
+                <div class="mt-6 text-sm text-gray-700 text-center"><p><strong>Want the full doctrine?</strong> See <a href="doctrine.html" class="text-blue-600 hover:underline">Our Doctrine</a> — our framework for training, HR, and brand thinking.</p>
+                    <div class="flex gap-4 mt-3 justify-center">
+                        <a href="doctrine.html" class="inline-block p-2 border rounded-lg"><img src="hierarchy-of-skills.jpg" alt="Hierarchy of skills" class="w-40 h-28 object-cover rounded"><div class="text-xs mt-1 text-center text-gray-600">Hierarchy of Skills</div></a>
+                        <a href="doctrine.html" class="inline-block p-2 border rounded-lg"><img src="bigfive-deyoung-and-peterson-neopir.webp" alt="Big Five" class="w-40 h-28 object-cover rounded"><div class="text-xs mt-1 text-center text-gray-600">Big Five Personality</div></a>
                     </div>
                 </div>
-                 <blockquote class="mt-8 p-4 bg-green-50 border-l-4 border-green-500 text-green-800 font-semibold text-center">
-                    The Alo Chaya Advantage: More space than a 5-star, more luxury than a remote resort, and more exclusivity than a local retreat—all just 2.5 hours from Dhaka.
-                </blockquote>
             </div>
         </div>
 
-        <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 3, 'shadow-sm': openSection !== 3 }">
-            <button @click="openSection = (openSection === 3 ? 0 : 3)" :aria-expanded="openSection === 3" class="w-full text-left flex justify-between items-center p-6 transition-colors duration-300 hover:bg-gray-50">
-                 <h2 class="text-2xl font-bold m-0">Our Heritage & Story</h2>
-                 <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" :class="{ 'rotate-45': openSection === 3 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+        <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 5, 'shadow-sm': openSection !== 5 }">
+            <button @click="openSection = (openSection === 5 ? 0 : 5)" :aria-expanded="openSection === 5" class="w-full text-left flex justify-between items-center p-6 transition-colors duration-300 hover:bg-gray-50">
+                <h2 class="text-2xl font-bold m-0">Explore the Estate & Media</h2>
+                <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" :class="{ 'rotate-45': openSection === 5 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
             </button>
-            <div x-show="openSection === 3" class="px-6 pb-6" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2">
-                <p class="text-center text-gray-600 pt-4 mb-8">Click on an image to discover the generations behind Alo Chaya.</p>
-                <div class="gallery-grid">
-                    <div class="gallery-item"><button data-modal="modal-daroga"><img src="founders-grandfather-fatima-mahal-builder-owner.jpg" alt="The Daroga"><div class="gallery-caption">The Visionary (Great-Grandfather)</div></button></div>
-                    <div class="gallery-item"><button data-modal="modal-founder"><img src="mm-house.jpg" alt="MM House, built by the Founder"><div class="gallery-caption">The Founder's Home (MM House)</div></button></div>
-                    <div class="gallery-item"><button data-modal="modal-sajid"><img src="sajid-hassan-founders-third-son-project-lead-author.jpg" alt="Sajid Hassan"><div class="gallery-caption">The Next Generation (Project Lead)</div></button></div>
-                    <div class="gallery-item"><button data-modal="modal-lead-room"><img src="project-leads-room-on-second-floor.jpg" alt="Project Lead's Room"><div class="gallery-caption">The Project Lead's Quarters</div></button></div>
+            <div x-show="openSection === 5" class="px-6 pb-6" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-60000" class="w-full text-left"><img src="alo-chaya-60000sqf-overview.jpg" alt="Main Facility" class="w-full h-48 object-cover"><div class="p-3 text-sm">Main Facility (60,000 sq ft)</div></button></div>
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-private-lake" class="w-full text-left"><img src="alo-chaya-private-lake.webp" alt="Private Lake" class="w-full h-48 object-cover"><div class="p-3 text-sm">Private Lake</div></button></div>
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-gazebo" class="w-full text-left"><img src="alo-chaya-gazebo.webp" alt="Gazebo" class="w-full h-48 object-cover"><div class="p-3 text-sm">Riverside Gazebo</div></button></div>
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-helipad" class="w-full text-left"><img src="resort-helipad.jpg" alt="Helipad" class="w-full h-48 object-cover"><div class="p-3 text-sm">Private Helipad</div></button></div>
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-front-lawn" class="w-full text-left"><img src="front-lawn.jpg" alt="Front Lawn" class="w-full h-48 object-cover"><div class="p-3 text-sm">Front Lawn</div></button></div>
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-pathway" class="w-full text-left"><img src="pathway.jpg" alt="Pathway" class="w-full h-48 object-cover"><div class="p-3 text-sm">Estate Pathways</div></button></div>
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-bridge" class="w-full text-left"><img src="view-from-bridge-near-gazebo-at-dusk.jpg" alt="Bridge View" class="w-full h-48 object-cover"><div class="p-3 text-sm">Bridge at Dusk</div></button></div>
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-side-river" class="w-full text-left"><img src="side-view-of-the-dhonagoda-river.jpg" alt="Dhonagoda River" class="w-full h-48 object-cover"><div class="p-3 text-sm">Dhonagoda River</div></button></div>
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-dawn" class="w-full text-left"><img src="view-from-second-floor-at-dawn.jpg" alt="Dawn View" class="w-full h-48 object-cover"><div class="p-3 text-sm">Dawn View</div></button></div>
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-river-view" class="w-full text-left"><img src="view-of-the-dhonagoda-river.jpg" alt="River Panorama" class="w-full h-48 object-cover"><div class="p-3 text-sm">River Panorama</div></button></div>
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-early-morning-video"><img src="view-from-second-floor-at-dawn.jpg" alt="Video Thumbnail" class="w-full h-48 object-cover"><div class="p-3 text-sm">Video: Early Morning</div></button></div>
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-family-suite-video"><img src="family-suite.mp4" alt="Video Thumbnail" class="w-full h-48 object-cover"><div class="p-3 text-sm">Video: Family Suite</div></button></div>
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-night-view-video"><img src="night-view.mp4" alt="Video Thumbnail" class="w-full h-48 object-cover"><div class="p-3 text-sm">Video: Night View</div></button></div>
                 </div>
             </div>
         </div>
     </div>
 </main>
 
-<section class="booking-section">
+<section id="booking" class="booking-section">
     <div class="container mx-auto max-w-4xl text-center">
         <h2>Book Your Escape</h2>
         <p>Experience the perfect blend of natural serenity and modern luxury. Contact our reservations team to plan your unforgettable getaway.</p>
@@ -125,13 +145,29 @@
     </div>
 </section>
 
-<div id="modal-daroga" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>The Visionary: "The Daroga"</h3><p>The story of Alo Chaya begins with our great-grandfather, "The Daroga," whose vision led to the acquisition of this pristine riverine land, the foundation of the Fatima Mahal, and our family's deep connection to this place.</p></div></div>
-<div id="modal-founder" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>The Founder: Mahmudul Hassan</h3><p>Our father, the founder, translated a family vision into reality. He built the MM House and the original guest bungalow, laying the groundwork for the world-class resort that stands today. His work is the foundation of our legacy.</p></div></div>
-<div id="modal-sajid" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>The Next Generation: Sajid Hassan</h3><p>As Project Lead, Sajid Hassan brings modern strategic planning and a commitment to operational excellence, ensuring this multi-generational legacy continues to thrive and innovate for the next generation of guests.</p></div></div>
-<div id="modal-lead-room" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>The Project Lead's Quarters</h3><p>The Project Lead's personal quarters on the second floor, a testament to our hands-on commitment to quality and the guest experience. We live the brand, ensuring every detail is perfect.</p></div></div>
+<div id="modal-daroga" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>The Daroga (Great-Grandfather)</h3><p>Titled founder and original builder of Fatima Mahal — the ancestral nucleus of the Alo Chaya legacy.</p><img src="founders-grandfather-fatima-mahal-builder-owner.jpg" alt="" class="w-full mt-3 rounded-lg"></div></div>
+<div id="modal-abdul" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Abdul Rashid (Paternal Grandfather)</h3><p>Son of the Daroga; preserver of the estate’s vision and a key steward of the family assets.</p><img src="project-leads-grandfather-abdul-rashid.png" alt="" class="w-full mt-3 rounded-lg"></div></div>
+<div id="modal-grandfamily" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Family of Abdul Rashid</h3><p>The generation that carried the family’s cultural and ethical foundation forward.</p><img src="grandfather-family-full.jpg" alt="" class="w-full mt-3 rounded-lg"></div></div>
+<div id="modal-daroga-children" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Daroga’s Children & Spouses</h3><p>Siblings and spouses who helped sustain the family legacy across decades.</p><img src="darogas-twelve-children-with-their-spouses.jpg" alt="" class="w-full mt-3 rounded-lg"></div></div>
+<div id="modal-mahmud" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Mahmud Tower</h3><p>Successor to Fatima Mahal, supervised by Asif Hassan (founder’s 2nd son).</p><img src="mahmud-tower-replaced-fatima-mahal.jpg" alt="" class="w-full mt-3 rounded-lg"></div></div>
+<div id="modal-mmhouse" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>MM House (Founder’s Home)</h3><p>Living heritage that shapes Alo Chaya.</p><img src="mm-house.jpg" alt="" class="w-full mt-3 rounded-lg"></div></div>
+<div id="modal-sajid" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Sajid Hassan (Project Lead)</h3><p>On-site steward ensuring we “live the brand.”</p><img src="sajid-hassan-founders-third-son-project-lead-author.jpg" alt="" class="w-full mt-3 rounded-lg"></div></div>
+<div id="modal-60000" class="modal"><div class="modal-content"><span class="modal-close">&times;</span>
+<h3>Main Facility (60,000 sq ft)</h3><img src="alo-chaya-60000sqf-overview.jpg" alt="" class="w-full mt-3 rounded-lg"></div></div>
+<div id="modal-private-lake" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Private Lake</h3><img src="alo-chaya-private-lake.webp" alt="" class="w-full mt-3 rounded-lg"></div></div>
+<div id="modal-gazebo" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Riverside Gazebo</h3><img src="alo-chaya-gazebo.webp" alt="" class="w-full mt-3 rounded-lg"></div></div>
+<div id="modal-helipad" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Private Helipad</h3><img src="resort-helipad.jpg" alt="" class="w-full mt-3 rounded-lg"></div></div>
+<div id="modal-front-lawn" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Front Lawn</h3><img src="front-lawn.jpg" alt="" class="w-full mt-3 rounded-lg"></div></div>
+<div id="modal-pathway" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Estate Pathway</h3><img src="pathway.jpg" alt="" class="w-full mt-3 rounded-lg"></div></div>
+<div id="modal-bridge" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Bridge at Dusk</h3><img src="view-from-bridge-near-gazebo-at-dusk.jpg" alt="" class="w-full mt-3 rounded-lg"></div></div>
+<div id="modal-side-river" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Dhonagoda River</h3><img src="side-view-of-the-dhonagoda-river.jpg" alt="" class="w-full mt-3 rounded-lg"></div></div>
+<div id="modal-dawn" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>View at Dawn</h3><img src="view-from-second-floor-at-dawn.jpg" alt="" class="w-full mt-3 rounded-lg"></div></div>
+<div id="modal-river-view" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>River Panorama</h3><img src="view-of-the-dhonagoda-river.jpg" alt="" class="w-full mt-3 rounded-lg"></div></div>
+<div id="modal-early-morning-video" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Video: Early Morning</h3><video controls class="w-full mt-3 rounded-lg"><source src="early-morning-view.mp4" type="video/mp4"></video></div></div>
+<div id="modal-family-suite-video" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Video: Family Suite</h3><video controls class="w-full mt-3 rounded-lg"><source src="family-suite-room-right.mp4" type="video/mp4"></video></div></div>
+<div id="modal-night-view-video" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Video: Night View</h3><video controls class="w-full mt-3 rounded-lg"><source src="night-view.mp4" type="video/mp4"></video></div></div>
 
 <script>
-    // Modal Script (remains separate from Alpine.js)
     document.querySelectorAll('[data-modal]').forEach(button => {
         button.onclick = function() {
             let modal = document.getElementById(this.dataset.modal);
@@ -148,6 +184,13 @@
             event.target.style.display = "none";
         }
     }
+    document.addEventListener('keydown', function (event) {
+        if (event.key === "Escape") {
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.style.display = "none";
+            });
+        }
+    });
 </script>
 
 </body>
