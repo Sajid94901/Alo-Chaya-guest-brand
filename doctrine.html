@@ -17,8 +17,6 @@
   h2 { font-size: 2rem; font-weight: 700; color: var(--primary-color); margin-bottom: 1.5rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem;}
   h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: var(--secondary-color); }
   .card { background: white; border-radius: 8px; padding: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1); margin-bottom: 2rem; }
-  .booking-section { background-color: var(--secondary-color); color: #e0e7ff; padding: 4rem 1.5rem; }
-  .booking-section h2 { color: white; }
 </style>
 </head>
 <body>
@@ -29,7 +27,8 @@
         <div class="flex items-center space-x-6">
             <a href="index.html" class="text-gray-700 hover:text-green-800 font-semibold">Home</a>
             <a href="doctrine.html" class="text-gray-700 hover:text-green-800 font-semibold">Doctrine</a>
-            <a href="index.html#booking" class="bg-green-800 text-white px-4 py-2 rounded-md font-semibold hover:bg-green-700 transition-colors">Book Now</a>
+            <a href="models.html" class="text-gray-700 hover:text-green-800 font-semibold">Models</a>
+            <a href="#booking" class="bg-green-800 text-white px-4 py-2 rounded-md font-semibold hover:bg-green-700 transition-colors">Book Now</a>
         </div>
     </div>
 </nav>
@@ -38,52 +37,68 @@
     
     <header class="text-center mb-12">
         <h1>The Alo Chaya Doctrine</h1>
-        <p class="text-xl text-gray-600">The strategic and psychological framework behind our luxury riverine experience.</p>
+        <p class="text-xl text-gray-600">The strategic, psychological, and spiritual framework behind our luxury riverine experience.</p>
     </header>
 
-    <section id="psych-architecture" class="container mx-auto space-y-6">
+    <section id="psych-architecture" class="space-y-6">
         <div class="text-center">
           <h2 class="text-3xl font-extrabold text-[#064e3b]">Psychological Architecture & Wellness</h2>
-          <p class="mt-2 text-gray-600">How Maslow, Packard, the Wellness Centre, and our IP form one integrated doctrine.</p>
+          <p class="mt-2 text-gray-600">How Maslow, Packard, Holistic Fitness, and our IP form one integrated doctrine for guests and staff.</p>
         </div>
-        <div x-data="{ open: 'maslow' }" class="space-y-4">
-          <div class="bg-white border rounded-lg shadow-sm overflow-hidden">
-            <button @click="open = (open === 'maslow' ? '' : 'maslow')" class="w-full flex justify-between items-center p-6"><h3 class="text-xl font-semibold text-[#064e3b]">Maslow — Expanded 8-Stage Hierarchy</h3><div class="text-2xl text-gray-400" x-text="open === 'maslow' ? '−' : '+'"></div></button>
-            <div x-show="open === 'maslow'" x-transition class="p-6 border-t"><ol class="list-decimal pl-5 space-y-2 text-gray-700">
-                <li><strong>Physiological & Safety:</strong> dignified pay, secure shifts, hygienic guest environments.</li>
-                <li><strong>Belonging & Esteem:</strong> team rituals, recognition, mentoring and certificates.</li>
-                <li><strong>Cognitive & Aesthetic:</strong> training, craft mastery, appreciation for design and nature.</li>
-                <li><strong>Self-Actualization & Transcendence:</strong> leadership pathways, mentoring roles, Ghuraba al Manara initiation (IP).</li>
-            </ol></div>
-          </div>
-          <div class="bg-white border rounded-lg shadow-sm overflow-hidden">
-            <button @click="open = (open === 'packard' ? '' : 'packard')" class="w-full flex justify-between items-center p-6"><h3 class="text-xl font-semibold text-[#064e3b]">Vance Packard — 8 Hidden Needs</h3><div class="text-2xl text-gray-400" x-text="open === 'packard' ? '−' : '+'"></div></button>
-            <div x-show="open === 'packard'" x-transition class="p-6 border-t"><ul class="list-disc pl-6 text-gray-700 space-y-2">
-                <li><strong>Emotional Security & Roots:</strong> heritage tours, family rituals, private spaces.</li>
-                <li><strong>Reassurance of Worth & Ego:</strong> VIP arrival, personalized service, curated experiences.</li>
-                <li><strong>Creative Outlets & Love Objects:</strong> cultural workshops, culinary tokens to keep.</li>
-                <li><strong>Immortality & Legacy:</strong> commemorative family packages, storytelling (Lighthouse Tales IP).</li>
-            </ul></div>
-          </div>
-        </div>
-        <div x-data="{ node: null }" class="bg-white border rounded-lg shadow-sm p-6">
-          <div class="flex items-start gap-6">
-            <div class="flex-1"><svg viewBox="0 0 800 420" class="w-full h-72" aria-hidden="true">
+
+        <div x-data="{ node: 'maslow' }" class="bg-white border rounded-lg shadow-sm p-6">
+          <div class="flex flex-col md:flex-row items-start gap-6">
+            <div class="flex-1">
+              <svg viewBox="0 0 800 420" class="w-full" aria-hidden="true">
                 <g id="maslow-stack"><rect x="20" y="40" width="160" height="320" fill="#f8fafc" stroke="#064e3b" rx="8"></rect><text x="100" y="70" text-anchor="middle" font-weight="700" fill="#064e3b">Maslow (8)</text><g font-size="12" fill="#374151"><text x="30" y="100">Transcendence</text><text x="30" y="124">Self-Actualization</text><text x="30" y="148">Aesthetic</text><text x="30" y="172">Cognitive</text><text x="30" y="196">Esteem</text><text x="30" y="220">Belonging</text><text x="30" y="244">Safety</text><text x="30" y="268">Physiological</text></g></g>
-                <g id="wellness" transform="translate(230,120)"><rect x="0" y="0" width="180" height="120" fill="#ecfdf5" stroke="#064e3b" rx="8"></rect><text x="90" y="24" text-anchor="middle" font-weight="700" fill="#064e3b">Wellness Centre</text><text x="90" y="48" text-anchor="middle" font-size="12" fill="#065f46">Yoga • Nutrition • Therapy</text><g><rect x="10" y="68" width="160" height="36" rx="6" fill="#fff"></rect><text x="90" y="92" text-anchor="middle" font-size="12" fill="#334155">Click to open mapping</text></g><rect x="0" y="0" width="180" height="120" fill="transparent" @click="node = (node === 'wellness' ? null : 'wellness')" /></g>
-                <g id="packard" transform="translate(460,40)"><rect x="0" y="0" width="240" height="120" fill="#fffbeb" stroke="#1e3a8a" rx="8"></rect><text x="120" y="24" text-anchor="middle" font-weight="700" fill="#1e3a8a">Packard — Hidden Needs</text><text x="120" y="48" text-anchor="middle" font-size="12" fill="#374151">Immortality, Ego, Power, Creative Outlets…</text><rect x="0" y="0" width="240" height="120" fill="transparent" @click="node = (node === 'packard' ? null : 'packard')"/></g>
-                <g id="ghuraba" transform="translate(460,220)"><rect x="0" y="0" width="240" height="120" fill="#eef2ff" stroke="#1e3a8a" rx="8"></rect><text x="120" y="26" text-anchor="middle" font-weight="700" fill="#1e3a8a">Ghuraba al Manara (IP)</text><text x="120" y="50" text-anchor="middle" font-size="12" fill="#374151">Initiation program, legacy & mentor pathways</text><rect x="0" y="0" width="240" height="120" fill="transparent" @click="node = (node === 'ghuraba' ? null : 'ghuraba')"/></g>
+                <g id="wellness" transform="translate(230,120)"><rect x="0" y="0" width="180" height="120" fill="#ecfdf5" stroke="#064e3b" rx="8"></rect><text x="90" y="24" text-anchor="middle" font-weight="700" fill="#064e3b">Holistic Fitness</text><text x="90" y="48" text-anchor="middle" font-size="12" fill="#065f46">Strength • Flexibility • Faith</text><g><rect x="10" y="68" width="160" height="36" rx="6" fill="#fff"></rect><text x="90" y="92" text-anchor="middle" font-size="12" fill="#334155">Click to see mapping</text></g><rect x="0" y="0" width="180" height="120" fill="transparent" @click="node = (node === 'wellness' ? null : 'wellness')" /></g>
+                <g id="packard" transform="translate(460,40)"><rect x="0" y="0" width="240" height="120" fill="#fffbeb" stroke="#1e3a8a" rx="8"></rect><text x="120" y="24" text-anchor="middle" font-weight="700" fill="#1e3a8a">Packard — 8 Hidden Needs</text><text x="120" y="48" text-anchor="middle" font-size="12" fill="#374151">Immortality, Ego, Power, Creative Outlets…</text><rect x="0" y="0" width="240" height="120" fill="transparent" @click="node = (node === 'packard' ? null : 'packard')"/></g>
+                <g id="ghuraba" transform="translate(460,220)"><rect x="0" y="0" width="240" height="120" fill="#eef2ff" stroke="#1e3a8a" rx="8"></rect><text x="120" y="26" text-anchor="middle" font-weight="700" fill="#1e3a8a">The Lighthouse Tales (IP)</text><text x="120" y="50" text-anchor="middle" font-size="12" fill="#374151">Activity Books for Growth & Legacy</text><rect x="0" y="0" width="240" height="120" fill="transparent" @click="node = (node === 'ghuraba' ? null : 'ghuraba')"/></g>
                 <line x1="180" y1="200" x2="230" y2="160" stroke="#94a3b8" stroke-width="2" /><line x1="410" y1="100" x2="460" y2="100" stroke="#94a3b8" stroke-width="2" /><line x1="410" y1="260" x2="460" y2="260" stroke="#94a3b8" stroke-width="2" /><line x1="310" y1="120" x2="410" y2="120" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 3" />
-            </svg></div>
-            <div class="w-96"><div class="p-4 bg-gray-50 rounded border h-full">
-              <template x-if="!node"><div><h4 class="text-lg font-semibold text-gray-800">Interactive Map</h4><p class="text-sm text-gray-600 mt-2">Click any block to see how the models connect.</p></div></template>
-              <template x-if="node === 'wellness'"><div><h4 class="text-lg font-semibold text-[#064e3b]">Wellness Centre — Mapping</h4><p class="text-sm text-gray-700 mt-2">Translates Maslow stages into guest programs.</p></div></template>
-              <template x-if="node === 'packard'"><div><h4 class="text-lg font-semibold text-[#1e3a8a]">Packard — Guest Hidden Needs</h4><p class="text-sm text-gray-700 mt-2">Design experiences that hit emotional levers.</p></div></template>
-              <template x-if="node === 'ghuraba'"><div><h4 class="text-lg font-semibold text-[#1e3a8a]">Ghuraba al Manara — IP</h4><p class="text-sm text-gray-700 mt-2">A staged initiation & mentoring program for staff.</p></div></template>
+              </svg>
+            </div>
+            <div class="w-full md:w-96"><div class="p-4 bg-gray-50 rounded border h-full">
+              <template x-if="node === 'maslow'"><div><h4 class="text-lg font-semibold text-[#064e3b]">Maslow's Hierarchy</h4><p class="text-sm text-gray-700 mt-2">Our framework for the complete human journey, from basic needs to spiritual purpose (Transcendence), guiding both staff development and the ultimate guest experience.</p></div></template>
+              <template x-if="node === 'wellness'"><div><h4 class="text-lg font-semibold text-[#064e3b]">Holistic Fitness Mapping</h4><p class="text-sm text-gray-700 mt-2">We translate psychological needs into physical and spiritual practice (Tazkiyah).</p><ul class="list-disc pl-5 mt-3 text-sm space-y-2"><li><strong>Strength/Stamina:</strong> Fulfills the need for Power & Self-Actualization.</li><li><strong>Flexibility/Mobility:</strong> Connects to Safety & Aesthetic appreciation of the body.</li><li><strong>Nutrition Workshops:</strong> Addresses Physiological & Cognitive needs.</li></ul></div></template>
+              <template x-if="node === 'packard'"><div><h4 class="text-lg font-semibold text-[#1e3a8a]">Packard’s Hidden Needs</h4><p class="text-sm text-gray-700 mt-2">We design experiences that speak to the subconscious desires of our guests, from the need for legacy (Immortality) to the need to feel valued (Ego Gratification).</p></div></template>
+              <template x-if="node === 'ghuraba'"><div><h4 class="text-lg font-semibold text-[#1e3a8a]">The Lighthouse Tales (IP)</h4><p class="text-sm text-gray-700 mt-2">Our proprietary activity books are the primary tool for fulfilling the needs for Creative Outlets, Love Objects (family bonding), and Legacy.</p><div class="mt-4"><a href="https://www.amazon.com/s?k=sajid+hassan" target="_blank" class="text-blue-600 hover:underline text-sm font-semibold">View on Amazon →</a><br><a href="https://www.rokomari.com/book/author/109590/sajid-hassan" target="_blank" class="text-blue-600 hover:underline text-sm font-semibold">View on Rokomari →</a></div></div></template>
             </div></div>
           </div>
         </div>
     </section>
+    
+    <div class="card mt-8">
+        <h2>Competitive Profile Matrix</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+                <h3>vs. International Titans</h3>
+                <p class="text-sm text-gray-600">(e.g., Marriott, Westin, Sheraton)</p>
+                <ul class="list-disc pl-5 mt-4 space-y-2 text-gray-700">
+                    <li><strong>Our Advantage:</strong> We offer a soul. A deep connection to heritage and land that a corporate chain cannot replicate.</li>
+                    <li><strong>Value Proposition:</strong> Equivalent or superior room size and personalized service at a more accessible price point.</li>
+                    <li><strong>Experience:</strong> We provide authentic cultural immersion, not just standardized luxury.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>vs. Local Retreats</h3>
+                 <p class="text-sm text-gray-600">(Boutique resorts in the region)</p>
+                <ul class="list-disc pl-5 mt-4 space-y-2 text-gray-700">
+                    <li><strong>Our Advantage:</strong> Unmatched scale (87 bighas) and a complete strategic doctrine for a consistent, high-quality experience.</li>
+                    <li><strong>Value Proposition:</strong> True exclusivity and privacy that smaller, more crowded venues cannot offer.</li>
+                    <li><strong>Experience:</strong> A fully integrated wellness and intellectual journey, not just a weekend getaway.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h2>Brand DNA (Kapferer's Prism)</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div class="p-4 rounded-lg"><img src="mahmud-tower-replaced-fatima-mahal.jpg" class="w-full h-40 object-cover rounded-lg shadow-md"><div class="mt-2"><strong>Physique</strong><p class="text-xs">87-Bigha Estate, Mahmud Tower, Helipad</p></div></div>
+            <div class="p-4 rounded-lg"><img src="strangers-of-the-lighthouse-rulebook-and-cover.jpg" class="w-full h-40 object-cover rounded-lg shadow-md"><div class="mt-2"><strong>Personality</strong><p class="text-xs">Sincere, Creative (Lighthouse IP)</p></div></div>
+            <div class="p-4 rounded-lg"><img src="resort-helipad.jpg" class="w-full h-40 object-cover rounded-lg shadow-md"><div class="mt-2"><strong>Culture</strong><p class="text-xs">Heritage, Stewardship, Islamic Values</p></div></div>
+        </div>
+    </div>
 </main>
 
 <footer id="booking" class="booking-section mt-8">
