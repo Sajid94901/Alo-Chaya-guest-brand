@@ -74,7 +74,45 @@
                             <div class="p-3 text-sm"><strong>Asif Hassan</strong></div>
                         </button>
                     </div>
+<!-- Press & Statements Section -->
+<div x-data="{ openSection: 2 }" class="space-y-4 py-8">
 
+    <div class="bg-white border rounded-lg">
+        <button @click="openSection = (openSection === 2 ? 0 : 2)" class="w-full text-left flex justify-between items-center p-6 hover:bg-gray-50">
+            <h2 class="text-2xl font-bold m-0" style="color: var(--primary-color);">Press & Statements</h2>
+        </button>
+        <div x-show="openSection === 2" class="px-6 pb-6">
+            <p class="text-gray-600 mb-6 text-center pt-4">Insights into our legacy, internal reflections, and operational pivots.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- Family Press Release -->
+                <div class="rounded-lg overflow-hidden shadow-md">
+                    <button data-modal="modal-family-press" class="w-full text-left">
+                        <img src="family-press.jpg" alt="Family Press" class="w-full h-48 object-cover">
+                        <div class="p-3 text-sm"><strong>Family Press</strong></div>
+                    </button>
+                </div>
+
+                <!-- Cynical Log Excerpt -->
+                <div class="rounded-lg overflow-hidden shadow-md">
+                    <button data-modal="modal-cynical-log" class="w-full text-left">
+                        <img src="cynical-log.jpg" alt="Cynical Log" class="w-full h-48 object-cover">
+                        <div class="p-3 text-sm"><strong>Cynical Log</strong></div>
+                    </button>
+                </div>
+
+                <!-- Gemini Apology & Pivot -->
+                <div class="rounded-lg overflow-hidden shadow-md">
+                    <button data-modal="modal-gemini" class="w-full text-left">
+                        <img src="gemini-apology.jpg" alt="Gemini Apology & Pivot" class="w-full h-48 object-cover">
+                        <div class="p-3 text-sm"><strong>Gemini — Apology & Pivot</strong></div>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
                 </div>
             </div>
         </div>
@@ -144,3 +182,4 @@
 
 </body>
 </html>
+
