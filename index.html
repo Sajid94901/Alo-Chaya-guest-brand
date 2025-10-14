@@ -33,7 +33,16 @@
 </header>
 
 <main class="container mx-auto max-w-5xl pt-16">
-    <div x-data="{ openSection: 3 }" class="space-y-4 py-8"> <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 3, 'shadow-sm': openSection !== 3 }">
+    <div x-data="{ openSection: 3 }" class="space-y-4 py-8"> <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 1, 'shadow-sm': openSection !== 1 }">
+            <button @click="openSection = (openSection === 1 ? 0 : 1)" class="w-full text-left flex justify-between items-center p-6 hover:bg-gray-50">
+                <h2 class="text-2xl font-bold m-0" style="color: var(--primary-color);">Experience Alo Chaya</h2>
+            </button>
+            <div x-show="openSection === 1" class="px-6 pb-6 text-gray-700 text-justify">
+                <p>Alo Chaya is not just a resort—it’s a century of heritage, thoughtfully curated into a riverine luxury experience. Located just 2.5 hours from Dhaka, our 87-bigha estate is a sanctuary where you awaken to sunlight dancing on the water. The 60,000 sq ft main facility features spacious rooms (≈354 sq ft), each offering more space than a typical Dhaka 5-star hotel.</p>
+            </div>
+        </div>
+
+        <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 3, 'shadow-sm': openSection !== 3 }">
             <button @click="openSection = (openSection === 3 ? 0 : 3)" class="w-full text-left flex justify-between items-center p-6 hover:bg-gray-50">
                 <h2 class="text-2xl font-bold m-0" style="color: var(--primary-color);">Our Heritage & Story</h2>
             </button>
@@ -67,6 +76,4 @@
 </script>
 
 </body>
-</html>                                                                        </html>
-
-
+</html>
