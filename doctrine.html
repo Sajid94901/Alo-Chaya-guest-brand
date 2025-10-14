@@ -1,111 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alo Chaya - The Unified Brand & Operations Doctrine</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-<style>
-  :root { --primary-color: #064e3b; --secondary-color: #1e3a8a; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Inter', system-ui, sans-serif; background-color: #f8fafc; color: #1e293b; line-height: 1.7; }
-  h1 { font-size: 2.5rem; font-weight: 800; text-align: center; color: var(--primary-color); margin-bottom: 2rem; }
-  h2 { font-size: 2rem; font-weight: 700; color: var(--primary-color); margin-bottom: 1.5rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem;}
-  h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: var(--secondary-color); }
-  .card { background: white; border-radius: 8px; padding: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1); margin-bottom: 2rem; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alo Chaya - The Doctrine Behind Your Stay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="guest-body">
 
-<nav class="bg-white/90 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-md">
-    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-        <a href="index.html" class="text-2xl font-bold text-green-800">Alo Chaya</a>
-        <div class="flex items-center space-x-6">
-            <a href="index.html" class="text-gray-700 hover:text-green-800 font-semibold">Home</a>
-            <a href="doctrine.html" class="text-gray-700 hover:text-green-800 font-semibold">Doctrine</a>
-            <a href="#booking" class="bg-green-800 text-white px-4 py-2 rounded-md font-semibold hover:bg-green-700 transition-colors">Book Now</a>
-        </div>
-    </div>
-</nav>
-
-<main class="container mx-auto max-w-5xl pt-24 px-4"> 
-    
+<main class="container max-w-5xl mx-auto">
     <header class="text-center mb-12">
-        <h1>The Alo Chaya Doctrine</h1>
-        <p class="text-xl text-gray-600">The strategic, psychological, and spiritual framework behind our luxury riverine experience.</p>
+        <h1 class="guest-header">Our Doctrine</h1>
+        <p class="text-xl text-gray-600 mt-2">The People and Principles That Shape Your Experience</p>
+        <nav class="mt-8 border-b pb-4">
+            <a href="guest-index.html" class="text-gray-600 hover:text-primary-color">Home</a>
+            <a href="guest-doctrine.html" class="ml-6 font-bold text-primary-color">Our Doctrine</a>
+        </nav>
     </header>
+<section class="relative bg-primary-color/5 rounded-2xl shadow-md overflow-hidden mb-12">
+  <div class="p-10 text-center">
+    <h2 class="text-3xl font-bold text-primary-color mb-3">Welcome to the Ethos of Alo Chaya</h2>
+    <p class="text-gray-700 max-w-3xl mx-auto">
+      Every corner of our resort is designed not just for comfort, but for conscience — where
+      sincerity, beauty, and creativity merge to form a living doctrine.
+    </p>
+  </div>
+</section>
+    <details open>
+        <summary>The Blueprint of Your Experience</summary>
+        <div class="details-content pt-6">
+            <p>The feeling you get at Alo Chaya is by design. It's a blend of our <strong>Physique</strong> (the 87-Bigha Estate), our <strong>Personality</strong> (Sincere & Creative), and our <strong>Culture</strong> (Heritage & Stewardship).</p>
+        </div>
+    </details>
 
-    <section id="psych-architecture" class="space-y-6">
-        <div class="text-center">
-          <h2 class="text-3xl font-extrabold text-[#064e3b]">Psychological Architecture & Wellness</h2>
-          <p class="mt-2 text-gray-600">How Maslow, Packard, Holistic Fitness, and our IP form one integrated doctrine.</p>
-        </div>
-
-        <div x-data="{ node: 'maslow' }" class="bg-white border rounded-lg shadow-sm p-6">
-          <div class="flex flex-col md:flex-row items-start gap-6">
-            <div class="flex-1">
-              <svg viewBox="0 0 800 420" class="w-full" aria-hidden="true">
-                <g id="maslow-stack"><rect x="20" y="40" width="160" height="320" fill="#f8fafc" stroke="#064e3b" rx="8"></rect><text x="100" y="70" text-anchor="middle" font-weight="700" fill="#064e3b">Maslow (8)</text><g font-size="12" fill="#374151"><text x="30" y="100">Transcendence</text><text x="30" y="124">Self-Actualization</text><text x="30" y="148">Aesthetic</text><text x="30" y="172">Cognitive</text><text x="30" y="196">Esteem</text><text x="30" y="220">Belonging</text><text x="30" y="244">Safety</text><text x="30" y="268">Physiological</text></g></g>
-                <g id="wellness" transform="translate(230,120)"><rect x="0" y="0" width="180" height="120" fill="#ecfdf5" stroke="#064e3b" rx="8"></rect><text x="90" y="24" text-anchor="middle" font-weight="700" fill="#064e3b">Holistic Fitness</text><text x="90" y="48" text-anchor="middle" font-size="12" fill="#065f46">Strength • Flexibility • Faith</text><g><rect x="10" y="68" width="160" height="36" rx="6" fill="#fff"></rect><text x="90" y="92" text-anchor="middle" font-size="12" fill="#334155">Click to see mapping</text></g><rect x="0" y="0" width="180" height="120" fill="transparent" @click="node = (node === 'wellness' ? null : 'wellness')" /></g>
-                <g id="packard" transform="translate(460,40)"><rect x="0" y="0" width="240" height="120" fill="#fffbeb" stroke="#1e3a8a" rx="8"></rect><text x="120" y="24" text-anchor="middle" font-weight="700" fill="#1e3a8a">Packard — 8 Hidden Needs</text><text x="120" y="48" text-anchor="middle" font-size="12" fill="#374151">Immortality, Ego, Power, Creative Outlets…</text><rect x="0" y="0" width="240" height="120" fill="transparent" @click="node = (node === 'packard' ? null : 'packard')"/></g>
-                <g id="ghuraba" transform="translate(460,220)"><rect x="0" y="0" width="240" height="120" fill="#eef2ff" stroke="#1e3a8a" rx="8"></rect><text x="120" y="26" text-anchor="middle" font-weight="700" fill="#1e3a8a">The Lighthouse Tales (IP)</text><text x="120" y="50" text-anchor="middle" font-size="12" fill="#374151">Activity Books for Growth & Legacy</text><rect x="0" y="0" width="240" height="120" fill="transparent" @click="node = (node === 'ghuraba' ? null : 'ghuraba')"/></g>
-                <line x1="180" y1="200" x2="230" y2="160" stroke="#94a3b8" stroke-width="2" /><line x1="410" y1="100" x2="460" y2="100" stroke="#94a3b8" stroke-width="2" /><line x1="410" y1="260" x2="460" y2="260" stroke="#94a3b8" stroke-width="2" /><line x1="310" y1="120" x2="410" y2="120" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 3" />
-              </svg>
-            </div>
-            <div class="w-full md:w-96"><div class="p-4 bg-gray-50 rounded border h-full">
-              <template x-if="node === 'maslow'"><div><h4 class="text-lg font-semibold text-[#064e3b]">Maslow's Hierarchy</h4><p class="text-sm text-gray-700 mt-2">Our framework for the complete human journey, from basic needs to spiritual purpose (Transcendence), guiding both staff development and the ultimate guest experience.</p></div></template>
-              <template x-if="node === 'wellness'"><div><h4 class="text-lg font-semibold text-[#064e3b]">Holistic Fitness Mapping</h4><p class="text-sm text-gray-700 mt-2">We translate psychological needs into physical and spiritual practice (Tazkiyah).</p><ul class="list-disc pl-5 mt-3 text-sm space-y-2"><li><strong>Strength/Stamina:</strong> Fulfills the need for Power & Self-Actualization.</li><li><strong>Flexibility/Mobility:</strong> Connects to Safety & Aesthetic appreciation of the body.</li><li><strong>Nutrition Workshops:</strong> Addresses Physiological & Cognitive needs.</li></ul></div></template>
-              <template x-if="node === 'packard'"><div><h4 class="text-lg font-semibold text-[#1e3a8a]">Packard’s Hidden Needs</h4><p class="text-sm text-gray-700 mt-2">We design experiences that speak to the subconscious desires of our guests, from the need for legacy (Immortality) to the need to feel valued (Ego Gratification).</p></div></template>
-              <template x-if="node === 'ghuraba'"><div><h4 class="text-lg font-semibold text-[#1e3a8a]">The Lighthouse Tales (IP)</h4><p class="text-sm text-gray-700 mt-2">Our proprietary activity books are the primary tool for fulfilling the needs for Creative Outlets, Love Objects (family bonding), and Legacy.</p><div class="mt-4"><a href="https://www.amazon.com/s?k=sajid+hassan" target="_blank" class="text-blue-600 hover:underline text-sm font-semibold">View on Amazon →</a><br><a href="https://www.rokomari.com/book/author/109590/sajid-hassan" target="_blank" class="text-blue-600 hover:underline text-sm font-semibold">View on Rokomari →</a></div></div></template>
-            </div></div>
-          </div>
-        </div>
-    </section>
-    
-    <div class="card mt-8">
-        <h2>Competitive Profile Matrix</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-                <h3>vs. International Titans</h3>
-                <p class="text-sm text-gray-600">(e.g., Marriott, Westin, Sheraton)</p>
-                <ul class="list-disc pl-5 mt-4 space-y-2 text-gray-700">
-                    <li><strong>Our Advantage:</strong> We offer a soul. A deep connection to heritage and land that a corporate chain cannot replicate.</li>
-                    <li><strong>Value Proposition:</strong> Equivalent or superior room size and personalized service at a more accessible price point.</li>
-                    <li><strong>Experience:</strong> We provide authentic cultural immersion, not just standardized luxury.</li>
-                </ul>
-            </div>
-            <div>
-                <h3>vs. Local Retreats</h3>
-                 <p class="text-sm text-gray-600">(Boutique resorts in the region)</p>
-                <ul class="list-disc pl-5 mt-4 space-y-2 text-gray-700">
-                    <li><strong>Our Advantage:</strong> Unmatched scale (87 bighas) and a complete strategic doctrine for a consistent, high-quality experience.</li>
-                    <li><strong>Value Proposition:</strong> True exclusivity and privacy that smaller, more crowded venues cannot offer.</li>
-                    <li><strong>Experience:</strong> A fully integrated wellness and intellectual journey, not just a weekend getaway.</li>
-                </ul>
-            </div>
-        </div>
+  <section class="mt-16">
+  <h2 class="text-2xl font-bold text-primary-color mb-6 text-center">The Three Pillars of Our Doctrine</h2>
+  <div class="grid md:grid-cols-3 gap-8">
+    <div class="p-6 bg-white shadow rounded-xl hover:shadow-lg transition">
+      <h3 class="font-semibold text-lg text-primary-color mb-2">Integrity in Service</h3>
+      <p class="text-gray-600">Our staff embody sincerity (Ikhlas) and ingenuity (Ijtihad) — striving for solutions that honor your time and our values.</p>
     </div>
-    
-    <div class="card">
-        <h2>Brand DNA (Kapferer's Prism)</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-            <div class="p-4 rounded-lg"><img src="mahmud-tower-replaced-fatima-mahal.jpg" class="w-full h-40 object-cover rounded-lg shadow-md"><div class="mt-2"><strong>Physique</strong><p class="text-xs">87-Bigha Estate, Mahmud Tower, Helipad</p></div></div>
-            <div class="p-4 rounded-lg"><img src="strangers-of-the-lighthouse-rulebook-and-cover.jpg" class="w-full h-40 object-cover rounded-lg shadow-md"><div class="mt-2"><strong>Personality</strong><p class="text-xs">Sincere, Creative (Lighthouse IP)</p></div></div>
-            <div class="p-4 rounded-lg"><img src="resort-helipad.jpg" class="w-full h-40 object-cover rounded-lg shadow-md"><div class="mt-2"><strong>Culture</strong><p class="text-xs">Heritage, Stewardship, Islamic Values</p></div></div>
-        </div>
+    <div class="p-6 bg-white shadow rounded-xl hover:shadow-lg transition">
+      <h3 class="font-semibold text-lg text-primary-color mb-2">Harmony in Environment</h3>
+      <p class="text-gray-600">We maintain balance between luxury and sustainability, ensuring each experience resonates with natural and spiritual tranquility.</p>
     </div>
+    <div class="p-6 bg-white shadow rounded-xl hover:shadow-lg transition">
+      <h3 class="font-semibold text-lg text-primary-color mb-2">Stewardship in Culture</h3>
+      <p class="text-gray-600">Every gesture reflects our heritage — where tradition meets innovation in a continuous act of gratitude and care.</p>
+    </div>
+  </div>
+</section>
+    <details>
+        <summary>Meet Your Guides (The Ghuraba)</summary>
+        <div class="details-content pt-6">
+            <div class="guide-card">
+                <h4 class="font-bold text-lg text-primary-color">The Concierge</h4>
+                <p><strong>How They Serve You:</strong> Trained in the "Discipline of Ingenuity," their job is to find a brilliant "yes" to your every request.</p>
+            </div>
+            <div class="guide-card">
+                <h4 class="font-bold text-lg text-primary-color">The Wellness Expert</h4>
+                <p><strong>How They Serve You:</strong> Operating from the "Posture of Sincere Presence," they listen deeply to design a personalized path to your rejuvenation.</p>
+            </div>
+        </div>
+    </details>
 </main>
+<footer class="mt-20 text-center text-sm text-gray-500 border-t pt-6">
+  <p>© Alo Chaya Riverine Resort — Guided by the Doctrine of Light & Stewardship</p>
+  <p class="mt-1">
+    Crafted with sincerity by the <span class="text-primary-color font-semibold">Ghuraba Team</span>
+  </p>
+</footer>
+  <section id="living-doctrine" class="mt-16 border-t pt-10 pb-20">
+  <h2 class="text-3xl font-bold text-primary-color text-center mb-8">Our Living Doctrine</h2>
+  <div class="max-w-3xl mx-auto text-center text-gray-700 leading-relaxed space-y-6 fade-section">
+    <p>
+      Alo Chaya isn’t static — it’s a living organism built from moments of sincerity, shared effort, and serenity.  
+      Every sunrise across the riverbank and every conversation under the bamboo canopy becomes part of its memory.
+    </p>
+    <p>
+      Our philosophy is simple: <strong>Serve with Ikhlas, design with Adab, and rest with Shukr.</strong>  
+      These are not slogans; they are daily disciplines our team practices, reflects on, and renews.
+    </p>
+    <p>
+      When you stay here, you join that rhythm.  
+      Every guest becomes part of the stewardship — a guardian of the calm that we protect.
+    </p>
+    <p class="italic text-gray-600">
+      “We don’t just host you. We host your state of being.”
+    </p>
+  </div>
+</section>
 
-<footer id="booking" class="booking-section mt-8">
-    <div class="container mx-auto max-w-4xl text-center">
-        <h2>Book Your Escape</h2>
-        <a href="tel:+8801327379392" class="mt-6 inline-block bg-white text-green-800 px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors">Call to Book Now</a>
-    </div>
+<script>
+  // Simple scroll-fade animation for reflective text
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('opacity-100', 'translate-y-0');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.fade-section').forEach(el => {
+    el.classList.add('opacity-0', 'translate-y-4', 'transition', 'duration-1000');
+    observer.observe(el);
+  });
+</script>
+  <footer class="text-center text-gray-500 text-sm py-8 border-t mt-10">
+  © <span id="year"></span> Alo Chaya Riverine Resort. Crafted with sincerity.
 </footer>
 
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
