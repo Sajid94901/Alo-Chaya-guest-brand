@@ -31,155 +31,42 @@
         <p class="mt-4 text-lg md:text-xl text-gray-200">Escape the city and discover a world where luxury meets a century of heritage.</p>
     </div>
 </header>
-<main class="container mx-auto max-w-5xl pt-16">
-    <div x-data="{ openSection: 1 }" class="space-y-4 py-8">
 
-        <!-- Heritage & Story Accordion -->
-        <div class="bg-white border rounded-lg">
+<main class="container mx-auto max-w-5xl pt-16">
+    <div x-data="{ openSection: 3 }" class="space-y-4 py-8"> <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 3, 'shadow-sm': openSection !== 3 }">
             <button @click="openSection = (openSection === 3 ? 0 : 3)" class="w-full text-left flex justify-between items-center p-6 hover:bg-gray-50">
                 <h2 class="text-2xl font-bold m-0" style="color: var(--primary-color);">Our Heritage & Story</h2>
             </button>
             <div x-show="openSection === 3" class="px-6 pb-6">
                 <p class="text-gray-600 mb-6 text-center pt-4">Click any image to explore our lineage. Family history is central to the Alo Chaya story.</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                    <!-- The Daroga -->
-                    <div class="rounded-lg overflow-hidden shadow-md">
-                        <button data-modal="modal-daroga" class="w-full text-left">
-                            <img src="daroga-fatima-mahal-builder.jpg" alt="The Daroga" class="w-full h-48 object-cover">
-                            <div class="p-3 text-sm"><strong>The Daroga</strong></div>
-                        </button>
-                    </div>
-
-                    <!-- Mahmud Tower -->
-                    <div class="rounded-lg overflow-hidden shadow-md">
-                        <button data-modal="modal-mahmud" class="w-full text-left">
-                            <img src="mahmud-tower.jpg" alt="Mahmud Tower" class="w-full h-48 object-cover">
-                            <div class="p-3 text-sm"><strong>Mahmud Tower</strong></div>
-                        </button>
-                    </div>
-
-                    <!-- Sajid Hassan -->
-                    <div class="rounded-lg overflow-hidden shadow-md">
-                        <button data-modal="modal-sajid" class="w-full text-left">
-                            <img src="sajid-hassan-project-lead.jpg" alt="Sajid Hassan" class="w-full h-48 object-cover">
-                            <div class="p-3 text-sm"><strong>Sajid Hassan</strong></div>
-                        </button>
-                    </div>
-
-                    <!-- Asif Hassan -->
-                    <div class="rounded-lg overflow-hidden shadow-md">
-                        <button data-modal="modal-asif" class="w-full text-left">
-                            <img src="asif-hassan-dmd.jpg" alt="Asif Hassan" class="w-full h-48 object-cover">
-                            <div class="p-3 text-sm"><strong>Asif Hassan</strong></div>
-                        </button>
-                    </div>
-<!-- Press & Statements Section -->
-<div x-data="{ openSection: 2 }" class="space-y-4 py-8">
-
-    <div class="bg-white border rounded-lg">
-        <button @click="openSection = (openSection === 2 ? 0 : 2)" class="w-full text-left flex justify-between items-center p-6 hover:bg-gray-50">
-            <h2 class="text-2xl font-bold m-0" style="color: var(--primary-color);">Press & Statements</h2>
-        </button>
-        <div x-show="openSection === 2" class="px-6 pb-6">
-            <p class="text-gray-600 mb-6 text-center pt-4">Insights into our legacy, internal reflections, and operational pivots.</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-                <!-- Family Press Release -->
-                <div class="rounded-lg overflow-hidden shadow-md">
-                    <button data-modal="modal-family-press" class="w-full text-left">
-                        <img src="family-press.jpg" alt="Family Press" class="w-full h-48 object-cover">
-                        <div class="p-3 text-sm"><strong>Family Press</strong></div>
-                    </button>
-                </div>
-
-                <!-- Cynical Log Excerpt -->
-                <div class="rounded-lg overflow-hidden shadow-md">
-                    <button data-modal="modal-cynical-log" class="w-full text-left">
-                        <img src="cynical-log.jpg" alt="Cynical Log" class="w-full h-48 object-cover">
-                        <div class="p-3 text-sm"><strong>Cynical Log</strong></div>
-                    </button>
-                </div>
-
-                <!-- Gemini Apology & Pivot -->
-                <div class="rounded-lg overflow-hidden shadow-md">
-                    <button data-modal="modal-gemini" class="w-full text-left">
-                        <img src="gemini-apology.jpg" alt="Gemini Apology & Pivot" class="w-full h-48 object-cover">
-                        <div class="p-3 text-sm"><strong>Gemini — Apology & Pivot</strong></div>
-                    </button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-daroga" class="w-full text-left"><img src="founders-grandfather-fatima-mahal-builder-owner.jpg" alt="The Daroga" class="w-full h-48 object-cover"><div class="p-3 text-sm"><strong>The Daroga</strong></div></button></div>
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-abdul" class="w-full text-left"><img src="project-leads-grandfather-abdul-rashid.png" alt="Abdul Rashid" class="w-full h-48 object-cover"><div class="p-3 text-sm"><strong>Abdul Rashid</strong></div></button></div>
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-grandfamily" class="w-full text-left"><img src="grandfather-family-full.jpg" alt="Family of Abdul Rashid" class="w-full h-48 object-cover"><div class="p-3 text-sm"><strong>Family of Abdul Rashid</strong></div></button></div>
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-mahmud" class="w-full text-left"><img src="mahmud-tower-replaced-fatima-mahal.jpg" alt="Mahmud Tower" class="w-full h-48 object-cover"><div class="p-3 text-sm"><strong>Mahmud Tower</strong></div></button></div>
+                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-sajid" class="w-full text-left"><img src="sajid-hassan-founders-third-son-project-lead-author.jpg" alt="Sajid Hassan" class="w-full h-48 object-cover"><div class="p-3 text-sm"><strong>Sajid Hassan</strong></div></button></div>
                 </div>
             </div>
         </div>
     </div>
 </main>
 
-<!-- Modals -->
-<div id="modal-daroga" class="modal">
-    <div class="modal-content">
-        <span class="modal-close">&times;</span>
-        <h3>The Daroga</h3>
-        <img src="daroga-fatima-mahal-builder.jpg" alt="The Daroga" class="w-full mt-3 rounded-lg">
-        <p class="mt-4 text-gray-700">
-            The Daroga, paternal great-grandfather of Sajid Hassan, built Fatima Mahal at 19 North South Road, Siddique Bazar, old Dhaka in the early 1900s. 
-            He also owned the land at Enayet Nagar, Matlab, Chandpur, which he left as it was mainly a smuggling/transport hub at the time.
-        </p>
-    </div>
-</div>
+<div id="modal-daroga" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>The Daroga</h3><img src="founders-grandfather-fatima-mahal-builder-owner.jpg" alt="The Daroga" class="w-full mt-3 rounded-lg"><p class="mt-4 text-gray-700">The Daroga is the project lead Sajid Hassan's paternal great-grandfather and the Founder Mahmudul Hassan's paternal grandfather. Our story begins with him, who moved from Enayet Nagar, Matlab, Chandpur—the very place where Alo Chaya stands today, a century later. He journeyed to the city and built the two-storey Fatima Mahal when his son, Abdul Rashid (the Founder's father), was just three. A man of vision, the Daroga also acquired 72 bighas of land in what is now Dhanmondi 9A and was a father to twelve children.</p></div></div>
+<div id="modal-abdul" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Abdul Rashid</h3><img src="project-leads-grandfather-abdul-rashid.png" alt="Abdul Rashid" class="w-full mt-3 rounded-lg"><p class="mt-4 text-gray-700">Abdul Rashid, son of the Daroga and father of the Founder, represents the generational continuity of the family's presence and vision. His life bridged the gap between the initial establishment in the city and the eventual return to the ancestral lands.</p></div></div>
+<div id="modal-grandfamily" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Family of Abdul Rashid</h3><img src="grandfather-family-full.jpg" alt="Family of Abdul Rashid" class="w-full mt-3 rounded-lg"><p class="mt-4 text-gray-700">The family of Abdul Rashid signifies the expansion and continuation of the legacy, ensuring the values and heritage were passed down to the next generation, including the Founder of Alo Chaya.</p></div></div>
+<div id="modal-mahmud" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Mahmud Tower</h3><img src="mahmud-tower-replaced-fatima-mahal.jpg" alt="Mahmud Tower" class="w-full mt-3 rounded-lg"><p class="mt-4 text-gray-700">The Mahmud Tower, which replaced the original Fatima Mahal, stands as a modern testament to our family's enduring legacy and serves as a primary collateral asset, securing the foundation of the Alo Chaya project.</p></div></div>
+<div id="modal-sajid" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Sajid Hassan</h3><img src="sajid-hassan-founders-third-son-project-lead-author.jpg" alt="Sajid Hassan" class="w-full mt-3 rounded-lg"><p class="mt-4 text-gray-700">Sajid Hassan, the Founder's third son, is the current Project Lead and author. He carries forward the family's century-long vision, blending deep-rooted heritage with modern strategic frameworks to create the Alo Chaya experience.</p></div></div>
 
-<div id="modal-mahmud" class="modal">
-    <div class="modal-content">
-        <span class="modal-close">&times;</span>
-        <h3>Mahmud Tower</h3>
-        <img src="mahmud-tower.jpg" alt="Mahmud Tower" class="w-full mt-3 rounded-lg">
-        <p class="mt-4 text-gray-700">
-            Mahmud Tower was built by Mahmudul Hassan, the Founder, replacing the original Fatima Mahal on Siddique Bazar site. 
-            It stands as a modern testament to the family legacy and a primary collateral asset securing Alo Chaya.
-        </p>
-    </div>
-</div>
-
-<div id="modal-sajid" class="modal">
-    <div class="modal-content">
-        <span class="modal-close">&times;</span>
-        <h3>Sajid Hassan</h3>
-        <img src="sajid-hassan-project-lead.jpg" alt="Sajid Hassan" class="w-full mt-3 rounded-lg">
-        <p class="mt-4 text-gray-700">
-            Sajid Hassan, the third son and current Project Lead, carries forward the century-long vision of Alo Chaya, blending heritage, strategy, and modern hospitality frameworks.
-        </p>
-    </div>
-</div>
-
-<div id="modal-asif" class="modal">
-    <div class="modal-content">
-        <span class="modal-close">&times;</span>
-        <h3>Asif Hassan</h3>
-        <img src="asif-hassan-dmd.jpg" alt="Asif Hassan" class="w-full mt-3 rounded-lg">
-        <p class="mt-4 text-gray-700">
-            Asif Hassan, second son of the Founder Mahmudul Hassan, serves as 2nd Deputy Managing Director for Alo Chaya. 
-            He holds dual Higher Distinctions in Civil & Structural Engineering from UTS and leads structural and expansion projects.
-        </p>
-    </div>
-</div>
 <script>
-    // Modal Script
     document.querySelectorAll('[data-modal]').forEach(button => {
-        button.onclick = function() { 
-            document.getElementById(this.dataset.modal).style.display = "block"; 
-        }
+        button.onclick = function() { document.getElementById(this.dataset.modal).style.display = "block"; }
     });
     document.querySelectorAll('.modal-close').forEach(closeButton => {
-        closeButton.onclick = function() { 
-            this.closest('.modal').style.display = "none"; 
-        }
+        closeButton.onclick = function() { this.closest('.modal').style.display = "none"; }
     });
 </script>
 
 </body>
-</html>
+</html>                                                                        </html>
+
 
