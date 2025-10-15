@@ -16,119 +16,320 @@
   h1 { font-size: 2.5rem; font-weight: 800; text-align: center; color: var(--primary-color); margin-bottom: 2rem; }
   h2 { font-size: 2rem; font-weight: 700; color: var(--primary-color); }
   h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: var(--secondary-color); }
+  .justified-text { text-align: justify; }
   .booking-section { background-color: var(--secondary-color); color: #e0e7ff; padding: 4rem 1.5rem; }
   .booking-section h2 { color: white; }
-  .justified-text { text-align: justify; }
 </style>
 </head>
 <body>
 
 <nav class="bg-white/90 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-md">
-    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-        <a href="index.html" class="text-2xl font-bold text-green-800">Alo Chaya</a>
-        <div class="flex items-center space-x-6">
-            <a href="index.html" class="text-gray-700 hover:text-green-800 font-semibold">Home</a>
-            <a href="doctrine.html" class="text-gray-700 hover:text-green-800 font-semibold">Doctrine</a>
-            <a href="index.html#booking" class="bg-green-800 text-white px-4 py-2 rounded-md font-semibold hover:bg-green-700 transition-colors">Book Now</a>
-        </div>
+  <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+    <a href="index.html" class="text-2xl font-bold text-green-800">Alo Chaya</a>
+    <div class="flex items-center space-x-6">
+      <a href="index.html" class="text-gray-700 hover:text-green-800 font-semibold">Home</a>
+      <a href="doctrine.html" class="text-gray-700 hover:text-green-800 font-semibold">Doctrine</a>
+      <a href="index.html#booking" class="bg-green-800 text-white px-4 py-2 rounded-md font-semibold hover:bg-green-700 transition-colors">Book Now</a>
     </div>
+  </div>
 </nav>
 
-<main class="container mx-auto max-w-5xl pt-24 px-4"> 
+<main class="container mx-auto max-w-5xl pt-24 px-4">
+  <header class="text-center mb-12">
+    <h1>Strategic Models & Frameworks</h1>
+    <p class="text-xl text-gray-600">The intellectual architecture behind the Alo Chaya brand and guest experience.</p>
+  </header>
+  <div x-data="{ openSection: 1 }" class="space-y-4">
+
+  <!-- Accordion Section 1: Psychological Architecture -->
+  <div class="bg-white border rounded-lg transition-shadow duration-300" 
+       :class="{ 'shadow-xl': openSection === 1, 'shadow-sm': openSection !== 1 }">
+    <button @click="openSection = (openSection === 1 ? 0 : 1)" 
+            :aria-expanded="openSection === 1" 
+            class="w-full text-left flex justify-between items-center p-6 transition-colors duration-300 hover:bg-gray-50">
+      <h2 class="text-xl font-bold m-0">Psychological Architecture</h2>
+      <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" 
+           :class="{ 'rotate-45': openSection === 1 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+      </svg>
+    </button>
+
+    <div x-show="openSection === 1" 
+         class="px-6 pb-6" 
+         x-transition:enter="transition ease-out duration-500" 
+         x-transition:enter-start="opacity-0" 
+         x-transition:enter-end="opacity-100" 
+         x-transition:leave="transition ease-in duration-300" 
+         x-transition:leave-start="opacity-100" 
+         x-transition:leave-end="opacity-0">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+        <div>
+          <h3>Guest Journey (Packard's 8 Hidden Needs)</h3>
+          <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700 justified-text">
+            <li><strong>Emotional Security:</strong> A safe, serene, family-run heritage estate.</li>
+            <li><strong>Reassurance of Worth:</strong> Attentive, personalized service that values each guest.</li>
+            <li><strong>Ego Gratification:</strong> A sophisticated atmosphere that reflects success.</li>
+            <li><strong>Creative Outlets:</strong> Cultural activities and culinary experiences.</li>
+            <li><strong>Love Objects:</strong> Opportunities for deep family bonding.</li>
+            <li><strong>Sense of Power:</strong> Wellness programs that empower personal health. <a href="https://bigfiveaspects.com/" class="text-blue-600 hover:underline">IP-linked program</a></li>
+            <li><strong>Sense of Roots:</strong> Connection to a powerful dynastic story.</li>
+            <li><strong>Immortality:</strong> Creating timeless memories that become family legacy.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Employee Culture (Maslow's Hierarchy)</h3>
+          <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700 justified-text">
+            <li><strong>Physiological & Safety:</strong> Dignified pay and secure employment.</li>
+            <li><strong>Love & Belonging:</strong> A culture of teamwork and community.</li>
+            <li><strong>Esteem:</strong> Recognition and clear paths for advancement.</li>
+            <li><strong>Cognitive & Aesthetic Needs:</strong> A training academy focused on mastery and quality.</li>
+            <li><strong>Self-Actualization & Transcendence:</strong> Mentorship and contributing to a legacy project.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-6 text-center">
+        <a href="doctrine.html#psychological-architecture" class="text-blue-600 hover:underline text-sm font-semibold">See Full Doctrine →</a>
+      </div>
+      
+    </div>
+  </div>
+  <div x-data="{ openSection: 1 }" class="space-y-4">
+
+  <!-- Psychological Architecture -->
+  <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 1, 'shadow-sm': openSection !== 1 }">
+    <button @click="openSection = (openSection === 1 ? 0 : 1)" class="w-full text-left flex justify-between items-center p-6 hover:bg-gray-50 transition-colors">
+      <h2 class="text-xl font-bold m-0">Psychological Architecture (Packard’s 8 Hidden Needs)</h2>
+      <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" :class="{ 'rotate-45': openSection === 1 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+    </button>
+    <div x-show="openSection === 1" class="px-6 pb-6" x-transition>
+      <ul class="list-disc pl-5 space-y-1 text-gray-700 text-sm">
+        <li>Emotional Security: Safe, serene, family-run heritage estate</li>
+        <li>Reassurance of Worth: Personalized service for every guest</li>
+        <li>Ego Gratification: Sophisticated environment reflecting success</li>
+        <li>Creative Outlets: Cultural workshops, culinary experiences</li>
+        <li>Love Objects: Deep family bonding opportunities</li>
+        <li>Sense of Power: Wellness programs empowering personal health</li>
+        <li>Sense of Roots: Connection to the Hassan dynasty story</li>
+        <li>Immortality: Timeless memories and family legacy creation</li>
+      </ul>
+      <div class="mt-4 text-center">
+        <a href="doctrine.html#psychological-architecture" class="text-blue-600 hover:underline text-sm font-semibold">See Full Doctrine →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Employee Culture (Maslow) -->
+  <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 2, 'shadow-sm': openSection !== 2 }">
+    <button @click="openSection = (openSection === 2 ? 0 : 2)" class="w-full text-left flex justify-between items-center p-6 hover:bg-gray-50 transition-colors">
+      <h2 class="text-xl font-bold m-0">Employee Culture (Maslow Hierarchy)</h2>
+      <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" :class="{ 'rotate-45': openSection === 2 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+    </button>
+    <div x-show="openSection === 2" class="px-6 pb-6" x-transition>
+      <ul class="list-disc pl-5 space-y-1 text-gray-700 text-sm">
+        <li>Physiological & Safety: Competitive pay, job security</li>
+        <li>Love & Belonging: Teamwork, community engagement</li>
+        <li>Esteem: Recognition, advancement paths, skill mastery</li>
+        <li>Cognitive & Aesthetic: Training academy & creative empowerment</li>
+        <li>Self-Actualization & Transcendence: Mentorship and contribution to legacy projects</li>
+      </ul>
+      <div class="mt-4 text-center">
+        <a href="doctrine.html#employee-culture" class="text-blue-600 hover:underline text-sm font-semibold">See Full Doctrine →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7Ps Guest Promise -->
+  <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 3, 'shadow-sm': openSection !== 3 }">
+    <button @click="openSection = (openSection === 3 ? 0 : 3)" class="w-full text-left flex justify-between items-center p-6 hover:bg-gray-50 transition-colors">
+      <h2 class="text-xl font-bold m-0">The 7Ps Guest Promise</h2>
+      <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" :class="{ 'rotate-45': openSection === 3 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+    </button>
+    <div x-show="openSection === 3" class="px-6 pb-6" x-transition>
+      <ul class="list-disc pl-5 space-y-1 text-gray-700 text-sm justified-text">
+        <li>Product: 60,000 sq ft main facility, private lake, curated wellness</li>
+        <li>Price: Transparent premium pricing for unmatched value</li>
+        <li>Place: 87-bigha estate, 2.5 hours from Dhaka</li>
+        <li>Promotion: Heritage storytelling, strategic messaging</li>
+        <li>People: Trained staff delivering sincere, attentive hospitality</li>
+        <li>Process: Seamless, personalized booking & stay experience</li>
+        <li>Physical Evidence: Heritage architecture, curated spaces, and every detail reflecting quality</li>
+      </ul>
+      <div class="mt-4 text-center">
+        <a href="doctrine.html#7ps" class="text-blue-600 hover:underline text-sm font-semibold">See Full Doctrine →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Brand Personality (Jennifer Aaker) -->
+  <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 4, 'shadow-sm': openSection !== 4 }">
+    <button @click="openSection = (openSection === 4 ? 0 : 4)" class="w-full text-left flex justify-between items-center p-6 hover:bg-gray-50 transition-colors">
+      <h2 class="text-xl font-bold m-0">Brand Personality (Jennifer Aaker)</h2>
+      <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" :class="{ 'rotate-45': openSection === 4 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+    </button>
+    <div x-show="openSection === 4" class="px-6 pb-6" x-transition>
+      <ul class="list-disc pl-5 space-y-1 text-gray-700 text-sm justified-text">
+        <li>Sincerity: Genuine, warm, family-focused experiences</li>
+        <li>Excitement: Innovative wellness programs, curated riverine experiences</li>
+        <li>Competence: Flawless operations, expert service delivery</li>
+        <li>Sophistication: Luxurious ambiance and refined aesthetics</li>
+        <li>Ruggedness: Connection to natural surroundings, outdoor exploration</li>
+      </ul>
+      <div class="mt-4 text-center">
+        <a href="doctrine.html#brand-personality" class="text-blue-600 hover:underline text-sm font-semibold">See Full Doctrine →</a>
+      </div>
+    </div>
+  </div>
     
-    <header class="text-center mb-12">
-        <h1>Strategic Models & Frameworks</h1>
-        <p class="text-xl text-gray-600">The intellectual architecture behind the Alo Chaya brand and guest experience.</p>
-    </header>
 
-    <div x-data="{ openSection: 1 }" class="space-y-4">
+  </div>
+  <div x-data="{ openSection: 4 }" class="space-y-4 mt-8">
 
-        <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 1, 'shadow-sm': openSection !== 1 }">
-            <button @click="openSection = (openSection === 1 ? 0 : 1)" :aria-expanded="openSection === 1" class="w-full text-left flex justify-between items-center p-6 transition-colors duration-300 hover:bg-gray-50">
-                <h2 class="text-xl font-bold m-0">Psychological Architecture</h2>
-                <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" :class="{ 'rotate-45': openSection === 1 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-            </button>
-            <div x-show="openSection === 1" class="px-6 pb-6" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
-                    <div>
-                        <h3>Guest Journey (Packard's 8 Hidden Needs)</h3>
-                        <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
-                            <li><strong>Emotional Security:</strong> A safe, serene, family-run heritage estate.</li>
-                            <li><strong>Reassurance of Worth:</strong> Attentive, personalized service that values each guest.</li>
-                            <li><strong>Ego Gratification:</strong> A sophisticated atmosphere that reflects success.</li>
-                            <li><strong>Creative Outlets:</strong> Cultural activities and culinary experiences.</li>
-                            <li><strong>Love Objects:</strong> Opportunities for deep family bonding.</li>
-                            <li><strong>Sense of Power:</strong> Wellness programs that empower personal health.</li>
-                            <li><strong>Sense of Roots:</strong> Connection to a powerful dynastic story.</li>
-                            <li><strong>Immortality:</strong> Creating timeless memories that become family legacy.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Employee Culture (Maslow's Hierarchy)</h3>
-                        <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
-                           <li><strong>Physiological & Safety:</strong> Dignified pay and secure employment.</li>
-                           <li><strong>Love & Belonging:</strong> A culture of teamwork and community.</li>
-                           <li><strong>Esteem:</strong> Recognition and clear paths for advancement.</li>
-                           <li><strong>Cognitive & Aesthetic Needs:</strong> A training academy focused on mastery and quality.</li>
-                           <li><strong>Self-Actualization & Transcendence:</strong> Mentorship and contributing to a legacy project.</li>
-                        </ul>
-                    </div>
-                </div>
-                 <div class="mt-6 text-center"><a href="doctrine.html#psychological-architecture" class="text-blue-600 hover:underline text-sm font-semibold">See Full Doctrine →</a></div>
-            </div>
-        </div>
-        
-        <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 2, 'shadow-sm': openSection !== 2 }">
-             <button @click="openSection = (openSection === 2 ? 0 : 2)" :aria-expanded="openSection === 2" class="w-full text-left flex justify-between items-center p-6 transition-colors duration-300 hover:bg-gray-50">
-                <h2 class="text-xl font-bold m-0">The 7Ps Guest Promise</h2>
-                <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" :class="{ 'rotate-45': openSection === 2 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-            </button>
-             <div x-show="openSection === 2" class="px-6 pb-6" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-                <ul class="list-disc pl-5 pt-4 space-y-3 text-gray-700 justified-text">
-                    <li><strong>Product:</strong> A world-class riverine resort with spacious rooms, a private lake, and curated wellness experiences.</li>
-                    <li><strong>Price:</strong> Premium, transparent pricing that reflects our unmatched value, space, and exclusivity.</li>
-                    <li><strong>Place:</strong> An accessible 87-bigha sanctuary, just 2.5 hours from Dhaka.</li>
-                    <li><strong>Promotion:</strong> An authentic story of heritage, quality, and deep strategic thinking.</li>
-                    <li><strong>People:</strong> A team trained in our doctrine of dignified, attentive, and sincere hospitality.</li>
-                    <li><strong>Process:</strong> A seamless and personalized booking and stay experience.</li>
-                    <li><strong>Physical Evidence:</strong> The stunning 60,000 sq ft main facility, heritage architecture, and every detail that proves our commitment to quality.</li>
-                </ul>
-                <div class="mt-6 text-center"><a href="doctrine.html" class="text-blue-600 hover:underline text-sm font-semibold">See Full Doctrine →</a></div>
-            </div>
-        </div>
-
-        <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 3, 'shadow-sm': openSection !== 3 }">
-            <button @click="openSection = (openSection === 3 ? 0 : 3)" :aria-expanded="openSection === 3" class="w-full text-left flex justify-between items-center p-6 transition-colors duration-300 hover:bg-gray-50">
-                <h2 class="text-xl font-bold m-0">Brand DNA (Kapferer's Prism)</h2>
-                <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" :class="{ 'rotate-45': openSection === 3 }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-            </button>
-            <div x-show="openSection === 3" class="px-6 pb-6" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-                <ul class="list-disc pl-5 pt-4 space-y-2 text-gray-700">
-                    <li><strong>Physique:</strong> 87 Bighas of riverine land, a 60,000 sq ft main facility, a private lake, heritage architecture.</li>
-                    <li><strong>Personality:</strong> Sincere, Competent, Sophisticated, and Creative—inspired by our 'Lighthouse Tales' IP.</li>
-                    <li><strong>Culture:</strong> Rooted in Bangladeshi heritage, eco-conscious hospitality, and a deep culture of storytelling.</li>
-                    <li><strong>Relationship:</strong> A personalized, high-trust partnership with our guests.</li>
-                    <li><strong>Reflection:</strong> The discerning guest seeking genuine heritage, deep wellness, and a true escape.</li>
-                    <li><strong>Self-Image:</strong> Our guests feel valued, rejuvenated, and part of an exclusive, meaningful story.</li>
-                </ul>
-                <div class="mt-6 text-center"><a href="doctrine.html" class="text-blue-600 hover:underline text-sm font-semibold">See Full Doctrine →</a></div>
-            </div>
-        </div>
+  <!-- Keller's Customer-Based Brand Pyramid -->
+  <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 4, 'shadow-sm': openSection !== 4 }">
+    <button @click="openSection = (openSection === 4 ? 0 : 4)" class="w-full text-left flex justify-between items-center p-6 hover:bg-gray-50">
+      <h2 class="text-xl font-bold m-0">Guest Experience Pyramid (Keller)</h2>
+      <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" :class="{ 'rotate-45': openSection === 4 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+      </svg>
+    </button>
+    <div x-show="openSection === 4" class="px-6 pb-6" x-transition>
+      <ul class="list-disc pl-5 pt-4 space-y-2 text-gray-700">
+        <li><strong>Awareness:</strong> Guests immediately sense the heritage and wellness ethos.</li>
+        <li><strong>Meaning:</strong> Experiences are carefully crafted to communicate our values of heritage, luxury, and personal wellness.</li>
+        <li><strong>Response:</strong> Staff monitor guest satisfaction in real time and adjust touchpoints accordingly.</li>
+        <li><strong>Resonance:</strong> Long-term loyalty is fostered via repeat-guest programs, personal follow-ups, and storytelling rooted in the Lighthouse Tales IP.</li>
+      </ul>
+      <div class="mt-4 bg-gray-50 p-4 rounded-lg shadow-sm">
+        <h4 class="font-semibold text-gray-800 mb-2">Our Implementation</h4>
+        <ul class="list-disc pl-5 text-gray-700 text-sm space-y-1">
+          <li>Staff training ensures each layer of the pyramid is actively delivered to guests.</li>
+          <li>Project Lead (Sajid Hassan) reviews operational alignment with the pyramid daily.</li>
+          <li>Management dashboards track guest satisfaction at each pyramid level.</li>
+          <li>Feedback loops guarantee continuous adjustment of service and sensory touchpoints.</li>
+        </ul>
+      </div>
     </div>
-</main>
+  </div>
 
-<footer id="booking" class="booking-section mt-8">
-    <div class="container mx-auto max-w-4xl text-center">
-        <h2>Book Your Escape</h2>
-        <p>Experience the perfect blend of natural serenity and modern luxury. Contact our reservations team to plan your unforgettable getaway.</p>
-        <div class="mt-6">
-            <p class="text-lg"><strong>For Reservations & Enquiries:</strong></p>
-            <p class="text-lg">Phone: <strong>+8801327379392</strong> (WhatsApp available)</p>
-            <p class="text-lg">Email: <strong>alochayariverine.info@gmail.com</strong></p>
-        </div>
-        <a href="tel:+8801327379392" class="button-link">Call to Book Now</a>
+  <!-- Jennifer Aaker Brand Personality -->
+  <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 5, 'shadow-sm': openSection !== 5 }">
+    <button @click="openSection = (openSection === 5 ? 0 : 5)" class="w-full text-left flex justify-between items-center p-6 hover:bg-gray-50">
+      <h2 class="text-xl font-bold m-0">Brand Personality (Jennifer Aaker)</h2>
+      <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" :class="{ 'rotate-45': openSection === 5 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+      </svg>
+    </button>
+    <div x-show="openSection === 5" class="px-6 pb-6" x-transition>
+      <ul class="list-disc pl-5 pt-4 space-y-2 text-gray-700">
+        <li><strong>Sincerity:</strong> Genuine, transparent service delivered by engaged staff.</li>
+        <li><strong>Competence:</strong> Flawless operations ensured by the management team and project lead oversight.</li>
+        <li><strong>Sophistication:</strong> Elegant design, heritage storytelling, and luxurious amenities.</li>
+        <li><strong>Excitement:</strong> Unique experiences such as wellness programs and riverine activities.</li>
+      </ul>
+      <div class="mt-4 bg-gray-50 p-4 rounded-lg shadow-sm">
+        <h4 class="font-semibold text-gray-800 mb-2">Our Implementation</h4>
+        <ul class="list-disc pl-5 text-gray-700 text-sm space-y-1">
+          <li>Staff embody brand personality in every touchpoint: greetings, room presentation, and guest engagement.</li>
+          <li>Project lead coordinates periodic reviews to ensure consistency with Aaker’s framework.</li>
+          <li>Management team aligns marketing, HR, and operational decisions to reinforce Sincerity, Competence, and Sophistication.</li>
+        </ul>
+      </div>
     </div>
+  </div>
+
+  <!-- Kapferer Brand Prism -->
+  <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 6, 'shadow-sm': openSection !== 6 }">
+    <button @click="openSection = (openSection === 6 ? 0 : 6)" class="w-full text-left flex justify-between items-center p-6 hover:bg-gray-50">
+      <h2 class="text-xl font-bold m-0">Brand DNA (Kapferer's Prism)</h2>
+      <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" :class="{ 'rotate-45': openSection === 6 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+      </svg>
+    </button>
+    <div x-show="openSection === 6" class="px-6 pb-6" x-transition>
+      <ul class="list-disc pl-5 pt-4 space-y-2 text-gray-700">
+        <li><strong>Physique:</strong> 87 Bighas, 60,000 sq ft facility, private lake, heritage architecture.</li>
+        <li><strong>Personality:</strong> Sincere, Competent, Sophisticated.</li>
+        <li><strong>Culture:</strong> Eco-conscious, Bangladeshi heritage, storytelling-centered.</li>
+        <li><strong>Relationship:</strong> Personalized high-trust guest relationships.</li>
+        <li><strong>Reflection:</strong> Guests seeking heritage, wellness, and meaningful experiences.</li>
+        <li><strong>Self-Image:</strong> Guests feel valued, rejuvenated, part of a legacy story.</li>
+      </ul>
+      <div class="mt-4 bg-gray-50 p-4 rounded-lg shadow-sm">
+        <h4 class="font-semibold text-gray-800 mb-2">Our Implementation</h4>
+        <ul class="list-disc pl-5 text-gray-700 text-sm space-y-1">
+          <li>Project Lead monitors every operational and wellness initiative against the Prism dimensions.</li>
+          <li>Management team ensures all staff actions, service rituals, and guest touchpoints align with Prism categories.</li>
+          <li>Guests experience the DNA directly via curated activities, wellness programs, and heritage storytelling.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  </main>
+
+<footer id="booking" class="booking-section mt-12">
+  <div class="container mx-auto max-w-4xl text-center">
+    <h2 class="text-2xl font-bold mb-4">Book Your Escape</h2>
+    <p class="text-gray-700 mb-4">Experience Alo Chaya, where heritage meets luxury and wellness. Connect with our reservations team to plan your personalized getaway.</p>
+    
+    <div class="mb-6">
+      <p class="text-lg"><strong>Phone & WhatsApp:</strong></p>
+      <p class="text-lg">
+        <a href="https://wa.me/8801327379392" target="_blank" class="text-green-800 hover:underline font-semibold">
+          +8801327379392 (Please message first, we will call back)
+        </a>
+      </p>
+      <p class="text-lg"><strong>Email:</strong> 
+        <a href="mailto:alochayariverine.info@gmail.com" class="text-green-800 hover:underline font-semibold">
+          alochayariverine.info@gmail.com
+        </a>
+      </p>
+    </div>
+
+    <div class="space-y-3">
+      <a href="tel:+8801327379392" class="inline-block bg-green-800 text-white px-6 py-3 rounded-md font-semibold hover:bg-green-700 transition-colors">
+        Call Now to Book Your Stay
+      </a>
+      <a href="https://wa.me/8801327379392" target="_blank" class="inline-block bg-green-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-green-500 transition-colors">
+        Message on WhatsApp
+      </a>
+      <a href="mailto:alochayariverine.info@gmail.com" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-500 transition-colors">
+        Send an Email
+      </a>
+    </div>
+
+    <p class="mt-6 text-sm text-gray-600">All reservations are managed by our Project Lead and Management Team, ensuring accountability, attention to detail, and alignment with our guest experience and brand values.</p>
+  </div>
 </footer>
+
+<script>
+  // Smooth scroll for internal links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Accordion cleanup: collapse other sections when opening one
+  document.querySelectorAll('[x-data]').forEach(component => {
+    const buttons = component.querySelectorAll('button');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(other => {
+          if (other !== btn) {
+            const parentDiv = other.closest('div[x-data]');
+            parentDiv.__x.$data.openSection = 0;
+          }
+        });
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
