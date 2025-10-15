@@ -66,27 +66,36 @@
   <h2 class="text-3xl font-bold text-green-800 mb-6 text-center">Wellness & Activities</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
     <div>
-      <img src="early-morning-view.mp4" alt="Morning View" class="rounded-lg shadow-md">
+      <video controls class="rounded-lg shadow-md">
+        <source src="early-morning-view.mp4" type="video/mp4">
+      </video>
       <p class="mt-2 text-gray-700 text-sm">Begin your day with guided morning walks along the riverbank and meditation sessions.</p>
     </div>
     <div>
-      <img src="night-view.mp4" alt="Night View" class="rounded-lg shadow-md">
+      <video controls class="rounded-lg shadow-md">
+        <source src="night-view.mp4" type="video/mp4">
+      </video>
       <p class="mt-2 text-gray-700 text-sm">Evening wellness programs, including stargazing, reflective sessions, and ambient music.</p>
     </div>
     <div>
-      <img src="family-suite.mp4" alt="Family Suite" class="rounded-lg shadow-md">
+      <video controls class="rounded-lg shadow-md">
+        <source src="family-suite.mp4" type="video/mp4">
+      </video>
       <p class="mt-2 text-gray-700 text-sm">Spacious family suites that combine comfort with heritage aesthetics for restful stays.</p>
     </div>
     <div>
-      <img src="family-suite-room-right.mp4" alt="Family Suite - Right Wing" class="rounded-lg shadow-md">
+      <video controls class="rounded-lg shadow-md">
+        <source src="family-suite-room-right.mp4" type="video/mp4">
+      </video>
       <p class="mt-2 text-gray-700 text-sm">Right wing view of the family suite, showcasing room layout, lighting, and furniture styling.</p>
     </div>
   </div>
 </section>
+
 <!-- Rooms & Suites Section -->
 <section id="rooms" class="container mx-auto max-w-5xl px-6 py-12">
   <header class="text-center mb-12">
-    <h2 class="text-3xl font-bold text-primary-color">Rooms & Suites</h2>
+    <h2 class="text-3xl font-bold text-green-800">Rooms & Suites</h2> <!-- check color if custom -->
     <p class="text-gray-600 mt-2 text-lg">
       Spacious, serene accommodations designed for families, couples, and discerning travelers.
     </p>
@@ -99,7 +108,7 @@
          :class="{ 'shadow-2xl': openRoom === 1 }">
       <button @click="openRoom = (openRoom === 1 ? null : 1)" 
               class="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
-        <h3 class="text-xl font-semibold text-secondary-color">Family Suite</h3>
+        <h3 class="text-xl font-semibold text-green-700">Family Suite</h3> <!-- check color if custom -->
         <span class="text-gray-500 transform transition-transform duration-300" 
               :class="{ 'rotate-180': openRoom === 1 }">▼</span>
       </button>
@@ -122,43 +131,44 @@
     </div>
 
     <!-- Standard Room -->
-    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300" 
-         :class="{ 'shadow-2xl': openRoom === 2 }">
-      <button @click="openRoom = (openRoom === 2 ? null : 2)" 
-              class="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
-        <h3 class="text-xl font-semibold text-secondary-color">Standard Room</h3>
-        <span class="text-gray-500 transform transition-transform duration-300" 
-              :class="{ 'rotate-180': openRoom === 2 }">▼</span>
-      </button>
-      <div x-show="openRoom === 2" x-transition class="p-6 text-gray-700">
-        <p class="mb-4">
-          Cozy, stylish room with river or garden view. Perfect for couples or solo travelers seeking a serene retreat.
-        </p>
-        <ul class="list-disc pl-5 mb-4">
-          <li><strong>Size:</strong> 345–350 sq ft</li>
-          <li><strong>Pricing:</strong> 20,000 → 15,000 BDT/night</li>
-          <li><strong>Features:</strong> Private bathroom, scenic views, comfortable interiors</li>
-        </ul>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <img src="standard-room.jpg" alt="Standard Room" class="rounded-lg shadow-md">
-          <video controls class="rounded-lg shadow-md">
-            <source src="third-floor-room-1.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
+<div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300" 
+     :class="{ 'shadow-2xl': openRoom === 2 }">
+  <button @click="openRoom = (openRoom === 2 ? null : 2)" 
+          class="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
+    <h3 class="text-xl font-semibold text-secondary-color">Standard Room</h3>
+    <span class="text-gray-500 transform transition-transform duration-300" 
+          :class="{ 'rotate-180': openRoom === 2 }">▼</span>
+  </button>
+  <div x-show="openRoom === 2" x-transition class="p-6 text-gray-700">
+    <p class="mb-4">
+      Cozy, stylish room with river or garden view. Perfect for couples or solo travelers seeking a serene retreat.
+    </p>
+    <ul class="list-disc pl-5 mb-4">
+      <li><strong>Size:</strong> 345–350 sq ft</li>
+      <li><strong>Pricing:</strong> 20,000 → 15,000 BDT/night</li>
+      <li><strong>Features:</strong> Private bathroom, scenic views, comfortable interiors</li>
+    </ul>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <img src="standard-room.jpg" alt="Standard Room" class="rounded-lg shadow-md">
+      <video controls class="rounded-lg shadow-md">
+        <source src="third-floor-room-1.mp4" type="video/mp4">
+      </video>
     </div>
-
-    <!-- Competitive Profile Matrix (CPM) Overview -->
-    <div class="bg-gray-50 p-6 rounded-lg shadow-md mt-8">
-      <h3 class="text-xl font-bold text-secondary-color mb-4">Competitive Profile Matrix Overview</h3>
-      <p class="mb-4 text-gray-700">
-        Compare Alo Chaya against local and international upscale resorts in Dhaka. Features include riverine setting, room sizes, pricing, and exclusivity.
-      </p>
-      <img src="cpm-dashboard.jpg" alt="CPM Dashboard" class="w-full rounded-lg shadow-md">
-    </div>
-
   </div>
+</div>
+
+<!-- Competitive Profile Matrix (CPM) Overview -->
+<div class="bg-gray-50 p-6 rounded-lg shadow-md mt-8">
+  <h3 class="text-xl font-bold text-secondary-color mb-4">Competitive Profile Matrix Overview</h3>
+  <p class="mb-4 text-gray-700">
+    Compare Alo Chaya against local and international upscale resorts in Dhaka. Features include riverine setting, room sizes, pricing, and exclusivity.
+  </p>
+  <img src="cpm-dashboard.jpg" alt="CPM Dashboard" class="w-full rounded-lg shadow-md">
+</div>
+
+</div>
 </section>
+
 <!-- Wellness & Activities Section -->
 <section id="wellness" class="container mx-auto max-w-5xl px-6 py-12">
   <header class="text-center mb-12">
@@ -168,58 +178,63 @@
     </p>
   </header>
 
-  <div x-data="{ openItem: null }" class="space-y-6">
+<div x-data="{ openItem: null }" class="space-y-6">
 
-    <!-- Fitness Components Pyramid -->
-    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300" 
-         :class="{ 'shadow-2xl': openItem === 1 }">
-      <button @click="openItem = (openItem === 1 ? null : 1)" 
-              class="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
-        <h3 class="text-xl font-semibold text-secondary-color">Fitness Components Pyramid</h3>
-        <span class="text-gray-500 transform transition-transform duration-300" 
-              :class="{ 'rotate-180': openItem === 1 }">▼</span>
-      </button>
-      <div x-show="openItem === 1" x-transition class="p-6 text-gray-700">
-        <p class="mb-4">
-          We structure wellness around core fitness components to maximize health benefits:
-        </p>
-        <ul class="list-disc pl-5 mb-4">
-          <li>Cardiovascular Endurance</li>
-          <li>Muscular Strength</li>
-          <li>Muscular Endurance</li>
-          <li>Flexibility</li>
-          <li>Body Composition</li>
-        </ul>
-        <img src="fitness-pyramid.jpg" alt="Fitness Components Pyramid" class="rounded-lg shadow-md w-full">
+  <!-- Fitness Components Pyramid -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300" 
+       :class="{ 'shadow-2xl': openItem === 1 }">
+    <button @click="openItem = (openItem === 1 ? null : 1)" 
+            class="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
+      <h3 class="text-xl font-semibold text-secondary-color">Fitness Components Pyramid</h3>
+      <span class="text-gray-500 transform transition-transform duration-300" 
+            :class="{ 'rotate-180': openItem === 1 }">▼</span>
+    </button>
+    <div x-show="openItem === 1" x-transition class="p-6 text-gray-700">
+      <p class="mb-4">
+        We structure wellness around core fitness components to maximize health benefits:
+      </p>
+      <ul class="list-disc pl-5 mb-4">
+        <li>Cardiovascular Endurance</li>
+        <li>Muscular Strength</li>
+        <li>Muscular Endurance</li>
+        <li>Flexibility</li>
+        <li>Body Composition</li>
+      </ul>
+      <img src="fitness-pyramid.jpg" alt="Fitness Components Pyramid" class="rounded-lg shadow-md w-full">
+    </div>
+  </div>
+
+  <!-- Guest 7P Promise Pyramid -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300" 
+       :class="{ 'shadow-2xl': openItem === 2 }">
+    <button @click="openItem = (openItem === 2 ? null : 2)" 
+            class="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
+      <h3 class="text-xl font-semibold text-secondary-color">Guest 7P Promise</h3>
+      <span class="text-gray-500 transform transition-transform duration-300" 
+            :class="{ 'rotate-180': openItem === 2 }">▼</span>
+    </button>
+    <div x-show="openItem === 2" x-transition class="p-6 text-gray-700">
+      <p class="mb-4">
+        Every touchpoint reflects our 7P commitment to excellence:
+      </p>
+      <ul class="list-disc pl-5 mb-4">
+        <li>Product – Curated experience from check-in to departure</li>
+        <li>Price – Reflecting value and quality</li>
+        <li>Promotion – Storytelling through our wellness content</li>
+        <li>Place – Riverine, serene, nature-integrated spaces</li>
+        <li>People – Trained, mindful staff delivering personalized care</li>
+        <li>Process – Seamless, curated guest journey</li>
+        <li>Physical Evidence – Luxury surroundings and sensory cues</li>
+      </ul>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <img src="alo-chaya-project-lead-balanced-wellness-plate.jpg" alt="Balanced Wellness Plate" class="rounded-lg shadow-md">
+        <img src="alo-chaya-project-lead-golden-basa-fillets.jpg" alt="Golden Basa Fillets" class="rounded-lg shadow-md">
+        <img src="alo-chaya-project-lead-peach-tea.jpg" alt="Signature Peach Tea" class="rounded-lg shadow-md">
+        <img src="alo-chaya-project-lead-thai-chinese-fusion-rice.jpg" alt="Thai-Chinese Fusion Rice" class="rounded-lg shadow-md">
       </div>
     </div>
-
-    <!-- Guest 7P Promise Pyramid -->
-    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300" 
-         :class="{ 'shadow-2xl': openItem === 2 }">
-      <button @click="openItem = (openItem === 2 ? null : 2)" 
-              class="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
-        <h3 class="text-xl font-semibold text-secondary-color">Guest 7P Promise</h3>
-        <span class="text-gray-500 transform transition-transform duration-300" 
-              :class="{ 'rotate-180': openItem === 2 }">▼</span>
-      </button>
-      <div x-show="openItem === 2" x-transition class="p-6 text-gray-700">
-        <p class="mb-4">
-          Every touchpoint reflects our 7P commitment to excellence:
-        </p>
-        <ul class="list-disc pl-5 mb-4">
-          <li>Product – Curated experience from check-in to departure</li>
-          <li>Price – Reflecting value and quality</li>
-          <li>Promotion – Storytelling through our wellness content</li>
-          <li>Place – Riverine, serene, nature-integrated spaces</li>
-          <li>People – Trained, mindful staff delivering personalized care</li>
-          <li>Process – Seamless, curated guest journey</li>
-          <li>Physical Evidence – Luxury surroundings and sensory cues</li>
-        </ul>
-        <img src="guest-7p-pyramid.jpg" alt="Guest 7P Promise Pyramid" class="rounded-lg shadow-md w-full">
-      </div>
-    </div>
-
+  </div>
+</div>
     <!-- Strategic Models Overview -->
     <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300" 
          :class="{ 'shadow-2xl': openItem === 3 }">
@@ -281,74 +296,74 @@
     </p>
 
     <div class="space-y-6">
-      <!-- Accordion 1 -->
-      <details class="group border rounded-2xl p-4 bg-gray-50">
-        <summary class="flex justify-between items-center cursor-pointer">
-          <h3 class="text-xl font-semibold">🍛 Culinary Experience</h3>
-          <span class="text-gray-500 group-open:rotate-180 transition-transform">▼</span>
-        </summary>
-        <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <figure class="rounded-xl overflow-hidden shadow-md">
-            <img src="images/alo-chaya-project-lead-golden-basa-fillets.jpg" alt="Golden Basa Fillets with Light Herb Reduction" class="w-full h-64 object-cover">
-            <figcaption class="text-center mt-2 font-medium text-gray-700">Golden Basa Fillets – Light Herb Reduction</figcaption>
-          </figure>
-          <div>
-            <p class="text-gray-700 leading-relaxed mb-4">
-              Our three signature cuisines — <strong>Bengali-Indian</strong>, <strong>Italian</strong>,
-              and <strong>Pan-Asian Fusion</strong> (Thai, Chinese & Japanese) — are crafted by a professional
-              team with over 15 years of experience. Every dish embodies the Project Lead’s principle:
-              “A leader cooks with his team to understand, balance, and uplift.”
-            </p>
-            <p class="text-gray-700 leading-relaxed">
-              Featured dishes include <em>Golden Basa Fillets</em>, <em>Thai-Chinese Fusion Rice</em>,
-              and the <em>Balanced Wellness Plate</em> — each reflecting harmony between taste and wellbeing.
-            </p>
-          </div>
-        </div>
-        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <img src="images/alo-chaya-project-lead-thai-chinese-fusion-rice.jpg" alt="Thai-Chinese Fusion Rice" class="rounded-xl shadow-md object-cover h-56 w-full">
-          <img src="images/alo-chaya-project-lead-balanced-wellness-plate.jpg" alt="Balanced Wellness Plate" class="rounded-xl shadow-md object-cover h-56 w-full">
-          <img src="images/alo-chaya-project-lead-peach-tea.jpg" alt="Peach Tea" class="rounded-xl shadow-md object-cover h-56 w-full">
-        </div>
-      </details>
-
-      <!-- Accordion 2 -->
-      <details class="group border rounded-2xl p-4 bg-gray-50">
-        <summary class="flex justify-between items-center cursor-pointer">
-          <h3 class="text-xl font-semibold">☕ Beverage & Wellness Bar</h3>
-          <span class="text-gray-500 group-open:rotate-180 transition-transform">▼</span>
-        </summary>
-        <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <p class="text-gray-700 leading-relaxed mb-4">
-              Refreshment at Alo Chaya is an art form. From <strong>espresso macchiatos</strong>
-              to <strong>latte macchiatos with morning syrups</strong> and house-brewed teas
-              like our <em>Signature Peach Tea</em>, each drink blends indulgence and wellness.
-            </p>
-            <p class="text-gray-700 leading-relaxed mb-4">
-              Guests following personalized diet or wellness plans are catered to with
-              tailored options — we suggest, never impose. Every beverage embodies
-              the balance between rejuvenation and mindfulness.
-            </p>
-          </div>
-          <figure class="rounded-xl overflow-hidden shadow-md">
-            <img src="images/alo-chaya-project-lead-peach-tea.jpg" alt="Signature Peach Tea" class="w-full h-64 object-cover">
-            <figcaption class="text-center mt-2 font-medium text-gray-700">Signature Peach Tea — handcrafted at Alo Chaya</figcaption>
-          </figure>
-        </div>
-        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- Placeholder for Monin Tiramisu Espresso -->
-          <figure class="rounded-xl overflow-hidden shadow-md bg-gray-100 flex items-center justify-center h-56">
-            <span class="text-gray-400 italic">Tiramisu Espresso — Image Coming Soon</span>
-          </figure>
-          <!-- Placeholder for Monin Tiramisu Latte -->
-          <figure class="rounded-xl overflow-hidden shadow-md bg-gray-100 flex items-center justify-center h-56">
-            <span class="text-gray-400 italic">Tiramisu Latte — Image Coming Soon</span>
-          </figure>
-        </div>
-      </details>
+  <!-- Accordion 1 -->
+  <details class="group border rounded-2xl p-4 bg-gray-50">
+    <summary class="flex justify-between items-center cursor-pointer">
+      <h3 class="text-xl font-semibold">🍛 Culinary Experience</h3>
+      <span class="text-gray-500 group-open:rotate-180 transition-transform">▼</span>
+    </summary>
+    <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <figure class="rounded-xl overflow-hidden shadow-md">
+        <img src="alo-chaya-project-lead-golden-basa-fillets.jpg" alt="Golden Basa Fillets with Light Herb Reduction" class="w-full h-64 object-cover">
+        <figcaption class="text-center mt-2 font-medium text-gray-700">Golden Basa Fillets – Light Herb Reduction</figcaption>
+      </figure>
+      <div>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Our three signature cuisines — <strong>Bengali-Indian</strong>, <strong>Italian</strong>,
+          and <strong>Pan-Asian Fusion</strong> (Thai, Chinese & Japanese) — are crafted by a professional
+          team with over 15 years of experience. Every dish embodies the Project Lead’s principle:
+          “A leader cooks with his team to understand, balance, and uplift.”
+        </p>
+        <p class="text-gray-700 leading-relaxed">
+          Featured dishes include <em>Golden Basa Fillets</em>, <em>Thai-Chinese Fusion Rice</em>,
+          and the <em>Balanced Wellness Plate</em> — each reflecting harmony between taste and wellbeing.
+        </p>
+      </div>
     </div>
-  </div>
+    <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <img src="alo-chaya-project-lead-thai-chinese-fusion-rice.jpg" alt="Thai-Chinese Fusion Rice" class="rounded-xl shadow-md object-cover h-56 w-full">
+      <img src="alo-chaya-project-lead-balanced-wellness-plate.jpg" alt="Balanced Wellness Plate" class="rounded-xl shadow-md object-cover h-56 w-full">
+      <img src="alo-chaya-project-lead-peach-tea.jpg" alt="Peach Tea" class="rounded-xl shadow-md object-cover h-56 w-full">
+    </div>
+  </details>
+
+  <!-- Accordion 2 -->
+  <details class="group border rounded-2xl p-4 bg-gray-50">
+    <summary class="flex justify-between items-center cursor-pointer">
+      <h3 class="text-xl font-semibold">☕ Beverage & Wellness Bar</h3>
+      <span class="text-gray-500 group-open:rotate-180 transition-transform">▼</span>
+    </summary>
+    <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Refreshment at Alo Chaya is an art form. From <strong>espresso macchiatos</strong>
+          to <strong>latte macchiatos with morning syrups</strong> and house-brewed teas
+          like our <em>Signature Peach Tea</em>, each drink blends indulgence and wellness.
+        </p>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Guests following personalized diet or wellness plans are catered to with
+          tailored options — we suggest, never impose. Every beverage embodies
+          the balance between rejuvenation and mindfulness.
+        </p>
+      </div>
+      <figure class="rounded-xl overflow-hidden shadow-md">
+        <img src="alo-chaya-project-lead-peach-tea.jpg" alt="Signature Peach Tea" class="w-full h-64 object-cover">
+        <figcaption class="text-center mt-2 font-medium text-gray-700">Signature Peach Tea — handcrafted at Alo Chaya</figcaption>
+      </figure>
+    </div>
+    <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Placeholder for Monin Tiramisu Espresso -->
+      <figure class="rounded-xl overflow-hidden shadow-md bg-gray-100 flex items-center justify-center h-56">
+        <span class="text-gray-400 italic">Tiramisu Espresso — Image Coming Soon</span>
+      </figure>
+      <!-- Placeholder for Monin Tiramisu Latte -->
+      <figure class="rounded-xl overflow-hidden shadow-md bg-gray-100 flex items-center justify-center h-56">
+        <span class="text-gray-400 italic">Tiramisu Latte — Image Coming Soon</span>
+      </figure>
+    </div>
+  </details>
+</div>
+</div>
 </section>
 <!-- Ghuraba Taxonomy: Interactive Wellness & Intellectual Pyramid -->
 <section id="ghuraba-taxonomy" class="my-12">
@@ -371,7 +386,7 @@
           <li>Reflection exercises to cultivate inner peace</li>
           <li>Integration with Lighthouse activity books for spiritual enrichment</li>
         </ul>
-        <img src="images/ghuraba-ruh.jpg" alt="Spiritual Reflection" class="mt-4 rounded-lg shadow-md" loading="lazy">
+        <img src="ghuraba-ruh.jpg" alt="Spiritual Reflection" class="mt-4 rounded-lg shadow-md" loading="lazy">
       </div>
     </details>
 
@@ -387,7 +402,7 @@
           <li>Emotional regulation and mindfulness activities</li>
           <li>Understanding motivations and intentions for daily actions</li>
         </ul>
-        <img src="images/ghuraba-nafs.jpg" alt="Emotional Wellness" class="mt-4 rounded-lg shadow-md" loading="lazy">
+        <img src="ghuraba-nafs.jpg" alt="Emotional Wellness" class="mt-4 rounded-lg shadow-md" loading="lazy">
       </div>
     </details>
 
@@ -403,7 +418,7 @@
           <li>Experiential learning: assembling, disassembling, observing</li>
           <li>Ghuraba Taxonomy: Analyzing, Applying, Evaluating, Reflecting</li>
         </ul>
-        <img src="images/ghuraba-intellectual.jpg" alt="Intellectual Learning" class="mt-4 rounded-lg shadow-md" loading="lazy">
+        <img src="ghuraba-intellectual.jpg" alt="Intellectual Learning" class="mt-4 rounded-lg shadow-md" loading="lazy">
       </div>
     </details>
 
@@ -419,7 +434,7 @@
           <li>Nutrition-focused meal planning and diet suggestions</li>
           <li>Wellness center integration: hands-on observation by Project Lead</li>
         </ul>
-        <img src="images/ghuraba-physique.jpg" alt="Physical Wellness" class="mt-4 rounded-lg shadow-md" loading="lazy">
+        <img src="ghuraba-physique.jpg" alt="Physical Wellness" class="mt-4 rounded-lg shadow-md" loading="lazy">
       </div>
     </details>
 
@@ -463,6 +478,7 @@
     });
   });
 </script>
+      
 <!-- Weddings & Events Experience -->
 <section id="weddings-events" class="py-16 bg-white">
   <div class="max-w-6xl mx-auto px-6">
@@ -549,3 +565,4 @@
 </script>
   </body>
 </html>
+
