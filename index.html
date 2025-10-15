@@ -1,79 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alo Chaya - Your Riverine Sanctuary Awaits</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alo Chaya Your Riverine Sanctuary Awaits</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body class="guest-body">
+    <header class="relative h-screen flex items-center justify-center text-center text-white">
+  <video autoplay loop muted playsinline class="absolute z-0 w-full h-full object-cover">
+    <source src="early-morning-view.mp4" type="video/mp4">
+  </video>
+  <div class="absolute z-10 w-full h-full bg-black/60"></div>
+  <h1 class="text-4xl md:text-6xl font-extrabold guest-header text-white">Your Riverine Sanctuary Awaits</h1>
+  <p class="mt-4 text-lg md:text-xl text-gray-200 z-20">Escape the city and discover a world where luxury meets a century of heritage.</p>
+    </header>
+    <main class="container mx-auto max-w-5xl pt-16 space-y-6">
 
-<nav class="bg-white/90 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-md">
-    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-        <a href="guest-index.html" class="text-2xl font-bold text-green-800">Alo Chaya</a>
-        <div>
-            <a href="guest-index.html" class="text-gray-700 hover:text-green-800 font-semibold">Home</a>
-            <a href="guest-doctrine.html" class="text-gray-700 hover:text-green-800 font-semibold">Our Doctrine</a>
-        </div>
+<details class="doctrine-section" open>
+  <summary class="p-4 cursor-pointer flex justify-between items-center">
+    <span class="text-lg font-semibold">Experience Alo Chaya — Photos & Videos</span>
+    <span class="icon text-gray-400">▾</span>
+  </summary>
+  <div class="details-content p-4 fade-section">
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+      <button data-title="MM House" data-src="mm-house.jpg"><img src="mm-house.jpg" alt="MM House" class="w-full h-32 object-cover rounded"></button>
+      <button data-title="60,000 sq ft Overview" data-src="alo-chaya-60000sqf-overview.jpg"><img src="alo-chaya-60000sqf-overview.jpg" alt="Overview" class="w-full h-32 object-cover rounded"></button>
+      <button data-title="Private Lake" data-src="alo-chaya-private-lake.webp"><img src="alo-chaya-private-lake.webp" alt="Lake" class="w-full h-32 object-cover rounded"></button>
+      <button data-title="Family Suite" data-video="family-suite.mp4"><img src="family-suite-room-right.mp4" alt="Family Suite" class="w-full h-32 object-cover rounded"></button>
+      <button data-title="Riverside Gazebo" data-src="alo-chaya-gazebo.webp"><img src="alo-chaya-gazebo.webp" alt="Gazebo" class="w-full h-32 object-cover rounded"></button>
     </div>
-</nav>
+  </div>
+</details>
 
-<header class="relative h-screen flex items-center justify-center text-center text-white">
-    <video autoplay loop muted playsinline class="absolute z-0 w-full h-full object-cover">
-        <source src="early-morning-view.mp4" type="video/mp4">
-    </video>
-    <div class="absolute z-10 w-full h-full bg-black/60"></div>
-    <div class="z-20">
-        <h1 class="text-4xl md:text-6xl font-extrabold guest-header text-white">Your Riverine Sanctuary Awaits</h1>
-        <p class="mt-4 text-lg md:text-xl text-gray-200">Escape the city and discover a world where luxury meets a century of heritage.</p>
+<details class="doctrine-section">
+  <summary class="p-4 cursor-pointer flex justify-between items-center">
+    <span class="text-lg font-semibold">Heritage & Story</span>
+    <span class="icon text-gray-400">▾</span>
+  </summary>
+  <div class="details-content p-4 fade-section">
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+      <button data-title="The Daroga" data-src="founders-grandfather-fatima-mahal-builder-owner.jpg"><img src="founders-grandfather-fatima-mahal-builder-owner.jpg" alt="Daroga" class="w-full h-32 object-cover rounded"></button>
+      <button data-title="Sajid Hassan" data-src="sajid-hassan-founders-third-son-project-lead-author.jpg"><img src="sajid-hassan-founders-third-son-project-lead-author.jpg" alt="Sajid Hassan" class="w-full h-32 object-cover rounded"></button>
     </div>
-</header>
+  </div>
+</details>
+<details class="doctrine-section">
+  <summary class="p-4 cursor-pointer flex justify-between items-center">
+    <span class="text-lg font-semibold">Wellness & Contact</span>
+    <span class="icon text-gray-400">▾</span>
+  </summary>
+  <div class="details-content p-4 fade-section">
+    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+      <li><a href="https://bigfiveaspects.com/" target="_blank" class="text-blue-600 hover:underline">Big Five / DeYoung & Peterson</a></li>
+      <li><a href="https://www.facebook.com/watch/?v=3205338596428844&surface_type=vod&referral_source=vod_deeplink_unit" target="_blank" class="text-blue-600 hover:underline">Facebook Vision Presentation</a></li>
+      <li><a href="https://www.amazon.com/s?k=sajid+hassan" target="_blank" class="text-blue-600 hover:underline">Sajid Hassan — Amazon</a></li>
+      <li><a href="https://www.facebook.com/photo.php?fbid=1258669435963579" target="_blank" class="text-blue-600 hover:underline">Project Photo — Facebook</a></li>
+      <li>WhatsApp: <a href="https://wa.me/8801327379392" target="_blank" class="text-green-600 hover:underline">+8801327379392 (please message first)</a></li>
+      <li>Email: <a href="mailto:alochayariverine.info@gmail.com" class="text-blue-600 hover:underline">alochayariverine.info@gmail.com</a></li>
+    </ul>
+  </div>
+</details>
 
-<main class="container mx-auto max-w-5xl pt-16">
-    <div x-data="{ openSection: 3 }" class="space-y-4 py-8"> <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 1, 'shadow-sm': openSection !== 1 }">
-            <button @click="openSection = (openSection === 1 ? 0 : 1)" class="w-full text-left flex justify-between items-center p-6 hover:bg-gray-50">
-                <h2 class="text-2xl font-bold m-0" style="color: var(--primary-color);">Experience Alo Chaya</h2>
-            </button>
-            <div x-show="openSection === 1" class="px-6 pb-6 text-gray-700 text-justify">
-                <p>Alo Chaya is not just a resort—it’s a century of heritage, thoughtfully curated into a riverine luxury experience. Located just 2.5 hours from Dhaka, our 87-bigha estate is a sanctuary where you awaken to sunlight dancing on the water. The 60,000 sq ft main facility features spacious rooms (≈354 sq ft), each offering more space than a typical Dhaka 5-star hotel.</p>
-            </div>
-        </div>
-
-        <div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 3, 'shadow-sm': openSection !== 3 }">
-            <button @click="openSection = (openSection === 3 ? 0 : 3)" class="w-full text-left flex justify-between items-center p-6 hover:bg-gray-50">
-                <h2 class="text-2xl font-bold m-0" style="color: var(--primary-color);">Our Heritage & Story</h2>
-            </button>
-            <div x-show="openSection === 3" class="px-6 pb-6">
-                <p class="text-gray-600 mb-6 text-center pt-4">Click any image to explore our lineage. Family history is central to the Alo Chaya story.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-daroga" class="w-full text-left"><img src="founders-grandfather-fatima-mahal-builder-owner.jpg" alt="The Daroga" class="w-full h-48 object-cover"><div class="p-3 text-sm"><strong>The Daroga</strong></div></button></div>
-                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-abdul" class="w-full text-left"><img src="project-leads-grandfather-abdul-rashid.png" alt="Abdul Rashid" class="w-full h-48 object-cover"><div class="p-3 text-sm"><strong>Abdul Rashid</strong></div></button></div>
-                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-grandfamily" class="w-full text-left"><img src="grandfather-family-full.jpg" alt="Family of Abdul Rashid" class="w-full h-48 object-cover"><div class="p-3 text-sm"><strong>Family of Abdul Rashid</strong></div></button></div>
-                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-mahmud" class="w-full text-left"><img src="mahmud-tower-replaced-fatima-mahal.jpg" alt="Mahmud Tower" class="w-full h-48 object-cover"><div class="p-3 text-sm"><strong>Mahmud Tower</strong></div></button></div>
-                    <div class="rounded-lg overflow-hidden shadow-md"><button data-modal="modal-sajid" class="w-full text-left"><img src="sajid-hassan-founders-third-son-project-lead-author.jpg" alt="Sajid Hassan" class="w-full h-48 object-cover"><div class="p-3 text-sm"><strong>Sajid Hassan</strong></div></button></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
-
-<div id="modal-daroga" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>The Daroga</h3><img src="founders-grandfather-fatima-mahal-builder-owner.jpg" alt="The Daroga" class="w-full mt-3 rounded-lg"><p class="mt-4 text-gray-700">The Daroga is the project lead Sajid Hassan's paternal great-grandfather and the Founder Mahmudul Hassan's paternal grandfather. Our story begins with him, who moved from Enayet Nagar, Matlab, Chandpur—the very place where Alo Chaya stands today, a century later. He journeyed to the city and built the two-storey Fatima Mahal when his son, Abdul Rashid (the Founder's father), was just three. A man of vision, the Daroga also acquired 72 bighas of land in what is now Dhanmondi 9A and was a father to twelve children.</p></div></div>
-<div id="modal-abdul" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Abdul Rashid</h3><img src="project-leads-grandfather-abdul-rashid.png" alt="Abdul Rashid" class="w-full mt-3 rounded-lg"><p class="mt-4 text-gray-700">Abdul Rashid, son of the Daroga and father of the Founder, represents the generational continuity of the family's presence and vision. His life bridged the gap between the initial establishment in the city and the eventual return to the ancestral lands.</p></div></div>
-<div id="modal-grandfamily" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Family of Abdul Rashid</h3><img src="grandfather-family-full.jpg" alt="Family of Abdul Rashid" class="w-full mt-3 rounded-lg"><p class="mt-4 text-gray-700">The family of Abdul Rashid signifies the expansion and continuation of the legacy, ensuring the values and heritage were passed down to the next generation, including the Founder of Alo Chaya.</p></div></div>
-<div id="modal-mahmud" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Mahmud Tower</h3><img src="mahmud-tower-replaced-fatima-mahal.jpg" alt="Mahmud Tower" class="w-full mt-3 rounded-lg"><p class="mt-4 text-gray-700">The Mahmud Tower, which replaced the original Fatima Mahal, stands as a modern testament to our family's enduring legacy and serves as a primary collateral asset, securing the foundation of the Alo Chaya project.</p></div></div>
-<div id="modal-sajid" class="modal"><div class="modal-content"><span class="modal-close">&times;</span><h3>Sajid Hassan</h3><img src="sajid-hassan-founders-third-son-project-lead-author.jpg" alt="Sajid Hassan" class="w-full mt-3 rounded-lg"><p class="mt-4 text-gray-700">Sajid Hassan, the Founder's third son, is the current Project Lead and author. He carries forward the family's century-long vision, blending deep-rooted heritage with modern strategic frameworks to create the Alo Chaya experience.</p></div></div>
-
-<script>
-    document.querySelectorAll('[data-modal]').forEach(button => {
-        button.onclick = function() { document.getElementById(this.dataset.modal).style.display = "block"; }
+<div id="modal-dynamic" class="modal" style="display:none; position:fixed; top:0; left:0;width:100%;height:100%;background:rgba(0,0,0,0.7); justify-content:center; align-items:center;">
+  <div class="modal-content" style="position:relative; max-width:90%; max-height:90%; background:#fff; padding:10px; border-radius:8px;">
+    <button id="modal-close" style="position:absolute; top:5px; right:10px; font-size:24px;">&times;</button>
+    <h3 id="modal-title" class="text-lg font-bold mb-2"></h3>
+    <img id="modal-img" src="" style="max-width:100%; max-height:80%; display:none; border-radius:6px;">
+    <video id="modal-video" controls style="max-width:100%; max-height:80%; display:none; border-radius:6px;"></video>
+  </div>
+    <script>
+  // Accordion toggle
+  document.querySelectorAll('.doctrine-section summary').forEach(s=>{
+    s.addEventListener('click', e=>{
+      const icon=s.querySelector('.icon'); 
+      if(icon) icon.style.transform=s.parentNode.hasAttribute('open')?'rotate(0deg)':'rotate(180deg)';
     });
-    document.querySelectorAll('.modal-close').forEach(closeButton => {
-        closeButton.onclick = function() { this.closest('.modal').style.display = "none"; }
+  });
+
+  // Dynamic modal
+  const modal=document.getElementById('modal-dynamic');
+  const modalTitle=document.getElementById('modal-title');
+  const modalImg=document.getElementById('modal-img');
+  const modalVideo=document.getElementById('modal-video');
+  document.querySelectorAll('[data-src],[data-video]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      modal.style.display='flex';
+      modalTitle.textContent=btn.getAttribute('data-title')||'';
+      if(btn.dataset.src){
+        modalImg.src=btn.dataset.src; modalImg.style.display='block';
+        modalVideo.style.display='none'; modalVideo.pause();
+      } else if(btn.dataset.video){
+        modalVideo.src=btn.dataset.video; modalVideo.style.display='block';
+        modalImg.style.display='none'; modalVideo.play();
+      }
     });
+  });
+  document.getElementById('modal-close').onclick=()=>{modal.style.display='none'; modalVideo.pause();}
 </script>
-
 </body>
 </html>
+</div>
