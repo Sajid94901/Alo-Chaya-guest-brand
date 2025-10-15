@@ -3,104 +3,408 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alo Chaya Your Riverine Sanctuary Awaits</title>
+<title>Alo Chaya - Your Riverine Sanctuary Awaits</title>
+<link rel="stylesheet" href="styles.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-<link rel="stylesheet" href="styles.css">
 </head>
 <body class="guest-body">
-    <header class="relative h-screen flex items-center justify-center text-center text-white">
+
+<!-- Navbar -->
+<nav class="bg-white/90 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-md">
+  <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+    <a href="index.html" class="text-2xl font-bold text-green-800">Alo Chaya</a>
+    <div class="flex items-center space-x-6">
+      <a href="index.html" class="text-gray-700 hover:text-green-800 font-semibold">Home</a>
+      <a href="guest-doctrine.html" class="text-gray-700 hover:text-green-800 font-semibold">Our Doctrine</a>
+      <a href="models.html" class="text-gray-700 hover:text-green-800 font-semibold">Models & Frameworks</a>
+      <a href="index.html#booking" class="bg-green-800 text-white px-4 py-2 rounded-md font-semibold hover:bg-green-700 transition-colors">Book Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Header Video -->
+<header class="relative h-screen flex items-center justify-center text-center text-white">
   <video autoplay loop muted playsinline class="absolute z-0 w-full h-full object-cover">
     <source src="early-morning-view.mp4" type="video/mp4">
   </video>
   <div class="absolute z-10 w-full h-full bg-black/60"></div>
-  <h1 class="text-4xl md:text-6xl font-extrabold guest-header text-white">Your Riverine Sanctuary Awaits</h1>
-  <p class="mt-4 text-lg md:text-xl text-gray-200 z-20">Escape the city and discover a world where luxury meets a century of heritage.</p>
-    </header>
-    <main class="container mx-auto max-w-5xl pt-16 space-y-6">
+  <div class="z-20">
+    <h1 class="text-4xl md:text-6xl font-extrabold guest-header text-white">Your Riverine Sanctuary Awaits</h1>
+    <p class="mt-4 text-lg md:text-xl text-gray-200">Escape the city and discover a world where luxury meets a century of heritage.</p>
+  </div>
+</header>
 
-<details class="doctrine-section" open>
-  <summary class="p-4 cursor-pointer flex justify-between items-center">
-    <span class="text-lg font-semibold">Experience Alo Chaya — Photos & Videos</span>
-    <span class="icon text-gray-400">▾</span>
-  </summary>
-  <div class="details-content p-4 fade-section">
-    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-      <button data-title="MM House" data-src="mm-house.jpg"><img src="mm-house.jpg" alt="MM House" class="w-full h-32 object-cover rounded"></button>
-      <button data-title="60,000 sq ft Overview" data-src="alo-chaya-60000sqf-overview.jpg"><img src="alo-chaya-60000sqf-overview.jpg" alt="Overview" class="w-full h-32 object-cover rounded"></button>
-      <button data-title="Private Lake" data-src="alo-chaya-private-lake.webp"><img src="alo-chaya-private-lake.webp" alt="Lake" class="w-full h-32 object-cover rounded"></button>
-      <button data-title="Family Suite" data-video="family-suite.mp4"><img src="family-suite-room-right.mp4" alt="Family Suite" class="w-full h-32 object-cover rounded"></button>
-      <button data-title="Riverside Gazebo" data-src="alo-chaya-gazebo.webp"><img src="alo-chaya-gazebo.webp" alt="Gazebo" class="w-full h-32 object-cover rounded"></button>
+<main class="container mx-auto max-w-5xl pt-16 px-4">
+  <div x-data="{ openSection: 1 }" class="space-y-4">
+      <!-- Accordion: Experience Alo Chaya -->
+<div class="bg-white border rounded-lg transition-shadow duration-300" :class="{ 'shadow-xl': openSection === 1, 'shadow-sm': openSection !== 1 }">
+  <button @click="openSection = (openSection === 1 ? 0 : 1)" class="w-full text-left flex justify-between items-center p-6 hover:bg-gray-50">
+    <h2 class="text-2xl font-bold m-0 text-green-800">Experience Alo Chaya</h2>
+    <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" :class="{ 'rotate-45': openSection === 1 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+    </svg>
+  </button>
+  <div x-show="openSection === 1" class="px-6 pb-6 space-y-4" x-transition>
+    <p class="text-gray-700 text-justify">Alo Chaya is not just a resort—it’s a century of heritage thoughtfully curated into a riverine luxury experience. Located just 2.5 hours from Dhaka, our 87-bigha estate is a sanctuary where you awaken to sunlight dancing on the water.</p>
+
+    <!-- Images & Videos -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="rounded-lg overflow-hidden shadow-md">
+        <img src="alo-chaya-60000sqf-overview.jpg" alt="Alo Chaya 60,000 sq ft overview" class="w-full h-48 object-cover">
+        <div class="p-3 text-sm"><strong>Alo Chaya 60,000 sq ft Overview</strong></div>
+      </div>
+      <div class="rounded-lg overflow-hidden shadow-md">
+        <img src="alo-chaya-architecture-map.jpg" alt="Alo Chaya Architecture Map" class="w-full h-48 object-cover">
+        <div class="p-3 text-sm"><strong>Architecture Map</strong></div>
+      </div>
+      <div class="rounded-lg overflow-hidden shadow-md">
+        <img src="alo-chaya-gate.jpg" alt="Alo Chaya Gate" class="w-full h-48 object-cover">
+        <div class="p-3 text-sm"><strong>Main Gate</strong></div>
+      </div>
+      <div class="rounded-lg overflow-hidden shadow-md">
+        <img src="alo-chaya-gazebo.webp" alt="Alo Chaya Gazebo" class="w-full h-48 object-cover">
+        <div class="p-3 text-sm"><strong>Gazebo by the River</strong></div>
+      </div>
+      <div class="rounded-lg overflow-hidden shadow-md">
+        <img src="alo-chaya-private-lake.webp" alt="Private Lake" class="w-full h-48 object-cover">
+        <div class="p-3 text-sm"><strong>Private Lake</strong></div>
+      </div>
+      <div class="rounded-lg overflow-hidden shadow-md">
+        <video controls class="w-full h-48 object-cover">
+          <source src="family-suite.mp4" type="video/mp4">
+        </video>
+        <div class="p-3 text-sm"><strong>Family Suite Tour</strong></div>
+      </div>
     </div>
-  </div>
-</details>
 
-<details class="doctrine-section">
-  <summary class="p-4 cursor-pointer flex justify-between items-center">
-    <span class="text-lg font-semibold">Heritage & Story</span>
-    <span class="icon text-gray-400">▾</span>
-  </summary>
-  <div class="details-content p-4 fade-section">
-    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-      <button data-title="The Daroga" data-src="founders-grandfather-fatima-mahal-builder-owner.jpg"><img src="founders-grandfather-fatima-mahal-builder-owner.jpg" alt="Daroga" class="w-full h-32 object-cover rounded"></button>
-      <button data-title="Sajid Hassan" data-src="sajid-hassan-founders-third-son-project-lead-author.jpg"><img src="sajid-hassan-founders-third-son-project-lead-author.jpg" alt="Sajid Hassan" class="w-full h-32 object-cover rounded"></button>
-    </div>
+    <p class="text-gray-700">Discover our serene pathways, lush lawns, and dedicated spaces for wellness and recreation.</p>
   </div>
-</details>
-<details class="doctrine-section">
-  <summary class="p-4 cursor-pointer flex justify-between items-center">
-    <span class="text-lg font-semibold">Wellness & Contact</span>
-    <span class="icon text-gray-400">▾</span>
-  </summary>
-  <div class="details-content p-4 fade-section">
-    <ul class="list-disc pl-5 space-y-2 text-gray-700">
-      <li><a href="https://bigfiveaspects.com/" target="_blank" class="text-blue-600 hover:underline">Big Five / DeYoung & Peterson</a></li>
-      <li><a href="https://www.facebook.com/watch/?v=3205338596428844&surface_type=vod&referral_source=vod_deeplink_unit" target="_blank" class="text-blue-600 hover:underline">Facebook Vision Presentation</a></li>
-      <li><a href="https://www.amazon.com/s?k=sajid+hassan" target="_blank" class="text-blue-600 hover:underline">Sajid Hassan — Amazon</a></li>
-      <li><a href="https://www.facebook.com/photo.php?fbid=1258669435963579" target="_blank" class="text-blue-600 hover:underline">Project Photo — Facebook</a></li>
-      <li>WhatsApp: <a href="https://wa.me/8801327379392" target="_blank" class="text-green-600 hover:underline">+8801327379392 (please message first)</a></li>
-      <li>Email: <a href="mailto:alochayariverine.info@gmail.com" class="text-blue-600 hover:underline">alochayariverine.info@gmail.com</a></li>
-    </ul>
-  </div>
-</details>
-
-<div id="modal-dynamic" class="modal" style="display:none; position:fixed; top:0; left:0;width:100%;height:100%;background:rgba(0,0,0,0.7); justify-content:center; align-items:center;">
-  <div class="modal-content" style="position:relative; max-width:90%; max-height:90%; background:#fff; padding:10px; border-radius:8px;">
-    <button id="modal-close" style="position:absolute; top:5px; right:10px; font-size:24px;">&times;</button>
-    <h3 id="modal-title" class="text-lg font-bold mb-2"></h3>
-    <img id="modal-img" src="" style="max-width:100%; max-height:80%; display:none; border-radius:6px;">
-    <video id="modal-video" controls style="max-width:100%; max-height:80%; display:none; border-radius:6px;"></video>
-  </div>
-    <script>
-  // Accordion toggle
-  document.querySelectorAll('.doctrine-section summary').forEach(s=>{
-    s.addEventListener('click', e=>{
-      const icon=s.querySelector('.icon'); 
-      if(icon) icon.style.transform=s.parentNode.hasAttribute('open')?'rotate(0deg)':'rotate(180deg)';
-    });
-  });
-
-  // Dynamic modal
-  const modal=document.getElementById('modal-dynamic');
-  const modalTitle=document.getElementById('modal-title');
-  const modalImg=document.getElementById('modal-img');
-  const modalVideo=document.getElementById('modal-video');
-  document.querySelectorAll('[data-src],[data-video]').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      modal.style.display='flex';
-      modalTitle.textContent=btn.getAttribute('data-title')||'';
-      if(btn.dataset.src){
-        modalImg.src=btn.dataset.src; modalImg.style.display='block';
-        modalVideo.style.display='none'; modalVideo.pause();
-      } else if(btn.dataset.video){
-        modalVideo.src=btn.dataset.video; modalVideo.style.display='block';
-        modalImg.style.display='none'; modalVideo.play();
-      }
-    });
-  });
-  document.getElementById('modal-close').onclick=()=>{modal.style.display='none'; modalVideo.pause();}
-</script>
-</body>
-</html>
 </div>
+<!-- Accordion: Our Heritage & Story -->
+<div x-data="{ openSection: 3 }" class="space-y-4">
+
+  <div class="bg-white border rounded-lg transition-shadow duration-300" 
+       :class="{ 'shadow-xl': openSection === 3, 'shadow-sm': openSection !== 3 }">
+    <button @click="openSection = (openSection === 3 ? 0 : 3)" 
+            class="w-full text-left flex justify-between items-center p-6 hover:bg-gray-50">
+      <h2 class="text-2xl font-bold m-0" style="color: var(--primary-color);">Our Heritage & Story</h2>
+      <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" 
+           :class="{ 'rotate-45': openSection === 3 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+      </svg>
+    </button>
+
+    <div x-show="openSection === 3" class="px-6 pb-6" x-transition>
+      <p class="text-gray-600 mb-6 text-justify">Explore the lineage, architecture, and experiences that shape Alo Chaya. Click any image or video to view details and learn our story.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Founder & Ancestors -->
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-daroga" class="w-full text-left">
+            <img src="founders-grandfather-fatima-mahal-builder-owner.jpg" 
+                 alt="The Daroga" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>The Daroga:</strong> Founder Mahmudul Hassan's paternal grandfather, built Fatima Mahal and acquired initial estate lands.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-abdul" class="w-full text-left">
+            <img src="project-leads-grandfather-abdul-rashid.png" 
+                 alt="Abdul Rashid" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>Abdul Rashid:</strong> Son of the Daroga, father of the founder, bridged the initial city establishment to the ancestral lands.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-grandfamily" class="w-full text-left">
+            <img src="grandfather-family-full.jpg" 
+                 alt="Family of Abdul Rashid" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>Family of Abdul Rashid:</strong> Represents the generational continuity and the foundation of the Alo Chaya legacy.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-mahmud" class="w-full text-left">
+            <img src="mahmud-tower-replaced-fatima-mahal.jpg" 
+                 alt="Mahmud Tower" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>Mahmud Tower:</strong> Modern replacement of the original Fatima Mahal, a symbol of continued family vision.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-sajid" class="w-full text-left">
+            <img src="sajid-hassan-founders-third-son-project-lead-author.jpg" 
+                 alt="Sajid Hassan" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>Sajid Hassan:</strong> Third son, project lead, and author; driving the Alo Chaya vision forward today.</div>
+          </button>
+        </div>
+
+        <!-- Key Estate Features -->
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-gate" class="w-full text-left">
+            <img src="alo-chaya-gate.jpg" alt="Main Gate" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>Main Gate:</strong> Welcomes guests to the serene riverine sanctuary.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-gazebo" class="w-full text-left">
+            <img src="alo-chaya-gazebo.webp" alt="Gazebo" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>Gazebo:</strong> Quiet reflection point near the river, blending heritage with natural beauty.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-private-lake" class="w-full text-left">
+            <img src="alo-chaya-private-lake.webp" alt="Private Lake" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>Private Lake:</strong> Offers wellness activities and tranquil views for guests.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-bungalow" class="w-full text-left">
+            <img src="bungalow.jpg" alt="Bungalow" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>Guest Bungalow:</strong> Comfortable lodging with heritage-inspired interiors.</div>
+          </button>
+        </div>
+
+        <!-- Videos -->
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-early-morning" class="w-full text-left">
+            <video class="w-full h-48 object-cover" autoplay loop muted playsinline>
+              <source src="early-morning-view.mp4" type="video/mp4">
+            </video>
+            <div class="p-3 text-sm"><strong>Early Morning View:</strong> Sunrise over the river, capturing the serene riverine ambiance.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-family-suite-room" class="w-full text-left">
+            <video class="w-full h-48 object-cover" autoplay loop muted playsinline>
+              <source src="family-suite-room-right.mp4" type="video/mp4">
+            </video>
+            <div class="p-3 text-sm"><strong>Family Suite Room:</strong> Tour of the spacious suite designed for family comfort.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-family-suite" class="w-full text-left">
+            <video class="w-full h-48 object-cover" autoplay loop muted playsinline>
+              <source src="family-suite.mp4" type="video/mp4">
+            </video>
+            <div class="p-3 text-sm"><strong>Family Suite:</strong> Showcasing all rooms, lounges, and views within the suite.</div>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+      <!-- Accordion continuation: Estate Features & Lighthouse IP -->
+<div x-data="{ openSection: 4 }" class="space-y-4">
+
+  <div class="bg-white border rounded-lg transition-shadow duration-300" 
+       :class="{ 'shadow-xl': openSection === 4, 'shadow-sm': openSection !== 4 }">
+    <button @click="openSection = (openSection === 4 ? 0 : 4)" 
+            class="w-full text-left flex justify-between items-center p-6 hover:bg-gray-50">
+      <h2 class="text-2xl font-bold m-0" style="color: var(--primary-color);">Estate Features & Lighthouse Tales</h2>
+      <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" 
+           :class="{ 'rotate-45': openSection === 4 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+      </svg>
+    </button>
+
+    <div x-show="openSection === 4" class="px-6 pb-6" x-transition>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-pathway" class="w-full text-left">
+            <img src="pathway.jpg" alt="Estate Pathway" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>Estate Pathway:</strong> Scenic walks connecting gardens, rooms, and the riverfront.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-front-lawn" class="w-full text-left">
+            <img src="front-lawn.jpg" alt="Front Lawn" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>Front Lawn:</strong> Ideal for gatherings, events, or morning tea with river views.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-resort-helipad" class="w-full text-left">
+            <img src="resort-helipad.jpg" alt="Helipad" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>Resort Helipad:</strong> Convenient VIP and emergency access point.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-side-view-river" class="w-full text-left">
+            <img src="side-view-of-the-dhonagoda-river.jpg" alt="Side View of Dhonagoda River" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>Dhonagoda River:</strong> Stunning river views from the estate perimeter.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-view-from-bridge" class="w-full text-left">
+            <img src="view-from-bridge-near-gazebo-at-dusk.jpg" alt="View from Bridge at Dusk" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>Bridge View at Dusk:</strong> Captures the warm glow over the river and gazebo.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-view-second-floor" class="w-full text-left">
+            <img src="view-from-second-floor-at-dawn.jpg" alt="View from Second Floor at Dawn" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>Second Floor Dawn View:</strong> Morning light streaming through windows onto the estate.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-third-floor-room" class="w-full text-left">
+            <video class="w-full h-48 object-cover" autoplay loop muted playsinline>
+              <source src="third-floor-room-1.mp4" type="video/mp4">
+            </video>
+            <div class="p-3 text-sm"><strong>Third Floor Room:</strong> Spacious layout and natural lighting for guests.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-hierarchy-skills" class="w-full text-left">
+            <img src="hierarchy-of-skills.jpg" alt="Hierarchy of Skills" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>Hierarchy of Skills:</strong> Training and accountability model for staff and management.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-lighthouse-promo-v1" class="w-full text-left">
+            <img src="lighthouse-promo-v1-v2-s1.jpg" alt="Lighthouse Promo V1 S1" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>Lighthouse Promo V1 S1:</strong> Showcases the intellectual property behind Alo Chaya experiences.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-lighthouse-promo-v2" class="w-full text-left">
+            <img src="lighthouse-promo-v2-s2.jpg" alt="Lighthouse Promo V2 S2" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>Lighthouse Promo V2 S2:</strong> Extended promo content highlighting heritage, wellness, and storytelling.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-strangers-rulebook" class="w-full text-left">
+            <img src="strangers-of-the-lighthouse-rulebook-and-cover.jpg" alt="Strangers of the Lighthouse Rulebook" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>Strangers Rulebook & Cover:</strong> Core IP guiding the narrative and guest experience philosophy.</div>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Final Accordion Section: Remaining Media & Contact -->
+<div x-data="{ openSection: 5 }" class="space-y-4">
+
+  <div class="bg-white border rounded-lg transition-shadow duration-300" 
+       :class="{ 'shadow-xl': openSection === 5, 'shadow-sm': openSection !== 5 }">
+    <button @click="openSection = (openSection === 5 ? 0 : 5)" 
+            class="w-full text-left flex justify-between items-center p-6 hover:bg-gray-50">
+      <h2 class="text-2xl font-bold m-0" style="color: var(--primary-color);">Remaining Media & Contact</h2>
+      <svg class="w-6 h-6 text-gray-500 transform transition-transform duration-500" 
+           :class="{ 'rotate-45': openSection === 5 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+      </svg>
+    </button>
+
+    <div x-show="openSection === 5" class="px-6 pb-6" x-transition>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-family-suite" class="w-full text-left">
+            <video class="w-full h-48 object-cover" autoplay loop muted playsinline>
+              <source src="family-suite.mp4" type="video/mp4">
+            </video>
+            <div class="p-3 text-sm"><strong>Family Suite Video:</strong> Experience the luxury and comfort of our family suite rooms.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-family-suite-right" class="w-full text-left">
+            <video class="w-full h-48 object-cover" autoplay loop muted playsinline>
+              <source src="family-suite-room-right.mp4" type="video/mp4">
+            </video>
+            <div class="p-3 text-sm"><strong>Family Suite Right View:</strong> Detailed view of suite layout and river-facing amenities.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-early-morning" class="w-full text-left">
+            <video class="w-full h-48 object-cover" autoplay loop muted playsinline>
+              <source src="early-morning-view.mp4" type="video/mp4">
+            </video>
+            <div class="p-3 text-sm"><strong>Early Morning View:</strong> Peaceful sunrise over the estate and river.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-bungalow" class="w-full text-left">
+            <img src="bungalow.jpg" alt="Bungalow" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>Bungalow:</strong> Private retreat options within the Alo Chaya estate.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-alo-architecture" class="w-full text-left">
+            <img src="alo-chaya-architecture-map.jpg" alt="Alo Chaya Architecture Map" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>Architecture Map:</strong> Detailed layout of the main estate and riverine structures.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-alo-overview" class="w-full text-left">
+            <img src="alo-chaya-60000sqf-overview.jpg" alt="Alo Chaya Overview" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>60,000 sq ft Overview:</strong> Full visual of the main facility, gardens, and lakeside view.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-gazebo" class="w-full text-left">
+            <img src="alo-chaya-gazebo.webp" alt="Gazebo" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>Gazebo:</strong> Serene spot for guests to enjoy the river breeze and heritage ambiance.</div>
+          </button>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <button data-modal="modal-private-lake" class="w-full text-left">
+            <img src="alo-chaya-private-lake.webp" alt="Private Lake" class="w-full h-48 object-cover">
+            <div class="p-3 text-sm"><strong>Private Lake:</strong> Exclusive for guests for reflection, walking, and boating.</div>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Contact Section -->
+      <div class="mt-8 text-center bg-green-50 p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-4" style="color: var(--primary-color);">Contact & Reservations</h2>
+        <p class="mb-2 text-gray-700">WhatsApp: <a href="https://wa.me/8801327379392" target="_blank" class="text-blue-600 hover:underline">+8801327379392</a> (please message first, we will call back)</p>
+        <p class="mb-4 text-gray-700">Email: <a href="mailto:alochayariverine.info@gmail.com" class="text-blue-600 hover:underline">alochayariverine.info@gmail.com</a></p>
+        <p class="text-gray-700">Plan your stay, explore the wellness program, or browse our Lighthouse Tales IP.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Closing HTML -->
+<script>
+  document.querySelectorAll('[data-modal]').forEach(button => {
+    button.onclick = function() { document.getElementById(this.dataset.modal).style.display = "block"; }
+  });
+  document.querySelectorAll('.modal-close').forEach(closeButton => {
+    closeButton.onclick = function() { this.closest('.modal').style.display = "none"; }
+  });
+</script>
+
+</body>
+  </html>
