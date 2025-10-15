@@ -463,3 +463,89 @@
     });
   });
 </script>
+<!-- Weddings & Events Experience -->
+<section id="weddings-events" class="py-16 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-8">Weddings & Events at Alo Chaya</h2>
+    <p class="text-center text-gray-600 mb-12 leading-relaxed">
+      Celebrate your most cherished moments with elegance and style. Our riverine resort offers exclusive spaces, professional planning, and unforgettable experiences.
+    </p>
+
+    <div class="space-y-6">
+      <!-- Accordion: Wedding Venues -->
+      <details class="group border rounded-2xl p-4 bg-gray-50">
+        <summary class="flex justify-between items-center cursor-pointer text-xl font-semibold text-secondary-color" aria-expanded="false">
+          Wedding Venues
+          <span class="icon transition-transform duration-300">▼</span>
+        </summary>
+        <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <figure class="rounded-xl overflow-hidden shadow-md">
+            <img src="images/front-lawn.jpg" alt="Front Lawn Wedding Setup" class="w-full h-64 object-cover" loading="lazy">
+            <figcaption class="text-center mt-2 font-medium text-gray-700">Front Lawn – Outdoor Ceremony</figcaption>
+          </figure>
+          <figure class="rounded-xl overflow-hidden shadow-md">
+            <img src="images/alo-chaya-gazebo.webp" alt="Gazebo Wedding Setup" class="w-full h-64 object-cover" loading="lazy">
+            <figcaption class="text-center mt-2 font-medium text-gray-700">Gazebo – Intimate Ceremony</figcaption>
+          </figure>
+        </div>
+      </details>
+
+      <!-- Accordion: Event Spaces -->
+      <details class="group border rounded-2xl p-4 bg-gray-50">
+        <summary class="flex justify-between items-center cursor-pointer text-xl font-semibold text-secondary-color" aria-expanded="false">
+          Event Spaces
+          <span class="icon transition-transform duration-300">▼</span>
+        </summary>
+        <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <p class="text-gray-700 leading-relaxed">
+            Alo Chaya provides versatile spaces for corporate events, private gatherings, and celebrations. With professional support, each event is curated to exceed expectations.
+          </p>
+          <figure class="rounded-xl overflow-hidden shadow-md">
+            <img src="images/event-hall.jpg" alt="Event Hall Setup" class="w-full h-64 object-cover" loading="lazy">
+            <figcaption class="text-center mt-2 font-medium text-gray-700">Indoor Event Hall – Fully Equipped</figcaption>
+          </figure>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Accordion Script for Weddings & Events -->
+<script>
+  document.querySelectorAll('#weddings-events details').forEach((section) => {
+    const summary = section.querySelector('summary');
+    const icon = summary.querySelector('.icon');
+    const content = section.querySelector('.details-content') || section.querySelector('div');
+
+    summary.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isOpen = section.hasAttribute('open');
+      const startHeight = content.scrollHeight;
+
+      if(isOpen) {
+        content.style.height = `${startHeight}px`;
+        requestAnimationFrame(() => {
+          content.style.height = '0';
+          section.removeAttribute('open');
+          summary.setAttribute('aria-expanded', 'false');
+          if(icon) icon.style.transform = 'rotate(0deg)';
+        });
+      } else {
+        section.setAttribute('open', '');
+        summary.setAttribute('aria-expanded', 'true');
+        const endHeight = content.scrollHeight;
+        content.style.height = '0';
+        requestAnimationFrame(() => {
+          content.style.height = `${endHeight}px`;
+          if(icon) icon.style.transform = 'rotate(180deg)';
+        });
+      }
+
+      content.addEventListener('transitionend', () => {
+        if(section.hasAttribute('open')) content.style.height = 'auto';
+      }, { once: true });
+    });
+  });
+</script>
+  </body>
+</html>
