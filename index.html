@@ -350,3 +350,116 @@
     </div>
   </div>
 </section>
+<!-- Ghuraba Taxonomy: Interactive Wellness & Intellectual Pyramid -->
+<section id="ghuraba-taxonomy" class="my-12">
+  <h2 class="text-3xl font-bold text-primary-color mb-6 text-center">The Ghuraba Taxonomy</h2>
+  <p class="text-center text-gray-700 mb-8">
+    A holistic approach to your wellness and learning journey, integrating soul, self, intellect, and physique.
+  </p>
+
+  <div class="taxonomy-container max-w-4xl mx-auto space-y-4">
+
+    <!-- Level 1: Ruh -->
+    <details class="bg-white rounded-lg shadow p-6 transition-all duration-500">
+      <summary class="cursor-pointer text-xl font-semibold text-secondary-color flex justify-between items-center" aria-expanded="false">
+        Ruh (Soul) — Spiritual Foundation
+        <span class="icon transition-transform duration-300">▼</span>
+      </summary>
+      <div class="details-content mt-4 text-gray-700">
+        <ul class="list-disc ml-5 space-y-2">
+          <li>Daily prayers, tazkir, and tafseer guidance</li>
+          <li>Reflection exercises to cultivate inner peace</li>
+          <li>Integration with Lighthouse activity books for spiritual enrichment</li>
+        </ul>
+        <img src="images/ghuraba-ruh.jpg" alt="Spiritual Reflection" class="mt-4 rounded-lg shadow-md" loading="lazy">
+      </div>
+    </details>
+
+    <!-- Level 2: Nafs -->
+    <details class="bg-white rounded-lg shadow p-6 transition-all duration-500">
+      <summary class="cursor-pointer text-xl font-semibold text-secondary-color flex justify-between items-center" aria-expanded="false">
+        Nafs (Self/Emotions) — Emotional Wellness
+        <span class="icon transition-transform duration-300">▼</span>
+      </summary>
+      <div class="details-content mt-4 text-gray-700">
+        <ul class="list-disc ml-5 space-y-2">
+          <li>Guided self-reflection exercises</li>
+          <li>Emotional regulation and mindfulness activities</li>
+          <li>Understanding motivations and intentions for daily actions</li>
+        </ul>
+        <img src="images/ghuraba-nafs.jpg" alt="Emotional Wellness" class="mt-4 rounded-lg shadow-md" loading="lazy">
+      </div>
+    </details>
+
+    <!-- Level 3: Intellectual -->
+    <details class="bg-white rounded-lg shadow p-6 transition-all duration-500">
+      <summary class="cursor-pointer text-xl font-semibold text-secondary-color flex justify-between items-center" aria-expanded="false">
+        Intellectual (Brain) — Knowledge & Learning
+        <span class="icon transition-transform duration-300">▼</span>
+      </summary>
+      <div class="details-content mt-4 text-gray-700">
+        <ul class="list-disc ml-5 space-y-2">
+          <li>Lighthouse activity books curated by Project Lead</li>
+          <li>Experiential learning: assembling, disassembling, observing</li>
+          <li>Ghuraba Taxonomy: Analyzing, Applying, Evaluating, Reflecting</li>
+        </ul>
+        <img src="images/ghuraba-intellectual.jpg" alt="Intellectual Learning" class="mt-4 rounded-lg shadow-md" loading="lazy">
+      </div>
+    </details>
+
+    <!-- Level 4: Physique -->
+    <details class="bg-white rounded-lg shadow p-6 transition-all duration-500">
+      <summary class="cursor-pointer text-xl font-semibold text-secondary-color flex justify-between items-center" aria-expanded="false">
+        Physique (Body) — Physical Wellness
+        <span class="icon transition-transform duration-300">▼</span>
+      </summary>
+      <div class="details-content mt-4 text-gray-700">
+        <ul class="list-disc ml-5 space-y-2">
+          <li>Fitness routines and movement activities</li>
+          <li>Nutrition-focused meal planning and diet suggestions</li>
+          <li>Wellness center integration: hands-on observation by Project Lead</li>
+        </ul>
+        <img src="images/ghuraba-physique.jpg" alt="Physical Wellness" class="mt-4 rounded-lg shadow-md" loading="lazy">
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<!-- Accordion Script -->
+<script>
+  document.querySelectorAll('#ghuraba-taxonomy details').forEach((section) => {
+    const summary = section.querySelector('summary');
+    const icon = summary.querySelector('.icon');
+    const content = section.querySelector('.details-content');
+
+    summary.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isOpen = section.hasAttribute('open');
+      const startHeight = content.scrollHeight;
+
+      if(isOpen) {
+        content.style.height = `${startHeight}px`;
+        requestAnimationFrame(() => {
+          content.style.height = '0';
+          section.removeAttribute('open');
+          summary.setAttribute('aria-expanded', 'false');
+          if(icon) icon.style.transform = 'rotate(0deg)';
+        });
+      } else {
+        section.setAttribute('open', '');
+        summary.setAttribute('aria-expanded', 'true');
+        const endHeight = content.scrollHeight;
+        content.style.height = '0';
+        requestAnimationFrame(() => {
+          content.style.height = `${endHeight}px`;
+          if(icon) icon.style.transform = 'rotate(180deg)';
+        });
+      }
+
+      content.addEventListener('transitionend', () => {
+        if(section.hasAttribute('open')) content.style.height = 'auto';
+      }, { once: true });
+    });
+  });
+</script>
