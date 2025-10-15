@@ -330,6 +330,109 @@
     });
   });
 </script>
+<!-- Guraba Taxonomy: Wellness & RUH Development -->
+<section class="guraba-taxonomy container max-w-5xl mx-auto px-6 py-10">
+  <h2 class="text-3xl font-bold text-primary-color mb-6 text-center">The Guraba Taxonomy</h2>
+  <p class="text-gray-700 text-center mb-8">
+    Understanding your development: Intellectual → Soul (Ruh) → Nafs → Body. Click each stage to explore curated experiences.
+  </p>
 
+  <div class="taxonomy-container flex flex-col gap-6">
+
+    <!-- Intellectual -->
+    <details class="bg-white rounded-lg shadow p-6">
+      <summary class="cursor-pointer text-2xl font-semibold text-secondary-color flex justify-between items-center">
+        Intellectual (Brain) <span class="icon transition-transform duration-300">▼</span>
+      </summary>
+      <div class="details-content mt-4 text-gray-700">
+        <p class="mb-4">Analytical thinking, problem solving, understanding the world. Examples from wellness center:</p>
+        <ul class="list-disc list-inside">
+          <li>Activity books: Puzzles, strategy games, reflection exercises</li>
+          <li>Interactive wellness: Cognitive exercises in mindfulness</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Soul / Ruh -->
+    <details class="bg-white rounded-lg shadow p-6">
+      <summary class="cursor-pointer text-2xl font-semibold text-secondary-color flex justify-between items-center">
+        Soul (Ruh) <span class="icon transition-transform duration-300">▼</span>
+      </summary>
+      <div class="details-content mt-4 text-gray-700">
+        <p class="mb-4">Spiritual development, reflection, purpose, and inner alignment:</p>
+        <ul class="list-disc list-inside">
+          <li>Islamic narratives & tazkir sessions</li>
+          <li>Activity books: Stories, reflective prompts, guided contemplation</li>
+          <li>Experiential exercises: Listening, observing, journaling</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Nafs / Self -->
+    <details class="bg-white rounded-lg shadow p-6">
+      <summary class="cursor-pointer text-2xl font-semibold text-secondary-color flex justify-between items-center">
+        Nafs (Self / Emotions) <span class="icon transition-transform duration-300">▼</span>
+      </summary>
+      <div class="details-content mt-4 text-gray-700">
+        <p class="mb-4">Emotional regulation, self-awareness, experiential learning:</p>
+        <ul class="list-disc list-inside">
+          <li>Wellness activities: Guided reflection, group exercises</li>
+          <li>Activity books: Self-assessment prompts, journaling exercises</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Physical / Body -->
+    <details class="bg-white rounded-lg shadow p-6">
+      <summary class="cursor-pointer text-2xl font-semibold text-secondary-color flex justify-between items-center">
+        Physical (Body) <span class="icon transition-transform duration-300">▼</span>
+      </summary>
+      <div class="details-content mt-4 text-gray-700">
+        <p class="mb-4">Fitness, wellness, and physical experience:</p>
+        <ul class="list-disc list-inside">
+          <li>Wellness exercises: Stretching, walking paths, light cardio</li>
+          <li>Optional hands-on sessions: Acupuncture, body therapy (supervised)</li>
+        </ul>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<script>
+  // Accordion smooth open/close
+  document.querySelectorAll('.taxonomy-container details').forEach((section) => {
+    const summary = section.querySelector('summary');
+    const icon = summary.querySelector('.icon');
+    const content = section.querySelector('.details-content');
+
+    summary.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isOpen = section.hasAttribute('open');
+      const startHeight = content.scrollHeight;
+
+      if (isOpen) {
+        content.style.height = `${startHeight}px`;
+        requestAnimationFrame(() => {
+          content.style.height = '0';
+          section.removeAttribute('open');
+          if(icon) icon.style.transform = 'rotate(0deg)';
+        });
+      } else {
+        section.setAttribute('open', '');
+        const endHeight = content.scrollHeight;
+        content.style.height = '0';
+        requestAnimationFrame(() => {
+          content.style.height = `${endHeight}px`;
+          if(icon) icon.style.transform = 'rotate(180deg)';
+        });
+      }
+
+      content.addEventListener('transitionend', () => {
+        if (section.hasAttribute('open')) content.style.height = 'auto';
+      }, { once: true });
+    });
+  });
+</script>
 </body>
 </html>
