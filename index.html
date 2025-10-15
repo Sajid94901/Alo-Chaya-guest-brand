@@ -270,45 +270,83 @@
 
   </div>
 </section>
-<!-- Dining, Beverages & Wellness -->
-<div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 mt-6">
-  <button @click="openItem = (openItem === 2 ? null : 2)" 
-          class="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
-    <h3 class="text-xl font-semibold text-secondary-color">Dining, Beverages & Wellness</h3>
-    <span class="text-gray-500 transform transition-transform duration-300" 
-          :class="{ 'rotate-180': openItem === 2 }">▼</span>
-  </button>
-  <div x-show="openItem === 2" x-transition class="p-6 text-gray-700">
-    
-    <!-- Wellness & Nutrition -->
-    <p class="mb-4">
-      For guests on dietary or purely nutritional plans, our team provides tailored suggestions. You are never forced — your preferences guide the experience, and adjustments are always welcome.
+<!-- Dining & Beverage Experience -->
+<section id="dining" class="py-16 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-8">Culinary & Beverage Experience</h2>
+    <p class="text-center text-gray-600 mb-12 leading-relaxed">
+      At Alo Chaya, dining is a journey — where local craftsmanship meets global flavor.
+      Our cuisines and drinks are curated with sincerity, discipline, and artistry under the
+      guidance of the Project Lead, who has been mastering culinary craft since 2013.
     </p>
 
-    <!-- 7P Guest Promise Pyramid -->
-    <div class="mb-6">
-      <h4 class="font-bold text-lg text-secondary-color mb-3">Our 7P Guest Promise</h4>
-      <ul class="list-disc pl-5 space-y-1">
-        <li><strong>Product:</strong> Holistic culinary journey & accommodations</li>
-        <li><strong>Price:</strong> Value-driven, upscale experience</li>
-        <li><strong>Place:</strong> Riverine retreat blending nature & serenity</li>
-        <li><strong>Promotion:</strong> Authentic storytelling across channels</li>
-        <li><strong>People:</strong> Our attentive, highly trained team</li>
-        <li><strong>Process:</strong> Curated experiences based on your preferences</li>
-        <li><strong>Physical Evidence:</strong> Spaces, ambience, and touches that reinforce our promise</li>
-      </ul>
-    </div>
+    <div class="space-y-6">
+      <!-- Accordion 1 -->
+      <details class="group border rounded-2xl p-4 bg-gray-50">
+        <summary class="flex justify-between items-center cursor-pointer">
+          <h3 class="text-xl font-semibold">🍛 Culinary Experience</h3>
+          <span class="text-gray-500 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <figure class="rounded-xl overflow-hidden shadow-md">
+            <img src="images/alo-chaya-project-lead-golden-basa-fillets.jpg" alt="Golden Basa Fillets with Light Herb Reduction" class="w-full h-64 object-cover">
+            <figcaption class="text-center mt-2 font-medium text-gray-700">Golden Basa Fillets – Light Herb Reduction</figcaption>
+          </figure>
+          <div>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Our three signature cuisines — <strong>Bengali-Indian</strong>, <strong>Italian</strong>,
+              and <strong>Pan-Asian Fusion</strong> (Thai, Chinese & Japanese) — are crafted by a professional
+              team with over 15 years of experience. Every dish embodies the Project Lead’s principle:
+              “A leader cooks with his team to understand, balance, and uplift.”
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+              Featured dishes include <em>Golden Basa Fillets</em>, <em>Thai-Chinese Fusion Rice</em>,
+              and the <em>Balanced Wellness Plate</em> — each reflecting harmony between taste and wellbeing.
+            </p>
+          </div>
+        </div>
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <img src="images/alo-chaya-project-lead-thai-chinese-fusion-rice.jpg" alt="Thai-Chinese Fusion Rice" class="rounded-xl shadow-md object-cover h-56 w-full">
+          <img src="images/alo-chaya-project-lead-balanced-wellness-plate.jpg" alt="Balanced Wellness Plate" class="rounded-xl shadow-md object-cover h-56 w-full">
+          <img src="images/alo-chaya-project-lead-peach-tea.jpg" alt="Peach Tea" class="rounded-xl shadow-md object-cover h-56 w-full">
+        </div>
+      </details>
 
-    <!-- Wellness Visual -->
-    <div class="mb-4">
-      <img src="wellness-nutrition.jpg" alt="Wellness and Nutrition" class="rounded-lg shadow-md w-full">
-    </div>
-
-    <!-- Interactive Pyramid Diagram Placeholder -->
-    <div class="bg-gray-50 rounded-lg p-4 text-center">
-      <p class="italic text-gray-500">
-        Interactive 7P Pyramid Diagram here (hover/click for details)
-      </p>
+      <!-- Accordion 2 -->
+      <details class="group border rounded-2xl p-4 bg-gray-50">
+        <summary class="flex justify-between items-center cursor-pointer">
+          <h3 class="text-xl font-semibold">☕ Beverage & Wellness Bar</h3>
+          <span class="text-gray-500 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Refreshment at Alo Chaya is an art form. From <strong>espresso macchiatos</strong>
+              to <strong>latte macchiatos with morning syrups</strong> and house-brewed teas
+              like our <em>Signature Peach Tea</em>, each drink blends indulgence and wellness.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Guests following personalized diet or wellness plans are catered to with
+              tailored options — we suggest, never impose. Every beverage embodies
+              the balance between rejuvenation and mindfulness.
+            </p>
+          </div>
+          <figure class="rounded-xl overflow-hidden shadow-md">
+            <img src="images/alo-chaya-project-lead-peach-tea.jpg" alt="Signature Peach Tea" class="w-full h-64 object-cover">
+            <figcaption class="text-center mt-2 font-medium text-gray-700">Signature Peach Tea — handcrafted at Alo Chaya</figcaption>
+          </figure>
+        </div>
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Placeholder for Monin Tiramisu Espresso -->
+          <figure class="rounded-xl overflow-hidden shadow-md bg-gray-100 flex items-center justify-center h-56">
+            <span class="text-gray-400 italic">Tiramisu Espresso — Image Coming Soon</span>
+          </figure>
+          <!-- Placeholder for Monin Tiramisu Latte -->
+          <figure class="rounded-xl overflow-hidden shadow-md bg-gray-100 flex items-center justify-center h-56">
+            <span class="text-gray-400 italic">Tiramisu Latte — Image Coming Soon</span>
+          </figure>
+        </div>
+      </details>
     </div>
   </div>
-</div>
+</section>
