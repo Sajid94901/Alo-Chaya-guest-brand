@@ -1,165 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alo Chaya — The Doctrine Behind Your Stay</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alo Chaya — Guest Models & Doctrine</title>
 
-  <!-- Fonts & Styles -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles.css" />
+<!-- Fonts & Styles -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="styles.css" />
+
+<style>
+  :root { --primary-color: #064e3b; --secondary-color: #1e3a8a; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, sans-serif; background-color: #f8fafc; color: #1e293b; line-height: 1.7; }
+  h1 { font-size: 2.5rem; font-weight: 800; text-align: center; color: var(--primary-color); margin-bottom: 2rem; }
+  h2 { font-size: 2rem; font-weight: 700; color: var(--primary-color); }
+  h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: var(--secondary-color); }
+  .justified-text { text-align: justify; }
+  details summary { cursor: pointer; }
+  .accordion-icon { transition: transform 0.3s ease; }
+</style>
 </head>
 
-<body class="guest-body">
-  <main class="container max-w-5xl mx-auto px-6 py-10">
-    <!-- Header -->
-    <header class="text-center mb-12">
-      <h1 class="guest-header text-4xl font-bold text-primary-color">Our Doctrine</h1>
-      <p class="text-xl text-gray-600 mt-2">
-        The People and Principles That Shape Your Experience
+<body>
+
+<nav class="bg-white/90 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-md">
+  <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+    <a href="index.html" class="text-2xl font-bold text-green-800">Alo Chaya</a>
+    <div class="flex items-center space-x-6">
+      <a href="index.html" class="text-gray-700 hover:text-green-800 font-semibold">Home</a>
+      <a href="doctrine.html" class="text-gray-700 hover:text-green-800 font-semibold">Doctrine</a>
+      <a href="index.html#booking" class="bg-green-800 text-white px-4 py-2 rounded-md font-semibold hover:bg-green-700 transition-colors">Book Now</a>
+    </div>
+  </div>
+</nav>
+
+<main class="container mx-auto max-w-5xl pt-24 px-4">
+<header class="text-center mb-12">
+  <h1>Guest Models & Doctrine</h1>
+  <p class="text-xl text-gray-600">The strategic frameworks, pyramids, and fitness components shaping the Alo Chaya experience.</p>
+</header>
+
+<div x-data="{ openSection: 1 }" class="space-y-4">
+
+  <!-- Psychological Architecture / Brand & Wellness -->
+  <details open class="bg-white border rounded-lg p-6 shadow transition-all duration-300">
+    <summary class="flex justify-between items-center text-xl font-bold mb-4">
+      Psychological Architecture & Wellness
+      <span class="accordion-icon">▼</span>
+    </summary>
+    <div class="text-gray-700">
+      <p class="mb-4 justified-text">
+        The Alo Chaya guest journey is designed to meet Packard’s 8 Hidden Needs: Emotional Security, Reassurance of Worth, Ego Gratification, Creative Outlets, Love Objects, Sense of Power, Sense of Roots, and Immortality.  
+        Our wellness programs (as per <a href="https://bigfiveaspects.com/" target="_blank" class="text-blue-600 hover:underline">Big Five Aspects</a>) integrate both physical and psychological care.
       </p>
 
-      <nav class="mt-8 border-b pb-4 flex justify-center gap-6">
-        <a href="guest-index.html" class="text-gray-600 hover:text-primary-color transition">Home</a>
-        <a href="guest-doctrine.html" class="font-bold text-primary-color border-b-2 border-primary-color pb-1">
-          Our Doctrine
-        </a>
-      </nav>
-    </header>
+      <p class="mb-4 justified-text">
+        Staff are trained in postures and disciplines, ensuring sincere, ingenious service. The project leads and management team maintain accountability for each touchpoint, guaranteeing flawless execution.
+      </p>
 
-    <!-- SECTION 1 -->
-    <details open class="doctrine-section bg-white rounded-lg shadow p-6 mb-8 transition-all duration-500">
-      <summary class="cursor-pointer text-2xl font-semibold text-secondary-color mb-4 flex justify-between items-center">
-        The Blueprint of Your Experience
-        <span class="icon transition-transform duration-300">▼</span>
-      </summary>
+      <h3 class="font-bold text-lg text-secondary-color mb-2">Fitness Components</h3>
+      <ul class="list-disc pl-5 mb-4">
+        <li>Cardiovascular Conditioning</li>
+        <li>Strength Training</li>
+        <li>Flexibility & Mobility</li>
+        <li>Balance & Coordination</li>
+        <li>Recovery & Nutrition</li>
+      </ul>
 
-      <div class="details-content mt-4 text-gray-700">
-        <p class="mb-6">
-          To solve the pain points of generic, soulless, or inconsistent luxury, we have built our
-          experience on a foundation of proven, world-class strategic models — reframed to focus entirely on your well-being.
-        </p>
+      <h3 class="font-bold text-lg text-secondary-color mb-2">Brand Personality (Jennifer Aaker)</h3>
+      <ul class="list-disc pl-5">
+        <li>Sincerity: Genuine interactions and family-focused hospitality</li>
+        <li>Competence: Flawless, reliable service</li>
+        <li>Sophistication: Quiet luxury with cultural storytelling</li>
+        <li>Excitement: Creative programs and events for enrichment</li>
+        <li>Ruggedness: Connection to heritage and authenticity of the estate</li>
+      </ul>
+    </div>
+  </details>
+  <!-- Keller’s Brand Equity Pyramid -->
+  <details class="bg-white border rounded-lg p-6 shadow transition-all duration-300">
+    <summary class="flex justify-between items-center text-xl font-bold mb-4">
+      Brand Equity Pyramid (Keller)
+      <span class="accordion-icon">▼</span>
+    </summary>
+    <div class="text-gray-700">
+      <p class="mb-4 justified-text">
+        Our approach follows Keller’s four-step pyramid to create lasting guest relationships:
+      </p>
+      <ul class="list-disc pl-5 mb-4">
+        <li><strong>Identity:</strong> Guests recognize Alo Chaya as a heritage, luxurious, serene escape.</li>
+        <li><strong>Meaning:</strong> Rich storytelling and flawless service create depth and value.</li>
+        <li><strong>Response:</strong> Positive feedback and trust built through consistent quality.</li>
+        <li><strong>Resonance:</strong> Guests become ambassadors and part of our family legacy.</li>
+      </ul>
+      <img src="lighthouse-promo-v1-v2-s1.jpg" alt="Keller Pyramid Visual" class="w-full rounded-lg mb-4">
+      <img src="lighthouse-promo-v2-s2.jpg" alt="Keller Pyramid Visual v2" class="w-full rounded-lg">
+    </div>
+  </details>
 
-        <div class="p-4 rounded-lg bg-gray-50 mb-6 fade-section">
-          <h3 class="font-bold text-lg text-secondary-color mb-2">
-            Our Brand Personality (Aaker’s Model)
-          </h3>
-          <p>
-            We have a defined character: our <strong>Sincerity</strong> ensures every interaction is genuine; our
-            <strong>Competence</strong> ensures your experience is flawless; and our
-            <strong>Sophistication</strong> ensures a quietly confident luxury.
-          </p>
+  <!-- 7P Guest Promise -->
+  <details class="bg-white border rounded-lg p-6 shadow transition-all duration-300">
+    <summary class="flex justify-between items-center text-xl font-bold mb-4">
+      The 7P Guest Promise
+      <span class="accordion-icon">▼</span>
+    </summary>
+    <div class="text-gray-700">
+      <p class="mb-4 justified-text">
+        Each of the 7 Ps is carefully implemented to ensure guests receive an exceptional, consistent, and memorable experience:
+      </p>
+      <ul class="list-disc pl-5 mb-4">
+        <li><strong>Product:</strong> 87 Bighas of riverine estate, 60,000 sq ft main facility, private lake, curated wellness programs.</li>
+        <li><strong>Price:</strong> Premium and transparent pricing reflecting exclusive value.</li>
+        <li><strong>Place:</strong> Easily accessible location 2.5 hours from Dhaka, secluded for privacy.</li>
+        <li><strong>Promotion:</strong> Authentic storytelling via social media, website, and guest events.</li>
+        <li><strong>People:</strong> Trained staff, project leads, and management accountable for every touchpoint.</li>
+        <li><strong>Process:</strong> Seamless check-in/out, personalized experiences, and consistent rituals.</li>
+        <li><strong>Physical Evidence:</strong> Heritage architecture, landscaped grounds, bespoke décor, and wellness infrastructure.</li>
+      </ul>
+      <p class="mb-4">
+        Videos of family suite and other key spaces showcase the guest experience:
+      </p>
+      <video src="family-suite.mp4" controls class="w-full rounded-lg mb-4"></video>
+      <video src="family-suite-room-right.mp4" controls class="w-full rounded-lg mb-4"></video>
+      <video src="third-floor-room-1.mp4" controls class="w-full rounded-lg mb-4"></video>
+      <video src="early-morning-view.mp4" controls class="w-full rounded-lg mb-4"></video>
+    </div>
+  </details>
+
+  <!-- Project Accountability & Staff Doctrine -->
+  <details class="bg-white border rounded-lg p-6 shadow transition-all duration-300">
+    <summary class="flex justify-between items-center text-xl font-bold mb-4">
+      Staff, Project Leads & Accountability
+      <span class="accordion-icon">▼</span>
+    </summary>
+    <div class="text-gray-700">
+      <p class="mb-4 justified-text">
+        Each staff member, team, and project lead operates under a clear accountability framework:
+      </p>
+      <ul class="list-disc pl-5 mb-4">
+        <li>Project Lead (Sajid Hassan): Oversees entire guest experience, ensures heritage storytelling is maintained.</li>
+        <li>Management Team: Implements policies, monitors quality, ensures operational consistency.</li>
+        <li>Staff: Trained in postures (mindset) and disciplines (actions) to guarantee attentive, sincere, and skilled service.</li>
+      </ul>
+      <img src="project-leads-grandfather-abdul-rashid.png" alt="Project Leads Hierarchy" class="w-full rounded-lg mb-4">
+      <img src="project-leads-room-on-second-floor.jpg" alt="Project Lead Workspace" class="w-full rounded-lg">
+    </div>
+  </details>
+  <!-- 15Ps Frameworks -->
+  <details class="bg-white border rounded-lg p-6 shadow transition-all duration-300">
+    <summary class="flex justify-between items-center text-xl font-bold mb-4">
+      15Ps of Strategy & HR
+      <span class="accordion-icon">▼</span>
+    </summary>
+    <div class="text-gray-700">
+      <p class="mb-4 justified-text">
+        Alo Chaya integrates multiple strategic frameworks to align operations, HR, and guest experience:
+      </p>
+      <ul class="list-disc pl-5 mb-4">
+        <li><strong>5Ps of Strategic Implementation</strong> (Golden, Mildred Pryor, Leslie Toombs, et al):
+          Planning, Policies, Programs, Procedures, Performance Metrics — all tailored to maximize guest satisfaction and operational efficiency.</li>
+        <li><strong>5Ps of SHRM</strong> (Randall Schuler):
+          People, Purpose, Processes, Performance, Place — ensures workforce is fully aligned to deliver the Alo Chaya promise.</li>
+        <li><strong>3Ps of Mintzberg</strong>:
+          Plan, Pattern, Position — used in CPM (Competency Performance Mapping) to benchmark our operations vs local and international resorts.</li>
+      </ul>
+      <p class="mb-4">
+        CPM Comparison shows Alo Chaya's superior performance in operational quality, staff engagement, and guest satisfaction versus competitors.
+      </p>
+      <img src="hierarchy-of-skills.jpg" alt="Competency Performance Mapping" class="w-full rounded-lg mb-4">
+    </div>
+  </details>
+
+  <!-- Heritage & Founding Stories -->
+  <details class="bg-white border rounded-lg p-6 shadow transition-all duration-300">
+    <summary class="flex justify-between items-center text-xl font-bold mb-4">
+      Heritage & Founding Narrative
+      <span class="accordion-icon">▼</span>
+    </summary>
+    <div class="text-gray-700">
+      <p class="mb-4 justified-text">
+        Alo Chaya’s roots are woven into a rich family legacy spanning generations:
+      </p>
+      <ul class="list-disc pl-5 mb-4">
+        <li><strong>MM House:</strong> Built by the founder in 1995, currently houses the family.</li>
+        <li><strong>Mahmud Tower:</strong> Built on land of Fatima Mahal, originally established by the founder’s paternal grandmother and great grandfather.</li>
+        <li><strong>The Daroga Lineage:</strong> Founder’s paternal great grandfather, with 12 children, acquired Fatima Mahal land and established long-standing heritage practices.</li>
+        <li><strong>Abdul Rashid Chowdhuri Family:</strong> Direct ancestral line contributing to estate management and cultural continuity.</li>
+      </ul>
+      <img src="founders-grandfather-fatima-mahal-builder-owner.jpg" alt="Grandfather - Fatima Mahal Builder" class="w-full rounded-lg mb-4">
+      <img src="founders-father-in-law-sarkerbari-inheritor.jpg" alt="Founder’s Father-in-law, Sarkerbari Inheritor" class="w-full rounded-lg mb-4">
+      <img src="grandfather-family-full.jpg" alt="Extended Family Portrait" class="w-full rounded-lg mb-4">
+      <img src="darogas-twelve-children-with-their-spouses.jpg" alt="Daroga's 12 Children with Spouses" class="w-full rounded-lg mb-4">
+      <img src="mm-house.jpg" alt="MM House" class="w-full rounded-lg mb-4">
+      <img src="mahmud-tower-replaced-fatima-mahal.jpg" alt="Mahmud Tower" class="w-full rounded-lg">
+    </div>
+  </details>
+
+  <!-- Riverine & Estate Visuals -->
+  <details class="bg-white border rounded-lg p-6 shadow transition-all duration-300">
+    <summary class="flex justify-between items-center text-xl font-bold mb-4">
+      Alo Chaya Estate & River Views
+      <span class="accordion-icon">▼</span>
+    </summary>
+    <div class="text-gray-700">
+      <p class="mb-4 justified-text">
+        The natural and architectural beauty of Alo Chaya complements the strategic and heritage frameworks:
+      </p>
+      <img src="alo-chaya-gate.jpg" alt="Main Gate" class="w-full rounded-lg mb-4">
+      <img src="alo-chaya-gazebo.webp" alt="Gazebo by the Lake" class="w-full rounded-lg mb-4">
+      <img src="alo-chaya-private-lake.webp" alt="Private Lake" class="w-full rounded-lg mb-4">
+      <img src="front-lawn.jpg" alt="Front Lawn" class="w-full rounded-lg mb-4">
+      <img src="pathway.jpg" alt="Garden Pathway" class="w-full rounded-lg mb-4">
+      <img src="side-view-of-the-dhonagoda-river.jpg" alt="Side View of Dhonagoda River" class="w-full rounded-lg mb-4">
+      <img src="view-of-the-dhonagoda-river.jpg" alt="View of Dhonagoda River" class="w-full rounded-lg mb-4">
+      <img src="view-from-bridge-near-gazebo-at-dusk.jpg" alt="View from Bridge Near Gazebo at Dusk" class="w-full rounded-lg mb-4">
+      <img src="view-from-second-floor-at-dawn.jpg" alt="Second Floor View at Dawn" class="w-full rounded-lg">
+    </div>
+  </details>
+  <!-- Wellness & Guest IP Integration -->
+  <details class="bg-white border rounded-lg p-6 shadow transition-all duration-300">
+    <summary class="flex justify-between items-center text-xl font-bold mb-4">
+      Wellness Programs & Personal Development
+      <span class="accordion-icon">▼</span>
+    </summary>
+    <div class="text-gray-700">
+      <p class="mb-4 justified-text">
+        Alo Chaya integrates guest intellectual and wellness development into the stay. Click to explore each resource:
+      </p>
+      <ul class="list-disc pl-5 space-y-2 mb-4">
+        <li><a href="https://bigfiveaspects.com/" target="_blank" class="text-blue-600 hover:underline">Big Five Aspects Personality Insights</a> — track your personal growth and wellness alignment.</li>
+        <li><a href="https://www.facebook.com/watch/?v=3205338596428844&surface_type=vod&referral_source=vod_deeplink_unit" target="_blank" class="text-blue-600 hover:underline">Facebook Video: Lifestyle & Wellness Demonstration</a></li>
+        <li><a href="https://www.amazon.com/s?k=sajid+hassan&rh=n%3A133140011&crid=2E1W9090QBML6&sprefix=sajid+hassan+%2Cdigital-text%2C422&ref=nb_sb_noss" target="_blank" class="text-blue-600 hover:underline">Sajid Hassan Publications on Amazon</a> — learn the intellectual foundation behind Alo Chaya’s philosophy.</li>
+        <li><a href="https://www.facebook.com/photo.php?fbid=1258669435963579" target="_blank" class="text-blue-600 hover:underline">Facebook Photo: Guest Experience Highlights</a></li>
+      </ul>
+    </div>
+  </details>
+
+  <!-- Multimedia Experiences -->
+  <details class="bg-white border rounded-lg p-6 shadow transition-all duration-300">
+    <summary class="flex justify-between items-center text-xl font-bold mb-4">
+      Photo & Video Gallery
+      <span class="accordion-icon">▼</span>
+    </summary>
+    <div class="text-gray-700">
+      <p class="mb-4 justified-text">
+        Every visual reflects our commitment to curated, high-touch experiences. Videos showcase our rooms, views, and guest journey.
+      </p>
+
+      <!-- Image & Video Thumbnails -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <img src="alo-chaya-60000sqf-overview.jpg" alt="60,000 sq ft Main Facility Overview" class="w-full rounded-lg mb-4">
+          <p class="text-sm text-gray-500">Overview of Alo Chaya's main riverine facility, showcasing space and heritage architecture.</p>
         </div>
-
-        <div class="p-4 rounded-lg bg-gray-50 fade-section">
-          <h3 class="font-bold text-lg text-secondary-color mb-2">
-            Our Path to a Lasting Connection (Keller’s Pyramid)
-          </h3>
-          <p>
-            We follow a four-step promise: to build your <strong>Identity</strong> through authenticity; to create
-            <strong>Meaning</strong> through flawless performance and rich storytelling; to earn your positive
-            <strong>Response</strong> through quality and warmth; and to achieve
-            <strong>Resonance</strong> — a deep, lasting connection that makes you part of our story.
-          </p>
+        <div>
+          <img src="alo-chaya-architecture-map.jpg" alt="Architectural Map" class="w-full rounded-lg mb-4">
+          <p class="text-sm text-gray-500">Detailed architecture map highlighting layout and guest circulation.</p>
+        </div>
+        <div>
+          <video controls class="w-full rounded-lg mb-4">
+            <source src="family-suite.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p class="text-sm text-gray-500">Family Suite walkthrough showing room setup and amenities.</p>
+        </div>
+        <div>
+          <video controls class="w-full rounded-lg mb-4">
+            <source src="family-suite-room-right.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p class="text-sm text-gray-500">Alternate view of the Family Suite with detailed room layout.</p>
+        </div>
+        <div>
+          <video controls class="w-full rounded-lg mb-4">
+            <source src="early-morning-view.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p class="text-sm text-gray-500">Early morning sunrise over the river and estate gardens.</p>
+        </div>
+        <div>
+          <video controls class="w-full rounded-lg mb-4">
+            <source src="fourth-floor-spaces.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p class="text-sm text-gray-500">Fourth-floor guest areas and private corridors walkthrough.</p>
+        </div>
+        <div>
+          <video controls class="w-full rounded-lg mb-4">
+            <source src="night-view.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p class="text-sm text-gray-500">Night view of Alo Chaya, emphasizing lighting and ambiance.</p>
+        </div>
+        <div>
+          <video controls class="w-full rounded-lg mb-4">
+            <source src="third-floor-room-1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p class="text-sm text-gray-500">Third-floor room experience, highlighting spatial layout and furnishings.</p>
         </div>
       </div>
-    </details>
-
-    <!-- SECTION 2 -->
-    <details class="doctrine-section bg-white rounded-lg shadow p-6 transition-all duration-500">
-      <summary class="cursor-pointer text-2xl font-semibold text-secondary-color mb-4 flex justify-between items-center">
-        How We Ensure a Flawless Experience
-        <span class="icon transition-transform duration-300">▼</span>
-      </summary>
-
-      <div class="details-content mt-4 text-gray-700">
-        <h3 class="font-bold text-lg text-secondary-color mb-2">
-          Our Marketing Doctrine (The 7 Ps)
-        </h3>
-        <p class="mb-6">
-          Our <strong>Product</strong> is a holistic journey. Our <strong>Price</strong> reflects overwhelming value.
-          Our <strong>Promotion</strong> is the authentic story you see on YouTube. Our
-          <strong>People</strong>, <strong>Process</strong>, and <strong>Physical Evidence</strong> are all aligned to
-          serve you — not just sell to you.
-        </p>
-
-        <h3 class="font-bold text-lg text-secondary-color mb-2">
-          Our HR Doctrine (Meet Your Guides)
-        </h3>
-        <p class="mb-6">
-          To solve the pain point of robotic, disengaged staff, our team is trained in our proprietary framework of
-          <em>Postures</em> (mindsets) and <em>Disciplines</em> (actions). This is how we guarantee sincere and ingenious service.
-        </p>
-
-        <h3 class="font-bold text-lg text-secondary-color mb-2">
-          Our Operations Doctrine (The Experience Pipeline)
-        </h3>
-        <p>
-          To eliminate inconsistency, we designed a system that ensures “predictability of excellence.” From our
-          <strong>Touchpoint Rituals</strong> (like your arrival greeting) to our curated
-          <strong>Sensory Anchors</strong> (like the evening incense), your journey is seamless — by design.
-        </p>
+    </div>
+  </details>
+  <!-- Estate & Heritage Visuals -->
+  <details class="bg-white border rounded-lg p-6 shadow transition-all duration-300 mb-8">
+    <summary class="flex justify-between items-center text-xl font-bold mb-4">
+      Estate & Family Legacy
+      <span class="accordion-icon">▼</span>
+    </summary>
+    <div class="text-gray-700">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <img src="front-lawn.jpg" alt="Front Lawn" class="w-full rounded-lg mb-2">
+          <p class="text-sm text-gray-500">Front lawn of Alo Chaya, designed for family gatherings and outdoor leisure.</p>
+        </div>
+        <div>
+          <img src="pathway.jpg" alt="Garden Pathway" class="w-full rounded-lg mb-2">
+          <p class="text-sm text-gray-500">Pathways connecting heritage spaces and guest areas, emphasizing natural landscaping.</p>
+        </div>
+        <div>
+          <img src="alo-chaya-gate.jpg" alt="Resort Entrance Gate" class="w-full rounded-lg mb-2">
+          <p class="text-sm text-gray-500">Main gate welcoming guests into the serene riverine estate.</p>
+        </div>
+        <div>
+          <img src="alo-chaya-gazebo.webp" alt="Gazebo by the Lake" class="w-full rounded-lg mb-2">
+          <p class="text-sm text-gray-500">Gazebo offering a tranquil spot for meditation, storytelling, and sunset views.</p>
+        </div>
+        <div>
+          <img src="alo-chaya-private-lake.webp" alt="Private Lake" class="w-full rounded-lg mb-2">
+          <p class="text-sm text-gray-500">Private lake for relaxation, boating, and wellness activities.</p>
+        </div>
+        <div>
+          <img src="sajid-hassan-founders-third-son-project-lead-author.jpg" alt="Project Lead & Founder" class="w-full rounded-lg mb-2">
+          <p class="text-sm text-gray-500">Sajid Hassan, third son and project lead, ensuring quality and strategic vision at Alo Chaya.</p>
+        </div>
+        <div>
+          <img src="mahmud-tower-replaced-fatima-mahal.jpg" alt="Mahmud Tower" class="w-full rounded-lg mb-2">
+          <p class="text-sm text-gray-500">Mahmud Tower built on the historic land of Fatima Mahal, blending legacy and modernity.</p>
+        </div>
+        <div>
+          <img src="mm-house.jpg" alt="MM House" class="w-full rounded-lg mb-2">
+          <p class="text-sm text-gray-500">MM House, built by the founder, home to his family since 1995.</p>
+        </div>
       </div>
-    </details>
+    </div>
+  </details>
 
-    <script src="script.js"></script>
-  </main>
+  <!-- Guest Stories -->
+  <details class="bg-white border rounded-lg p-6 shadow transition-all duration-300 mb-8">
+    <summary class="flex justify-between items-center text-xl font-bold mb-4">
+      Guest & Family Stories
+      <span class="accordion-icon">▼</span>
+    </summary>
+    <div class="text-gray-700">
+      <p class="justified-text mb-4">
+        From the Daroga's 12 children to the founder's lineage, Alo Chaya preserves centuries of family heritage. Each photo and video tells a story of dedication, vision, and generational care:
+      </p>
+      <ul class="list-disc pl-5 space-y-2 text-gray-700">
+        <li>Daroga: Bought Fatima Mahal land, father of Abdul Rashid Chowdhuri with 12 children (6 sons, 6 daughters).</li>
+        <li>Abdul Rashid Chowdhuri family: 5 daughters, 3 sons — foundation of the estate’s modern operations.</li>
+        <li>Founder: Built MM House in 1995, and Mahmud Tower where Fatima Mahal once stood.</li>
+        <li>Project Lead: Sajid Hassan, ensuring strategic, operational, and intellectual excellence across Alo Chaya.</li>
+      </ul>
+    </div>
+  </details>
 
-<!-- External JS -->
-<script src="script.js"></script>
+  <!-- Booking & Contact Section -->
+  <footer class="booking-section mt-8 p-6 bg-secondary-color text-white rounded-lg text-center">
+    <h2 class="text-2xl font-bold mb-4">Book Your Stay</h2>
+    <p class="mb-4 justified-text">
+      Experience Alo Chaya’s heritage, wellness programs, and curated guest journey. Contact our reservations team for planning your perfect escape.
+    </p>
+    <p class="mb-2"><strong>Phone / WhatsApp:</strong> <a href="https://wa.me/8801327379392" target="_blank" class="underline">+8801327379392</a> (please message first, we will call back)</p>
+    <p class="mb-4"><strong>Email:</strong> <a href="mailto:alochayariverine.info@gmail.com" class="underline">alochayariverine.info@gmail.com</a></p>
+    <a href="tel:+8801327379392" class="inline-block mt-2 px-6 py-3 bg-green-800 hover:bg-green-700 rounded-md font-semibold transition-colors">Call to Book Now</a>
+  </footer>
 
-<!-- Inline JS for accordion and fade-in -->
-<script>
-  // Smooth open/close animation for details sections
-  document.querySelectorAll('.doctrine-section').forEach((section) => {
-    const summary = section.querySelector('summary');
-    const icon = summary.querySelector('.icon');
-    const content = section.querySelector('.details-content');
-
-    summary.addEventListener('click', (e) => {
-      e.preventDefault();
-
-      // Toggle open state with smooth height transition
-      const isOpen = section.hasAttribute('open');
-      const startHeight = content.scrollHeight;
-
-      if (isOpen) {
-        content.style.height = `${startHeight}px`;
-        requestAnimationFrame(() => {
-          content.style.height = '0';
-          section.removeAttribute('open');
-          if(icon) icon.style.transform = 'rotate(0deg)';
-        });
-      } else {
-        section.setAttribute('open', '');
-        const endHeight = content.scrollHeight;
-        content.style.height = '0';
-        requestAnimationFrame(() => {
-          content.style.height = `${endHeight}px`;
-          if(icon) icon.style.transform = 'rotate(180deg)';
-        });
-      }
-
-      // Clean up height after animation
-      content.addEventListener('transitionend', () => {
-        if (section.hasAttribute('open')) content.style.height = 'auto';
-      }, { once: true });
-    });
-  });
-
-  // Subtle fade-in for nested content blocks
-  const fadeSections = document.querySelectorAll('.fade-section');
-  fadeSections.forEach((el, i) => {
-    el.style.opacity = 0;
-    el.style.transform = 'translateY(15px)';
-    setTimeout(() => {
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      el.style.opacity = 1;
-      el.style.transform = 'translateY(0)';
-    }, 200 * i);
-  });
-</script>
-
+</main>
 </body>
 </html>
