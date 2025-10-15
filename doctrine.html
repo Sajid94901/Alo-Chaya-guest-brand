@@ -1,54 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alo Chaya - The Doctrine Behind Your Stay</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body class="guest-body">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alo Chaya — The Doctrine Behind Your Stay</title>
 
-<main class="container max-w-5xl mx-auto">
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="guest-body">
+  <main class="container max-w-5xl mx-auto px-6 py-10">
+    <!-- Header -->
     <header class="text-center mb-12">
-        <h1 class="guest-header">Our Doctrine</h1>
-        <p class="text-xl text-gray-600 mt-2">The People and Principles That Shape Your Experience</p>
-        <nav class="mt-8 border-b pb-4">
-            <a href="guest-index.html" class="text-gray-600 hover:text-primary-color">Home</a>
-            <a href="guest-doctrine.html" class="ml-6 font-bold text-primary-color">Our Doctrine</a>
-        </nav>
+      <h1 class="guest-header text-4xl font-bold text-primary-color">Our Doctrine</h1>
+      <p class="text-xl text-gray-600 mt-2">
+        The People and Principles That Shape Your Experience
+      </p>
+
+      <nav class="mt-8 border-b pb-4 flex justify-center gap-6">
+        <a href="guest-index.html" class="text-gray-600 hover:text-primary-color transition">Home</a>
+        <a href="guest-doctrine.html" class="font-bold text-primary-color border-b-2 border-primary-color pb-1">
+          Our Doctrine
+        </a>
+      </nav>
     </header>
 
-    <details open>
-        <summary>The Blueprint of Your Experience</summary>
-        <div class="details-content pt-6">
-            <p class="mb-6">To solve the pain points of generic, soulless, or inconsistent luxury, we have built our experience on a foundation of proven, world-class strategic models, reframed to focus entirely on your well-being.</p>
-            <div class="p-4 rounded-lg bg-gray-50 mb-4">
-                <h3 class="font-bold text-lg text-secondary-color">Our Brand Personality (Aaker's Model)</h3>
-                <p>We have a defined character: our **Sincerity** ensures every interaction is genuine; our **Competence** ensures your experience is flawless; and our **Sophistication** ensures a quietly confident luxury.</p>
-            </div>
-            <div class="p-4 rounded-lg bg-gray-50">
-                <h3 class="font-bold text-lg text-secondary-color">Our Path to a Lasting Connection (Keller's Pyramid)</h3>
-                <p>We have a four-step promise: to build your awareness of our authentic **Identity**; to prove our **Meaning** through flawless performance and rich storytelling; to earn your positive **Response** through quality and warmth; and finally, to achieve **Resonance**—a deep, lasting connection that makes you a part of our story.</p>
-            </div>
+    <!-- SECTION 1 -->
+    <details open class="doctrine-section bg-white rounded-lg shadow p-6 mb-8 transition-all duration-500">
+      <summary class="cursor-pointer text-2xl font-semibold text-secondary-color mb-4 flex justify-between items-center">
+        The Blueprint of Your Experience
+        <span class="icon transition-transform duration-300">▼</span>
+      </summary>
+
+      <div class="details-content mt-4 text-gray-700">
+        <p class="mb-6">
+          To solve the pain points of generic, soulless, or inconsistent luxury, we have built our
+          experience on a foundation of proven, world-class strategic models — reframed to focus entirely on your well-being.
+        </p>
+
+        <div class="p-4 rounded-lg bg-gray-50 mb-6 fade-section">
+          <h3 class="font-bold text-lg text-secondary-color mb-2">
+            Our Brand Personality (Aaker’s Model)
+          </h3>
+          <p>
+            We have a defined character: our <strong>Sincerity</strong> ensures every interaction is genuine; our
+            <strong>Competence</strong> ensures your experience is flawless; and our
+            <strong>Sophistication</strong> ensures a quietly confident luxury.
+          </p>
         </div>
+
+        <div class="p-4 rounded-lg bg-gray-50 fade-section">
+          <h3 class="font-bold text-lg text-secondary-color mb-2">
+            Our Path to a Lasting Connection (Keller’s Pyramid)
+          </h3>
+          <p>
+            We follow a four-step promise: to build your <strong>Identity</strong> through authenticity; to create
+            <strong>Meaning</strong> through flawless performance and rich storytelling; to earn your positive
+            <strong>Response</strong> through quality and warmth; and to achieve
+            <strong>Resonance</strong> — a deep, lasting connection that makes you part of our story.
+          </p>
+        </div>
+      </div>
     </details>
 
-    <details>
-        <summary>How We Ensure a Flawless Experience</summary>
-        <div class="details-content pt-6">
-            <h3 class="font-bold text-lg text-secondary-color mb-2">Our Marketing Doctrine (The 7 Ps)</h3>
-            <p>Our **Product** is a holistic journey. Our **Price** reflects overwhelming value. Our **Promotion** is the authentic story you see on YouTube. Our **People**, **Process**, and **Physical Evidence** are all aligned to serve you, not just sell to you.</p>
-            
-            <h3 class="font-bold text-lg text-secondary-color mt-6 mb-2">Our HR Doctrine (Meet Your Guides)</h3>
-            <p>To solve the pain point of robotic, disengaged staff, our team is trained in our proprietary framework of "Postures" (mindsets) and "Disciplines" (actions). This is *how* we guarantee sincere and ingenious service.</p>
+    <!-- SECTION 2 -->
+    <details class="doctrine-section bg-white rounded-lg shadow p-6 transition-all duration-500">
+      <summary class="cursor-pointer text-2xl font-semibold text-secondary-color mb-4 flex justify-between items-center">
+        How We Ensure a Flawless Experience
+        <span class="icon transition-transform duration-300">▼</span>
+      </summary>
 
-            <h3 class="font-bold text-lg text-secondary-color mt-6 mb-2">Our Operations Doctrine (The Experience Pipeline)</h3>
-            <p>To solve for inconsistent service, we have an operational system that ensures a "predictability of excellence." From our **Touchpoint Rituals** (like your arrival greeting) to the curated **Sensory Anchors** (like the evening incense), your journey is seamless by design.</p>
-        </div>
+      <div class="details-content mt-4 text-gray-700">
+        <h3 class="font-bold text-lg text-secondary-color mb-2">
+          Our Marketing Doctrine (The 7 Ps)
+        </h3>
+        <p class="mb-6">
+          Our <strong>Product</strong> is a holistic journey. Our <strong>Price</strong> reflects overwhelming value.
+          Our <strong>Promotion</strong> is the authentic story you see on YouTube. Our
+          <strong>People</strong>, <strong>Process</strong>, and <strong>Physical Evidence</strong> are all aligned to
+          serve you — not just sell to you.
+        </p>
+
+        <h3 class="font-bold text-lg text-secondary-color mb-2">
+          Our HR Doctrine (Meet Your Guides)
+        </h3>
+        <p class="mb-6">
+          To solve the pain point of robotic, disengaged staff, our team is trained in our proprietary framework of
+          <em>Postures</em> (mindsets) and <em>Disciplines</em> (actions). This is how we guarantee sincere and ingenious service.
+        </p>
+
+        <h3 class="font-bold text-lg text-secondary-color mb-2">
+          Our Operations Doctrine (The Experience Pipeline)
+        </h3>
+        <p>
+          To eliminate inconsistency, we designed a system that ensures “predictability of excellence.” From our
+          <strong>Touchpoint Rituals</strong> (like your arrival greeting) to our curated
+          <strong>Sensory Anchors</strong> (like the evening incense), your journey is seamless — by design.
+        </p>
+      </div>
     </details>
-</main>
+
+    <script src="script.js"></script>
+  </main>
+
+<!-- External JS -->
+<script src="script.js"></script>
+
+<!-- Inline JS for accordion and fade-in -->
+<script>
+  // Smooth open/close animation for details sections
+  document.querySelectorAll('.doctrine-section').forEach((section) => {
+    const summary = section.querySelector('summary');
+    const icon = summary.querySelector('.icon');
+    const content = section.querySelector('.details-content');
+
+    summary.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      // Toggle open state with smooth height transition
+      const isOpen = section.hasAttribute('open');
+      const startHeight = content.scrollHeight;
+
+      if (isOpen) {
+        content.style.height = `${startHeight}px`;
+        requestAnimationFrame(() => {
+          content.style.height = '0';
+          section.removeAttribute('open');
+          if(icon) icon.style.transform = 'rotate(0deg)';
+        });
+      } else {
+        section.setAttribute('open', '');
+        const endHeight = content.scrollHeight;
+        content.style.height = '0';
+        requestAnimationFrame(() => {
+          content.style.height = `${endHeight}px`;
+          if(icon) icon.style.transform = 'rotate(180deg)';
+        });
+      }
+
+      // Clean up height after animation
+      content.addEventListener('transitionend', () => {
+        if (section.hasAttribute('open')) content.style.height = 'auto';
+      }, { once: true });
+    });
+  });
+
+  // Subtle fade-in for nested content blocks
+  const fadeSections = document.querySelectorAll('.fade-section');
+  fadeSections.forEach((el, i) => {
+    el.style.opacity = 0;
+    el.style.transform = 'translateY(15px)';
+    setTimeout(() => {
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      el.style.opacity = 1;
+      el.style.transform = 'translateY(0)';
+    }, 200 * i);
+  });
+</script>
 
 </body>
 </html>
