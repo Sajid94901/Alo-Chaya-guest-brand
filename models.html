@@ -561,36 +561,28 @@
       </div>
     </details>
 
-    <!-- Physical / Body -->
-    <details class="bg-white rounded-lg shadow p-6">
-      <summary class="cursor-pointer text-2xl font-semibold text-secondary-color flex justify-between items-center">
-        Physical (Body) <span class="icon transition-transform duration-300">▼</span>
-      </summary>
-      <div class="details-content mt-4 text-gray-700">
-        <p class="mb-4">Fitness, wellness, and physical experience:</p>
-        <ul class="list-disc list-inside">
-          <li>Wellness exercises: Stretching, walking paths, light cardio</li>
-          <li>Optional hands-on sessions: Acupuncture, body therapy (supervised)</li>
-        </ul>
-      </div>
-    </details>
-<!-- Level 4: Physique -->
+    <!-- Physical / Body — Physique -->
 <details class="bg-white rounded-lg shadow p-6 transition-all duration-500">
   <summary class="cursor-pointer text-xl font-semibold text-secondary-color flex justify-between items-center" aria-expanded="false">
     Physique (Body) — Physical Wellness
     <span class="icon transition-transform duration-300">▼</span>
   </summary>
+
   <div class="details-content mt-4 text-gray-700">
     <ul class="list-disc ml-5 space-y-2">
       <li>Fitness routines and movement activities</li>
       <li>Nutrition-focused meal planning and diet suggestions</li>
       <li>Wellness center integration: hands-on observation by Project Lead</li>
     </ul>
-    <a href="ghuraba-physique.jpg" target="_blank">
-      <img src="ghuraba-physique.jpg" alt="Physical Wellness" class="mt-4 rounded-lg shadow-md cursor-pointer" loading="lazy">
+
+    <!-- Clickable image -->
+    <a href="images/ghuraba-physique.jpg" target="_blank" rel="noopener noreferrer">
+      <img src="images/ghuraba-physique.jpg" alt="Physical Wellness" class="mt-4 rounded-lg shadow-md cursor-pointer" loading="lazy">
     </a>
+
     <p class="mt-2 text-sm text-gray-600">
-      For a detailed breakdown of fitness components and recommended training intensities, see the <a href="#fitness-pyramid" class="text-blue-600 hover:underline">Fitness Pyramid below →</a>
+      For a detailed breakdown of fitness components and recommended training intensities, see the
+      <a href="#fitness-pyramid" class="text-blue-600 hover:underline">Fitness Pyramid below →</a>
     </p>
   </div>
 </details>
@@ -599,36 +591,62 @@
 <section id="fitness-pyramid" class="py-12 bg-white" x-data="{ openTooltip: null }">
   <div class="max-w-4xl mx-auto px-6 text-center">
     <h2 class="text-3xl font-bold mb-6">Fitness Components Pyramid</h2>
+
     <div class="relative inline-block">
       <!-- Base Pyramid Image -->
-      <img src="fitness-pyramid.jpg" alt="Fitness Components Pyramid" class="rounded-lg shadow-md w-full">
+      <img src="images/fitness-pyramid.jpg" alt="Fitness Components Pyramid" class="rounded-lg shadow-md w-full">
 
       <!-- Strength Tooltip -->
       <div class="absolute bottom-4 left-1/4 transform -translate-x-1/2">
-        <div class="relative">
-          <button @click="openTooltip === 1 ? openTooltip = null : openTooltip = 1"
-                  class="text-white font-bold bg-yellow-600 px-2 py-1 rounded cursor-pointer">
+        <div class="relative inline-block">
+          <button
+            @click="openTooltip = (openTooltip === 1 ? null : 1)"
+            class="text-white font-bold bg-yellow-600 px-2 py-1 rounded cursor-pointer">
             Strength
           </button>
-          <div x-show="openTooltip === 1" x-transition class="absolute bottom-full mb-2 w-64 bg-gray-800 text-white text-sm rounded p-2">
-            60-85% RPM (6-12 reps), 0-4 RIR
+          <div x-cloak x-show="openTooltip === 1" x-transition
+               class="absolute bottom-full mb-2 w-64 bg-gray-800 text-white text-sm rounded p-2 z-50">
+            60-85% RPM (6–12 reps), 0–4 RIR
           </div>
         </div>
       </div>
 
       <!-- Power Tooltip -->
       <div class="absolute bottom-1/2 left-1/2 transform -translate-x-1/2">
-        <div class="relative">
-          <button @click="openTooltip === 2 ? openTooltip = null : openTooltip = 2"
-                  class="text-white font-bold bg-yellow-500 px-2 py-1 rounded cursor-pointer">
+        <div class="relative inline-block">
+          <button
+            @click="openTooltip = (openTooltip === 2 ? null : 2)"
+            class="text-white font-bold bg-yellow-500 px-2 py-1 rounded cursor-pointer">
             Power
           </button>
-          <div x-show="openTooltip === 2" x-transition class="absolute bottom-full mb-2 w-64 bg-gray-800 text-white text-sm rounded p-2">
-            30-60% RPM (explosive), 0-2 RIR
+          <div x-cloak x-show="openTooltip === 2" x-transition
+               class="absolute bottom-full mb-2 w-64 bg-gray-800 text-white text-sm rounded p-2 z-50">
+            30-60% RPM (explosive), 0–2 RIR
           </div>
         </div>
       </div>
 
+      <!-- Endurance Tooltip -->
+      <div class="absolute top-1/4 left-1/2 transform -translate-x-1/2">
+        <div class="relative inline-block">
+          <button
+            @click="openTooltip = (openTooltip === 3 ? null : 3)"
+            class="text-white font-bold bg-green-600 px-2 py-1 rounded cursor-pointer">
+            Endurance
+          </button>
+          <div x-cloak x-show="openTooltip === 3" x-transition
+               class="absolute bottom-full mb-2 w-72 bg-gray-800 text-white text-sm rounded p-2 z-50">
+            Low RIR, sustained effort (cardio, local muscle, strength endurance)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-6 text-gray-700 text-sm">
+      Tap/click each component to see recommended Reps In Reserve (RIR) and Repetition Maximum Percentage (RPM%).
+    </p>
+  </div>
+</section>
       <!-- Endurance Tooltip -->
       <div class="absolute top-1/4 left-1/2 transform -translate-x-1/2">
         <div class="relative">
