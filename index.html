@@ -386,7 +386,9 @@
           <li>Reflection exercises to cultivate inner peace</li>
           <li>Integration with Lighthouse activity books for spiritual enrichment</li>
         </ul>
-        <img src="ghuraba-ruh.jpg" alt="Spiritual Reflection" class="mt-4 rounded-lg shadow-md" loading="lazy">
+        <a href="ghuraba-ruh.jpg" target="_blank">
+          <img src="ghuraba-ruh.jpg" alt="Spiritual Reflection" class="mt-4 rounded-lg shadow-md cursor-pointer" loading="lazy">
+        </a>
       </div>
     </details>
 
@@ -402,7 +404,9 @@
           <li>Emotional regulation and mindfulness activities</li>
           <li>Understanding motivations and intentions for daily actions</li>
         </ul>
-        <img src="ghuraba-nafs.jpg" alt="Emotional Wellness" class="mt-4 rounded-lg shadow-md" loading="lazy">
+        <a href="ghuraba-nafs.jpg" target="_blank">
+          <img src="ghuraba-nafs.jpg" alt="Emotional Wellness" class="mt-4 rounded-lg shadow-md cursor-pointer" loading="lazy">
+        </a>
       </div>
     </details>
 
@@ -418,7 +422,9 @@
           <li>Experiential learning: assembling, disassembling, observing</li>
           <li>Ghuraba Taxonomy: Analyzing, Applying, Evaluating, Reflecting</li>
         </ul>
-        <img src="ghuraba-intellectual.jpg" alt="Intellectual Learning" class="mt-4 rounded-lg shadow-md" loading="lazy">
+        <a href="ghuraba-intellectual.jpg" target="_blank">
+          <img src="ghuraba-intellectual.jpg" alt="Intellectual Learning" class="mt-4 rounded-lg shadow-md cursor-pointer" loading="lazy">
+        </a>
       </div>
     </details>
 
@@ -434,50 +440,14 @@
           <li>Nutrition-focused meal planning and diet suggestions</li>
           <li>Wellness center integration: hands-on observation by Project Lead</li>
         </ul>
-        <img src="ghuraba-physique.jpg" alt="Physical Wellness" class="mt-4 rounded-lg shadow-md" loading="lazy">
+        <a href="ghuraba-physique.jpg" target="_blank">
+          <img src="ghuraba-physique.jpg" alt="Physical Wellness" class="mt-4 rounded-lg shadow-md cursor-pointer" loading="lazy">
+        </a>
       </div>
     </details>
 
   </div>
 </section>
-
-<!-- Accordion Script -->
-<script>
-  document.querySelectorAll('#ghuraba-taxonomy details').forEach((section) => {
-    const summary = section.querySelector('summary');
-    const icon = summary.querySelector('.icon');
-    const content = section.querySelector('.details-content');
-
-    summary.addEventListener('click', (e) => {
-      e.preventDefault();
-      const isOpen = section.hasAttribute('open');
-      const startHeight = content.scrollHeight;
-
-      if(isOpen) {
-        content.style.height = `${startHeight}px`;
-        requestAnimationFrame(() => {
-          content.style.height = '0';
-          section.removeAttribute('open');
-          summary.setAttribute('aria-expanded', 'false');
-          if(icon) icon.style.transform = 'rotate(0deg)';
-        });
-      } else {
-        section.setAttribute('open', '');
-        summary.setAttribute('aria-expanded', 'true');
-        const endHeight = content.scrollHeight;
-        content.style.height = '0';
-        requestAnimationFrame(() => {
-          content.style.height = `${endHeight}px`;
-          if(icon) icon.style.transform = 'rotate(180deg)';
-        });
-      }
-
-      content.addEventListener('transitionend', () => {
-        if(section.hasAttribute('open')) content.style.height = 'auto';
-      }, { once: true });
-    });
-  });
-</script>
       
 <!-- Weddings & Events Experience -->
 <section id="weddings-events" class="py-16 bg-white">
@@ -565,4 +535,5 @@
 </script>
   </body>
 </html>
+
 
