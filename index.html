@@ -165,17 +165,7 @@
   </div>
 </div>
 
-<!-- Competitive Profile Matrix (CPM) Overview -->
-<div class="bg-gray-50 p-6 rounded-lg shadow-md mt-8">
-  <h3 class="text-xl font-bold text-secondary-color mb-4">Competitive Profile Matrix Overview</h3>
-  <p class="mb-4 text-gray-700">
-    Compare Alo Chaya against local and international upscale resorts in Dhaka. Features include riverine setting, room sizes, pricing, and exclusivity.
-  </p>
-  <img src="cpm-dashboard.jpg" alt="CPM Dashboard" class="w-full rounded-lg shadow-md">
-</div>
 
-</div>
-</section>
 
 <!-- Wellness & Activities Section -->
 <section id="wellness" class="container mx-auto max-w-5xl px-6 py-12">
@@ -435,6 +425,114 @@
         </a>
       </div>
     </details>
+    <!-- Competitive Profile Matrix & Feedback Section -->
+<section id="cpm-dashboard" class="py-16 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-green-800 mb-6 text-center">
+      Competitive Profile Matrix (CPM) & Guest Insights
+    </h2>
+    <p class="text-center text-gray-600 mb-10">
+      Compare Alo Chaya’s performance with leading local and international resorts, and share your feedback to help us grow.
+    </p>
+
+    <!-- CPM Table -->
+    <div class="overflow-x-auto shadow-lg rounded-lg bg-white">
+      <table class="min-w-full text-sm text-left border-collapse">
+        <thead class="bg-green-800 text-white">
+          <tr>
+            <th class="py-3 px-4">Factor</th>
+            <th class="py-3 px-4">Weight</th>
+            <th class="py-3 px-4">Alo Chaya</th>
+            <th class="py-3 px-4">Local Competitors</th>
+            <th class="py-3 px-4">International Titans</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-700">
+          <tr class="hover:bg-green-50 transition">
+            <td class="py-2 px-4 font-medium">Riverine Setting & Exclusivity</td>
+            <td class="py-2 px-4">0.15</td>
+            <td class="py-2 px-4" title="Private riverbank estate with unmatched seclusion and family privacy.">4.5</td>
+            <td class="py-2 px-4" title="Most local resorts lack true riverbank exclusivity.">3.0</td>
+            <td class="py-2 px-4" title="Urban hotels; no true natural waterfront.">2.5</td>
+          </tr>
+          <tr class="hover:bg-green-50 transition">
+            <td class="py-2 px-4 font-medium">Room Size & Comfort</td>
+            <td class="py-2 px-4">0.10</td>
+            <td class="py-2 px-4" title="Family suites average 720–750 sq.ft, exceeding Dhaka luxury norms.">4.0</td>
+            <td class="py-2 px-4" title="Standard rooms smaller with less curated interiors.">3.0</td>
+            <td class="py-2 px-4" title="Superior materials, but pricing per sq.ft. is 2–3x higher.">4.5</td>
+          </tr>
+          <tr class="hover:bg-green-50 transition">
+            <td class="py-2 px-4 font-medium">Pricing (Value-Based Luxury)</td>
+            <td class="py-2 px-4">0.15</td>
+            <td class="py-2 px-4" title="High-value pricing; premium experience at mid-tier cost.">4.5</td>
+            <td class="py-2 px-4" title="Limited differentiation in pricing vs. quality.">3.5</td>
+            <td class="py-2 px-4" title="High tariffs; lower value-for-money ratio.">2.0</td>
+          </tr>
+          <tr class="hover:bg-green-50 transition">
+            <td class="py-2 px-4 font-medium">Architecture & Heritage Theme</td>
+            <td class="py-2 px-4">0.10</td>
+            <td class="py-2 px-4" title="Inspired by Fatima Mahal & riverine Bengali architecture.">4.8</td>
+            <td class="py-2 px-4" title="Generic resort design with minimal heritage storytelling.">2.5</td>
+            <td class="py-2 px-4" title="Modern designs; minimal local cultural integration.">3.5</td>
+          </tr>
+          <tr class="hover:bg-green-50 transition">
+            <td class="py-2 px-4 font-medium">Service Personalization</td>
+            <td class="py-2 px-4">0.10</td>
+            <td class="py-2 px-4" title="Family-run ethos ensures personalized hospitality.">4.6</td>
+            <td class="py-2 px-4" title="Staff-driven but not founder-led personalization.">3.2</td>
+            <td class="py-2 px-4" title="Professional service, less personal touch.">4.0</td>
+          </tr>
+          <tr class="bg-gray-100 font-semibold">
+            <td class="py-2 px-4">Total Weighted Score</td>
+            <td class="py-2 px-4">1.00</td>
+            <td class="py-2 px-4 text-green-800">4.12</td>
+            <td class="py-2 px-4">3.17</td>
+            <td class="py-2 px-4">3.83</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Feedback Form -->
+    <div class="mt-12 bg-white p-8 rounded-lg shadow-lg">
+      <h3 class="text-2xl font-bold text-green-800 mb-4 text-center">Guest Feedback & Ratings</h3>
+      <form id="feedback-form" class="space-y-4">
+        <div>
+          <label for="name" class="block text-gray-700 font-semibold mb-1">Name</label>
+          <input type="text" id="name" name="name" class="w-full border rounded-md p-2" placeholder="Your Name" required>
+        </div>
+        <div>
+          <label for="visitType" class="block text-gray-700 font-semibold mb-1">Your Visit</label>
+          <select id="visitType" name="visitType" class="w-full border rounded-md p-2">
+            <option>First Visit</option>
+            <option>Repeat Visit</option>
+          </select>
+        </div>
+        <div>
+          <label for="rating" class="block text-gray-700 font-semibold mb-1">Rating (1–5)</label>
+          <input type="number" id="rating" name="rating" min="1" max="5" class="w-full border rounded-md p-2" required>
+        </div>
+        <div>
+          <label for="comments" class="block text-gray-700 font-semibold mb-1">Comments / Suggestions</label>
+          <textarea id="comments" name="comments" rows="4" class="w-full border rounded-md p-2" placeholder="Tell us how we can improve your next visit..."></textarea>
+        </div>
+        <button type="submit" class="bg-green-800 text-white px-4 py-2 rounded-md font-semibold hover:bg-green-700 transition">
+          Submit Feedback
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Simple feedback handler (offline demo)
+  document.getElementById('feedback-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thank you for your feedback! Your insights help Alo Chaya serve you better.');
+    this.reset();
+  });
+          </script>
 
     <!-- Level 4: Physique -->
     <details class="bg-white rounded-lg shadow p-6 transition-all duration-500">
@@ -543,6 +641,7 @@
 </script>
   </body>
 </html>
+
 
 
 
