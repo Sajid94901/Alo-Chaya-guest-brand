@@ -618,57 +618,229 @@
     </p>
 
     <div>
-      <h4 class="text-lg font-semibold mb-2">Framework Crosswalk</h4>
-      <ul class="list-disc pl-5 text-sm text-gray-700">
-        <li><strong>Bloom:</strong> Understand → Apply → Reflect → Create (spiritual & moral scenarios)</li>
-        <li><strong>Dale:</strong> Experience → Observe → Apply → Reflect (prayer, dhikr, meditation)</li>
-        <li><strong>NAK Pursuits:</strong> Patience, Gratitude, Service, Forgiveness, Humility, Honesty, Justice, Compassion</li>
-        <li><strong>Fritz / McClelland / Alderfer:</strong> Belonging, Growth, Moral clarity exercises</li>
-      </ul>
-    </div>
-
-  </div>
-</div>
-
-<!-- Interactive Wellness Pyramid: Nafs → Qalb → Sirr → Ruh -->
+      <!-- Interactive Wellness Pyramid: Nafs → Qalb → Sirr → Ruh -->
 <section id="wellness-pyramid-overlay" class="py-8 bg-gray-50 rounded-lg shadow-md mt-6">
   <div class="max-w-4xl mx-auto px-6">
     <h2 class="text-2xl font-bold text-center mb-6">Integrated Wellness Pyramid</h2>
-    
-    <div class="relative w-full h-96">
-      <!-- Pyramid tiers clickable -->
+
+    <div class="relative w-full h-[28rem]">
+      <!-- Nafs Tier -->
       <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-64 cursor-pointer"
-           @click="activeTier = 'nafs'">
+           @click="activeTier = (activeTier === 'nafs' ? null : 'nafs')">
         <img src="fitness-pyramid.jpg" alt="Wellness Pyramid" class="w-full rounded-lg shadow-md">
         <span class="absolute left-1/2 bottom-0 transform -translate-x-1/2 -mb-6 text-white font-bold text-lg bg-green-700 px-2 py-1 rounded">
           Nafs
         </span>
       </div>
+
+      <!-- Qalb Tier -->
       <div class="absolute bottom-1/3 left-1/2 transform -translate-x-1/2 w-56 cursor-pointer"
-           @click="activeTier = 'qalb'">
+           @click="activeTier = (activeTier === 'qalb' ? null : 'qalb')">
         <span class="absolute left-1/2 bottom-0 transform -translate-x-1/2 -mb-6 text-white font-bold text-lg bg-green-700 px-2 py-1 rounded">
           Qalb
         </span>
       </div>
+
+      <!-- Sirr Tier -->
       <div class="absolute bottom-2/3 left-1/2 transform -translate-x-1/2 w-48 cursor-pointer"
-           @click="activeTier = 'sirr'">
+           @click="activeTier = (activeTier === 'sirr' ? null : 'sirr')">
         <span class="absolute left-1/2 bottom-0 transform -translate-x-1/2 -mb-6 text-white font-bold text-lg bg-green-700 px-2 py-1 rounded">
           Sirr
         </span>
       </div>
+
+      <!-- Ruh Tier -->
       <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-40 cursor-pointer"
-           @click="activeTier = 'ruh'">
+           @click="activeTier = (activeTier === 'ruh' ? null : 'ruh')">
         <span class="absolute left-1/2 top-full transform -translate-x-1/2 mt-2 text-white font-bold text-lg bg-green-700 px-2 py-1 rounded">
           Ruh
         </span>
       </div>
     </div>
 
-    <p class="text-sm text-gray-700 mt-6 text-center">
-      Tap each tier to view exercises, journaling prompts, and reflection overlays. Tracks personal growth through experiential learning.
-    </p>
+    <!-- Tier Overlays -->
+    <div class="mt-6 space-y-4">
+
+      <!-- Nafs Overlay -->
+      <div x-show="activeTier === 'nafs'" x-transition class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold mb-3">Nafs — Physical & Personal Wellness</h3>
+        <ul class="list-disc pl-5 mb-3 text-gray-700">
+          <li>Daily movement & strength exercises</li>
+          <li>Nutrition guidance & mindful eating journaling</li>
+          <li>Rest, recovery, and stress tracking</li>
+          <li>Reflection prompts on personal habits & discipline</li>
+        </ul>
+        <div class="mt-3">
+          <h4 class="font-semibold mb-2">Integration</h4>
+          <ul class="list-disc pl-5 text-gray-700 text-sm">
+            <li>Bloom: Apply → Analyze → Reflect → Create (exercise routines)</li>
+            <li>Dale: Experience → Observe → Apply → Reflect (hands-on fitness)</li>
+            <li>NAK Pursuits: Patience, Discipline, Self-control</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Qalb Overlay -->
+      <div x-show="activeTier === 'qalb'" x-transition class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold mb-3">Qalb — Heart & Social Wellness</h3>
+        <ul class="list-disc pl-5 mb-3 text-gray-700">
+          <li>Empathy & social connection exercises</li>
+          <li>Active listening & peer mentoring</li>
+          <li>Collaborative storytelling & table rituals</li>
+          <li>Reflection on moral dilemmas & social choices</li>
+        </ul>
+        <div class="mt-3">
+          <h4 class="font-semibold mb-2">Integration</h4>
+          <ul class="list-disc pl-5 text-gray-700 text-sm">
+            <li>Bloom: Apply → Analyze → Evaluate → Create (social scenarios)</li>
+            <li>Dale: Experience → Observe → Apply → Reflect (role-play, journaling)</li>
+            <li>NAK Pursuits: Compassion, Gratitude, Service, Forgiveness, Humility, Honesty, Justice</li>
+            <li>Fritz / McClelland / Alderfer: Belonging, Growth, Moral clarity exercises</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Sirr Overlay -->
+      <div x-show="activeTier === 'sirr'" x-transition class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold mb-3">Sirr — Spiritual Intimacy & Awareness</h3>
+        <ul class="list-disc pl-5 mb-3 text-gray-700">
+          <li>Prayer, dhikr, meditation practices</li>
+          <li>Mindful journaling & reflection prompts</li>
+          <li>Silent retreats and focused spiritual exercises</li>
+          <li>Tracking internal emotional-spiritual states</li>
+        </ul>
+        <div class="mt-3">
+          <h4 class="font-semibold mb-2">Integration</h4>
+          <ul class="list-disc pl-5 text-gray-700 text-sm">
+            <li>Bloom: Understand → Apply → Reflect → Create (spiritual scenarios)</li>
+            <li>Dale: Experience → Observe → Apply → Reflect (meditation, dhikr)</li>
+            <li>NAK Pursuits: Patience, Gratitude, Service, Forgiveness, Humility, Honesty, Justice, Compassion</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Ruh Overlay -->
+      <div x-show="activeTier === 'ruh'" x-transition class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold mb-3">Ruh — Transcendence & Moral Clarity</h3>
+        <ul class="list-disc pl-5 mb-3 text-gray-700">
+          <li>Advanced reflection & ethical decision-making</li>
+          <li>Guided moral reasoning and mentorship</li>
+          <li>Community service & leadership tasks</li>
+          <li>Integration of all tiers into holistic self-awareness</li>
+        </ul>
+        <div class="mt-3">
+          <h4 class="font-semibold mb-2">Integration</h4>
+          <ul class="list-disc pl-5 text-gray-700 text-sm">
+            <li>Bloom: Evaluate → Create → Integrate (moral-spiritual synthesis)</li>
+            <li>Dale: Experience → Apply → Reflect → Share (community & leadership)</li>
+            <li>NAK Pursuits: Justice, Compassion, Service, Patience, Humility, Honesty, Gratitude</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
+      <!-- Advanced Tier Interaction & Reflection Cards -->
+<div x-data="{ activeTier: null, completion: { nafs: 0, qalb: 0, sirr: 0, ruh: 0 } }" class="space-y-6 mt-6">
+
+  <!-- Tier: Nafs -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300"
+       :class="{ 'shadow-2xl': activeTier === 'nafs' }">
+    <button @click="activeTier = (activeTier === 'nafs' ? null : 'nafs')"
+            class="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
+      <h3 class="text-xl font-semibold text-secondary-color">Tier 1: Nafs — Physical & Habitual Wellness</h3>
+      <span class="text-gray-500 transform transition-transform duration-300"
+            :class="{ 'rotate-180': activeTier === 'nafs' }">▼</span>
+    </button>
+    <div x-show="activeTier === 'nafs'" x-transition class="p-6 text-gray-700">
+      <ul class="list-disc pl-5 mb-4">
+        <li>Daily physical routines & foundational habits</li>
+        <li>Mindful nutrition exercises & hydration tracking</li>
+        <li>Sleep hygiene & circadian rhythm awareness</li>
+        <li><a href="journal-nafs.html" class="text-green-700 underline">Link: Nafs Journal & Reflection</a></li>
+      </ul>
+      <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
+        <div class="bg-green-700 h-3 rounded-full transition-all duration-700"
+             :style="{ width: completion.nafs + '%' }"></div>
+      </div>
+      <p class="text-sm italic">Track your Nafs tier completion to progress toward higher wellness tiers.</p>
+    </div>
+  </div>
+
+  <!-- Tier: Qalb -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300"
+       :class="{ 'shadow-2xl': activeTier === 'qalb' }">
+    <button @click="activeTier = (activeTier === 'qalb' ? null : 'qalb')"
+            class="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
+      <h3 class="text-xl font-semibold text-secondary-color">Tier 2: Qalb — Emotional & Social Wellness</h3>
+      <span class="text-gray-500 transform transition-transform duration-300"
+            :class="{ 'rotate-180': activeTier === 'qalb' }">▼</span>
+    </button>
+    <div x-show="activeTier === 'qalb'" x-transition class="p-6 text-gray-700">
+      <ul class="list-disc pl-5 mb-4">
+        <li>Empathy exercises, gratitude journaling & peer mentoring</li>
+        <li>Conflict resolution, social scenario simulations</li>
+        <li>Reflection cards aligned with NAK pursuits & Bloom stages</li>
+        <li><a href="journal-qalb.html" class="text-green-700 underline">Link: Qalb Journal & Reflection</a></li>
+      </ul>
+      <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
+        <div class="bg-green-700 h-3 rounded-full transition-all duration-700"
+             :style="{ width: completion.qalb + '%' }"></div>
+      </div>
+      <p class="text-sm italic">Emotional & social growth is tracked via progressive completion patches.</p>
+    </div>
+  </div>
+
+  <!-- Tier: Sirr -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300"
+       :class="{ 'shadow-2xl': activeTier === 'sirr' }">
+    <button @click="activeTier = (activeTier === 'sirr' ? null : 'sirr')"
+            class="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
+      <h3 class="text-xl font-semibold text-secondary-color">Tier 3: Sirr — Inner Reflection & Spiritual Awareness</h3>
+      <span class="text-gray-500 transform transition-transform duration-300"
+            :class="{ 'rotate-180': activeTier === 'sirr' }">▼</span>
+    </button>
+    <div x-show="activeTier === 'sirr'" x-transition class="p-6 text-gray-700">
+      <ul class="list-disc pl-5 mb-4">
+        <li>Meditation, prayer focus, self-reflection journaling</li>
+        <li>Tracking mindfulness & intention-setting exercises</li>
+        <li>Personal growth metrics tied to emotional & spiritual clarity</li>
+        <li><a href="journal-sirr.html" class="text-green-700 underline">Link: Sirr Journal & Reflection</a></li>
+      </ul>
+      <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
+        <div class="bg-green-700 h-3 rounded-full transition-all duration-700"
+             :style="{ width: completion.sirr + '%' }"></div>
+      </div>
+      <p class="text-sm italic">Sirr tier completion unlocks guidance for Ruh integration.</p>
+    </div>
+  </div>
+
+  <!-- Tier: Ruh -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300"
+       :class="{ 'shadow-2xl': activeTier === 'ruh' }">
+    <button @click="activeTier = (activeTier === 'ruh' ? null : 'ruh')"
+            class="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
+      <h3 class="text-xl font-semibold text-secondary-color">Tier 4: Ruh — Transcendence & Moral Clarity</h3>
+      <span class="text-gray-500 transform transition-transform duration-300"
+            :class="{ 'rotate-180': activeTier === 'ruh' }">▼</span>
+    </button>
+    <div x-show="activeTier === 'ruh'" x-transition class="p-6 text-gray-700">
+      <ul class="list-disc pl-5 mb-4">
+        <li>Advanced moral reasoning, leadership, community service</li>
+        <li>Transcendence exercises: spiritual mentoring & guided reflection</li>
+        <li>Integration of Nafs, Qalb, Sirr progress into full wellness map</li>
+        <li><a href="journal-ruh.html" class="text-green-700 underline">Link: Ruh Journal & Reflection</a></li>
+      </ul>
+      <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
+        <div class="bg-green-700 h-3 rounded-full transition-all duration-700"
+             :style="{ width: completion.ruh + '%' }"></div>
+      </div>
+      <p class="text-sm italic">Ruh tier completion reflects mastery across all prior tiers.</p>
+    </div>
+  </div>
+
+</div>
   <!-- Guest 7P Promise Pyramid -->
   <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300" 
        :class="{ 'shadow-2xl': openItem === 2 }">
@@ -700,31 +872,7 @@
     </div>
   </div>
 </div>
-    <!-- Strategic Models Overview -->
-    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300" 
-         :class="{ 'shadow-2xl': openItem === 3 }">
-      <button @click="openItem = (openItem === 3 ? null : 3)" 
-              class="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
-        <h3 class="text-xl font-semibold text-secondary-color">Wellness Strategy Models</h3>
-        <span class="text-gray-500 transform transition-transform duration-300" 
-              :class="{ 'rotate-180': openItem === 3 }">▼</span>
-      </button>
-      <div x-show="openItem === 3" x-transition class="p-6 text-gray-700">
-        <p class="mb-4">
-          We leverage proven strategic frameworks to deliver wellness efficiently:
-        </p>
-        <ul class="list-disc pl-5 mb-4">
-          <li>Golden Mildred Pryor & Leslie Toombs 5 Ps of Strategic Implementation</li>
-          <li>Randall Schuler 5 Ps of SHRM for employee wellness & engagement</li>
-          <li>Henry Mintzberg 3 Ps applied to operational excellence</li>
-        </ul>
-        <p class="mb-4">
-          Our internal dashboards track implementation, guest feedback, and engagement to continuously refine the experience.
-        </p>
-        <img src="strategy-models-pyramid.jpg" alt="Wellness Strategy Models Pyramid" class="rounded-lg shadow-md w-full">
-      </div>
-    </div>
-
+    
     <!-- Spa & Acupuncture Experiences -->
     <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300" 
          :class="{ 'shadow-2xl': openItem === 4 }">
@@ -1885,6 +2033,7 @@ document.getElementById("download-csv").addEventListener("click", () => {
 </script>
   </body>
 </html>
+
 
 
 
