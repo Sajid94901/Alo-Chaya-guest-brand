@@ -79,6 +79,85 @@
       </ul>
     </div>
   </details>
+  <!-- About Us / Doctrine Accordion -->
+<div class="taxonomy-container space-y-4 mt-6">
+
+  <!-- Who We Are -->
+  <details class="bg-white rounded-lg shadow p-6">
+    <summary class="cursor-pointer text-2xl font-semibold text-secondary-color flex justify-between items-center">
+      Who We Are <span class="icon transition-transform duration-300">▼</span>
+    </summary>
+    <div class="details-content mt-4 text-gray-700">
+      <p class="mb-4">Introducing Alo Chaya, our vision, and core mission in hospitality and wellness.</p>
+      <ul class="list-disc list-inside">
+        <li>Family-owned resort with multi-generational stewardship</li>
+        <li>Blend of modern luxury and cultural heritage</li>
+        <li>Focused on holistic guest experiences: mind, body, and soul</li>
+      </ul>
+    </div>
+  </details>
+
+  <!-- Hassan Choudhury Family -->
+  <details class="bg-white rounded-lg shadow p-6">
+    <summary class="cursor-pointer text-2xl font-semibold text-secondary-color flex justify-between items-center">
+      Hassan Choudhury Family <span class="icon transition-transform duration-300">▼</span>
+    </summary>
+    <div class="details-content mt-4 text-gray-700">
+      <p class="mb-4">Meet my family, whose legacy and values shape everything we do at Alo Chaya.</p>
+      <ul class="list-disc list-inside">
+        <li>Paternal Grandfather: Abdul Rashid Chowdhury</li>
+        <li>Paternal Grandmother: Haseena Rashid (nicknamed Meera)</li>
+        <li>Eldest Uncle: Rashidul Hassan Litong</li>
+        <li>Paternal Aunts: Irene Sultana, Arifa Sultana, [add remaining three]</li>
+      </ul>
+    </div>
+  </details>
+
+  <!-- Ownership & Leadership -->
+  <details class="bg-white rounded-lg shadow p-6">
+    <summary class="cursor-pointer text-2xl font-semibold text-secondary-color flex justify-between items-center">
+      Ownership & Leadership <span class="icon transition-transform duration-300">▼</span>
+    </summary>
+    <div class="details-content mt-4 text-gray-700">
+      <p class="mb-4">As the Project Lead, I oversee day-to-day operations, guest experiences, and strategic initiatives at Alo Chaya.</p>
+      <ul class="list-disc list-inside">
+        <li>Project Lead: Myself, Sajid Hassan — guiding the resort, wellness programs, and guest interactions
+          <br>
+          <img src="sajid-hassan-founders-third-son-project-lead-author.jpg" alt="Sajid Hassan, Project Lead" class="mt-2 rounded-lg shadow-md w-64" loading="lazy">
+        </li>
+        <li>Strategic Oversight: Our family council ensures long-term vision alignment and legacy preservation</li>
+        <li>Accountability & Quality: I personally monitor and refine operations for continuous improvement across all resort services</li>
+      </ul>
+    </div>
+  </details>
+<script>
+  const accordions = document.querySelectorAll('.taxonomy-container details');
+
+  accordions.forEach((section) => {
+    const summary = section.querySelector('summary');
+    const icon = summary.querySelector('.icon');
+
+    summary.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      const isOpen = section.hasAttribute('open');
+
+      // Close all sections
+      accordions.forEach((s) => {
+        s.removeAttribute('open');
+        const sIcon = s.querySelector('.icon');
+        if (sIcon) sIcon.style.transform = 'rotate(0deg)';
+      });
+
+      // If previously closed, open the clicked one
+      if (!isOpen) {
+        section.setAttribute('open', '');
+        if (icon) icon.style.transform = 'rotate(180deg)';
+      }
+    });
+  });
+</script>
+</div>
   <!-- Keller’s Brand Equity Pyramid -->
   <details class="bg-white border rounded-lg p-6 shadow transition-all duration-300">
     <summary class="flex justify-between items-center text-xl font-bold mb-4">
