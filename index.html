@@ -425,115 +425,7 @@
         </a>
       </div>
     </details>
-    <!-- Competitive Profile Matrix & Feedback Section -->
-<section id="cpm-dashboard" class="py-16 bg-gray-50">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-green-800 mb-6 text-center">
-      Competitive Profile Matrix (CPM) & Guest Insights
-    </h2>
-    <p class="text-center text-gray-600 mb-10">
-      Compare Alo Chaya’s performance with leading local and international resorts, and share your feedback to help us grow.
-    </p>
-
-    <!-- CPM Table -->
-    <div class="overflow-x-auto shadow-lg rounded-lg bg-white">
-      <table class="min-w-full text-sm text-left border-collapse">
-        <thead class="bg-green-800 text-white">
-          <tr>
-            <th class="py-3 px-4">Factor</th>
-            <th class="py-3 px-4">Weight</th>
-            <th class="py-3 px-4">Alo Chaya</th>
-            <th class="py-3 px-4">Local Competitors</th>
-            <th class="py-3 px-4">International Titans</th>
-          </tr>
-        </thead>
-        <tbody class="text-gray-700">
-          <tr class="hover:bg-green-50 transition">
-            <td class="py-2 px-4 font-medium">Riverine Setting & Exclusivity</td>
-            <td class="py-2 px-4">0.15</td>
-            <td class="py-2 px-4" title="Private riverbank estate with unmatched seclusion and family privacy.">4.5</td>
-            <td class="py-2 px-4" title="Most local resorts lack true riverbank exclusivity.">3.0</td>
-            <td class="py-2 px-4" title="Urban hotels; no true natural waterfront.">2.5</td>
-          </tr>
-          <tr class="hover:bg-green-50 transition">
-            <td class="py-2 px-4 font-medium">Room Size & Comfort</td>
-            <td class="py-2 px-4">0.10</td>
-            <td class="py-2 px-4" title="Family suites average 720–750 sq.ft, exceeding Dhaka luxury norms.">4.0</td>
-            <td class="py-2 px-4" title="Standard rooms smaller with less curated interiors.">3.0</td>
-            <td class="py-2 px-4" title="Superior materials, but pricing per sq.ft. is 2–3x higher.">4.5</td>
-          </tr>
-          <tr class="hover:bg-green-50 transition">
-            <td class="py-2 px-4 font-medium">Pricing (Value-Based Luxury)</td>
-            <td class="py-2 px-4">0.15</td>
-            <td class="py-2 px-4" title="High-value pricing; premium experience at mid-tier cost.">4.5</td>
-            <td class="py-2 px-4" title="Limited differentiation in pricing vs. quality.">3.5</td>
-            <td class="py-2 px-4" title="High tariffs; lower value-for-money ratio.">2.0</td>
-          </tr>
-          <tr class="hover:bg-green-50 transition">
-            <td class="py-2 px-4 font-medium">Architecture & Heritage Theme</td>
-            <td class="py-2 px-4">0.10</td>
-            <td class="py-2 px-4" title="Inspired by Fatima Mahal & riverine Bengali architecture.">4.8</td>
-            <td class="py-2 px-4" title="Generic resort design with minimal heritage storytelling.">2.5</td>
-            <td class="py-2 px-4" title="Modern designs; minimal local cultural integration.">3.5</td>
-          </tr>
-          <tr class="hover:bg-green-50 transition">
-            <td class="py-2 px-4 font-medium">Service Personalization</td>
-            <td class="py-2 px-4">0.10</td>
-            <td class="py-2 px-4" title="Family-run ethos ensures personalized hospitality.">4.6</td>
-            <td class="py-2 px-4" title="Staff-driven but not founder-led personalization.">3.2</td>
-            <td class="py-2 px-4" title="Professional service, less personal touch.">4.0</td>
-          </tr>
-          <tr class="bg-gray-100 font-semibold">
-            <td class="py-2 px-4">Total Weighted Score</td>
-            <td class="py-2 px-4">1.00</td>
-            <td class="py-2 px-4 text-green-800">4.12</td>
-            <td class="py-2 px-4">3.17</td>
-            <td class="py-2 px-4">3.83</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Feedback Form -->
-    <div class="mt-12 bg-white p-8 rounded-lg shadow-lg">
-      <h3 class="text-2xl font-bold text-green-800 mb-4 text-center">Guest Feedback & Ratings</h3>
-      <form id="feedback-form" class="space-y-4">
-        <div>
-          <label for="name" class="block text-gray-700 font-semibold mb-1">Name</label>
-          <input type="text" id="name" name="name" class="w-full border rounded-md p-2" placeholder="Your Name" required>
-        </div>
-        <div>
-          <label for="visitType" class="block text-gray-700 font-semibold mb-1">Your Visit</label>
-          <select id="visitType" name="visitType" class="w-full border rounded-md p-2">
-            <option>First Visit</option>
-            <option>Repeat Visit</option>
-          </select>
-        </div>
-        <div>
-          <label for="rating" class="block text-gray-700 font-semibold mb-1">Rating (1–5)</label>
-          <input type="number" id="rating" name="rating" min="1" max="5" class="w-full border rounded-md p-2" required>
-        </div>
-        <div>
-          <label for="comments" class="block text-gray-700 font-semibold mb-1">Comments / Suggestions</label>
-          <textarea id="comments" name="comments" rows="4" class="w-full border rounded-md p-2" placeholder="Tell us how we can improve your next visit..."></textarea>
-        </div>
-        <button type="submit" class="bg-green-800 text-white px-4 py-2 rounded-md font-semibold hover:bg-green-700 transition">
-          Submit Feedback
-        </button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<script>
-  // Simple feedback handler (offline demo)
-  document.getElementById('feedback-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Thank you for your feedback! Your insights help Alo Chaya serve you better.');
-    this.reset();
-  });
-          </script>
-
+    
     <!-- Level 4: Physique -->
     <details class="bg-white rounded-lg shadow p-6 transition-all duration-500">
       <summary class="cursor-pointer text-xl font-semibold text-secondary-color flex justify-between items-center" aria-expanded="false">
@@ -554,7 +446,892 @@
 
   </div>
 </section>
-      
+<!-- Competitive Profile Matrix Section -->
+<section id="competitive-profile" class="py-12 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Competitive Profile Matrix</h2>
+
+    <!-- Filter Toggle -->
+    <div class="flex justify-center mb-4 space-x-4">
+      <button class="filter-btn bg-green-700 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors" data-filter="all">All</button>
+      <button class="filter-btn bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 transition-colors" data-filter="local">Local</button>
+      <button class="filter-btn bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 transition-colors" data-filter="international">International</button>
+    </div>
+
+    <div class="overflow-x-auto mb-12">
+      <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow">
+        <thead>
+          <tr class="bg-green-800 text-white cursor-pointer">
+            <th class="py-3 px-4 text-left" onclick="sortTable(0)">Resort</th>
+            <th class="py-3 px-4 text-left" onclick="sortTable(1)">Room Size (sq.ft)</th>
+            <th class="py-3 px-4 text-left" onclick="sortTable(2)">Pricing (BDT/Night)</th>
+            <th class="py-3 px-4 text-left" onclick="sortTable(3)">Features / Comfort</th>
+            <th class="py-3 px-4 text-left" onclick="sortTable(4)">Location & Accessibility</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-700">
+          <!-- Alo Chaya -->
+          <tr class="border-t bg-green-50" data-type="alochaya" title="Advantages: Riverine, spacious rooms, heritage aesthetics">
+            <td class="py-3 px-4 font-semibold">Alo Chaya</td>
+            <td class="py-3 px-4">Standard: 345–370<br>Family Suite: 720–900</td>
+            <td class="py-3 px-4">15,000–20,000<br>Family Suite: 20,000–25,000</td>
+            <td class="py-3 px-4">Private bath, scenic river views, TV lounge, heritage aesthetics</td>
+            <td class="py-3 px-4">2 hours from city center, riverine sanctuary</td>
+          </tr>
+
+          <!-- International Titans -->
+          <tr class="border-t" data-type="international" title="City-based, luxury urban hotels">
+            <td class="py-3 px-4">Holiday Inn</td>
+            <td class="py-3 px-4">300–400</td>
+            <td class="py-3 px-4">12,000–22,000</td>
+            <td class="py-3 px-4">City-based rooms, standard amenities</td>
+            <td class="py-3 px-4">Central city location</td>
+          </tr>
+          <tr class="border-t" data-type="international" title="Luxury amenities, larger space, urban convenience">
+            <td class="py-3 px-4">Marriott</td>
+            <td class="py-3 px-4">350–450</td>
+            <td class="py-3 px-4">18,000–28,000</td>
+            <td class="py-3 px-4">Luxury amenities, large common areas</td>
+            <td class="py-3 px-4">City outskirts</td>
+          </tr>
+          <tr class="border-t" data-type="international" title="Modern interiors, business-focused">
+            <td class="py-3 px-4">Sheraton</td>
+            <td class="py-3 px-4">340–420</td>
+            <td class="py-3 px-4">16,000–26,000</td>
+            <td class="py-3 px-4">Modern interiors, business-focused</td>
+            <td class="py-3 px-4">City center</td>
+          </tr>
+          <tr class="border-t" data-type="international" title="Premium rooms, wellness facilities">
+            <td class="py-3 px-4">Westin</td>
+            <td class="py-3 px-4">360–440</td>
+            <td class="py-3 px-4">20,000–30,000</td>
+            <td class="py-3 px-4">Premium rooms, wellness facilities</td>
+            <td class="py-3 px-4">City center / airport proximity</td>
+          </tr>
+          <tr class="border-t" data-type="international" title="Luxury interiors, high-end service">
+            <td class="py-3 px-4">La Meridia</td>
+            <td class="py-3 px-4">350–400</td>
+            <td class="py-3 px-4">18,000–28,000</td>
+            <td class="py-3 px-4">Luxury interiors, high-end service</td>
+            <td class="py-3 px-4">Prime urban locations</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+  <!-- Guest Feedback & Ratings Section -->
+<section id="guest-feedback" class="py-12 bg-white">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Guest Feedback & Ratings</h2>
+
+    <!-- Average Rating Display -->
+    <div class="flex justify-center items-center mb-8 space-x-6">
+      <div class="text-center">
+        <span class="text-4xl font-bold" id="average-rating">4.6</span>
+        <div class="flex justify-center mt-1">
+          <span class="star-rating text-yellow-400 text-xl">★★★★★</span>
+        </div>
+        <p class="text-gray-600 mt-1">Current average rating</p>
+      </div>
+      <div class="text-center">
+        <span class="text-4xl font-bold" id="updated-rating">-</span>
+        <div class="flex justify-center mt-1">
+          <span class="star-rating text-yellow-400 text-xl" id="updated-stars">☆☆☆☆☆</span>
+        </div>
+        <p class="text-gray-600 mt-1">Your updated rating</p>
+      </div>
+    </div>
+
+    <!-- Feedback Form -->
+    <form id="feedback-form" class="max-w-3xl mx-auto space-y-4 bg-gray-50 p-6 rounded-lg shadow-md">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input type="text" id="guest-name" placeholder="Your Name" class="w-full px-4 py-2 border rounded focus:ring-2 focus:ring-green-500">
+        <input type="email" id="guest-email" placeholder="Your Email" class="w-full px-4 py-2 border rounded focus:ring-2 focus:ring-green-500">
+      </div>
+
+      <div class="space-y-2">
+        <label for="guest-rating" class="font-semibold text-gray-700">Your Rating:</label>
+        <select id="guest-rating" class="w-full px-4 py-2 border rounded focus:ring-2 focus:ring-green-500">
+          <option value="5">★★★★★ Excellent</option>
+          <option value="4">★★★★ Very Good</option>
+          <option value="3">★★★ Good</option>
+          <option value="2">★★ Fair</option>
+          <option value="1">★ Poor</option>
+        </select>
+      </div>
+
+      <div class="space-y-2">
+        <label for="guest-first-visit" class="font-semibold text-gray-700">What would you like in your first visit?</label>
+        <textarea id="guest-first-visit" rows="3" class="w-full px-4 py-2 border rounded focus:ring-2 focus:ring-green-500" placeholder="Suggestions or preferences for your first visit"></textarea>
+      </div>
+
+      <div class="space-y-2">
+        <label for="guest-next-visit" class="font-semibold text-gray-700">What would you like in your next visit?</label>
+        <textarea id="guest-next-visit" rows="3" class="w-full px-4 py-2 border rounded focus:ring-2 focus:ring-green-500" placeholder="Future ideas, improvements, or activities"></textarea>
+      </div>
+
+      <button type="submit" class="bg-green-800 text-white px-6 py-2 rounded font-semibold hover:bg-green-700 transition-colors">Submit Feedback</button>
+    </form>
+
+    <!-- Animated Progress Bars -->
+    <div class="mt-12 max-w-3xl mx-auto space-y-4">
+      <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Guest Satisfaction Metrics</h3>
+
+      <div class="space-y-3">
+        <div>
+          <div class="flex justify-between mb-1">
+            <span class="text-gray-700">Room Comfort</span>
+            <span class="text-gray-700 font-semibold" id="progress-room-comfort">0%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded h-4">
+            <div class="bg-green-700 h-4 rounded progress-bar" data-target="95"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between mb-1">
+            <span class="text-gray-700">Service & Hospitality</span>
+            <span class="text-gray-700 font-semibold" id="progress-service">0%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded h-4">
+            <div class="bg-green-700 h-4 rounded progress-bar" data-target="92"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between mb-1">
+            <span class="text-gray-700">Wellness & Activities</span>
+            <span class="text-gray-700 font-semibold" id="progress-wellness">0%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded h-4">
+            <div class="bg-green-700 h-4 rounded progress-bar" data-target="90"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between mb-1">
+            <span class="text-gray-700">Dining Experience</span>
+            <span class="text-gray-700 font-semibold" id="progress-dining">0%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded h-4">
+            <div class="bg-green-700 h-4 rounded progress-bar" data-target="88"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between mb-1">
+            <span class="text-gray-700">Value for Money</span>
+            <span class="text-gray-700 font-semibold" id="progress-value">0%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded h-4">
+            <div class="bg-green-700 h-4 rounded progress-bar" data-target="93"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Optional: Include this JS snippet for animated progress bars -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const progressBars = document.querySelectorAll(".progress-bar");
+    progressBars.forEach(bar => {
+      const target = parseInt(bar.getAttribute("data-target"));
+      let width = 0;
+      const interval = setInterval(() => {
+        if (width >= target) clearInterval(interval);
+        else {
+          width++;
+          bar.style.width = width + "%";
+          // Update associated number
+          const parentId = bar.parentElement.previousElementSibling.id;
+          if(parentId) document.getElementById(parentId).textContent = width + "%";
+        }
+      }, 15);
+    });
+
+    // Simple form submit for demo
+    document.getElementById("feedback-form").addEventListener("submit", function(e){
+      e.preventDefault();
+      const rating = document.getElementById("guest-rating").value;
+      document.getElementById("updated-rating").textContent = rating;
+      document.getElementById("updated-stars").textContent = "★".repeat(rating) + "☆".repeat(5-rating);
+      alert("Thank you for your feedback!");
+      this.reset();
+    });
+  });
+        </script>
+  <!-- CPM Table with Interactive Filters -->
+<div class="cpmmatrix-container my-8 p-6 bg-white rounded-lg shadow-lg">
+  <h3 class="text-2xl font-bold mb-4">Competitive Profile Matrix</h3>
+  
+  <!-- Filters -->
+  <div class="flex space-x-4 mb-4">
+    <button class="filter-btn px-4 py-2 bg-green-800 text-white rounded-md hover:bg-green-700 transition-colors" data-filter="all">All</button>
+    <button class="filter-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors" data-filter="local">Local Competitors</button>
+    <button class="filter-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors" data-filter="international">International Titans</button>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="w-full table-auto border-collapse border border-gray-300">
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="border px-4 py-2 text-left">Resort</th>
+          <th class="border px-4 py-2" title="Room Size in Sq. Ft">Room Size</th>
+          <th class="border px-4 py-2" title="Luxury, Comfort, and Heritage Score">Comfort & Luxury</th>
+          <th class="border px-4 py-2" title="Pricing per Night BDT">Pricing (BDT)</th>
+          <th class="border px-4 py-2" title="River-in setting, exclusivity">Setting & Exclusivity</th>
+          <th class="border px-4 py-2" title="Overall weighted score">Weighted Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Alo Chaya -->
+        <tr class="cp-row local international">
+          <td class="border px-4 py-2 font-semibold text-green-800">Alo Chaya</td>
+          <td class="border px-4 py-2">350 - 900</td>
+          <td class="border px-4 py-2">9.5</td>
+          <td class="border px-4 py-2">15,000 - 25,000</td>
+          <td class="border px-4 py-2">10 (Private Riverine Setting)</td>
+          <td class="border px-4 py-2 font-bold">9.8</td>
+        </tr>
+        <!-- Local Competitors -->
+        <tr class="cp-row local">
+          <td class="border px-4 py-2">Cottage House & Kaal Meghla</td>
+          <td class="border px-4 py-2">200 - 250</td>
+          <td class="border px-4 py-2">7</td>
+          <td class="border px-4 py-2">10,000 - 15,000</td>
+          <td class="border px-4 py-2">6</td>
+          <td class="border px-4 py-2">7.0</td>
+        </tr>
+        <tr class="cp-row local">
+          <td class="border px-4 py-2">Silvan Resort (Thailand)</td>
+          <td class="border px-4 py-2">300 - 350</td>
+          <td class="border px-4 py-2">8</td>
+          <td class="border px-4 py-2">18,000 - 22,000</td>
+          <td class="border px-4 py-2">7</td>
+          <td class="border px-4 py-2">7.8</td>
+        </tr>
+        <!-- International Titans -->
+        <tr class="cp-row international">
+          <td class="border px-4 py-2">Marriott</td>
+          <td class="border px-4 py-2">350 - 400</td>
+          <td class="border px-4 py-2">9</td>
+          <td class="border px-4 py-2">28,000 - 40,000</td>
+          <td class="border px-4 py-2">8</td>
+          <td class="border px-4 py-2">8.5</td>
+        </tr>
+        <tr class="cp-row international">
+          <td class="border px-4 py-2">Sheraton</td>
+          <td class="border px-4 py-2">360 - 420</td>
+          <td class="border px-4 py-2">9</td>
+          <td class="border px-4 py-2">30,000 - 45,000</td>
+          <td class="border px-4 py-2">8</td>
+          <td class="border px-4 py-2">8.5</td>
+        </tr>
+        <tr class="cp-row international">
+          <td class="border px-4 py-2">Westin</td>
+          <td class="border px-4 py-2">380 - 430</td>
+          <td class="border px-4 py-2">9.2</td>
+          <td class="border px-4 py-2">32,000 - 50,000</td>
+          <td class="border px-4 py-2">8.5</td>
+          <td class="border px-4 py-2">8.7</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+  <!-- Feedback & Ratings Section -->
+<div class="feedback-container my-8 p-6 bg-white rounded-lg shadow-lg">
+  <h3 class="text-2xl font-bold mb-4">Guest Feedback & Suggestions</h3>
+  <p class="mb-4 text-gray-700">
+    Share your thoughts, rate your experience, and let us know what you would like for your first visit and next visit.
+  </p>
+
+  <form id="feedback-form" class="space-y-4">
+    <!-- Name -->
+    <input type="text" name="name" placeholder="Your Name" required
+           class="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-800">
+
+    <!-- Email -->
+    <input type="email" name="email" placeholder="Your Email" required
+           value="alochayariverine.info@gmail.com"
+           class="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-800">
+
+    <!-- WhatsApp -->
+    <input type="tel" name="whatsapp" placeholder="Your WhatsApp Number" required
+           value="+8801327379392"
+           class="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-800">
+
+    <!-- Star Rating -->
+    <div class="star-rating flex space-x-2 items-center">
+      <span class="text-gray-400 cursor-pointer text-2xl" data-value="1" title="Very Poor">&#9733;</span>
+      <span class="text-gray-400 cursor-pointer text-2xl" data-value="2" title="Poor">&#9733;</span>
+      <span class="text-gray-400 cursor-pointer text-2xl" data-value="3" title="Average">&#9733;</span>
+      <span class="text-gray-400 cursor-pointer text-2xl" data-value="4" title="Good">&#9733;</span>
+      <span class="text-gray-400 cursor-pointer text-2xl" data-value="5" title="Excellent">&#9733;</span>
+      <input type="hidden" name="rating" id="rating-value" value="0">
+      <span id="rating-text" class="ml-2 text-gray-600 font-medium"></span>
+    </div>
+
+    <!-- First Visit Suggestions -->
+    <textarea name="first-visit" placeholder="What would you like in your first visit?" rows="3"
+              class="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-800"></textarea>
+
+    <!-- Next Visit Suggestions -->
+    <textarea name="next-visit" placeholder="What would you like in your next visit?" rows="3"
+              class="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-800"></textarea>
+
+    <!-- Service Wishlist (5Ps Kotler Inspired) -->
+    <textarea name="service-wishlist" placeholder="Your top 5 service wishes (Product, Price, Place, Promotion, People)" rows="3"
+              class="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-800"></textarea>
+
+    <!-- Submit Button -->
+    <button type="submit" class="bg-green-800 text-white px-4 py-2 rounded-md font-semibold hover:bg-green-700 transition-colors">
+      Submit Feedback
+    </button>
+  </form>
+</div>
+
+<!-- Script: Star Rating Interactivity + Tooltip -->
+<script>
+const stars = document.querySelectorAll('.star-rating span[data-value]');
+const ratingInput = document.getElementById('rating-value');
+const ratingText = document.getElementById('rating-text');
+
+const ratingTitles = {
+  1: "Very Poor",
+  2: "Poor",
+  3: "Average",
+  4: "Good",
+  5: "Excellent"
+};
+
+stars.forEach(star => {
+  star.addEventListener('mouseover', () => {
+    ratingText.textContent = ratingTitles[star.getAttribute('data-value')];
+  });
+  star.addEventListener('mouseout', () => {
+    ratingText.textContent = ratingTitles[ratingInput.value] || "";
+  });
+  star.addEventListener('click', () => {
+    const value = star.getAttribute('data-value');
+    ratingInput.value = value;
+    ratingText.textContent = ratingTitles[value];
+    stars.forEach(s => s.classList.toggle('text-yellow-400', s.getAttribute('data-value') <= value));
+    stars.forEach(s => s.classList.toggle('text-gray-400', s.getAttribute('data-value') > value));
+  });
+});
+</script>
+  <!-- Competitive Profile Matrix & Feedback Section -->
+<section id="cpm-feedback" class="bg-gray-50 py-12">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center text-green-800 mb-8">Competitive Profile Matrix & Guest Feedback</h2>
+
+    <!-- Filter Buttons -->
+    <div class="flex justify-center mb-6 space-x-4">
+      <button class="filter-btn bg-green-800 text-white px-4 py-2 rounded hover:bg-green-700" data-filter="all">All</button>
+      <button class="filter-btn bg-green-200 text-green-800 px-4 py-2 rounded hover:bg-green-300" data-filter="local">Local</button>
+      <button class="filter-btn bg-green-200 text-green-800 px-4 py-2 rounded hover:bg-green-300" data-filter="international">International</button>
+    </div>
+
+    <!-- CPM Table -->
+    <div class="overflow-x-auto mb-12">
+      <table class="min-w-full bg-white rounded-lg shadow-lg">
+        <thead>
+          <tr class="bg-green-100 text-green-800 font-semibold">
+            <th class="p-3 text-left">Resort</th>
+            <th class="p-3 text-center">Room Size (sq ft)</th>
+            <th class="p-3 text-center">Comfort & Amenities</th>
+            <th class="p-3 text-center">Pricing (BDT)</th>
+            <th class="p-3 text-center">Exclusivity & Experience</th>
+            <th class="p-3 text-center">Average Score</th>
+          </tr>
+        </thead>
+        <tbody id="cpm-table" class="text-gray-700">
+          <!-- Alo Chaya Example Row -->
+          <tr class="cpm-row" data-category="local">
+            <td class="p-3 font-semibold">Alo Chaya</td>
+            <td class="p-3 text-center">Standard: 345–370<br>Family Suite: 720–900</td>
+            <td class="p-3 text-center">Modern & Heritage Aesthetics, River Views</td>
+            <td class="p-3 text-center">15,000–20,000</td>
+            <td class="p-3 text-center">Private Riverine Setting, Family-Oriented</td>
+            <td class="p-3 text-center">
+              <div class="progress-bar bg-green-200 rounded h-4 w-full">
+                <div class="progress-fill bg-green-800 h-4 rounded" style="width: 90%;"></div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Example International Row -->
+          <tr class="cpm-row" data-category="international">
+            <td class="p-3 font-semibold">Marriott</td>
+            <td class="p-3 text-center">350–400</td>
+            <td class="p-3 text-center">Luxury Standard, Business Focused</td>
+            <td class="p-3 text-center">25,000–40,000</td>
+            <td class="p-3 text-center">Urban High-End Experience</td>
+            <td class="p-3 text-center">
+              <div class="progress-bar bg-green-200 rounded h-4 w-full">
+                <div class="progress-fill bg-green-800 h-4 rounded" style="width: 75%;"></div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Add additional rows here dynamically -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Guest Feedback & Ratings -->
+    <div class="bg-white rounded-lg shadow p-6">
+      <h3 class="text-2xl font-bold text-green-800 mb-4">Guest Feedback</h3>
+      <p class="mb-4">Share your experience or suggestions for your first visit and what you'd like for your next visit.</p>
+
+      <form id="feedback-form" class="space-y-4">
+        <div>
+          <label class="block mb-1 font-semibold">Name</label>
+          <input type="text" name="name" class="w-full p-2 border rounded" required>
+        </div>
+
+        <div>
+          <label class="block mb-1 font-semibold">Email</label>
+          <input type="email" name="email" class="w-full p-2 border rounded" required>
+        </div>
+
+        <div>
+          <label class="block mb-1 font-semibold">WhatsApp Number</label>
+          <input type="text" name="whatsapp" class="w-full p-2 border rounded" value="+880-1327-379392">
+        </div>
+
+        <div>
+          <label class="block mb-1 font-semibold">Rating</label>
+          <select name="rating" class="w-full p-2 border rounded" required>
+            <option value="">Select</option>
+            <option value="5">★★★★★ Excellent</option>
+            <option value="4">★★★★ Very Good</option>
+            <option value="3">★★★ Good</option>
+            <option value="2">★★ Fair</option>
+            <option value="1">★ Poor</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block mb-1 font-semibold">Comments / Suggestions</label>
+          <textarea name="comments" rows="4" class="w-full p-2 border rounded"></textarea>
+        </div>
+
+        <div>
+          <label class="block mb-1 font-semibold">First Visit Wish</label>
+          <textarea name="first-visit" rows="2" class="w-full p-2 border rounded"></textarea>
+        </div>
+
+        <div>
+          <label class="block mb-1 font-semibold">Next Visit Wish</label>
+          <textarea name="next-visit" rows="2" class="w-full p-2 border rounded"></textarea>
+        </div>
+
+        <button type="submit" class="bg-green-800 text-white px-6 py-2 rounded hover:bg-green-700 transition-colors">Submit Feedback</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CPM & Feedback Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Filter Buttons
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const rows = document.querySelectorAll('.cpm-row');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      rows.forEach(row => {
+        if(filter === 'all' || row.dataset.category === filter) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Animated Progress Bars
+  const fills = document.querySelectorAll('.progress-fill');
+  fills.forEach(fill => {
+    const width = fill.style.width;
+    fill.style.width = '0%';
+    setTimeout(() => {
+      fill.style.transition = 'width 1.5s ease-in-out';
+      fill.style.width = width;
+    }, 200);
+  });
+
+  // Feedback Form Submission
+  const form = document.getElementById('feedback-form');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thank you for your feedback! We will review it carefully.');
+    form.reset();
+  });
+});
+</script>
+  <!-- Advanced CPM Dynamics -->
+<script>
+// Automatic Average Calculation for CPM
+document.addEventListener('DOMContentLoaded', () => {
+  const rows = document.querySelectorAll('.cpm-row');
+  rows.forEach(row => {
+    const scores = row.querySelectorAll('.score');
+    let total = 0, count = 0;
+    scores.forEach(score => {
+      const val = parseFloat(score.textContent);
+      if (!isNaN(val)) {
+        total += val;
+        count++;
+      }
+    });
+    const avg = count ? (total / count).toFixed(1) : 0;
+    row.querySelector('.average').textContent = avg;
+    // Animate progress bar
+    const progress = row.querySelector('.progress-bar-inner');
+    if(progress) {
+      progress.style.width = `${avg * 20}%`; // scale 0-5 score to 0-100%
+    }
+  });
+});
+
+// Filter CPM by Type (Local / International)
+const filterBtns = document.querySelectorAll('.cpm-filter button');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const type = btn.getAttribute('data-type');
+    document.querySelectorAll('.cpm-row').forEach(row => {
+      row.style.display = row.getAttribute('data-type') === type || type === 'all' ? '' : 'none';
+    });
+  });
+});
+
+// Tooltip Display
+const tooltipElements = document.querySelectorAll('[data-tooltip]');
+tooltipElements.forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    const tooltipText = el.getAttribute('data-tooltip');
+    const tooltipDiv = document.createElement('div');
+    tooltipDiv.className = 'tooltip-div';
+    tooltipDiv.textContent = tooltipText;
+    document.body.appendChild(tooltipDiv);
+    const rect = el.getBoundingClientRect();
+    tooltipDiv.style.top = `${rect.top - tooltipDiv.offsetHeight - 5}px`;
+    tooltipDiv.style.left = `${rect.left}px`;
+    el._tooltip = tooltipDiv;
+  });
+  el.addEventListener('mouseleave', () => {
+    if(el._tooltip) el._tooltip.remove();
+  });
+});
+
+// Feedback Form Validation & Dynamic Rating Display
+const feedbackForm = document.getElementById('feedback-form');
+feedbackForm.addEventListener('submit', e => {
+  e.preventDefault();
+  const name = feedbackForm.querySelector('input[name="name"]').value.trim();
+  const email = feedbackForm.querySelector('input[name="email"]').value.trim();
+  const rating = feedbackForm.querySelector('select[name="rating"]').value;
+  const suggestions = feedbackForm.querySelector('textarea[name="suggestions"]').value.trim();
+
+  if(!name || !email || !rating) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+
+  // Append new feedback dynamically
+  const feedbackContainer = document.getElementById('feedback-list');
+  const feedbackItem = document.createElement('div');
+  feedbackItem.className = 'feedback-item border p-3 rounded-md mb-2';
+  feedbackItem.innerHTML = `
+    <p><strong>${name}</strong> <span class="text-sm text-gray-500">rated: ${rating}/5</span></p>
+    <p>${suggestions}</p>
+  `;
+  feedbackContainer.prepend(feedbackItem);
+
+  // Reset form
+  feedbackForm.reset();
+});
+</script>
+
+<style>
+/* Tooltip styling */
+.tooltip-div {
+  position: absolute;
+  background: rgba(60,60,60,0.95);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  z-index: 9999;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+/* Progress bar enhancements */
+.progress-bar {
+  background: #e5e7eb;
+  border-radius: 8px;
+  height: 12px;
+  width: 100%;
+  margin-top: 4px;
+  overflow: hidden;
+}
+.progress-bar-inner {
+  height: 100%;
+  background: #10b981;
+  width: 0%;
+  transition: width 1s ease-in-out;
+}
+
+/* Feedback list styling */
+.feedback-item p {
+  margin: 0.2rem 0;
+}
+</style>
+  <!-- CPM + Feedback with CSV Export & Islamic Requests -->
+<section id="cpm-feedback" class="bg-gray-50 py-12">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-8">Competitive Profile Matrix & Guest Feedback</h2>
+
+    <!-- Heritage Note -->
+    <p class="text-center text-gray-700 mb-6">
+      The project lead’s family has maintained riverine heritage for generations, including building a masjid. 
+      Both paternal and maternal roots are nearby. The maternal graveyard is 5–10 minutes' drive from the Sarkarbari estate.
+    </p>
+
+    <!-- CPM Table -->
+    <div class="overflow-x-auto mb-10">
+      <table class="min-w-full bg-white shadow-md rounded-lg">
+        <thead class="bg-green-800 text-white">
+          <tr>
+            <th class="py-3 px-4">Resort</th>
+            <th class="py-3 px-4">Room Size (sq ft)</th>
+            <th class="py-3 px-4">Price (BDT/night)</th>
+            <th class="py-3 px-4">Exclusivity / Privacy</th>
+            <th class="py-3 px-4">Overall Score</th>
+          </tr>
+        </thead>
+        <tbody id="cpm-body">
+          <!-- Dynamically populated by JS -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Feedback Form -->
+    <div class="bg-white shadow-lg rounded-lg p-6 max-w-2xl mx-auto">
+      <h3 class="text-2xl font-semibold mb-4">Guest Feedback & Islamic Requests</h3>
+      <form id="feedback-form" class="space-y-4">
+        <div>
+          <label class="block text-gray-700 font-medium mb-1">Name</label>
+          <input type="text" name="name" required class="w-full border rounded px-3 py-2" />
+        </div>
+        <div>
+          <label class="block text-gray-700 font-medium mb-1">Email</label>
+          <input type="email" name="email" required class="w-full border rounded px-3 py-2" />
+        </div>
+        <div>
+          <label class="block text-gray-700 font-medium mb-1">Rating (1–5)</label>
+          <select name="rating" class="w-full border rounded px-3 py-2">
+            <option value="5">5 – Excellent</option>
+            <option value="4">4 – Very Good</option>
+            <option value="3">3 – Good</option>
+            <option value="2">2 – Fair</option>
+            <option value="1">1 – Poor</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-gray-700 font-medium mb-1">First Visit Requests (Islamic-friendly)</label>
+          <textarea name="first_visit" rows="2" class="w-full border rounded px-3 py-2"></textarea>
+        </div>
+        <div>
+          <label class="block text-gray-700 font-medium mb-1">Next Visit Wishes (Islamic-friendly)</label>
+          <textarea name="next_visit" rows="2" class="w-full border rounded px-3 py-2"></textarea>
+        </div>
+        <button type="submit" class="bg-green-800 text-white px-4 py-2 rounded hover:bg-green-700 font-semibold">Submit</button>
+      </form>
+      <div class="mt-4 text-right">
+        <button id="download-csv" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500 font-semibold">
+          Download CSV
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// Sample data for CPM
+const cpmData = [
+  { resort: "Alo Chaya", size: "350 / 740–900", price: "15,000–25,000", exclusivity: 5 },
+  { resort: "Holiday Inn", size: "250–300", price: "18,000–22,000", exclusivity: 3 },
+  { resort: "Marriott", size: "280–320", price: "20,000–28,000", exclusivity: 4 },
+  { resort: "Sheraton", size: "300–330", price: "22,000–30,000", exclusivity: 4 },
+  { resort: "Westin", size: "290–310", price: "21,000–29,000", exclusivity: 4 },
+  { resort: "La Meridia", size: "270–300", price: "20,000–27,000", exclusivity: 3 }
+];
+
+const tbody = document.getElementById("cpm-body");
+
+cpmData.forEach(entry => {
+  const row = document.createElement("tr");
+  row.classList.add("border-b");
+  row.innerHTML = `
+    <td class="py-3 px-4 font-medium">${entry.resort}</td>
+    <td class="py-3 px-4">${entry.size}</td>
+    <td class="py-3 px-4">${entry.price}</td>
+    <td class="py-3 px-4">
+      <div class="bg-gray-200 rounded h-4 w-full">
+        <div class="bg-green-800 h-4 rounded" style="width:${entry.exclusivity*20}%"></div>
+      </div>
+    </td>
+    <td class="py-3 px-4 font-semibold text-center">${entry.exclusivity*20}</td>
+  `;
+  tbody.appendChild(row);
+});
+
+// Feedback form handling
+const feedbackForm = document.getElementById("feedback-form");
+const feedbackEntries = [];
+
+feedbackForm.addEventListener("submit", e => {
+  e.preventDefault();
+  const formData = new FormData(feedbackForm);
+  const entry = {
+    name: formData.get("name"),
+    email: formData.get("email"),
+    rating: formData.get("rating"),
+    first_visit: formData.get("first_visit"),
+    next_visit: formData.get("next_visit")
+  };
+  feedbackEntries.push(entry);
+  alert("Thank you! Your feedback has been submitted.");
+  feedbackForm.reset();
+});
+
+// CSV export
+document.getElementById("download-csv").addEventListener("click", () => {
+  if(feedbackEntries.length === 0){
+    alert("No feedback to export.");
+    return;
+  }
+  const headers = ["Name", "Email", "Rating", "First Visit Requests", "Next Visit Wishes"];
+  const csvRows = [headers.join(",")];
+  feedbackEntries.forEach(e => {
+    csvRows.push([e.name, e.email, e.rating, `"${e.first_visit}"`, `"${e.next_visit}"`].join(","));
+  });
+  const csvContent = "data:text/csv;charset=utf-8," + csvRows.join("\n");
+  const encodedUri = encodeURI(csvContent);
+  const link = document.createElement("a");
+  link.setAttribute("href", encodedUri);
+  link.setAttribute("download", "alochaya_feedback.csv");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+});
+</script>
+  <section id="cpm-feedback" class="bg-gray-50 py-12">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-8">Competitive Profile Matrix & Guest Feedback</h2>
+    <div class="overflow-x-auto mb-8">
+      <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+        <thead class="bg-green-800 text-white">
+          <tr>
+            <th class="px-4 py-3">Resort</th>
+            <th class="px-4 py-3">Location</th>
+            <th class="px-4 py-3">Room Size (sq ft)</th>
+            <th class="px-4 py-3">Pricing (BDT/night)</th>
+            <th class="px-4 py-3">Riverfront</th>
+            <th class="px-4 py-3">Exclusivity</th>
+            <th class="px-4 py-3">Overall Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="hover:bg-gray-100 transition">
+            <td>Alo Chaya</td>
+            <td>2 hrs from city</td>
+            <td>350–900</td>
+            <td>15,000–25,000</td>
+            <td>Yes</td>
+            <td>High</td>
+            <td><div class="progress-bar bg-green-600 rounded h-4 w-90 transition-all" style="width: 90%"></div></td>
+          </tr>
+          <tr class="hover:bg-gray-100 transition">
+            <td>Holiday Inn</td>
+            <td>City</td>
+            <td>300–400</td>
+            <td>18,000–28,000</td>
+            <td>No</td>
+            <td>Medium</td>
+            <td><div class="progress-bar bg-yellow-500 rounded h-4 w-75 transition-all" style="width: 75%"></div></td>
+          </tr>
+          <tr class="hover:bg-gray-100 transition">
+            <td>Marriott</td>
+            <td>City</td>
+            <td>320–450</td>
+            <td>20,000–35,000</td>
+            <td>No</td>
+            <td>Medium</td>
+            <td><div class="progress-bar bg-yellow-500 rounded h-4 w-78 transition-all" style="width: 78%"></div></td>
+          </tr>
+          <tr class="hover:bg-gray-100 transition">
+            <td>Sheraton</td>
+            <td>City</td>
+            <td>300–400</td>
+            <td>22,000–36,000</td>
+            <td>No</td>
+            <td>Medium</td>
+            <td><div class="progress-bar bg-yellow-500 rounded h-4 w-74 transition-all" style="width: 74%"></div></td>
+          </tr>
+          <tr class="hover:bg-gray-100 transition">
+            <td>Westin</td>
+            <td>City</td>
+            <td>350–450</td>
+            <td>25,000–40,000</td>
+            <td>No</td>
+            <td>Medium</td>
+            <td><div class="progress-bar bg-yellow-500 rounded h-4 w-76 transition-all" style="width: 76%"></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bg-white shadow-md rounded-lg p-6">
+      <h3 class="text-2xl font-semibold mb-4">Guest Feedback & Requests</h3>
+      <form id="feedback-form" class="space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block font-medium mb-1" for="guestName">Name</label>
+            <input type="text" id="guestName" name="guestName" class="w-full border rounded px-3 py-2">
+          </div>
+          <div>
+            <label class="block font-medium mb-1" for="guestEmail">Email</label>
+            <input type="email" id="guestEmail" name="guestEmail" class="w-full border rounded px-3 py-2">
+          </div>
+        </div>
+        <div>
+          <label class="block font-medium mb-1" for="guestPhone">Phone</label>
+          <input type="text" id="guestPhone" name="guestPhone" class="w-full border rounded px-3 py-2" placeholder="+880-1327-379392">
+        </div>
+        <div>
+          <label class="block font-medium mb-1" for="firstVisit">What would you like on your first visit?</label>
+          <textarea id="firstVisit" name="firstVisit" class="w-full border rounded px-3 py-2" rows="3"></textarea>
+        </div>
+        <div>
+          <label class="block font-medium mb-1" for="nextVisit">What would you like for your next visit?</label>
+          <textarea id="nextVisit" name="nextVisit" class="w-full border rounded px-3 py-2" rows="3"></textarea>
+        </div>
+        <div>
+          <label class="block font-medium mb-1" for="rating">Rating (0–5)</label>
+          <input type="number" id="rating" name="rating" min="0" max="5" step="0.1" class="w-full border rounded px-3 py-2">
+        </div>
+        <button type="submit" class="bg-green-800 text-white px-6 py-2 rounded hover:bg-green-700 transition-colors">Submit Feedback</button>
+      </form>
+    </div>
+  </div>
+  </section>
 <!-- Weddings & Events Experience -->
 <section id="weddings-events" class="py-16 bg-white">
   <div class="max-w-6xl mx-auto px-6">
@@ -641,6 +1418,7 @@
 </script>
   </body>
 </html>
+
 
 
 
