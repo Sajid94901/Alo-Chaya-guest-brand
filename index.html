@@ -841,6 +841,81 @@
   </div>
 
 </div>
+    <!-- Ghuraba Wellness Interactive Overlay (Final) -->
+<section id="ghuraba-overlay" class="py-10 bg-gradient-to-br from-white via-green-50 to-green-100">
+  <div class="max-w-6xl mx-auto px-6 text-center" x-data="{ active: null }">
+    <h2 class="text-2xl md:text-3xl font-bold text-green-900 mb-4">Ghuraba Wellness Interactive Overlay</h2>
+    <p class="text-gray-700 mb-8 text-sm md:text-base">
+      Hover or tap to reveal insight — harmony of body, mind, and soul through the six Ghuraba pillars.
+    </p>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 font-semibold text-sm">
+      <!-- Physique -->
+      <div @mouseenter="active='physique'" @mouseleave="active=null"
+           class="cursor-pointer p-4 rounded-xl shadow-md bg-white hover:bg-green-200 transition-all duration-500 transform hover:-translate-y-1 hover:shadow-green-300/70">
+        🜂 Physique <span class="block text-gray-600 text-xs">Strength & Balance</span>
+      </div>
+
+      <!-- Nafs -->
+      <div @mouseenter="active='nafs'" @mouseleave="active=null"
+           class="cursor-pointer p-4 rounded-xl shadow-md bg-white hover:bg-green-200 transition-all duration-500 transform hover:-translate-y-1 hover:shadow-green-300/70">
+        🜄 Nafs <span class="block text-gray-600 text-xs">Discipline & Desire</span>
+      </div>
+
+      <!-- Qalb -->
+      <div @mouseenter="active='qalb'" @mouseleave="active=null"
+           class="cursor-pointer p-4 rounded-xl shadow-md bg-white hover:bg-green-200 transition-all duration-500 transform hover:-translate-y-1 hover:shadow-green-300/70">
+        🜃 Qalb <span class="block text-gray-600 text-xs">Heart & Empathy</span>
+      </div>
+
+      <!-- Intellectual -->
+      <div @mouseenter="active='intellectual'" @mouseleave="active=null"
+           class="cursor-pointer p-4 rounded-xl shadow-md bg-white hover:bg-green-200 transition-all duration-500 transform hover:-translate-y-1 hover:shadow-green-300/70">
+        🜁 Intellectual <span class="block text-gray-600 text-xs">Reason & Reflection</span>
+      </div>
+
+      <!-- Sirr -->
+      <div @mouseenter="active='sirr'" @mouseleave="active=null"
+           class="cursor-pointer p-4 rounded-xl shadow-md bg-white hover:bg-green-200 transition-all duration-500 transform hover:-translate-y-1 hover:shadow-green-300/70">
+        ✶ Sirr <span class="block text-gray-600 text-xs">Intimacy & Insight</span>
+      </div>
+
+      <!-- Ruh -->
+      <div @mouseenter="active='ruh'" @mouseleave="active=null"
+           class="cursor-pointer p-4 rounded-xl shadow-md bg-white hover:bg-green-200 transition-all duration-500 transform hover:-translate-y-1 hover:shadow-green-300/70">
+        ✹ Ruh <span class="block text-gray-600 text-xs">Purpose & Illumination</span>
+      </div>
+    </div>
+
+    <div class="mt-10 min-h-[60px] text-gray-700 italic transition-opacity duration-500" x-transition.opacity>
+      <template x-if="active === 'physique'">
+        <p>“Discipline your body — it is the vessel of worship and endurance.”</p>
+      </template>
+      <template x-if="active === 'nafs'">
+        <p>“Tame your Nafs; align desire with divine purpose.”</p>
+      </template>
+      <template x-if="active === 'qalb'">
+        <p>“The heart mirrors the truth when polished by compassion.”</p>
+      </template>
+      <template x-if="active === 'intellectual'">
+        <p>“The intellect refines faith, bridging wisdom and humility.”</p>
+      </template>
+      <template x-if="active === 'sirr'">
+        <p>“The secret self awakens when silence becomes sincere.”</p>
+      </template>
+      <template x-if="active === 'ruh'">
+        <p>“The spirit ascends when all dimensions move in harmony.”</p>
+      </template>
+    </div>
+
+    <div class="mt-8">
+      <a href="#wellness-chunk1"
+         class="inline-block bg-green-800 text-white px-6 py-2 rounded-full shadow hover:bg-green-900 transition">
+        Return to Wellness Foundations
+      </a>
+    </div>
+  </div>
+</section>
   <!-- Guest 7P Promise Pyramid -->
   <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300" 
        :class="{ 'shadow-2xl': openItem === 2 }">
@@ -2033,6 +2108,7 @@ document.getElementById("download-csv").addEventListener("click", () => {
 </script>
   </body>
 </html>
+
 
 
 
