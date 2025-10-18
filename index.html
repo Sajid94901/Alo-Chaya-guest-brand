@@ -1299,65 +1299,7 @@ feedbackForm.addEventListener('submit', e => {
 </section>
 
 <script>
-// Sample data for CPM
-const cpmData = [
-  { resort: "Alo Chaya", size: "350 / 740–900", price: "15,000–25,000", exclusivity: 5 },
-  { resort: "Holiday Inn", size: "250–300", price: "18,000–22,000", exclusivity: 3 },
-  { resort: "Marriott", size: "280–320", price: "20,000–28,000", exclusivity: 4 },
-  { resort: "Sheraton", size: "300–330", price: "22,000–30,000", exclusivity: 4 },
-  { resort: "Westin", size: "290–310", price: "21,000–29,000", exclusivity: 4 },
-  { resort: "La Meridia", size: "270–300", price: "20,000–27,000", exclusivity: 3 }
-];
 
-const tbody = document.getElementById("cpm-body");
-
-cpmData.forEach(entry => {
-  const row = document.createElement("tr");
-  row.classList.add("border-b");
-  row.innerHTML = `
-    <td class="py-3 px-4 font-medium">${entry.resort}</td>
-    <td class="py-3 px-4">${entry.size}</td>
-    <td class="py-3 px-4">${entry.price}</td>
-    <td class="py-3 px-4">
-      <div class="bg-gray-200 rounded h-4 w-full">
-        <div class="bg-green-800 h-4 rounded" style="width:${entry.exclusivity*20}%"></div>
-      </div>
-    </td>
-    <td class="py-3 px-4 font-semibold text-center">${entry.exclusivity*20}</td>
-  `;
-  tbody.appendChild(row);
-});
-
-// Feedback form handling
-const feedbackForm = document.getElementById("feedback-form");
-const feedbackEntries = [];
-
-feedbackForm.addEventListener("submit", e => {
-  e.preventDefault();
-  const formData = new FormData(feedbackForm);
-  const entry = {
-    name: formData.get("name"),
-    email: formData.get("email"),
-    rating: formData.get("rating"),
-    first_visit: formData.get("first_visit"),
-    next_visit: formData.get("next_visit")
-  };
-  feedbackEntries.push(entry);
-  alert("Thank you! Your feedback has been submitted.");
-  feedbackForm.reset();
-});
-
-// CSV export
-document.getElementById("download-csv").addEventListener("click", () => {
-  if(feedbackEntries.length === 0){
-    alert("No feedback to export.");
-    return;
-  }
-  const headers = ["Name", "Email", "Rating", "First Visit Requests", "Next Visit Wishes"];
-  const csvRows = [headers.join(",")];
-  feedbackEntries.forEach(e => {
-    csvRows.push([e.name, e.email, e.rating, `"${e.first_visit}"`, `"${e.next_visit}"`].join(","));
-  });
   const csvContent = "data:text/csv;charset=utf-8," + csvRows.join("\n");
   const encodedUri = encodeURI(csvContent);
   const link = document.createElement("a");
@@ -1449,25 +1391,7 @@ document.getElementById("download-csv").addEventListener("click", () => {
         </div>
         <div>
           <label class="block font-medium mb-1" for="guestPhone">Phone</label>
-          <input type="text" id="guestPhone" name="guestPhone" class="w-full border rounded px-3 py-2" placeholder="+880-1327-379392">
-        </div>
-        <div>
-          <label class="block font-medium mb-1" for="firstVisit">What would you like on your first visit?</label>
-          <textarea id="firstVisit" name="firstVisit" class="w-full border rounded px-3 py-2" rows="3"></textarea>
-        </div>
-        <div>
-          <label class="block font-medium mb-1" for="nextVisit">What would you like for your next visit?</label>
-          <textarea id="nextVisit" name="nextVisit" class="w-full border rounded px-3 py-2" rows="3"></textarea>
-        </div>
-        <div>
-          <label class="block font-medium mb-1" for="rating">Rating (0–5)</label>
-          <input type="number" id="rating" name="rating" min="0" max="5" step="0.1" class="w-full border rounded px-3 py-2">
-        </div>
-        <button type="submit" class="bg-green-800 text-white px-6 py-2 rounded hover:bg-green-700 transition-colors">Submit Feedback</button>
-      </form>
-    </div>
-  </div>
-  </section>
+
 <!-- Weddings & Events Experience -->
 <section id="weddings-events" class="py-16 bg-white">
   <div class="max-w-6xl mx-auto px-6">
@@ -1588,6 +1512,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
   </body>
 </html>
+
 
 
 
