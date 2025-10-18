@@ -25,13 +25,6 @@
       <a href="#booking" class="bg-green-800 text-white px-4 py-2 rounded-md font-semibold hover:bg-green-700 transition-colors">Book Now</a>
     </div>
   </div>
-  <!-- Optional background/video placeholder -->
-  <!-- <div class="absolute inset-0 -z-10">
-    <video autoplay muted loop class="w-full h-full object-cover">
-      <source src="your-background-video.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div> -->
 </nav>
 
 <!-- HERO / HOME -->
@@ -47,98 +40,70 @@
 </section>
 
 <!-- HOME EXPERIENCE / OVERVIEW -->
-<section id="experience" class="container mx-auto mt-16 px-6">
-  <h2 class="text-3xl font-bold text-green-800 mb-6 text-center">Home Experience Overview</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-    <div>
-      <img src="alo-chaya-gate.jpg" alt="Alo Chaya Main Gate" class="rounded-lg shadow-md">
-      <p class="mt-2 text-gray-700 text-sm">Entrance gate of Alo Chaya, welcoming guests into a heritage sanctuary framed by nature.</p>
-    </div>
-    <div>
-      <img src="front-lawn.jpg" alt="Front Lawn" class="rounded-lg shadow-md">
-      <p class="mt-2 text-gray-700 text-sm">Expansive front lawn for morning walks, family gatherings, and curated wellness sessions.</p>
-    </div>
-    <div>
-      <img src="alo-chaya-gazebo.webp" alt="Gazebo by the Lake" class="rounded-lg shadow-md">
-      <p class="mt-2 text-gray-700 text-sm">A riverside gazebo designed for meditation, small gatherings, or quiet reflection.</p>
-    </div>
-    <div>
-      <img src="alo-chaya-private-lake.webp" alt="Private Lake" class="rounded-lg shadow-md">
-      <p class="mt-2 text-gray-700 text-sm">Private lake for serene boat rides and contemplative experiences at sunrise or sunset.</p>
-    </div>
-  </div>
-</section>
+<div x-data="{ openItem: null }" class="container mx-auto mt-16 px-6 space-y-6">
 
-
-<!-- Rooms & Suites Section -->
-<section id="rooms" class="container mx-auto max-w-5xl px-6 py-12">
-  <header class="text-center mb-12">
-    <h2 class="text-3xl font-bold text-green-800">Rooms & Suites</h2> <!-- check color if custom -->
-    <p class="text-gray-600 mt-2 text-lg">
-      Spacious, serene accommodations designed for families, couples, and discerning travelers.
-    </p>
-  </header>
-
-  <div x-data="{ openRoom: null }" class="space-y-6">
-
-    <!-- Family Suite -->
-    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300" 
-         :class="{ 'shadow-2xl': openRoom === 1 }">
-      <button @click="openRoom = (openRoom === 1 ? null : 1)" 
-              class="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
-        <h3 class="text-xl font-semibold text-green-700">Family Suite</h3> <!-- check color if custom -->
-        <span class="text-gray-500 transform transition-transform duration-300" 
-              :class="{ 'rotate-180': openRoom === 1 }">▼</span>
-      </button>
-      <div x-show="openRoom === 1" x-transition class="p-6 text-gray-700">
-        <p class="mb-4">
-          Two-bedroom suite with a TV lounge, river views, and premium furnishings. Perfect for families seeking comfort and privacy.
-        </p>
-        <ul class="list-disc pl-5 mb-4">
-          <li><strong>Size:</strong> 720–750 sq ft</li>
-          <li><strong>Pricing:</strong> 25,000 → 20,000 BDT/night</li>
-          <li><strong>Features:</strong> Connected bathrooms, seating/lounge area, scenic views</li>
-        </ul>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <img src="family-suite.jpg" alt="Family Suite" class="rounded-lg shadow-md">
-          <video controls class="rounded-lg shadow-md">
-            <source src="family-suite-room-right.mp4" type="video/mp4">
-          </video>
+  <!-- Home Experience Overview -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300" 
+       :class="{ 'shadow-2xl': openItem === 'home' }">
+    <button @click="openItem = (openItem === 'home' ? null : 'home')" 
+            class="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
+      <h3 class="text-xl font-semibold text-green-800">Home Experience Overview</h3>
+      <span class="text-gray-500 transform transition-transform duration-300" 
+            :class="{ 'rotate-180': openItem === 'home' }">▼</span>
+    </button>
+    <div x-show="openItem === 'home'" x-transition class="p-6 text-gray-700">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <img src="alo-chaya-gate.jpg" alt="Alo Chaya Main Gate" class="rounded-lg shadow-md">
+          <p class="mt-2 text-gray-700 text-sm">Entrance gate of Alo Chaya, welcoming guests into a heritage sanctuary framed by nature.</p>
+        </div>
+        <div>
+          <img src="front-lawn.jpg" alt="Front Lawn" class="rounded-lg shadow-md">
+          <p class="mt-2 text-gray-700 text-sm">Expansive front lawn for morning walks, family gatherings, and curated wellness sessions.</p>
+        </div>
+        <div>
+          <img src="alo-chaya-gazebo.webp" alt="Gazebo by the Lake" class="rounded-lg shadow-md">
+          <p class="mt-2 text-gray-700 text-sm">A riverside gazebo designed for meditation, small gatherings, or quiet reflection.</p>
+        </div>
+        <div>
+          <img src="alo-chaya-private-lake.webp" alt="Private Lake" class="rounded-lg shadow-md">
+          <p class="mt-2 text-gray-700 text-sm">Private lake for serene boat rides and contemplative experiences at sunrise or sunset.</p>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Standard Room -->
-<div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300" 
-     :class="{ 'shadow-2xl': openRoom === 2 }">
-  <button @click="openRoom = (openRoom === 2 ? null : 2)" 
-          class="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
-    <h3 class="text-xl font-semibold text-secondary-color">Standard Room</h3>
-    <span class="text-gray-500 transform transition-transform duration-300" 
-          :class="{ 'rotate-180': openRoom === 2 }">▼</span>
-  </button>
-  <div x-show="openRoom === 2" x-transition class="p-6 text-gray-700">
-    <p class="mb-4">
-      Cozy, stylish room with river or garden view. Perfect for couples or solo travelers seeking a serene retreat.
-    </p>
-    <ul class="list-disc pl-5 mb-4">
-      <li><strong>Size:</strong> 345–350 sq ft</li>
-      <li><strong>Pricing:</strong> 20,000 → 15,000 BDT/night</li>
-      <li><strong>Features:</strong> Private bathroom, scenic views, comfortable interiors</li>
-    </ul>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <img src="standard-room.jpg" alt="Standard Room" class="rounded-lg shadow-md">
-      <video controls class="rounded-lg shadow-md">
-        <source src="third-floor-room-1.mp4" type="video/mp4">
-      </video>
+  <!-- Family Suite -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300" 
+       :class="{ 'shadow-2xl': openItem === 'familySuite' }">
+    <button @click="openItem = (openItem === 'familySuite' ? null : 'familySuite')" 
+            class="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
+      <h3 class="text-xl font-semibold text-green-800">Family Suite</h3>
+      <span class="text-gray-500 transform transition-transform duration-300" 
+            :class="{ 'rotate-180': openItem === 'familySuite' }">▼</span>
+    </button>
+    <div x-show="openItem === 'familySuite'" x-transition class="p-6 text-gray-700">
+      <!-- Family Suite content -->
+      <p>Spacious suites designed for family comfort with heritage-inspired aesthetics.</p>
     </div>
   </div>
-</div>
 
-</div>
-</section>
-</section>
-<div x-data="{ openItem: null }"></div>
+  <!-- Standard Room -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300" 
+       :class="{ 'shadow-2xl': openItem === 'standardRoom' }">
+    <button @click="openItem = (openItem === 'standardRoom' ? null : 'standardRoom')" 
+            class="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
+      <h3 class="text-xl font-semibold text-green-800">Standard Room</h3>
+      <span class="text-gray-500 transform transition-transform duration-300" 
+            :class="{ 'rotate-180': openItem === 'standardRoom' }">▼</span>
+    </button>
+    <div x-show="openItem === 'standardRoom'" x-transition class="p-6 text-gray-700">
+      <!-- Standard Room content -->
+      <p>Cozy and comfortable rooms ideal for solo travelers or couples seeking tranquility.</p>
+    </div>
+  </div>
+
+</div>          
 <!-- WELLNESS & ACTIVITIES -->
 <section id="wellness" class="container mx-auto mt-16 px-6">
   <h2 class="text-3xl font-bold text-green-800 mb-6 text-center">Wellness & Activities</h2>
@@ -889,89 +854,6 @@
 
   </div>
 </section>
-<!-- Competitive Profile Matrix Section -->
-<section id="competitive-profile" class="py-12 bg-gray-50">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Competitive Profile Matrix</h2>
-
-    <!-- Filter Toggle -->
-    <div class="flex justify-center mb-4 space-x-4">
-      <button class="filter-btn bg-green-700 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors" data-filter="all">All</button>
-      <button class="filter-btn bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 transition-colors" data-filter="local">Local</button>
-      <button class="filter-btn bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 transition-colors" data-filter="international">International</button>
-    </div>
-
-    <div class="overflow-x-auto mb-12">
-      <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow">
-        <thead>
-          <tr class="bg-green-800 text-white cursor-pointer">
-            <th class="py-3 px-4 text-left" onclick="sortTable(0)">Resort</th>
-            <th class="py-3 px-4 text-left" onclick="sortTable(1)">Room Size (sq.ft)</th>
-            <th class="py-3 px-4 text-left" onclick="sortTable(2)">Pricing (BDT/Night)</th>
-            <th class="py-3 px-4 text-left" onclick="sortTable(3)">Features / Comfort</th>
-            <th class="py-3 px-4 text-left" onclick="sortTable(4)">Location & Accessibility</th>
-          </tr>
-        </thead>
-        <tbody class="text-gray-700">
-          <!-- Alo Chaya -->
-          <tr class="border-t bg-green-50" data-type="alochaya" title="Advantages: Riverine, spacious rooms, heritage aesthetics">
-            <td class="py-3 px-4 font-semibold">Alo Chaya</td>
-            <td class="py-3 px-4">Standard: 345–370<br>Family Suite: 720–900</td>
-            <td class="py-3 px-4">15,000–20,000<br>Family Suite: 20,000–25,000</td>
-            <td class="py-3 px-4">Private bath, scenic river views, TV lounge, heritage aesthetics</td>
-            <td class="py-3 px-4">2 hours from city center, riverine sanctuary</td>
-          </tr>
-
-          <!-- International Titans -->
-          <tr class="border-t" data-type="international" title="City-based, luxury urban hotels">
-            <td class="py-3 px-4">Holiday Inn</td>
-            <td class="py-3 px-4">300–400</td>
-            <td class="py-3 px-4">12,000–22,000</td>
-            <td class="py-3 px-4">City-based rooms, standard amenities</td>
-            <td class="py-3 px-4">Central city location</td>
-          </tr>
-          <tr class="border-t" data-type="international" title="Luxury amenities, larger space, urban convenience">
-            <td class="py-3 px-4">Marriott</td>
-            <td class="py-3 px-4">350–450</td>
-            <td class="py-3 px-4">18,000–28,000</td>
-            <td class="py-3 px-4">Luxury amenities, large common areas</td>
-            <td class="py-3 px-4">City outskirts</td>
-          </tr>
-          <tr class="border-t" data-type="international" title="Modern interiors, business-focused">
-            <td class="py-3 px-4">Sheraton</td>
-            <td class="py-3 px-4">340–420</td>
-            <td class="py-3 px-4">16,000–26,000</td>
-            <td class="py-3 px-4">Modern interiors, business-focused</td>
-            <td class="py-3 px-4">City center</td>
-          </tr>
-          <tr class="border-t" data-type="international" title="Premium rooms, wellness facilities">
-            <td class="py-3 px-4">Westin</td>
-            <td class="py-3 px-4">360–440</td>
-            <td class="py-3 px-4">20,000–30,000</td>
-            <td class="py-3 px-4">Premium rooms, wellness facilities</td>
-            <td class="py-3 px-4">City center / airport proximity</td>
-          </tr>
-          <tr class="border-t" data-type="international" title="Luxury interiors, high-end service">
-            <td class="py-3 px-4">La Meridia</td>
-            <td class="py-3 px-4">350–400</td>
-            <td class="py-3 px-4">18,000–28,000</td>
-            <td class="py-3 px-4">Luxury interiors, high-end service</td>
-            <td class="py-3 px-4">Prime urban locations</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-  <!-- Guest Feedback & Ratings Section -->
-<section id="guest-feedback" class="py-12 bg-white">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Guest Feedback & Ratings</h2>
-
-    <!-- Average Rating Display -->
-    <div class="flex justify-center items-center mb-8 space-x-6">
-      <div class="text-center">
-        <span class="text-4xl font-bold" id="average-rating">4.6</span>
         <div class="flex justify-center mt-1">
           <span class="star-rating text-yellow-400 text-xl">★★★★★</span>
         </div>
@@ -1861,6 +1743,7 @@ document.getElementById("download-csv").addEventListener("click", () => {
 </script>
   </body>
 </html>
+
 
 
 
