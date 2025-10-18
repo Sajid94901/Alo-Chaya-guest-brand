@@ -1300,97 +1300,7 @@ feedbackForm.addEventListener('submit', e => {
 
 <script>
 
-  const csvContent = "data:text/csv;charset=utf-8," + csvRows.join("\n");
-  const encodedUri = encodeURI(csvContent);
-  const link = document.createElement("a");
-  link.setAttribute("href", encodedUri);
-  link.setAttribute("download", "alochaya_feedback.csv");
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-});
-</script>
-  <section id="cpm-feedback" class="bg-gray-50 py-12">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center mb-8">Competitive Profile Matrix & Guest Feedback</h2>
-    <div class="overflow-x-auto mb-8">
-      <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
-        <thead class="bg-green-800 text-white">
-          <tr>
-            <th class="px-4 py-3">Resort</th>
-            <th class="px-4 py-3">Location</th>
-            <th class="px-4 py-3">Room Size (sq ft)</th>
-            <th class="px-4 py-3">Pricing (BDT/night)</th>
-            <th class="px-4 py-3">Riverfront</th>
-            <th class="px-4 py-3">Exclusivity</th>
-            <th class="px-4 py-3">Overall Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="hover:bg-gray-100 transition">
-            <td>Alo Chaya</td>
-            <td>2 hrs from city</td>
-            <td>350–900</td>
-            <td>15,000–25,000</td>
-            <td>Yes</td>
-            <td>High</td>
-            <td><div class="progress-bar bg-green-600 rounded h-4 w-90 transition-all" style="width: 90%"></div></td>
-          </tr>
-          <tr class="hover:bg-gray-100 transition">
-            <td>Holiday Inn</td>
-            <td>City</td>
-            <td>300–400</td>
-            <td>18,000–28,000</td>
-            <td>No</td>
-            <td>Medium</td>
-            <td><div class="progress-bar bg-yellow-500 rounded h-4 w-75 transition-all" style="width: 75%"></div></td>
-          </tr>
-          <tr class="hover:bg-gray-100 transition">
-            <td>Marriott</td>
-            <td>City</td>
-            <td>320–450</td>
-            <td>20,000–35,000</td>
-            <td>No</td>
-            <td>Medium</td>
-            <td><div class="progress-bar bg-yellow-500 rounded h-4 w-78 transition-all" style="width: 78%"></div></td>
-          </tr>
-          <tr class="hover:bg-gray-100 transition">
-            <td>Sheraton</td>
-            <td>City</td>
-            <td>300–400</td>
-            <td>22,000–36,000</td>
-            <td>No</td>
-            <td>Medium</td>
-            <td><div class="progress-bar bg-yellow-500 rounded h-4 w-74 transition-all" style="width: 74%"></div></td>
-          </tr>
-          <tr class="hover:bg-gray-100 transition">
-            <td>Westin</td>
-            <td>City</td>
-            <td>350–450</td>
-            <td>25,000–40,000</td>
-            <td>No</td>
-            <td>Medium</td>
-            <td><div class="progress-bar bg-yellow-500 rounded h-4 w-76 transition-all" style="width: 76%"></div></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="bg-white shadow-md rounded-lg p-6">
-      <h3 class="text-2xl font-semibold mb-4">Guest Feedback & Requests</h3>
-      <form id="feedback-form" class="space-y-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label class="block font-medium mb-1" for="guestName">Name</label>
-            <input type="text" id="guestName" name="guestName" class="w-full border rounded px-3 py-2">
-          </div>
-          <div>
-            <label class="block font-medium mb-1" for="guestEmail">Email</label>
-            <input type="email" id="guestEmail" name="guestEmail" class="w-full border rounded px-3 py-2">
-          </div>
-        </div>
-        <div>
-          <label class="block font-medium mb-1" for="guestPhone">Phone</label>
+  
 
 <!-- Weddings & Events Experience -->
 <section id="weddings-events" class="py-16 bg-white">
@@ -1512,6 +1422,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
   </body>
 </html>
+
 
 
 
