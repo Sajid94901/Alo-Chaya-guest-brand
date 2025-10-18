@@ -854,179 +854,7 @@ j<!DOCTYPE html>
 
   </div>
 </section>
-        Experience</span>
-            <span class="text-gray-700 font-semibold" id="progress-dining">0%</span>
-          </div>
-          <div class="w-full bg-gray-200 rounded h-4">
-            <div class="bg-green-700 h-4 rounded progress-bar" data-target="88"></div>
-          </div>
-        </div>
-        <div>
-          <div class="flex justify-between mb-1">
-            <span class="text-gray-700">Value for Money</span>
-            <span class="text-gray-700 font-semibold" id="progress-value">0%</span>
-          </div>
-          <div class="w-full bg-gray-200 rounded h-4">
-            <div class="bg-green-700 h-4 rounded progress-bar" data-target="93"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Optional: Include this JS snippet for animated progress bars -->
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const progressBars = document.querySelectorAll(".progress-bar");
-    progressBars.forEach(bar => {
-      const target = parseInt(bar.getAttribute("data-target"));
-      let width = 0;
-      const interval = setInterval(() => {
-        if (width >= target) clearInterval(interval);
-        else {
-          width++;
-          bar.style.width = width + "%";
-          // Update associated number
-          const parentId = bar.parentElement.previousElementSibling.id;
-          if(parentId) document.getElementById(parentId).textContent = width + "%";
-        }
-      }, 15);
-    });
-
-    // Simple form submit for demo
-    document.getElementById("feedback-form").addEventListener("submit", function(e){
-      e.preventDefault();
-      const rating = document.getElementById("guest-rating").value;
-      document.getElementById("updated-rating").textContent = rating;
-      document.getElementById("updated-stars").textContent = "★".repeat(rating) + "☆".repeat(5-rating);
-      alert("Thank you for your feedback!");
-      this.reset();
-    });
-  });
-        </script>
-  <!-- CPM Table with Interactive Filters -->
-<div class="cpmmatrix-container my-8 p-6 bg-white rounded-lg shadow-lg">
-  <h3 class="text-2xl font-bold mb-4">Competitive Profile Matrix</h3>
-  
-  <!-- Filters -->
-  <div class="flex space-x-4 mb-4">
-    <button class="filter-btn px-4 py-2 bg-green-800 text-white rounded-md hover:bg-green-700 transition-colors" data-filter="all">All</button>
-    <button class="filter-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors" data-filter="local">Local Competitors</button>
-    <button class="filter-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors" data-filter="international">International Titans</button>
-  </div>
-
-  <div class="overflow-x-auto">
-    <table class="w-full table-auto border-collapse border border-gray-300">
-      <thead>
-        <tr class="bg-gray-100">
-          <th class="border px-4 py-2 text-left">Resort</th>
-          <th class="border px-4 py-2" title="Room Size in Sq. Ft">Room Size</th>
-          <th class="border px-4 py-2" title="Luxury, Comfort, and Heritage Score">Comfort & Luxury</th>
-          <th class="border px-4 py-2" title="Pricing per Night BDT">Pricing (BDT)</th>
-          <th class="border px-4 py-2" title="River-in setting, exclusivity">Setting & Exclusivity</th>
-          <th class="border px-4 py-2" title="Overall weighted score">Weighted Score</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Alo Chaya -->
-        <tr class="cp-row local international">
-          <td class="border px-4 py-2 font-semibold text-green-800">Alo Chaya</td>
-          <td class="border px-4 py-2">350 - 900</td>
-          <td class="border px-4 py-2">9.5</td>
-          <td class="border px-4 py-2">15,000 - 25,000</td>
-          <td class="border px-4 py-2">10 (Private Riverine Setting)</td>
-          <td class="border px-4 py-2 font-bold">9.8</td>
-        </tr>
-        <!-- Local Competitors -->
-        <tr class="cp-row local">
-          <td class="border px-4 py-2">Cottage House & Kaal Meghla</td>
-          <td class="border px-4 py-2">200 - 250</td>
-          <td class="border px-4 py-2">7</td>
-          <td class="border px-4 py-2">10,000 - 15,000</td>
-          <td class="border px-4 py-2">6</td>
-          <td class="border px-4 py-2">7.0</td>
-        </tr>
-        <tr class="cp-row local">
-          <td class="border px-4 py-2">Silvan Resort (Thailand)</td>
-          <td class="border px-4 py-2">300 - 350</td>
-          <td class="border px-4 py-2">8</td>
-          <td class="border px-4 py-2">18,000 - 22,000</td>
-          <td class="border px-4 py-2">7</td>
-          <td class="border px-4 py-2">7.8</td>
-        </tr>
-        <!-- International Titans -->
-        <tr class="cp-row international">
-          <td class="border px-4 py-2">Marriott</td>
-          <td class="border px-4 py-2">350 - 400</td>
-          <td class="border px-4 py-2">9</td>
-          <td class="border px-4 py-2">28,000 - 40,000</td>
-          <td class="border px-4 py-2">8</td>
-          <td class="border px-4 py-2">8.5</td>
-        </tr>
-        <tr class="cp-row international">
-          <td class="border px-4 py-2">Sheraton</td>
-          <td class="border px-4 py-2">360 - 420</td>
-          <td class="border px-4 py-2">9</td>
-          <td class="border px-4 py-2">30,000 - 45,000</td>
-          <td class="border px-4 py-2">8</td>
-          <td class="border px-4 py-2">8.5</td>
-        </tr>
-        <tr class="cp-row international">
-          <td class="border px-4 py-2">Westin</td>
-          <td class="border px-4 py-2">380 - 430</td>
-          <td class="border px-4 py-2">9.2</td>
-          <td class="border px-4 py-2">32,000 - 50,000</td>
-          <td class="border px-4 py-2">8.5</td>
-          <td class="border px-4 py-2">8.7</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-  <!-- Feedback & Ratings Section -->
-<div class="feedback-container my-8 p-6 bg-white rounded-lg shadow-lg">
-  <h3 class="text-2xl font-bold mb-4">Guest Feedback & Suggestions</h3>
-  <p class="mb-4 text-gray-700">
-    Share your thoughts, rate your experience, and let us know what you would like for your first visit and next visit.
-  </p>
-
-  <form id="feedback-form" class="space-y-4">
-    <!-- Name -->
-    <input type="text" name="name" placeholder="Your Name" required
-           class="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-800">
-
-    <!-- Email -->
-    <input type="email" name="email" placeholder="Your Email" required
-           value="alochayariverine.info@gmail.com"
-           class="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-800">
-
-    <!-- WhatsApp -->
-    <input type="tel" name="whatsapp" placeholder="Your WhatsApp Number" required
-           value="+8801327379392"
-           class="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-800">
-
-    <!-- Star Rating -->
-    <div class="star-rating flex space-x-2 items-center">
-      <span class="text-gray-400 cursor-pointer text-2xl" data-value="1" title="Very Poor">&#9733;</span>
-      <span class="text-gray-400 cursor-pointer text-2xl" data-value="2" title="Poor">&#9733;</span>
-      <span class="text-gray-400 cursor-pointer text-2xl" data-value="3" title="Average">&#9733;</span>
-      <span class="text-gray-400 cursor-pointer text-2xl" data-value="4" title="Good">&#9733;</span>
-      <span class="text-gray-400 cursor-pointer text-2xl" data-value="5" title="Excellent">&#9733;</span>
-      <input type="hidden" name="rating" id="rating-value" value="0">
-      <span id="rating-text" class="ml-2 text-gray-600 font-medium"></span>
-    </div>
-
-    <!-- First Visit Suggestions -->
-    <textarea name="first-visit" placeholder="What would you like in your first visit?" rows="3"
-              class="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-800"></textarea>
-
-    <!-- Next Visit Suggestions -->
-    <textarea name="next-visit" placeholder="What would you like in your next visit?" rows="3"
-              class="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-800"></textarea>
-
-    <!-- Service Wishlist (5Ps Kotler Inspired) -->
-
+                  
   <!-- Competitive Profile Matrix & Feedback Section -->
 <section id="cpm-feedback" class="bg-gray-50 py-12">
   <div class="container mx-auto px-6">
@@ -1052,37 +880,138 @@ j<!DOCTYPE html>
             <th class="p-3 text-center">Average Score</th>
           </tr>
         </thead>
-        <tbody id="cpm-table" class="text-gray-700">
-          <!-- Alo Chaya Example Row -->
-          <tr class="cpm-row" data-category="local">
-            <td class="p-3 font-semibold">Alo Chaya</td>
-            <td class="p-3 text-center">Standard: 345–370<br>Family Suite: 720–900</td>
-            <td class="p-3 text-center">Modern & Heritage Aesthetics, River Views</td>
-            <td class="p-3 text-center">15,000–20,000</td>
-            <td class="p-3 text-center">Private Riverine Setting, Family-Oriented</td>
-            <td class="p-3 text-center">
-              <div class="progress-bar bg-green-200 rounded h-4 w-full">
-                <div class="progress-fill bg-green-800 h-4 rounded" style="width: 90%;"></div>
-              </div>
-            </td>
-          </tr>
+        <tbody id="cpm-table" class="text-gray-700"
+        <!-- 🌍 Integrated Competitive Profile Matrix (Interactive Global-Local Comparison) -->
+<tr class="cpm-row" data-category="local">
+  <td class="p-3 font-semibold">Alo Chaya</td>
+  <td class="p-3 text-center">7,500–15,000 ৳ (≈ $68–135)</td>
+  <td class="p-3 text-center">Modern Heritage, Riverside</td>
+  <td class="p-3 text-center">120–200 Guests</td>
+  <td class="p-3 text-center">Authentic Riverine Wellness</td>
+  <td class="p-3 text-center">
+    <div class="progress-bar bg-green-200 rounded h-4 w-full">
+      <div class="progress-fill bg-green-800 h-4 rounded" style="width: 78%;"></div>
+    </div>
+  </td>
+</tr>
 
-          <!-- Example International Row -->
-          <tr class="cpm-row" data-category="international">
-            <td class="p-3 font-semibold">Marriott</td>
-            <td class="p-3 text-center">350–400</td>
-            <td class="p-3 text-center">Luxury Standard, Business Focused</td>
-            <td class="p-3 text-center">25,000–40,000</td>
-            <td class="p-3 text-center">Urban High-End Experience</td>
-            <td class="p-3 text-center">
-              <div class="progress-bar bg-green-200 rounded h-4 w-full">
-                <div class="progress-fill bg-green-800 h-4 rounded" style="width: 75%;"></div>
-              </div>
-            </td>
-          </tr>
+<tr class="cpm-row" data-category="local">
+  <td class="p-3 font-semibold">Local Competitor A</td>
+  <td class="p-3 text-center">8,000–12,000 ৳ (≈ $72–108)</td>
+  <td class="p-3 text-center">Urban Boutique</td>
+  <td class="p-3 text-center">80–120 Guests</td>
+  <td class="p-3 text-center">Comfort & Basic Luxury</td>
+  <td class="p-3 text-center">
+    <div class="progress-bar bg-yellow-200 rounded h-4 w-full">
+      <div class="progress-fill bg-yellow-700 h-4 rounded" style="width: 60%;"></div>
+    </div>
+  </td>
+</tr>
 
-          <!-- Add additional rows here dynamically -->
-        </tbody>
+<tr class="cpm-row" data-category="local">
+  <td class="p-3 font-semibold">Local Competitor B</td>
+  <td class="p-3 text-center">6,000–10,000 ৳ (≈ $55–90)</td>
+  <td class="p-3 text-center">Eco-Resort</td>
+  <td class="p-3 text-center">60–100 Guests</td>
+  <td class="p-3 text-center">Nature-Oriented</td>
+  <td class="p-3 text-center">
+    <div class="progress-bar bg-yellow-200 rounded h-4 w-full">
+      <div class="progress-fill bg-yellow-800 h-4 rounded" style="width: 52%;"></div>
+    </div>
+  </td>
+</tr>
+
+<tr class="cpm-row" data-category="local">
+  <td class="p-3 font-semibold">Local Competitor C</td>
+  <td class="p-3 text-center">10,000–14,000 ৳ (≈ $90–125)</td>
+  <td class="p-3 text-center">Premium Lodge</td>
+  <td class="p-3 text-center">100–150 Guests</td>
+  <td class="p-3 text-center">Mid-Range Luxury</td>
+  <td class="p-3 text-center">
+    <div class="progress-bar bg-yellow-200 rounded h-4 w-full">
+      <div class="progress-fill bg-yellow-800 h-4 rounded" style="width: 65%;"></div>
+    </div>
+  </td>
+</tr>
+
+<!-- 🌐 International Titans -->
+<tr class="cpm-row" data-category="international">
+  <td class="p-3 font-semibold">Marriott</td>
+  <td class="p-3 text-center">35,000–45,000 ৳ (≈ $320–410)</td>
+  <td class="p-3 text-center">Luxury Standard, Business Focused</td>
+  <td class="p-3 text-center">25,000–40,000 Guests / yr</td>
+  <td class="p-3 text-center">Urban High-End Experience</td>
+  <td class="p-3 text-center">
+    <div class="progress-bar bg-green-200 rounded h-4 w-full">
+      <div class="progress-fill bg-green-800 h-4 rounded" style="width: 75%;"></div>
+    </div>
+  </td>
+</tr>
+
+<tr class="cpm-row" data-category="international">
+  <td class="p-3 font-semibold">Sheraton</td>
+  <td class="p-3 text-center">40,000–50,000 ৳ (≈ $365–455)</td>
+  <td class="p-3 text-center">Executive & Conference Focused</td>
+  <td class="p-3 text-center">30,000–45,000 Guests / yr</td>
+  <td class="p-3 text-center">Corporate Grand Ambience</td>
+  <td class="p-3 text-center">
+    <div class="progress-bar bg-green-200 rounded h-4 w-full">
+      <div class="progress-fill bg-green-700 h-4 rounded" style="width: 72%;"></div>
+    </div>
+  </td>
+</tr>
+
+<tr class="cpm-row" data-category="international">
+  <td class="p-3 font-semibold">Westin</td>
+  <td class="p-3 text-center">42,000–52,000 ৳ (≈ $380–470)</td>
+  <td class="p-3 text-center">Wellness & Business Hybrid</td>
+  <td class="p-3 text-center">32,000–47,000 Guests / yr</td>
+  <td class="p-3 text-center">Urban Wellness Luxury</td>
+  <td class="p-3 text-center">
+    <div class="progress-bar bg-green-200 rounded h-4 w-full">
+      <div class="progress-fill bg-green-700 h-4 rounded" style="width: 74%;"></div>
+    </div>
+  </td>
+</tr>
+
+<tr class="cpm-row" data-category="international">
+  <td class="p-3 font-semibold">Hilton</td>
+  <td class="p-3 text-center">38,000–48,000 ৳ (≈ $345–440)</td>
+  <td class="p-3 text-center">Corporate Luxury</td>
+  <td class="p-3 text-center">28,000–42,000 Guests / yr</td>
+  <td class="p-3 text-center">Contemporary Business Comfort</td>
+  <td class="p-3 text-center">
+    <div class="progress-bar bg-green-200 rounded h-4 w-full">
+      <div class="progress-fill bg-green-800 h-4 rounded" style="width: 73%;"></div>
+    </div>
+  </td>
+</tr>
+
+<tr class="cpm-row" data-category="international">
+  <td class="p-3 font-semibold">Ritz Carlton</td>
+  <td class="p-3 text-center">55,000–65,000 ৳ (≈ $495–585)</td>
+  <td class="p-3 text-center">Ultra-Luxury Heritage</td>
+  <td class="p-3 text-center">40,000–55,000 Guests / yr</td>
+  <td class="p-3 text-center">Elite Heritage Hospitality</td>
+  <td class="p-3 text-center">
+    <div class="progress-bar bg-green-200 rounded h-4 w-full">
+      <div class="progress-fill bg-green-900 h-4 rounded" style="width: 85%;"></div>
+    </div>
+  </td>
+</tr>
+
+<tr class="cpm-row" data-category="international">
+  <td class="p-3 font-semibold">Four Seasons</td>
+  <td class="p-3 text-center">60,000–75,000 ৳ (≈ $540–680)</td>
+  <td class="p-3 text-center">Ultra-Luxury Wellness</td>
+  <td class="p-3 text-center">42,000–60,000 Guests / yr</td>
+  <td class="p-3 text-center">Exclusive Tranquil Opulence</td>
+  <td class="p-3 text-center">
+    <div class="progress-bar bg-green-200 rounded h-4 w-full">
+      <div class="progress-fill bg-green-900 h-4 rounded" style="width: 88%;"></div>
+    </div>
+  </td>
+</tr>
       </table>
     </div>
 
@@ -1622,9 +1551,44 @@ document.getElementById("download-csv").addEventListener("click", () => {
       }, { once: true });
     });
   });
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Animate progress bars dynamically based on data-target
+  const progressFills = document.querySelectorAll(".progress-fill");
+  progressFills.forEach(fill => {
+    const targetPercent = parseInt(fill.dataset.target) || 0;
+    let width = 0;
+    const interval = setInterval(() => {
+      if(width >= targetPercent) clearInterval(interval);
+      else {
+        width++;
+        fill.style.width = width + "%";
+      }
+    }, 15);
+  });
+
+  // Filter buttons
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  const rows = document.querySelectorAll(".cpm-row");
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const filter = btn.getAttribute("data-filter");
+      rows.forEach(row => {
+        if(filter === "all" || row.dataset.category === filter || row.classList.contains(filter)) {
+          row.style.display = "";
+        } else {
+          row.style.display = "none";
+        }
+      });
+    });
+  });
+});
+</script>
 </script>
   </body>
 </html>
+
 
 
 
