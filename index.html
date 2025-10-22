@@ -1,1 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Alo Chaya - Luxury Heritage Retreat</title>
+
+<!-- Fonts & Tools -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+<!-- Local stylesheet -->
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body class="bg-gray-50 text-gray-900 font-inter">
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="#home" class="brand">Alo Chaya</a>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="doctrine.html">Doctrine</a>
+      <a href="#rooms">Rooms & Suites</a>
+      <a href="#wellness">Wellness & Activities</a>
+      <a href="#weddings-events">Weddings & Events</a>
+      <a href="#booking" class="cta-btn">Book Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO / HOME -->
+<section id="home" class="hero container mx-auto text-center pt-28 pb-8 px-4">
+  <h1 class="mb-2">Luxury Heritage Retreat Blending Nature, Family, and Serenity</h1>
+  <p class="lead">Reconnect with your loved ones and rejuvenate your senses at Alo Chaya – your private riverine sanctuary.</p>
+  <div class="mt-6">
+    <a href="#booking" class="btn btn-primary">Reserve Your Stay</a>
+  </div>
+  <div class="mt-8">
+    <img src="alo-chaya-60000sqf-overview.jpg" alt="Alo Chaya Overview" class="rounded-lg shadow-lg mx-auto">
+  </div>
+</section>
+
+<!-- HOME EXPERIENCE / OVERVIEW -->
+<div class="container mx-auto mt-16 px-6 space-y-6">
+
+  <!-- Home Experience Overview -->
+  <div x-data="{ openItem: null }" class="card p-4">
+    <button @click="openItem = (openItem === 'home' ? null : 'home')" class="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors rounded-lg">
+      <h3 class="text-xl font-semibold text-green-800">Home Experience Overview</h3>
+      <span class="text-gray-500" :class="{ 'rotate-180': openItem === 'home' }">▼</span>
+    </button>
+    <div x-show="openItem === 'home'" x-transition class="card-body">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <img src="alo-chaya-gate.jpg" alt="Alo Chaya Main Gate" class="rounded-lg shadow-md">
+          <p class="small mt-2">Entrance gate of Alo Chaya, welcoming guests into a heritage sanctuary framed by nature.</p>
+        </div>
+        <div>
+          <img src="front-lawn.jpg" alt="Front Lawn" class="rounded-lg shadow-md">
+          <p class="small mt-2">Expansive front lawn for morning walks, family gatherings, and curated wellness sessions.</p>
+        </div>
+        <div>
+          <img src="alo-chaya-gazebo.webp" alt="Gazebo by the Lake" class="rounded-lg shadow-md">
+          <p class="small mt-2">A riverside gazebo designed for meditation, small gatherings, or quiet reflection.</p>
+        </div>
+        <div>
+          <img src="alo-chaya-private-lake.webp" alt="Private Lake" class="rounded-lg shadow-md">
+          <p class="small mt-2">Private lake for serene boat rides and contemplative experiences at sunrise or sunset.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Family Suite -->
+  <div class="card p-4">
+    <button @click="openItem = (openItem === 'familySuite' ? null : 'familySuite')" class="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors rounded-lg">
+      <h3 class="text-xl font-semibold text-green-800">Family Suite</h3>
+      <span class="text-gray-500" :class="{ 'rotate-180': openItem === 'familySuite' }">▼</span>
+    </button>
+    <div x-show="openItem === 'familySuite'" x-transition class="card-body">
+      <p class="mb-4">Spacious suites designed for family comfort with heritage-inspired aesthetics. Designed to host multi-generational stays with privacy, curated family rituals, and bespoke dining.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <img src="family-suite.jpg" alt="Family Suite" class="rounded-lg shadow-md">
+        <img src="family-suite-room-right.jpg" alt="Family Suite alternate view" class="rounded-lg shadow-md">
+      </div>
+    </div>
+  </div>
+
+  <!-- Standard Room -->
+  <div class="card p-4">
+    <button @click="openItem = (openItem === 'standardRoom' ? null : 'standardRoom')" class="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors rounded-lg">
+      <h3 class="text-xl font-semibold text-green-800">Standard Room</h3>
+      <span class="text-gray-500" :class="{ 'rotate-180': openItem === 'standardRoom' }">▼</span>
+    </button>
+    <div x-show="openItem === 'standardRoom'" x-transition class="card-body">
+      <p>Cozy and comfortable rooms ideal for solo travelers or couples seeking tranquility, each designed with heritage touches and modern comforts.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <img src="third-floor-room-1.jpg" alt="Standard Room" class="rounded-lg shadow-md">
+        <img src="fourth-floor-spaces.jpg" alt="Guest area" class="rounded-lg shadow-md">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- WELLNESS & ACTIVITIES -->
+<section id="wellness" class="container mx-auto mt-16 px-6">
+  <h2 class="text-3xl font-bold text-green-800 mb-6 text-center">Wellness & Activities</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="card p-4">
+      <video controls class="rounded-lg shadow-md">
+        <source src="early-morning-view.mp4" type="video/mp4">
+      </video>
+      <p class="small mt-2">Begin your day with guided morning walks along the riverbank and meditation sessions.</p>
+    </div>
+    <div class="card p-4">
+      <video controls class="rounded-lg shadow-md">
+        <source src="night-view.mp4" type="video/mp4">
+      </video>
+      <p class="small mt-2">Evening wellness programs, including stargazing, reflective sessions, and ambient music.</p>
+    </div>
+    <div class="card p-4">
+      <video controls class="rounded-lg shadow-md">
+        <source src="family-suite.mp4" type="video/mp4">
+      </video>
+      <p class="small mt-2">Spacious family suites that combine comfort with heritage aesthetics for restful stays.</p>
+    </div>
+    <div class="card p-4">
+      <video controls class="rounded-lg shadow-md">
+        <source src="family-suite-room-right.mp4" type="video/mp4">
+      </video>
+      <p class="small mt-2">Right wing view of the family suite, showcasing room layout, lighting, and furniture styling.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WELLNESS FOUNDATIONS -->
+<section id="wellness-chunk1" class="container mx-auto max-w-5xl px-6 py-12">
+  <header class="text-center mb-12">
+    <h2 class="text-3xl font-bold text-primary-color">Wellness Foundations</h2>
+    <p class="text-gray-600 mt-2 text-lg">Physical and emotional health form the base of a fulfilled life. Integrating Islamic guidance and modern science.</p>
+  </header>
+
+  <div x-data="{ openItem: null }" class="space-y-6">
+    <div class="card p-4">
+      <button @click="openItem = (openItem === 1 ? null : 1)" class="w-full flex justify-between items-center p-6 rounded-lg">
+        <h3 class="text-xl font-semibold text-secondary-color">Physical Wellness - Fitness Components Pyramid</h3>
+        <span class="text-gray-500" :class="{ 'rotate-180': openItem === 1 }">▼</span>
+      </button>
+      <div x-show="openItem === 1" x-transition class="card-body">
+        <ul class="list-disc pl-5 mb-4">
+          <li>Cardiovascular Endurance</li>
+          <li>Muscular Strength</li>
+          <li>Muscular Endurance</li>
+          <li>Flexibility</li>
+          <li>Body Composition</li>
+        </ul>
+        <img src="fitness-pyramid.jpg" alt="Fitness Components Pyramid" class="rounded-lg shadow-md w-full mb-4">
+        <p class="text-sm italic">"A strong believer is better and more beloved to Allah than a weak believer, while there is good in both." — Sahih Muslim</p>
+      </div>
+    </div>
+
+    <div class="card p-4">
+      <h3 class="text-xl font-semibold text-secondary-color">Advanced Qalb Pursuits & Integration</h3>
+      <div class="card-body">
+        <ul class="list-disc pl-5 mb-4">
+          <li>Group leadership & mentoring exercises (service & justice focus)</li>
+          <li>Empathy mapping & community engagement tasks</li>
+          <li>Conflict resolution and peer mediation practice</li>
+          <li>Social bonds & moral clarity exercises linking Qalb → Ruh</li>
+        </ul>
+        <div class="mt-4">
+          <h4 class="text-lg font-semibold mb-2">Framework Crosswalk</h4>
+          <ul class="list-disc pl-5 text-sm text-gray-700">
+            <li>NAK Pursuits → Daily activities & reflection prompts</li>
+            <li>Bloom’s Taxonomy → Applied in group & social scenarios</li>
+            <li>Dale’s Cone → Hands-on practice & guided observation</li>
+            <li>McClelland → Achievement, Affiliation, Power mapped to Qalb tasks</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRATED WELLNESS PYRAMID (interactive summary) -->
+<section id="wellness-pyramid" class="container mx-auto max-w-5xl px-6 py-12">
+  <header class="text-center mb-12">
+    <h2 class="text-3xl font-bold text-primary-color">Integrated Wellness Pyramid</h2>
+    <p class="text-gray-600 mt-2 text-lg">A holistic approach to personal, social, and spiritual wellness. Click each tier for interactive tasks, reflections, and guidance.</p>
+  </header>
+
+  <div x-data="{ activeTier: null }" class="space-y-6">
+    <!-- Tier cards -->
+    <div class="card p-4">
+      <button @click="activeTier = (activeTier === 'nafs' ? null : 'nafs')" class="w-full flex justify-between items-center p-4 rounded-lg">
+        <h3 class="text-lg font-semibold text-secondary-color">Tier 1: Nafs — Emotional & Occupational Wellness</h3>
+        <span class="text-gray-500" :class="{ 'rotate-180': activeTier === 'nafs' }">▼</span>
+      </button>
+      <div x-show="activeTier === 'nafs'" x-transition class="card-body">
+        <ul class="list-disc pl-5 mb-4">
+          <li>Regularly check in with yourself; ask for help when needed</li>
+          <li>Avoid burnout and manage emotional energy</li>
+          <li>Find fulfilling work and financial stability</li>
+          <li>Reflection journaling on daily choices</li>
+        </ul>
+        <img src="ghuraba-nafs.jpg" alt="Nafs Wellness" class="rounded-lg shadow-md w-full mb-4">
+        <p class="text-sm italic">Quran 13:11 — "Indeed, Allah will not change the condition of a people until they change what is in themselves."</p>
+      </div>
+    </div>
+
+    <div class="card p-4">
+      <button @click="activeTier = (activeTier === 'qalb' ? null : 'qalb')" class="w-full flex justify-between items-center p-4 rounded-lg">
+        <h3 class="text-lg font-semibold text-secondary-color">Tier 2: Qalb — Heart & Social Wellness</h3>
+        <span class="text-gray-500" :class="{ 'rotate-180': activeTier === 'qalb' }">▼</span>
+      </button>
+      <div x-show="activeTier === 'qalb'" x-transition class="card-body">
+        <ul class="list-disc pl-5 mb-4">
+          <li>Daily acts of kindness & gratitude journaling</li>
+          <li>Active listening exercises in group discussions</li>
+          <li>Reflection on moral dilemmas & social choices</li>
+          <li>Collaborative storytelling & table rituals</li>
+        </ul>
+        <img src="ghuraba-qalb.jpg" alt="Qalb Wellness" class="rounded-lg shadow-md w-full mb-4">
+        <p class="text-sm italic">Quran 49:13 — "Indeed, the most noble of you in the sight of Allah is the most righteous of you."</p>
+      </div>
+    </div>
+
+    <div class="card p-4">
+      <button @click="activeTier = (activeTier === 'sirr' ? null : 'sirr')" class="w-full flex justify-between items-center p-4 rounded-lg">
+        <h3 class="text-lg font-semibold text-secondary-color">Tier 3: Sirr — Inner Reflection & Intimacy</h3>
+        <span class="text-gray-500" :class="{ 'rotate-180': activeTier === 'sirr' }">▼</span>
+      </button>
+      <div x-show="activeTier === 'sirr'" x-transition class="card-body">
+        <ul class="list-disc pl-5 mb-4">
+          <li>Guided solitude, contemplative exercises, quiet reading corners</li>
+          <li>Private journaling & Lighthouse reflective prompts</li>
+          <li>Self-assessment on inner emotional clarity</li>
+        </ul>
+        <img src="ghuraba-sirr.jpg" alt="Sirr Wellness" class="rounded-lg shadow-md w-full mb-4">
+      </div>
+    </div>
+
+    <div class="card p-4">
+      <button @click="activeTier = (activeTier === 'ruh' ? null : 'ruh')" class="w-full flex justify-between items-center p-4 rounded-lg">
+        <h3 class="text-lg font-semibold text-secondary-color">Tier 4: Ruh — Spiritual Foundation</h3>
+        <span class="text-gray-500" :class="{ 'rotate-180': activeTier === 'ruh' }">▼</span>
+      </button>
+      <div x-show="activeTier === 'ruh'" x-transition class="card-body">
+        <ul class="list-disc pl-5 mb-4">
+          <li>Daily Tazkiyah exercises: remembrance (dhikr), prayer, and guided reflection</li>
+          <li>Spiritual journaling & Lighthouse reflection prompts</li>
+          <li>Integration with Qur’anic study and moral clarity exercises</li>
+        </ul>
+        <img src="ghuraba-ruh.jpg" alt="Ruh Wellness" class="rounded-lg shadow-md w-full mb-4">
+        <p class="text-sm italic">Quran 91:9-10 — "He has succeeded who purifies it..."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WEDDINGS & EVENTS -->
+<section id="weddings-events" class="py-16 container mx-auto px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-8">Weddings & Events at Alo Chaya</h2>
+    <p class="text-center text-gray-600 mb-12 leading-relaxed">Celebrate your most cherished moments with elegance and style. Our riverine resort offers exclusive spaces, professional planning, and unforgettable experiences.</p>
+
+    <div class="space-y-6">
+      <details class="group border rounded-2xl p-4 bg-gray-50">
+        <summary class="flex justify-between items-center cursor-pointer text-xl font-semibold text-secondary-color">Wedding Venues <span class="icon">▼</span></summary>
+        <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <figure class="rounded-xl overflow-hidden shadow-md">
+            <img src="front-lawn.jpg" alt="Front Lawn Wedding Setup" class="w-full h-64 object-cover" loading="lazy">
+            <figcaption class="text-center mt-2 font-medium text-gray-700">Front Lawn – Outdoor Ceremony</figcaption>
+          </figure>
+          <figure class="rounded-xl overflow-hidden shadow-md">
+            <img src="alo-chaya-gazebo.webp" alt="Gazebo Wedding Setup" class="w-full h-64 object-cover" loading="lazy">
+            <figcaption class="text-center mt-2 font-medium text-gray-700">Gazebo – Intimate Ceremony</figcaption>
+          </figure>
+        </div>
+      </details>
+
+      <details class="group border rounded-2xl p-4 bg-gray-50">
+        <summary class="flex justify-between items-center cursor-pointer text-xl font-semibold text-secondary-color">Event Spaces <span class="icon">▼</span></summary>
+        <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <p class="text-gray-700 leading-relaxed">Alo Chaya provides versatile spaces for corporate events, private gatherings, and celebrations. With professional support, each event is curated to exceed expectations.</p>
+          <figure class="rounded-xl overflow-hidden shadow-md">
+            <img src="event-hall.jpg" alt="Event Hall Setup" class="w-full h-64 object-cover" loading="lazy">
+            <figcaption class="text-center mt-2 font-medium text-gray-700">Indoor Event Hall – Fully Equipped</figcaption>
+          </figure>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY & MULTIMEDIA -->
+<section class="container mx-auto px-6 py-12">
+  <div class="card p-4">
+    <h3 class="text-xl font-semibold mb-4">Photo & Video Gallery</h3>
+    <p class="small mb-4">Every visual reflects our commitment to curated, high-touch experiences. Videos showcase our rooms, views, and guest journey.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <img src="alo-chaya-60000sqf-overview.jpg" alt="60,000 sq ft Main Facility Overview" class="rounded-lg mb-4">
+        <p class="figure-caption">Overview of Alo Chaya's main riverine facility, showcasing space and heritage architecture.</p>
+      </div>
+      <div>
+        <img src="alo-chaya-architecture-map.jpg" alt="Architectural Map" class="rounded-lg mb-4">
+        <p class="figure-caption">Detailed architecture map highlighting layout and guest circulation.</p>
+      </div>
+
+      <div>
+        <video controls class="rounded-lg mb-4"><source src="family-suite.mp4" type="video/mp4"></video>
+        <p class="figure-caption">Family Suite walkthrough showing room setup and amenities.</p>
+      </div>
+      <div>
+        <video controls class="rounded-lg mb-4"><source src="family-suite-room-right.mp4" type="video/mp4"></video>
+        <p class="figure-caption">Alternate view of the Family Suite with detailed room layout.</p>
+      </div>
+
+      <div>
+        <video controls class="rounded-lg mb-4"><source src="early-morning-view.mp4" type="video/mp4"></video>
+        <p class="figure-caption">Early morning sunrise over the river and estate gardens.</p>
+      </div>
+      <div>
+        <video controls class="rounded-lg mb-4"><source src="third-floor-room-1.mp4" type="video/mp4"></video>
+        <p class="figure-caption">Third-floor room experience, highlighting spatial layout and furnishings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING & CONTACT -->
+<footer id="booking" class="booking-section container mx-auto px-6">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="mb-4">Book Your Stay</h2>
+    <p class="mb-4">Experience Alo Chaya’s heritage, wellness programs, and curated guest journey. Contact our reservations team for planning your perfect escape.</p>
+    <p class="mb-2"><strong>Phone / WhatsApp:</strong> <a href="https://wa.me/8801327379392" target="_blank" class="underline">+8801327379392</a> (please message first, we will call back)</p>
+    <p class="mb-4"><strong>Email:</strong> <a href="mailto:alochayariverine.info@gmail.com" class="underline">alochayariverine.info@gmail.com</a></p>
+    <a href="tel:+8801327379392" class="btn btn-primary">Call to Book Now</a>
+  </div>
+</footer>
+
+<!-- SITE FOOTER -->
+<div class="site-footer container mx-auto mt-8">
+  <p class="small">© Alo Chaya — Heritage & Wellness Retreat. All rights reserved.</p>
+  <p class="small mt-2">Images & media used with intent to represent our estate. For partnerships and press, email <a href="mailto:alochayariverine.info@gmail.com">alochayariverine.info@gmail.com</a></p>
+</div>
+
+<!-- Global small scripts to keep accordion behavior consistent -->
+<script>
+  // Smooth accordion fallback for <details> elements (not relying on external libraries)
+  document.querySelectorAll('details').forEach(section => {
+    const summary = section.querySelector('summary');
+    const content = section.querySelector('div, .details-content') || section.querySelector('summary + *');
+    if (!summary) return;
+
+    summary.addEventListener('click', function(e){
+      // allow native toggle default for details if supported;
+      // the below ensures single-open behavior when desired (optional)
+      // Close sibling details at same level
+      const siblings = Array.from(section.parentElement.children).filter(el => el.tagName.toLowerCase() === 'details' && el !== section);
+      siblings.forEach(s => { s.removeAttribute('open'); });
+  
 
