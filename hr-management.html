@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alo Chaya - HR Management</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&display=swap" rel="stylesheet"> <style>
+        /* --- 1. Design Tokens & Root --- */
+        :root {
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'Fira Code', Menlo, Monaco, monospace;
+            
+            --color-bg: #FBFAF8;       /* Off-white */
+            --color-text: #111214;     /* Charcoal */
+            --color-accent: #CFA76C;   /* Muted Gold */
+            --color-surface: #FFFFFF;
+            --color-border: #EFEFEF;
+            --color-muted: #8E8E8E;
+            --color-success: #059669;
+            --color-danger: #be123c;
+            --color-warn: #a16207;
+
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.02);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.05);
+            --radius: 8px;
+        }
+
+        /* --- 2. Reset & Base --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            /* Marble texture background */
+            background-image: url('https://www.transparenttextures.com/patterns/subtle-white-feathers.png');
+            background-attachment: fixed;
+        }
+
+        /* --- 3. Page Layout & Header --- */
+        .container {
+            max-width: 1400px; /* Wider for tables */
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .page-header {
+            padding: 1.5rem 1.5rem;
+            background-color: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .page-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .page-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .page-title span { color: var(--color-accent); }
+
+        .back-link {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--color-text);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+        }
+        .back-link:hover {
+            background-color: var(--color-text);
+            color: var(--color-surface);
+        }
+
+        /* --- 4. Content Sections --- */
+        .content-section {
+            padding: 4rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease-out forwards;
+            border-bottom: 1px solid var(--color-border);
+        }
+        @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.75rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--color-muted);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+        }
+
+        p { margin-bottom: 1.5rem; }
+        
+        .image-banner {
+            width: 100%;
+            height: 400px;
+            background-color: var(--color-muted);
+            background-size: cover;
+            background-position: center;
+            border-radius: var(--radius);
+            margin-bottom: 4rem;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-style: italic;
+        }
+
+        /* --- 5. Staffing Table (Lighthouse Style) --- */
+        .table-wrapper {
+            overflow-x: auto;
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            padding: 1.5rem;
+        }
+
+        .staffing-table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+        
+        .staffing-table th, .staffing-table td {
+            border: 1px solid var(--color-border);
+            padding: 0.85rem 1rem;
+            text-align: left;
+            vertical-align: middle;
+        }
+        
+        .staffing-table thead th {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            background-color: #fdfdfc;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .staffing-table .category-row td {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.1rem;
+            background-color: #fdfdfc;
+            color: var(--color-text);
+        }
+
+        /* GEMINI UPGRADE: Editable cells */
+        .staffing-table .editable-cell {
+            background-color: #fdfdfc;
+            transition: all 0.2s ease;
+        }
+        .staffing-table .editable-cell:focus,
+        .staffing-table .editable-cell:hover {
+            background-color: #fff;
+            outline: 2px solid var(--color-accent);
+            box-shadow: 0 0 10px rgba(207, 167, 108, 0.3);
+        }
+        
+        /* --- 6. JS Interactive Controls (Lighthouse Style) --- */
+        #hrm-interactive-controls {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background-color: #fdfdfc;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+        }
+        
+        .controls-title {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        #hrm-totals-values {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+        #hrm-totals-values strong {
+            color: var(--color-muted);
+            font-weight: 400;
+        }
+        
+        .controls-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .control-group label {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .control-group select, .control-group input {
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--color-border);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+        }
+        
+        .control-group input {
+            width: 120px;
+            font-family: var(--font-mono);
+        }
+
+        .control-group button {
+            padding: 0.6rem 1rem;
+            background-color: var(--color-success);
+            color: white;
+            border-radius: var(--radius);
+            border: 0;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        .control-group button:hover {
+            background-color: #047857;
+        }
+        
+        #hrm-reconcile-out {
+            font-weight: 600;
+            font-family: var(--font-mono);
+        }
+        #hrm-reconcile-out.success { color: var(--color-success); }
+        #hrm-reconcile-out.warn { color: var(--color-warn); }
+        #hrm-reconcile-out.danger { color: var(--color-danger); }
+        
+        /* --- 7. Blueprint Spec: Salary Ratio Visualization --- */
+        #hrm-visualization {
+            margin-top: 1.5rem;
+        }
+        .viz-bar-chart {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            height: 150px;
+            border-left: 2px solid var(--color-border);
+            border-bottom: 2px solid var(--color-border);
+            padding: 0 1rem;
+        }
+        .viz-bar {
+            flex-grow: 1;
+            margin: 0 5%;
+            background-color: var(--color-accent);
+            opacity: 0.7;
+            transition: height 0.5s ease-out;
+            position: relative;
+        }
+        .viz-bar:hover {
+            opacity: 1;
+        }
+        .viz-bar .label {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--color-muted);
+        }
+        .viz-bar .value {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-text);
+            font-family: var(--font-mono);
+        }
+        
+        /* --- 8. Doctrine Layout --- */
+        .doctrine-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+        .doctrine-column h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--color-text);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--color-accent);
+            display: inline-block;
+        }
+        .doctrine-column ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .doctrine-column li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 0.75rem;
+        }
+        .doctrine-column li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            top: -2px;
+            color: var(--color-accent);
+            font-size: 1.5rem;
+            line-height: 1.2;
+        }
+
+        /* --- 9. Responsive --- */
+        @media (max-width: 900px) {
+            .doctrine-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .page-header .container { flex-direction: column; gap: 1rem; }
+            .content-section { padding: 2.5rem 0; }
+            .section-title { font-size: 2.25rem; }
+            .image-banner { height: 250px; margin-bottom: 2.5rem; }
+            .controls-row, .control-group { flex-direction: column; align-items: stretch; }
+            .control-group input { width: 100%; }
+            #hrm-totals-values { flex-direction: column; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">HR Management <span>Dashboard</span></h1>
+            <a href="./index.html" class="back-link">&larr; Back to Central HUD</a>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="content-section" style="padding-top: 3rem; animation-delay: 0.1s; border-bottom: none;">
+            <div class="container">
+                <div class="image-banner" style="background-image: url('./images/team.jpg');">
+                    <span style="background: rgba(0,0,0,0.4); padding: 5px 10px; border-radius: 4px;">./images/team.jpg</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" style="animation-delay: 0.2s;">
+            <div class="container">
+                <h2 class="section-title" id="granular-staffing">Granular Staffing & Payroll Model</h2>
+                <p class="section-subtitle">
+                    This interactive table outlines the staffing levels and monthly payroll for each scenario.
+                    <strong>Click any data cell to edit the values</strong>, and the totals will update instantly.
+                </p>
+
+                <div class="table-wrapper">
+                    <table class="staffing-table" id="staffing-table">
+                        <thead>
+                            <tr>
+                                <th>Role Category</th>
+                                <th>Worst / Improbable Mid</th>
+                                <th>True Mid</th>
+                                <th>Low Ideal</th>
+                                <th>High Ideal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="category-row"><td colspan="5">Executive</td></tr>
+                            <tr>
+                                <td>- CEO / Founder's Salary</td>
+                                <td contenteditable="true" class="editable-cell">1 @ 250k (Drawing <strong>125k</strong>)</td>
+                                <td contenteditable="true" class="editable-cell">1 @ 250k = <strong>250,000</strong></td>
+                                <td contenteditable="true" class="editable-cell">1 @ 250k = <strong>250,000</strong></td>
+                                <td contenteditable="true" class="editable-cell">1 @ 250k = <strong>250,000</strong></td>
+                            </tr>
+                            <tr class="category-row"><td colspan="5">Kitchen Team (Gastronauts)</td></tr>
+                            <tr>
+                                <td>- Sous Chef Trainer / Head Chef</td>
+                                <td contenteditable="true" class="editable-cell">1 @ 60k = 60,000</td>
+                                <td contenteditable="true" class="editable-cell">1 @ 60k = 60,000</td>
+                                <td contenteditable="true" class="editable-cell">1 @ 60k = 60,000</td>
+                                <td contenteditable="true" class="editable-cell">1 @ 75k (Exec. Chef) = 75,000</td>
+                            </tr>
+                            <tr>
+                                <td>- Gastronomy Technicians</td>
+                                <td contenteditable="true" class="editable-cell">3 @ 36k = 108,000</td>
+                                <td contenteditable="true" class="editable-cell">3 @ 36k = 108,000</td>
+                                <td contenteditable="true" class="editable-cell">4 @ 36k = 144,000</td>
+                                <td contenteditable="true" class="editable-cell">5 @ 36k = 180,000</td>
+                            </tr>
+                            <tr>
+                                <td>- Commis Chefs</td>
+                                <td contenteditable="true" class="editable-cell">6 @ 24k = 144,000</td>
+                                <td contenteditable="true" class="editable-cell">8 @ 24k = 192,000</td>
+                                <td contenteditable="true" class="editable-cell">10 @ 24k = 240,000</td>
+                                <td contenteditable="true" class="editable-cell">12 @ 24k = 288,000</td>
+                            </tr>
+                            <tr>
+                                <td>- Kitchen Porters</td>
+                                <td contenteditable="true" class="editable-cell">2 @ 20k = 40,000</td>
+                                <td contenteditable="true" class="editable-cell">3 @ 20k = 60,000</td>
+                                <td contenteditable="true" class="editable-cell">4 @ 20k = 80,000</td>
+                                <td contenteditable="true" class="editable-cell">5 @ 20k = 100,000</td>
+                            </tr>
+                            <tr class="category-row"><td colspan="5">Office & Management Team</td></tr>
+                            <tr>
+                                <td>- Office Versatilist (GM)</td>
+                                <td contenteditable="true" class="editable-cell">-</td>
+                                <td contenteditable="true" class="editable-cell">1 @ 88k = 88,000</td>
+                                <td contenteditable="true" class="editable-cell">1 @ 88k = 88,000</td>
+                                <td contenteditable="true" class="editable-cell">1 @ 88k = 88,000</td>
+                            </tr>
+                            <tr>
+                                <td>- Senior Office Executive</td>
+                                <td contenteditable="true" class="editable-cell">1 @ 36k = 36,000</td>
+                                <td contenteditable="true" class="editable-cell">1 @ 36k = 36,000</td>
+                                <td contenteditable="true" class="editable-cell">2 @ 36k = 72,000</td>
+                                <td contenteditable="true" class="editable-cell">2 @ 40k = 80,000</td>
+                            </tr>
+                            <tr>
+                                <td>- Junior Office Executives</td>
+                                <td contenteditable="true" class="editable-cell">5 @ 24k = 120,000</td>
+                                <td contenteditable="true" class="editable-cell">6 @ 24k = 144,000</td>
+                                <td contenteditable="true" class="editable-cell">7 @ 24k = 168,000</td>
+                                <td contenteditable="true" class="editable-cell">8 @ 24k = 192,000</td>
+                            </tr>
+                            <tr class="category-row"><td colspan="5">Resort Staff (Grounds & Service)</td></tr>
+                            <tr>
+                                <td>- Housekeeping Team</td>
+                                <td contenteditable="true" class="editable-cell">4 @ 24k avg = 96,000</td>
+                                <td contenteditable="true" class="editable-cell">6 @ 24k avg = 144,000</td>
+                                <td contenteditable="true" class="editable-cell">8 @ 24k avg = 192,000</td>
+                                <td contenteditable="true" class="editable-cell">10 @ 24k avg = 240,000</td>
+                            </tr>
+                            <tr>
+                                <td>- Service Team (Garçons)</td>
+                                <td contenteditable="true" class="editable-cell">4 @ 22k avg = 88,000</td>
+                                <td contenteditable="true" class="editable-cell">8 @ 22k avg = 176,000</td>
+                                <td contenteditable="true" class="editable-cell">12 @ 22k avg = 264,000</td>
+                                <td contenteditable="true" class="editable-cell">16 @ 22k avg = 352,000</td>
+                            </tr>
+                            <tr>
+                                <td>- Baristas</td>
+                                <td contenteditable="true" class="editable-cell">1 @ 25k = 25,000</td>
+                                <td contenteditable="true" class="editable-cell">2 @ 25k = 50,000</td>
+                                <td contenteditable="true" class="editable-cell">2 @ 25k = 50,000</td>
+                                <td contenteditable="true" class="editable-cell">3 @ 25k = 75,000</td>
+       </tr>
+                            <tr>
+                                <td>- Grounds & Security</td>
+                                <td contenteditable="true" class="editable-cell">10 @ 20k = 200,000</td>
+                                <td contenteditable="true" class="editable-cell">13 @ 20k = 260,000</td>
+                                <td contenteditable="true" class="editable-cell">15 @ 20k = 300,000</td>
+                                <td contenteditable="true" class="editable-cell">18 @ 20k = 360,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div id="hrm-interactive-controls">
+                        <div class="controls-title">Live Payroll Dashboard</div>
+                        <div id="hrm-totals-values">
+                            </div>
+                        
+                        <div class="controls-title" style="margin-top: 1rem;">Salary Ratio Visualization</div>
+                        <div id="hrm-visualization">
+                            <div class="viz-bar-chart" id="viz-bar-chart">
+                                </div>
+                        </div>
+
+                        <div class="controls-row" style="margin-top: 2rem; border-top: 1px solid var(--color-border); padding-top: 1.5rem;">
+                            <div class="control-group">
+                                <button id="hrm-export-csv">Export as CSV</button>
+                            </div>
+                            <div class="control-group">
+                                <label for="hrm-reconcile-select">Reconcile vs P&L:</label>
+                                <select id="hrm-reconcile-select"></select>
+                                <input id="hrm-reconcile-input" placeholder="P&L Payroll Figure">
+                                <span id="hrm-reconcile-out"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <section class="content-section" style="animation-delay: 0.3s;">
+            <div class="container">
+                <h2 class="section-title" id="recruitment-onboarding">HR Doctrine: The Human Engine</h2>
+                <p class="section-subtitle">
+                    Our HRM doctrine is built on dynastic continuity and operational modernity. We are hosts, not staff—cultivating the future guardians of the Alo Chaya legacy.
+                </p>
+                
+                <div class="doctrine-grid">
+                    <div class="doctrine-column">
+                        <h3 id="recruitment-philosophy">A. Recruitment & Onboarding</h3>
+                        <p><strong>Local First Initiative:</strong> Hiring from the Chandpur community to foster sustainable employment and authentic connection.</p>
+                        <p><strong>Alo Chaya Immersion:</strong> Mandatory 7-day program for all new hires, covering heritage, wellness philosophy, and operational standards.</p>
+
+                        <h3 id="training-academy" style="margin-top: 2rem;">B. Training (House of Light Academy)</h3>
+                        <p>Our training is modeled on a "Shokugeki-Style" challenge-based system.</p>
+                        <ul>
+                            <li><strong>Challenge-Based Learning:</strong> Weekly operational and culinary challenges with real-time feedback.</li>
+                            <li><strong>Mentor-Mentee Ladder:</strong> Pairing juniors with seniors for skill growth.</li>
+                            <li><strong>Defined Skill Tiers:</strong> Apprentice → Journeyman → Captain → Innovator.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="doctrine-column">
+                        <h3 id="wellness-retention">C. Staff Wellness & Retention</h3>
+                        <ul>
+                            <li><strong>Premium Accommodation & Meals:</strong> Safe, high-quality housing and nutritious meals.</li>
+                            <li><strong>Access to Wellness:</strong> Wellness Center access to embrace all 8 Dimensions of Wellness.</li>
+                            <li><strong>Daycare Initiative:</strong> On-site daycare & education for staff children.</li>
+                        </ul>
+                        
+                        <h3 id="leadership-doctrine" style="margin-top: 2rem;">D. Leadership & Promotion</h3>
+                        <ul>
+                            <li><strong>Leadership Framework:</strong> Level 5 (Collins), 5 Levels Path (Maxwell), Exemplary Followers (Kelley).</li>
+                            <li><strong>Promotion System:</strong> Skill/Will (Hersey-Blanchard) + Tannenbaum-Schmidt continuum for objective advancement.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+    
+    <footer style="text-align: center; padding: 2rem; font-size: 0.9rem; color: var(--color-muted); border-top: 1px solid var(--color-border); margin-top: 2rem;">
+        Alo Chaya HR Doctrine v1.2 • Prepared by Sajid Hassan • Last updated 2025-10-09
+    </footer>
+
+<script>
+(function(){
+    // --- 1. Helper Function (from user script) ---
+    function parseNum(s){
+        if(!s) return 0;
+        return Number(String(s).replace(/[^0-9.-]+/g,"")) || 0;
+    }
+    
+    // --- 2. Core Logic (Upgraded from user script) ---
+    function computeTotals(){
+        const table = document.getElementById('staffing-table');
+        if(!table) return;
+        
+        const rows = Array.from(table.tBodies[0].rows);
+        const headers = Array.from(table.tHead.rows[0].cells).map(h => h.textContent.trim());
+        const colCount = headers.length;
+        
+        // Zero out totals for recalculation
+        const totals = new Array(colCount).fill(0);
+        
+        rows.forEach(tr => {
+            if(tr.cells.length < colCount) return; // Skip category rows
+            for(let i = 1; i < tr.cells.length; i++){
+                const txt = tr.cells[i].textContent || '';
+                // Use innerHTML to preserve <strong> tags during parsing
+                const html = tr.cells[i].innerHTML || ''; 
+                const match = html.match(/([0-9\.,\s]+)(?!.*[0-9\.,\s]+)/);
+                const val = parseNum(match ? match[0] : txt);
+                totals[i] += val;
+            }
+        });
+
+        // --- 3. DOM Injection (Upgraded) ---
+        let out = document.getElementById('hrm-interactive-controls');
+        if(!out) {
+            console.error("Interactive controls container not found.");
+            return; 
+        }
+
+        const select = document.getElementById('hrm-reconcile-select');
+        select.innerHTML = ''; // Clear old options
+        const totalsValuesEl = document.getElementById('hrm-totals-values');
+        totalsValuesEl.innerHTML = '';
+        
+        const scenarioTotals = []; // For visualization
+
+        for(let i = 1; i < totals.length; i++){
+            const head = headers[i] || `Col ${i}`;
+            const total = totals[i];
+            
+            // Populate totals text
+            const totalEl = document.createElement('div');
+            totalEl.innerHTML = `<strong>${head}:</strong> ${total.toLocaleString()}`;
+            totalsValuesEl.appendChild(totalEl);
+            
+            // Populate select dropdown
+            const opt = document.createElement('option');
+            opt.value = i - 1;
+            opt.textContent = head;
+            select.appendChild(opt);
+            
+            scenarioTotals.push({ label: head, value: total });
+        }
+        
+        // --- 4. GEMINI ADDITION: Update Visualization ---
+        updateVisualization(scenarioTotals);
+
+        // --- 5. Data Storage & Reconciliation (from user script) ---
+        window.__hrm_data = {
+            headers: headers,
+            totals: totals.slice(1), // Remove first (label) column
+            rows: rows.map(r => Array.from(r.cells).map(c => `"${c.textContent.trim().replace(/"/g, '""')}"`)) // CSV-safe
+        };
+        
+        reconcilePnl();
+    }
+    
+    // --- 6. Visualization Function ---
+    function updateVisualization(scenarioTotals) {
+        const chartEl = document.getElementById('viz-bar-chart');
+        if (!chartEl) return;
+        
+        chartEl.innerHTML = ''; // Clear old bars
+        const maxVal = Math.max(...scenarioTotals.map(d => d.value));
+        
+        scenarioTotals.forEach(data => {
+            const bar = document.createElement('div');
+            bar.className = 'viz-bar';
+            
+            const height = (data.value / maxVal) * 100;
+            bar.style.height = `${height}%`;
+            
+            const label = document.createElement('span');
+            label.className = 'label';
+            label.textContent = data.label;
+            
+            const value = document.createElement('span');
+            value.className = 'value';
+            value.textContent = (data.value / 1000).toFixed(0) + 'k';
+            
+            bar.appendChild(label);
+            bar.appendChild(value);
+            chartEl.appendChild(bar);
+        });
+    }
+
+    // --- 7. Reconciliation (from user script, upgraded selectors/classes) ---
+    function reconcilePnl(){
+        const pnlValue = parseNum(document.getElementById('hrm-reconcile-input').value);
+        const scenarioIndex = Number(document.getElementById('hrm-reconcile-select').value) || 0;
+        
+        if (!window.__hrm_data || !window.__hrm_data.totals) return;
+        
+        const hrmTotal = window.__hrm_data.totals[scenarioIndex] || 0;
+        const variance = hrmTotal - pnlValue;
+        const outEl = document.getElementById('hrm-reconcile-out');
+
+        if(pnlValue === 0){
+            outEl.textContent = '';
+            outEl.className = '';
+            return;
+        }
+        
+        const variancePct = Math.abs(variance / pnlValue);
+        
+        if(Math.abs(variance) < 1){
+            outEl.textContent = '✅ Reconciled';
+            outEl.className = 'success';
+        } else {
+            outEl.textContent = `Variance: ${variance.toLocaleString()}`;
+            if (variancePct > 0.1) {
+                outEl.className = 'danger';
+            } else {
+                outEl.className = 'warn';
+            }
+        }
+    }
+
+    // --- 8. CSV Export (from user script, upgraded data source) ---
+    function exportCSV(){
+        const data = window.__hrm_data;
+        if(!data){ alert('Data not computed.'); return; }
+        
+        let csvContent = "data:text/csv;charset=utf-8,";
+        csvContent += data.headers.join(",") + "\r\n";
+        data.rows.forEach(function(rowArray){
+            let row = rowArray.join(",");
+            csvContent += row + "\r\n";
+        });
+        
+        var encodedUri = encodeURI(csvContent);
+        var link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "alo_chaya_staffing_model.csv");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+    
+    // --- 9. Event Listeners ---
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- GEMINI UPGRADE: Live editing ---
+        const table = document.getElementById('staffing-table');
+        if (table) {
+            // Use 'blur' event on the table (with capture)
+            // 'input' fires too often, 'blur' fires when user clicks away
+            table.addEventListener('blur', (e) => {
+                if (e.target.isContentEditable) {
+                    computeTotals();
+                }
+            }, true); // Use capture phase
+        }
+        
+        // Attach other listeners
+        document.getElementById('hrm-export-csv').addEventListener('click', exportCSV);
+        document.getElementById('hrm-reconcile-input').addEventListener('input', reconcilePnl);
+        document.getElementById('hrm-reconcile-select').addEventListener('change', reconcilePnl);
+        
+        // Initial computation
+        computeTotals();
+    });
+
+})();
+</script>
+
+</body>
+</html>
