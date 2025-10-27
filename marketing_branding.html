@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing & Branding Strategy</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 1. Design Tokens & Root --- */
+        :root {
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --color-bg: #FBFAF8;       /* Off-white */
+            --color-text: #111214;     /* Charcoal */
+            --color-accent: #CFA76C;   /* Muted Gold/Bronze */
+            --color-secondary: #0A3D62; /* Deep Blue (River/Sky) */
+            --color-surface: #FFFFFF;
+            --color-border: #EFEFEF;
+            --color-muted: #6b6b6b;
+            
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.05);
+            --radius: 10px;
+        }
+
+        /* --- 2. Reset & Base --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            padding-bottom: 5rem;
+        }
+
+        /* --- 3. Layout & Header --- */
+        .page-header {
+            padding: 1.5rem 1.5rem;
+            background-color: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .page-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-secondary);
+        }
+        .page-title span { color: var(--color-accent); }
+
+        .back-link {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-text);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+        }
+        .back-link:hover {
+            background-color: var(--color-text);
+            color: var(--color-surface);
+        }
+
+        /* --- 4. Content Sections --- */
+        .section {
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: var(--color-surface);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--color-border);
+        }
+
+        .section h2 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--color-border);
+            padding-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        /* --- 5. 7Ps Grid --- */
+        .grid-7p {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .p-card {
+            background-color: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-left: 5px solid var(--color-secondary);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+        }
+        .p-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            color: var(--color-secondary);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        .p-card p {
+            font-size: 0.95rem;
+            color: var(--color-muted);
+        }
+
+        /* --- 6. Brand Visuals (Prism/Pyramid) */
+        .visual-card {
+            background: var(--color-bg);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--color-border);
+        }
+        .visual-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* Generic List Style for Content */
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        ul li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: bold;
+        }
+        
+        /* Specific Styles for Prism/Pyramid (Visual emphasis) */
+        .brand-trait-list li {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-text);
+        }
+        .brand-trait-list p {
+            font-weight: 400;
+            font-size: 0.9rem;
+            color: var(--color-muted);
+            margin-top: 0.3rem;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <header class="page-header">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <h1 class="page-title">Marketing & <span>Branding Strategy</span></h1>
+            <a href="./index.html" class="back-link">&larr; Back to Central HUD</a>
+        </div>
+    </header>
+
+    <main class="container">
+    
+        <section class="section">
+            <h2>1. The 7Ps: Operational Strategy</h2>
+            <p style="margin-bottom: 2rem; color: var(--color-secondary); font-weight: 600;">
+                The 7Ps align the core offering (**Alo Chaya**) with the experiential doctrine (**Ghuraba Al Manara**), ensuring every touchpoint reinforces the brand's premium, transformative positioning.
+            </p>
+
+            <div class="grid-7p">
+                
+                <div class="p-card">
+                    <h3>Product: The Lighthouse Journey</h3>
+                    <p>
+                        A seamless fusion of high-touch luxury resort (Alo Chaya) and intellectual/spiritual retreat (Ghuraba Al Manara). Key features include: **All-Marble Interiors**, **Riverine Seclusion**, **7,000 sq.ft Lounges** for intellectual gatherings, and structured **Wellness Tracks** (Ruh, Qalb, Sirr, Nafs, Physique).
+                    </p>
+                </div>
+                
+                <div class="p-card">
+                    <h3>Price: Premium Scarcity</h3>
+                    <p>
+                        Positioned in the **mid-to-high luxury tier** (Target ADR ~15,000+ BDT Adjusted). Justified by exclusivity, unique programming based on the **Ghuraba Al Manara Codex** and frameworks (**GLSM, ACEM**), and the non-replicable riverine setting. Price communicates **Alo Chaya** as a transformative investment, not a commodity.
+                    </p>
+                </div>
+                
+                <div class="p-card">
+                    <h3>Place: Secluded Sanctuary</h3>
+                    <p>
+                        The **Chandpur Riverine site** is the primary 'Place'—distant enough (2 hours from Dhaka) to signal genuine escape and commitment. Distribution focuses on direct booking, niche high-end travel agencies, and targeted corporate retreat channels that value intellectual engagement.
+                    </p>
+                </div>
+                
+                <div class="p-card">
+                    <h3>Promotion: Story-Driven Moat</h3>
+                    <p>
+                        Promotional content is driven by the **'Strangers of the Lighthouse'** narrative and the **Anime-Inspired** business ventures. Marketing materials focus on the **search for purpose**, the escape from the chaotic 'sea' (Nafs), and the arrival at the guiding light (Manara).
+                    </p>
+                </div>
+                
+                <div class="p-card">
+                    <h3>People: The Guides & Mentors</h3>
+                    <p>
+                        Staff are trained not merely in service, but as **"Guides"** and **"Curators."** They must embody the brand's core traits (**Intellect, Service, Serenity**). Staff interactions should feel intentional, knowledgeable, and supportive of the guest's inner journey, often referencing the **Lighthouse Tales** universe.
+                    </p>
+                </div>
+                
+                <div class="p-card">
+                    <h3>Process: The Curated Flow</h3>
+                    <p>
+                        Every step—from booking a **'Wellness Track'** to the daily application of the **Al-Amin Capability Evolution Model (ACEM)**—is structured for minimal friction and maximum impact. The process is a seamless blend of luxury resort check-in with a spiritual retreat's intentionality.
+                    </p>
+                </div>
+                
+                <div class="p-card">
+                    <h3>Physical Evidence: Marble & Manuscript</h3>
+                    <p>
+                        This includes the **marble interiors**, the river view, the curated lounge, and the physical presence of the **Strangers of the Lighthouse** novels, activity books, and board game in every room. Sensory evidence must affirm the promise of high luxury and deep meaning.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>2. Brand Personalities: The Ghuraba Pillars</h2>
+            <p style="margin-bottom: 2rem; color: var(--color-muted); font-weight: 500;">
+                The brand's personality is built on five experiential pillars, which double as the core values staff must embody to facilitate the guest's 'Lighthouse Journey.'
+            </p>
+
+            <div class="brand-trait-list">
+                <ul>
+                    <li>
+                        **The Lighthouse (Al Manara) Trait: Clarity & Guidance**
+                        <p>
+                            **Guest Catering:** The overarching feeling of the entire property. Guests feel they have found a clear, secure place away from the world's chaos, allowing for deep application of the **GLSM**.
+                        </p>
+                    </li>
+                    <li>
+                        **The Alo Chaya Trait: Heritage & Tranquility**
+                        <p>
+                            **Staff Embodiment:** Staff present a calm, dignified demeanor, speaking softly and acting with deliberate, unhurried movements. They represent the stability of the luxurious physical space.
+                        </p>
+                    </li>
+                    <li>
+                        **The Sirr (Inner Secret) Trait: Exclusivity & Depth**
+                        <p>
+                            **Staff Embodiment:** Staff offer subtle, non-intrusive service. They respect quietude and privacy, making guests feel privy to an exclusive, profound experience known only to a select few.
+                        </p>
+                    </li>
+                    <li>
+                        **The Qalb (Heart/Soul) Trait: Empathy & Connection**
+                        <p>
+                            **Staff Embodiment:** Staff use empathetic listening and personalized recognition. They anticipate needs based on observing the guest's well-being, fostering a genuine, heartfelt connection.
+                        </p>
+                    </li>
+                    <li>
+                        **The Intellectual (Dialogue) Trait: Curiosity & Wisdom**
+                        <p>
+                            **Staff Embodiment:** Guides and Curators are highly knowledgeable about the brand's narrative and the content of the books/games. They engage in light, respectful dialogue, elevating conversation above mundane small talk.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>3. The Brand Prism: Projection & Reflection</h2>
+            <p style="margin-bottom: 2rem; color: var(--color-muted); font-weight: 500;">
+                The Prism organizes the brand's identity components, ensuring consistency between what the brand says and what the consumer feels.
+            </p>
+            
+            <div class="visual-card">
+                <h3>GHURABA AL MANARA - BRAND PRISM</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; text-align: center; margin-top: 1rem; font-size: 0.9rem;">
+                    
+                    <div style="grid-column: 1/span 3; background: var(--color-accent-light); padding: 0.5rem; border-radius: 5px;">**TRANSMITTED BRAND (EXTERNAL)**</div>
+                    
+                    <div style="padding: 1rem; border: 1px solid var(--color-border); border-right: none;">
+                        <h4 style="color: var(--color-secondary);">Physique</h4>
+                        <p>Marble, Water, Strength (See **ACEM**)</p>
+                        <p style="font-weight: 600; margin-top: 0.5rem;">— OUTWARD SIGN —</p>
+                    </div>
+                    <div style="padding: 1rem; border: 1px solid var(--color-border);">
+                        <h4 style="color: var(--color-secondary);">Intellect</h4>
+                        <p>Dialogue, Curriculum (See **GLSM**)</p>
+                        <p style="font-weight: 600; margin-top: 0.5rem;">— CULTURE —</p>
+                    </div>
+                    <div style="padding: 1rem; border: 1px solid var(--color-border); border-left: none;">
+                        <h4 style="color: var(--color-secondary);">Alo Chaya</h4>
+                        <p>Heritage, River Seclusion</p>
+                        <p style="font-weight: 600; margin-top: 0.5rem;">— RELATIONSHIP —</p>
+                    </div>
+
+                    <div style="grid-column: 1/span 3; background: var(--color-accent-light); padding: 0.5rem; border-radius: 5px; margin-top: 1rem;">**REFLECTED BRAND (INTERNAL)**</div>
+
+                    <div style="padding: 1rem; border: 1px solid var(--color-border); border-right: none;">
+                        <h4 style="color: var(--color-secondary);">Nafs</h4>
+                        <p>Struggling, Seeking Light</p>
+                        <p style="font-weight: 600; margin-top: 0.5rem;">— SELF-IMAGE —</p>
+                    </div>
+                    <div style="padding: 1rem; border: 1px solid var(--color-border);">
+                        <h4 style="color: var(--color-secondary);">Ruh & Qalb</h4>
+                        <p>Purpose, Inner Peace</p>
+                        <p style="font-weight: 600; margin-top: 0.5rem;">— PERSONALITY —</p>
+                    </div>
+                    <div style="padding: 1rem; border: 1px solid var(--color-border); border-left: none;">
+                        <h4 style="color: var(--color-secondary);">The Lighthouse</h4>
+                        <p>Clarity, Arrival, Hope</p>
+                        <p style="font-weight: 600; margin-top: 0.5rem;">— MENTAL PICTURE —</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>4. The Brand Pyramid: Core Identity</h2>
+            <p style="margin-bottom: 2rem; color: var(--color-muted); font-weight: 500;">
+                The pyramid defines the ultimate promise and purpose of the **Ghuraba Al Manara** brand, working from tangible features to the spiritual benefit.
+            </p>
+
+            <div class="visual-card" style="max-width: 500px; margin: 0 auto; text-align: center; position: relative;">
+                <h3>THE LIGHTHOUSE BRAND PYRAMID</h3>
+
+                <div style="background-color: var(--color-secondary); color: white; padding: 1rem; border-radius: 5px 5px 0 0; margin-top: 1rem;">
+                    <h4 style="font-size: 1.2rem; font-family: var(--font-heading);">BRAND ESSENCE / PURPOSE</h4>
+                    <p style="font-size: 1rem;">To **Guide** the **Strangers** to **Clarity** and **Purpose** (Al-Hadi).</p>
+                </div>
+
+                <div style="background-color: var(--color-accent); color: var(--color-text); padding: 1rem;">
+                    <h4 style="font-size: 1.1rem; font-family: var(--font-heading);">EMOTIONAL BENEFIT</h4>
+                    <p style="font-size: 0.95rem;">**Inner Arrival** (A deep sense of rest and profound purpose through **Ruh** and **Qalb** alignment).</p>
+                </div>
+
+                <div style="background-color: var(--color-accent-light); color: var(--color-text); padding: 1rem;">
+                    <h4 style="font-size: 1.05rem; font-family: var(--font-heading);">FUNCTIONAL BENEFIT</h4>
+                    <p style="font-size: 0.9rem;">The **Curated Track** (A structured path using **GLSM** and **ACEM** to elevate intellectual, spiritual, and physical well-being).</p>
+                </div>
+
+                <div style="background-color: var(--color-surface); color: var(--color-text); padding: 1rem; border: 1px solid var(--color-border);">
+                    <h4 style="font-size: 1rem; font-weight: 600;">BRAND VALUES / PERSONALITY</h4>
+                    <p style="font-size: 0.9rem;">**Intellect, Serenity, Discipline, Heritage**.</p>
+                </div>
+
+                <div style="background-color: var(--color-surface); color: var(--color-text); padding: 1rem; border: 1px solid var(--color-border); border-top: none; border-radius: 0 0 5px 5px;">
+                    <h4 style="font-size: 1rem; font-weight: 600;">BRAND ATTRIBUTES</h4>
+                    <p style="font-size: 0.9rem;">**Riverine Seclusion, All-Marble, Lighthouse Lore, 7,000 sq.ft Lounge.**</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
