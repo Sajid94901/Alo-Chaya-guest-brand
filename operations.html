@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operations & Staff Strategy</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 1. Design Tokens & Root --- */
+        :root {
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --color-bg: #FBFAF8;       /* Off-white */
+            --color-text: #111214;     /* Charcoal */
+            --color-accent: #CFA76C;   /* Muted Gold/Bronze */
+            --color-secondary: #0A3D62; /* Deep Blue (River/Sky) */
+            --color-surface: #FFFFFF;
+            --color-border: #EFEFEF;
+            --color-muted: #6b6b6b;
+            --color-success: #388E3C;
+            
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.05);
+            --radius: 10px;
+        }
+
+        /* --- 2. Reset & Base --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            padding-bottom: 5rem;
+        }
+
+        /* --- 3. Layout & Header --- */
+        .page-header {
+            padding: 1.5rem 1.5rem;
+            background-color: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .page-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-secondary);
+        }
+        .page-title span { color: var(--color-accent); }
+
+        .back-link {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-text);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+        }
+        .back-link:hover {
+            background-color: var(--color-text);
+            color: var(--color-surface);
+        }
+
+        /* --- 4. Content Sections --- */
+        .section {
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: var(--color-surface);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--color-border);
+        }
+
+        .section h2 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--color-border);
+            padding-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        
+        .section-intro {
+            margin-bottom: 2rem; 
+            color: var(--color-secondary); 
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        /* --- 5. Framework Cards --- */
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .framework-card {
+            background-color: var(--color-bg);
+            border: 1px solid var(--color-border);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            border-left: 5px solid var(--color-secondary);
+        }
+        .framework-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--color-secondary);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+        .framework-card p {
+             font-size: 0.95rem;
+             color: var(--color-muted);
+             margin-bottom: 1rem;
+        }
+        .framework-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+        .framework-card ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.25rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        .framework-card ul li strong {
+            color: var(--color-secondary);
+            font-weight: 700;
+        }
+        .framework-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-success);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <h1 class="page-title">Operations & <span>Staff Strategy</span></h1>
+            <a href="./index.html" class="back-link">&larr; Back to Central HUD</a>
+        </div>
+    </header>
+
+    <main class="container">
+    
+        <section class="section">
+            <h2>1. Core Operational Frameworks</h2>
+            <p class="section-intro">
+                Operations are managed through the proprietary, ethics-first frameworks developed from the **Ghuraba Al Manara Codex**, ensuring every process aligns with the brand's core mission of holistic development.
+            </p>
+
+            <div class="framework-grid">
+                
+                <div class="framework-card">
+                    <h3>The Grand Master Leadership Strategy Model (GLSM)</h3>
+                    <p>
+                        Operational Focus: Strategic Vision & Ethical Command (Macro-level).
+                    </p>
+                    <ul>
+                        <li><strong>Posture of Divine Ingenuity:</strong> Management must approach operational challenges with proactive, faith-based creativity.</li>
+                        <li><strong>Discipline of Forging the Path:</strong> Translates vision into actionable, ethical policies (e.g., zero-waste, local sourcing).</li>
+                        <li><strong>Staff Development:</strong> Used to train Department Heads and Senior Guides to lead with Amanah (trustworthiness).</li>
+                        <li><strong>Decision-Making Filter:</strong> All high-level decisions must pass the GLSM integrity check.</li>
+                    </ul>
+                </div>
+                
+                <div class="framework-card">
+                    <h3>The Al-Amin Capability Evolution Model (ACEM)</h3>
+                    <p>
+                        Operational Focus: Individual Performance & Guest Capability (Micro-level).
+                    </p>
+                    <ul>
+                        <li><strong>Competence Assessment:</strong> The primary HR tool for measuring staff skill, ethical conduct, and emotional intelligence.</li>
+                        <li><strong>Staff Evolution Tracks:</strong> Every employee has a defined "Evolution Track" based on ACEM, incentivizing continuous improvement.</li>
+                        <li><strong>Guest Application:</strong> Used in wellness tracks to help guests assess their current 'Nafs', 'Ruh', and 'Physique' levels.</li>
+                        <li><strong>Performance Metrics:</strong> Directly links staff bonuses and promotions to measurable ACEM scores.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>2. Guest Experience: Thematic Service & Healing</h2>
+            <p class="section-intro">
+                Service at Alo Chaya is elevated beyond five-star standards; it is a **Healing and Guiding** philosophy, inspired by concepts of empathetic and refined care.
+            </p>
+
+            <div class="framework-grid">
+                
+                <div class="framework-card">
+                    <h3>Pillar A: Serene Empathy (Ruh & Qalb Service)</h3>
+                    <p>
+                        Providing a profoundly soothing and comforting atmosphere, acknowledging the guest's internal "struggle" (Nafs) and facilitating rest.
+                    </p>
+                    <ul>
+                        <li><strong>Iyashi (Soothing) Policy:</strong> Staff interaction is always gentle, non-intrusive, and focused on the guest's inner peace.</li>
+                        <li><strong>Anticipatory Kindness:</strong> Staff are empowered to observe and anticipate needs (lighting, temperature, privacy) before the request.</li>
+                        <li><strong>The Refuge Mentality:</strong> Service communicates a sense of security, allowing the guest to drop their external worries.</li>
+                    </ul>
+                </div>
+                
+                <div class="framework-card">
+                    <h3>Pillar B: High-Stakes Hospitality (Sirr & Intellectual Service)</h3>
+                    <p>
+                        Staff must manage a high-caliber clientele (executives, intellectual seekers) and complex, curated experiences with seamless dignity.
+                    </p>
+                    <ul>
+                        <li><strong>The Discreet Curator:</strong> Discretion is paramount. Staff must manage high-profile guests and sensitive retreat information.</li>
+                        <li><strong>Codex Knowledge Base:</strong> Service staff (especially guides) are trained on the "Lighthouse Tales" universe to engage in informed conversations.</li>
+                        <li><strong>Issue Resolution as a 'Trial':</strong> Staff view and resolve issues with the dignity of a 'Lighthouse Trial'—swiftly and ethically.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>3. F&B: The Culinary Arena</h2>
+            <p class="section-intro">
+                The dining concept is an ethical, premium fusion experience built on theatrical presentation and culinary excellence, inspired by anime concepts.
+            </p>
+            
+            <div class="framework-grid">
+                
+                <div class="framework-card">
+                    <h3>Concept A: Culinary Artistry & Theatrical Presentation</h3>
+                    <p>
+                        Food is an experience. F&B staff are managed under a system of passionate, competitive quality.
+                    </p>
+                    <ul>
+                        <li><strong>The 'Skill Challenge' System:</strong> Kitchen staff participate in internal, ethical 'Skill Challenges' to maintain peak performance and innovation.</li>
+                        <li><strong>Chef-to-Taster Connection:</strong> Chefs have a visible presence (open kitchen, tasting notes) to build a powerful connection with the guest.</li>
+                        <li><strong>Presentation as Proof:</strong> Plating is a dramatic extension of the quality, acting as physical evidence of the brand promise.</li>
+                    </ul>
+                </div>
+                
+                <div class="framework-card">
+                    <h3>Concept B: Global Fusion & Ethical Sourcing</h3>
+                    <p>
+                        The menu offers a wide, often-blended culinary map that caters to the diverse 'Strangers' of the Lighthouse IP universe.
+                    </p>
+                    <ul>
+                        <li><strong>Fusion Mastery:</strong> The core menu blends concepts from Asian, Middle Eastern, and Western culinary traditions, all prepared to a high ethical standard.</li>
+                        <li><strong>Ethical Supply Chain:</strong> All meat is Halal, and local, sustainable sourcing (river fish, local produce) is a non-negotiable GLSM policy.</li>
+                        <li><strong>The Comfort Dish:</strong> Every menu features exceptionally crafted, simple, and 'healing' comfort foods to cater to the guest's Qalb.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>4. Dedicated Amenities & 'The Strangers' Zones</h2>
+            <p class="section-intro">
+                Amenities are designed to support both the spiritual/intellectual journey and the physical/recreational needs of the guest.
+            </p>
+
+            <div class="framework-grid">
+                
+                <div class="framework-card">
+                    <h3>Zone A: The Intellectual Arena (7,000 sq.ft Lounge)</h3>
+                    <p>
+                        This zone is the heart of the IP, dedicated to strategic and community engagement.
+                    </p>
+                    <ul>
+                        <li><strong>The Lighthouse Gaming Vault:</strong> A premium space for the **'Strangers of the Lighthouse'** board game.</li>
+                        <li><strong>Curated Library:</strong> Features the 'Lighthouse Tales' series, the **Ghuraba Al Manara Codex**, and selected texts on leadership.</li>
+                        <li><strong>Dialogue Sessions:</strong> Scheduled intellectual/ethical workshops facilitated by senior guides, utilizing the **GLSM**.</li>
+                    </ul>
+                </div>
+                
+                <div class="framework-card">
+                    <h3>Zone B: The Riverine Challenge (Kayaking & Fishing)</h3>
+                    <p>
+                        Activities that connect guests to the natural environment (the Riverine Seclusion) while building discipline (Phsyique & Nafs).
+                    </g>
+                    <ul>
+                        <li><strong>Kayaking:</strong> Offered as a 'Trial of the Nafs'—a disciplined physical challenge requiring focus against the current.</li>
+                        <li><strong>Ethical Fishing:</strong> Promoting a quiet, contemplative discipline, reinforcing patience and appreciation for the resource (Amanah).</li>
+                        <li><strong>Secure River Access:</strong> Dedicated, well-maintained docking/launch points for safety and exclusivity.</li>
+                    </ul>
+                </div>
+                
+                <div class="framework-card">
+                    <h3>Zone C: The Arcade / Skill Zone (The Training Ground)</h3>
+                    <p>
+                        A dedicated area for light recreation that encourages social interaction and skill development.
+                    </g>
+                    <ul>
+                        <li><strong>Curated Gaming:</strong> Features modern, high-quality, non-violent recreational games that promote teamwork and social interaction.</li>
+                        <li><strong>ACEM Check-in Station:</strong> Optional digital self-assessments based on the **ACEM** model to track relaxation/recharge levels.</li>
+                        <li><strong>Social Dialogue:</strong> Designed with comfortable seating to foster conversations.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
