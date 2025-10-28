@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management & Leadership Strategy</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 1. Design Tokens & Root --- */
+        :root {
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --color-bg: #FBFAF8;       /* Off-white */
+            --color-text: #111214;     /* Charcoal */
+            --color-accent: #CFA76C;   /* Muted Gold/Bronze */
+            --color-secondary: #0A3D62; /* Deep Blue (River/Sky) */
+            --color-surface: #FFFFFF;
+            --color-border: #EFEFEF;
+            --color-muted: #6b6b6b;
+            --color-success: #388E3C;
+            
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.05);
+            --radius: 10px;
+        }
+
+        /* --- 2. Reset & Base --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            padding-bottom: 5rem;
+        }
+
+        /* --- 3. Layout & Header --- */
+        .page-header {
+            padding: 1.5rem 1.5rem;
+            background-color: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .page-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-secondary);
+        }
+        .page-title span { color: var(--color-accent); }
+
+        .back-link {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-text);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+        }
+        .back-link:hover {
+            background-color: var(--color-text);
+            color: var(--color-surface);
+        }
+
+        /* --- 4. Content Sections --- */
+        .section {
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: var(--color-surface);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--color-border);
+        }
+
+        .section h2 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--color-border);
+            padding-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        
+        .section-intro {
+            margin-bottom: 2rem; 
+            color: var(--color-secondary); 
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        /* --- 5. Framework Cards --- */
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .framework-card {
+            background-color: var(--color-bg);
+            border: 1px solid var(--color-border);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            border-left: 5px solid var(--color-secondary);
+        }
+        .framework-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--color-secondary);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+        .framework-card p {
+             font-size: 0.95rem;
+             color: var(--color-muted);
+             margin-bottom: 1rem;
+        }
+        .framework-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+        .framework-card ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.25rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        .framework-card ul li strong {
+            color: var(--color-secondary);
+            font-weight: 700;
+        }
+        .framework-card ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: bold;
+        }
+
+        /* --- 6. Table Style --- */
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+            box-shadow: var(--shadow-md);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+        .styled-table th, .styled-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .styled-table th {
+            background-color: var(--color-secondary);
+            color: white;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .styled-table tbody tr {
+            background-color: var(--color-surface);
+        }
+        .styled-table tbody tr:nth-of-type(even) {
+            background-color: var(--color-bg);
+        }
+        .styled-table tbody tr:hover {
+            background-color: var(--color-accent-light);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <h1 class="page-title">Management & <span>Leadership</span></h1>
+            <a href="./index.html" class="back-link">&larr; Back to Central HUD</a>
+        </div>
+    </header>
+
+    <main class="container">
+    
+        <section class="section">
+            <h2>1. Leadership Structure & Decision Process</h2>
+            <p class="section-intro">
+                Our leadership structure is not a traditional hierarchy but a "Chain of Amanah" (Trust), where responsibility flows from the **Codex (The "Why")** down to the **Practice (The "What")**.
+            </p>
+
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>Core Role (Codex Link)</th>
+                        <th>Primary Responsibility (HRIS Link)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Level 1: Leadership</strong></td>
+                        <td><strong>The Mirror (Why)</strong> & <strong>The Posture (Who)</strong></td>
+                        <td>Set the organizational **Vision** and define the non-negotiable **CSFs (Critical Success Factors)** for the HRIS.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Level 2: Dept. Heads (MTOs)</strong></td>
+                        <td><strong>The Discipline (How)</strong></td>
+                        <td>Translate CSFs into quarterly departmental **OKRs (Objectives & Key Results)**. Manage MTO/FEO performance.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Level 3: Staff (FEOs/Guides)</strong></td>
+                        <td><strong>The Practice (What)</strong></td>
+                        <td>Execute daily tasks and generate the **KPIs (Key Performance Indicators)** that feed the HRIS.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-secondary); margin-top: 2rem; margin-bottom: 1rem;">The Decision-Making Flowchart</h3>
+            <p class="section-intro" style="font-weight: 400; font-size: 1rem; color: var(--color-muted);">
+                All strategic decisions must pass through this two-filter process:
+            </p>
+
+            <div class="framework-grid">
+                <div class="framework-card" style="border-left-color: var(--color-accent);">
+                    <h3>1. The GLSM (Codex) Filter</h3>
+                    <p>
+                        The "Posture Check." Before any action, management must ask:
+                    </g>
+                    <ul>
+                        <li>Does this align with our **Mirror (Why)**?</li>
+                        <li>Does this violate any **Postures (CSFs)**?</li>
+                        <li>Are we seeking **Divine Ingenuity** (the best, most ethical solution)?</li>
+                    </ul>
+                </div>
+
+                <div class="framework-card" style="border-left-color: var(--color-accent);">
+                    <h3>2. The HRIS (Data) Filter</h3>
+                    <p>
+                        The "Discipline Check." After passing the GLSM, management must check the data:
+                    </g>
+                    <ul>
+                        <li>How will this decision impact our **OKRs**?</li>
+                        <li>What do the live **KPIs** (from the HRIS) tell us about the current situation?</li>
+                        <li>Is this decision data-informed?</li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+                <section class="section">
+            <h2>2. KPIs & Reporting Matrix</h2>
+            <p class="section-intro">
+                All management reporting is centralized through the **`internal-hris.html`** portal. This provides a single source of truth, allowing leadership to move from high-level CSFs down to granular KPIs.
+            </p>
+
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Metric Type</th>
+                        <th>Definition (Codex Link)</th>
+                        <th>Data Source (HRIS Link)</th>
+                        <th>Review Frequency</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>CSF (Critical Success Factors)</strong></td>
+                        <td>The "Posture" (Who we are). Our ethical non-negotiables.</td>
+                        <td>`HRIS → CSF Dashboard`</td>
+                        <td>Monthly (Leadership Review)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>OKR (Objectives & Key Results)</strong></td>
+                        <td>The "Discipline" (How we execute). Our quarterly goals.</td>
+                        <td>`HRIS → OKR Tracker`</td>
+                        <td>Bi-Weekly (Dept. Head Review)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>KPI (Key Performance Indicators)</strong></td>
+                        <td>The "Practice" (What we do). Our daily operational data.</td>
+                        <td>`HRIS → KPI Drilldown` (from PMS)</td>
+                        <td>Daily (Staff & Guide Review)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-secondary); margin-top: 2rem; margin-bottom: 1rem;">The Reporting Flowchart (Data Amanah)</h3>
+            <p class="section-intro" style="font-weight: 400; font-size: 1rem; color: var(--color-muted);">
+                Data flows *up* from the Practice to the Mirror, ensuring leadership decisions are based on ground-truth.
+            </p>
+
+            <div class="framework-grid">
+                <div class="framework-card">
+                    <h3>1. Daily Practice (KPIs)</h3>
+                    <p>
+                        **Who:** FEOs / Guides
+                        **Action:** Staff perform daily tasks (check-ins, service requests). The PMS logs this as KPIs (e.g., `Task Response Time`).
+                        **HRIS Link:** `PMS → ServiceLog` table.
+                    </p>
+                </div>
+
+                <div class="framework-card">
+                    <h3>2. Quarterly Discipline (OKRs)</h3>
+                    <p>
+                        **Who:** Dept. Heads / MTOs
+                        **Action:** Managers review the aggregated KPIs to see if they are achieving their quarterly OKRs (e.g., `Avg. rating ≥ 4.6/5`).
+                        **HRIS Link:** `OKR Tracker`.
+                    </p>
+                </div>
+                
+                <div class="framework-card">
+                    <h3>3. Monthly Posture (CSFs)</h3>
+                    <p>
+                        **Who:** Leadership
+                        **Action:** Leadership reviews the OKR outcomes to ensure the core CSFs (e.g., `Service Sanctity`) are being met.
+                        **HRIS Link:** `CSF Dashboard`.
+                    </p>
+                </div>
+            </div>
+
+                </section>
+                    </main>
+
+</body>
+</html>
