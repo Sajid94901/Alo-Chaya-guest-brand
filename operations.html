@@ -5,188 +5,204 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Operations & Staff Strategy (Bureau of Efficiency)</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-    
     <style>
-        /* --- 1. Design Tokens & Root (Replicated for consistency) --- */
-        :root {
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Inter', sans-serif;
-            
-            --color-bg: #FBFAF8;       /* Off-white */
-            --color-text: #111214;     /* Charcoal */
-            --color-accent: #CFA76C;   /* Muted Gold/Bronze */
-            --color-secondary: #0A3D62; /* Deep Blue (River/Sky) */
-            --color-surface: #FFFFFF;
-            --color-border: #EFEFEF;
-            --color-muted: #6b6b6b;
-            --color-success: #388E3C;
-            
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.05);
-            --radius: 10px;
-        }
-
-        /* --- 2. Base & Layout Styles (Replicated for consistency) --- */
-        body {
-            font-family: var(--font-body);
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        header {
-            text-align: center;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--color-border);
-        }
-        h1 {
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
-            color: var(--color-secondary);
-            margin-bottom: 0.5rem;
-        }
-        h2 {
-            font-family: var(--font-heading);
-            font-size: 1.8rem;
-            color: var(--color-accent);
-            border-bottom: 2px solid var(--color-border);
-            padding-bottom: 0.5rem;
-            margin-top: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-        .framework-grid {
+        /* New layout for the interactive pane */
+        .interactive-layout {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: 2fr 1fr; /* Cards on the left, detail pane on the right */
             gap: 1.5rem;
         }
-        .framework-card {
-            background-color: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            box-shadow: var(--shadow-md);
+
+        /* Style for the detail pane */
+        .detail-pane {
+            background: var(--card-bg, #ffffff); /* Uses your master CSS variable */
+            border-radius: 12px; /* Uses your master CSS style */
+            box-shadow: 0 8px 28px rgba(2,6,23,0.06); /* Uses your master CSS style */
+            padding: 1.25rem;
+            border-top: 5px solid var(--accent-color, #fbbf24); /* Uses your master CSS variable */
+            height: fit-content; /* Sits nicely */
         }
-        .framework-card h3 {
-            font-family: var(--font-heading);
-            font-size: 1.25rem;
-            color: var(--color-secondary);
-            margin-top: 0;
-            margin-bottom: 0.5rem;
+        
+        /* Style for the 'active' card */
+        .card.active {
+            border: 2px solid var(--primary-color, #064e3b);
+            box-shadow: 0 8px 28px rgba(2,6,23,0.12);
         }
-        .framework-card p {
-            font-size: 1rem;
-            color: var(--color-muted);
-            margin-bottom: 0;
+        
+        /* Make cards in the interactive layout clickable */
+        .interactive-layout .card {
+            cursor: pointer; /* Makes cards look clickable */
+            transition: all 0.2s ease-in-out;
         }
-        .archetype {
-            font-weight: bold;
-            color: var(--color-accent);
-            display: block;
-            margin-bottom: 0.5rem;
+        
+        .interactive-layout .card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-color, #064e3b);
         }
 
+        /* Responsive fallback */
+        @media (max-width: 900px) {
+            .interactive-layout {
+                grid-template-columns: 1fr; /* Stack on mobile */
+            }
+        }
     </style>
 </head>
 <body>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Operations Strategy (Bureau of Efficiency)</h1>
+            <p class="lead">Execution is governed by the Producer archetype and the Dignified Delegation Mandate.</p>
+        </div>
+    </header>
+
     <main class="container">
-        <header>
-            <h1>Operations Strategy (The Bureau of Efficiency)</h1>
-            <p>Execution is governed by the **Producer** archetype and the **Dignified Delegation Mandate**.</p>
-        </header>
 
-        <section id="operational-linkages">
-            <h2>The Interlinked Operational Core (T&D to Compensation, Promotion, Manpower)</h2>
-            <p>
-                All core operational functions are linked to the objective **ACEM Score** (administered by HR) to ensure merit, not subjective bias, drives resource deployment and career progression.
-            </p>
+        <h2 class="mt-6 mb-4">1. The Interlinked Operational Core</h2>
+        <p class="mb-4">
+            All core operational functions are linked to the objective **ACEM Score** (administered by HR) to ensure merit, not subjective bias, drives resource deployment and career progression.
+        </p>
 
-            <div class="framework-grid">
+        <div class="interactive-layout" id="core-layout">
+            
+            <div class="grid grid-2" id="core-card-container">
+                </div>
+            
+            <div class="detail-pane" id="core-detail-pane">
+                </div>
+
+        </div> <h2 class="mt-6 mb-4">2. The Konohana Kitan Service Model</h2>
+        <p class="mb-4">
+            The Guild rejects aggressive sales models. Service is based on **Ihsan (Excellence)** and the "Konohana Kitan" model of empathetic service and moral purity.
+        </p>
+
+        <div class="interactive-layout" id="service-layout">
+            
+            <div class="grid grid-2" id="service-card-container">
+                </div>
+            
+            <div class="detail-pane" id="service-detail-pane">
+                </div>
+
+        </div> </main>
+    
+    <footer class="site-footer">
+        <p>Ghuraba Al Manara (The Lighthouse) | Bureau of Efficiency Doctrine</p>
+    </footer>
+
+    <script>
+        // --- 1. The Doctrine Data ---
+        const CORE_DOCTRINES = [
+            {
+                id: 'comp',
+                title: 'ACEM Score & Compensation',
+                summary: 'ACEM Score is the sole trigger for pay raises.',
+                doctrine: 'The **ACEM Score** is the **sole trigger** for **Step Payments** (pay raises). Training and assessment via the **T&D Gateway** directly impact compensation, guaranteeing the Specialist’s financial ascent is immune to subjective managerial judgment and tied only to measurable competence.'
+            },
+            {
+                id: 'manpower',
+                title: 'T&D Gateway & Manpower Planning',
+                summary: 'Using ACEM data to forecast resource needs.',
+                doctrine: 'Operations utilizes the **ACEM Score** data from the **T&D Gateway** to forecast resource needs (**Permanent Power Planning**). This ensures the correct level of Specialist (Trainee, Foundational, Universalist) is always available and competent for execution.'
+            },
+            {
+                id: 'promo',
+                title: 'T&D & Promotions/Mobility',
+                summary: 'Zero-Risk Growth and promotion to Universalist.',
+                doctrine: 'Promotion (e.g., to **Universalist**) is based on ACEM compliance. **Zero-Risk Mobility** (inter-departmental rotation) is facilitated by Operations based on the Specialist\'s ACEM-verified multi-disciplinary competence, protecting the Specialist\'s pay during rotation.'
+            },
+            {
+                id: 'delegate',
+                title: 'The Dignified Delegation Mandate',
+                summary: 'Protecting MBA/BBA time from menial tasks.',
+                doctrine: '**MBA/BBA Specialists** are reserved for strategic **Producer** and **Innovator** tasks. Administrative duties (filing, forms) are codified as the duty of the **Trainee/Foundational Specialist** receiving the **Dignity Wage**. This prevents the exploitation of talent.'
+            }
+        ];
+
+        const SERVICE_DOCTRINES = [
+            {
+                id: 'room',
+                title: 'Role Dignification: Room Coordinator',
+                summary: 'Dignified title for housekeeping staff.',
+                doctrine: 'The dignified title for housekeeping staff. They are **"coordinators"** of the guest\'s personal sanctuary, trained in the **"Iyashi (Soothing) Policy."** Their ACEM is based on measurable guest satisfaction and adherence to the Dignity Mandate.'
+            },
+            {
+                id: 'training',
+                title: 'Operational Training Sources',
+                summary: 'Using world-class standards for training.',
+                doctrine: 'Training for all **Foundational Specialist** roles must be sourced from **world-class, practical standards**. Key references include **"Clean My Space" by Melissa Maker** for efficiency, and lessons from **"The Hotel Inspector"** for service protocol and moral accountability.'
+            },
+            {
+                id: 'sales',
+                title: 'Rejection of Sales Targets',
+                summary: 'Moral Marketing Mandate: No sales targets.',
+                doctrine: 'Operations will **never** be driven by individual sales targets, which breed moral corruption and aggression. Customer acquisition is handled by the **Marketing/CPM Bureau**. Operations focuses solely on **service quality and execution purity**.'
+            },
+            {
+                id: 'landscape',
+                title: 'Role Dignification: Landscaper',
+                summary: 'Dignified title for estate and grounds crew.',
+                doctrine: 'The dignified title for estate and grounds crew. They are the **custodians of the "Riverine Seclusion"** and are responsible for the aesthetic beauty and safety of the environment. Their ACEM tracks proactive maintenance.'
+            }
+        ];
+
+        // --- 2. Reusable Interactive Panel Function ---
+        function createInteractivePanel(containerId, detailPaneId, doctrines) {
+            const cardContainer = document.getElementById(containerId);
+            const detailPane = document.getElementById(detailPaneId);
+
+            if (!cardContainer || !detailPane) return; // Safety check
+
+            function showDetails(doctrine) {
+                detailPane.innerHTML = `
+                    <h3>${doctrine.title}</h3>
+                    <p>${doctrine.doctrine.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p>
+                    <p class="small text-muted mt-2">This operational doctrine is non-negotiable.</p>
+                `;
                 
-                <div class="framework-card">
-                    <h3>ACEM Score & Compensation</h3>
-                    <p class="archetype">The **Dignity Wage** Guarantee</p>
-                    <p>
-                        The **ACEM Score** is the **sole trigger** for **Step Payments** (pay raises). Training and assessment via the **T&D Gateway** directly impact compensation, guaranteeing the Specialist’s financial ascent is tied only to measurable competence.
-                    </p>
-                </div>
-
-                <div class="framework-card">
-                    <h3>T&D Gateway & Manpower Planning</h3>
-                    <p class="archetype">Permanent Power Planning</p>
-                    <p>
-                        Operations utilizes the **ACEM Score** data from the **T&D Gateway** to forecast resource needs (**Permanent Power Planning**). This ensures the correct level of Specialist (Trainee, Foundational, Universalist) is always available and competent for execution.
-                    </p>
-                </div>
-
-                <div class="framework-card">
-                    <h3>T&D & Promotions/Mobility</h3>
-                    <p class="archetype">Zero-Risk Growth</p>
-                    <p>
-                        Promotion (e.g., to **Universalist**) is based on ACEM compliance. **Zero-Risk Mobility** (inter-departmental rotation) is facilitated by Operations based on the Specialist's ACEM-verified multi-disciplinary competence, protecting the Specialist's pay during rotation.
-                    </p>
-                </div>
-
-                <div class="framework-card">
-                    <h3>The Dignified Delegation Mandate</h3>
-                    <p class="archetype">Anti-Misassignment Doctrine</p>
-                    <p>
-                        **MBA/BBA Specialists** are reserved for strategic **Producer** and **Innovator** tasks. Administrative duties (filing, forms) are codified as the duty of the **Trainee/Foundational Specialist** receiving the **Dignity Wage**. This prevents the exploitation of talent.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="service-model">
-            <h2>The Konohana Kitan Service Model (Rejection of Aggressive Sales)</h2>
-            <p>
-                The Guild rejects aggressive, transactional sales models. Service is based on **Ihsan (Excellence)** and the **"Konohana Kitan"** model of empathetic service and moral purity.
-            </p>
-            <div class="framework-grid">
+                // Highlight the active card within this section
+                const activeCard = cardContainer.querySelector('.card.active');
+                if (activeCard) activeCard.classList.remove('active');
                 
-                <div class="framework-card">
-                    <h3>Role Dignification: Room Coordinator</h3>
-                    <p class="archetype">Bureau of Harmony</p>
-                    <p>
-                        The dignified title for housekeeping staff. They are **"coordinators"** of the guest's personal sanctuary, trained in the **"Iyashi (Soothing) Policy."** Their ACEM is based on measurable guest satisfaction and adherence to the Dignity Mandate.
-                    </p>
-                </div>
-                
-                <div class="framework-card">
-                    <h3>Role Dignification: Landscaper</h3>
-                    <p class="archetype">Bureau of Provision</p>
-                    <p>
-                        The dignified title for estate and grounds crew. They are the **custodians of the "Riverine Seclusion"** and are responsible for the aesthetic beauty and safety of the environment. Their ACEM tracks proactive maintenance and ecological compliance.
-                    </p>
-                </div>
+                document.getElementById(`card-${doctrine.id}`).classList.add('active');
+            }
 
-                <div class="framework-card">
-                    <h3>Operational Training Sources</h3>
-                    <p class="archetype">Standard of Excellence</p>
-                    <p>
-                        Training for all **Foundational Specialist** roles must be sourced from **world-class, practical standards**. Key references include **"Clean My Space" by Melissa Maker** for efficiency, and lessons from **"The Hotel Inspector"** for service protocol and moral accountability.
-                    </p>
-                </div>
+            function createCards() {
+                doctrines.forEach(doctrine => {
+                    const card = document.createElement('div');
+                    card.className = 'card'; // Uses your master CSS class
+                    card.id = `card-${doctrine.id}`;
+                    
+                    card.onclick = () => showDetails(doctrine);
+                    
+                    card.innerHTML = `
+                        <div class="card-body">
+                            <h3>${doctrine.title}</h3>
+                            <p class="small text-muted">${doctrine.summary}</p>
+                        </div>
+                    `;
+                    cardContainer.appendChild(card);
+                });
+            }
+            
+            createCards();
+            // Show the first doctrine by default
+            if (doctrines.length > 0) {
+                showDetails(doctrines[0]);
+            }
+        }
 
-                <div class="framework-card">
-                    <h3>Rejection of Sales Targets</h3>
-                    <p class="archetype">Moral Marketing Mandate</p>
-                    <p>
-                        Operations will **never** be driven by individual sales targets, which breed moral corruption and aggression. Customer acquisition is handled by the **Marketing/CPM Bureau**. Operations focuses solely on **service quality and execution purity**.
-                    </p>
-                </div>
+        // --- 3. Run the code when the page loads ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Create the first interactive panel
+            createInteractivePanel('core-card-container', 'core-detail-pane', CORE_DOCTRINES);
+            
+            // Create the second interactive panel
+            createInteractivePanel('service-card-container', 'service-detail-pane', SERVICE_DOCTRINES);
+        });
 
-            </div>
-        </section>
-
-    </main>
+    </script>
 
 </body>
 </html>
