@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operations & Staff Strategy (For prospective employees, partners)</title>
+    <title>Operations & Staff Strategy (Bureau of Efficiency)</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* --- 1. Design Tokens & Root (From existing file) --- */
+        /* --- 1. Design Tokens & Root (Replicated for consistency) --- */
         :root {
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Inter', sans-serif;
@@ -28,265 +28,161 @@
             --radius: 10px;
         }
 
-        /* --- 2. Reset & Base --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        /* --- 2. Base & Layout Styles (Replicated for consistency) --- */
         body {
             font-family: var(--font-body);
             background-color: var(--color-bg);
             color: var(--color-text);
-            line-height: 1.7;
-            padding-bottom: 5rem;
-        }
-
-        /* --- 3. Layout & Header --- */
-        .page-header {
-            padding: 1.5rem 1.5rem;
-            background-color: var(--color-surface);
-            border-bottom: 1px solid var(--color-border);
-            box-shadow: var(--shadow-md);
-            margin-bottom: 2.5rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
         }
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        .page-title {
-            font-family: var(--font-heading);
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--color-secondary);
-        }
-        .page-title span { color: var(--color-accent); }
-        .back-link {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--color-text);
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius);
-            transition: all 0.3s ease;
-        }
-        .back-link:hover {
-            background-color: var(--color-text);
-            color: var(--color-surface);
-        }
-
-        /* --- 4. Content Sections --- */
-        .section {
-            margin-bottom: 4rem;
             padding: 2rem;
-            background: var(--color-surface);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--color-border);
         }
-        .section h2 {
+        header {
+            text-align: center;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+        h1 {
             font-family: var(--font-heading);
-            font-size: 2.2rem;
-            font-weight: 800;
+            font-size: 2.5rem;
+            color: var(--color-secondary);
+            margin-bottom: 0.5rem;
+        }
+        h2 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
             color: var(--color-accent);
-            margin-bottom: 1.5rem;
-            border-bottom: 3px solid var(--color-border);
+            border-bottom: 2px solid var(--color-border);
             padding-bottom: 0.5rem;
-            text-transform: uppercase;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
         }
-        .section-intro {
-            margin-bottom: 2rem; 
-            color: var(--color-secondary); 
-            font-weight: 600;
-            font-size: 1.05rem;
-        }
-
-        /* --- 5. Framework Cards (JCM, etc.) --- */
         .framework-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
         .framework-card {
-            background-color: var(--color-bg);
+            background-color: var(--color-surface);
             border: 1px solid var(--color-border);
-            padding: 1.5rem;
             border-radius: var(--radius);
+            padding: 1.5rem;
             box-shadow: var(--shadow-md);
-            border-left: 5px solid var(--color-secondary);
         }
         .framework-card h3 {
             font-family: var(--font-heading);
-            font-size: 1.6rem;
+            font-size: 1.25rem;
             color: var(--color-secondary);
-            margin-bottom: 0.75rem;
-            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
         }
         .framework-card p {
-             font-size: 0.95rem;
-             color: var(--color-muted);
-             margin-bottom: 1rem;
+            font-size: 1rem;
+            color: var(--color-muted);
+            margin-bottom: 0;
         }
-        .framework-card ul {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 1rem;
-        }
-        .framework-card ul li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.25rem;
-            position: relative;
-            font-size: 0.95rem;
-        }
-        .framework-card ul li strong {
-            color: var(--color-secondary);
-            font-weight: 700;
-        }
-        .framework-card ul li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--color-accent);
+        .archetype {
             font-weight: bold;
+            color: var(--color-accent);
+            display: block;
+            margin-bottom: 0.5rem;
         }
+
     </style>
 </head>
 <body>
-
-    <header class="page-header">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <h1 class="page-title">Operational <span>Strategy & Ranks</span></h1>
-            <a href="./index.html" class="back-link">&larr; Back to Central HUD</a>
-        </div>
-    </header>
-
     <main class="container">
-                <section class="section">
-            <h2>1. The Operational Doctrine (Our Expression)</h2>
-            <p class="section-intro">
-                Our operations are a direct expression of our Doctrine. We use the **"3-Layer Architecture"** to manage our staff, design our jobs, and deliver our service, all of which is measured by the HRIS.
+        <header>
+            <h1>Operations Strategy (The Bureau of Efficiency)</h1>
+            <p>Execution is governed by the **Producer** archetype and the **Dignified Delegation Mandate**.</p>
+        </header>
+
+        <section id="operational-linkages">
+            <h2>The Interlinked Operational Core (T&D to Compensation, Promotion, Manpower)</h2>
+            <p>
+                All core operational functions are linked to the objective **ACEM Score** (administered by HR) to ensure merit, not subjective bias, drives resource deployment and career progression.
             </p>
+
             <div class="framework-grid">
+                
                 <div class="framework-card">
-                    <h3>1. Oversight Layer (IGO Style)</h3>
-                    <p>Strategic management (The "Bureaus") sets the **OKRs** and **CSFs** that guide all operations, ensuring ethical alignment (Amanah).</p>
+                    <h3>ACEM Score & Compensation</h3>
+                    <p class="archetype">The **Dignity Wage** Guarantee</p>
+                    <p>
+                        The **ACEM Score** is the **sole trigger** for **Step Payments** (pay raises). Training and assessment via the **T&D Gateway** directly impact compensation, guaranteeing the Specialist’s financial ascent is tied only to measurable competence.
+                    </p>
                 </div>
+
                 <div class="framework-card">
-                    <h3>2. Operational Layer (Food Wars Style)</h3>
-                    <p>This is how we build mastery. Jobs are designed as "skill challenges" (Shokugeki) to build the **ACEM** score, not just to complete tasks. This is linked to the **JCM**.</p>
+                    <h3>T&D Gateway & Manpower Planning</h3>
+                    <p class="archetype">Permanent Power Planning</p>
+                    <p>
+                        Operations utilizes the **ACEM Score** data from the **T&D Gateway** to forecast resource needs (**Permanent Power Planning**). This ensures the correct level of Specialist (Trainee, Foundational, Universalist) is always available and competent for execution.
+                    </p>
                 </div>
+
                 <div class="framework-card">
-                    <h3>3. Service Layer (Konohana Kitan Style)</h3>
-                    <p>This is how we handle guests. Staff are trained as empathetic "Guides" to serve "Pilgrims of Light," solving the "disgruntled employee" problem with purpose.</p>
+                    <h3>T&D & Promotions/Mobility</h3>
+                    <p class="archetype">Zero-Risk Growth</p>
+                    <p>
+                        Promotion (e.g., to **Universalist**) is based on ACEM compliance. **Zero-Risk Mobility** (inter-departmental rotation) is facilitated by Operations based on the Specialist's ACEM-verified multi-disciplinary competence, protecting the Specialist's pay during rotation.
+                    </p>
+                </div>
+
+                <div class="framework-card">
+                    <h3>The Dignified Delegation Mandate</h3>
+                    <p class="archetype">Anti-Misassignment Doctrine</p>
+                    <p>
+                        **MBA/BBA Specialists** are reserved for strategic **Producer** and **Innovator** tasks. Administrative duties (filing, forms) are codified as the duty of the **Trainee/Foundational Specialist** receiving the **Dignity Wage**. This prevents the exploitation of talent.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <h2>2. Job Design: The JCM & "Dejobbing"</h2>
-            <p class="section-intro">
-                For prospective employees, we do not offer "jobs"; we offer "roles" built on the **Job Characteristic Model (JCM)**. Our goal is "dejobbing"—creating a flexible, highly skilled team of "Guides."
-            </p>
-            <div class="framework-grid" style="grid-template-columns: repeat(5, 1fr);">
-                <div class="framework-card" style="border-left-color: var(--color-accent);">
-                    <h3>Skill Variety</h3>
-                    <p>You will be trained across multiple functions (e.g., a "Room Coordinator" learns F&B service) to increase your capabilities (your **ACEM score**).</p>
-                </div>
-                <div class="framework-card" style="border-left-color: var(--color-accent);">
-                    <h3>Task Identity</h3>
-                    <p>You own the *entire* guest experience, not just one piece. A "Senior Guide" manages a guest's journey from check-in to their wellness goals.</p>
-                </div>
-                <div class="framework-card" style="border-left-color: var(--color-accent);">
-                    <h3>Task Significance</h3>
-                    <p>Your work matters. As a "Guide" in the "Konohana Kitan" model, your role is to provide "Reassurance of Worth," a mission of real significance.</p>
-                </div>
-                <div class="framework-card" style="border-left-color: var(--color-accent);">
-                    <h3>Autonomy</h3>
-                    <p>You are empowered by the **GLSM** to use "Divine Ingenuity" to solve guest problems on the spot, without waiting for a manager.</p>
-                </div>
-                <div class="framework-card" style="border-left-color: var(--color-accent);">
-                    <h3>Feedback</h3>
-                    <p>You receive constant, real-time feedback from the **HRIS/PMS link**, guest reviews, and "Shokugeki" (skill challenges), not just once a year.</p>
-                </div>
-            </div>
-        </section>
-        
-        <section class="section">
-            <h2>3. Performance: The Al-Amin Balance Scorecard</h2>
-            <p class="section-intro">
-                Performance is measured by the **Al-Amin Balance Scorecard**, which is the logic *inside* our internal HRIS. It balances "what" you do with "who" you are (your Posture).
+        <section id="service-model">
+            <h2>The Konohana Kitan Service Model (Rejection of Aggressive Sales)</h2>
+            <p>
+                The Guild rejects aggressive, transactional sales models. Service is based on **Ihsan (Excellence)** and the **"Konohana Kitan"** model of empathetic service and moral purity.
             </p>
             <div class="framework-grid">
+                
                 <div class="framework-card">
-                    <h3>The "Ghuraba Codex" (Spiritual & Wellness)</h3>
-                    <p>This is the foundation. We track your engagement with the **Gurabha Codex** module (Physical, Intellectual, Spiritual logs) in the HRIS as a core part of your "Posture."</p>
+                    <h3>Role Dignification: Room Coordinator</h3>
+                    <p class="archetype">Bureau of Harmony</p>
+                    <p>
+                        The dignified title for housekeeping staff. They are **"coordinators"** of the guest's personal sanctuary, trained in the **"Iyashi (Soothing) Policy."** Their ACEM is based on measurable guest satisfaction and adherence to the Dignity Mandate.
+                    </p>
                 </div>
+                
                 <div class="framework-card">
-                    <h3>The "ACEM" (Training & Growth)</h3>
-                    <p>This is your "Discipline." Your **Al-Amin Capability Evolution Model (ACEM)** score is tracked via completed "Shokugeki" (skill challenges) and Codex modules in the HRIS.</p>
+                    <h3>Role Dignification: Landscaper</h3>
+                    <p class="archetype">Bureau of Provision</p>
+                    <p>
+                        The dignified title for estate and grounds crew. They are the **custodians of the "Riverine Seclusion"** and are responsible for the aesthetic beauty and safety of the environment. Their ACEM tracks proactive maintenance and ecological compliance.
+                    </p>
                 </div>
-                <div class="framework-card">
-                    <h3>The "KPIs" (Daily Practice & PMS Link)</h3>
-                    <p>This is your "Practice." Daily actions, like `Task Response Time` or `Guest Rating`, are captured from the **PMS** and fed *directly* into the HRIS dashboard, linking your work to your performance review.</p>
-                </div>
-            </div>
-        </section>
-                <section class="section">
-            <h2>4. Operational Ranks & Job Specifications</h2>
-            <p class="section-intro">
-                This is the "Operational Layer" in practice. All roles are built on the "Food Wars" model of mastery, not just seniority. Below are the core roles prospective employees can apply for.
-            </p>
 
-            <h3 style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-secondary); margin-bottom: 1.5rem;">A. The Culinary Arena (Bureau of Provision)</h3>
-            <p style="color: var(--color-muted); margin-top: -1rem; margin-bottom: 1.5rem;">
-                Our F&B staffing is flexible and scenario-based. All roles are trained in the "Shokugeki" model of skill challenges.
-            </p>
-            <div class="framework-grid">
                 <div class="framework-card">
-                    <h3>Scenario A (Ideal): Executive Chef</h3>
-                    <p>A Rank 1 (Chief Dignitary) leader who oversees all culinary operations, R&D, and mentors the Sous Chefs. This role focuses on the **GLSM** (Strategic Vision).</p>
+                    <h3>Operational Training Sources</h3>
+                    <p class="archetype">Standard of Excellence</p>
+                    <p>
+                        Training for all **Foundational Specialist** roles must be sourced from **world-class, practical standards**. Key references include **"Clean My Space" by Melissa Maker** for efficiency, and lessons from **"The Hotel Inspector"** for service protocol and moral accountability.
+                    </p>
                 </div>
-                <div class="framework-card">
-                    <h3>Scenario B (Probable): Head Chef</h3>
-                    <p>A hands-on leader (Rank 2) who manages the daily kitchen, runs the "Skill Challenge" system, and is supported by a **Sous Chef Trainer** (who trains new Apprentices).</p>
-                </div>
-                <div class="framework-card">
-                    <h3>Core Culinary Staff (All Scenarios)</h3>
-                    <p>The "Dignified Staff" (Rank 3) of the kitchen:</p>
-                    <ul>
-                        <li><strong>Line Chef:</strong> Master of a specific station (e.g., Saucier, Garde Manger).</li>
-                        <li><strong>Commis Chef:</strong> A junior chef supporting a station.</li>
-                        <li><strong>Gastronomic Technician:</strong> A specialist in food science, presentation, or ethical sourcing (a key "Dignified" role).</li>
-                    </ul>
-                </div>
-            </div>
 
-            <h3 style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-secondary); margin-top: 2.5rem; margin-bottom: 1.5rem;">B. Dignified Staff (Harmony, Sanctity & Clarity)</h3>
-            <p style="color: var(--color-muted); margin-top: -1rem; margin-bottom: 1.5rem;">
-                These are the core "Dignified Staff" (Rank 3) and "Guides" (Rank 2/4) who run the guest-facing and estate operations, based on the "Konohana Kitan" model of service.
-            </p>
-            <div class="framework-grid">
                 <div class="framework-card">
-                    <h3>Room Coordinator (Bureau of Harmony)</h3>
-                    <p>The dignified name for our housekeeping staff. They are "coordinators" of the guest's personal sanctuary, trained in the "Iyashi (Soothing) Policy" and "Anticipatory Kindness."</p>
+                    <h3>Rejection of Sales Targets</h3>
+                    <p class="archetype">Moral Marketing Mandate</p>
+                    <p>
+                        Operations will **never** be driven by individual sales targets, which breed moral corruption and aggression. Customer acquisition is handled by the **Marketing/CPM Bureau**. Operations focuses solely on **service quality and execution purity**.
+                    </p>
                 </div>
-                <div class="framework-card">
-                    <h3>Landscaper (Bureau of Provision)</h3>
-                    <p>The dignified name for our estate and grounds crew. They are the custodians of the "Riverine Seclusion" and are responsible for the aesthetic beauty and safety of the environment.</p>
-                </div>
-                <div class="framework-card">
-                    <h3>Senior Guide (Bureau of Clarity)</h3>
-                    <p>A Rank 2 leader responsible for mentoring new staff and leading guest experiences (e.g., "Dialogue Sessions" in the Intellectual Arena, "Trial of the Nafs" kayaking).</p>
-                </div>
-                <div class="framework-card">
-                    <h3>Apprentice Guide (All Bureaus)</h3>
-                    <p>A Rank 4 trainee. This is the entry point for all new hires. Their primary goal is to complete the core Codex modules and pass their first "Skill Challenge" to become Dignified Staff.</p>
-                </div>
+
             </div>
         </section>
 
