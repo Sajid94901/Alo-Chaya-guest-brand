@@ -5,94 +5,257 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Management & Leadership Architecture</title>
     
-    </head>
+    <style>
+        /* New layout for the interactive pane */
+        .interactive-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* Cards on the left, detail pane on the right */
+            gap: 1.5rem;
+        }
+
+        /* Style for the detail pane */
+        .detail-pane {
+            background: var(--card-bg, #ffffff); /* Uses your master CSS variable */
+            border-radius: 12px; /* Uses your master CSS style */
+            box-shadow: 0 8px 28px rgba(2,6,23,0.06); /* Uses your master CSS style */
+            padding: 1.25rem;
+            border-top: 5px solid var(--accent-color, #fbbf24); /* Uses your master CSS variable */
+            height: fit-content; /* Sits nicely */
+        }
+        
+        /* Style for the 'active' card */
+        .card.active {
+            border: 2px solid var(--primary-color, #064e3b);
+            box-shadow: 0 8px 28px rgba(2,6,23,0.12);
+        }
+        
+        .card {
+            cursor: pointer; /* Makes cards look clickable */
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-color, #064e3b);
+        }
+
+        /* Responsive fallback */
+        @media (max-width: 900px) {
+            .interactive-layout {
+                grid-template-columns: 1fr; /* Stack on mobile */
+            }
+        }
+    </style>
+</head>
 <body>
 
     <header class="hero">
         <div class="container">
-            <h1>Leadership <span>Architecture</span></h1>
-            <p class="lead">The Lighthouse Doctrine: Faithful Stewardship and the Legacy Guardrails.</p>
+            <h1>Management Architecture & Organogram</h1>
+            <p class="lead">The Inversion of Authority Doctrine: Competence (ACEM Score) supersedes Title and Tenure.</p>
         </div>
     </header>
 
     <main class="container">
-        
-        <h2 class="mt-6 mb-4">1. The Lighthouse Doctrine (Our Leadership Model)</h2>
+
+        <h2 class="mt-6 mb-4">1. The Ghuraba Codex (Integrated Corporate Culture)</h2>
         <p class="mb-4">
-            The **Lighthouse Doctrine** is our guiding principle. It asserts that the leader's role is one of **Faithful Stewardship**, not corporate monarchy. The leader is a servant of the Doctrine, not a master of the Guild.
+            The Guild's corporate culture is the non-negotiable moral foundation for all operations, ensuring **Ihsan (Excellence)** and **Dignity** are universally applied.
+        </p>
+        <div class="grid grid-2">
+            <div class="card">
+                <div class="card-body">
+                    <h3>The Objective Standard (Rules, Not Tears)</h3>
+                    <p class="small">All appraisals and disputes are judged solely by verifiable data in the **Accountability Ledger** and the **ACEM Score**, eliminating subjective humiliation and linguistic bias.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h3>The Common Heart Doctrine</h3>
+                    <p class="small">The ethical foundation demanding mutual welfare and dignity. It directly mandates the **Dignity Wage** and the **Mutual Crisis Fund** to ensure no Specialist is forced to accept exploitation.</p>
+                </div>
+            </div>
+        </div> <h2 class="mt-6 mb-4">2. The Ghuraba Organogram (Clickable Authority Chain)</h2>
+        <p class="mb-4">
+            This is the **Inversion of Authority** in practice. Click on any role to see the specific Codex Doctrine that governs its authority and accountability.
+        </p>
+
+        <div class="interactive-layout">
+            
+            <div class="grid grid-2" id="card-container">
+                </div>
+            
+            <div class="detail-pane" id="detail-pane">
+                </div>
+
+        </div> <h2 class="mt-6 mb-4">3. Departmental Architecture & Accountability</h2>
+        <p class="mb-4">
+            Functional departments are the core executors of the Codex, operating under the principle of **Dignified Delegation**.
         </p>
 
         <div class="grid grid-2">
-            
             <div class="card">
                 <div class="card-body">
-                    <h3>The Project Lead (The First Servant)</h3>
-                    <p>
-                        The leader is primarily responsible for maintaining **Spiritual Purity** and the **Integrity of the Doctrine**. They are the steward of the **Mutual Crisis Fund** and the final guarantor of the **Dignity Wage**. Their goal is not maximizing profit, but **maximizing moral resilience**.
-                    </p>
-                    <ul class="mt-2 small">
-                        <li>Must maintain a high **ACEM Score** (Moral Auditor Mandate).</li>
-                        <li>Must uphold the **Guild Founder's Rule** (No debt/gambling/loans).</li>
-                    </ul>
+                    <h3>Human Resources (Bureau of Harmony)</h3>
+                    <p class="small">Enforces the **Codex** and the **Common Heart Doctrine**. Decentralized via the **HR Moral Auditor** who reports **Dignity Violations** directly to the Governance Panel, bypassing the un-coachable central hierarchy.</p>
                 </div>
             </div>
-
             <div class="card">
                 <div class="card-body">
-                    <h3>The Lighthouse & The Riverine Seclusion</h3>
-                    <p>
-                        The resort is designed to be a **Lighthouse**—a source of moral clarity and a spiritual sanctuary (**Riverine Seclusion**). The leader ensures that the physical space and the operational doctrine (the **Konohana Kitan Service Model**) reflect this purity.
-                    </p>
-                    <ul class="mt-2 small">
-                        <li>Doctrine is **King** (must always be followed).</li>
-                        <li>Leader is the **Steward** of the King's law.</li>
-                    </ul>
+                    <h3>Operations (Bureau of Efficiency)</h3>
+                    <p class="small">Executes the service model with **Effectiveness and Efficiency**. Responsible for **Dignified Delegation**: ensuring that MBA/BBA Specialists focus on strategic tasks, and **Foundational Specialists** handle codified administrative duties.</p>
                 </div>
             </div>
-
-        </div> <h2 class="mt-6 mb-4">2. The Succession Plan & Legacy Guardrails</h2>
+        </div> <h2 class="mt-6 mb-4">4. Personnel Ranks & Growth</h2>
         <p class="mb-4">
-            The most critical strategic element is the **Legacy Guardrail**. These non-negotiable checks protect the Guild's financial and moral integrity, ensuring the Doctrine survives the successor.
+            The Specialist's path is objective, rejecting subjective titles. It is guaranteed by the **ACEM Score** and the principles of **Dignity** and **Zero-Risk Mobility**.
         </p>
-
-        <div class="grid grid-2">
-
+        <div class="grid grid-3">
             <div class="card">
                 <div class="card-body">
-                    <h3 class="text-danger">The Guardrail of Integrity (The Ultimate Test)</h3>
-                    <p>
-                        The successor must demonstrate their ability to reject **Bidirectional Exploitation** and safeguard the Guild from **External Contamination**—specifically by protecting the Guild's moral sanctity from personal life vulnerabilities.
-                    </p>
-                    <ul class="mt-2 small">
-                        <li>Rejection of External Contamination (**Castlevania** Analogy).</li>
-                        <li>Rejection of Bidirectional Exploitation (Staff/Management).</li>
-                    </ul>
+                    <h3>Trainee Specialist (Dab Lok)</h3>
+                    <p class="small">Replaces the banned term "Intern." A paid, codified position receiving the **Dignity Wage** at the Trainee Step. Their sole focus is completing the **Codex Immersion** and passing the Foundational ACEM test.</p>
                 </div>
             </div>
-
             <div class="card">
                 <div class="card-body">
-                    <h3 class="text-success">The Oath of the Project Lead (Faithful Stewardship)</h3>
-                    <p>
-                        The Project Lead's legacy is defined by **Faithful Stewardship**, as demonstrated by the **COVID-19 Test** (prioritizing staff wages over profit). The successor must swear an oath to maintain the **Dignity Wage (88k Universalist)**, the **Mutual Crisis Fund**, and the **Guild Founder's Rule** (no debt, gambling, loans).
-                    </p>
+                    <h3>Foundational Specialist</h3>
+                    <p class="small">The core execution rank. Advancement occurs via **Step Payments** tied to increases in the ACEM Score. They are responsible for the daily execution of all codified procedures and administrative duties.</p>
                 </div>
             </div>
-            
-        </div> <div class="card mt-4">
-            <div class="card-body">
-                <h3 class="text-danger">Legacy Guardrail: Rejection of Status</h3>
-                <p>
-                    The Guild must never be treated as a private fiefdom or source of personal status. The successor is a servant of the **Lighthouse Doctrine**. If the successor fails the **Guardrail of Integrity**, a committee of senior Universalists and the Investor will determine a new Project Lead.
-                </p>
+            <div class="card">
+                <div class="card-body">
+                    <h3>The Universalist Rank</h3>
+                    <p class="small">Achieved only after demonstrating cross-functional mastery through **mandatory, facilitated inter-departmental rotations (Zero-Risk Mobility)**. The Universalist earns the highest non-managerial **Dignity Wage**.</p>
+                </div>
             </div>
-        </div>
-        
-    </main>
-
+        </div> <h2 class="mt-6 mb-4">5. Financial Pillars & Mobility (The Power Guarantee)</h2>
+        <p class="mb-4">
+            The financial structure empowers the Specialist to maintain **moral purity** and reject exploitation. All pay and benefits are non-interest-based, adhering strictly to the **Anti-Haram** principles.
+        </p>
+        <div class="grid grid-3">
+            <div class="card">
+                <div class="card-body">
+                    <h3>The Dignity Wage</h3>
+                    <p class="small">A guaranteed, livable salary floor. **Step Payments** are triggered exclusively by **ACEM Score** increases, guaranteeing pay raises are objective and immune to managerial bias.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h3>The Mutual Crisis Fund</h3>
+                    <p class="small">A permanent profit allocation administered by the **Governance Panel**. Provides **zero-interest, non-repayable aid** during catastrophic personal crises, removing the pressure to compromise ethics.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h3>Zero-Risk Mobility</h3>
+                    <p class="small">Specialists are guaranteed their current **Dignity Wage** during **mandatory inter-departmental rotations**. The Guild covers all costs for **T&D Modules** and ACEM certification.</p>
+                </div>
+            </div>
+        </div> </main>
+    
     <footer class="site-footer">
-        <p>Ghuraba Al Manara (The Lighthouse) | Doctrine Verified</p>
+        <p>Ghuraba Al Manara (The Lighthouse) | Full Doctrine Verified</p>
     </footer>
 
+    <script>
+        // --- 1. The Organogram Data ---
+        // This holds all the verified roles for the clickable chart.
+        const ORG_DATA = [
+            {
+                id: 'FNDR',
+                title: 'Founder / Pinnacle Leadership',
+                archetype: 'Visionary (Level 5)',
+                summary: 'The supreme source of authority and moral purpose.',
+                doctrine: 'The Founder channels ego away from self into the vision, accountable to the Governance Panel. Authority is derived from the **Why Mirror** (divine purpose) and is protected by the **Guardrail of Integrity**.'
+            },
+            {
+                id: 'SBU',
+                title: 'Project Lead (SBU/Alo Chaya)',
+                archetype: 'Innovator (Level 4)',
+                summary: 'The Strategic Engine that translates vision into action.',
+                doctrine: 'Embodies **Faithful Stewardship**. Success is measured by the **COVID-19 Test** (prioritizing staff wages over profit). ACEM Score is publicly audited. Successor must maintain the **Dignity Wage** and the **Crisis Fund**.'
+            },
+            {
+                id: 'DEPT',
+                title: 'Department Head (Decisional Layer)',
+                archetype: 'Stabilizer / Unifier (Level 3)',
+                summary: 'Authority is based on current ACEM Score, not tenure.',
+                doctrine: 'Authority derived from current **ACEM Score**, not tenure (**Inversion of Authority**). Leaders like **Harmuz (Stabilizer)** and **Humming Uncle (Unifier)** are the standard. Un-coachable management is neutralized by Governance oversight.'
+            },
+            {
+                id: 'HRMA',
+                title: 'HR Moral Auditor (Stabilizer)',
+                archetype: 'Stabilizer (Level 3)',
+                summary: 'The moral safety net at the branch level.',
+                doctrine: 'Decentralized Stabilizer who reports moral/Dignity Violations **directly to the Governance Panel**, bypassing the lackadaisical central HR Head. Role is protected from **Bidirectional Exploitation**.'
+            },
+            {
+                id: 'OPST',
+                title: 'Foundational Specialist (Tier 4)',
+                archetype: 'Producer / Implementer (Level 1-2)',
+                summary: 'The Tactical Execution Tier.',
+                doctrine: 'The **Operational Tier (Tier 4)**. Protected by the **Dignified Delegation Mandate**. **Trainee Specialists (Dab Lok)** are paid the **Dignity Wage** to handle codified administrative tasks, freeing MBA/BBA Specialists for strategic work.'
+            },
+            {
+                id: 'ACEM',
+                title: 'ACEM Purity Mandate',
+                archetype: 'Objective Standard',
+                summary: 'The guarantee against irrelevant, unfair testing.',
+                doctrine: 'All testing must be 100% job-relevant. Irrelevant academic tests (geometry, algebra) and cultural gatekeeping ("Bangla Boli") are **banned**. This ensures the system respects the Specialist\'s proven competence.'
+            }
+        ];
+
+        // --- 2. Get References to the HTML Elements ---
+        const cardContainer = document.getElementById('card-container');
+        const detailPane = document.getElementById('detail-pane');
+
+        // --- 3. Function to show details in the pane ---
+        function showDetails(role) {
+            // Set the content of the detail pane
+            detailPane.innerHTML = `
+                <h3>${role.title}</h3>
+                <p class="small text-muted" style="color: var(--accent-color, #fbbf24); font-weight: 700;">Archetype: ${role.archetype}</p>
+                <p class="mt-2">${role.doctrine.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p>
+            `;
+            
+            // Highlight the active card
+            // Remove 'active' from all cards first
+            document.querySelectorAll('.card.active').forEach(card => card.classList.remove('active'));
+            // Add 'active' to the clicked card
+            document.getElementById(`card-${role.id}`).classList.add('active');
+        }
+
+        // --- 4. Function to create and add the cards ---
+        function createCards() {
+            ORG_DATA.forEach(role => {
+                const card = document.createElement('div');
+                card.className = 'card'; // Uses your master CSS class
+                card.id = `card-${role.id}`;
+                
+                // Set the click action
+                card.onclick = () => showDetails(role);
+                
+                card.innerHTML = `
+                    <div class="card-body">
+                        <h3>${role.title}</h3>
+                        <p class="small text-muted">${role.summary}</p>
+                    </div>
+                `;
+                cardContainer.appendChild(card);
+            });
+        }
+
+        // --- 5. Run the code when the page loads ---
+        document.addEventListener('DOMContentLoaded', () => {
+            createCards();
+            // Show the first role by default
+            if (ORG_DATA.length > 0) {
+                showDetails(ORG_DATA[0]);
+            }
+        });
+
+    </script>
+
 </body>
-</html>
+                    </html>
