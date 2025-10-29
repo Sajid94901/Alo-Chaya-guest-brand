@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Management & Leadership Architecture</title>
+    <title>Management & Leadership Architecture (The Inversion of Authority)</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,285 +27,383 @@
             --radius: 10px;
         }
 
-        /* --- 2. Reset & Base --- */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        /* --- 2. Base Styles --- */
         body {
             font-family: var(--font-body);
             background-color: var(--color-bg);
             color: var(--color-text);
-            line-height: 1.7;
-            padding-bottom: 5rem;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
         }
 
-        /* --- 3. Layout & Header --- */
-        .page-header {
-            padding: 1.5rem;
-            background-color: var(--color-surface);
-            border-bottom: 1px solid var(--color-border);
-            box-shadow: var(--shadow-md);
-            margin-bottom: 2.5rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
-        .page-title {
-            font-family: var(--font-heading);
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--color-secondary);
-        }
-        .page-title span { color: var(--color-accent); }
-        .back-link {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--color-text);
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius);
-            transition: all 0.3s ease;
-        }
-        .back-link:hover { background-color: var(--color-text); color: var(--color-surface); }
-
-        /* --- 4. Content Sections --- */
-        .section {
-            margin-bottom: 4rem;
+        /* --- 3. Layout and Containers --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 2rem;
-            background: var(--color-surface);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--color-border);
         }
-        .section h2 {
+        header {
+            text-align: center;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+        h1 {
             font-family: var(--font-heading);
-            font-size: 2.2rem;
-            font-weight: 800;
+            font-size: 2.5rem;
+            color: var(--color-secondary);
+            margin-bottom: 0.5rem;
+        }
+        h2 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
             color: var(--color-accent);
-            margin-bottom: 1.5rem;
-            border-bottom: 3px solid var(--color-border);
+            border-bottom: 2px solid var(--color-border);
             padding-bottom: 0.5rem;
-            text-transform: uppercase;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
         }
-        .section-intro {
-            margin-bottom: 2rem; 
-            color: var(--color-secondary); 
-            font-weight: 600;
-            font-size: 1.05rem;
+        
+        /* New: Grid for Organogram and Detail Pane */
+        .org-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* Two-thirds for cards, one-third for details */
+            gap: 2rem;
+            margin-top: 2rem;
         }
-
-        /* --- 5. Framework Cards --- */
+        
+        /* --- 4. Card and Grid System --- */
         .framework-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
         }
         .framework-card {
-            background-color: var(--color-bg);
+            background-color: var(--color-surface);
             border: 1px solid var(--color-border);
-            padding: 1.5rem;
             border-radius: var(--radius);
+            padding: 1.25rem;
             box-shadow: var(--shadow-md);
-            border-left: 5px solid var(--color-secondary);
+            transition: all 0.2s ease-in-out;
+            cursor: pointer; /* Makes it look clickable */
+            min-height: 140px; /* Uniform height */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .framework-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+            border-color: var(--color-accent);
+        }
+        .framework-card.active {
+            border: 2px solid var(--color-secondary);
+            background-color: #e6f0ff; /* Light blue background for active */
         }
         .framework-card h3 {
             font-family: var(--font-heading);
-            font-size: 1.6rem;
+            font-size: 1.15rem;
             color: var(--color-secondary);
-            margin-bottom: 0.75rem;
-            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
         }
         .framework-card p {
-             font-size: 0.95rem;
-             color: var(--color-muted);
-             margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--color-muted);
+            margin-bottom: 0;
         }
-        .framework-card ul {
-            list-style: none;
-            padding-left: 0;
+        
+        /* New: Detail Pane Styles */
+        #detail-pane {
+            background-color: var(--color-surface);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            border-left: 3px solid var(--color-accent);
+        }
+        #detail-pane h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--color-accent);
+            margin-top: 0;
+        }
+        #detail-pane p {
+            font-size: 1rem;
             margin-top: 1rem;
         }
-        .framework-card ul li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.25rem;
-            position: relative;
-            font-size: 0.95rem;
-        }
-        .framework-card ul li strong {
-            color: var(--color-secondary);
-            font-weight: 700;
-        }
-        .framework-card ul li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--color-accent);
+        #detail-pane .archetype {
             font-weight: bold;
+            color: var(--color-secondary);
+            display: block;
+            margin-bottom: 0.5rem;
         }
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .org-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
     </style>
 </head>
 <body>
-
-    <header class="page-header">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <h1 class="page-title">Leadership <span>Architecture</span></h1>
-            <a href="./index.html" class="back-link">&larr; Back to Central HUD</a>
-        </div>
-    </header>
-
     <main class="container">
-    
-        <section class="section">
-            <h2>1. The Oversight Layer (The Council)</h2>
-            <p class="section-intro">
-                This is the strategic leadership layer, modeled on an international council (IGO Style). Its sole purpose is to protect the **Ghuraba Al Manara Codex** and uphold the ethical direction of the brand.
-            </p>
-            <div class="framework-grid" style="grid-template-columns: 1fr 2fr;">
-                <div class="framework-card">
-                    <h3>Core Leadership</h3>
-                    <ul>
-                        <li><strong>Supreme Chair:</strong> Founder (Patron)</li>
-                        <li><strong>Project Lead:</strong> Chief Implementer of Codex Alignment</li>
-                    </ul>
-                </div>
-                <div class="framework-card">
-                    <h3>The Council of Bureau Chiefs</h3>
-                    <p>Strategic directors who oversee the six core bureaus:</p>
-                    <ul>
-                        <li><strong>Bureau of Sanctity</strong> (Faith & Ethics)</li>
-                        <li><strong>Bureau of Provision</strong> (Culinary & Operations)</li>
-                        <li><strong>Bureau of Clarity</strong> (Communications & Training)</li>
-                        <li><strong>Bureau of Harmony</strong> (HR & Guest Relations)</li>
-                        <li><strong>Bureau of Stewardship</strong> (Finance & Audits)</li>
-                        <li><strong>Bureau of Innovation</strong> (R&D and Systems)</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+        <header>
+            <h1>Section 2: Management Architecture & Organogram</h1>
+            <p>The Inversion of Authority Doctrine: Competence (ACEM Score) supersedes Title and Tenure.</p>
+        </header>
 
-        <section class="section">
-            <h2>2. The Operational Layer (The Ranks)</h2>
-            <p class="section-intro">
-                This is where the day-to-day operations are run. Modeled on a "Gourmet Corp + Food Wars" hybrid, hierarchy is a path of learning, not just of authority.
-            </p>
-            <div class="framework-grid">
-                <div class="framework-card">
-                    <h3>Rank 1: Executive Chef / Chief Dignitary</h3>
-                    <p>Department Heads. Responsible for setting OKRs and mentoring their team. (e.g., Head of Provision, Head of Harmony).</p>
-                </div>
-                <div class="framework-card">
-                    <h3>Rank 2: Sous Chef / Senior Guide</h3>
-                    <p>Team Leads or Supervisors. Responsible for daily quality control and on-the-job training.</p>
-                </div>
-                <div class="framework-card">
-                    <h3>Rank 3: Chef de Lumière / Dignified Staff</h3>
-                    <p>The operational backbone. Core, skilled staff who execute the brand promise (e.g., Room Coordinators, Line Chefs, Gastronomic Technicians).</p>
-                </div>
-                <div class="framework-card">
-                    <h3>Rank 4: Apprentice Guide</h3>
-                    <p>Trainees and new hires. Their focus is on completing Codex training modules and mastering the fundamentals.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>3. The Service Layer (The Philosophy)</h2>
-            <p class="section-intro">
-                This is the cultural and emotional layer of our service, modeled on the "Konohana Kitan" philosophy of warmth, empathy, and dignified care.
-            </Storage>
-            <div class="framework-grid">
-                <div class="framework-card">
-                    <h3>Guests as "Pilgrims of Light"</h3>
-                    <p>
-                        We view our guests as "pilgrims of light" on a journey. Our staff are "Guides" who serve with grace, dignity, and a calm, reassuring presence.
-                    </g>
-                </div>
-                <div class="framework-card">
-                    <h3>The Feedback Loop</h3>
-                    <p>
-                        All guest feedback (compliments and complaints) is treated as a valuable lesson. This data is fed directly into our internal HRIS system to improve training, performance, and compensation.
-                    </g>
-                </div>
-            </div>
-        </section>
-                <section class="content-section" style="animation-delay: 0.4s;">
-            <div class="container">
-                <h2 class="section-title">4. Leadership T&D & The Lighthouse Compass (The Ultimate Guardrail)</h2>
-                <p class="section-subtitle">
-                    Our leadership model focuses on continuous spiritual and moral development to ensure the **Common Heart** is never subverted.
-                </p>
-
-                <div class="framework-grid" style="grid-template-columns: repeat(3, 1fr);">
-                    
-                    <div class="framework-card">
-                        <h3>T&D Framework: The Ghuraba Codex (The Mutual Protection Principle)</h3>
-                        <p>
-                            Leadership is defined by the **Mutual Stability Principle** (staff stability guarantees leader stability). The Project Lead must actively practice **Mutual Protection**:
-                            <ol class="list-decimal ml-5 mt-2">
-                                <li>**Protecting the Guild** from the Leader's family/personal life (the **Castlevania** scenario).</li>
-                                <li>**Protecting the Work Family** from moral contaminants (e.g., Guest adultery, exploitation, etc.).</li>
-                            </ol>
-                            This is the core lesson of the **COVID-19 Test**.
-                        </p>
-                    </div>
-
-                    <div class="framework-card">
-                        <h3>Feedback Model: COIN + Starfish (The Guild's Compass)</h3>
-                        <p>
-                            We reject traditional, punitive feedback. Our model is built on mutual respect:
-                            <ol class="list-decimal ml-5 mt-2">
-                                <li>**COIN:** Context, Observation, Impact, Next Steps.</li>
-                                <li>**Starfish:** Keep Doing, Stop Doing, Start Doing.</li>
-                            </ol>
-                            This system is the **Lighthouse Compass** that guides conduct and prevents corruption.
-                        </p>
-                    </div>
-
-                    <div class="framework-card">
-                        <h3 class="text-red-700" style="color: var(--color-accent);">The Ultimate Guardrail: Social Dominance</h3>
-                        <p>
-                            We **will not tolerate the subversion of the Common Heart** by staff exploiting pay differences for personal gain (Bidirectional Exploitation). This guardrail is enforced by the **Guild Founder's Rule**: There shall be **no gambling, no internal loans, and no debt** between Guild members.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-                </section>
-                <section class="content-section" style="animation-delay: 0.6s;">
-            <div class="container">
-                <h2 class="section-title">6. The Ultimate Legacy: Succession Planning & The Oath</h2>
-                <p class="section-subtitle">
-                    The continuation of the Guild is paramount. The successor is not determined by blood or title, but by absolute adherence to the **Ghuraba Codex** and the **Mutual Stability Principle**.
-                </p>
+        <section id="management-structure">
+            <h2>The Ghuraba Organogram (Clickable Authority Chain)</h2>
+            <div class="org-layout">
                 
-                <div class="framework-grid" style="grid-template-columns: repeat(3, 1fr);">
-                    
-                    <div class="framework-card">
-                        <h3>Succession Standard: The Integrity Test</h3>
-                        <p>
-                            The successor must be an individual who has consistently proven their commitment to the **Common Heart**. They must pass the **ultimate integrity test** by demonstrating the ability to reject **Bidirectional Exploitation** and safeguard the Guild from **External Contamination**—specifically by protecting the Guild's moral sanctity from personal life vulnerabilities.
-                        </p>
+                <div id="organogram-cards" class="framework-grid">
                     </div>
 
-                    <div class="framework-card">
-                        <h3>The Oath of the Project Lead (Faithful Stewardship)</h3>
-                        <p>
-                            The Project Lead's legacy is defined by **Faithful Stewardship**, as demonstrated by the **COVID-19 Test** (prioritizing staff wages over profit). The successor must swear an oath to maintain the **Dignity Wage (88k Universalist)**, the **Mutual Crisis Fund**, and the **Guild Founder's Rule** (no debt, gambling, loans).
-                        </p>
-                    </div>
-
-                    <div class="framework-card">
-                        <h3 class="text-red-700" style="color: var(--color-accent);">Legacy Guardrail: Rejection of Status</h3>
-                        <p>
-                            The Guild must never be treated as a private fiefdom or source of personal status. The successor is a servant of the **Lighthouse Doctrine**. If the successor fails the **Guardrail of Integrity**, a committee of senior Universalists and the Investor will determine a new Project Lead.
-                        </p>
-                    </div>
-
+                <div id="detail-pane">
+                    <h3>Hierarchy Doctrine</h3>
+                    <p>Click on any management role card to see the specific **Codex Doctrine** that governs that position's authority, accountability, and ethical mandate.</p>
                 </div>
             </div>
-                </section>
-        
+        </section>
+        <section id="corporate-culture">
+            <h2>Section 3: The Ghuraba Codex (Integrated Corporate Culture)</h2>
+            <p>
+                The Guild's corporate culture is the non-negotiable moral foundation for all operations, ensuring **Ihsan (Excellence)** and **Dignity** are universally applied. It is built on the fusion of several ethical and organizational models that reject the subjective failures of the old system.
+            </p>
 
+            <div class="framework-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                
+                <div class="framework-card" style="cursor: default;">
+                    <h3>The Objective Standard (Rules, Not Tears)</h3>
+                    <p class="archetype">Anti-Subjectivity Mandate</p>
+                    <p>
+                        The core principle against subjective judgment and shaming. All appraisals, disputes, and conduct are judged solely by verifiable data in the **Accountability Ledger** and the **ACEM Score**. This eliminates the power of managerial mood or **linguistic bias** ("Bangla Boli" vs. "English Boli").
+                    </p>
+                </div>
+
+                <div class="framework-card" style="cursor: default;">
+                    <h3>The Common Heart Doctrine</h3>
+                    <p class="archetype">Anti-Isolation Mandate</p>
+                    <p>
+                        The ethical foundation demanding mutual welfare, respect, and dignity for every Specialist. It directly mandates the existence of the **Dignity Wage** and the **Mutual Crisis Fund**, ensuring no Specialist is forced to accept exploitation due to personal financial duress.
+                    </p>
+                </div>
+
+                <div class="framework-card" style="cursor: default;">
+                    <h3>Archetypes of Competence</h3>
+                    <p class="archetype">Anti-Tenure Mandate</p>
+                    <p>
+                        Leadership and Specialist roles are defined by the required archetype (**Stabilizer, Producer, Innovator, Unifier**), not by title or tenure. The system is designed to reward demonstrated competence (e.g., **Harmuz/Stabilizer**) and neutralize the power of the **un-coachable** boss.
+                    </p>
+                </div>
+
+                <div class="framework-card" style="cursor: default;">
+                    <h3>The Dignity Mandate</h3>
+                    <p class="archetype">Anti-Exploitation Mandate</p>
+                    <p>
+                        The guarantee that the Specialist’s time and education are respected. It mandates **Dignified Delegation**, protecting high-level Specialists (MBA/BBA) from menial tasks and codifying those tasks into the paid, dignified duties of the **Trainee Specialist** (Dab Lok).
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="legacy-guardrail">
+            <h2>The Legacy Guardrail (The Project Lead's Burden)</h2>
+            <div class="framework-grid" style="grid-template-columns: 1fr 1fr;">
+
+                <div class="framework-card" style="cursor: default;">
+                    <h3>The Legacy Guardrail: Guild Founder's Rule</h3>
+                    <p>
+                        The Guild Founder's Rule is the absolute ethical baseline: **no debt, no gambling, and no internal loans**. This mandates the leader's ability to reject **Bidirectional Exploitation** and safeguard the Guild from **External Contamination**—specifically by protecting the Guild's moral sanctity from personal life vulnerabilities.
+                    </p>
+                </div>
+
+                <div class="framework-card" style="cursor: default;">
+                    <h3>The Oath of the Project Lead (Faithful Stewardship)</h3>
+                    <p>
+                        The Project Lead's legacy is defined by **Faithful Stewardship**, as demonstrated by the **COVID-19 Test** (prioritizing staff wages over profit). The successor must swear an oath to maintain the **Dignity Wage (88k Universalist)**, the **Mutual Crisis Fund**, and the **Guild Founder's Rule**.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
     </main>
+
+    <script>
+        const ORG_DATA = [
+            { id: 'FNDR', title: 'Founder / Pinnacle Leadership', level: 1, archetype: 'Visionary', summary: 'The supreme source of authority and moral purpose.', doctrine: 'The Founder channels ego away from self into the vision, accountable to the Governance Panel. Authority is derived from the **Why Mirror** (divine purpose) and is protected by the **Guardrail of Integrity**.' },
+            { id: 'SBU', title: 'Project Lead (SBU/Alo Chaya)', level: 2, archetype: 'Innovator', summary: 'The Strategic Engine that translates vision into action.', doctrine: 'Embodies **Faithful Stewardship**. Success is measured by the **COVID-19 Test** (prioritizing staff wages over profit). ACEM Score is publicly audited. Successor must maintain the **Dignity Wage** and the **Crisis Fund**.' },
+            { id: 'DEPT', title: 'Department Head (Decisional Layer)', level: 3, archetype: 'Stabilizer / Unifier', summary: 'Authority is based on current ACEM Score, not tenure.', doctrine: 'Authority derived from current **ACEM Score**, not tenure (**Inversion of Authority**). Leaders like **Harmuz (Stabilizer)** and **Humming Uncle (Unifier)** are the standard. Un-coachable management is neutralized by Governance oversight.' },
+            { id: 'HRMA', title: 'HR Moral Auditor (Stabilizer)', level: 3, archetype: 'Stabilizer', summary: 'The moral safety net at the branch level.', doctrine: 'Decentralized Stabilizer who reports moral/Dignity Violations **directly to the Governance Panel**, bypassing the lackadaisical central HR Head. Role is protected from **Bidirectional Exploitation**.' },
+            { id: 'OPST', title: 'Foundational Specialist / Trainee Specialist', level: 4, archetype: 'Producer / Implementer', summary: 'The Tactical Execution Tier.', doctrine: 'The **Operational Tier (Tier 4)**. Protected by the **Dignified Delegation Mandate**. **Trainee Specialists (Dab Lok)** are paid the **Dignity Wage** to handle codified administrative tasks, freeing MBA/BBA Specialists for strategic work. **ACEM tests are 100% job-relevant (ACEM Purity Mandate)**.' }
+        ];
+
+        const cardsContainer = document.getElementById('organogram-cards');
+        const detailPane = document.getElementById('detail-pane');
+
+        function renderDetail(role) {
+            detailPane.innerHTML = `
+                <h3>${role.title}</h3>
+                <span class="archetype">ACEM Archetype: ${role.archetype} (Level ${role.level})</span>
+                <p>${role.doctrine}</p>
+            `;
+            // Remove 'active' class from all cards
+            document.querySelectorAll('.framework-card').forEach(card => card.classList.remove('active'));
+            // Add 'active' class to the clicked card
+            document.getElementById(`card-${role.id}`).classList.add('active');
+        }
+
+        function renderCards() {
+            ORG_DATA.forEach(role => {
+                const card = document.createElement('div');
+                card.className = 'framework-card';
+                card.id = `card-${role.id}`;
+                card.setAttribute('onclick', `renderDetail(ORG_DATA.find(r => r.id === '${role.id}'))`);
+                
+                card.innerHTML = `
+                    <div style="margin-bottom: 0.75rem;">
+                        <h3 style="color: var(--color-secondary);">${role.title}</h3>
+                        <p style="font-size: 0.8rem; color: var(--color-muted);">Level ${role.level} - ${role.archetype}</p>
+                    </div>
+                    <p style="font-style: italic; color: var(--color-accent); font-size: 0.95rem; margin-top: auto;">${role.summary}</p>
+                `;
+                cardsContainer.appendChild(card);
+            });
+        }
+
+        // Initialize by rendering cards and showing the first detail pane
+        window.onload = () => {
+            renderCards();
+            renderDetail(ORG_DATA[0]);
+        };
+           <section id="departmental-architecture">
+            <h2>Section 4: Departmental Architecture & Accountability</h2>
+            <p>
+                Functional departments are the core executors of the Codex, operating under the principle of **Dignified Delegation**. Every department must ensure its Specialists are protected from misassignment of duties and that all administrative work is codified and performed by the appropriate rank (Trainee/Foundational Specialist) receiving the **Dignity Wage**.
+            </p>
+
+            <div class="framework-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                
+                <div class="framework-card" style="cursor: default;">
+                    <h3>Human Resources (The Bureau of Harmony)</h3>
+                    <p class="archetype">The **Stabilizer** Function</p>
+                    <p>
+                        **Primary Duty:** Enforce the **Codex** and the **Common Heart Doctrine**. HR is decentralized to the branch via the **HR Moral Auditor** who reports **Dignity Violations** directly to the Governance Panel, bypassing the un-coachable central hierarchy. **Bidirectional Exploitation** is strictly prohibited.
+                    </p>
+                </div>
+
+                <div class="framework-card" style="cursor: default;">
+                    <h3>Operations (The Bureau of Efficiency)</h3>
+                    <p class="archetype">The **Producer** Function</p>
+                    <p>
+                        **Primary Duty:** Execute the service model with **Effectiveness and Efficiency**. Responsible for **Dignified Delegation**: ensuring that MBA/BBA Specialists focus on **Producer** (strategic) tasks, and **Foundational Specialists** are properly trained to handle codified administrative duties (like filing, organizing, and simple data entry).
+                    </p>
+                </div>
+
+                <div class="framework-card" style="cursor: default;">
+                    <h3>Marketing, CPM & Branding</h3>
+                    <p class="archetype">The **Innovator** Function</p>
+                    <p>
+                        **Primary Duty:** Drive organic demand through the **Konohana Kitan Service Model** and **Moral Marketing**. Reject all aggressive "sales course" models. All outreach must adhere to the **Ihsan** principle. CPM (Customer Performance Measurement) feeds directly into the **Accountability Ledger** for quality control.
+                    </p>
+                </div>
+
+                <div class="framework-card" style="cursor: default;">
+                    <h3>Finance & Accounting (The Bureau of Purity)</h3>
+                    <p class="archetype">The **Stabilizer** Function</p>
+                    <p>
+                        **Primary Duty:** Uphold the **Anti-Haram** principles, including the **Guild Founder's Rule** (no debt, gambling, internal loans, or *Riba*). Manages the **Mutual Crisis Fund** and the **Dignity Wage** system, ensuring financial stability is prioritized over quarterly profit margins.
+                    </p>
+                </div>
+
+            </div>
+
+            <h3 style="margin-top: 2rem;">The Accountability Doctrine: ACEM & The Ledger</h3>
+            <p style="font-size: 0.95rem;">
+                Every department head and specialist is governed by the **ACEM (Capability Evolution Model) Score**. The score is the only measure of competence and ethical fitness, ensuring the **ACEM Purity Mandate** (no irrelevant testing) is met. All ethical failures, from shaming to misassignment, are logged in the **Accountability Ledger** (managed by the **HR Moral Auditor**), which overrides all subjective managerial judgment. This creates a system where **competence and conduct are the only paths to advancement**.
+            </p>
+
+        </section>
+                       <section id="personnel-ranks">
+            <h2>Section 5: Personnel Ranks & Growth (The Specialist's Dignified Path)</h2>
+            <p>
+                The Guild rejects the exploitative and subjective nature of conventional HR titles. Our structure is designed to guarantee a clear, objective path for every Specialist, protected by the **ACEM Score** and the **Dignity Wage**.
+            </p>
+
+            <div class="framework-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                
+                <div class="framework-card" style="cursor: default;">
+                    <h3>Trainee Specialist (Dab Lok)</h3>
+                    <p class="archetype">The **Apprentice Producer**</p>
+                    <p>
+                        **Title Elimination:** Replaces the banned term "Intern." This is a paid, codified position receiving the **Dignity Wage** at the Trainee Step. Their sole focus is completing the **Codex Immersion** and passing the Foundational ACEM test.
+                    </p>
+                </div>
+
+                <div class="framework-card" style="cursor: default;">
+                    <h3>Foundational Specialist</h3>
+                    <p class="archetype">The **Core Producer / Implementer**</p>
+                    <p>
+                        The entry point for full-time execution. Advancement occurs via **Step Payments** tied to increases in the ACEM Score. They are responsible for the daily execution of all codified procedures and administrative duties, freeing high-level Specialists.
+                    </p>
+                </div>
+
+                <div class="framework-card" style="cursor: default;">
+                    <h3>The Universalist Rank</h3>
+                    <p class="archetype">The **Master Specialist**</p>
+                    <p>
+                        Achieved only after demonstrating cross-functional mastery through **mandatory, facilitated inter-departmental rotations (Zero-Risk Mobility)**. The Universalist earns the highest non-managerial **Dignity Wage**, confirming the value of comprehensive competence.
+                    </p>
+                </div>
+
+                <div class="framework-card" style="cursor: default;">
+                    <h3>ACEM Purity & Referral Cost</h3>
+                    <p class="archetype">The **Objective Standard**</p>
+                    <p>
+                        **ACEM Purity Mandate:** Testing must be 100% job-relevant. Irrelevant academic tests are banned. **Referral Cost:** Any Specialist who refers a failed hire suffers a reduction in their own **ACEM Score**, ensuring accountability in talent acquisition.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+                       <section id="financial-pillars">
+            <h2>Section 6: Financial Pillars & Mobility (The Power Guarantee)</h2>
+            <p>
+                The financial structure empowers the Specialist to maintain **moral purity** and reject exploitation. All pay and benefits are non-interest-based, adhering strictly to the **Anti-Haram** principles of the **Finance Bureau**.
+            </p>
+
+            <div class="framework-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                
+                <div class="framework-card" style="cursor: default;">
+                    <h3>The Dignity Wage</h3>
+                    <p class="archetype">The Anti-Exploitation Floor</p>
+                    <p>
+                        A guaranteed, livable salary floor that eliminates financial desperation. **Step Payments** are triggered exclusively by **ACEM Score** increases, guaranteeing pay raises are objective and immune to managerial bias. This gives the Specialist the power to refuse unethical work hours.
+                    </p>
+                </div>
+
+                <div class="framework-card" style="cursor: default;">
+                    <h3>The Mutual Crisis Fund</h3>
+                    <p class="archetype">The Common Heart Safety Net</p>
+                    <p>
+                        A permanent profit allocation administered by the **Governance Panel**. Provides **zero-interest, non-repayable aid** during catastrophic personal crises. This fund removes the financial pressure to accept bribes or compromise ethics (**Protection from External Contamination**).
+                    </p>
+                </div>
+
+                <div class="framework-card" style="cursor: default;">
+                    <h3>Zero-Risk Mobility</h3>
+                    <p class="archetype">Investment in Competence</p>
+                    <p>
+                        Specialists are guaranteed their current **Dignity Wage** during **mandatory inter-departmental rotations**. The Guild covers all costs for **T&D Modules** and ACEM certification, ensuring competence growth is achieved without financial penalty or risk to the Specialist.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+               
+    </script>
 </body>
 </html>
