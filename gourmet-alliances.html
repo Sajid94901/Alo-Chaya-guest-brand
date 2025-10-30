@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Gourmet Alliances — Culinary Diplomacy (Bureau of Innovation)</title>
+  
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1>Gourmet Alliances — Bureau of Innovation</h1>
+      <p class="lead">Culinary R&D, guild diplomacy, licensed recipes, and inter-resort festivals — harmonized with the Archipelago's doctrine.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2 class="mt-6 mb-4">Culinary Guilds & Alliances (derived from Lighthouse Tales)</h2>
+
+    <div class="interactive-layout">
+      
+      <div class="grid grid-2" id="guild-card-container">
+        </div>
+
+      <div class="detail-pane" id="guild-detail-pane">
+        </div>
+    </div>
+
+    <section>
+      <div class="card bg-light">
+        <div class="card-body">
+            <h3>How this maps into Operations & Marketing</h3>
+            <p class="mb-0">
+              Each guild below is linked to Operations (pilot nights / SOPs), Marketing (campaigns & scarcity launches), and HR (training & chef-residencies). Use the links in the detail pane to jump to the related operational pilots.
+            </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Ghuraba Al Manara (The Lighthouse) | Culinary Diplomacy</p>
+  </footer>
+
+  <script>
+    // Guild data derived from Volume 1 (canonical names + short doctrine)
+    const guildData = [
+      {
+        id: 'khadija-orchards',
+        title: 'Khadija Orchards (Medinat Sheath)',
+        summary: 'Guardian of the miraculous fruits and ZmZm water rituals.',
+        doctrine: `Custodians of Medinat Sheath's orchards — they manage the miracle fruits (variable flavors) and the ZmZm water infrastructure. Their R&D focuses on terroir-driven signature ingredients and limited-run fruit tastings. (See Volume 1: Medinat Sheath, fruit trees & ZmZm water.)`,
+        citation: '5'
+      },
+      {
+        id: 'zmzm-coop',
+        title: 'ZmZm Water Cooperative',
+        summary: 'Water stewardship, ingredient quality, ritual provisioning.',
+        doctrine: `Responsible for the sacred water supply and quality control for cuisine, ceremonial use, and agricultural irrigation. They certify "ZmZm-sourced" menu items as premium. (See Volume 1: ZmZm tradition and its role in crop yields.)`,
+        citation: '6'
+      },
+      {
+        id: 'house-sadiq',
+        title: 'House of Sadiq (Medinat Sadiq Procurement)',
+        summary: 'Supply chain guild for meats, preserved goods and heritage recipes.',
+        doctrine: `House of Sadiq runs procurement, cold-chain and provenance for regionally iconic items (Germanic-Japanese fusion heritage dishes are among their keepers). They also steward visiting-chef residencies rooted in family recipes. (See Volume 1: Medinat Sadiq breakfast & heritage cuisine.)`,
+        citation: '7'
+      },
+      {
+        id: 'ababil-crafts',
+        title: 'Medinat Ababil Culinary Crafts',
+        summary: 'Food manufacturing, technique innovation, and culinary engineering.',
+        doctrine: `Focuses on food manufacturing & tech-driven culinary processes — ideal partner for packaged signature sauces, R&D labs, and Midora-style fund projects. (See Volume 1: Medinat Ababil's emphasis on food & manufacturing.)`,
+        citation: '8'
+      },
+      {
+        id: 'arch-culinarian-dawud',
+        title: 'Arch-Culinarian Dawud Fellowship',
+        summary: 'Heritage chefs, mentors, and craft preservation.',
+        doctrine: `Custodians of ceremonial cookery and the long-form recipes that define the Lighthouse culinary identity. They accredit chef fellows and oversee preservation of recipes for licensing and events.`,
+        citation: '9'
+      }
+    ];
+
+    // Render cards & default detail
+    const container = document.getElementById('guild-card-container');
+    const detail = document.getElementById('guild-detail-pane');
+
+    function renderDetail(guild){
+      detail.innerHTML = `
+        <h3>${guild.title}</h3>
+        <p>${guild.doctrine.replace(/\n/g,'<br/>')}</p>
+        <p classs="small text-muted" style="margin-top:.75rem">Source: ${guild.citation}</p>
+        <p style="margin-top:1rem"><a href="operations.html#gourmet:${guild.id}">Open operations pilots →</a> · <a href="marketing-branding.html#campaign:${guild.id}">Open campaign stub →</a></p>
+      `;
+      // card active highlight
+      document.querySelectorAll('.card.active').forEach(c=>c.classList.remove('active'));
+      const el = document.getElementById(`guild-${guild.id}`);
+      if(el) el.classList.add('active');
+    }
+
+    function buildCards(){
+      guildData.forEach((g, i) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.id = `guild-${g.id}`;
+        card.onclick = () => renderDetail(g);
+        card.innerHTML = `<div class="card-body"><h3>${g.title}</h3><p class="small text-muted">${g.summary}</p></div>`;
+        container.appendChild(card);
+        if(i===0) renderDetail(g);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', buildCards);
+  </script>
+</body>
+</html>
