@@ -72,7 +72,9 @@
             <div class="detail-pane" id="detail-pane">
                 </div>
 
-        </div> <h2 class="mt-6 mb-4">2. Moral Purity and Guardrail of Integrity</h2>
+        </div>
+
+        <h2 class="mt-6 mb-4">2. Moral Purity and Guardrail of Integrity</h2>
         <p class="mb-4">
             The Bureau of Harmony enforces the moral purity of the Guild, protecting it from both internal and external corruption, as mandated by the Founder's Rule.
         </p>
@@ -102,7 +104,108 @@
                 </div>
             </div>
 
-        </div> </main>
+        </div>
+
+        <h2 class="mt-6 mb-4">3. The Recruitment &amp; Onboarding Protocol (The Employee Story)</h2>
+        <p class="mb-4">
+            We do not just "hire" people. We begin the **Employee Story**. Our system is a data-driven model designed for personalization, connecting every stage of the employee lifecycle. This ensures we recruit the right people, grow them as Specialists, and learn from their journey to constantly improve the Guild.
+        </p>
+
+        <div class="grid grid-3">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Step 1: Discovery &amp; Application</h3>
+                    <p>It starts with our **Company Branding** and honest **Recruitment Discovery** (Website, Social Media). Prospective Specialists apply via our portal, submitting not just a CV, but the raw data for their Employee Story, such as:</p>
+                    <ul class="small mt-2" style="list-style-type: square; padding-left: 1.5rem;">
+                        <li>Full CV (Previous Experience)</li>
+                        <li>Technical &amp; Soft Skill Competencies</li>
+                        <li>MBA/BBA Course Outlines</li>
+                        <li>All relevant certificates</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h3>Step 2: The ACEM Assessment</h3>
+                    <p>All applications are assessed based on the **ACEM Purity Mandate**. We test *only* for skills 100% relevant to the codified job role. We ban all irrelevant academic and cultural barriers, ensuring a fair, merit-based selection.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-body">
+                    <h3>Step 3: The Trainee Specialist</h3>
+                    <p>Successful candidates are not "Interns." They are hired as paid **Trainee Specialists** at a **Dignity Wage**. They are given a codified role to begin their journey, allowing them to learn and contribute from day one.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-light mt-4">
+            <div class="card-body text-center">
+                <h3>Become a Specialist</h3>
+                <p class="mb-3">
+                    If you are ready to begin your Employee Story and are committed to the Objective Standard, we invite you to apply.
+                </p>
+                <a href="#apply-coming-soon" class="btn btn-primary btn-lg">
+                    Apply to the Guild
+                </a>
+            </div>
+        </div>
+
+        <h2 class="mt-6 mb-4">4. The ACEM Performance System (The Engine of Merit)</h2>
+        <p class="mb-4">
+            The **ACEM (Audit, Codify, Execute, Maintain) Score** is the single, objective standard for performance, promotion, and pay. It replaces all subjective reviews and political biases. It is the engine that drives our merit-based culture and ensures personalization.
+        </p>
+
+        <div class="grid grid-2">
+            <div class="card">
+                <div class="card-body">
+                    <h3>What is ACEM?</h3>
+                    <p>ACEM is a continuous process, not a one-time review:</p>
+                    <ol class="small mt-2" style="list-style-type: decimal; padding-left: 1.5rem;">
+                        <li><strong>Audit:</strong> We audit the *actual* duties and value-add of a role.</li>
+                        <li><strong>Codify:</strong> We write these duties into a clear, non-negotiable job description.</li>
+                        <li><strong>Execute:</strong> The Specialist executes these duties. Their performance against these codified metrics *is* their score.</li>
+                        <li><strong>Maintain:</strong> We maintain "ACEM Purity" by constantly removing irrelevant metrics and ensuring tests are 100% tied to the codified duties.</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-body">
+                    <h3>The ACEM Score &amp; Pay</h3>
+                    <p>
+                        Your **ACEM Score** is the only metric for advancement. There is no subjective "manager review."
+                    </p>
+                    <p>
+                        Pay, bonuses, and promotions are **directly and mathematically linked** to this score. This provides the Specialist with absolute clarity on how to succeed and guarantees they are judged only on their relevant contribution.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="mt-5 mb-3">The Employee Lifecycle Data Model</h3>
+        <p class="mb-4">
+            The ACEM system is powered by the **Employee Life Cycle** data model (from your diagram). This is how we achieve true personalization:
+        </p>
+        
+        <div class="card bg-light">
+            <div class="card-body">
+                <p>
+                    We continuously connect **Performance Info**, **Leave Data**, and **Career Surveys** with the initial **Assessment Data** (CV, course outlines). When a Specialist separates, their **Exit Interview** (feedback on Role, Line Manager, Tenure) is not filed away—it becomes **Linked Data**.
+                </p>
+                <p class="mb-0">
+                    This data loop allows us to:
+                </p>
+                <ul class="mt-2" style="list-style-type: square; padding-left: 1.5rem;">
+                    <li>Proactively identify and support "Flight Risks."</li>
+                    <li>Recognize and learn from our "Stalwarts."</li>
+                    <li>Use data from "Terminations" to refine the "Next Role" and improve the "Audit" phase for the next Specialist.</li>
+                </ul>
+            </div>
+        </div>
+        
+        </main>
     
     <footer class="site-footer">
         <p>Ghuraba Al Manara (The Lighthouse) | Bureau of Harmony Doctrine</p>
@@ -110,8 +213,7 @@
 
     <script>
         // --- 1. The Doctrine Data ---
-        // This holds all the verified information for the cards.
-        const HR_DOCTRINES = [
+        const doctrineData = [
             {
                 id: 'auditor',
                 title: 'HR Moral Auditor: The Branch Stabilizer',
@@ -139,13 +241,14 @@
         ];
 
         // --- 2. Get References to the HTML Elements ---
-        const cardContainer = document.getElementById('card-container');
-        const detailPane = document.getElementById('detail-pane');
+        const doctrineCardContainer = document.getElementById('card-container');
+        const doctrineDetailPane =
+document.getElementById('detail-pane');
 
-        // --- 3. Function to show details in the pane ---
-        function showDetails(doctrine) {
+        // --- 3. Function to display details in the pane ---
+        function displayDoctrine(doctrine) {
             // Set the content of the detail pane
-            detailPane.innerHTML = `
+            doctrineDetailPane.innerHTML = `
                 <h3>${doctrine.title}</h3>
                 <p>${doctrine.doctrine.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p>
                 <p class="small text-muted mt-2">This doctrine is non-negotiable and enforced by the Governance Panel.</p>
@@ -159,14 +262,14 @@
         }
 
         // --- 4. Function to create and add the cards ---
-        function createCards() {
-            HR_DOCTRINES.forEach(doctrine => {
+        function populateDoctrineCards() {
+            doctrineData.forEach(doctrine => {
                 const card = document.createElement('div');
                 card.className = 'card'; // Uses your master CSS class
                 card.id = `card-${doctrine.id}`;
                 
                 // Set the click action
-                card.onclick = () => showDetails(doctrine);
+                card.onclick = () => displayDoctrine(doctrine);
                 
                 card.innerHTML = `
                     <div class="card-body">
@@ -174,18 +277,21 @@
                         <p class="small text-muted">${doctrine.summary}</p>
                     </div>
                 `;
-                cardContainer.appendChild(card);
+                doctrineCardContainer.appendChild(card);
             });
         }
 
-        // --- 5. Run the code when the page loads ---
-        document.addEventListener('DOMContentLoaded', () => {
-            createCards();
+        // --- 5. Main function to run the code when the page loads ---
+        function initializeInteractivePane() {
+            populateDoctrineCards();
             // Show the first doctrine by default
-            if (HR_DOCTRINES.length > 0) {
-                showDetails(HR_DOCTRINES[0]);
+            if (doctrineData.length > 0) {
+                displayDoctrine(doctrineData[0]);
             }
-        });
+        }
+        
+        // --- 6. Run the initialization ---
+        document.addEventListener('DOMContentLoaded', initializeInteractivePane);
 
     </script>
 
