@@ -3,32 +3,61 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Gourmet Alliances — Culinary Diplomacy (Bureau of Innovation)</title>
+  <title>Gourmet Alliances — Bureau of Innovation (Ghuraba Al Manara)</title>
   
   <link rel="stylesheet" href="styles.css">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="hero">
     <div class="container">
-      <h1>Gourmet Alliances — Bureau of Innovation</h1>
-      <p class="lead">Culinary R&D, guild diplomacy, licensed recipes, and inter-resort festivals — harmonized with the Archipelago's doctrine.</p>
+      <h1>Bureau of Innovation (Gourmet Alliances)</h1>
+      <p class="lead">Culinary R&D, guild diplomacy, and inter-resort festivals, harmonized with the Archipelago's doctrine.</p>
+      
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="landing.html">Landing</a></li>
+          <li><a href="about-heritage.html">About & Heritage</a></li>
+          <li><a href="hr-management.html">HR Management</a></li>
+          <li><a href="management-leadership.html">Management & Leadership</a></li>
+          <li><a href="operations.html">Operations</a></li>
+          <li><a href="gourmet-alliances.html">Gourmet Alliances</a></li>
+          <li><a href="marketing-branding.html">Marketing & Branding</a></li>
+          <li><a href="doctrine.html">Doctrine</a></li>
+          <li><a href="models.html">Models</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
   <main class="container">
-    <h2 class="mt-6 mb-4">Culinary Guilds & Alliances (derived from Lighthouse Tales)</h2>
+
+    <h2 class="mt-6 mb-4">1. The Doctrinal Foundation (The Path of Ingenuity)</h2>
+    <p class="mb-4">
+        This Bureau is the physical execution of a core leadership discipline from the Ghuraba Al Manara Codex: <strong>"The Path of Ingenuity."</strong>
+    </p>
+    <div class="card bg-light">
+        <div class="card-body">
+            <p>This discipline flows from the <strong>"Posture of Seeking Divine Ingenuity,"</strong> a core mindset of active humility and creative faith. The Bureau of Innovation is therefore not just about food; it is the Guild's primary engine for forging new, creative solutions and strategic alliances, believing that a wiser, better path can always be forged through effort and divine guidance.</p>
+        </div>
+    </div>
+
+
+    <h2 class="mt-6 mb-4">2. Culinary Guilds & Alliances (derived from Lighthouse Tales)</h2>
 
     <div class="interactive-layout">
       
       <div class="grid grid-2" id="guild-card-container">
-        </div>
+      </div>
 
       <div class="detail-pane" id="guild-detail-pane">
-        </div>
+      </div>
     </div>
 
-    <section>
+    <section class="mt-4">
       <div class="card bg-light">
         <div class="card-body">
             <h3>How this maps into Operations & Marketing</h3>
@@ -45,7 +74,6 @@
   </footer>
 
   <script>
-    // Guild data derived from Volume 1 (canonical names + short doctrine)
     const guildData = [
       {
         id: 'khadija-orchards',
@@ -84,7 +112,6 @@
       }
     ];
 
-    // Render cards & default detail
     const container = document.getElementById('guild-card-container');
     const detail = document.getElementById('guild-detail-pane');
 
@@ -95,7 +122,6 @@
         <p classs="small text-muted" style="margin-top:.75rem">Source: ${guild.citation}</p>
         <p style="margin-top:1rem"><a href="operations.html#gourmet:${guild.id}">Open operations pilots →</a> · <a href="marketing-branding.html#campaign:${guild.id}">Open campaign stub →</a></p>
       `;
-      // card active highlight
       document.querySelectorAll('.card.active').forEach(c=>c.classList.remove('active'));
       const el = document.getElementById(`guild-${guild.id}`);
       if(el) el.classList.add('active');
