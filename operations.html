@@ -6,46 +6,68 @@
     <title>Operations & Staff Strategy (Bureau of Efficiency)</title>
 
     <style>
-        /* New layout for the interactive pane */
+        /* --- Interactive Panel Styles (No Change) --- */
         .interactive-layout {
             display: grid;
             grid-template-columns: 2fr 1fr; /* Cards on the left, detail pane on the right */
             gap: 1.5rem;
         }
-
-        /* Style for the detail pane */
         .detail-pane {
-            background: var(--card-bg, #ffffff); /* Uses your master CSS variable */
-            border-radius: 12px; /* Uses your master CSS style */
-            box-shadow: 0 8px 28px rgba(2,6,23,0.06); /* Uses your master CSS style */
+            background: var(--card-bg, #ffffff);
+            border-radius: 12px;
+            box-shadow: 0 8px 28px rgba(2,6,23,0.06);
             padding: 1.25rem;
-            border-top: 5px solid var(--accent-color, #fbbf24); /* Uses your master CSS variable */
-            height: fit-content; /* Sits nicely */
+            border-top: 5px solid var(--accent-color, #fbbf24);
+            height: fit-content;
         }
-        
-        /* Style for the 'active' card */
         .card.active {
             border: 2px solid var(--primary-color, #064e3b);
             box-shadow: 0 8px 28px rgba(2,6,23,0.12);
         }
-        
-        /* Make cards in the interactive layout clickable */
         .interactive-layout .card {
-            cursor: pointer; /* Makes cards look clickable */
+            cursor: pointer;
             transition: all 0.2s ease-in-out;
         }
-        
         .interactive-layout .card:hover {
             transform: translateY(-3px);
             border-color: var(--primary-color, #064e3b);
         }
-
-        /* Responsive fallback */
         @media (max-width: 900px) {
             .interactive-layout {
                 grid-template-columns: 1fr; /* Stack on mobile */
             }
         }
+
+        /* --- NEW: Tab Navigation Styles --- */
+        .tab-bar {
+            display: flex;
+            border-bottom: 2px solid var(--border-color, #e5e7eb);
+            margin-bottom: 1.5rem;
+        }
+        .tab-bar button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-muted, #6b7280);
+            border-bottom: 3px solid transparent;
+            transform: translateY(2px); /* Aligns with the bottom border */
+        }
+        .tab-bar button:hover {
+            color: var(--text-color, #1f2937);
+        }
+        .tab-bar button.active {
+            color: var(--primary-color, #064e3b);
+            border-bottom-color: var(--primary-color, #064e3b);
+        }
+        
+        /* The tab-content class is used by JS, 'hidden' attribute does the work */
+        .tab-content {
+            padding-top: 1rem;
+        }
+
     </style>
 </head>
 <body>
@@ -59,33 +81,44 @@
 
     <main class="container">
 
-        <h2 class="mt-6 mb-4">1. The Interlinked Operational Core</h2>
+        <h2 class="mt-6 mb-4">Operational Doctrine Panels</h2>
         <p class="mb-4">
-            All core operational functions are linked to the objective **ACEM Score** (administered by HR) to ensure merit, not subjective bias, drives resource deployment and career progression.
+            Select a panel to review the specific doctrines governing each operational wing. All doctrines are linked to the objective ACEM Score to ensure merit-based execution.
         </p>
 
-        <div class="interactive-layout" id="core-layout">
-            
-            <div class="grid grid-2" id="core-card-container">
-                </div>
-            
-            <div class="detail-pane" id="core-detail-pane">
-                </div>
+        <div class="tab-bar">
+            <button data-tab="core" class="active">Core Doctrines</button>
+            <button data-tab="service">Service Model</button>
+            <button data-tab="culinary">Culinary (Gourmet)</button>
+        </div>
 
-        </div> <h2 class="mt-6 mb-4">2. The Konohana Kitan Service Model</h2>
-        <p class="mb-4">
-            The Guild rejects aggressive sales models. Service is based on **Ihsan (Excellence)** and the "Konohana Kitan" model of empathetic service and moral purity.
-        </p>
+        <div class="tab-content" id="core">
+            <div class="interactive-layout" id="core-layout">
+                <div class="grid grid-2" id="core-card-container">
+                    </div>
+                <div class="detail-pane" id="core-detail-pane">
+                    </div>
+            </div>
+        </div>
 
-        <div class="interactive-layout" id="service-layout">
-            
-            <div class="grid grid-2" id="service-card-container">
-                </div>
-            
-            <div class="detail-pane" id="service-detail-pane">
-                </div>
+        <div class="tab-content" id="service" hidden>
+            <div class="interactive-layout" id="service-layout">
+                <div class="grid grid-2" id="service-card-container">
+                    </div>
+                <div class="detail-pane" id="service-detail-pane">
+                    </div>
+            </div>
+        </div>
 
-        </div> </main>
+        <div class="tab-content" id="culinary" hidden>
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h3 class="text-muted">Future Sub-Panel: Culinary &amp; Gourmet</h3>
+                    <p class="text-muted">This panel will contain all doctrines related to the Bureau of Gourmet, including supply chain purity, ACEM scores for chefs, and the "Guest-as-Auditor" mandate.</p>
+                </div>
+            </div>
+        </div>
+        </main>
     
     <footer class="site-footer">
         <p>Ghuraba Al Manara (The Lighthouse) | Bureau of Efficiency Doctrine</p>
@@ -169,6 +202,9 @@
             }
 
             function createCards() {
+                // Clear container in case it's re-initialized (good practice)
+                cardContainer.innerHTML = '';
+                
                 doctrines.forEach(doctrine => {
                     const card = document.createElement('div');
                     card.className = 'card'; // Uses your master CSS class
@@ -195,11 +231,33 @@
 
         // --- 3. Run the code when the page loads ---
         document.addEventListener('DOMContentLoaded', () => {
-            // Create the first interactive panel
-            createInteractivePanel('core-card-container', 'core-detail-pane', CORE_DOCTRINES);
             
-            // Create the second interactive panel
+            // --- A. Initialize the Interactive Panels ---
+            createInteractivePanel('core-card-container', 'core-detail-pane', CORE_DOCTRINES);
             createInteractivePanel('service-card-container', 'service-detail-pane', SERVICE_DOCTRINES);
+            // Note: Culinary panel will be initialized here when its data is ready
+
+            // --- B. Initialize the NEW Tab Navigation ---
+            const tabButtons = document.querySelectorAll('.tab-bar button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.dataset.tab; // e.g., 'core'
+
+                    // Hide all content panels
+                    tabContents.forEach(content => content.hidden = true);
+                    // Remove 'active' class from all buttons
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Show the target content panel
+                    document.getElementById(targetTab).hidden = false;
+                    // Add 'active' class to the clicked button
+                    button.classList.add('active');
+                });
+            });
+            
+            // Note: The first tab is already set to active in the HTML
         });
 
     </script>
