@@ -3,376 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alo Chaya - Doctrine</title>
+    <title>Ghuraba Al Manara - Doctrine</title>
 
+    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
-    <style>
-        /* --- 1. Design Tokens & Root --- */
-        :root {
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Inter', sans-serif;
-            
-            --color-bg: #FBFAF8;       /* Off-white */
-            --color-text: #111214;     /* Charcoal */
-            --color-accent: #CFA76C;   /* Muted Gold */
-            --color-surface: #FFFFFF;
-            --color-border: #EFEFEF;
-            --color-muted: #8E8E8E;
-
-            --shadow-sm: 0 2px 4px rgba(0,0,0,0.02);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.05);
-            --radius: 8px;
-        }
-
-        /* --- 2. Reset & Base --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            /* Marble texture background */
-            background-image: url('https://www.transparenttextures.com/patterns/subtle-white-feathers.png');
-            background-attachment: fixed;
-        }
-
-        /* --- 3. Page Layout & Header --- */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .page-header {
-            padding: 1.5rem 1.5rem;
-            background-color: var(--color-surface);
-            border-bottom: 1px solid var(--color-border);
-            box-shadow: var(--shadow-sm);
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-
-        .page-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .page-title {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--color-text);
-        }
-        
-        .page-title span {
-            color: var(--color-accent);
-        }
-
-        .back-link {
-            font-family: var(--font-body);
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--color-text);
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius);
-            transition: all 0.3s ease;
-        }
-
-        .back-link:hover {
-            background-color: var(--color-text);
-            color: var(--color-surface);
-            border-color: var(--color-text);
-        }
-
-        /* --- 4. Content Sections --- */
-        
-        /* Blueprint: "Scroll animation for elegant narrative flow" */
-        .content-section {
-            padding: 4rem 0;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .section-title {
-            font-family: var(--font-heading);
-            font-size: 2.75rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            font-size: 1.15rem;
-            color: var(--color-muted);
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 3rem auto;
-        }
-
-        /* --- 5. Hero Banner (Image Hook) --- */
-        .hero-banner {
-            width: 100%;
-            height: 400px;
-            background-color: var(--color-muted);
-            background-size: cover;
-            background-position: center;
-            border-radius: var(--radius);
-            margin-bottom: 4rem;
-            box-shadow: var(--shadow-md);
-            
-            /* Placeholder styling */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-style: italic;
-        }
-
-        /* --- 6. Manifesto Section (Blueprint Spec) --- */
-        .manifesto-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            margin-bottom: 5rem;
-        }
-
-        .manifesto-image {
-            width: 100%;
-            height: 500px;
-            background-color: var(--color-muted);
-            background-size: cover;
-            background-position: center;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-md);
-            
-            /* Placeholder styling */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-style: italic;
-        }
-
-        .manifesto-list h3 {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            color: var(--color-text);
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--color-accent);
-            display: inline-block;
-        }
-        
-        .manifesto-list p {
-            font-size: 1.05rem;
-            color: var(--color-muted);
-            margin-bottom: 1.5rem;
-        }
-
-        /* --- 7. Doctrine Pillars (User's Content) --- */
-        .pillar-card {
-            background-color: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-md);
-            margin-bottom: 2.5rem;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .pillar-card:hover {
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            transform: translateY(-4px);
-        }
-
-        .pillar-header {
-            padding: 2rem 2.5rem;
-            border-bottom: 1px solid var(--color-border);
-            background-color: #fdfdfc; /* Slightly off-white surface */
-        }
-        
-        .pillar-title {
-            font-family: var(--font-heading);
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--color-text);
-            margin: 0;
-        }
-
-        .pillar-subtitle {
-            font-size: 1rem;
-            color: var(--color-muted);
-            margin-top: 0.25rem;
-        }
-
-        .pillar-body {
-            padding: 2.5rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .pillar-body h3 {
-            font-family: var(--font-heading);
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--color-text);
-            margin-bottom: 1rem;
-        }
-
-        .pillar-body ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .pillar-body li {
-            position: relative;
-            padding-left: 28px;
-            margin-bottom: 0.75rem;
-            font-size: 0.95rem;
-            color: #333;
-        }
-        
-        /* Elegant checkmark-style list item */
-        .pillar-body li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            top: -2px;
-            color: var(--color-accent);
-            font-size: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .pillar-body li strong {
-            color: var(--color-text);
-            font-weight: 500;
-        }
-
-        /* --- 8. Responsive --- */
-        @media (max-width: 900px) {
-            .manifesto-grid {
-                grid-template-columns: 1fr;
-            }
-            .manifesto-image {
-                height: 300px;
-                order: -1; /* Image on top on mobile */
-            }
-            .pillar-body {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 2.25rem;
-            }
-            .hero-banner {
-                height: 250px;
-                margin-bottom: 2.5rem;
-            }
-            .content-section {
-                padding: 2.5rem 0;
-            }
-            .pillar-header, .pillar-body {
-                padding: 1.5rem;
-            }
-            .pillar-title {
-                font-size: 1.5rem;
-            }
-            .page-header .container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
-    </style>
 </head>
 <body>
 
-    <header class="page-header">
+    <header class="hero">
         <div class="container">
-            <h1 class="page-title">Alo Chaya <span>Doctrine</span></h1>
-            <a href="./index.html" class="back-link">&larr; Back to Central HUD</a>
+            <h1>Ghuraba Al Manara <span>Doctrine</span></h1>
+            <p class="lead">The Lighthouse Ethos × Alo Chaya Vision. This manifesto frames our operational models.</p>
+            
+            <nav class="main-nav">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="landing.html">Landing</a></li>
+                <li><a href="about-heritage.html">About & Heritage</a></li>
+                <li><a href="hr-management.html">HR Management</a></li>
+                <li><a href="management-leadership.html">Management & Leadership</a></li>
+                <li><a href="operations.html">Operations</a></li>
+                <li><a href="gourmet-alliances.html">Gourmet Alliances</a></li>
+                <li><a href="marketing-branding.html">Marketing & Branding</a></li>
+                <li><a href="doctrine.html">Doctrine</a></li>
+                <li><a href="models.html">Models</a>
+              </ul>
+            </nav>
         </div>
     </header>
 
-    <main>
-        
-        <section class="content-section" style="padding-top: 3rem; animation-delay: 0.1s;">
-            <div class="container">
-                <div class="hero-banner" style="background-image: url('./images/doctrine.jpg');">
-                    <span style="background: rgba(0,0,0,0.4); padding: 5px 10px; border-radius: 4px;">./images/doctrine.jpg</span>
+    <main class="container">
+
+        <section class="mt-6">
+            <figure>
+                <img src="doctrine.jpg" alt="A library or desk representing doctrine" style="width: 100%; border-radius: 8px;">
+            </figure>
+        </section>
+
+        <section>
+            <h2 class="mt-6 mb-4">The Guiding Charter</h2>
+            <p class="mb-4 text-muted" style="text-align: center; max-width: 700px; margin: 0 auto 2rem auto;">
+                This manifesto frames our operational models and is the source of our strength.
+            </p>
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Guest First</h3>
+                        <p>We do not just provide service; we provide security, recognition, and worth. Every decision is measured against its impact on the guest's psychological fulfillment.</p>
+                        
+                        <h3>Stewardship</h3>
+                        <p>We are custodians of a legacy. This applies to our family heritage, our financial capital, and our team. We build leaders, not just fill roles.</p>
+                        
+                        <h3>Authenticity</h3>
+                        <p class="mb-0">We reject temporary trends. Our brand is built on a timeless, authentic foundation. Our doctrine is the engine that proves our premium value, daily.</p>
+                    </div>
                 </div>
+                <figure>
+                    <img src="philosophy.jpg" alt="A compass or lighthouse representing philosophy" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                </figure>
             </div>
         </section>
 
-        <section class="content-section" style="animation-delay: 0.3s;">
-            <div class="container">
-                <h2 class="section-title">The Guiding Charter</h2>
-                <p class="section-subtitle">
-                    The Lighthouse Ethos × Alo Chaya Vision. This manifesto frames our operational models and is the source of our strength.
-                </p>
-                <div class="manifesto-grid">
-                    <div class="manifesto-list">
-                        <div>
-                            <h3>Guest First</h3>
-                            <p>We do not just provide service; we provide security, recognition, and worth. Every decision is measured against its impact on the guest's psychological fulfillment.</p>
-                        </div>
-                        <div>
-                            <h3>Stewardship</h3>
-                            <p>We are custodians of a legacy. This applies to our family heritage, our financial capital, and our team. We build leaders, not just fill roles.</p>
-                        </div>
-                        <div>
-                            <h3>Authenticity</h3>
-                            <p>We reject temporary trends. Our brand is built on a timeless, authentic foundation. Our doctrine is the engine that proves our premium value, daily.</p>
-                        </div>
-                    </div>
-                    <div class="manifesto-image" style="background-image: url('./images/philosophy.jpg');">
-                        <span style="background: rgba(0,0,0,0.4); padding: 5px 10px; border-radius: 4px;">./images/philosophy.jpg</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section>
+            <h2 class="mt-6 mb-4">Our Core Operational Models</h2>
+            <p class="mb-4 text-muted" style="text-align: center; max-width: 700px; margin: 0 auto 2rem auto;">
+                These three pillars connect our high-level philosophy to daily, measurable execution.
+            </p>
 
-        <section class="content-section" style="animation-delay: 0.5s;">
-            <div class="container">
-                <h2 class="section-title">Our Core Operational Models</h2>
-                <p class="section-subtitle">
-                    These three pillars connect our high-level philosophy to daily, measurable execution. This is how we justify a 15,000 BDT Adjusted ADR.
-                </p>
-
-                <div class="pillar-card">
-                    <div class="pillar-header">
-                        <h2 class="pillar-title">Psychological Architecture</h2>
-                        <p class="pillar-subtitle">The Science of Fulfilling Human Needs</p>
-                    </div>
-                    <div class="pillar-body">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 style="margin-top:0;">Psychological Architecture</h2>
+                    <p class="text-muted" style="font-size: 1.1rem;">The Science of Fulfilling Human Needs</p>
+                    <div class="grid grid-2 mt-4">
                         <div>
                             <h3>Guest Experience (Packard's 8 Hidden Needs)</h3>
                             <ul>
@@ -393,30 +97,30 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="pillar-card">
-                    <div class="pillar-header">
-                        <h2 class="pillar-title">Strategic 5P Synthesis</h2>
-                        <p class="pillar-subtitle">Connecting High-Level Plans to Daily Execution</p>
-                    </div>
-                    <div class="pillar-body">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 style="margin-top:0;">Strategic 5P Synthesis</h2>
+                    <p class="text-muted" style="font-size: 1.1rem;">Connecting High-Level Plans to Daily Execution</p>
+                    <div class="grid grid-1 mt-4">
                         <div>
                             <h3>Our Three-Part Strategy</h3>
                             <ul>
-                                <li><strong>Schuler's HR 5Ps:</strong> Our **Philosophy**, **Policies**, **Programs**, **Practices**, & **Processes** for managing people.</li>
-                                <li><strong>Mintzberg's 5Ps:</strong> Our competitive **Plan**, **Ploy**, **Pattern**, **Position**, & **Perspective**.</li>
-                                <li><strong>Pryor's 5Ps:</strong> Our implementation framework of **Purpose**, **Principles**, **Processes**, **People**, & **Performance**.</li>
+                                <li><strong>Schuler's HR 5Ps:</strong> Our <strong>Philosophy</strong>, <strong>Policies</strong>, <strong>Programs</strong>, <strong>Practices</strong>, & <strong>Processes</strong> for managing people.</li>
+                                <li><strong>Mintzberg's 5Ps:</strong> Our competitive <strong>Plan</strong>, <strong>Ploy</strong>, <strong>Pattern</strong>, <strong>Position</strong>, & <strong>Perspective</strong>.</li>
+                                <li><strong>Pryor's 5Ps:</strong> Our implementation framework of <strong>Purpose</strong>, <strong>Principles</strong>, <strong>Processes</strong>, <strong>People</strong>, & <strong>Performance</strong>.</li>
                             </ul>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="pillar-card">
-                    <div class="pillar-header">
-                        <h2 class="pillar-title">Integrated Leadership Framework</h2>
-                        <p class="pillar-subtitle">How We Build and Promote Leaders</p>
-                    </div>
-                    <div class="pillar-body">
+            <div class="card">
+                <div class="card-body">
+                    <h2 style="margin-top:0;">Integrated Leadership Framework</h2>
+                    <p class="text-muted" style="font-size: 1.1rem;">How We Build and Promote Leaders</p>
+                    <div class="grid grid-1 mt-4">
                         <div>
                             <h3>Our Leadership Formula</h3>
                             <ul>
@@ -428,11 +132,15 @@
                         </div>
                     </div>
                 </div>
-
             </div>
+
         </section>
 
     </main>
+    
+    <footer class="site-footer">
+        <p>Ghuraba Al Manara (The Lighthouse) | Guiding Charter</p>
+    </footer>
 
 </body>
-</html>
+</html>                                       </html>
