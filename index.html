@@ -3,342 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alo Chaya - Central HUD</title>
+    <title>Ghuraba Al Manara (The Lighthouse) - Central HUD</title>
+    
+    <link rel="stylesheet" href="style.css"> 
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- 1. Design Tokens & Root --- */
-        :root {
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Inter', sans-serif;
-            
-            --color-bg: #FBFAF8;       /* Off-white (Rocco Forte inspired) */
-            --color-text: #111214;     /* Charcoal */
-            --color-accent: #CFA76C;   /* Muted Gold */
-            --color-surface: #FFFFFF;
-            --color-border: #EFEFEF;
-            --color-muted: #8E8E8E;
-            --color-live: #28a745;     /* Live indicator green */
-
-            --shadow-sm: 0 2px 4px rgba(0,0,0,0.02);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.05);
-            --radius: 8px;
-        }
-
-        /* --- 2. Reset & Base --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html, body {
-            font-family: var(--font-body);
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        body {
-            /* Subtle marble texture background */
-            background-image: url('https://www.transparenttextures.com/patterns/subtle-white-feathers.png');
-            background-attachment: fixed;
-        }
-
-        /* --- 3. Main Layout --- */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .hud-header {
-            text-align: center;
-            padding: 2.5rem 0;
-            border-bottom: 1px solid var(--color-border);
-            margin-bottom: 2.5rem;
-        }
-
-        .hud-header h1 {
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--color-text);
-        }
-
-        .hud-header h1 span {
-            color: var(--color-accent);
-            font-weight: 600;
-        }
-
-        .hud-header p {
-            font-size: 1.1rem;
-            color: var(--color-muted);
-            margin-top: 0.5rem;
-        }
-
-        /* --- 4. Dashboard Grid --- */
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.75rem;
-        }
-
-        /* --- 5. Tile Component --- */
-        .tile {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            background-color: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius);
-            padding: 1.75rem;
+        /* Style for clickable navigation cards */
+        .card-link {
             text-decoration: none;
-            color: var(--color-text);
-            box-shadow: var(--shadow-md);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            color: inherit;
+            display: block;
+            height: 100%;
+            transition: all 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(2,6,23,0.1);
+            border-color: var(--primary-color, #064e3b);
         }
 
-        .tile:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.07);
-            border-color: var(--color-accent);
-        }
-
-        /* Gold accent border on hover */
-        .tile::before {
-            content: '';
+        /* Style for the new Language Tab */
+        .lang-switch {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background-color: var(--color-accent);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
+            top: 1rem;
+            right: 1rem;
         }
-
-        .tile:hover::before {
-            transform: scaleX(1);
-        }
-
-        .tile-header {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
+        .lang-switch select {
+            padding: 0.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--muted, #94a3b8);
+            background: var(--card-bg, #ffffff);
             font-weight: 600;
-            margin-bottom: 0.75rem;
         }
         
-        .tile-description {
-            font-size: 0.95rem;
-            color: var(--color-muted);
-            flex-grow: 1;
+        /* Style for the new Submission Form */
+        .form-card {
+            background: var(--card-bg, #ffffff);
+            border-radius: 12px;
+            box-shadow: 0 8px 28px rgba(2,6,23,0.06);
+            padding: 1.5rem;
+            max-width: 800px; /* Make form narrower */
+            margin: 2.5rem auto; /* Center the form */
+        }
+        .form-group {
             margin-bottom: 1.5rem;
         }
-
-        .tile-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.85rem;
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color, #1e3a8a);
         }
-
-        .live-indicator {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            color: var(--color-live);
-            font-weight: 500;
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--muted, #94a3b8);
+            font-family: inherit;
+            font-size: 1rem;
         }
-
-        .live-indicator .dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--color-live);
-            border-radius: 50%;
-            /* Simple pulse animation */
-            animation: pulse 1.5s infinite ease-in-out;
+        .form-group textarea {
+            min-height: 120px;
         }
-
-        /* Special tile: Guest-Facing Landing */
-        .tile.guest-facing {
-            background-color: var(--color-text);
-            color: var(--color-bg);
-            border-color: var(--color-text);
+        /* Using your .cta-btn class for the submit button */
+        .submit-btn {
+            background: var(--primary-color, #064e3b);
+            color: #fff;
+            padding: .75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
-        
-        .tile.guest-facing .tile-header {
-            color: var(--color-accent);
+        .submit-btn:hover {
+            background: var(--secondary-color, #1e3a8a);
         }
-        
-        .tile.guest-facing .tile-description {
-            color: #ccc;
-        }
-
-        .tile.guest-facing:hover {
-            border-color: var(--color-accent);
-        }
-
-        /* Special tile: Admin Upload */
-        .tile.admin {
-            border-style: dashed;
-            border-color: var(--color-muted);
-        }
-        .tile.admin:hover {
-            border-color: var(--color-accent);
-            border-style: solid;
-        }
-
-        /* --- 6. Animations --- */
-        @keyframes pulse {
-            0% { transform: scale(0.9); opacity: 0.7; }
-            50% { transform: scale(1.1); opacity: 1; }
-            100% { transform: scale(0.9); opacity: 0.7; }
-        }
-
-        /* --- 7. Responsive --- */
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            .hud-header {
-                padding: 1.5rem 0;
-                margin-bottom: 1.5rem;
-            }
-            .hud-header h1 {
-                font-size: 2rem;
-            }
-            .dashboard-grid {
-                grid-template-columns: 1fr; /* Stack on mobile */
-                gap: 1rem;
-            }
-            .tile {
-                padding: 1.25rem;
-            }
-        }
-
     </style>
 </head>
 <body>
 
-    <main class="container">
-
-        <header class="hud-header">
-            <h1>Alo Chaya <span>×</span> Lighthouse</h1>
-            <p>Central Management Dashboard & System Architecture</p>
-        </header>
-
-        <div class="dashboard-grid">
-
-            <a href="./landing.html" class="tile guest-facing">
-                <div>
-                    <h2 class="tile-header">Landing Page</h2>
-                    <p class="tile-description">Guest-facing portal, reservation links, and live wishlist. (Public)</p>
-                </div>
-                <div class="tile-footer">
-                    <span class="live-indicator">
-                        <span class="dot"></span>
-                        Live
-                    </span>
-                    <span>View Public Site &rarr;</span>
-                </div>
-            </a>
-
-            <a href="./about-us.html" class="tile">
-                <div>
-                    <h2 class="tile-header">About Us & Heritage</h2>
-                    <p class="tile-description">The Rocco Forte-style family narrative, origin story, and mission.</p>
-                </div>
-                <div class="tile-footer">
-                    <span class="status">Last updated: 2025-10-23</span>
-                </div>
-            </a>
-            
-            <a href="./doctrine.html" class="tile">
-                <div>
-                    <h2 class="tile-header">Doctrine</h2>
-                    <p class="tile-description">Guiding charter: Lighthouse Ethos, Guest First, Stewardship principles.</p>
-                </div>
-                <div class="tile-footer">
-                    <span class="status">Status: Locked</span>
-                </div>
-            </a>
-            
-            <a href="./marketing-branding.html" class="tile">
-                <div>
-                    <h2 class="tile-header">Marketing & Branding</h2>
-                    <p class="tile-description">Guest journey, segment focus, brand storytelling, and CPM insights.</p>
-                </div>
-                <div class="tile-footer">
-                    <span class="status">Needs review</span>
-                </div>
-            </a>
-            
-            <a href="./cpm.html" class="tile">
-                <div>
-                    <h2 class="tile-header">CPM</h2>
-                    <p class="tile-description">Editable Competitive Positioning Matrix. Filters for price, tier, amenities.</p>
-                </div>
-                <div class="tile-footer">
-                    <span class="status">Data editable</span>
-                </div>
-            </a>
-
-            <a href="./management-leadership.html" class="tile">
-                <div>
-                    <h2 class="tile-header">Management & Leadership</h2>
-                    <p class="tile-description">Chain of command, decision process, KPIs, and reporting matrix.</p>
-                </div>
-                <div class="tile-footer">
-                    <span class="status">Draft v1.2</span>
-                </div>
-            </a>
-            
-            <a href="./hr-management.html" class="tile">
-                <div>
-                    <h2 class="tile-header">HR Management</h2>
-                    <p class="tile-description">Staffing by phase (MTO/FEO/EO), salary ratios, and hiring waves.</p>
-                </div>
-                <div class="tile-footer">
-                    <span class="status">Live Tables</span>
-                </div>
-            </a>
-
-            <a href="./operations.html" class="tile">
-                <div>
-                    <h2 class="tile-header">Operations</h2>
-                    <p class="tile-description">Departmental dashboards, room readiness, SOPs, and maintenance logs.</p>
-                </div>
-                <div class="tile-footer">
-                    <span class="status">Flagged: 2 issues</span>
-                </div>
-            </a>
-
-            <a href="./upload.html" class="tile admin">
-                <div>
-                    <h2 class="tile-header">Upload Console</h2>
-                    <p class="tile-description">Admin panel to add photos, updates, and news. (Internal)</p>
-                </div>
-                <div class="tile-footer">
-                    <span class="status">Auth Required</span>
-                    <span>Admin Panel &rarr;</span>
-                </div>
-            </a>
-
-            <div class="tile admin" style="justify-content: center; align-items: center; min-height: 200px; color: var(--color-muted);">
-                <span>+ Add New Module</span>
-            </div>
-
+    <header class="hero" style="position: relative;">
+        <div class="lang-switch">
+            <select name="language" id="language">
+                <option value="en">English</option>
+                <option value="bn">বাংলা (Bangla)</option>
+            </select>
         </div>
 
+        <div class="container">
+            <h1>Ghuraba Al Manara (The Lighthouse)</h1>
+            <p class="lead">Central Hub for Doctrine, Operations, and Recruitment.</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <h2 class="mt-6 mb-4">The Ghuraba Codex (Architectural Hub)</h2>
+        <p class="mb-4">
+            Select a file to review the verified doctrines that govern the Guild. The first three files are interactive.
+        </p>
+
+        <div class="grid grid-3">
+
+            <a href="management-leadership.html" class="card-link">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Management & Leadership</h3>
+                        <p class="small">Interactive Organogram, Inversion of Authority, and all 6 core sections of the Codex.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="hr-management.html" class="card-link">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>HR (Bureau of Harmony)</h3>
+                        <p class="small">Interactive HR doctrines, including the Moral Auditor, ACEM Purity, and Trainee Specialist (Dan Lok).</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="operations.html" class="card-link">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Operations (Bureau of Efficiency)</h3>
+                        <p class="small">Interactive T&D linkages, Dignified Delegation, and Konohana Kitan Service Model.</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="cpm.html" class="card-link">
+                <div class="card" style="border-style: dashed; border-color: var(--danger);">
+                    <div class="card-body">
+                        <h3 class="text-danger">Marketing & CPM (BROKEN)</h3>
+                        <p class="small">The Moral Marketing Mandate and the ACEM Feedback Loop. (Needs CSS fix).</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="investment.html" class="card-link">
+                <div class="card" style="border-style: dashed; border-color: var(--danger);">
+                    <div class="card-body">
+                        <h3 class="text-danger">Financials (BROKEN)</h3>
+                        <p class="small">The 5-Year Projections, No Debt Mandate, and 88k Dignity Wage. (Needs CSS fix).</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="landing.html" class="card-link">
+                <div class="card" style="border-style: dashed; border-color: var(--danger);">
+                    <div class="card-body">
+                        <h3 class="text-danger">Landing Page (BROKEN)</h3>
+                        <p class="small">The public-facing guest portal. (Needs CSS fix).</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="models.html" class="card-link">
+                <div class="card" style="border-style: dashed; border-color: var(--danger);">
+                    <div class="card-body">
+                        <h3 class="text-danger">Models (BROKEN)</h3>
+                        <p class="small">Core theoretical models. (Needs CSS fix).</p>
+                    </div>
+                </div>
+            </a>
+
+        </div> <section id="apply-form">
+            <div class="form-card">
+                <h2 class="mb-4">Join the Guild (Trainee Specialist Application)</h2>
+                <p class="mb-4">
+                    As per the **ACEM Purity Mandate**, we will not test you on irrelevant knowledge (like geometry). Your assessment will be 100% relevant to the role you apply for. We do not hire "interns"; we hire paid, dignified **Trainee Specialists (Dan Lok)**.
+                </p>
+    
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="role">Role Applying For</label>
+                        <select id="role" name="role" required>
+                            <option value="">Select a Trainee Position...</option>
+                            <option value="trainee_ops">Trainee Specialist (Operations - Bureau of Efficiency)</option>
+                            <option value="trainee_hr">Trainee Specialist (HR - Bureau of Harmony)</option>
+                            <option value="trainee_cpm">Trainee Specialist (Marketing - Bureau of Clarity)</option>
+                            <option value="trainee_fin">Trainee Specialist (Finance - Bureau of Provision)</option>
+                        </select>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="why">State Your "Why" (Your Motivation)</label>
+                        <textarea id="why" name="why" placeholder="In line with the Why Mirror, please state your motivation for joining the Guild." required></textarea>
+                    </div>
+    
+                    <div class="form-group">
+                        <button type="submit" class="submit-btn">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
     </main>
+    
+    <footer class="site-footer">
+        <p>Ghuraba Al Manara (The Lighthouse) | Central Hub</p>
+    </footer>
 
 </body>
-</html>
+    </html>
