@@ -5,48 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HR Management Strategy (Bureau of Harmony)</title>
     
-    <style>
-        /* New layout for the interactive pane */
-        .interactive-layout {
-            display: grid;
-            grid-template-columns: 2fr 1fr; /* Cards on the left, detail pane on the right */
-            gap: 1.5rem;
-        }
-
-        /* Style for the detail pane */
-        .detail-pane {
-            background: var(--card-bg, #ffffff); /* Uses your master CSS variable */
-            border-radius: 12px; /* Uses your master CSS style */
-            box-shadow: 0 8px 28px rgba(2,6,23,0.06); /* Uses your master CSS style */
-            padding: 1.25rem;
-            border-top: 5px solid var(--accent-color, #fbbf24); /* Uses your master CSS variable */
-            height: fit-content; /* Sits nicely */
-        }
-        
-        /* Style for the 'active' card */
-        .card.active {
-            border: 2px solid var(--primary-color, #064e3b);
-            box-shadow: 0 8px 28px rgba(2,6,23,0.12);
-        }
-        
-        /* Make cards in the interactive layout clickable */
-        .interactive-layout .card {
-            cursor: pointer; /* Makes cards look clickable */
-            transition: all 0.2s ease-in-out;
-        }
-        
-        .interactive-layout .card:hover {
-            transform: translateY(-3px);
-            border-color: var(--primary-color, #064e3b);
-        }
-
-        /* Responsive fallback */
-        @media (max-width: 900px) {
-            .interactive-layout {
-                grid-template-columns: 1fr; /* Stack on mobile */
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -54,6 +16,21 @@
         <div class="container">
             <h1>Bureau of Harmony (HR) Strategy</h1>
             <p class="lead">Enforcing the Common Heart Doctrine and the Objective Standard.</p>
+            
+            <nav class="main-nav">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="landing.html">Landing</a></li>
+                <li><a href="about-heritage.html">About & Heritage</a></li>
+                <li><a href="hr-management.html">HR Management</a></li>
+                <li><a href="management-leadership.html">Management & Leadership</a></li>
+                <li><a href="operations.html">Operations</a></li>
+                <li><a href="gourmet-alliances.html">Gourmet Alliances</a></li>
+                <li><a href="marketing-branding.html">Marketing & Branding</a></li>
+                <li><a href="doctrine.html">Doctrine</a></li>
+                <li><a href="models.html">Models</a>
+              </ul>
+            </nav>
         </div>
     </header>
 
@@ -65,13 +42,10 @@
         </p>
 
         <div class="interactive-layout">
-            
             <div class="grid grid-2" id="card-container">
-                </div>
-            
+            </div>
             <div class="detail-pane" id="detail-pane">
-                </div>
-
+            </div>
         </div>
 
         <h2 class="mt-6 mb-4">2. Moral Purity and Guardrail of Integrity</h2>
@@ -115,7 +89,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3>Step 1: Discovery &amp; Application</h3>
-                    <p>It starts with our **Company Branding** and honest **Recruitment Discovery** (Website, Social Media). Prospective Specialists apply via our portal, submitting not just a CV, but the raw data for their Employee Story, such as:</p>
+                    <p>It starts with our **Company Branding** and honest **Recruitment Discovery**. Prospective Specialists apply via our portal, submitting not just a CV, but the raw data for their Employee Story, such as:</p>
                     <ul class="small mt-2" style="list-style-type: square; padding-left: 1.5rem;">
                         <li>Full CV (Previous Experience)</li>
                         <li>Technical &amp; Soft Skill Competencies</li>
@@ -146,8 +120,8 @@
                 <p class="mb-3">
                     If you are ready to begin your Employee Story and are committed to the Objective Standard, we invite you to apply.
                 </p>
-                <a href="#apply-coming-soon" class="btn btn-primary btn-lg">
-                    Apply to the Guild
+                <a href="index.html#apply-form" class="btn btn-primary btn-lg">
+                    Apply on Central Hub
                 </a>
             </div>
         </div>
@@ -205,14 +179,47 @@
             </div>
         </div>
         
-        </main>
+        <h2 class="mt-6 mb-4">5. Cross-Bureau Linkages</h2>
+        <p class="mb-4">
+            The Bureau of Harmony does not exist in a silo. Its doctrines are directly interlinked with all other bureaus to ensure a unified, objective standard across the Guild.
+        </p>
+        
+        <div class="grid grid-3">
+            <a href="management-leadership.html" class="card-link">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Hierarchy & Governance</h3>
+                        <p class="small text-muted mb-0">The **HR Moral Auditor** and **Governance Panel** doctrines are defined in the Management & Leadership architecture.</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="operations.html" class="card-link">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Operations & Efficiency</h3>
+                        <p class="small text-muted mb-0">The **Trainee Specialist** rank directly supports the **Dignified Delegation Mandate** defined by the Bureau of Efficiency.</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="investment.html" class="card-link">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Financials & Provision</h3>
+                        <p class="small text-muted mb-0">The **Dignity Wage** and **ACEM Score** (enforced by HR) are the core pillars of the Bureau of Provision's financial models.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+    </main>
     
     <footer class="site-footer">
         <p>Ghuraba Al Manara (The Lighthouse) | Bureau of Harmony Doctrine</p>
     </footer>
 
     <script>
-        // --- 1. The Doctrine Data ---
         const doctrineData = [
             {
                 id: 'auditor',
@@ -240,35 +247,26 @@
             }
         ];
 
-        // --- 2. Get References to the HTML Elements ---
         const doctrineCardContainer = document.getElementById('card-container');
-        const doctrineDetailPane =
-document.getElementById('detail-pane');
+        const doctrineDetailPane = document.getElementById('detail-pane');
 
-        // --- 3. Function to display details in the pane ---
         function displayDoctrine(doctrine) {
-            // Set the content of the detail pane
             doctrineDetailPane.innerHTML = `
                 <h3>${doctrine.title}</h3>
                 <p>${doctrine.doctrine.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p>
                 <p class="small text-muted mt-2">This doctrine is non-negotiable and enforced by the Governance Panel.</p>
             `;
             
-            // Highlight the active card
-            // Remove 'active' from all cards first
             document.querySelectorAll('.interactive-layout .card.active').forEach(card => card.classList.remove('active'));
-            // Add 'active' to the clicked card
             document.getElementById(`card-${doctrine.id}`).classList.add('active');
         }
 
-        // --- 4. Function to create and add the cards ---
         function populateDoctrineCards() {
             doctrineData.forEach(doctrine => {
                 const card = document.createElement('div');
-                card.className = 'card'; // Uses your master CSS class
+                card.className = 'card';
                 card.id = `card-${doctrine.id}`;
                 
-                // Set the click action
                 card.onclick = () => displayDoctrine(doctrine);
                 
                 card.innerHTML = `
@@ -281,18 +279,14 @@ document.getElementById('detail-pane');
             });
         }
 
-        // --- 5. Main function to run the code when the page loads ---
         function initializeInteractivePane() {
             populateDoctrineCards();
-            // Show the first doctrine by default
             if (doctrineData.length > 0) {
                 displayDoctrine(doctrineData[0]);
             }
         }
         
-        // --- 6. Run the initialization ---
         document.addEventListener('DOMContentLoaded', initializeInteractivePane);
-
     </script>
 
 </body>
