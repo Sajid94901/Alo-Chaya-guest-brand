@@ -1,442 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Alo Chaya — Guest Models & Doctrine</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghuraba Al Manara - Heritage & Doctrine</title>
 
-<!-- Fonts & Tailwind -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-<style>
-  :root { --primary-color: #064e3b; --secondary-color: #1e3a8a; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Inter', system-ui, sans-serif; background-color: #f8fafc; color: #1e293b; line-height: 1.7; }
-  h1 { font-size: 2.5rem; font-weight: 800; text-align: center; color: var(--primary-color); margin-bottom: 2rem; }
-  h2 { font-size: 2rem; font-weight: 700; color: var(--primary-color); }
-  h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: var(--secondary-color); }
-  .justified-text { text-align: justify; }
-  details summary { cursor: pointer; list-style: none; }
-  .accordion-icon { transition: transform 0.25s ease; display:inline-block; margin-left:0.5rem; }
-  /* small visual polish for image captions */
-  .heritage-caption { font-size: 0.85rem; color: #6b7280; margin-top: 0.35rem; }
-</style>
 </head>
-
 <body>
 
-<nav class="bg-white/90 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-md">
-  <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-    <a href="index.html" class="text-2xl font-bold text-green-800">Alo Chaya</a>
-    <div class="flex items-center space-x-6">
-      <a href="index.html" class="text-gray-700 hover:text-green-800 font-semibold">Home</a>
-      <a href="doctrine.html" class="text-gray-700 hover:text-green-800 font-semibold">Doctrine</a>
-      <a href="index.html#booking" class="bg-green-800 text-white px-4 py-2 rounded-md font-semibold hover:bg-green-700 transition-colors">Book Now</a>
-    </div>
-  </div>
-</nav>
-
-<main class="container mx-auto max-w-5xl pt-28 px-4">
-
-  <!-- Heritage & Founding Narrative -->
-  <details class="bg-white rounded-lg shadow p-6 mb-6">
-    <summary class="flex justify-between items-center text-2xl font-semibold">
-      Heritage & Founding Narrative
-      <span class="accordion-icon">▼</span>
-    </summary>
-
-    <div class="mt-4 text-gray-700">
-      <p class="mb-4 justified-text">
-        Alo Chaya’s roots are woven into a rich family legacy spanning generations. The estate, buildings, and community care tell a single story of stewardship, continuity and place — a core pillar of our guest promise.
-      </p>
-
-      <ul class="list-disc pl-5 mb-4 text-gray-700 space-y-2">
-        <li><strong>MM House:</strong> Built by the founder in 1995; long-term family residence.</li>
-        <li><strong>Mahmud Tower:</strong> Constructed on historic Fatima Mahal land; a blend of legacy and modernity.</li>
-        <li><strong>The Daroga Lineage:</strong> Ancestors who secured the land and established long-lasting estate practices.</li>
-        <li><strong>Abdul Rashid Chowdhury family:</strong> Contributed to estate stewardship across generations.</li>
-      </ul>
-
-      <!-- Heritage images grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <a href="mahmud-tower-replaced-fatima-mahal.jpg" target="_blank">
-            <img src="mahmud-tower-replaced-fatima-mahal.jpg" alt="Mahmud Tower" class="w-full rounded-lg mb-2">
-          </a>
-          <p class="heritage-caption">Mahmud Tower built on historic Fatima Mahal land, blending legacy and modernity</p>
+    <header class="hero">
+        <div class="container">
+            <h1>Ghuraba Al Manara <span>Heritage</span></h1>
+            <p class="lead">The Hassan Choudhury Family Legacy & The Doctrine of Light</p>
+            
+            <nav class="main-nav">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="landing.html">Landing</a></li>
+                <li><a href="about-heritage.html">About & Heritage</a></li>
+                <li><a href="hr-management.html">HR Management</a></li>
+                <li><a href="management-leadership.html">Management & Leadership</a></li>
+                <li><a href="operations.html">Operations</a></li>
+                <li><a href="gourmet-alliances.html">Gourmet Alliances</a></li>
+                <li><a href="marketing-branding.html">Marketing & Branding</a></li>
+                <li><a href="doctrine.html">Doctrine</a></li>
+                <li><a href="models.html">Models</a>
+              </ul>
+            </nav>
         </div>
+    </header>
 
-        <div>
-          <a href="sajid-hassan-founders-third-son-project-lead-author.jpg" target="_blank">
-            <img src="sajid-hassan-founders-third-son-project-lead-author.jpg" alt="Project Lead & Founder" class="w-full rounded-lg mb-2">
-          </a>
-          <p class="heritage-caption">Sajid Hassan, third son and project lead, ensuring quality and strategic vision at Alo Chaya</p>
-        </div>
-      </div>
-    </div>
-  </details>
+    <main class="container">
 
-  <!-- Guest & Family Stories -->
-  <details class="bg-white border rounded-lg p-6 shadow transition-all duration-300 mb-6">
-    <summary class="flex justify-between items-center text-xl font-bold">
-      Guest & Family Stories
-      <span class="accordion-icon">▼</span>
-    </summary>
-
-    <div class="mt-4 text-gray-700">
-      <p class="justified-text mb-4">
-        From the Daroga's twelve children to later generations, Alo Chaya preserves family narratives that shape our ethos. Those stories — of place, service and care — are woven into the guest experience.
-      </p>
-
-      <ul class="list-disc pl-5 space-y-2 text-gray-700">
-        <li><strong>Daroga:</strong> Purchased Fatima Mahal land; progenitor of estate stewardship.</li>
-        <li><strong>Abdul Rashid Chowdhury family:</strong> The operational foundations that sustained the estate across decades.</li>
-        <li><strong>Founder:</strong> Built MM House in 1995 and later Mahmud Tower.</li>
-        <li><strong>Project Lead:</strong> Sajid Hassan — strategic, operational, and intellectual stewardship for Alo Chaya.</li>
-      </ul>
-    </div>
-  </details>
-
-  <!-- Psychological Architecture / Brand & Wellness -->
-  <details open class="bg-white border rounded-lg p-6 shadow transition-all duration-300">
-    <summary class="flex justify-between items-center text-xl font-bold">
-      Psychological Architecture & Wellness
-      <span class="accordion-icon">▼</span>
-    </summary>
-
-    <div class="mt-4 text-gray-700">
-      <p class="mb-4 justified-text">
-        The Alo Chaya guest journey is intentionally designed to meet Packard’s Eight Hidden Needs — Emotional Security, Reassurance of Worth, Ego Gratification, Creative Outlets, Love Objects, Sense of Power, Sense of Roots, and Immortality. Our wellness offering integrates physical and psychological care to create lasting memories.
-      </p>
-
-      <p class="mb-4 justified-text">
-        Staff are trained in posture (mindset) and discipline (execution). Project leads and management own accountability for each guest touchpoint to ensure consistent, heartfelt delivery.
-      </p>
-
-      <h3 class="font-bold text-lg text-secondary-color mb-2">Fitness Components</h3>
-      <ul class="list-disc pl-5 mb-4">
-        <li>Cardiovascular Conditioning</li>
-        <li>Strength Training</li>
-        <li>Flexibility & Mobility</li>
-        <li>Balance & Coordination</li>
-        <li>Recovery & Nutrition</li>
-      </ul>
-    </div>
-  </details>
-
-<!-- (The next parts of the doctrine continue below — paste this block into your index and then send the next 150 lines when ready.) -->
-
-<script>
-  // Simple accordion icon rotation for all details on the page
-  document.addEventListener('DOMContentLoaded', function () {
-    const detailsList = Array.from(document.querySelectorAll('details'));
-    detailsList.forEach(details => {
-      const summary = details.querySelector('summary');
-      const icon = summary.querySelector('.accordion-icon');
-      // initialize icon state
-      if (details.hasAttribute('open')) icon.style.transform = 'rotate(180deg)';
-      // click handler toggles and closes siblings at same level
-      summary.addEventListener('click', function (e) {
-        // allow native toggle behavior to run first
-        setTimeout(() => {
-          // rotate this icon
-          if (details.hasAttribute('open')) {
-            if (icon) icon.style.transform = 'rotate(180deg)';
-          } else {
-            if (icon) icon.style.transform = 'rotate(0deg)';
-          }
-          // optionally close sibling details at same container level (keeps UI tidy)
-          const siblings = Array.from(details.parentElement.children).filter(c => c !== details && c.tagName.toLowerCase() === 'details');
-          siblings.forEach(s => {
-            s.removeAttribute('open');
-            const sIcon = s.querySelector('.accordion-icon');
-            if (sIcon) sIcon.style.transform = 'rotate(0deg)';
-          });
-        }, 10);
-      });
-    });
-  });
-</script>
-
-</main>
-<!-- Start Guest Models & Doctrine Section -->
-  <section id="guest-models" class="space-y-12">
-    
-    <!-- Hassan Choudhury Family & Heritage -->
-    <details class="bg-white rounded-lg shadow p-6">
-      <summary class="cursor-pointer text-2xl font-semibold text-secondary-color flex justify-between items-center">
-        Hassan Choudhury Family & Heritage <span class="icon transition-transform duration-300">▼</span>
-      </summary>
-      <div class="details-content mt-4 text-gray-700">
-
-        <!-- Heritage & Founding Narrative -->
-        <details class="bg-white border rounded-lg p-6 shadow transition-all duration-300 mb-6">
-          <summary class="flex justify-between items-center text-xl font-bold mb-4">
-            Heritage & Founding Narrative
-            <span class="accordion-icon">▼</span>
-          </summary>
-          <div class="text-gray-700">
-            <p class="mb-4 justified-text">
-              Alo Chaya’s roots are woven into a rich family legacy spanning generations:
+        <section id="heritage">
+            <h2 class="mt-6 mb-4">Hassan Choudhury Family & Heritage</h2>
+            <p class="mb-4 text-muted" style="text-align: center; max-width: 700px; margin: 0 auto 2rem auto;">
+                Alo Chaya’s roots are woven into a rich family legacy spanning generations.
             </p>
-            <ul class="list-disc pl-5 mb-4">
-              <li><strong>MM House (1995):</strong> Built by the founder; current family residence with chess-tiled courtyard & badminton court.</li>
-              <li><strong>Mahmud Tower (18 storeys):</strong> Constructed on the land of Fatima Mahal — originally established by the founder’s paternal grandmother & great-grandfather.</li>
-              <li><strong>The Daroga Lineage:</strong> Paternal great-grandfather (Daroga) with 12 children — acquirer of Fatima Mahal land & custodian of heritage values.</li>
-              <li><strong>Abdul Rashid Chowdhury Family:</strong> Direct ancestral line maintaining estate management & cultural continuity.</li>
-            </ul>
 
-            <!-- Heritage Image Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <p><strong>MM House (1995):</strong> Built by the founder; current family residence with chess-tiled courtyard & badminton court.</p>
+                    <p><strong>Mahmud Tower (18 storeys):</strong> Constructed on the land of Fatima Mahal — originally established by the founder’s paternal grandmother & great-grandfather.</p>
+                    <p><strong>The Daroga Lineage:</strong> Paternal great-grandfather (Daroga) with 12 children — acquirer of Fatima Mahal land & custodian of heritage values.</p>
+                    <p><strong>Abdul Rashid Chowdhury Family:</strong> Direct ancestral line maintaining estate management & cultural continuity.</p>
+                    <p class="mb-0"><strong>Project Lead:</strong> Sajid Hassan — third son of the founder, stewarding the strategic, operational, and intellectual vision for Alo Chaya.</p>
+                </div>
+            </div>
 
-              <div>
-                <a href="founders-grandfather-fatima-mahal-builder-owner.jpg" target="_blank">
-                  <img src="founders-grandfather-fatima-mahal-builder-owner.jpg" 
-                       alt="Founder’s paternal grandfather / great-grandfather – Fatima Mahal builder" 
-                       class="w-full rounded-lg mb-2">
-                </a>
-                <p class="text-sm text-gray-500 text-center">Fatima Mahal builder — paternal grandfather / great-grandfather.</p>
-              </div>
+            <div class="grid grid-3 mt-4">
+                <figure>
+                    <img src="founders-grandfather-fatima-mahal-builder-owner.jpg" alt="Fatima Mahal builder">
+                    <figcaption>Fatima Mahal builder — paternal grandfather / great-grandfather.</figcaption>
+                </figure>
+                <figure>
+                    <img src="grandfather-family-full.jpg" alt="Extended family portrait">
+                    <figcaption>The extended Hassan–Chowdhury lineage.</figcaption>
+                </figure>
+                <figure>
+                    <img src="darogas-twelve-children-with-their-spouses.jpg" alt="Daroga’s twelve children with spouses">
+                    <figcaption>The Daroga Lineage — twelve children and their spouses.</figcaption>
+                </figure>
+                <figure>
+                    <img src="mm-house.jpg" alt="MM House – built by the founder">
+                    <figcaption>MM House — built by the founder in 1995.</figcaption>
+                </figure>
+                <figure>
+                    <img src="mahmud-tower-replaced-fatima-mahal.jpg" alt="Mahmud Tower – modern structure on Fatima Mahal land">
+                    <figcaption>Mahmud Tower — honoring heritage roots on historic Fatima Mahal grounds.</figcaption>
+                </figure>
+                <figure>
+                    <img src="sajid-hassan-founders-third-son-project-lead-author.jpg" alt="Sajid Hassan – Project Lead">
+                    <figcaption>Sajid Hassan — third son & Project Lead.</figcaption>
+                </figure>
+            </div>
+        </section>
 
-              <div>
-                <a href="grandfather-family-full.jpg" target="_blank">
-                  <img src="grandfather-family-full.jpg" 
-                       alt="Extended family portrait including Project Lead Sajid Hassan’s father, uncles, aunts, and grandmother" 
-                       class="w-full rounded-lg mb-4 shadow-md hover:shadow-lg transition-shadow duration-300">
-                </a>
-                <p class="text-sm italic text-gray-600 text-center">The extended Hassan–Chowdhury lineage — a glimpse into the heritage that inspires Alo Chaya.</p>
-              </div>
+        <section id="doctrine">
+            <h2 class="mt-6 mb-4">Doctrine & Guest Philosophy</h2>
+            <p class="mb-4 text-muted" style="text-align: center; max-width: 700px; margin: 0 auto 2rem auto;">
+                Our experience is governed by a tripartite model — <em>Doctrine, Guest Promise, and Balance Scorecard</em> — uniting Islamic ethics, hospitality science, and human capital theory.
+            </p>
 
-              <div>
-                <a href="darogas-twelve-children-with-their-spouses.jpg" target="_blank">
-                  <img src="darogas-twelve-children-with-their-spouses.jpg" 
-                       alt="Daroga’s twelve children with spouses" 
-                       class="w-full rounded-lg mb-2">
-                </a>
-                <p class="text-sm text-gray-500 text-center">The Daroga Lineage — twelve children and their spouses forming the foundational branches.</p>
-              </div>
+            <div class="card">
+                <div class="card-body">
+                    <h3>Doctrine of Light and Tranquility</h3>
+                    <p>Every guest is a custodian of peace (<em>sakeenah</em>) — our staff serve as its facilitators.</p>
 
-              <div>
-                <a href="mm-house.jpg" target="_blank">
-                  <img src="mm-house.jpg" alt="MM House – built by the founder" class="w-full rounded-lg mb-2">
-                </a>
-                <p class="text-sm text-gray-500 text-center">MM House — built by the founder in 1995 and still the family home.</p>
-              </div>
+                    <h3>Al-Ameen Balance Scorecard</h3>
+                    <p>Integrates financial, customer, internal, and spiritual axes for long-term sustainability.</p>
 
-              <div>
-                <a href="mahmud-tower-replaced-fatima-mahal.jpg" target="_blank">
-                  <img src="mahmud-tower-replaced-fatima-mahal.jpg" 
-                       alt="Mahmud Tower – modern structure on Fatima Mahal land" 
-                       class="w-full rounded-lg mb-2">
-                </a>
-                <p class="text-sm text-gray-500 text-center">Mahmud Tower — modern structure honoring heritage roots on historic Fatima Mahal grounds.</p>
-              </div>
+                    <h3 class="mt-4">The 7-P Guest Promise</h3>
+                    <p>Our guest experience pyramid aligns with global luxury benchmarks, anchored in Bangladeshi hospitality warmth:</p>
+                    <ol>
+                        <li><strong>Presence:</strong> Immediate warmth through authentic welcome rituals.</li>
+                        <li><strong>Precision:</strong> Attentive service timing & personalization.</li>
+                        <li><strong>Privacy:</strong> Respect for guest space & confidentiality.</li>
+                        <li><strong>Purity:</strong> Halal certified culinary & ethical operations.</li>
+                        <li><strong>Poise:</strong> Calm demeanor across staff conduct under pressure.</li>
+                        <li><strong>Performance:</strong> Consistency of service delivery benchmarked against elite standards.</li>
+                        <li><strong>Providence:</strong> Spiritual and environmental responsibility for community good.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        
+        <section id="wellness">
+            <h2 class="mt-6 mb-4">Psychological Architecture & Wellness</h2>
+            <p class="mb-4 text-muted" style="text-align: center; max-width: 700px; margin: 0 auto 2rem auto;">
+                The Alo Chaya guest journey is intentionally designed to meet Packard’s Eight Hidden Needs.
+            </p>
+            
+            <div class="card">
+                <div class="card-body">
+                    <p><strong>Our Design Philosophy:</strong> We meet Emotional Security, Reassurance of Worth, Ego Gratification, Creative Outlets, Love Objects, Sense of Power, Sense of Roots, and Immortality. Our wellness offering integrates physical and psychological care to create lasting memories.</p>
 
-              <div>
-                <a href="sajid-hassan-founders-third-son-project-lead-author.jpg" target="_blank">
-                  <img src="sajid-hassan-founders-third-son-project-lead-author.jpg" 
-                       alt="Sajid Hassan – Project Lead and third son of the founder" 
-                       class="w-full rounded-lg mb-2">
-                </a>
-                <p class="text-sm text-gray-500 text-center">Sajid Hassan — third son & Project Lead, stewarding Alo Chaya’s vision & guest philosophy.</p>
-              </div>
+                    <h3 class="mt-4">Fitness Components</h3>
+                    <ul>
+                        <li>Cardiovascular Conditioning</li>
+                        <li>Strength Training</li>
+                        <li>Flexibility & Mobility</li>
+                        <li>Balance & Coordination</li>
+                        <li>Recovery & Nutrition</li>
+                    </ul>
 
-            </div><!-- end grid -->
-          </div>
-        </details><!-- end Heritage Narrative -->
-      </div>
-    </details><!-- end Family & Heritage -->
+                    <h3 class="mt-4">Wellness Programs & Personal Development</h3>
+                    <p>Explore each resource:</p>
+                    <ul>
+                        <li><a href="https" target="_blank">Big Five Aspects Personality Insights</a> — track your personal growth.</li>
+                        <li><a href="https" target="_blank">Facebook Video: Lifestyle & Wellness Demonstration</a></li>
+                        <li><a href="https" target="_blank">Sajid Hassan Publications on Amazon</a> — learn the intellectual foundation.</li>
+                        <li><a href="https" target="_blank">Facebook Photo: Guest Experience Highlights</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-    <!-- Doctrine / Guest Philosophy -->
-    <details class="bg-white rounded-lg shadow p-6">
-      <summary class="cursor-pointer text-2xl font-semibold text-secondary-color flex justify-between items-center">
-        Doctrine & Guest Philosophy <span class="icon transition-transform duration-300">▼</span>
-      </summary>
-      <div class="mt-4 text-gray-700 space-y-4">
-        <p>
-          The Alo Chaya experience is governed by a tripartite model — <em>Doctrine, Guest Promise, and Balance Scorecard</em> — uniting 
-          Islamic ethics, hospitality science, and human capital theory. 
+        <section id="gallery">
+            <h2 class="mt-6 mb-4">Gallery</h2>
+            <p class="mb-4 text-muted" style="text-align: center; max-width: 700px; margin: 0 auto 2rem auto;">
+                Every visual reflects our commitment to curated, high-touch experiences.
+            </p>
+            
+            <div class="grid grid-2">
+                <figure>
+                    <img src="alo-chaya-60000sqf-overview.jpg" alt="60,000 sq ft Main Facility Overview">
+                    <figcaption>Overview of Alo Chaya's main 60,000 sq ft riverine facility.</figcaption>
+                </figure>
+                <figure>
+                    <img src="alo-chaya-architecture-map.jpg" alt="Architectural Map">
+                    <figcaption>Detailed architecture map highlighting layout and guest circulation.</figcaption>
+                </figure>
+                <figure>
+                    <video controls poster="family-suite.jpg">
+                        <source src="family-suite.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Family Suite walkthrough showing room setup and amenities.</figcaption>
+                </figure>
+                <figure>
+                    <video controls poster="family-suite.jpg">
+                        <source src="family-suite-room-right.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Alternate view of the Family Suite with detailed room layout.</figcaption>
+                </figure>
+                <figure>
+                    <video controls poster="night-view.jpg">
+                        <source src="early-morning-view.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Early morning sunrise over the river and estate gardens.</figcaption>
+                </figure>
+                <figure>
+                    <video controls poster="night-view.jpg">
+                        <source src="fourth-floor-spaces.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Fourth-floor guest areas and private corridors walkthrough.</figcaption>
+                </figure>
+                <figure>
+                    <video controls poster="night-view.jpg">
+                        <source src="night-view.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Night view of Alo Chaya, emphasizing lighting and ambiance.</figcaption>
+                </figure>
+                <figure>
+                    <video controls poster="third-floor-room-1.jpg">
+                        <source src="third-floor-room-1.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Third-floor room experience, highlighting spatial layout.</figcaption>
+                </figure>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer class="site-footer" id="booking">
+        <p>Ghuraba Al Manara (The Lighthouse) | Heritage & Doctrine</p>
+        <p class="small" style="margin-top: 1rem;">
+            <strong>Phone / WhatsApp:</strong> <a href="https://wa.me/8801327379392" target="_blank" style="color: var(--text-muted);">+8801327379392</a>
+            | <strong>Email:</strong> <a href="mailto:alochayariverine.info@gmail.com" style="color: var(--text-muted);">alochayariverine.info@gmail.com</a>
         </p>
-        <ul class="list-disc pl-5">
-          <li><strong>Doctrine of Light and Tranquility:</strong> Every guest is a custodian of peace (&nbsp;<em>sakeenah</em>&nbsp;) — our staff serve as its facilitators.</li>
-          <li><strong>Al-Ameen Balance Scorecard:</strong> Integrates financial, customer, internal, and spiritual axes for long-term sustainability.</li>
-          <li><strong>Ghuraba Codex:</strong> The ethical code of Alo Chaya team members — integrity, discretion, and service before self.</li>
-        </ul>
-      </div>
-    </details>
+    </footer>
 
-    <!-- Guest Promise Framework -->
-    <details class="bg-white rounded-lg shadow p-6">
-      <summary class="cursor-pointer text-2xl font-semibold text-secondary-color flex justify-between items-center">
-        The 7-P Guest Promise <span class="icon transition-transform duration-300">▼</span>
-      </summary>
-      <div class="mt-4 text-gray-700">
-        <p class="mb-4">
-          Our guest experience pyramid aligns with global luxury benchmarks inspired by Forte & Bellizzi frameworks, anchored in Bangladeshi hospitality warmth:
-        </p>
-        <ol class="list-decimal pl-5 space-y-1">
-          <li><strong>Presence:</strong> Immediate warmth through authentic welcome rituals.</li>
-          <li><strong>Precision:</strong> Attentive service timing & personalization.</li>
-          <li><strong>Privacy:</strong> Respect for guest space & confidentiality.</li>
-          <li><strong>Purity:</strong> Halal certified culinary & ethical operations.</li>
-          <li><strong>Poise:</strong> Calm demeanor across staff conduct under pressure.</li>
-          <li><strong>Performance:</strong> Consistency of service delivery benchmarked against elite standards.</li>
-          <li><strong>Providence:</strong> Spiritual and environmental responsibility for community good.</li>
-        </ol>
-      </div>
-    </details>
-
-    <!-- Future Integration Section -->
-    <details class="bg-white rounded-lg shadow p-6">
-      <summary class="cursor-pointer text-2xl font-semibold text-secondary-color flex justify-between items-center">
-        Managerial Integration & Foresight <span class="icon transition-transform duration-300">▼</span>
-      </summary>
-      <div class="mt-4 text-gray-700">
-        <p>
-          The next phase of Alo Chaya will merge its HR, Marketing, and Leadership models into an interactive managerial portal mirroring our Guest-Facing site. 
-          Each tab will reflect key metrics of the Al-Ameen Balance Scorecard and Ghuraba Codex.
-        </p>
-        <p class="italic mt-2 text-sm">
-          “Heritage preserved through doctrine; service perfected through balance.” — Alo Chaya Executive Vision.
-        </p>
-      </div>
-    </details>
-
-  </section><!-- End Guest Models Section -->
-</main>
-  <!-- Wellness & Guest IP Integration -->
-<details class="bg-white border rounded-lg p-6 shadow transition-all duration-300">
-  <summary class="flex justify-between items-center text-xl font-bold mb-4">
-    Wellness Programs & Personal Development
-    <span class="accordion-icon">▼</span>
-  </summary>
-  <div class="text-gray-700">
-    <p class="mb-4 justified-text">
-      Alo Chaya integrates guest intellectual and wellness development into the stay. Click to explore each resource:
-    </p>
-    <ul class="list-disc pl-5 space-y-2 mb-4">
-      <li><a href="https://bigfiveaspects.com/" target="_blank" class="text-blue-600 hover:underline">Big Five Aspects Personality Insights</a> — track your personal growth and wellness alignment.</li>
-      <li><a href="https://www.facebook.com/watch/?v=3205338596428844&surface_type=vod&referral_source=vod_deeplink_unit" target="_blank" class="text-blue-600 hover:underline">Facebook Video: Lifestyle & Wellness Demonstration</a></li>
-      <li><a href="https://www.amazon.com/s?k=sajid+hassan&rh=n%3A133140011&crid=2E1W9090QBML6&sprefix=sajid+hassan+%2Cdigital-text%2C422&ref=nb_sb_noss" target="_blank" class="text-blue-600 hover:underline">Sajid Hassan Publications on Amazon</a> — learn the intellectual foundation behind Alo Chaya’s philosophy.</li>
-      <li><a href="https://www.facebook.com/photo.php?fbid=1258669435963579" target="_blank" class="text-blue-600 hover:underline">Facebook Photo: Guest Experience Highlights</a></li>
-    </ul>
-  </div>
-</details>
-
-<!-- Multimedia Experiences -->
-<details class="bg-white border rounded-lg p-6 shadow transition-all duration-300">
-  <summary class="flex justify-between items-center text-xl font-bold mb-4">
-    Photo & Video Gallery
-    <span class="accordion-icon">▼</span>
-  </summary>
-  <div class="text-gray-700">
-    <p class="mb-4 justified-text">
-      Every visual reflects our commitment to curated, high-touch experiences. Videos showcase our rooms, views, and guest journey.
-    </p>
-
-    <!-- Image & Video Thumbnails -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div>
-        <img src="alo-chaya-60000sqf-overview.jpg" alt="60,000 sq ft Main Facility Overview" class="w-full rounded-lg mb-4">
-        <p class="text-sm text-gray-500">Overview of Alo Chaya's main riverine facility, showcasing space and heritage architecture.</p>
-      </div>
-      <div>
-        <img src="alo-chaya-architecture-map.jpg" alt="Architectural Map" class="w-full rounded-lg mb-4">
-        <p class="text-sm text-gray-500">Detailed architecture map highlighting layout and guest circulation.</p>
-      </div>
-      <div>
-        <video controls class="w-full rounded-lg mb-4">
-          <source src="family-suite.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p class="text-sm text-gray-500">Family Suite walkthrough showing room setup and amenities.</p>
-      </div>
-      <div>
-        <video controls class="w-full rounded-lg mb-4">
-          <source src="family-suite-room-right.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p class="text-sm text-gray-500">Alternate view of the Family Suite with detailed room layout.</p>
-      </div>
-      <div>
-        <video controls class="w-full rounded-lg mb-4">
-          <source src="early-morning-view.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p class="text-sm text-gray-500">Early morning sunrise over the river and estate gardens.</p>
-      </div>
-      <div>
-        <video controls class="w-full rounded-lg mb-4">
-          <source src="fourth-floor-spaces.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p class="text-sm text-gray-500">Fourth-floor guest areas and private corridors walkthrough.</p>
-      </div>
-      <div>
-        <video controls class="w-full rounded-lg mb-4">
-          <source src="night-view.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p class="text-sm text-gray-500">Night view of Alo Chaya, emphasizing lighting and ambiance.</p>
-      </div>
-      <div>
-        <video controls class="w-full rounded-lg mb-4">
-          <source src="third-floor-room-1.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p class="text-sm text-gray-500">Third-floor room experience, highlighting spatial layout and furnishings.</p>
-      </div>
-    </div>
-  </div>
-</details>
-
-<script>
-  // Select all details elements for accordion functionality
-  const accordions = document.querySelectorAll('details');
-
-  accordions.forEach((section) => {
-    const summary = section.querySelector('summary');
-    const icon = summary.querySelector('.accordion-icon, .icon');
-
-    summary.addEventListener('click', (e) => {
-      e.preventDefault();
-
-      const isOpen = section.hasAttribute('open');
-
-      // Close all sibling accordions at the same level
-      const siblings = Array.from(section.parentNode.children)
-        .filter((el) => el.tagName.toLowerCase() === 'details' && el !== section);
-
-      siblings.forEach((s) => {
-        s.removeAttribute('open');
-        const sIcon = s.querySelector('.accordion-icon, .icon');
-        if (sIcon) sIcon.style.transform = 'rotate(0deg)';
-      });
-
-      // Open clicked accordion if it was previously closed
-      if (!isOpen) {
-        section.setAttribute('open', '');
-        if (icon) icon.style.transform = 'rotate(180deg)';
-      } else {
-        if (icon) icon.style.transform = 'rotate(0deg)';
-      }
-    });
-  });
-</script>
-
-<!-- Booking & Contact Section -->
-<footer class="booking-section mt-8 p-6 bg-secondary-color text-white rounded-lg text-center" id="booking">
-  <h2 class="text-2xl font-bold mb-4">Book Your Stay</h2>
-  <p class="mb-4 justified-text">
-    Experience Alo Chaya’s heritage, wellness programs, and curated guest journey. Contact our reservations team for planning your perfect escape.
-  </p>
-  <p class="mb-2"><strong>Phone / WhatsApp:</strong> <a href="https://wa.me/8801327379392" target="_blank" class="underline">+8801327379392</a> (please message first, we will call back)</p>
-  <p class="mb-4"><strong>Email:</strong> <a href="mailto:alochayariverine.info@gmail.com" class="underline">alochayariverine.info@gmail.com</a></p>
-  <a href="tel:+8801327379392" class="inline-block mt-2 px-6 py-3 bg-green-800 hover:bg-green-700 rounded-md font-semibold transition-colors">Call to Book Now</a>
-</footer>
-
-</main>
 </body>
 </html>
