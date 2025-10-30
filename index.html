@@ -5,89 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ghuraba Al Manara (The Lighthouse) - Central HUD</title>
     
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="styles.css"> 
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
-    <style>
-        /* Style for clickable navigation cards */
-        .card-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            height: 100%;
-            transition: all 0.2s ease-in-out;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(2,6,23,0.1);
-            border-color: var(--primary-color, #064e3b);
-        }
-
-        /* Style for the new Language Tab */
-        .lang-switch {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-        }
-        .lang-switch select {
-            padding: 0.5rem;
-            border-radius: 8px;
-            border: 1px solid var(--muted, #94a3b8);
-            background: var(--card-bg, #ffffff);
-            font-weight: 600;
-        }
-        
-        /* Style for the new Submission Form */
-        .form-card {
-            background: var(--card-bg, #ffffff);
-            border-radius: 12px;
-            box-shadow: 0 8px 28px rgba(2,6,23,0.06);
-            padding: 1.5rem;
-            max-width: 800px; /* Make form narrower */
-            margin: 2.5rem auto; /* Center the form */
-        }
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--secondary-color, #1e3a8a);
-        }
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border-radius: 8px;
-            border: 1px solid var(--muted, #94a3b8);
-            font-family: inherit;
-            font-size: 1rem;
-        }
-        .form-group textarea {
-            min-height: 120px;
-        }
-        /* Using your .cta-btn class for the submit button */
-        .submit-btn {
-            background: var(--primary-color, #064e3b);
-            color: #fff;
-            padding: .75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-block;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-        .submit-btn:hover {
-            background: var(--secondary-color, #1e3a8a);
-        }
-    </style>
 </head>
 <body>
 
@@ -102,6 +24,23 @@
         <div class="container">
             <h1>Ghuraba Al Manara (The Lighthouse)</h1>
             <p class="lead">Central Hub for Doctrine, Operations, and Recruitment.</p>
+            
+            <nav class="main-nav">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="landing.html">Landing</a></li>
+                <li><a href="about-heritage.html">About & Heritage</a></li>
+                <li><a href="doctrine.html">Doctrine</a></li>
+                <li><a href="models.html">Models</a></li>
+                <li><a href="acem-score.html">ACEM Score</a></li>
+                <li><a href="management-leadership.html">Management</a></li>
+                <li><a href="hr-management.html">HR (Harmony)</a></li>
+                <li><a href="operations.html">Operations (Efficiency)</a></li>
+                <li><a href="gourmet-alliances.html">Gourmet (Innovation)</a></li>
+                <li><a href="marketing-branding.html">Marketing (Presence)</a></li>
+                <li><a href="investment.html">Finance (Provision)</a></li>
+              </ul>
+            </nav>
         </div>
     </header>
 
@@ -109,11 +48,29 @@
 
         <h2 class="mt-6 mb-4">The Ghuraba Codex (Architectural Hub)</h2>
         <p class="mb-4">
-            Select a file to review the verified doctrines that govern the Guild. The first three files are interactive.
+            Select a file to review the verified doctrines that govern the Guild.
         </p>
 
         <div class="grid grid-3">
 
+            <a href="doctrine.html" class="card-link">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Guiding Charter (Doctrine)</h3>
+                        <p class="small">The core manifesto, leadership frameworks, and psychological models.</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="acem-score.html" class="card-link">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>The ACEM Objective Standard</h3>
+                        <p class="small">The "Engine of Merit" explaining the Audit, Codify, Execute, Maintain process.</p>
+                    </div>
+                </div>
+            </a>
+            
             <a href="management-leadership.html" class="card-link">
                 <div class="card">
                     <div class="card-body">
@@ -127,7 +84,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h3>HR (Bureau of Harmony)</h3>
-                        <p class="small">Interactive HR doctrines, including the Moral Auditor, ACEM Purity, and Trainee Specialist (Dan Lok).</p>
+                        <p class="small">Interactive HR doctrines, including the Moral Auditor and ACEM Purity.</p>
                     </div>
                 </div>
             </a>
@@ -141,80 +98,84 @@
                 </div>
             </a>
             
-            <a href="cpm.html" class="card-link">
-                <div class="card" style="border-style: dashed; border-color: var(--danger);">
+            <a href="marketing-branding.html" class="card-link">
+                <div class="card">
                     <div class="card-body">
-                        <h3 class="text-danger">Marketing & CPM (BROKEN)</h3>
-                        <p class="small">The Moral Marketing Mandate and the ACEM Feedback Loop. (Needs CSS fix).</p>
+                        <h3>Marketing (Bureau of Presence)</h3>
+                        <p class="small">The Moral Marketing Mandate and the "Common Heart" 7Ps strategy.</p>
                     </div>
                 </div>
             </a>
 
             <a href="investment.html" class="card-link">
-                <div class="card" style="border-style: dashed; border-color: var(--danger);">
+                <div class="card">
                     <div class="card-body">
-                        <h3 class="text-danger">Financials (BROKEN)</h3>
-                        <p class="small">The 5-Year Projections, No Debt Mandate, and 88k Dignity Wage. (Needs CSS fix).</p>
+                        <h3>Financials (Bureau of Provision)</h3>
+                        <p class="small">The 5-Year Projections, No Debt Mandate, and 88k Dignity Wage.</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="gourmet-alliances.html" class="card-link">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Gourmet (Bureau of Innovation)</h3>
+                        <p class="small">The "Path of Ingenuity," Culinary R&D, and Guild Diplomacy.</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="about-heritage.html" class="card-link">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>About & Heritage</h3>
+                        <p class="small">The Hassan Choudhury family legacy and "Alo Chaya" story.</p>
                     </div>
                 </div>
             </a>
 
-            <a href="landing.html" class="card-link">
-                <div class="card" style="border-style: dashed; border-color: var(--danger);">
-                    <div class="card-body">
-                        <h3 class="text-danger">Landing Page (BROKEN)</h3>
-                        <p class="small">The public-facing guest portal. (Needs CSS fix).</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="models.html" class="card-link">
-                <div class="card" style="border-style: dashed; border-color: var(--danger);">
-                    <div class="card-body">
-                        <h3 class="text-danger">Models (BROKEN)</h3>
-                        <p class="small">Core theoretical models. (Needs CSS fix).</p>
-                    </div>
-                </div>
-            </a>
-
-        </div> <section id="apply-form">
-            <div class="form-card">
-                <h2 class="mb-4">Join the Guild (Trainee Specialist Application)</h2>
+        </div>
+        
+        <section id="apply-form">
+            <div class="card form-card">
+              <div class="card-body">
+                <h2 class="mb-4" style="margin-top: 0;">Join the Guild (Trainee Specialist Application)</h2>
                 <p class="mb-4">
-                    As per the **ACEM Purity Mandate**, we will not test you on irrelevant knowledge (like geometry). Your assessment will be 100% relevant to the role you apply for. We do not hire "interns"; we hire paid, dignified **Trainee Specialists (Dan Lok)**.
+                    As per the <strong>ACEM Purity Mandate</strong>, we will not test you on irrelevant knowledge (like geometry). Your assessment will be 100% relevant to the role you apply for. We do not hire "interns"; we hire paid, dignified <strong>Trainee Specialists (Dan Lok)</strong>.
                 </p>
     
                 <form action="#" method="POST">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
+                    <label>
+                        Full Name
                         <input type="text" id="name" name="name" required>
-                    </div>
+                    </label>
                     
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
+                    <label>
+                        Email Address
                         <input type="email" id="email" name="email" required>
-                    </div>
+                    </label>
     
-                    <div class="form-group">
-                        <label for="role">Role Applying For</label>
+                    <label>
+                        Role Applying For
                         <select id="role" name="role" required>
                             <option value="">Select a Trainee Position...</option>
                             <option value="trainee_ops">Trainee Specialist (Operations - Bureau of Efficiency)</option>
                             <option value="trainee_hr">Trainee Specialist (HR - Bureau of Harmony)</option>
-                            <option value="trainee_cpm">Trainee Specialist (Marketing - Bureau of Clarity)</option>
+                            <option value="trainee_cpm">Trainee Specialist (Marketing - Bureau of Presence)</option>
                             <option value="trainee_fin">Trainee Specialist (Finance - Bureau of Provision)</option>
                         </select>
-                    </div>
+                    </label>
     
-                    <div class="form-group">
-                        <label for="why">State Your "Why" (Your Motivation)</label>
+                    <label>
+                        State Your "Why" (Your Motivation)
                         <textarea id="why" name="why" placeholder="In line with the Why Mirror, please state your motivation for joining the Guild." required></textarea>
-                    </div>
+                    </label>
     
-                    <div class="form-group">
-                        <button type="submit" class="submit-btn">Submit Application</button>
+                    <div>
+                        <button type="submit" class="btn btn-primary">Submit Application</button>
                     </div>
                 </form>
+              </div>
             </div>
         </section>
 
