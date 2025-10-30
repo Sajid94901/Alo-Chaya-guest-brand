@@ -331,3 +331,50 @@ figure figcaption {
   border-color: var(--primary-color);
   box-shadow: 0 8px 28px rgba(2,6,23,0.12);
 }
+
+.grid-auto {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.brand-pyramid {
+  max-width: 600px;
+  margin: 1rem auto 0 auto;
+  text-align: center;
+}
+.brand-pyramid-tier {
+  padding: 1rem 1.5rem;
+  color: var(--text-color);
+}
+.brand-pyramid-tier h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.brand-pyramid-tier p {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+.brand-pyramid-tier-5 {
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 8px 8px 0 0;
+}
+.brand-pyramid-tier-5 h4 { color: white; }
+.brand-pyramid-tier-5 p { color: #d1fae5; }
+
+.brand-pyramid-tier-4 {
+  background-color: var(--accent-color);
+}
+.brand-pyramid-tier-3 {
+  background-color: #fde68a;
+}
+.brand-pyramid-tier-2 {
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+}
+.brand-pyramid-tier-1 {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+}
