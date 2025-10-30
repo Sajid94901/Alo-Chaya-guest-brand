@@ -1,292 +1,220 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Alo Chaya - Strategic Models & Frameworks</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Ghuraba Al Manara - Strategic Models & Frameworks</title>
+  
+  <link rel="stylesheet" href="styles.css">
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <meta name="description" content="Psychological architecture, brand models and wellness frameworks that inform Alo Chaya's guest experience." />
-  <style>
-    :root { --primary-color:#064e3b; --secondary-color:#1e3a8a; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; background:#f8fafc; color:#0f172a; }
-    .justified-text { text-align:justify; }
-    details summary { cursor:pointer; }
-    .accordion-icon { transition:transform .28s ease; }
-  </style>
-</head><body class="antialiased"><!-- NAV --><nav class="bg-white/90 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-md">
-  <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-    <a href="index.html" class="text-2xl font-bold text-green-800">Alo Chaya</a>
-    <div class="flex items-center space-x-6">
-      <a href="index.html" class="text-gray-700 hover:text-green-800 font-semibold">Home</a>
-      <a href="doctrine.html" class="text-gray-700 hover:text-green-800 font-semibold">Doctrine</a>
-      <a href="index.html#booking" class="bg-green-800 text-white px-4 py-2 rounded-md font-semibold hover:bg-green-700 transition-colors">Book Now</a>
-    </div>
-  </div>
-</nav><main class="container mx-auto max-w-5xl pt-28 px-4 pb-16">
-  <header class="text-center mb-12">
-    <h1 class="text-3xl font-extrabold text-primary-color">Strategic Models & Frameworks</h1>
-    <p class="text-lg text-gray-600 mt-2">The intellectual architecture and applied frameworks that deliver Alo Chaya’s guest experience.</p>
-  </header>  <!-- Single Alpine root for all accordions -->  <div x-data="{ openSection: null, openTooltip: null }" class="space-y-6"><!-- 1: Psychological Architecture -->
-<section class="bg-white border rounded-lg shadow p-6">
-  <div class="flex justify-between items-start">
-    <h2 class="text-xl font-bold text-primary-color">Psychological Architecture</h2>
-    <button class="text-sm text-gray-500" @click="openSection = (openSection === 1 ? null : 1)">
-      <span x-show="openSection !== 1">Open ▼</span>
-      <span x-show="openSection === 1">Close ▲</span>
-    </button>
-  </div>
 
-  <div x-show="openSection === 1" x-collapse class="mt-4 text-gray-700">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div>
-        <h3 class="font-semibold text-secondary-color">Guest Journey (Packard’s 8 Hidden Needs)</h3>
-        <ul class="list-disc pl-5 mt-3 justified-text space-y-2 text-sm">
-          <li><strong>Emotional Security:</strong> A safe, serene, family-run heritage estate.</li>
-          <li><strong>Reassurance of Worth:</strong> Attentive, personalized service that values each guest.</li>
-          <li><strong>Ego Gratification:</strong> Sophisticated service that affirms guest status.</li>
-          <li><strong>Creative Outlets:</strong> Cultural workshops, story-telling, culinary labs.</li>
-          <li><strong>Love Objects:</strong> Family rituals & spaces that foster bonding.</li>
-          <li><strong>Sense of Power:</strong> Wellness programs that return agency to guests.</li>
-          <li><strong>Sense of Roots:</strong> Heritage storytelling anchored to the Hassan–Chowdhury lineage.</li>
-          <li><strong>Immortality:</strong> Memory-making that feeds inter-generational narratives.</li>
+  <meta name="description" content="Psychological architecture, brand models and wellness frameworks that inform the Ghuraba Archipelago experience." />
+
+</head>
+<body>
+
+  <header class="hero">
+    <div class="container">
+      <h1>Strategic Models & Frameworks</h1>
+      <p class="lead">The intellectual architecture and applied frameworks for the Ghuraba Archipelago.</p>
+      
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="landing.html">Landing</a></li>
+          <li><a href="about-heritage.html">About & Heritage</a></li>
+          <li><a href="hr-management.html">HR Management</a></li>
+          <li><a href="management-leadership.html">Management & Leadership</a></li>
+          <li><a href="operations.html">Operations</a></li>
+          <li><a href="gourmet-alliances.html">Gourmet Alliances</a></li>
+          <li><a href="marketing-branding.html">Marketing & Branding</a></li>
+          <li><a href="doctrine.html">Doctrine</a></li>
+          <li><a href="models.html">Models</a></li>
         </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="grid" style="gap: 1.5rem; max-width: 900px; margin: 2rem auto;" x-data="{ openSection: null }">
+
+      <div class="card">
+        <div class="card-body">
+          <button class="accordion-toggle" @click="openSection = (openSection === 1 ? null : 1)">
+            <h3>Psychological Architecture</h3>
+            <span x-show="openSection !== 1">▼</span>
+            <span x-show="openSection === 1" style="display: none;">▲</span>
+          </button>
+
+          <div class="accordion-content" x-show="openSection === 1" x-transition>
+            <div class="grid grid-2">
+              <div>
+                <h4 style="color: var(--primary-color);">Guest Journey (Packard’s 8 Hidden Needs)</h4>
+                <ul class="text-justify small">
+                  <li><strong>Emotional Security:</strong> A safe, serene, family-run heritage estate.</li>
+                  <li><strong>Reassurance of Worth:</strong> Attentive, personalized service that values each guest.</li>
+                  <li><strong>Ego Gratification:</strong> Sophisticated service that affirms guest status.</li>
+                  <li><strong>Creative Outlets:</strong> Cultural workshops, story-telling, culinary labs.</li>
+                  <li><strong>Love Objects:</strong> Family rituals & spaces that foster bonding.</li>
+                  <li><strong>Sense of Power:</strong> Wellness programs that return agency to guests.</li>
+                  <li><strong>Sense of Roots:</strong> Heritage storytelling anchored to the Guild lineage.</li>
+                  <li><strong>Immortality:</strong> Memory-making that feeds inter-generational narratives.</li>
+                </ul>
+              </div>
+              <div>
+                <h4 style="color: var(--primary-color);">Employee Experience (Maslow-inspired)</h4>
+                <ul class="text-justify small">
+                  <li><strong>Physiological & Safety:</strong> Dignified payrolls, secure contracts.</li>
+                  <li><strong>Belonging:</strong> Team culture, mentorship, inclusive rituals.</li>
+                  <li><strong>Esteem:</strong> Recognition, certification, career ladders.</li>
+                  <li><strong>Cognitive & Aesthetic:</strong> Operational mastery (ACEM Score).</li>
+                  <li><strong>Self-actualization:</strong> Leadership development and legacy roles (Universalist).</li>
+                </ul>
+              </div>
+            </div>
+            <div class="card bg-light mt-4">
+              <div class="card-body">
+                <p class="small text-muted mb-0"><strong>Practical note:</strong> This section is internal-facing. Public pages must translate frameworks into simple guest promises (e.g., "We deliver a calm, family-first stay") rather than academic jargon.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div>
-        <h3 class="font-semibold text-secondary-color">Employee Experience (Maslow-inspired)</h3>
-        <ul class="list-disc pl-5 mt-3 justified-text space-y-2 text-sm">
-          <li><strong>Physiological & Safety:</strong> Dignified payrolls, secure contracts.</li>
-          <li><strong>Belonging:</strong> Team culture, mentorship, inclusive rituals.</li>
-          <li><strong>Esteem:</strong> Recognition, certification, career ladders.</li>
-          <li><strong>Cognitive & Aesthetic:</strong> Operational mastery through training academy.</li>
-          <li><strong>Self-actualization & Transcendence:</strong> Leadership development and legacy roles.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="mt-6 bg-gray-50 p-4 rounded">
-      <p class="text-sm text-gray-600">Practical note: This section is intentionally internal-facing: public pages should translate frameworks into simple guest promises (e.g., "We deliver a calm, family-first stay") rather than academic jargon.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 2: 7P Guest Promise -->
-<section class="bg-white border rounded-lg shadow p-6">
-  <div class="flex justify-between items-start">
-    <h2 class="text-xl font-bold text-primary-color">The 7P Guest Promise</h2>
-    <button class="text-sm text-gray-500" @click="openSection = (openSection === 2 ? null : 2)">
-      <span x-show="openSection !== 2">Open ▼</span>
-      <span x-show="openSection === 2">Close ▲</span>
-    </button>
-  </div>
-
-  <div x-show="openSection === 2" x-collapse class="mt-4 text-gray-700">
-    <ul class="list-disc pl-5 space-y-2 justified-text">
-      <li><strong>Product:</strong> 60,000 sq ft main facility, private lake, curated wellness programs.</li>
-      <li><strong>Price:</strong> Transparent premium ADR justified by experience design.</li>
-      <li><strong>Place:</strong> Riverine estate—private, accessible in ~2.5 hrs from Dhaka.</li>
-      <li><strong>Promotion:</strong> Story-led marketing; guest ambassadors over time.</li>
-      <li><strong>People:</strong> Dignified livelihoods, trained staff as brand ambassadors.</li>
-      <li><strong>Process:</strong> Seamless booking, arrival rituals, and personalized guest flows.</li>
-      <li><strong>Physical Evidence:</strong> Heritage architecture, curated furnishings, sensory consistency.</li>
-    </ul>
-  </div>
-</section>
-
-<!-- 3: Brand Personality (Aaker) -->
-<section class="bg-white border rounded-lg shadow p-6">
-  <div class="flex justify-between items-start">
-    <h2 class="text-xl font-bold text-primary-color">Brand Personality (Jennifer Aaker)</h2>
-    <button class="text-sm text-gray-500" @click="openSection = (openSection === 3 ? null : 3)">
-      <span x-show="openSection !== 3">Open ▼</span>
-      <span x-show="openSection === 3">Close ▲</span>
-    </button>
-  </div>
-
-  <div x-show="openSection === 3" x-collapse class="mt-4 text-gray-700">
-    <ul class="list-disc pl-5 space-y-2 justified-text">
-      <li><strong>Sincerity:</strong> Warm, family-first hospitality.</li>
-      <li><strong>Competence:</strong> Reliable, expert service delivery.</li>
-      <li><strong>Sophistication:</strong> Understated luxury and craft.</li>
-      <li><strong>Excitement:</strong> Curated creative and wellness programming.</li>
-      <li><strong>Ruggedness:</strong> Authentic connection to the riverine landscape.</li>
-    </ul>
-  </div>
-</section>
-
-<!-- 4: Keller Brand Pyramid -->
-<section class="bg-white border rounded-lg shadow p-6">
-  <div class="flex justify-between items-start">
-    <h2 class="text-xl font-bold text-primary-color">Guest Experience Pyramid (Keller)</h2>
-    <button class="text-sm text-gray-500" @click="openSection = (openSection === 4 ? null : 4)">
-      <span x-show="openSection !== 4">Open ▼</span>
-      <span x-show="openSection === 4">Close ▲</span>
-    </button>
-  </div>
-
-  <div x-show="openSection === 4" x-collapse class="mt-4 text-gray-700">
-    <ol class="list-decimal pl-5 space-y-2">
-      <li><strong>Awareness:</strong> Guests instantly sense heritage & calm.</li>
-      <li><strong>Meaning:</strong> Story-driven programming creates value.</li>
-      <li><strong>Response:</strong> Real-time service adjustments and monitoring.</li>
-      <li><strong>Resonance:</strong> Repeat guests & ambassadors through memorable rituals.</li>
-    </ol>
-
-    <div class="mt-4 bg-gray-50 p-4 rounded">
-      <h4 class="font-semibold">Implementation highlights</h4>
-      <ul class="list-disc pl-5 text-sm mt-2 text-gray-700">
-        <li>Operational dashboards map experience metrics to the pyramid layers.</li>
-        <li>Daily standups and post-stay reviews close the feedback loop.</li>
-        <li>Training modules map staff tasks to pyramid outcomes (awareness → resonance).</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- 5: Wellness Pyramid (Interactive) -->
-<section class="bg-white border rounded-lg shadow p-6">
-  <div class="flex justify-between items-start">
-    <h2 class="text-xl font-bold text-primary-color">Integrated Wellness Pyramid (Nafs → Qalb → Sirr → Ruh)</h2>
-    <button class="text-sm text-gray-500" @click="openSection = (openSection === 5 ? null : 5)">
-      <span x-show="openSection !== 5">Open ▼</span>
-      <span x-show="openSection === 5">Close ▲</span>
-    </button>
-  </div>
-
-  <div x-show="openSection === 5" x-collapse class="mt-4 text-gray-700">
-    <p class="text-sm mb-3">Click a tier to read practical activities and learning crosswalks.</p>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- Nafs -->
-      <div class="bg-gray-50 p-4 rounded">
-        <h4 class="font-semibold">Tier 1 — Nafs (Emotional & Occupational)</h4>
-        <ul class="list-disc pl-5 mt-3 text-sm space-y-1">
-          <li>Burnout avoidance, journaling, financial counselling referrals.</li>
-          <li>Workshops on daily planning & time-energy management.</li>
-        </ul>
+      <div class="card">
+        <div class="card-body">
+          <button class="accordion-toggle" @click="openSection = (openSection === 2 ? null : 2)">
+            <h3>The 7P Guest Promise</h3>
+            <span x-show="openSection !== 2">▼</span>
+            <span x-show="openSection === 2" style="display: none;">▲</span>
+          </button>
+          
+          <div class="accordion-content" x-show="openSection === 2" x-transition>
+            <ul class="text-justify">
+              <li><strong>Product:</strong> 60,000 sq ft main facility, private lake, curated wellness programs.</li>
+              <li><strong>Price:</strong> Transparent premium ADR justified by experience design.</li>
+              <li><strong>Place:</strong> Riverine estate—private, accessible in ~2.5 hrs from Dhaka.</li>
+              <li><strong>Promotion:</strong> Story-led marketing; guest ambassadors over time.</li>
+              <li><strong>People:</strong> Dignified livelihoods, trained staff (Specialists) as brand ambassadors.</li>
+              <li><strong>Process:</strong> Seamless booking, arrival rituals, and personalized guest flows.</li>
+              <li><strong>Physical Evidence:</strong> Heritage architecture, curated furnishings, sensory consistency.</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
-      <!-- Qalb -->
-      <div class="bg-gray-50 p-4 rounded">
-        <h4 class="font-semibold">Tier 2 — Qalb (Heart & Social)</h4>
-        <ul class="list-disc pl-5 mt-3 text-sm space-y-1">
-          <li>Group empathy exercises, family rituals, gratitude practice.</li>
-          <li>Peer mentoring and small-group conflict resolution drills.</li>
-        </ul>
+      <div class="card">
+        <div class="card-body">
+          <button class="accordion-toggle" @click="openSection = (openSection === 3 ? null : 3)">
+            <h3>Brand Personality (Jennifer Aaker)</h3>
+            <span x-show="openSection !== 3">▼</span>
+            <span x-show="openSection === 3" style="display: none;">▲</span>
+          </button>
+          
+          <div class="accordion-content" x-show="openSection === 3" x-transition>
+            <ul class="text-justify">
+              <li><strong>Sincerity:</strong> Warm, family-first hospitality.</li>
+              <li><strong>Competence:</strong> Reliable, expert service delivery (ACEM).</li>
+              <li><strong>Sophistication:</strong> Understated luxury and craft.</li>
+              <li><strong>Excitement:</strong> Curated creative and wellness programming.</li>
+              <li><strong>Ruggedness:</strong> Authentic connection to the riverine landscape.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <button class="accordion-toggle" @click="openSection = (openSection === 5 ? null : 5)">
+            <h3>Integrated Wellness Pyramid (Nafs → Qalb → Sirr → Ruh)</h3>
+            <span x-show="openSection !== 5">▼</span>
+            <span x-show="openSection === 5" style="display: none;">▲</span>
+          </button>
+          
+          <div class="accordion-content" x-show="openSection === 5" x-transition>
+            <p class="small mb-3">Activities and learning crosswalks for Specialists and Guests.</p>
+            <div class="grid grid-2">
+              <div class="card bg-light"><div class="card-body">
+                <h4 style="margin-top: 0;">Tier 1 — Nafs (Emotional & Occupational)</h4>
+                <ul class="small">
+                  <li>Burnout avoidance, journaling, financial counselling referrals.</li>
+                  <li>Workshops on daily planning & time-energy management.</li>
+                </ul>
+              </div></div>
+              <div class="card bg-light"><div class="card-body">
+                <h4 style="margin-top: 0;">Tier 2 — Qalb (Heart & Social)</h4>
+                <ul class="small">
+                  <li>Group empathy exercises, family rituals, gratitude practice.</li>
+                  <li>Peer mentoring and small-group conflict resolution drills.</li>
+                </ul>
+              </div></div>
+              <div class="card bg-light"><div class="card-body">
+                <h4 style="margin-top: 0;">Tier 3 — Sirr (Inner Reflection)</h4>
+                <ul class="small">
+                  <li>Guided solitude time, reflective prompts from Lighthouse Tales.</li>
+                  <li>Quiet corners and reading lists; micro-meditations.</li>
+                </ul>
+              </div></div>
+              <div class="card bg-light"><div class="card-body">
+                <h4 style="margin-top: 0;">Tier 4 — Ruh (Spiritual Foundation)</h4>
+                <ul class="small">
+                  <li>Tazkiyah practices, short guided dhikr, spiritual journaling.</li>
+                  <li>Optional Qur'anic reflection sessions and moral clarity prompts.</li>
+                </ul>
+              </div></div>
+            </div>
+            <p class="small text-muted mt-4">Framework crosswalks: Bloom, Dale, McClelland, Alderfer—all mapped to activities for measurable learning outcomes.</p>
+          </div>
+        </div>
       </div>
 
-      <!-- Sirr -->
-      <div class="bg-gray-50 p-4 rounded">
-        <h4 class="font-semibold">Tier 3 — Sirr (Inner Reflection)</h4>
-        <ul class="list-disc pl-5 mt-3 text-sm space-y-1">
-          <li>Guided solitude time, reflective prompts from Lighthouse Tales.</li>
-          <li>Quiet corners and reading lists; micro-meditations.</li>
-        </ul>
+      <div class="card">
+        <div class="card-body">
+          <button class="accordion-toggle" @click="openSection = (openSection === 6 ? null : 6)">
+            <h3>Multimedia — Quick Gallery</h3>
+            <span x-show="openSection !== 6">▼</span>
+            <span x-show="openSection === 6" style="display: none;">▲</span>
+          </button>
+          
+          <div class="accordion-content" x-show="openSection === 6" x-transition>
+            <div class="grid grid-2">
+              <figure>
+                <img src="alo-chaya-60000sqf-overview.jpg" alt="Alo Chaya Overview">
+                <figcaption>Main riverine facility overview.</figcaption>
+              </figure>
+              <figure>
+                <img src="alo-chaya-gazebo.webp" alt="Gazebo">
+                <figcaption>Gazebo by the lake.</figcaption>
+              </figure>
+              <figure>
+                <video controls poster="family-suite.jpg"><source src="family-suite.mp4" type="video/mp4"></video>
+                <figcaption>Family Suite Tour (Clip)</figcaption>
+              </figure>
+              <figure>
+                <video controls poster="night-view.jpg"><source src="early-morning-view.mp4" type="video/mp4"></video>
+                <figcaption>Early Morning View (Clip)</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Ruh -->
-      <div class="bg-gray-50 p-4 rounded">
-        <h4 class="font-semibold">Tier 4 — Ruh (Spiritual Foundation)</h4>
-        <ul class="list-disc pl-5 mt-3 text-sm space-y-1">
-          <li>Tazkiyah practices, short guided dhikr, spiritual journaling.</li>
-          <li>Optional Qur'anic reflection sessions and moral clarity prompts.</li>
-        </ul>
+      <div classs="card">
+        <div class="card-body" style="background-color: var(--primary-color); color: white; border-radius: 12px;">
+          <div class="text-center">
+            <h3 style="color: white;">Ready to implement?</h3>
+            <p style="color: #d1fae5;">Run a soft-launch with a curated guest cohort and measure against the Keller pyramid metrics.</p>
+            <p class="mb-0"><strong>Contact:</strong> <a href="mailto:alochayariverine.info@gmail.com" style="color: white; text-decoration: underline;">alochayariverine.info@gmail.com</a></p>
+          </div>
+        </div>
       </div>
+
     </div>
+  </main>
+  
+  <footer class="site-footer">
+    <p>Ghuraba Al Manara (The Lighthouse) | Strategic Models</p>
+  </footer>
 
-    <div class="mt-6 text-xs text-gray-600">Framework crosswalks: Bloom, Dale, McClelland, Alderfer — all mapped to activities for measurable learning outcomes.</div>
-  </div>
-</section>
-
-<!-- 6: Multimedia & Gallery (compact) -->
-<section class="bg-white border rounded-lg shadow p-6">
-  <div class="flex justify-between items-start">
-    <h2 class="text-xl font-bold text-primary-color">Multimedia — Quick Gallery</h2>
-    <button class="text-sm text-gray-500" @click="openSection = (openSection === 6 ? null : 6)">
-      <span x-show="openSection !== 6">Open ▼</span>
-      <span x-show="openSection === 6">Close ▲</span>
-    </button>
-  </div>
-
-  <div x-show="openSection === 6" x-collapse class="mt-4 text-gray-700">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <figure>
-        <img src="alo-chaya-60000sqf-overview.jpg" alt="Alo Chaya Overview" class="rounded-lg shadow">
-        <figcaption class="text-sm text-gray-600 mt-2">Main riverine facility overview.</figcaption>
-      </figure>
-      <figure>
-        <img src="alo-chaya-gazebo.webp" alt="Gazebo" class="rounded-lg shadow">
-        <figcaption class="text-sm text-gray-600 mt-2">Gazebo by the lake.</figcaption>
-      </figure>
-    </div>
-
-    <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-      <video controls class="rounded-lg"><source src="family-suite.mp4" type="video/mp4"></video>
-      <video controls class="rounded-lg"><source src="early-morning-view.mp4" type="video/mp4"></video>
-    </div>
-  </div>
-</section>
-
-<!-- 7: Alex Polizzi (Opera AI Mode) — simulated assessment & action list -->
-<section class="bg-white border rounded-lg shadow p-6">
-  <div class="flex justify-between items-start">
-    <h2 class="text-xl font-bold text-primary-color">Opera AI — "Alex Polizzi" Simulated Assessment</h2>
-    <button class="text-sm text-gray-500" @click="openSection = (openSection === 7 ? null : 7)">
-      <span x-show="openSection !== 7">Open ▼</span>
-      <span x-show="openSection === 7">Close ▲</span>
-    </button>
-  </div>
-
-  <div x-show="openSection === 7" x-collapse class="mt-4 text-gray-700">
-    <p class="mb-3">This simulated module summarizes likely practical feedback from Alex Polizzi-style expert advice (guest-first, practical, human).</p>
-    <ul class="list-disc pl-5 space-y-2 text-sm">
-      <li><strong>Praise:</strong> Authentic family story, loyal staff, and unique IP (Lighthouse Tales) — huge potential.</li>
-      <li><strong>Critique:</strong> Public-facing doctrine too academic; boil it down to short guest-facing promises.</li>
-      <li><strong>Actionable Fixes:</strong> Simplify website copy; create a 1-page staff "service bible" derived from doctrine; run guest walk-throughs weekly; declutter signage and sensory cues.</li>
-      <li><strong>Execution:</strong> Empower long-serving staff with decision-making templates (guest recovery, welcome rituals) rather than micromanagement.</li>
-    </ul>
-
-    <div class="mt-4 bg-gray-50 p-3 rounded text-sm text-gray-600">
-      <strong>How to use:</strong> copy these action items into an implementation sprint (30 / 60 / 90 days) and assign owners.
-    </div>
-  </div>
-</section>
-
-<!-- 8: Operations & Staffing snapshot (compact) -->
-<section class="bg-white border rounded-lg shadow p-6">
-  <div class="flex justify-between items-start">
-    <h2 class="text-xl font-bold text-primary-color">Operations snapshot</h2>
-    <button class="text-sm text-gray-500" @click="openSection = (openSection === 8 ? null : 8)">
-      <span x-show="openSection !== 8">Open ▼</span>
-      <span x-show="openSection === 8">Close ▲</span>
-    </button>
-  </div>
-
-  <div x-show="openSection === 8" x-collapse class="mt-4 text-gray-700">
-    <p class="text-sm">Suggested starter staffing (activation):</p>
-    <ul class="list-disc pl-5 text-sm mt-2">
-      <li>F&B: 12 kitchen staff + 4 supervisors</li>
-      <li>Housekeeping: 12 (rotating teams) + 4 floor leads</li>
-      <li>Front Office & Reservations: 3–4</li>
-      <li>Wellness & Activities: 2–3</li>
-      <li>Maintenance & Grounds: 2–3</li>
-    </ul>
-    <p class="mt-3 text-xs text-gray-600">These numbers align with unit economics in your investment model; adjust once occupancy stabilizes.</p>
-  </div>
-</section>
-
-<!-- Booking CTA -->
-<footer class="booking-section mt-8 p-6 bg-secondary-color text-white rounded-lg text-center">
-  <h3 class="text-2xl font-bold mb-2">Ready to pilot experience design?</h3>
-  <p class="mb-3">Run a soft-launch with a curated guest cohort and measure against the Keller pyramid metrics.</p>
-  <p class="mb-2"><strong>Phone / WhatsApp:</strong> <a href="https://wa.me/8801327379392" target="_blank" class="underline">+8801327379392</a></p>
-  <p><strong>Email:</strong> <a href="mailto:alochayariverine.info@gmail.com" class="underline">alochayariverine.info@gmail.com</a></p>
-</footer>
-
-  </div> <!-- end alpine root -->  <!-- small helper script for x-collapse polyfill when Alpine x-collapse not present -->  <script>
-    // If Alpine's x-collapse isn't available (older CDN), use simple show/hide fallback
-    document.addEventListener('alpine:init', () => { /* prefer Alpine's x-collapse if present */ });
-  </script></main></body>
-        </html>
+</body>
+</html>
