@@ -51,14 +51,10 @@
               <div>
                 <h4 style="color: var(--primary-color);">Guest Journey (Packard’s 8 Hidden Needs)</h4>
                 <ul class="text-justify small">
-                  <li><strong>Emotional Security:</strong> A safe, serene, family-run heritage estate.</li>
-                  <li><strong>Reassurance of Worth:</strong> Attentive, personalized service that values each guest.</li>
-                  <li><strong>Ego Gratification:</strong> Sophisticated service that affirms guest status.</li>
-                  <li><strong>Creative Outlets:</strong> Cultural workshops, story-telling, culinary labs.</li>
-                  <li><strong>Love Objects:</strong> Family rituals & spaces that foster bonding.</li>
-                  <li><strong>Sense of Power:</strong> Wellness programs that return agency to guests.</li>
-                  <li><strong>Sense of Roots:</strong> Heritage storytelling anchored to the Guild lineage.</li>
-                  <li><strong>Immortality:</strong> Memory-making that feeds inter-generational narratives.</li>
+                  <li><strong>Emotional Security & Roots:</strong> A safe, dynastic heritage.</li>
+                  <li><strong>Reassurance of Worth & Ego Gratification:</strong> Premium service that values guests.</li>
+                  <li><strong>Creative Outlets & Love Objects:</strong> Cultural workshops & family bonding.</li>
+                  <li><strong>Sense of Power & Immortality:</strong> Wellness programs & memory-making.</li>
                 </ul>
               </div>
               <div>
@@ -68,14 +64,39 @@
                   <li><strong>Belonging:</strong> Team culture, mentorship, inclusive rituals.</li>
                   <li><strong>Esteem:</strong> Recognition, certification, career ladders.</li>
                   <li><strong>Cognitive & Aesthetic:</strong> Operational mastery (ACEM Score).</li>
-                  <li><strong>Self-actualization:</strong> Leadership development and legacy roles (Universalist).</li>
+                  <li><strong>Self-actualization:</strong> Leadership (Universalist).</li>
                 </ul>
               </div>
             </div>
-            <div class="card bg-light mt-4">
-              <div class="card-body">
-                <p class="small text-muted mb-0"><strong>Practical note:</strong> This section is internal-facing. Public pages must translate frameworks into simple guest promises (e.g., "We deliver a calm, family-first stay") rather than academic jargon.</p>
-              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <button class="accordion-toggle" @click="openSection = (openSection === 7 ? null : 7)">
+            <h3>Strategic Framework: Business Model Canvas</h3>
+            <span x-show="openSection !== 7">▼</span>
+            <span x-show="openSection === 7" style="display: none;">▲</span>
+          </button>
+          
+          <div class="accordion-content" x-show="openSection === 7" x-transition>
+            <p class="small text-muted mb-4">A high-level canvas for strategic management, ensuring all operational pillars are aligned.</p>
+            <div class="grid grid-2">
+                <div>
+                    <h4 style="color: var(--primary-color);">Logistics & Operations</h4>
+                    <ul>
+                        <li><strong>Customer Segments:</strong> Patients, Staff, Investors, Regulators, Community.</li>
+                        <li><strong>Channels:</strong> Annual Reports, Town Halls, Patient Portals, Investor Calls.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: var(--primary-color);">Finance & Value</h4>
+                    <ul>
+                        <li><strong>Cost Structure:</strong> Executive Salaries, Capital Expenditures, Debt Servicing, Compliance, IT.</li>
+                        <li><strong>Revenue Streams:</strong> Efficient Operations, Insurance Contracts, Market Share, Fundraising, Diversified Services.</li>
+                    </ul>
+                </div>
             </div>
           </div>
         </div>
@@ -187,11 +208,11 @@
                 <figcaption>Gazebo by the lake.</figcaption>
               </figure>
               <figure>
-                <video controls poster="family-suite.jpg"><source src="family-suite.mp4" type="video/mp4"></video>
+                <video controls poster="poster-suite-family-main.jpg"><source src="suite-family-main.mp4" type="video/mp4"></video>
                 <figcaption>Family Suite Tour (Clip)</figcaption>
               </figure>
               <figure>
-                <video controls poster="night-view.jpg"><source src="early-morning-view.mp4" type="video/mp4"></video>
+                <video controls poster="poster-view-morning-river.jpg"><source src="view-morning-river.mp4" type="video/mp4"></video>
                 <figcaption>Early Morning View (Clip)</figcaption>
               </figure>
             </div>
