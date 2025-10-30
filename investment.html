@@ -5,231 +5,213 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bureau of Provision: Investment & Financial Dashboard</title>
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* --- Custom Theming & Fonts --- */
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700&family=Fira+Code:wght@500&display=swap');
-        
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; padding: 2rem; }
-        
-        /* Design Tokens */
-        .color-primary { color: #0A3D62; } /* Deep Blue */
-        .color-accent { color: #CFA76C; } /* Muted Gold */
-        .bg-primary { background-color: #0A3D62; }
-        
-        .card { background-color: white; border-radius: 0.75rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 2.5rem; overflow: hidden; border: 1px solid #e2e8f0; }
-        .card-header { padding: 1.5rem; background-color: #f1f5f9; border-bottom: 1px solid #e2e8f0; }
-        .card-title { font-size: 1.75rem; font-weight: 700; font-family: 'Playfair Display', serif; }
-        .card-body { padding: 1.5rem; }
-        
-        /* Table Styling */
-        .overflow-x-auto { overflow-x: auto; }
-        table { min-width: 1000px; border-collapse: collapse; }
-        th, td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
-        th { background-color: #f1f5f9; font-weight: 600; }
-        
-        /* Monetary Formatting */
-        .mono { font-family: 'Fira Code', monospace; font-size: 0.95rem; }
-        .positive { color: #059669; font-weight: 600; }
-        .negative { color: #dc2626; font-weight: 600; }
-        
-        /* Fixed Column for Scrolling */
-        .sticky-left { position: sticky; left: 0; background-color: white; z-index: 10; border-right: 1px solid #e2e8f0; }
-        .sticky-left-header { position: sticky; left: 0; background-color: #f1f5f9; z-index: 15; border-right: 1px solid #e2e8f0; }
-        
-        /* Highlight Rows */
-        .highlight-row { background-color: #FEF9C3; } /* Light yellow for funds/wages */
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header class="container mx-auto mb-6 flex justify-between items-center">
-        <h1 class="text-3xl font-extrabold font-['Playfair_Display'] color-primary">
-            Bureau of Provision: <span class="color-accent">Financial Doctrine</span>
-        </h1>
-        <a href="./index.html" class="px-4 py-2 text-sm font-semibold rounded-lg border border-gray-300 hover:bg-gray-100 transition">
-            &larr; Back to Central HUD
-        </a>
+    <header class="hero">
+        <div class="container">
+            <h1>Bureau of Provision: Financial Doctrine</h1>
+            <p class="lead">Investment is built on ethical purity, not financial arbitrage. The Guild Founder's Rule is absolute.</p>
+            
+            <nav class="main-nav">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="landing.html">Landing</a></li>
+                <li><a href="about-heritage.html">About & Heritage</a></li>
+                <li><a href="hr-management.html">HR Management</a></li>
+                <li><a href="management-leadership.html">Management & Leadership</a></li>
+                <li><a href="operations.html">Operations</a></li>
+                <li><a href="gourmet-alliances.html">Gourmet Alliances</a></li>
+                <li><a href="marketing-branding.html">Marketing & Branding</a></li>
+                <li><a href="doctrine.html">Doctrine</a></li>
+                <li><a href="models.html">Models</a></li>
+              </ul>
+            </nav>
+        </div>
     </header>
 
-    <main class="container mx-auto">
+    <main class="container">
         
         <div class="card">
-            <div class="card-header">
-                <h2 class="card-title color-primary">Pillar I: The No Debt & Dignity Mandate</h2>
-                <p class="text-gray-500 mt-1">Investment is built on ethical purity, not financial arbitrage. The Guild Founder's Rule is absolute.</p>
-            </div>
-            <div class="card-body grid grid-cols-1 md:grid-cols-3 gap-6">
-                
-                <div class="p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded-lg">
-                    <h3 class="text-lg font-bold color-accent">Non-Negotiable: Dignity Wage (88k BDT)</h3>
-                    <p class="text-sm text-gray-700 mt-1">
-                        The **Universalist Specialist** minimum monthly wage is **88,000 BDT**. This rate is indexed to the **ACEM Score** for Step Payments and is a protected item, **immune to cost-cutting**. This attracts the highest talent.
-                    </p>
-                </div>
-                
-                <div class="p-4 bg-green-50 border-l-4 border-green-500 rounded-lg">
-                    <h3 class="text-lg font-bold color-primary">Pillar II: Mutual Crisis Fund</h3>
-                    <p class="text-sm text-gray-700 mt-1">
-                        A dedicated percentage of annual revenue is allocated to the **Mutual Crisis Fund**. This fund is a liability on the balance sheet, reserved **only** for staff/community emergencies (e.g., the **COVID-19 Test** scenario).
-                    </p>
-                </div>
-                
-                <div class="p-4 bg-red-50 border-l-4 border-red-500 rounded-lg">
-                    <h3 class="text-lg font-bold color-primary">Pillar III: Rejection of Debt</h3>
-                    <p class="text-sm text-gray-700 mt-1">
-                        The **Guild Founder's Rule** is absolute: **No external bank debt, internal loans, or reliance on gambling revenue.** All growth must be funded by retained earnings, ensuring spiritual and financial independence.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header">
-                <h2 class="card-title color-primary">Projected 5-Year Income Statement (BDT)</h2>
-                <p class="text-gray-500 mt-1">Based on Alo Chaya's **Dignity Price Strategy** and conservative 8-10% annual occupancy growth (starting at 70%).</p>
-            </div>
-            
-            <div class="card-body overflow-x-auto">
-                <table class="text-sm">
-                    <thead>
-                        <tr class="bg-gray-100">
-                            <th class="sticky-left-header">Metric</th>
-                            <th>Year 1 (Projection)</th>
-                            <th>Year 2</th>
-                            <th>Year 3</th>
-                            <th>Year 4</th>
-                            <th>Year 5 (Target)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                        <tr class="font-bold bg-blue-50 text-blue-800">
-                            <td class="sticky-left bg-blue-50">Total Revenue (Gross)</td>
-                            <td class="mono">152,000,000</td>
-                            <td class="mono">175,000,000</td>
-                            <td class="mono">198,000,000</td>
-                            <td class="mono">215,000,000</td>
-                            <td class="mono">230,000,000</td>
-                        </tr>
-                        
-                        <tr>
-                            <td class="sticky-left text-gray-700">Cost of Goods Sold (COGS)</td>
-                            <td class="mono negative">(35,000,000)</td>
-                            <td class="mono negative">(39,000,000)</td>
-                            <td class="mono negative">(43,000,000)</td>
-                            <td class="mono negative">(46,000,000)</td>
-                            <td class="mono negative">(49,000,000)</td>
-                        </tr>
-                        <tr>
-                            <td class="sticky-left text-gray-700">Gross Profit</td>
-                            <td class="mono positive">117,000,000</td>
-                            <td class="mono positive">136,000,000</td>
-                            <td class="mono positive">155,000,000</td>
-                            <td class="mono positive">169,000,000</td>
-                            <td class="mono positive">181,000,000</td>
-                        </tr>
-
-                        <tr class="highlight-row">
-                            <td class="sticky-left highlight-row font-bold color-primary">DIGNITY WAGE (Staffing Expense)</td>
-                            <td class="mono negative">(45,600,000)</td> 
-                            <td class="mono negative">(48,000,000)</td>
-                            <td class="mono negative">(51,000,000)</td>
-                            <td class="mono negative">(54,000,000)</td>
-                            <td class="mono negative">(57,000,000)</td>
-                        </tr>
-                        <tr>
-                            <td class="sticky-left text-gray-700">Utilities & Maintenance</td>
-                            <td class="mono negative">(20,500,000)</td>
-                            <td class="mono negative">(21,500,000)</td>
-                            <td class="mono negative">(22,000,000)</td>
-                            <td class="mono negative">(22,500,000)</td>
-                            <td class="mono negative">(23,000,000)</td>
-                        </tr>
-                        <tr class="highlight-row">
-                            <td class="sticky-left highlight-row font-bold color-primary">MUTUAL CRISIS FUND (Allocation)</td>
-                            <td class="mono negative">(3,000,000)</td> 
-                            <td class="mono negative">(3,000,000)</td>
-                            <td class="mono negative">(3,000,000)</td>
-                            <td class="mono negative">(3,000,000)</td>
-                            <td class="mono negative">(3,000,000)</td>
-                        </tr>
-                        
-                        <tr class="font-bold text-lg bg-blue-100 text-blue-800">
-                            <td class="p-2 sticky-left bg-blue-100 z-10">EBITDA</td>
-                            <td class="p-2 mono positive">47,900,000</td>
-                            <td class="p-2 mono positive">63,500,000</td>
-                            <td class="p-2 mono positive">79,000,000</td>
-                            <td class="p-2 mono positive">89,500,000</td>
-                            <td class="p-2 mono positive">98,000,000</td>
-                        </tr>
-                        
-                        <tr>
-                            <td class="p-2 sticky-left text-gray-700">Depreciation & Amortization</td>
-                            <td class="p-2 mono negative">(12,000,000)</td>
-                            <td class="p-2 mono negative">(12,000,000)</td>
-                            <td class="p-2 mono negative">(12,000,000)</td>
-                            <td class="p-2 mono negative">(12,000,000)</td>
-                            <td class="p-2 mono negative">(12,000,000)</td>
-                        </tr>
-                        <tr>
-                            <td class="p-2 sticky-left text-gray-700 font-bold">Interest Expense (Must be 0)</td>
-                            <td class="p-2 mono positive">0</td>
-                            <td class="p-2 mono positive">0</td>
-                            <td class="p-2 mono positive">0</td>
-                            <td class="p-2 mono positive">0</td>
-                            <td class="p-2 mono positive">0</td>
-                        </tr>
-                        <tr>
-                            <td class="p-2 sticky-left text-gray-700">Tax (27.5% of EBT)</td>
-                            <td class="p-2 mono negative">(9,872,500)</td>
-                            <td class="p-2 mono negative">(14,162,500)</td>
-                            <td class="p-2 mono negative">(18,480,000)</td>
-                            <td class="p-2 mono negative">(21,312,500)</td>
-                            <td class="p-2 mono negative">(23,650,000)</td>
-                        </tr>
-                        
-                        <tr class="font-bold text-lg bg-green-100 text-green-800">
-                            <td class="p-2 sticky-left bg-green-100 z-10">NET INCOME (Profit)</td>
-                            <td class="p-2 mono positive">26,027,500</td>
-                            <td class="p-2 mono positive">37,337,500</td>
-                            <td class="p-2 mono positive">48,520,000</td>
-                            <td class="p-2 mono positive">56,187,500</td>
-                            <td class="p-2 mono positive">62,350,000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header">
-                <h2 class="card-title color-primary">The Specialist's Financial Posture (For Staff & Recruits)</h2>
-                <p class="text-gray-500 mt-1">Our financials ensure your financial dignity is guaranteed and protected by the Doctrine.</p>
-            </div>
             <div class="card-body">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="p-4 bg-white border border-gray-200 rounded-lg text-center shadow-sm">
-                        <p class="text-sm font-semibold text-gray-500">Universalist Minimum Wage</p>
-                        <p class="text-3xl font-extrabold color-primary mt-1">88,000 BDT</p>
+                <h2 style="margin-top:0;">Pillar I: The No Debt & Dignity Mandate</h2>
+                <p class="text-muted mb-4">The Guild Founder's Rule is absolute.</p>
+
+                <div class="grid grid-3">
+                    <div class="alert alert-warning">
+                        <h3>Dignity Wage (88k BDT)</h3>
+                        <p>
+                            The <strong>Universalist Specialist</strong> minimum monthly wage is <strong>88,000 BDT</strong>. This rate is indexed to the <strong>ACEM Score</strong> for Step Payments and is a protected item, <strong>immune to cost-cutting</strong>.
+                        </p>
                     </div>
-                    <div class="p-4 bg-white border border-gray-200 rounded-lg text-center shadow-sm">
-                        <p class="text-sm font-semibold text-gray-500">Promotion Trigger</p>
-                        <p class="text-3xl font-extrabold color-accent mt-1">ACEM Score</p>
+                    
+                    <div class="alert alert-success">
+                        <h3>Pillar II: Mutual Crisis Fund</h3>
+                        <p>
+                            A dedicated percentage of annual revenue is allocated to the <strong>Mutual Crisis Fund</strong>, reserved <strong>only</strong> for staff/community emergencies (e.g., the <strong>COVID-19 Test</strong> scenario).
+                        </p>
                     </div>
-                    <div class="p-4 bg-white border border-gray-200 rounded-lg text-center shadow-sm">
-                        <p class="text-sm font-semibold text-gray-500">Protected Financial Pillar</p>
-                        <p class="text-3xl font-extrabold color-primary mt-1">Crisis Fund</p>
+                    
+                    <div class="alert alert-danger">
+                        <h3>Pillar III: Rejection of Debt</h3>
+                        <p>
+                            The **Guild Founder's Rule** is absolute: <strong>No external bank debt, internal loans, or reliance on gambling revenue.</strong> All growth must be funded by retained earnings.
+                        </p>
                     </div>
-                    <div class="p-4 bg-white border border-gray-200 rounded-lg text-center shadow-sm">
-                        <p class="text-sm font-semibold text-gray-500">Core Financial Rule</p>
-                        <p class="text-3xl font-extrabold color-primary mt-1">NO DEBT</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h2 style="margin-top:0;">Projected 5-Year Income Statement (BDT)</h2>
+                <p class="text-muted mb-4">Based on Alo Chaya's <strong>Dignity Price Strategy</strong> and conservative 8-10% annual occupancy growth (starting at 70%).</p>
+                
+                <div class="financial-table-wrapper">
+                    <table class="financial-table">
+                        <thead>
+                            <tr>
+                                <th class="sticky-left">Metric</th>
+                                <th>Year 1 (Projection)</th>
+                                <th>Year 2</th>
+                                <th>Year 3</th>
+                                <th>Year 4</th>
+                                <th>Year 5 (Target)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr style="font-weight: bold; background-color: #eff6ff; color: #1e40af;">
+                                <td class="sticky-left" style="background-color: #eff6ff;">Total Revenue (Gross)</td>
+                                <td class="mono">152,000,000</td>
+                                <td class="mono">175,000,000</td>
+                                <td class="mono">198,000,000</td>
+                                <td class="mono">215,000,000</td>
+                                <td class="mono">230,000,000</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="sticky-left text-muted">Cost of Goods Sold (COGS)</td>
+                                <td class="mono negative">(35,000,000)</td>
+                                <td class="mono negative">(39,000,000)</td>
+                                <td class="mono negative">(43,000,000)</td>
+                                <td class="mono negative">(46,000,000)</td>
+                                <td class="mono negative">(49,000,000)</td>
+                            </tr>
+                            <tr>
+                                <td class="sticky-left" style="font-weight: 600;">Gross Profit</td>
+                                <td class="mono positive">117,000,000</td>
+                                <td class="mono positive">136,000,000</td>
+                                <td class="mono positive">155,000,000</td>
+                                <td class="mono positive">169,000,000</td>
+                                <td class="mono positive">181,000,000</td>
+                            </tr>
+
+                            <tr class="highlight-row">
+                                <td class="sticky-left font-weight-bold" style="font-weight: 600;">DIGNITY WAGE (Staffing)</td>
+                                <td class="mono negative">(45,600,000)</td> 
+                                <td class="mono negative">(48,000,000)</td>
+                                <td class="mono negative">(51,000,000)</td>
+                                <td class="mono negative">(54,000,000)</td>
+                                <td class="mono negative">(57,000,000)</td>
+                            </tr>
+                            <tr>
+                                <td class="sticky-left text-muted">Utilities & Maintenance</td>
+                                <td class="mono negative">(20,500,000)</td>
+                                <td class="mono negative">(21,500,000)</td>
+                                <td class="mono negative">(22,000,000)</td>
+                                <td class="mono negative">(22,500,000)</td>
+                                <td class="mono negative">(23,000,000)</td>
+                            </tr>
+                            <tr class="highlight-row">
+                                <td class="sticky-left" style="font-weight: 600;">MUTUAL CRISIS FUND (Allocation)</td>
+                                <td class="mono negative">(3,000,000)</td> 
+                                <td class="mono negative">(3,000,000)</td>
+                                <td class="mono negative">(3,000,000)</td>
+                                <td class="mono negative">(3,000,000)</td>
+                                <td class="mono negative">(3,000,000)</td>
+                            </tr>
+                            
+                            <tr style="font-weight: bold; font-size: 1.1rem; background-color: #dbeafe; color: #1e40af;">
+                                <td class="sticky-left" style="background-color: #dbeafe;">EBITDA</td>
+                                <td class="mono positive">47,900,000</td>
+                                <td class="mono positive">63,500,000</td>
+                                <td class="mono positive">79,000,000</td>
+                                <td class="mono positive">89,500,000</td>
+                                <td class="mono positive">98,000,000</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="sticky-left text-muted">Depreciation & Amortization</td>
+                                <td class="mono negative">(12,000,000)</td>
+                                <td class="mono negative">(12,000,000)</td>
+                                <td class="mono negative">(12,000,000)</td>
+                                <td class="mono negative">(12,000,000)</td>
+                                <td class="mono negative">(12,000,000)</td>
+                            </tr>
+                            <tr>
+                                <td class="sticky-left" style="font-weight: 600;">Interest Expense (Must be 0)</td>
+                                <td class="mono positive">0</td>
+                                <td class="mono positive">0</td>
+                                <td class="mono positive">0</td>
+                                <td class="mono positive">0</td>
+                                <td class="mono positive">0</td>
+                            </tr>
+                            <tr>
+                                <td class="sticky-left text-muted">Tax (27.5% of EBT)</td>
+                                <td class="mono negative">(9,872,500)</td>
+                                <td class="mono negative">(14,162,500)</td>
+                                <td class="mono negative">(18,480,000)</td>
+                                <td class="mono negative">(21,312,500)</td>
+                                <td class="mono negative">(23,650,000)</td>
+                            </tr>
+                            
+                            <tr style="font-weight: bold; font-size: 1.1rem; background-color: #dcfce7; color: #15803d;">
+                                <td class="sticky-left" style="background-color: #dcfce7;">NET INCOME (Profit)</td>
+                                <td class="mono positive">26,027,500</td>
+                                <td class="mono positive">37,337,500</td>
+                                <td class="mono positive">48,520,000</td>
+                                <td class="mono positive">56,187,500</td>
+                                <td class="mono positive">62,350,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h2 style="margin-top:0;">The Specialist's Financial Posture</h2>
+                <p class="text-muted mb-4">Our financials ensure your dignity is guaranteed and protected by the Doctrine.</p>
+                <div class="grid grid-4">
+                    <div class="stat-card">
+                        <p class="stat-label">Universalist Minimum Wage</p>
+                        <p class="stat-value">88,000 BDT</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Promotion Trigger</p>
+                        <p class="stat-value stat-value-accent">ACEM Score</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Protected Financial Pillar</p>
+                        <p class="stat-value">Crisis Fund</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Core Financial Rule</p>
+                        <p class="stat-value">NO DEBT</p>
                     </div>
                 </div>
             </div>
         </div>
         
     </main>
+    
+    <footer class="site-footer">
+        <p>Ghuraba Al Manara (The Lighthouse) | Bureau of Provision Doctrine</p>
+    </footer>
 
 </body>
 </html>
