@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Management & Leadership Architecture</title>
     
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
     <style>
         /* New layout for the interactive pane */
         .interactive-layout {
             display: grid;
             grid-template-columns: 2fr 1fr; /* Cards on the left, detail pane on the right */
-            gap: 1.5rem;
+            gap: 1rem; /* Uses .grid gap */
         }
 
         /* Style for the detail pane */
@@ -18,7 +23,7 @@
             background: var(--card-bg, #ffffff); /* Uses your master CSS variable */
             border-radius: 12px; /* Uses your master CSS style */
             box-shadow: 0 8px 28px rgba(2,6,23,0.06); /* Uses your master CSS style */
-            padding: 1.25rem;
+            padding: 1.25rem; /* Uses .card-body padding */
             border-top: 5px solid var(--accent-color, #fbbf24); /* Uses your master CSS variable */
             height: fit-content; /* Sits nicely */
         }
@@ -29,12 +34,13 @@
             box-shadow: 0 8px 28px rgba(2,6,23,0.12);
         }
         
-        .card {
+        /* Make cards in the interactive layout clickable */
+        .interactive-layout .card {
             cursor: pointer; /* Makes cards look clickable */
             transition: all 0.2s ease-in-out;
         }
         
-        .card:hover {
+        .interactive-layout .card:hover {
             transform: translateY(-3px);
             border-color: var(--primary-color, #064e3b);
         }
@@ -61,7 +67,7 @@
         <h2 class="mt-6 mb-4">1. The Ghuraba Codex (Integrated Corporate Culture)</h2>
         <p class="mb-4">
             The Guild's corporate culture is the non-negotiable moral foundation for all operations, ensuring **Ihsan (Excellence)** and **Dignity** are universally applied.
-        </p>
+        </section>
         <div class="grid grid-2">
             <div class="card">
                 <div class="card-body">
@@ -78,21 +84,39 @@
         </div> <h2 class="mt-6 mb-4">2. The Ghuraba Organogram (Clickable Authority Chain)</h2>
         <p class="mb-4">
             This is the **Inversion of Authority** in practice. Click on any role to see the specific Codex Doctrine that governs its authority and accountability.
-        </p>
-
+        </section>
         <div class="interactive-layout">
-            
             <div class="grid grid-2" id="card-container">
                 </div>
-            
             <div class="detail-pane" id="detail-pane">
                 </div>
-
-        </div> <h2 class="mt-6 mb-4">3. Departmental Architecture & Accountability</h2>
+        </div> <h2 class="mt-6 mb-4">3. Foundational Leadership Models</h2>
+        <p class="mb-4">
+            Our organogram is built on these two core models. **Level 5 Leadership** is the "Why" (the character of the Founder), and the **5 Levels of Leadership** is the "How" (the path every Specialist must walk).
+        </section>
+        <div class="grid grid-2">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Jim Collins: Level 5 Leadership</h3>
+                    <p class="small">The Guild is led by a **Level 5 Leader**: someone who channels their ego *away* from themselves and *into* the **Lighthouse Doctrine**. They are driven by **Faithful Stewardship** (the "Why Mirror") and build a system that will outlast them (the **Legacy Guardrail**).</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h3>Maxwell: The 5 Levels of Leadership</h3>
+                    <p class="small">A Specialist's authority is *earned*, not given.
+                        <br>Lvl 1 (Position): The "Un-coachable Boss" (rejected).
+                        <br>Lvl 2 (Permission): The **"Humming Uncle (Unifier)"** archetype.
+                        <br>Lvl 3 (Production): The **"Harmuz (Stabilizer)"** archetype.
+                        <br>Lvl 4 (Development): The Project Lead.
+                        <br>Lvl 5 (Pinnacle): The Founder / Faithful Steward.
+                    </p>
+                </div>
+            </div>
+        </div> <h2 class="mt-6 mb-4">4. Departmental Architecture & Accountability</h2>
         <p class="mb-4">
             Functional departments are the core executors of the Codex, operating under the principle of **Dignified Delegation**.
-        </p>
-
+        </section>
         <div class="grid grid-2">
             <div class="card">
                 <div class="card-body">
@@ -106,14 +130,14 @@
                     <p class="small">Executes the service model with **Effectiveness and Efficiency**. Responsible for **Dignified Delegation**: ensuring that MBA/BBA Specialists focus on strategic tasks, and **Foundational Specialists** handle codified administrative duties.</p>
                 </div>
             </div>
-        </div> <h2 class="mt-6 mb-4">4. Personnel Ranks & Growth</h2>
+        </div> <h2 class="mt-6 mb-4">5. Personnel Ranks & Growth</h2>
         <p class="mb-4">
             The Specialist's path is objective, rejecting subjective titles. It is guaranteed by the **ACEM Score** and the principles of **Dignity** and **Zero-Risk Mobility**.
-        </p>
+        </section>
         <div class="grid grid-3">
             <div class="card">
                 <div class="card-body">
-                    <h3>Trainee Specialist (Dab Lok)</h3>
+                    <h3>Trainee Specialist (Dan Lok)</h3>
                     <p class="small">Replaces the banned term "Intern." A paid, codified position receiving the **Dignity Wage** at the Trainee Step. Their sole focus is completing the **Codex Immersion** and passing the Foundational ACEM test.</p>
                 </div>
             </div>
@@ -129,10 +153,10 @@
                     <p class="small">Achieved only after demonstrating cross-functional mastery through **mandatory, facilitated inter-departmental rotations (Zero-Risk Mobility)**. The Universalist earns the highest non-managerial **Dignity Wage**.</p>
                 </div>
             </div>
-        </div> <h2 class="mt-6 mb-4">5. Financial Pillars & Mobility (The Power Guarantee)</h2>
+        </div> <h2 class="mt-6 mb-4">6. Financial Pillars & Mobility (The Power Guarantee)</h2>
         <p class="mb-4">
             The financial structure empowers the Specialist to maintain **moral purity** and reject exploitation. All pay and benefits are non-interest-based, adhering strictly to the **Anti-Haram** principles.
-        </p>
+        </section>
         <div class="grid grid-3">
             <div class="card">
                 <div class="card-body">
@@ -160,7 +184,6 @@
 
     <script>
         // --- 1. The Organogram Data ---
-        // This holds all the verified roles for the clickable chart.
         const ORG_DATA = [
             {
                 id: 'FNDR',
@@ -195,7 +218,7 @@
                 title: 'Foundational Specialist (Tier 4)',
                 archetype: 'Producer / Implementer (Level 1-2)',
                 summary: 'The Tactical Execution Tier.',
-                doctrine: 'The **Operational Tier (Tier 4)**. Protected by the **Dignified Delegation Mandate**. **Trainee Specialists (Dab Lok)** are paid the **Dignity Wage** to handle codified administrative tasks, freeing MBA/BBA Specialists for strategic work.'
+                doctrine: 'The **Operational Tier (Tier 4)**. Protected by the **Dignified Delegation Mandate**. **Trainee Specialists (Dan Lok)** are paid the **Dignity Wage** to handle codified administrative tasks, freeing MBA/BBA Specialists for strategic work.'
             },
             {
                 id: 'ACEM',
@@ -215,14 +238,12 @@
             // Set the content of the detail pane
             detailPane.innerHTML = `
                 <h3>${role.title}</h3>
-                <p class="small text-muted" style="color: var(--accent-color, #fbbf24); font-weight: 700;">Archetype: ${role.archetype}</p>
+                <p class="small" style="color: var(--accent-color, #fbbf24); font-weight: 700;">Archetype: ${role.archetype}</p>
                 <p class="mt-2">${role.doctrine.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p>
             `;
             
             // Highlight the active card
-            // Remove 'active' from all cards first
-            document.querySelectorAll('.card.active').forEach(card => card.classList.remove('active'));
-            // Add 'active' to the clicked card
+            document.querySelectorAll('.interactive-layout .card.active').forEach(card => card.classList.remove('active'));
             document.getElementById(`card-${role.id}`).classList.add('active');
         }
 
@@ -233,7 +254,6 @@
                 card.className = 'card'; // Uses your master CSS class
                 card.id = `card-${role.id}`;
                 
-                // Set the click action
                 card.onclick = () => showDetails(role);
                 
                 card.innerHTML = `
@@ -249,13 +269,12 @@
         // --- 5. Run the code when the page loads ---
         document.addEventListener('DOMContentLoaded', () => {
             createCards();
-            // Show the first role by default
             if (ORG_DATA.length > 0) {
-                showDetails(ORG_DATA[0]);
+                showDetails(ORG_DATA[0]); // Show the first role by default
             }
         });
 
     </script>
 
 </body>
-                    </html>
+</html>
