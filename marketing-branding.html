@@ -3,339 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marketing & Branding Strategy</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <title>Marketing & Branding Strategy (Bureau of Presence)</title>
     
-    <style>
-        /* --- 1. Design Tokens & Root --- */
-        :root {
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Inter', sans-serif;
-            
-            --color-bg: #FBFAF8;       /* Off-white */
-            --color-text: #111214;     /* Charcoal */
-            --color-accent: #CFA76C;   /* Muted Gold/Bronze */
-            --color-secondary: #0A3D62; /* Deep Blue (River/Sky) */
-            --color-surface: #FFFFFF;
-            --color-border: #EFEFEF;
-            --color-muted: #6b6b6b;
-            
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.05);
-            --radius: 10px;
-        }
+    <link rel="stylesheet" href="styles.css">
 
-        /* --- 2. Reset & Base --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            line-height: 1.7;
-            padding-bottom: 5rem;
-        }
-
-        /* --- 3. Layout & Header --- */
-        .page-header {
-            padding: 1.5rem 1.5rem;
-            background-color: var(--color-surface);
-            border-bottom: 1px solid var(--color-border);
-            box-shadow: var(--shadow-md);
-            margin-bottom: 2.5rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .page-title {
-            font-family: var(--font-heading);
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--color-secondary);
-        }
-        .page-title span { color: var(--color-accent); }
-
-        .back-link {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--color-text);
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius);
-            transition: all 0.3s ease;
-        }
-        .back-link:hover {
-            background-color: var(--color-text);
-            color: var(--color-surface);
-        }
-
-        /* --- 4. Content Sections --- */
-        .section {
-            margin-bottom: 4rem;
-            padding: 2rem;
-            background: var(--color-surface);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--color-border);
-        }
-
-        .section h2 {
-            font-family: var(--font-heading);
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--color-accent);
-            margin-bottom: 1.5rem;
-            border-bottom: 3px solid var(--color-border);
-            padding-bottom: 0.5rem;
-            text-transform: uppercase;
-        }
-
-        /* --- 5. 7Ps Grid --- */
-        .grid-7p {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .p-card {
-            background-color: var(--color-bg);
-            border: 1px solid var(--color-border);
-            border-left: 5px solid var(--color-secondary);
-            padding: 1.5rem;
-            border-radius: var(--radius);
-        }
-        .p-card h3 {
-            font-family: var(--font-heading);
-            font-size: 1.4rem;
-            color: var(--color-secondary);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-        .p-card p {
-            font-size: 0.95rem;
-            color: var(--color-muted);
-        }
-
-        /* --- 6. Brand Visuals (Prism/Pyramid) --- */
-        .visual-card {
-            background: var(--color-bg);
-            padding: 2rem;
-            border-radius: var(--radius);
-            border: 1px solid var(--color-border);
-        }
-        .visual-card h3 {
-            font-family: var(--font-heading);
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--color-accent);
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        /* Generic List Style for Content */
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        ul li {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        ul li::before {
-            content: '✦';
-            position: absolute;
-            left: 0;
-            color: var(--color-accent);
-            font-weight: bold;
-        }
-        
-        /* Specific Styles for Prism/Pyramid (Visual emphasis) */
-        .brand-trait-list li {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--color-text);
-        }
-        .brand-trait-list p {
-            font-weight: 400;
-            font-size: 0.9rem;
-            color: var(--color-muted);
-            margin-top: 0.3rem;
-        }
-        
-    </style>
 </head>
-
 <body>
 
-    <header class="page-header">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <h1 class="page-title">Marketing & <span>Branding Strategy</span></h1>
-            <a href="./index.html" class="back-link">&larr; Back to Central HUD</a>
+    <header class="hero">
+        <div class="container">
+            <h1>Bureau of Presence (Marketing & Branding)</h1>
+            <p class="lead">The 7Ps, the "Common Heart" Strategy, and the Lighthouse Brand Identity.</p>
+            
+            <nav class="main-nav">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="landing.html">Landing</a></li>
+                <li><a href="about-heritage.html">About & Heritage</a></li>
+                <li><a href="hr-management.html">HR Management</a></li>
+                <li><a href="management-leadership.html">Management & Leadership</a></li>
+                <li><a href="operations.html">Operations</a></li>
+                <li><a href="gourmet-alliances.html">Gourmet Alliances</a></li>
+                <li><a href="marketing-branding.html">Marketing & Branding</a></li>
+                <li><a href="doctrine.html">Doctrine</a></li>
+                <li><a href="models.html">Models</a></li>
+              </ul>
+            </nav>
         </div>
     </header>
 
     <main class="container">
     
-                <section class="section">
-            <h2>1. The 7Ps: The "Common Heart" Strategy</h2>
-            <p style="margin-bottom: 2rem; color: var(--color-secondary); font-weight: 600;">
+        <section>
+            <h2 class="mt-6 mb-4">1. The 7Ps: The "Common Heart" Strategy</h2>
+            <p class="mb-4" style="color: var(--primary-color); font-weight: 600; font-size: 1.1rem;">
                 The 7Ps align our "Fairy Tail" family (staff, guests, and their families) with our Doctrine. This is **how we are a lighthouse to all other resorts in the world**: by proving that "Holistic Well-Being" for *all* stakeholders is the only true business model.
             </p>
 
-            <div class="grid-7p">
+            <div class="grid grid-auto">
                 
-                <div class="p-card">
-                    <h3>Product: The "In-House Training Centre"</h3>
-                    <p>
-                        Our "product" is not just rooms; it is **Holistic Well-Being**. The core service is the **"In-House Training & Wellness Centre."** This is a shared "Guild Hall" where *both* guests and employees (and their families) are **"students"** together, learning everything from cooking to financial stewardship.
-                    </p>
-                </div>
-                
-                <div class="p-card">
-                    <h3>Price: Premium Scarcity</h3>
-                    <p>
-                        Positioned in the **mid-to-high luxury tier**. Justified not just by marble, but by our **"Generalization + Specialization"** model. Guests are not just *paying* for a service; they are *investing* in a "Guild" that provides "dignity wages" (e.g., 88k Universalist) to its family.
-                    </p>
-                </div>
-                
-                <div class="p-card">
-                    <h3>Place: The Shared "Guild Hall"</h3>
-                    <p>
-                        The **Chandpur Riverine site** is the physical location of our "In-House Training Centre." It is a sanctuary where all "family" (guests and staff) can learn and grow together, proving the "common heart" principle.
-                    </p>
-                </div>
-                
-                <div class="p-card">
-                    <h3>Promotion: The "Lighthouse" Proof</h3>
-                    <p>
-                        **This is why you should come to our resort.** We do not sell "luxury"; we promote the "common heart." Our marketing shows the 84k Executive Chef learning *from* the 30k Room Coordinator Chief. We are the "lighthouse" because we prove that a "Fairy Tail" (a family) is a real, functional, and profitable business model.
-                    </p>
-                </div>
-                
-                <div class="p-card">
-                    <h3>People: The "Guild" (All are Family)</h3>
-                    <p>
-                        Staff and Guests are one "Guild." Both have **"rights, duties, and standards."** Our staff are "Dignified Guides" (not servants) and our guests are "Dignified Students" (not tyrants), all learning together in the Training Centre.
-                    </p>
-                </div>
-                
-                <div class="p-card">
-                    <h3>Process: The "Dejobbing" Journey</h3>
-                    <p>
-                        Our service process *is* the **"Generalization + Specialization"** model. The "Onboarding" process for a guest or a new employee is the same: they are introduced to the **Codex** and the **Training Centre** to begin their *personal* growth journey.
-                    </p>
-                </div>
-                
-                <div class="p-card">
-                    <h3>Physical Evidence: Marble & Manuscript</h3>
-                    <p>
-                        This includes the marble interiors, the river view, and the **In-House Training Centre** itself. The **Ghuraba Al Manara Codex** is physical evidence of the "curriculum" that both guests and staff follow.
-                    </p>
-                </div>
-            </div>
-                </section>
-
-        <section class="section">
-            <h2>3. The Brand Prism: Projection & Reflection</h2>
-            <p style="margin-bottom: 2rem; color: var(--color-muted); font-weight: 500;">
-                The Prism organizes the brand's identity components, ensuring consistency between what the brand says and what the consumer feels.
-            </p>
-            
-            <div class="visual-card">
-                <h3>GHURABA AL MANARA - BRAND PRISM</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; text-align: center; margin-top: 1rem; font-size: 0.9rem;">
-                    
-                    <div style="grid-column: 1/span 3; background: var(--color-accent-light); padding: 0.5rem; border-radius: 5px;">**TRANSMITTED BRAND (EXTERNAL)**</div>
-                    
-                    <div style="padding: 1rem; border: 1px solid var(--color-border); border-right: none;">
-                        <h4 style="color: var(--color-secondary);">Physique</h4>
-                        <p>Marble, Water, Strength (See **ACEM**)</p>
-                        <p style="font-weight: 600; margin-top: 0.5rem;">— OUTWARD SIGN —</p>
+                <div class="card">
+                    <div class="card-body">
+                        <h3 style="color: var(--primary-color);">Product: The "In-House Training Centre"</h3>
+                        <p class="small text-muted mb-0">
+                            Our "product" is not just rooms; it is **Holistic Well-Being**. The core service is the **"In-House Training & Wellness Centre."** This is a shared "Guild Hall" where *both* guests and employees (and their families) are **"students"** together.
+                        </p>
                     </div>
-                    <div style="padding: 1rem; border: 1px solid var(--color-border);">
-                        <h4 style="color: var(--color-secondary);">Intellect</h4>
-                        <p>Dialogue, Curriculum (See **GLSM**)</p>
-                        <p style="font-weight: 600; margin-top: 0.5rem;">— CULTURE —</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h3 style="color: var(--primary-color);">Price: Premium Scarcity</h3>
+                        <p class="small text-muted mb-0">
+                            Positioned in the **mid-to-high luxury tier**. Justified not by marble, but by our **"Generalization + Specialization"** model. Guests are *investing* in a "Guild" that provides "dignity wages" (e.g., 88k Universalist) to its family.
+                        </p>
                     </div>
-                    <div style="padding: 1rem; border: 1px solid var(--color-border); border-left: none;">
-                        <h4 style="color: var(--color-secondary);">Alo Chaya</h4>
-                        <p>Heritage, River Seclusion</p>
-                        <p style="font-weight: 600; margin-top: 0.5rem;">— RELATIONSHIP —</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h3 style="color: var(--primary-color);">Place: The Shared "Guild Hall"</h3>
+                        <p class="small text-muted mb-0">
+                            The **Chandpur Riverine site** is the physical location of our "In-House Training Centre." It is a sanctuary where all "family" (guests and staff) can learn and grow together, proving the "common heart" principle.
+                        </p>
                     </div>
-
-                    <div style="grid-column: 1/span 3; background: var(--color-accent-light); padding: 0.5rem; border-radius: 5px; margin-top: 1rem;">**REFLECTED BRAND (INTERNAL)**</div>
-
-                    <div style="padding: 1rem; border: 1px solid var(--color-border); border-right: none;">
-                        <h4 style="color: var(--color-secondary);">Nafs</h4>
-                        <p>Struggling, Seeking Light</p>
-                        <p style="font-weight: 600; margin-top: 0.5rem;">— SELF-IMAGE —</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h3 style="color: var(--primary-color);">Promotion: The "Lighthouse" Proof</h3>
+                        <p class="small text-muted mb-0">
+                            **This is why you should come to our resort.** We do not sell "luxury"; we promote the "common heart." Our marketing shows the 84k Executive Chef learning *from* the 30k Room Coordinator Chief. We are the "lighthouse" that proves a "Fairy Tail" is a real, functional business model.
+                        </p>
                     </div>
-                    <div style="padding: 1rem; border: 1px solid var(--color-border);">
-                        <h4 style="color: var(--color-secondary);">Ruh & Qalb</h4>
-                        <p>Purpose, Inner Peace</p>
-                        <p style="font-weight: 600; margin-top: 0.5rem;">— PERSONALITY —</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h3 style="color: var(--primary-color);">People: The "Guild" (All are Family)</h3>
+                        <p class="small text-muted mb-0">
+                            Staff and Guests are one "Guild." Both have **"rights, duties, and standards."** Our staff are "Dignified Guides" (not servants) and our guests are "Dignified Students" (not tyrants), all learning together in the Training Centre.
+                        </p>
                     </div>
-                    <div style="padding: 1rem; border: 1px solid var(--color-border); border-left: none;">
-                        <h4 style="color: var(--color-secondary);">The Lighthouse</h4>
-                        <p>Clarity, Arrival, Hope</p>
-                        <p style="font-weight: 600; margin-top: 0.5rem;">— MENTAL PICTURE —</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h3 style="color: var(--primary-color);">Process: The "Dejobbing" Journey</h3>
+                        <p class="small text-muted mb-0">
+                            Our service process *is* the **"Generalization + Specialization"** model. The "Onboarding" process for a guest or a new employee is the same: they are introduced to the **Codex** and the **Training Centre** to begin their *personal* growth journey.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h3 style="color: var(--primary-color);">Physical Evidence: Marble & Manuscript</h3>
+                        <p class="small text-muted mb-0">
+                            This includes the marble interiors, the river view, and the **In-House Training Centre** itself. The **Ghuraba Al Manara Codex** is physical evidence of the "curriculum" that both guests and staff follow.
+                        </JSON:
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <h2>4. The Brand Pyramid: Core Identity</h2>
-            <p style="margin-bottom: 2rem; color: var(--color-muted); font-weight: 500;">
+        <section>
+            <h2 class="mt-6 mb-4">2. The Brand Prism: Projection & Reflection</h2>
+            <p class="mb-4 text-muted">
+                The Prism organizes the brand's identity components, ensuring consistency between what the brand says and what the consumer feels.
+            </p>
+            
+            <div class="card">
+                <div class="card-body">
+                    <h3 style="text-align: center;">GHURABA AL MANARA - BRAND PRISM</h3>
+                    
+                    <div class="text-center" style="background: var(--bg-light); padding: 0.5rem; border-radius: 5px; margin-top: 1rem;">
+                        <strong>TRANSMITTED BRAND (EXTERNAL)</strong>
+                    </div>
+                    
+                    <div class="grid grid-3 mt-4 text-center">
+                        <div>
+                            <h4 style="color: var(--primary-color);">Physique</h4>
+                            <p class="small text-muted mb-0">Marble, Water, Strength (See **ACEM**)<br>— OUTWARD SIGN —</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary-color);">Intellect</h4>
+                            <p class="small text-muted mb-0">Dialogue, Curriculum (See **GLSM**)<br>— CULTURE —</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary-color);">Alo Chaya</h4>
+                            <p class="small text-muted mb-0">Heritage, River Seclusion<br>— RELATIONSHIP —</p>
+                        </div>
+                    </div>
+
+                    <div class="text-center" style="background: var(--bg-light); padding: 0.5rem; border-radius: 5px; margin-top: 1.5rem;">
+                        <strong>REFLECTED BRAND (INTERNAL)</strong>
+                    </div>
+
+                    <div class="grid grid-3 mt-4 text-center">
+                        <div>
+                            <h4 style="color: var(--primary-color);">Nafs</h4>
+                            <p class="small text-muted mb-0">Struggling, Seeking Light<br>— SELF-IMAGE —</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary-color);">Ruh & Qalb</h4>
+                            <p class="small text-muted mb-0">Purpose, Inner Peace<br>— PERSONALITY —</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary-color);">The Lighthouse</h4>
+                            <p class="small text-muted mb-0">Clarity, Arrival, Hope<br>— MENTAL PICTURE —</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="mt-6 mb-4">3. The Brand Pyramid: Core Identity</h2>
+            <p class="mb-4 text-muted">
                 The pyramid defines the ultimate promise and purpose of the **Ghuraba Al Manara** brand, working from tangible features to the spiritual benefit.
             </p>
 
-            <div class="visual-card" style="max-width: 500px; margin: 0 auto; text-align: center; position: relative;">
-                <h3>THE LIGHTHOUSE BRAND PYRAMID</h3>
+            <div class="card">
+                <div class="card-body">
+                    <h3 style="text-align: center;">THE LIGHTHOUSE BRAND PYRAMID</h3>
 
-                <div style="background-color: var(--color-secondary); color: white; padding: 1rem; border-radius: 5px 5px 0 0; margin-top: 1rem;">
-                    <h4 style="font-size: 1.2rem; font-family: var(--font-heading);">BRAND ESSENCE / PURPOSE</h4>
-                    <p style="font-size: 1rem;">To **Guide** the **Strangers** to **Clarity** and **Purpose** (Al-Hadi).</p>
-                </div>
-
-                <div style="background-color: var(--color-accent); color: var(--color-text); padding: 1rem;">
-                    <h4 style="font-size: 1.1rem; font-family: var(--font-heading);">EMOTIONAL BENEFIT</h4>
-                    <p style="font-size: 0.95rem;">**Inner Arrival** (A deep sense of rest and profound purpose through **Ruh** and **Qalb** alignment).</p>
-                </div>
-
-                <div style="background-color: var(--color-accent-light); color: var(--color-text); padding: 1rem;">
-                    <h4 style="font-size: 1.05rem; font-family: var(--font-heading);">FUNCTIONAL BENEFIT</h4>
-                    <p style="font-size: 0.9rem;">The **Curated Track** (A structured path using **GLSM** and **ACEM** to elevate intellectual, spiritual, and physical well-being).</p>
-                </div>
-
-                <div style="background-color: var(--color-surface); color: var(--color-text); padding: 1rem; border: 1px solid var(--color-border);">
-                    <h4 style="font-size: 1rem; font-weight: 600;">BRAND VALUES / PERSONALITY</h4>
-                    <p style="font-size: 0.9rem;">**Intellect, Serenity, Discipline, Heritage**.</p>
-                </div>
-
-                <div style="background-color: var(--color-surface); color: var(--color-text); padding: 1rem; border: 1px solid var(--color-border); border-top: none; border-radius: 0 0 5px 5px;">
-                    <h4 style="font-size: 1rem; font-weight: 600;">BRAND ATTRIBUTES</h4>
-                    <p style="font-size: 0.9rem;">**Riverine Seclusion, All-Marble, Lighthouse Lore, 7,000 sq.ft Lounge.**</p>
+                    <div class="brand-pyramid">
+                        <div class="brand-pyramid-tier brand-pyramid-tier-5">
+                            <h4>BRAND ESSENCE / PURPOSE</h4>
+                            <p>To **Guide** the **Strangers** to **Clarity** and **Purpose** (Al-Hadi).</p>
+                        </div>
+                        <div class="brand-pyramid-tier brand-pyramid-tier-4">
+                            <h4>EMOTIONAL BENEFIT</h4>
+                            <p>**Inner Arrival** (A deep sense of rest and profound purpose through **Ruh** and **Qalb** alignment).</p>
+                        </div>
+                        <div class="brand-pyramid-tier brand-pyramid-tier-3">
+                            <h4>FUNCTIONAL BENEFIT</h4>
+                            <p>The **Curated Track** (A structured path using **GLSM** and **ACEM** to elevate intellectual, spiritual, and physical well-being).</p>
+                        </div>
+                        <div class="brand-pyramid-tier brand-pyramid-tier-2">
+                            <h4>BRAND VALUES / PERSONALITY</h4>
+                            <p class="mb-0">**Intellect, Serenity, Discipline, Heritage**.</p>
+                        </div>
+                        <div class="brand-pyramid-tier brand-pyramid-tier-1">
+                            <h4>BRAND ATTRIBUTES</h4>
+                            <p class="mb-0">**Riverine Seclusion, All-Marble, Lighthouse Lore, 7,000 sq.ft Lounge.**</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
         </section>
 
     </main>
+    
+    <footer class="site-footer">
+        <p>Ghuraba Al Manara (The Lighthouse) | Bureau of Presence Doctrine</p>
+    </footer>
 
 </body>
 </html>
