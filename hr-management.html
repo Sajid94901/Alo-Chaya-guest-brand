@@ -302,6 +302,12 @@ const langData = {
         'hero-lead': 'Enforcing the Common Heart Doctrine and the Objective Standard.',
         'section1-title': '1. The Inversion of Authority (The Moral Auditor Mandate)',
         'section1-desc': 'The Bureau of Harmony is decentralized. The traditional, un-coachable central HR function is stripped of moral authority. All ethical compliance is handled by the <strong>HR Moral Auditor</strong> at the branch level, who acts as the Specialist’s direct guardian.',
+        'card-s1-1-title': 'The Moral Auditor (Guardian)',
+        'card-s1-1-desc': 'The Auditor is the Specialist’s guardian, not a "boss." They handle all escalations, dignity violations, and ensure the ACEM Purity Mandate is enforced. They have the power to overrule managers on moral grounds.',
+        'card-s1-2-title': 'The Specialist (The Asset)',
+        'card-s1-2-desc': 'The Specialist (employee) is the core asset. Their "Employee Story" is the primary data. Their duty is to the Guild (the work) and the Common Heart (the doctrine).',
+        'card-s1-3-title': 'The Manager (The Coach)',
+        'card-s1-3-desc': 'The Manager is a "Coach," not a "Ruler." Their job is to remove barriers and develop the Specialist\'s ACEM score. They are accountable to the Moral Auditor for team well-being.',
         'section2-title': '2. Moral Purity and Guardrail of Integrity',
         'section2-desc': 'The Bureau of Harmony enforces the moral purity of the Guild, protecting it from both internal and external corruption, as mandated by the Founder\'s Rule.',
         'card1-title': 'Moral Purity and Right to Eject',
@@ -371,6 +377,12 @@ const langData = {
         'hero-lead': 'কমন হার্ট ডকট্রিন এবং অবজেক্টিভ স্ট্যান্ডার্ড প্রয়োগ করা।',
         'section1-title': '১. কর্তৃত্বের বিপরীত (নৈতিক অডিটর ম্যান্ডেট)',
         'section1-desc': 'সম্প্রীতি ব্যুরো বিকেন্দ্রীভূত। প্রথাগত, প্রশিক্ষণ-অযোগ্য কেন্দ্রীয় এইচআর ফাংশনকে নৈতিক কর্তৃত্ব থেকে বঞ্চিত করা হয়েছে। সমস্ত নৈতিক সম্মতি শাখা পর্যায়ে <strong>এইচআর মোরাল অডিটর</strong> দ্বারা পরিচালিত হয়, যিনি বিশেষজ্ঞের সরাসরি অভিভাবক হিসাবে কাজ করেন।',
+        'card-s1-1-title': 'নৈতিক অডিটর (অভিভাবক)',
+        'card-s1-1-desc': 'অডিটর হলেন বিশেষজ্ঞের অভিভাবক, "বস" নন। তারা সমস্ত অভিযোগ, মর্যাদা লঙ্ঘন এবং ACEM বিশুদ্ধতা ম্যান্ডেট প্রয়োগ নিশ্চিত করেন। নৈতিক কারণে পরিচালকদের বাতিল করার ক্ষমতা তাদের আছে।',
+        'card-s1-2-title': 'বিশেষজ্ঞ (সম্পদ)',
+        'card-s1-2-desc': 'বিশেষজ্ঞ (কর্মচারী) হলেন মূল সম্পদ। তাদের "কর্মচারীর গল্প" হলো প্রাথমিক ডেটা। তাদের দায়িত্ব গিল্ড (কাজ) এবং কমন হার্ট (মতবাদ)-এর প্রতি।',
+        'card-s1-3-title': 'ম্যানেজার (কোচ)',
+        'card-s1-3-desc': 'ম্যানেজার হলেন "কোচ", "শাসক" নন। তাদের কাজ হলো বাধা দূর করা এবং বিশেষজ্ঞের ACEM স্কোর বাড়ানো। টিমের সুস্থতার জন্য তারা নৈতিক অডিটরের কাছে দায়বদ্ধ।',
         'section2-title': '২. নৈতিক বিশুদ্ধতা এবং অখণ্ডতার গার্ডরাইল',
         'section2-desc': 'সম্প্রীতি ব্যুরো গিল্ডের নৈতিক বিশুদ্ধতা প্রয়োগ করে, এটিকে অভ্যন্তরীণ এবং বাহ্যিক উভয় দুর্নীতি থেকে রক্ষা করে, যেমনটি প্রতিষ্ঠাতার নিয়ম দ্বারা বাধ্যতামূলক।',
         'card1-title': 'নৈতিক বিশুদ্ধতা এবং বহিষ্কারের অধিকার',
@@ -436,19 +448,26 @@ const langData = {
         'ra-modal-save': 'নিশ্চিত করুন'
     }
 };
-        </script>
-                    <div class="card" data-id="guardrail-integrity">
-                <div class="card-body">
-                    <h3 class="text-danger" id="card2-title">The Guardrail of Integrity (The Ultimate Test)</h3>
-                    <p id="card2-desc">We reject all forms of corruption: 
-                        <ol class="small mt-2" style="list-style-type: decimal; padding-left: 1.5rem;" id="card2-list">
-                            <li id="card2-list-li1"><strong>Bidirectional Exploitation:</strong> Neither staff exploiting upper management, nor upper management exploiting staff.</li>
-                            <li id="card2-list-li2"><strong>External Contamination:</strong> The Leader's private life must never introduce external moral/financial poison that destroys the Guild.</li>
-                        </ol>
-                        The <strong>Guild Founder's Rule</strong> (no gambling, internal loans, or debt) is absolute.
-                    </p>
-                </div>
-            </div>
+</script>
+<script>
+const positionsData = [
+    {id:'founder', en_name:'Founder', bn_name:'প্রতিষ্ঠাতা', category:'Executive Council', basic:250000, package1:375000, package2:500000, notes_en:'Executive Council', notes_bn:'নির্বাহী পরিষদ'},
+    {id:'project_lead', en_name:'Project Lead', bn_name:'প্রকল্প প্রধান', category:'Guild Administration', basic:150000, package1:225000, package2:300000, notes_en:'Guild Administration', notes_bn:'গিল্ড প্রশাসন'},
+    {id:'deputy_coord', en_name:'Deputy Project Coordinator', bn_name:'ডেপুটি প্রজেক্ট কোঅর্ডিনেটর', category:'Administration', basic:110000, package1:165000, package2:220000, notes_en:'Administration', notes_bn:'প্রশাসন'},
+    {id:'hosp_manager', en_name:'Hospitality Manager', bn_name:'হসপিটালিটি ম্যানেজার', category:'Operations', basic:95000, package1:142500, package2:190000, notes_en:'Operations', notes_bn:'অপারেশন'},
+    {id:'office_versatilist', en_name:'Office Versatilist', bn_name:'অফিস ভার্সাটিলিস্ট', category:'Core Management', basic:88000, package1:132000, package2:176000, notes_en:'Core Management', notes_bn:'কোর ম্যানেজমেন্ট'},
+    {id:'finance_officer', en_name:'Finance Officer', bn_name:'ফাইন্যান্স অফিসার', category:'Accounts', basic:72000, package1:108000, package2:144000, notes_en:'Accounts', notes_bn:'হিসাব'},
+    {id:'ops_exec', en_name:'Operations Executive', bn_name:'অপারেশনস এক্সিকিউটিভ', category:'Operations', basic:62000, package1:93000, package2:124000, notes_en:'Operations. Replaces FEO benchmark.', notes_bn:'অপারেশন। FEO বেঞ্চমার্ক প্রতিস্থাপন করে।'},
+    {id:'guest_relations', en_name:'Guest Relations Officer', bn_name:'গেস্ট রিলেশনস অফিসার', category:'Front Desk', basic:55000, package1:82500, package2:110000, notes_en:'Front Desk. Replaces AEO benchmark.', notes_bn:'ফ্রন্ট ডেস্ক। AEO বেঞ্চমার্ক প্রতিস্থাপন করে।'},
+    {id:'junior_exec', en_name:'Junior Executive', bn_name:'জুনিয়র এক্সিকিউটিভ', category:'Admin Support', basic:48000, package1:72000, package2:96000, notes_en:'Admin Support. Replaces JEO benchmark.', notes_bn:'অ্যাডমিন সাপোর্ট। JEO বেঞ্চমার্ক প্রতিস্থাপন করে।'},
+    {id:'senior_office_asst', en_name:'Senior Office Assistant', bn_name:'সিনিয়র অফিস অ্যাসিস্ট্যান্ট', category:'Facilities', basic:38000, package1:57000, package2:76000, notes_en:'Facilities. This is the Senior Assistant role.', notes_bn:'সুবিধা। এটি সিনিয়র সহকারী পদ।'},
+    {id:'office_asst', en_name:'Office Assistant', bn_name:'অফিস অ্যাসিস্ট্যান্ট', category:'Facilities', basic:32000, package1:48000, package2:64000, notes_en:'Facilities. This is the Assistant role.', notes_bn:'সুবিধা। এটি সহকারী পদ।'},
+    {id:'room_coord', en_name:'Room Coordinator', bn_name:'রুম কোঅর্ডিনেটর', category:'Housekeeping', basic:27000, package1:40500, package2:54000, notes_en:'Housekeeping', notes_bn:'হাউসকিপিং'},
+    {id:'landscaper', en_name:'Landscaper / Garden Team', bn_name:'ল্যান্ডস্কেপার / গার্ডেন টিম', category:'Environment Dept', basic:26000, package1:39000, package2:52000, notes_en:'Environment Dept', notes_bn:'পরিবেশ বিভাগ'},
+    {id:'gastro_asst', en_name:'Gastro Assistant Staff', bn_name:'গ্যাস্ট্রো অ্যাসিস্ট্যান্ট স্টাফ', category:'Culinary & Kitchen', basic:24000, package1:36000, package2:48000, notes_en:'Culinary & Kitchen. This is the Assistant Staff.', notes_bn:'রন্ধনশালা ও রান্নাঘর। এটি সহকারী কর্মী।'},
+    {id:'pastry_chef', en_name:'Pastry / Grill Specialist', bn_name:'প্যাস্ট্রি / গ্রিল স্পেশালিস্ট', category:'Culinary & Kitchen', basic:33000, package1:49500, package2:66000, notes_en:'Culinary & Kitchen. This is the Pastry Chef.', notes_bn:'রন্ধনশালা ও রান্নাঘর। এটি প্যাস্ট্রি শেফ।'}
+];
+</script>
 <script>
 function formatCurrency(n){
   return n.toLocaleString();
@@ -460,6 +479,7 @@ let currentDetailId = null;
 function updateLanguage(lang) {
     currentLang = lang; 
     const translations = langData[lang];
+    if (!translations) return; 
     
     document.querySelectorAll('[id]').forEach(element => {
         if (translations[element.id]) {
@@ -479,6 +499,7 @@ function updateLanguage(lang) {
     });
 
     buildPositionCards();
+    buildSection1Cards();
     
     if (currentDetailId) {
         showPositionDetail(currentDetailId, false); 
@@ -489,14 +510,65 @@ function updateLanguage(lang) {
     }
 }
 
+function buildSection1Cards() {
+    const container = document.getElementById('card-container');
+    if (!container) return;
+    container.innerHTML = '';
+    const lang = currentLang;
+    
+    const card1 = document.createElement('div');
+    card1.className = 'card interactive-card';
+    card1.dataset.id = 's1-1';
+    card1.innerHTML = `<div class="card-body"><h3>${langData[lang]['card-s1-1-title']}</h3></div>`;
+    
+    const card2 = document.createElement('div');
+    card2.className = 'card interactive-card';
+    card2.dataset.id = 's1-2';
+    card2.innerHTML = `<div class="card-body"><h3>${langData[lang]['card-s1-2-title']}</h3></div>`;
+
+    container.appendChild(card1);
+    container.appendChild(card2);
+    
+    container.querySelectorAll('.interactive-card').forEach(card => {
+        card.addEventListener('click', () => {
+            showSection1Detail(card.dataset.id);
+        });
+    });
+
+    const detailPane = document.getElementById('detail-pane');
+    detailPane.innerHTML = `<div class="card bg-light"><div class="card-body"><h3 id="detail-pane-title">${langData[lang]['card-s1-3-title']}</h3><p id="detail-pane-desc">${langData[lang]['card-s1-3-desc']}</p></div></div>`;
+}
+
+function showSection1Detail(id) {
+    const lang = currentLang;
+    const detailPane = document.getElementById('detail-pane');
+    let title = '';
+    let desc = '';
+    
+    if (id === 's1-1') {
+        title = langData[lang]['card-s1-1-title'];
+        desc = langData[lang]['card-s1-1-desc'];
+    } else if (id === 's1-2') {
+        title = langData[lang]['card-s1-2-title'];
+        desc = langData[lang]['card-s1-2-desc'];
+    }
+    
+    detailPane.innerHTML = `<div class="card bg-light"><div class="card-body"><h3 id="detail-pane-title">${title}</h3><p id="detail-pane-desc">${desc}</p></div></div>`;
+}
+
 function buildPositionCards(){
     const container = document.getElementById('position-cards');
     if(!container) return;
     container.innerHTML = '';
     
     const q = (document.getElementById('pos-search').value||'').toLowerCase();
+    
     const filteredData = positionsData.filter(p => {
-        return p.en_name.toLowerCase().includes(q) || p.bn_name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q);
+        if (!q) return true;
+        return p.en_name.toLowerCase().includes(q) || 
+               p.bn_name.toLowerCase().includes(q) || 
+               p.category.toLowerCase().includes(q) ||
+               (p.notes_en && p.notes_en.toLowerCase().includes(q));
     });
 
     filteredData.forEach(pos => {
@@ -563,8 +635,8 @@ function showPositionDetail(id, shouldScroll = true) {
 }
 
 function exportPositionsCSV(){
-  const headers = ['id','name_en','name_bn','category','basic','package1','package2'];
-  const rows = positionsData.map(p=>[p.id,p.en_name,p.bn_name,p.category,p.basic,p.package1,p.package2].join(','));
+  const headers = ['id','name_en','name_bn','category','basic','package1','package2','notes_en','notes_bn'];
+  const rows = positionsData.map(p=>[p.id,p.en_name,p.bn_name,p.category,p.basic,p.package1,p.package2, `"${p.notes_en || ''}"`, `"${p.notes_bn || ''}"`].join(','));
   const csv = headers.join(',') + '\n' + rows.join('\n');
   const uri = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
   const link = document.createElement('a');
@@ -574,8 +646,8 @@ function exportPositionsCSV(){
   link.click();
   document.body.removeChild(link);
 }
-            </script>
-            <script>
+    </script>
+    <script>
 (function(){
   const roles = window.positionsData ? window.positionsData.map(r => ({
       id: r.id, 
@@ -588,6 +660,7 @@ function exportPositionsCSV(){
   const sel2 = document.getElementById('ra-role-2');
 
   function populateDropdowns(lang = 'en') {
+      if (!sel || !sel2) return; 
       sel.innerHTML = '';
       sel2.innerHTML = '<option value="">None</option>';
       
@@ -615,8 +688,10 @@ function exportPositionsCSV(){
   const raExport = document.getElementById('ra-export');
   const raClear = document.getElementById('ra-clear');
 
-  tabAssign.addEventListener('click', ()=>{tabAssign.classList.add('active');tabList.classList.remove('active');panelAssign.style.display='block';panelList.style.display='none';});
-  tabList.addEventListener('click', ()=>{tabList.classList.add('active');tabAssign.classList.remove('active');panelAssign.style.display='none';panelList.style.display='block';renderList();});
+  if (tabAssign) {
+    tabAssign.addEventListener('click', ()=>{tabAssign.classList.add('active');tabList.classList.remove('active');panelAssign.style.display='block';panelList.style.display='none';});
+    tabList.addEventListener('click', ()=>{tabList.classList.add('active');tabAssign.classList.remove('active');panelAssign.style.display='none';panelList.style.display='block';renderList();});
+  }
 
   function getRoleById(id){
       return roles.find(r=>r.id===id) || {id:'',title:'—',bn_title:'—',basic:0};
@@ -649,12 +724,12 @@ function exportPositionsCSV(){
   const modalDownload = document.getElementById('ra-modal-download');
   const modalSave = document.getElementById('ra-modal-save');
 
-  calcBtn.addEventListener('click', renderSummary);
+  if (calcBtn) calcBtn.addEventListener('click', renderSummary);
 
   function loadAssignments(){try{return JSON.parse(localStorage.getItem('ac_assignments')||'[]')}catch(e){return []}}
   function saveAssignments(data){localStorage.setItem('ac_assignments',JSON.stringify(data));}
 
-  saveBtn.addEventListener('click', ()=>{
+  if (saveBtn) saveBtn.addEventListener('click', ()=>{
     const name = nameIn.value.trim();
     if(!name) return alert(currentLang === 'bn' ? 'অনুগ্রহ করে নাম লিখুন' : 'Please enter a name');
     const r = getRoleById(roleIn.value);
@@ -681,8 +756,9 @@ function exportPositionsCSV(){
   });
 
   function renderList(filter){
+    if (!listEl) return;
     const all = loadAssignments();
-    const q = filter || (raSearch.value||'').toLowerCase();
+    const q = filter || (raSearch ? (raSearch.value||'') : '').toLowerCase();
     const rows = all.filter(it=>{
       if(!q) return true;
       return (it.name||'').toLowerCase().includes(q) || 
@@ -762,11 +838,11 @@ function exportPositionsCSV(){
     modal.dataset.currentId = id;
   }
 
-  modalClose.addEventListener('click', ()=>{modal.style.display='none';delete modal.dataset.currentId;});
-  modal.addEventListener('click', (e)=>{ if(e.target===modal) { modal.style.display='none'; delete modal.dataset.currentId; }});
-  modalSave.addEventListener('click', ()=>{ const id = modal.dataset.currentId; if(!id) return; modal.style.display='none'; });
+  if (modalClose) modalClose.addEventListener('click', ()=>{modal.style.display='none';delete modal.dataset.currentId;});
+  if (modal) modal.addEventListener('click', (e)=>{ if(e.target===modal) { modal.style.display='none'; delete modal.dataset.currentId; }});
+  if (modalSave) modalSave.addEventListener('click', ()=>{ const id = modal.dataset.currentId; if(!id) return; modal.style.display='none'; });
 
-  modalDownload.addEventListener('click', ()=>{
+  if (modalDownload) modalDownload.addEventListener('click', ()=>{
     const id = modal.dataset.currentId; if(!id) return;
     const all = loadAssignments(); const it = all.find(a=>a.id===id); if(!it) return;
     let txt = `Contract for ${it.name}\nRole: ${it.roleTitle}\nStart: ${it.start}\nACEM: ${it.acem}\nPackage Base: ${it.packageBase} BDT\nEstimated Gross: ${it.gross} BDT\n`;
@@ -774,7 +850,7 @@ function exportPositionsCSV(){
     const a = document.createElement('a'); a.href=url; a.download = `${it.name.replace(/\s+/g,'_')}_contract.txt`; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
   });
 
-  raExport.addEventListener('click', ()=>{
+  if (raExport) raExport.addEventListener('click', ()=>{
     const data = loadAssignments();
     if(!data.length) return alert(currentLang === 'bn' ? 'এক্সপোর্ট করার জন্য কোনো নিয়োগ নেই' : 'No assignments to export');
     let csv = 'Name,Primary Role,Secondary Role,Start,ACEM,Multiplier,PackageBase,Gross,Created\n';
@@ -785,8 +861,8 @@ function exportPositionsCSV(){
     const link = document.createElement('a'); link.href = uri; link.download = 'assignments.csv'; document.body.appendChild(link); link.click(); link.remove();
   });
 
-  raSearch.addEventListener('input', ()=>{renderList(raSearch.value);});
-  raClear.addEventListener('click', ()=>{ if(!confirm(currentLang === 'bn' ? 'সমস্ত নিয়োগ মুছে ফেলবেন?' : 'Clear all assignments?')) return; localStorage.removeItem('ac_assignments'); renderList(); });
+  if (raSearch) raSearch.addEventListener('input', ()=>{renderList();});
+  if (raClear) raClear.addEventListener('click', ()=>{ if(!confirm(currentLang === 'bn' ? 'সমস্ত নিয়োগ মুছে ফেলবেন?' : 'Clear all assignments?')) return; localStorage.removeItem('ac_assignments'); renderList(); });
 
   window.roleAssignment = {
     updateLanguage: (lang) => {
@@ -800,10 +876,12 @@ function exportPositionsCSV(){
   renderSummary();
   renderList();
 })();
-                                        </script>
-                                        <script>
+      </script>
+      <script>
 document.addEventListener('DOMContentLoaded', () => {
     buildPositionCards();
+    buildSection1Cards();
+    
     document.getElementById('pos-search').addEventListener('input', buildPositionCards);
     document.getElementById('pos-export').addEventListener('click', exportPositionsCSV);
     
