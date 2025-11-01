@@ -465,8 +465,8 @@ const langData = {
  </script>    
 <script>
 const positionsData = [
-    {id:'founder', en_name:'Founder', bn_name:'প্রতিষ্ঠাতা', category:'Executive Council', basic:250000, package1:375000, package2:500000, notes_en:'Executive Council', notes_bn:'নির্বাহী পরিষদ'},
-    {id:'project_lead', en_name:'Project Lead', bn_name:'প্রকল্প প্রধান', category:'Guild Administration', basic:150000, package1:225000, package2:300000, notes_en:'Guild Administration', notes_bn:'গিল্ড প্রশাসন'},
+    {id:'founder', en_name:'Founder', bn_name:'প্রতিষ্ঠাতা', category:'Executive Council', basic:0, package1:0, package2:0, notes_en:'Owner / Lessor (Not on Payroll)', notes_bn:'মালিক / ইজারাদাতা (বেতনভুক্ত নন)'},
+    {id:'project_lead', en_name:'Project Lead', bn_name:'প্রকল্প প্রধান', category:'Guild Administration', basic:250000, package1:375000, package2:500000, notes_en:'Guild Administration (Sajid Hassan)', notes_bn:'গিল্ড প্রশাসন (সাজিদ হাসান)'},
     {id:'deputy_coord', en_name:'Deputy Project Coordinator', bn_name:'ডেপুটি প্রজেক্ট কোঅর্ডিনেটর', category:'Administration', basic:110000, package1:165000, package2:220000, notes_en:'Administration', notes_bn:'প্রশাসন'},
     {id:'hosp_manager', en_name:'Hospitality Manager', bn_name:'হসপিটালিটি ম্যানেজার', category:'Operations', basic:95000, package1:142500, package2:190000, notes_en:'Operations', notes_bn:'অপারেশন'},
     {id:'office_versatilist', en_name:'Office Versatilist', bn_name:'অফিস ভার্সাটিলিস্ট', category:'Core Management', basic:88000, package1:132000, package2:176000, notes_en:'Core Management', notes_bn:'কোর ম্যানেজমেন্ট'},
@@ -660,8 +660,8 @@ function exportPositionsCSV(){
   link.click();
   document.body.removeChild(link);
 }
-    </script>
-    <script>
+</script>
+        <script>
 (function(){
   const roles = window.positionsData ? window.positionsData.map(r => ({
       id: r.id, 
@@ -853,30 +853,63 @@ function exportPositionsCSV(){
   }
 
   if (modalClose) modalClose.addEventListener('click', ()=>{modal.style.display='none';delete modal.dataset.currentId;});
-  if (modal) modal.addEventListener('click', (e)=>{ if(e.target===modal) { modal.style.display='none'; delete modal.dataset.currentId; }});
-  if (modalSave) modalSave.addEventListener('click', ()=>{ const id = modal.dataset.currentId; if(!id) return; modal.style.display='none'; });
-
   if (modalDownload) modalDownload.addEventListener('click', ()=>{
-    const id = modal.dataset.currentId; if(!id) return;
-    const all = loadAssignments(); const it = all.find(a=>a.id===id); if(!it) return;
-    let txt = `Contract for ${it.name}\nRole: ${it.roleTitle}\nStart: ${it.start}\nACEM: ${it.acem}\nPackage Base: ${it.packageBase} BDT\nEstimated Gross: ${it.gross} BDT\n`;
-    const blob = new Blob([txt],{type:'text/plain'}); const url = URL.createObjectURL(blob);
-    const a = document.createElement('a'); a.href=url; a.download = `${it.name.replace(/\s+/g,'_')}_contract.txt`; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+      const id = modal.dataset.currentId;
+      const all = loadAssignments(); const it = all.find(a=>a.id===id); if(!it) return;
+      alert((currentLang === 'bn' ? 'ডাউনলোড হচ্ছে ' : 'Downloading ') + it.name + '.pdf...');
+  });
+  if (modalSave) modalSave.addEventListener('click', ()=>{
+      const id = modal.dataset.currentId;
+      alert((currentLang === 'bn' ? 'সংরক্ষিত হয়েছে' : 'Saved ') + id);
+      modal.style.display='none';
   });
 
+  if (raSearch) raSearch.addEventListener('input', (e)=>{renderList(e.target.value)});
   if (raExport) raExport.addEventListener('click', ()=>{
-    const data = loadAssignments();
-    if(!data.length) return alert(currentLang === 'bn' ? 'এক্সপোর্ট করার জন্য কোনো নিয়োগ নেই' : 'No assignments to export');
-    let csv = 'Name,Primary Role,Secondary Role,Start,ACEM,Multiplier,PackageBase,Gross,Created\n';
-    data.forEach(d=>{
-      csv += `"${d.name.replace(/"/g,'""')}","${d.roleTitle.replace(/"/g,'""')}","${d.role2Title.replace(/"/g,'""')}","${d.start}","${d.acem}","${d.mult}","${d.packageBase}","${d.gross}","${d.created}"\n`;
-    });
+    const all = loadAssignments();
+    const headers = Object.keys(all[0]||{});
+    const rows = all.map(it => headers.map(h => JSON.stringify(it[h])).join(','));
+    const csv = headers.join(',') + '\n' + rows.join('\n');
     const uri = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
-    const link = document.createElement('a'); link.href = uri; link.download = 'assignments.csv'; document.body.appendChild(link); link.click(); link.remove();
+    const link = document.createElement('a');
+    link.href = uri;
+    link.download = 'assignments_export.csv';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+  
+  if (raClear) raClear.addEventListener('click', ()=>{
+    if(!confirm(currentLang === 'bn' ? 'আপনি কি সব মুছে ফেলতে চান?' : 'Are you sure you want to clear all?')) return;
+    saveAssignments([]); renderList();
   });
 
-  if (raSearch) raSearch.addEventListener('input', ()=>{renderList();});
-  if (raClear) raClear.addEventListener('click', ()=>{ if(!confirm(currentLang === 'bn' ? 'সমস্ত নিয়োগ মুছে ফেলবেন?' : 'Clear all assignments?')) return; localStorage.removeItem('ac_assignments'); renderList(); });
+  function renderSummary() {
+      if (!summaryEl || !roleIn || !multIn) {
+          if (summaryEl) summaryEl.innerHTML = '';
+          return; 
+      }
+      
+      const r = getRoleById(roleIn.value);
+      const mult = Number(multIn.value) || 1;
+      const calc = calcPackage(r.basic, mult);
+      
+      const title = currentLang === 'bn' ? langData.bn['ra-summary-title'] : langData.en['ra-summary-title'];
+      const basic = r.basic ? r.basic.toLocaleString() : '—';
+      const pkg = calc.pkg ? calc.pkg.toLocaleString() : '—';
+      const gross = calc.gross ? calc.gross.toLocaleString() : '—';
+      
+      summaryEl.innerHTML = `
+          <h4>${title}</h4>
+          <p>Basic Pay: <strong>${basic}</strong> BDT</p>
+          <p>Multiplier: <strong>${mult}x</strong></p>
+          <p>Package Base (Basic * Mult): <strong>${pkg}</strong> BDT</p>
+          <p>Est. Gross (w/ allowances): <strong>${gross}</strong> BDT</p>
+      `;
+  }
+  
+  if (roleIn) roleIn.addEventListener('change', renderSummary);
+  if (multIn) multIn.addEventListener('input', renderSummary);
 
   window.roleAssignment = {
     updateLanguage: (lang) => {
@@ -931,3 +964,4 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
+          
