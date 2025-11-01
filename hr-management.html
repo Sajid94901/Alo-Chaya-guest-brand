@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HR Management Strategy (Bureau of Harmony)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Management - Bureau of Harmony</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,13 +11,19 @@
 </head>
 <body>
 
-    <header class="hero">
-        <div class="container">
-            <h1>Bureau of Harmony (HR) Strategy</h1>
-            <p class="lead">Enforcing the Common Heart Doctrine and the Objective Standard.</p>
-            
-            <nav class="main-nav">
-              <ul>
+<header class="hero">
+    <div class="lang-switch">
+        <select id="language" onchange="updateLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="bn">বাংলা</option>
+        </select>
+    </div>
+    <div class="container">
+        <h1 id="hero-title">Bureau of Harmony (HR) Strategy</h1>
+        <p class="lead" id="hero-lead">Enforcing the Common Heart Doctrine and the Objective Standard.</p>
+        
+        <nav class="main-nav">
+            <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="landing.html">Landing</a></li>
                 <li><a href="about-heritage.html">About & Heritage</a></li>
@@ -28,624 +34,615 @@
                 <li><a href="marketing-branding.html">Marketing & Branding</a></li>
                 <li><a href="doctrine.html">Doctrine</a></li>
                 <li><a href="models.html">Models</a></li>
-              </ul>
-            </nav>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main class="container">
+
+    <h2 class="mt-6 mb-4" id="section1-title">1. The Inversion of Authority (The Moral Auditor Mandate)</h2>
+    <p class="mb-4" id="section1-desc">The Bureau of Harmony is decentralized. The traditional, un-coachable central HR function is stripped of moral authority. All ethical compliance is handled by the <strong>HR Moral Auditor</strong> at the branch level, who acts as the Specialist’s direct guardian.</p>
+
+    <div class="interactive-layout">
+        <div class="grid grid-2" id="card-container">
         </div>
-    </header>
-
-    <main class="container">
-
-        <h2 class="mt-6 mb-4">1. The Inversion of Authority (The Moral Auditor Mandate)</h2>
-        <p class="mb-4">
-            The Bureau of Harmony is decentralized. The traditional, un-coachable central HR function is stripped of moral authority. All ethical compliance is handled by the <strong>HR Moral Auditor</strong> at the branch level, who acts as the Specialist’s direct guardian.
-        </p>
-
-        <div class="interactive-layout">
-            <div class="grid grid-2" id="card-container">
-            </div>
-            <div class="detail-pane" id="detail-pane">
-            </div>
+        <div class="detail-pane" id="detail-pane">
         </div>
+    </div>
 
-        <h2 class="mt-6 mb-4">2. Moral Purity and Guardrail of Integrity</h2>
-        <p class="mb-4">
-            The Bureau of Harmony enforces the moral purity of the Guild, protecting it from both internal and external corruption, as mandated by the Founder's Rule.
-        </p>
+    <h2 class="mt-6 mb-4" id="section2-title">2. Moral Purity and Guardrail of Integrity</h2>
+    <p class="mb-4" id="section2-desc">The Bureau of Harmony enforces the moral purity of the Guild, protecting it from both internal and external corruption, as mandated by the Founder's Rule.</p>
 
-        <div class="grid grid-2">
-            
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="text-danger">Moral Purity and Right to Eject</h3>
-                    <p>
-                        Guests are treated as students in the Training Centre. The Guild has the <strong>absolute, non-negotiable right to eject</strong> any guest engaging in gross moral failures (e.g., exploitation, adultery) that violate the spiritual purity and integrity of the Common Heart.
-                    </p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="text-danger">The Guardrail of Integrity (The Ultimate Test)</h3>
-                    <p>
-                        We reject all forms of corruption:
-                        <ol class="small mt-2" style="list-style-type: decimal; padding-left: 1.5rem;">
-                            <li><strong>Bidirectional Exploitation:</strong> Neither staff exploiting upper management, nor upper management exploiting staff.</li>
-                            <li><strong>External Contamination:</strong> The Leader's private life must never introduce external moral/financial poison that destroys the Guild.</li>
-                        </ol>
-                        The <strong>Guild Founder's Rule</strong> (no gambling, internal loans, or debt) is absolute.
-                    </p>
-                </div>
-            </div>
-
-        </div>
-
-        <h2 class="mt-6 mb-4">3. The Recruitment &amp; Onboarding Protocol (The Employee Story)</h2>
-        <p class="mb-4">
-            We do not just "hire" people. We begin the <strong>Employee Story</strong>. Our system is a data-driven model designed for personalization, connecting every stage of the employee lifecycle. This ensures we recruit the right people, grow them as Specialists, and learn from their journey to constantly improve the Guild.
-        </p>
-
-        <div class="grid grid-3">
-            <div class="card">
-                <div class="card-body">
-                    <h3>Step 1: Discovery &amp; Application</h3>
-                    <p>It starts with our <strong>Company Branding</strong> and honest <strong>Recruitment Discovery</strong>. Prospective Specialists apply via our portal, submitting not just a CV, but the raw data for their Employee Story, such as:</p>
-                    <ul class="small mt-2" style="list-style-type: square; padding-left: 1.5rem;">
-                        <li>Full CV (Previous Experience)</li>
-                        <li>Technical &amp; Soft Skill Competencies</li>
-                        <li>MBA/BBA Course Outlines</li>
-                        <li>All relevant certificates</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-body">
-                    <h3>Step 2: The ACEM Assessment</h3>
-                    <p>All applications are assessed based on the <strong>ACEM Purity Mandate</strong>. We test <em>only</em> for skills 100% relevant to the codified job role. We ban all irrelevant academic and cultural barriers, ensuring a fair, merit-based selection.</p>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-body">
-                    <h3>Step 3: The Trainee Specialist</h3>
-                    <p>Successful candidates are not "Interns." They are hired as paid <strong>Trainee Specialists</strong> at a <strong>Dignity Wage</strong>. They are given a codified role to begin their journey, allowing them to learn and contribute from day one.</p>
-                </div>
+    <div class="grid grid-2">
+        <div class="card" data-id="moral-purity">
+            <div class="card-body">
+                <h3 class="text-danger" id="card1-title">Moral Purity and Right to Eject</h3>
+                <p id="card1-desc">Guests are treated as students in the Training Centre. The Guild has the <strong>absolute, non-negotiable right to eject</strong> any guest engaging in gross moral failures (e.g., exploitation, adultery) that violate the spiritual purity and integrity of the Common Heart.</p>
             </div>
         </div>
 
-        <div class="card bg-light mt-4">
-            <div class="card-body text-center">
-                <h3>Become a Specialist</h3>
-                <p class="mb-3">
-                    If you are ready to begin your Employee Story and are committed to the Objective Standard, we invite you to apply.
+        <div class="card" data-id="guardrail-integrity">
+            <div class="card-body">
+                <h3 class="text-danger" id="card2-title">The Guardrail of Integrity (The Ultimate Test)</h3>
+                <p id="card2-desc">We reject all forms of corruption: 
+                    <ol class="small mt-2" style="list-style-type: decimal; padding-left: 1.5rem;" id="card2-list">
+                        <li>Bidirectional Exploitation: Neither staff exploiting upper management, nor upper management exploiting staff.</li>
+                        <li>External Contamination: The Leader's private life must never introduce external moral/financial poison that destroys the Guild.</li>
+                    </ol>
+                    The <strong>Guild Founder's Rule</strong> (no gambling, internal loans, or debt) is absolute.
                 </p>
-                <a href="index.html#apply-form" class="btn btn-primary btn-lg">
-                    Apply on Central Hub
-                </a>
             </div>
         </div>
-        <h2 class="mt-6 mb-4">4. Guild Role Hierarchy & Pay Structure</h2>
-        <p class="mb-4">
-            The Guild hierarchy defines purpose, not power. Every Specialist is aligned through service parity, transparent compensation, and rotational growth under the Alo Chaya Universalist Path.
-        </p>
+    </div>
 
-        <table class="data-table" id="salary-table">
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Designation</th>
-                    <th>Department</th>
-                    <th>Starting Basic (৳)</th>
-                    <th>Growth Range (৳)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>01</td>
-                    <td>Founder</td>
-                    <td>Executive Council</td>
-                    <td>250,000</td>
-                    <td>—</td>
-                </tr>
-                <tr>
-                    <td>02</td>
-                    <td>Project Lead</td>
-                    <td>Guild Administration</td>
-                    <td>150,000</td>
-                    <td>200,000 – 250,000</td>
-                </tr>
-                <tr>
-                    <td>03</td>
-                    <td>Deputy Project Coordinator</td>
-                    <td>Administration</td>
-                    <td>110,000</td>
-                    <td>120,000 – 140,000</td>
-                </tr>
-                <tr>
-                    <td>04</td>
-                    <td>Hospitality Manager</td>
-                    <td>Operations</td>
-                    <td>95,000</td>
-                    <td>100,000 – 115,000</td>
-                </tr>
-                <tr>
-                    <td>05</td>
-                    <td>Office Versatilist</td>
-                    <td>Core Management</td>
-                    <td>88,000</td>
-                    <td>88,000 – 120,000</td>
-                </tr>
-                <tr>
-                    <td>06</td>
-                    <td>Finance Officer</td>
-                    <td>Accounts</td>
-                    <td>72,000</td>
-                    <td>72,000 – 95,000</td>
-                </tr>
-                <tr>
-                    <td>07</td>
-                    <td>Operations Executive (FEO)</td>
-                    <td>Operations</td>
-                    <td>62,000</td>
-                    <td>62,000 – 80,000</td>
-                </tr>
-                <tr>
-                    <td>08</td>
-                    <td>Guest Relations Officer (AEO)</td>
-                    <td>Front Desk</td>
-                    <td>55,000</td>
-                    <td>55,000 – 70,000</td>
-                </tr>
-                <tr>
-                    <td>09</td>
-                    <td>Junior Executive (JEO)</td>
-                    <td>Admin Support</td>
-                    <td>48,000</td>
-                    <td>48,000 – 58,000</td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>Senior Office Assistant</td>
-                    <td>Facilities</td>
-                    <td>38,000</td>
-                    <td>38,000 – 45,000</td>
-                </tr>
-                <tr>
-                    <td>11</td>
-                    <td>Office Assistant</td>
-                    <td>Facilities</td>
-                    <td>32,000</td>
-                    <td>32,000 – 38,000</td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td>Room Coordinator</td>
-                    <td>Housekeeping</td>
-                    <td>27,000</td>
-                    <td>27,000 – 34,000</td>
-                </tr>
-                <tr>
-                    <td>13</td>
-                    <td>Landscaper / Garden Team</td>
-                    <td>Environment Dept</td>
-                    <td>26,000</td>
-                    <td>26,000 – 30,000</td>
-                </tr>
-                <tr>
-                    <td>14</td>
-                    <td>Gastro Assistant Staff</td>
-                    <td>Culinary & Kitchen</td>
-                    <td>24,000</td>
-                    <td>24,000 – 28,000</td>
-                </tr>
-                <tr>
-                    <td>15</td>
-                    <td>Pastry / Grill Specialist</td>
-                    <td>Culinary & Kitchen</td>
-                    <td>33,000</td>
-                    <td>33,000 – 42,000</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="interactive-controls">
-            <button id="togglePackage" class="btn btn-outline-primary">Toggle to Full Package</button>
-            <select id="languageSelector" class="lang-switch">
-                <option value="en" selected>English</option>
-                <option value="bn">বাংলা</option>
+    <section id="granular-staffing-extended" class="mt-6">
+      <div class="card">
+        <div class="card-body">
+          <h2 style="margin-top:0;" id="section3-title">Granular Staffing & Payroll</h2>
+          <p class="small text-muted mb-3" id="section3-desc">Click any role card to see the full breakdown. Use the language switcher at the top-right to toggle বাংলা / English.</p>
+          <div id="position-controls" style="display:flex;gap:8px;align-items:center;margin-bottom:12px;">
+            <input id="pos-search" placeholder="Search role or keyword" style="padding:8px;border-radius:8px;border:1px solid var(--border-color);width:320px">
+            <select id="pos-scenario" style="padding:8px;border-radius:8px;border:1px solid var(--border-color);">
+              <option value="true_mid">True Mid</option>
+              <option value="low_ideal">Low Ideal</option>
+              <option value="high_ideal">High Ideal</option>
             </select>
+            <button id="pos-export" class="btn" style="padding:.5rem .75rem;">Export CSV</button>
+          </div>
+          <div id="position-cards" class="grid grid-auto" style="gap:12px"></div>
+          <div id="position-detail" class="detail-pane mt-4" style="display:block"></div>
         </div>
-
-        <div id="jobCards" class="grid grid-3 mt-4"></div>
-
-        <script>
-        const salaryData = [
-            {title:"Founder", pay:250000, dept:"Executive Council"},
-            {title:"Project Lead", pay:150000, dept:"Guild Administration"},
-            {title:"Deputy Project Coordinator", pay:110000, dept:"Administration"},
-            {title:"Hospitality Manager", pay:95000, dept:"Operations"},
-            {title:"Office Versatilist", pay:88000, dept:"Core Management"},
-            {title:"Finance Officer", pay:72000, dept:"Accounts"},
-            {title:"Operations Executive (FEO)", pay:62000, dept:"Operations"},
-            {title:"Guest Relations Officer (AEO)", pay:55000, dept:"Front Desk"},
-            {title:"Junior Executive (JEO)", pay:48000, dept:"Admin Support"},
-            {title:"Senior Office Assistant", pay:38000, dept:"Facilities"},
-            {title:"Office Assistant", pay:32000, dept:"Facilities"},
-            {title:"Room Coordinator", pay:27000, dept:"Housekeeping"},
-            {title:"Landscaper / Garden Team", pay:26000, dept:"Environment Dept"},
-            {title:"Gastro Assistant Staff", pay:24000, dept:"Culinary & Kitchen"},
-            {title:"Pastry / Grill Specialist", pay:33000, dept:"Culinary & Kitchen"}
-        ];
-
-        const container = document.getElementById("jobCards");
-        const btn = document.getElementById("togglePackage");
-        const langSel = document.getElementById("languageSelector");
-        let full = false;
-        let lang = "en";
-
-        function renderCards() {
-            container.innerHTML = "";
-            salaryData.forEach(r => {
-                const pkg = full ? (r.pay * 2).toLocaleString() : r.pay.toLocaleString();
-                const card = document.createElement("div");
-                card.className = "card";
-                card.innerHTML = `
-                    <div class="card-body">
-                        <h3>${r.title}</h3>
-                        <p>${r.dept}</p>
-                        <p><strong>${lang==="en"?"Starting Basic":"মূল বেতন"}:</strong> ৳${pkg}</p>
-                    </div>`;
-                container.appendChild(card);
-            });
-        }
-
-        btn.addEventListener("click", ()=>{full=!full;renderCards();});
-        langSel.addEventListener("change", e=>{lang=e.target.value;renderCards();});
-        renderCards();
-            <section id="operations" class="operations-section">
-            <h2>Operations & Departments</h2>
-            <div class="card-grid">
-                <div class="card interactive" data-content="finance">
-                    <h3>Finance & Accounting</h3>
-                    <p>Handles budgeting, ratio analysis, and capital layering for sustainable growth.</p>
-                </div>
-                <div class="card interactive" data-content="marketing">
-                    <h3>Marketing & Branding</h3>
-                    <p>Develops brand identity, campaigns, and bilingual digital presence across all media.</p>
-                </div>
-                <div class="card interactive" data-content="hr">
-                    <h3>HR & Talent Development</h3>
-                    <p>Builds long-term talent pipelines through mentorship, stewardship, and culture building.</p>
-                </div>
-                <div class="card interactive" data-content="hospitality">
-                    <h3>Hospitality & Guest Services</h3>
-                    <p>Creates guest experiences based on Rocco Forte style operational elegance.</p>
-                </div>
-                <div class="card interactive" data-content="architecture">
-                    <h3>Architecture & Design</h3>
-                    <p>Integrates Alo Chaya’s design language with Lighthouse aesthetic and material innovation.</p>
-                </div>
-                <div class="card interactive" data-content="operations">
-                    <h3>Operations & Management</h3>
-                    <p>Oversees logistics, facility performance, and digital workflow integration.</p>
-                </div>
+      </div>
+    </section>
+    
+    <section id="role-assignment" class="mt-6">
+      <div class="card">
+        <div class="card-body">
+          <h2 id="section6-title">6. Role Assignment & Employee Journey</h2>
+          <p class="small text-muted mb-3" id="section6-desc">Assign a Specialist to one or more roles (Versatilist paths), track onboarding stage and ACEM entry.</p>
+          <div class="tab-bar" style="gap:8px;align-items:center;">
+            <button id="ra-tab-assign" class="active" data-lang-key="ra-tab-assign">Assign Role</button>
+            <button id="ra-tab-list" data-lang-key="ra-tab-list">Assigned List</button>
+            <div style="margin-left:auto;display:flex;gap:.5rem;align-items:center;">
+              <input id="ra-search" placeholder="Search name or role" data-lang-key="ra-search-placeholder">
+              <button id="ra-export" class="btn" style="padding:.5rem .8rem;font-size:.95rem" data-lang-key="ra-export">Export CSV</button>
             </div>
-        </section>
-
-        <section id="interactive-modals">
-            <div class="modal hidden" id="modal-finance">
-                <div class="modal-content">
-                    <h3>Finance & Accounting</h3>
-                    <p>Year 1 Revenue = 82 M BDT | Net Profit ≈ 37 M BDT. Incorporates ROI = Annual NOP ÷ CapEx with turnover ratios for reinvestment cycles. Founder — Mr. Hassan; Project Lead — Sajid Hassan.</p>
-                    <button class="close-modal">Close</button>
+          </div>
+    
+          <div id="ra-assign-panel" class="tab-content">
+            <div style="display:grid;grid-template-columns:1fr 360px;gap:1.25rem;">
+              <div>
+                <label style="font-weight:700" data-lang-key="ra-label-name">Employee Full Name
+                  <input id="ra-name" type="text" placeholder="e.g. Munir Chachu" data-lang-key="ra-name-placeholder">
+                </label>
+    
+                <label style="font-weight:700" data-lang-key="ra-label-role1">Primary Role
+                  <select id="ra-role"></select>
+                </label>
+    
+                <label style="font-weight:700" data-lang-key="ra-label-role2">Secondary Role (optional)
+                  <select id="ra-role-2">
+                    <option value="">None</option>
+                  </select>
+                </label>
+    
+                <label style="font-weight:700" data-lang-key="ra-label-start">Start Date
+                  <input id="ra-start" type="date">
+                </label>
+    
+                <label style="font-weight:700" data-lang-key="ra-label-acem">ACEM Entry Score (0-100)
+                  <input id="ra-acem" type="number" min="0" max="100" value="70">
+                </label>
+    
+                <label style="font-weight:700" data-lang-key="ra-label-mult">Package Multiplier
+                  <select id="ra-mult">
+                    <option value="1">Basic ×1.00</option>
+                    <option value="1.5">Package ×1.50</option>
+                    <option value="2">Package ×2.00</option>
+                  </select>
+                </label>
+    
+                <div style="display:flex;gap:.75rem;margin-top:1rem;">
+                  <button id="ra-calc" class="btn" data-lang-key="ra-calc">Calculate Package</button>
+                  <button id="ra-save" class="btn btn-primary" data-lang-key="ra-save">Save Assignment</button>
                 </div>
-            </div>
-
-            <div class="modal hidden" id="modal-marketing">
-                <div class="modal-content">
-                    <h3>Marketing & Branding</h3>
-                    <p>Bilingual UI and visual identity combine Rocco Forte hospitality tone with Alo Chaya’s Lighthouse ethos.</p>
-                    <button class="close-modal">Close</button>
+              </div>
+    
+              <div class="card bg-light">
+                <div class="card-body">
+                  <h3 id="ra-summary-title" data-lang-key="ra-summary-title">Assignment Summary</h3>
+                  <div id="ra-summary" style="font-family:monospace;line-height:1.5;padding-top:.5rem;">
+                  </div>
+                  <div style="margin-top:1rem;">
+                    <button id="ra-preview-contract" class="btn" style="width:100%;" data-lang-key="ra-preview-contract">Preview Contract</button>
+                  </div>
                 </div>
+              </div>
             </div>
-
-            <div class="modal hidden" id="modal-hr">
-                <div class="modal-content">
-                    <h3>HR & Talent Development</h3>
-                    <p>Implements hierarchies MTO → FEO → EO with symbolic allowance structures for training and reinvestment. Monthly Salary Base = 250 000 BDT; Draw = 150 000 – 125 000 BDT under reserve plans.</p>
-                    <button class="close-modal">Close</button>
-                </div>
+          </div>
+    
+          <div id="ra-list-panel" class="tab-content" style="display:none;">
+            <div id="ra-list" style="margin-top:1rem;"></div>
+            <div style="margin-top:1rem;">
+              <button id="ra-clear" class="btn" style="background:#b91c1c;" data-lang-key="ra-clear">Clear All</button>
             </div>
-
-            <div class="modal hidden" id="modal-hospitality">
-                <div class="modal-content">
-                    <h3>Hospitality & Guest Services</h3>
-                    <p>Integrates kitchen and restaurant concepts from Soma’s Food Wars and Restaurant to Another World for training simulation and design flair.</p>
-                    <button class="close-modal">Close</button>
-                </div>
-            </div>
-
-            <div class="modal hidden" id="modal-architecture">
-                <div class="modal-content">
-                    <h3>Architecture & Design</h3>
-                    <p>Each site incorporates Lighthouse motifs in material composition and eco-spatial form; structural plans reviewed through Architect & Illuminator protocols.</p>
-                    <button class="close-modal">Close</button>
-                </div>
-            </div>
-
-            <div class="modal hidden" id="modal-operations">
-                <div class="modal-content">
-                    <h3>Operations & Management</h3>
-                    <p>Focus on rotational sales cycles, cross-floor room allocation, and Gemini synchronization for efficiency tracking.</p>
-                    <button class="close-modal">Close</button>
-                </div>
-            </div>
-        </section>
-    </script>
-    <section id="interactive-models" class="container mt-6">
-    <h2 class="mb-4">Interactive Models & Pathways</h2>
-    <p class="mb-4">
-        Explore the roles, onboarding, training paths, and versatile career opportunities across the Guild.
-    </p>
-
-    <div class="grid grid-3" id="model-card-container">
-        <div class="card interactive-card" data-role="gastro-assistant">
-            <div class="card-body">
-                <h3>Gastronomic Assistant Staff</h3>
-                <p>Starting basic: $24,000</p>
-                <button class="view-details">View Details</button>
-            </div>
+          </div>
         </div>
-
-        <div class="card interactive-card" data-role="ops-specialist">
-            <div class="card-body">
-                <h3>Operations Specialist</h3>
-                <p>Starting basic: $88,000</p>
-                <button class="view-details">View Details</button>
-            </div>
+      </div>
+    
+      <div id="ra-modal" style="display:none;position:fixed;inset:0;background:rgba(2,6,23,0.6);align-items:center;justify-content:center;z-index:9999;">
+        <div style="width:920px;max-width:96%;background:var(--card-bg);border-radius:12px;padding:1.25rem;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <h3 id="ra-modal-title">Assignment Contract</h3>
+            <button id="ra-modal-close" style="background:none;border:none;font-weight:700;cursor:pointer;font-size:18px;">✕</button>
+          </div>
+          <div id="ra-modal-body" style="margin-top:.75rem;font-size:0.95rem;line-height:1.5;"></div>
+          <div style="margin-top:1rem;display:flex;gap:.75rem;justify-content:flex-end;">
+            <button id="ra-modal-download" class="btn" data-lang-key="ra-modal-download">Download</button>
+            <button id="ra-modal-save" class="btn btn-primary" data-lang-key="ra-modal-save">Confirm</button>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <div class="card interactive-card" data-role="versatilist">
-            <div class="card-body">
-                <h3>Alochaya Versatilist Path</h3>
-                <p>Flexible roles, paid per completed function.</p>
-                <button class="view-details">View Details</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="detail-pane" id="model-detail-pane"></div>
-</section>
-
+</main>
 <script>
-(function() {
-    const cards = document.querySelectorAll('#model-card-container .interactive-card');
-    const detailPane = document.getElementById('model-detail-pane');
+const langData = {
+    'en': {
+        'hero-title': 'Bureau of Harmony (HR) Strategy',
+        'hero-lead': 'Enforcing the Common Heart Doctrine and the Objective Standard.',
+        'section1-title': '1. The Inversion of Authority (The Moral Auditor Mandate)',
+        'section1-desc': 'The Bureau of Harmony is decentralized. The traditional, un-coachable central HR function is stripped of moral authority. All ethical compliance is handled by the <strong>HR Moral Auditor</strong> at the branch level, who acts as the Specialist’s direct guardian.',
+        'section2-title': '2. Moral Purity and Guardrail of Integrity',
+        'section2-desc': 'The Bureau of Harmony enforces the moral purity of the Guild, protecting it from both internal and external corruption, as mandated by the Founder\'s Rule.',
+        'card1-title': 'Moral Purity and Right to Eject',
+        'card1-desc': 'Guests are treated as students in the Training Centre. The Guild has the <strong>absolute, non-negotiable right to eject</strong> any guest engaging in gross moral failures (e.g., exploitation, adultery) that violate the spiritual purity and integrity of the Common Heart.',
+        'card2-title': 'The Guardrail of Integrity (The Ultimate Test)',
+        'section3-title': 'Granular Staffing & Payroll',
+        'section3-desc': 'Click any role card to see the full breakdown. Use the language switcher at the top-right to toggle বাংলা / English.',
+        'section6-title': '6. Role Assignment & Employee Journey',
+        'section6-desc': 'Assign a Specialist to one or more roles (Versatilist paths), track onboarding stage and ACEM entry.',
+        'ra-tab-assign': 'Assign Role',
+        'ra-tab-list': 'Assigned List',
+        'ra-search-placeholder': 'Search name or role',
+        'ra-export': 'Export CSV',
+        'ra-label-name': 'Employee Full Name',
+        'ra-name-placeholder': 'e.g. Munir Chachu',
+        'ra-label-role1': 'Primary Role',
+        'ra-label-role2': 'Secondary Role (optional)',
+        'ra-label-start': 'Start Date',
+        'ra-label-acem': 'ACEM Entry Score (0-100)',
+        'ra-label-mult': 'Package Multiplier',
+        'ra-calc': 'Calculate Package',
+        'ra-save': 'Save Assignment',
+        'ra-summary-title': 'Assignment Summary',
+        'ra-preview-contract': 'Preview Contract',
+        'ra-clear': 'Clear All',
+        'ra-modal-download': 'Download',
+        'ra-modal-save': 'Confirm'
+    },
+    'bn': {
+        'hero-title': 'সম্প্রীতি ব্যুরো (এইচআর) কৌশল',
+        'hero-lead': 'কমন হার্ট ডকট্রিন এবং অবজেক্টিভ স্ট্যান্ডার্ড প্রয়োগ করা।',
+        'section1-title': '১. কর্তৃত্বের বিপরীত (নৈতিক অডিটর ম্যান্ডেট)',
+        'section1-desc': 'সম্প্রীতি ব্যুরো বিকেন্দ্রীভূত। প্রথাগত, প্রশিক্ষণ-অযোগ্য কেন্দ্রীয় এইচআর ফাংশনকে নৈতিক কর্তৃত্ব থেকে বঞ্চিত করা হয়েছে। সমস্ত নৈতিক সম্মতি শাখা পর্যায়ে <strong>এইচআর মোরাল অডিটর</strong> দ্বারা পরিচালিত হয়, যিনি বিশেষজ্ঞের সরাসরি অভিভাবক হিসাবে কাজ করেন।',
+        'section2-title': '২. নৈতিক বিশুদ্ধতা এবং অখণ্ডতার গার্ডরাইল',
+        'section2-desc': 'সম্প্রীতি ব্যুরো গিল্ডের নৈতিক বিশুদ্ধতা প্রয়োগ করে, এটিকে অভ্যন্তরীণ এবং বাহ্যিক উভয় দুর্নীতি থেকে রক্ষা করে, যেমনটি প্রতিষ্ঠাতার নিয়ম দ্বারা বাধ্যতামূলক।',
+        'card1-title': 'নৈতিক বিশুদ্ধতা এবং বহিষ্কারের অধিকার',
+        'card1-desc': 'অতিথিদের প্রশিক্ষণ কেন্দ্রে ছাত্র হিসাবে গণ্য করা হয়। গিল্ডের <strong>নিরঙ্কুশ, অ-আলোচনাযোগ্য অধিকার রয়েছে</strong> যে কোনও অতিথিকে স্থূল নৈতিক ব্যর্থতায় (যেমন, শোষণ, ব্যভিচার) জড়িত থাকার জন্য বহিষ্কার করার যা সাধারণ হৃদয়ের আধ্যাত্মিক বিশুদ্ধতা এবং অখণ্ডতা লঙ্ঘন করে।',
+        'card2-title': 'অখণ্ডতার গার্ডরাইল (চূড়ান্ত পরীক্ষা)',
+        'section3-title': 'বিস্তারিত স্টাফিং এবং বেতন',
+        'section3-desc': 'সম্পূর্ণ ব্রেকডাউন দেখতে যেকোনো রোল কার্ডে ক্লিক করুন। বাংলা / ইংরেজি টগল করতে উপরের-ডানদিকে ভাষা সুইচার ব্যবহার করুন।',
+        'section6-title': '৬. ভূমিকায় নিয়োগ ও কর্মজীবন',
+        'section6-desc': 'একজন বিশেষজ্ঞকে এক বা একাধিক ভূমিকায় नियुक्त করুন, অনবোর্ডিং পর্যায় এবং ACEM এন্ট্রি ট্র্যাক করুন।',
+        'ra-tab-assign': 'ভূমিকা অর্পণ',
+        'ra-tab-list': 'অর্পিত তালিকা',
+        'ra-search-placeholder': 'নাম বা পদ খুঁজুন',
+        'ra-export': 'এক্সপোর্ট CSV',
+        'ra-label-name': 'কর্মচারীর সম্পূর্ণ নাম',
+        'ra-name-placeholder': 'উদাঃ মুনির চাচু',
+        'ra-label-role1': 'প্রাথমিক ভূমিকা',
+        'ra-label-role2': 'মাধ্যমিক ভূমিকা (ঐচ্ছিক)',
+        'ra-label-start': 'শুরুর তারিখ',
+        'ra-label-acem': 'ACEM এন্ট্রি স্কোর (০-১০০)',
+        'ra-label-mult': 'প্যাকেজ গুণক',
+        'ra-calc': 'প্যাকেজ হিসাব',
+        'ra-save': 'নিয়োগ সংরক্ষণ',
+        'ra-summary-title': 'নিয়োগ সারসংক্ষেপ',
+        'ra-preview-contract': 'চুক্তি পূর্বরূপ',
+        'ra-clear': 'সমস্ত মুছুন',
+        'ra-modal-download': 'ডাউনলোড',
+        'ra-modal-save': 'নিশ্চিত করুন'
+    }
+};
 
-    const modelDetails = {
-        'gastro-assistant': `
-            <h3>Gastronomic Assistant Staff</h3>
-            <p>Starting basic: $24,000</p>
-            <ul>
-                <li>Onboarding includes culinary safety & hygiene</li>
-                <li>Training: 6-week structured program</li>
-                <li>Linkage: Finance, Operations, Guest Service Modules</li>
-                <li>ACEM Purity compliance applied</li>
-            </ul>
-        `,
-        'ops-specialist': `
-            <h3>Operations Specialist</h3>
-            <p>Starting basic: $88,000</p>
-            <ul>
-                <li>Onboarding: Bureau of Efficiency induction</li>
-                <li>Training: Delegation, T&D linkages, JCM paths</li>
-                <li>Performance reviewed monthly, versatile task allocations</li>
-                <li>ACEM Purity compliance applied</li>
-            </ul>
-        `,
-        'versatilist': `
-            <h3>Alochaya Versatilist Path</h3>
-            <p>Flexible roles with multi-role compensation.</p>
-            <ul>
-                <li>Pay per function executed</li>
-                <li>Training includes multi-disciplinary skill sets</li>
-                <li>Onboarding: Guided through the universalist career ladder</li>
-                <li>ACEM Purity compliance applied</li>
-            </ul>
-        `
-    };
+const positionsData = [
+  {id:'founder',en_name:'Founder / CEO',bn_name:'প্রতিষ্ঠাতা / সিইও',category:'Executive',basic:250000,drawn_worst:125000,package1:375000,package2:500000,notes_en:'Project lead; reinvests drawing in worst scenarios.',notes_bn:'প্রকল্প নেতা; খারাপ পরিস্থিতিতে আয় পুনরায় বিনিয়োগ করবেন।'},
+  {id:'office_gm',en_name:'Office Versatilist (GM)',bn_name:'অফিস ভার্সাটিলিস্ট (জিএম)',category:'Office & Management',basic:88000,package1:132000,package2:176000,notes_en:'Senior operations generalist; dual-line responsibilities.',notes_bn:'সিনিয়র অপারেশনস জেনারালিস্ট; দ্বৈত দায়িত্ব।'},
+  {id:'senior_versatilist',en_name:'Senior Universalist',bn_name:'সিনিয়র ইউনিভার্সালিস্ট',category:'Office & Management',basic:120000,package1:180000,package2:240000,notes_en:'Top-tier specialist; initial basic 120,000 BDT.',notes_bn:'উচ্চতর বিশেষজ্ঞ; প্রাথমিক বেসিক ১২০,০০০ টাকা।'},
+  {id:'trainee',en_name:'Trainee Specialist',bn_name:'ট্রেইনি স্পেশালিস্ট',category:'Entry',basic:24000,package1:36000,package2:48000,notes_en:'Paid trainee with Dignity Wage floor for entry roles.',notes_bn:'দিগনিটি ওয়েজ ন্যূনতম ভিত্তিতে বেতনপ্রাপ্ত ট্রেইনি।'},
+  {id:'office_assistant',en_name:'Office Assistant',bn_name:'অফিস সহকারী',category:'Office & Management',basic:12000,package1:18000,package2:24000,notes_en:'Replacement for unpaid interns; paid basic starts at 12,000 BDT.',notes_bn:'বিনা বেতনের ইন্টার্নের বিকল্প; প্রাথমিক বেসিক ১২,০০০ টাকা শুরু।'},
+  {id:'senior_office_assistant',en_name:'Senior Office Assistant',bn_name:'সিনিয়র অফিস সহকারী',category:'Office & Management',basic:24000,package1:36000,package2:48000,notes_en:'Senior assistant with supervisory duties.',notes_bn:'সুপারভাইজরি দায়িত্বসহ সিনিয়র সহকারী।'},
+  {id:'observed_exec',en_name:'Observed Executive',bn_name:'অবসার্ভড এক্সিকিউটিভ',category:'Office & Management',basic:26000,package1:39000,package2:52000,notes_en:'Observed line executive with structured mentoring.',notes_bn:'স্ট্রাকচার্ড মেন্টরিং সহ লাইন এক্সিকিউটিভ।'},
+  {id:'unobserved_exec',en_name:'Unobserved Executive',bn_name:'আনঅবসার্ভড এক্সিকিউটিভ',category:'Office & Management',basic:30000,package1:45000,package2:60000,notes_en:'Higher autonomy executive role.',notes_bn:'উচ্চতর স্বায়ত্তশাসিত এক্সিকিউটিভ।'},
+  {id:'aao',en_name:'Assistant Executive Officer (AEO)',bn_name:'সহকারী এক্সিকিউটিভ অফিসার (এইও)',category:'Management Ladder',basic:24000,package1:36000,package2:48000,notes_en:'Model range 24k basic up to gross 48k as per benchmark.',notes_bn:'বেঞ্চমার্ক অনুযায়ী ২৪ক বেসিক থেকে ৪৮ক পর্যন্ত গ্রস।'},
+  {id:'jeo',en_name:'Junior Executive Officer (JEO)',bn_name:'জুনিয়র এক্সিকিউটিভ অফিসার (জেএও)',category:'Management Ladder',basic:26150,package1:39225,package2:52200,notes_en:'Modeled from sample scale; used for promotion ladder.',notes_bn:'নমুনা স্কেল থেকে মডেল করা; পদোন্নতির সিঁড়ির জন্য ব্যবহৃত।'},
+  {id:'feo',en_name:'First Executive Officer (FEO)',bn_name:'ফার্স্ট এক্সিকিউটিভ অফিসার (এফইও)',category:'Management Ladder',basic:49500,package1:74250,package2:99000,notes_en:'Consolidated monthly pay during probation; later moves to scale.',notes_bn:'Probation কালে কনসোলিডেটেড মাসিক বেতন; পরে স্কেলে যায়।'},
+  {id:'eo',en_name:'Executive Officer (EO)',bn_name:'এক্সিকিউটিভ অফিসার (ইও)',category:'Management Ladder',basic:52400,package1:78600,package2:104800,notes_en:'Higher-level EO with significant targets.',notes_bn:'উচ্চতর ইও, লক্ষ্যভিত্তিক।'},
+  {id:'senior_exec',en_name:'Senior Executive',bn_name:'সিনিয়র এক্সিকিউটিভ',category:'Management Ladder',basic:153450,package1:230175,package2:306900,notes_en:'Senior leadership role; long-tenure pay.',notes_bn:'সিনিয়র নেতৃত্ব; দীর্ঘ মেয়াদী বেতন।'},
+  {id:'md',en_name:'Managing Director (MD)',bn_name:'ম্যানেজিং ডিরেক্টর',category:'Executive',basic:800000,package1:1200000,package2:1600000,notes_en:'Top executive scale used as external benchmark.',notes_bn:'বেরি্যাণ্ড বেঞ্চমার্ক হিসেবে ব্যবহৃত শীর্ষ স্কেল।'},
+  {id:'housekeeping',en_name:'Room Coordinator (Housekeeping)',bn_name:'রুম কোঅর্ডিনেটর (হাউসকিপিং)',category:'Resort Staff',basic:24000,package1:36000,package2:48000,notes_en:'Core housekeeping role; versatilist scope possible.',notes_bn:'কোর হাউসকিপING রোল; ভার্সাটিলিস্ট দায়িত্ব সম্ভাব্য।'},
+  {id:'service',en_name:'Service Team (Garçons)',bn_name:'সার্ভিস টিম (গারসন)',category:'Resort Staff',basic:22000,package1:33000,package2:44000,notes_en:'Front-of-house service staff.',notes_bn:'ফ্রন্ট-অফ-হাউস সার্ভিস স্টাফ।'},
+  {id:'barista',en_name:'Barista',bn_name:'বারিস্টা',category:'Resort Staff',basic:25000,package1:37500,package2:50000,notes_en:'Specialty beverage staff.',notes_bn:'স্পেশালটি বেভারেজ স্টাফ।'},
+  {id:'grounds',en_name:'Grounds & Security',bn_name:'গ্রাউন্ডস ও সিকিউরিটি',category:'Resort Staff',basic:20000,package1:30000,package2:40000,notes_en:'Landscapers and security combined.',notes_bn:'ল্যান্ডস্কেপার ও সিকিউরিটি সম্মিলিত।'},
+  {id:'landscaper',en_name:'Landscaper / Garden Team',bn_name:'ল্যান্ডস্কেপার / গার্ডেন টিম',category:'Resort Staff',basic:15000,package1:22500,package2:30000,notes_en:'Garden maintenance basic 15k.',notes_bn:'গার্ডেন রক্ষণাবেক্ষণ বেসিক ১৫ক।'},
+  {id:'pastry',en_name:'Pastry / Grill Specialty',bn_name:'প্যাস্ট্রি / গ্রিল স্পেশালিটি',category:'Kitchen Team',basic:24000,package1:36000,package2:48000,notes_en:'Specialists starting at 24k basic.',notes_bn:'বিশেষজ্ঞরা ২৪ক বেসিক থেকে শুরু।'},
+  {id:'commis',en_name:'Commis Chef',bn_name:'কমিস শেফ',category:'Kitchen Team',basic:24000,package1:36000,package2:48000,notes_en:'Entry-level kitchen role.',notes_bn:'এন্ট্রি-লেভেল কিচেন রোল।'},
+  {id:'gas_tech',en_name:'Gastronomy Technician',bn_name:'গ্যাস্ট্রোনোমি টেকনিশিয়ান',category:'Kitchen Team',basic:36000,package1:54000,package2:72000,notes_en:'Skilled culinary technician.',notes_bn:'দক্ষ রন্ধনপ্রযুক্তি টেকনিশিয়ান।'}
+];
 
-    cards.forEach(card => {
-        const role = card.dataset.role;
-        card.querySelector('.view-details').addEventListener('click', () => {
-            detailPane.innerHTML = modelDetails[role];
-        });
-    });
+function formatCurrency(n){
+  return n.toLocaleString();
+}
 
-    // Bilingual toggle
-    const languageSelector = document.getElementById('language');
-    languageSelector.addEventListener('change', (e) => {
-        const lang = e.target.value;
-        if(lang === 'bn') {
-            detailPane.querySelectorAll('h3').forEach(h3 => {
-                if(h3.innerText === 'Gastronomic Assistant Staff') h3.innerText = 'পাশ্চাত্য সহকারী কর্মী';
-                if(h3.innerText === 'Operations Specialist') h3.innerText = 'অপারেশন বিশেষজ্ঞ';
-                if(h3.innerText === 'Alochaya Versatilist Path') h3.innerText = 'আলোছায়া বহুমুখী পথ';
-            });
-        } else {
-            detailPane.querySelectorAll('h3').forEach(h3 => {
-                if(h3.innerText === 'পাশ্চাত্য সহকারী কর্মী') h3.innerText = 'Gastronomic Assistant Staff';
-                if(h3.innerText === 'অপারেশন বিশেষজ্ঞ') h3.innerText = 'Operations Specialist';
-                if(h3.innerText === 'আলোছায়া বহুমুখী পথ') h3.innerText = 'Alochaya Versatilist Path';
-            });
+let currentLang = 'en'; 
+let currentDetailId = null; 
+
+function updateLanguage(lang) {
+    currentLang = lang; 
+    const translations = langData[lang];
+    
+    document.querySelectorAll('[id]').forEach(element => {
+        if (translations[element.id]) {
+            element.innerHTML = translations[element.id];
         }
     });
-})();
-</script>
-<section id="jcm-pathways" class="container mt-6">
-    <h2 class="mb-4">Job & Competency Matrix (JCM) Pathways</h2>
-    <p class="mb-4">
-        Every role in the Guild follows a verified JCM pathway. Onboarding, training, and career advancement are mapped for clarity.
-    </p>
 
-    <div class="grid grid-2" id="jcm-card-container">
-        <div class="card interactive-card" data-jcm="ops-jcm">
-            <div class="card-body">
-                <h3>Operations JCM</h3>
-                <p>Delegation, T&D linkages, ACEM standard compliance.</p>
-                <button class="view-details">View Details</button>
-            </div>
-        </div>
-
-        <div class="card interactive-card" data-jcm="hr-jcm">
-            <div class="card-body">
-                <h3>HR / Bureau of Harmony JCM</h3>
-                <p>Moral Auditor Mandate, ACEM Purity, onboarding pathways.</p>
-                <button class="view-details">View Details</button>
-            </div>
-        </div>
-
-        <div class="card interactive-card" data-jcm="marketing-jcm">
-            <div class="card-body">
-                <h3>Marketing / Public Bureau JCM</h3>
-                <p>Brand alignment, guest experience, public promise delivery.</p>
-                <button class="view-details">View Details</button>
-            </div>
-        </div>
-
-        <div class="card interactive-card" data-jcm="finance-jcm">
-            <div class="card-body">
-                <h3>Finance / Bureau of Provision JCM</h3>
-                <p>5-year projection, dignity wage, zero debt compliance.</p>
-                <button class="view-details">View Details</button>
-            </div>
-        </div>
-
-        <div class="card interactive-card" data-jcm="versatilist-jcm">
-            <div class="card-body">
-                <h3>Alochaya Versatilist Path JCM</h3>
-                <p>Multi-role execution, per-function pay, universalist ladder.</p>
-                <button class="view-details">View Details</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="detail-pane" id="jcm-detail-pane"></div>
-</section>
-
-<script>
-(function() {
-    const jcmCards = document.querySelectorAll('#jcm-card-container .interactive-card');
-    const jcmDetailPane = document.getElementById('jcm-detail-pane');
-
-    const jcmDetails = {
-        'ops-jcm': `
-            <h3>Operations JCM</h3>
-            <ul>
-                <li>Delegation & T&D linkages</li>
-                <li>Konohana Kitan Service Model</li>
-                <li>Monthly performance review</li>
-                <li>ACEM Purity enforced</li>
-            </ul>
-        `,
-        'hr-jcm': `
-            <h3>HR / Bureau of Harmony JCM</h3>
-            <ul>
-                <li>Moral Auditor onboarding</li>
-                <li>Branch-level compliance enforcement</li>
-                <li>ACEM Purity adherence</li>
-                <li>Career advancement tracking</li>
-            </ul>
-        `,
-        'marketing-jcm': `
-            <h3>Marketing / Public Bureau JCM</h3>
-            <ul>
-                <li>7Ps brand framework</li>
-                <li>Guest service alignment</li>
-                <li>Audit & competitor feedback</li>
-                <li>ACEM Purity enforced</li>
-            </ul>
-        `,
-        'finance-jcm': `
-            <h3>Finance / Bureau of Provision JCM</h3>
-            <ul>
-                <li>5-year financial projection</li>
-                <li>88k dignity wage enforced</li>
-                <li>No-debt mandate</li>
-                <li>ACEM Purity compliance</li>
-            </ul>
-        `,
-        'versatilist-jcm': `
-            <h3>Alochaya Versatilist Path JCM</h3>
-            <ul>
-                <li>Multi-role execution and pay per function</li>
-                <li>Universalist career ladder</li>
-                <li>Cross-functional onboarding & training</li>
-                <li>ACEM Purity enforced</li>
-            </ul>
-        `
-    };
-
-    jcmCards.forEach(card => {
-        const role = card.dataset.jcm;
-        card.querySelector('.view-details').addEventListener('click', () => {
-            jcmDetailPane.innerHTML = jcmDetails[role];
-        });
-    });
-
-    const languageSelector = document.getElementById('language');
-    languageSelector.addEventListener('change', (e) => {
-        const lang = e.target.value;
-        jcmDetailPane.querySelectorAll('h3').forEach(h3 => {
-            if(lang === 'bn'){
-                if(h3.innerText === 'Operations JCM') h3.innerText = 'অপারেশন জেসিএম';
-                if(h3.innerText === 'HR / Bureau of Harmony JCM') h3.innerText = 'এইচআর / হারমনি ব্যুরো জেসিএম';
-                if(h3.innerText === 'Marketing / Public Bureau JCM') h3.innerText = 'মার্কেটিং / পাবলিক ব্যুরো জেসিএম';
-                if(h3.innerText === 'Finance / Bureau of Provision JCM') h3.innerText = 'ফাইনান্স / প্রোভিশন ব্যুরো জেসিএম';
-                if(h3.innerText === 'Alochaya Versatilist Path JCM') h3.innerText = 'আলোছায়া বহুমুখী পথ জেসিএম';
+    document.querySelectorAll('[data-lang-key]').forEach(element => {
+        const key = element.getAttribute('data-lang-key');
+        if (translations[key]) {
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.placeholder = translations[key];
             } else {
-                if(h3.innerText === 'অপারেশন জেসিএম') h3.innerText = 'Operations JCM';
-                if(h3.innerText === 'এইচআর / হারমনি ব্যুরো জেসিএম') h3.innerText = 'HR / Bureau of Harmony JCM';
-                if(h3.innerText === 'মার্কেটিং / পাবলিক ব্যুরো জেসিএম') h3.innerText = 'Marketing / Public Bureau JCM';
-                if(h3.innerText === 'ফাইনান্স / প্রোভিশন ব্যুরো জেসিএম') h3.innerText = 'Finance / Bureau of Provision JCM';
-                if(h3.innerText === 'আলোছায়া বহুমুখী পথ জেসিএম') h3.innerText = 'Alochaya Versatilist Path JCM';
+                element.textContent = translations[key];
             }
-        });
+        }
     });
+
+    buildPositionCards();
+    
+    if (currentDetailId) {
+        showPositionDetail(currentDetailId, false); 
+    }
+
+    if (window.roleAssignment) {
+        window.roleAssignment.updateLanguage(lang);
+    }
+}
+
+function buildPositionCards(){
+    const container = document.getElementById('position-cards');
+    if(!container) return;
+    container.innerHTML = '';
+    
+    const q = (document.getElementById('pos-search').value||'').toLowerCase();
+    const filteredData = positionsData.filter(p => {
+        return p.en_name.toLowerCase().includes(q) || p.bn_name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q);
+    });
+
+    filteredData.forEach(pos => {
+        const el = document.createElement('a');
+        el.className = 'card card-link';
+        el.href = '#';
+        el.dataset.id = pos.id;
+        
+        const name = currentLang === 'bn' ? pos.bn_name : pos.en_name;
+        
+        el.innerHTML = `
+          <div class="card-body">
+            <h3 class="role-title">${name}</h3>
+            <p class="small text-muted role-cat">${pos.category}</p>
+            <p class="small mt-2">Basic: <span class="mono">${formatCurrency(pos.basic)}</span></p>
+          </div>`;
+        
+        el.onclick = (e) => { e.preventDefault(); showPositionDetail(pos.id, true); };
+        container.appendChild(el);
+    });
+}
+
+function showPositionDetail(id, shouldScroll = true) {
+    currentDetailId = id; 
+    const pos = positionsData.find(p => p.id === id);
+    if (!pos) return;
+    
+    const detail = document.getElementById('position-detail');
+    if (!detail) return;
+
+    const name = currentLang === 'bn' ? pos.bn_name : pos.en_name;
+    const notes = currentLang === 'bn' ? (pos.notes_bn || pos.notes_en) : pos.notes_en;
+    const notesHeader = currentLang === 'bn' ? 'ভূমিকা এবং ACEM' : 'Role Path & ACEM';
+    const notesDesc = currentLang === 'bn' ? 'ACEM স্কোর এই ভূমিকার স্টেপ-পে এর সাথে ম্যাপ করা হয়েছে। একাধিক ভূমিকা পালনকারী ভার্সাটিলিস্টদের জন্য প্রতি ভূমিকার বেতন এবং একটি ACEM ট্র্যাকার থাকবে। পদোন্নতির জন্য সামঞ্জস্যপূর্ণ ACEM পারফরম্যান্স, মেন্টরের অনুমোদন এবং ক্রস-ব্যুরো প্রমাণ প্রয়োজন।' : 'The ACEM score maps to this role\'s step-pay. Versatilists performing multiple roles will have documented role-pay and an ACEM tracker that records contribution per role. Promotions require consistent ACEM performance, mentor endorsement, and cross-bureau evidence.';
+
+    detail.innerHTML = `
+        <h3>${name}</h3>
+        <p class="small text-muted">Category: ${pos.category}</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;">
+          <div>
+            <p>Basic Pay: <strong class="mono">${formatCurrency(pos.basic)}</strong></p>
+            <p>Package (1.5x): <strong class="mono">${formatCurrency(pos.package1)}</strong></p>
+            <p>Package (2x): <strong class="mono">${formatCurrency(pos.package2)}</strong></p>
+          </div>
+          <div>
+            <p>Allowances (typical):</p>
+            <ul style="padding-left: 1.2rem; list-style-type: square;">
+              <li>House Rent: 30% of basic (if applicable)</li>
+              <li>Conveyance: fixed or commuting stipend</li>
+              <li>Mutual Crisis Fund: contribution from payroll as per doctrine</li>
+            </ul>
+          </div>
+        </div>
+        <div style="margin-top:12px;">
+          <p>${notes}</p>
+          <h4 style="margin-top:8px;">${notesHeader}</h4>
+          <p class="text-justify">${notesDesc}</p>
+        </div>
+    `;
+
+    if (shouldScroll) {
+        detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+}
+
+function exportPositionsCSV(){
+  const headers = ['id','name_en','name_bn','category','basic','package1','package2'];
+  const rows = positionsData.map(p=>[p.id,p.en_name,p.bn_name,p.category,p.basic,p.package1,p.package2].join(','));
+  const csv = headers.join(',') + '\n' + rows.join('\n');
+  const uri = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+  const link = document.createElement('a');
+  link.href = uri;
+  link.download = 'positions_export.csv';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+      </script>
+      <script>
+(function(){
+  const roles = window.positionsData ? window.positionsData.map(r => ({
+      id: r.id, 
+      title: r.en_name,
+      bn_title: r.bn_name,
+      basic: r.basic 
+  })) : [];
+
+  const sel = document.getElementById('ra-role');
+  const sel2 = document.getElementById('ra-role-2');
+
+  function populateDropdowns(lang = 'en') {
+      sel.innerHTML = '';
+      sel2.innerHTML = '<option value="">None</option>';
+      
+      roles.forEach(r => {
+          const title = (lang === 'bn' ? r.bn_title : r.title) || r.title;
+          const text = `${title} — ${r.basic ? r.basic.toLocaleString()+' BDT':'—'}`;
+          
+          const o = document.createElement('option');
+          o.value = r.id;
+          o.textContent = text;
+          sel.appendChild(o);
+          
+          const o2 = document.createElement('option');
+          o2.value = r.id;
+          o2.textContent = title; 
+          sel2.appendChild(o2);
+      });
+  }
+
+  const tabAssign = document.getElementById('ra-tab-assign');
+  const tabList = document.getElementById('ra-tab-list');
+  const panelAssign = document.getElementById('ra-assign-panel');
+  const panelList = document.getElementById('ra-list-panel');
+  const raSearch = document.getElementById('ra-search');
+  const raExport = document.getElementById('ra-export');
+  const raClear = document.getElementById('ra-clear');
+
+  tabAssign.addEventListener('click', ()=>{tabAssign.classList.add('active');tabList.classList.remove('active');panelAssign.style.display='block';panelList.style.display='none';});
+  tabList.addEventListener('click', ()=>{tabList.classList.add('active');tabAssign.classList.remove('active');panelAssign.style.display='none';panelList.style.display='block';renderList();});
+
+  function getRoleById(id){
+      return roles.find(r=>r.id===id) || {id:'',title:'—',bn_title:'—',basic:0};
+  }
+
+  function calcPackage(basic,multiplier){
+    const basicNum = Number(basic)||0;
+    const pkg = Math.round(basicNum * Number(multiplier));
+    const convey = Math.round(pkg * 0.05);
+    const hra = Math.round(pkg * 0.18);
+    const crisis = Math.round(pkg * 0.02);
+    const gross = pkg + convey + hra + crisis;
+    return {pkg,gross,convey,hra,crisis};
+  }
+
+  const nameIn = document.getElementById('ra-name');
+  const roleIn = document.getElementById('ra-role');
+  const role2In = document.getElementById('ra-role-2');
+  const startIn = document.getElementById('ra-start');
+  const acemIn = document.getElementById('ra-acem');
+  const multIn = document.getElementById('ra-mult');
+  const calcBtn = document.getElementById('ra-calc');
+  const saveBtn = document.getElementById('ra-save');
+  const summaryEl = document.getElementById('ra-summary');
+  const listEl = document.getElementById('ra-list');
+  const modal = document.getElementById('ra-modal');
+  const modalBody = document.getElementById('ra-modal-body');
+  const modalTitle = document.getElementById('ra-modal-title');
+  const modalClose = document.getElementById('ra-modal-close');
+  const modalDownload = document.getElementById('ra-modal-download');
+  const modalSave = document.getElementById('ra-modal-save');
+
+  calcBtn.addEventListener('click', renderSummary);
+
+  function loadAssignments(){try{return JSON.parse(localStorage.getItem('ac_assignments')||'[]')}catch(e){return []}}
+  function saveAssignments(data){localStorage.setItem('ac_assignments',JSON.stringify(data));}
+
+  saveBtn.addEventListener('click', ()=>{
+    const name = nameIn.value.trim();
+    if(!name) return alert(currentLang === 'bn' ? 'অনুগ্রহ করে নাম লিখুন' : 'Please enter a name');
+    const r = getRoleById(roleIn.value);
+    const r2 = getRoleById(role2In.value);
+    const start = startIn.value || new Date().toISOString().slice(0,10);
+    const acem = Number(acemIn.value)||0;
+    const mult = Number(multIn.value)||1;
+    const calc = calcPackage(r.basic,mult);
+    const item = {
+      id: 'a'+Date.now(),
+      name, roleId:r.id, roleTitle:r.title, roleTitleBn:r.bn_title, 
+      role2Id:r2.id, role2Title:r2.title, role2TitleBn:r2.bn_title, 
+      start, acem, mult, packageBase:calc.pkg, gross:calc.gross, created: new Date().toISOString()
+    };
+    const all = loadAssignments(); all.unshift(item); saveAssignments(all);
+    renderList();
+    nameIn.value=''; 
+    if(roles.length > 0) {
+        roleIn.value = roles[0].id;
+        role2In.value = '';
+    }
+    startIn.value=''; acemIn.value='70'; multIn.value='1';
+    summaryEl.innerHTML = `<div style="color:var(--text-muted)">${currentLang === 'bn' ? item.name + ' এর জন্য নিয়োগ সংরক্ষিত হয়েছে' : 'Saved assignment for ' + item.name}</div>`;
+  });
+
+  function renderList(filter){
+    const all = loadAssignments();
+    const q = filter || (raSearch.value||'').toLowerCase();
+    const rows = all.filter(it=>{
+      if(!q) return true;
+      return (it.name||'').toLowerCase().includes(q) || 
+             (it.roleTitle||'').toLowerCase().includes(q) || 
+             (it.role2Title||'').toLowerCase().includes(q) ||
+             (it.roleTitleBn||'').toLowerCase().includes(q) ||
+             (it.role2TitleBn||'').toLowerCase().includes(q);
+    });
+    
+    if(rows.length===0){ 
+        listEl.innerHTML = `<div class="no-data">${currentLang === 'bn' ? 'কোনো নিয়োগ পাওয়া যায়নি' : 'No assignments found'}</div>`; 
+        return; 
+    }
+    
+    const wrapper = document.createElement('div');
+    wrapper.style.display='grid';
+    wrapper.style.gap='8px';
+    
+    rows.forEach(it=>{
+      const card = document.createElement('div');
+      card.className='card';
+      card.style.display='flex';
+      card.style.justifyContent='space-between';
+      card.style.alignItems='center';
+      
+      const lang = currentLang;
+      const r1Title = (lang === 'bn' ? it.roleTitleBn : it.roleTitle) || it.roleTitle;
+      const r2Title = (lang === 'bn' ? it.role2TitleBn : it.role2Title) || it.role2Title;
+      
+      card.innerHTML = `<div style="padding:12px 0;">
+        <div style="font-weight:700">${it.name}</div>
+        <div class="small text-muted">${r1Title}${r2Title && r2Title!=='—' ? ' / '+r2Title : ''} · ${lang === 'bn' ? 'শুরু' : 'Start'}: ${it.start} · ACEM: ${it.acem}</div>
+      </div>
+      <div style="display:flex;gap:.5rem;">
+        <button class="btn ra-view" data-id="${it.id}" style="padding:.5rem .6rem">${lang === 'bn' ? 'দেখুন' : 'View'}</button>
+        <button class="btn" style="background:#f59e0b;padding:.5rem .6rem" data-id="${it.id}" class="ra-edit">${lang === 'bn' ? 'সম্পাদনা' : 'Edit'}</button>
+        <button class="btn" style="background:#ef4444;padding:.5rem .6rem" data-id="${it.id}" class="ra-delete">${lang === 'bn' ? 'মুছুন' : 'Delete'}</button>
+      </div>`;
+      wrapper.appendChild(card);
+    });
+    listEl.innerHTML=''; listEl.appendChild(wrapper);
+    
+    listEl.querySelectorAll('.ra-view').forEach(b=>b.addEventListener('click', e=>{
+      const id=e.currentTarget.getAttribute('data-id'); openModal(id);
+    }));
+    listEl.querySelectorAll('.ra-delete').forEach(b=>b.addEventListener('click', e=>{
+      const id=e.currentTarget.getAttribute('data-id'); 
+      if(!confirm(currentLang === 'bn' ? 'মুছে ফেলবেন?' : 'Are you sure you want to delete?')) return;
+      const all = loadAssignments().filter(a=>a.id!==id); saveAssignments(all); renderList();
+    }));
+    listEl.querySelectorAll('.ra-edit').forEach(b=>b.addEventListener('click', e=>{
+      const id=e.currentTarget.getAttribute('data-id');
+      const all = loadAssignments(); const it = all.find(a=>a.id===id); if(!it) return;
+      tabAssign.click();
+      nameIn.value=it.name; roleIn.value=it.roleId; role2In.value=it.role2Id; startIn.value=it.start; acemIn.value=it.acem; multIn.value=it.mult;
+      renderSummary();
+      const filtered = all.filter(a=>a.id!==id); saveAssignments(filtered);
+    }));
+  }
+
+  function openModal(id){
+    const all = loadAssignments(); const it = all.find(a=>a.id===id); if(!it) return;
+    const lang = currentLang;
+    const r1Title = (lang === 'bn' ? it.roleTitleBn : it.roleTitle) || it.roleTitle;
+    const r2Title = (lang === 'bn' ? it.role2TitleBn : it.role2Title) || it.role2Title;
+
+    modalTitle.textContent = `${lang === 'bn' ? 'চুক্তি' : 'Contract'} — ${it.name}`;
+    modalBody.innerHTML = `
+      <div style="font-weight:700">${it.name}</div>
+      <div style="margin-top:.5rem">${r1Title}${r2Title && r2Title!=='—' ? ' / '+r2Title : ''}</div>
+      <div style="margin-top:.5rem">${lang === 'bn' ? 'শুরুর তারিখ' : 'Start Date'}: ${it.start}</div>
+      <div>${lang === 'bn' ? 'ACEM এন্ট্রি' : 'ACEM Entry'}: ${it.acem}</div>
+      <div>${lang === 'bn' ? 'প্যাকেজ বেস' : 'Package Base'}: ${it.packageBase.toLocaleString()} BDT</div>
+      <div>${lang === 'bn' ? 'আনুমানিক মোট' : 'Estimated Gross'}: ${it.gross.toLocaleString()} BDT</div>
+      <div style="margin-top:.75rem" class="small text-muted">${lang === 'bn' ? 'এটি একটি সারসংক্ষেপ চুক্তি। নিয়োগ লক করতে নিশ্চিত করুন।' : 'This is a summary contract. Confirm to lock assignment.'}</div>`;
+    modal.style.display='flex';
+    modal.dataset.currentId = id;
+  }
+
+  modalClose.addEventListener('click', ()=>{modal.style.display='none';delete modal.dataset.currentId;});
+  modal.addEventListener('click', (e)=>{ if(e.target===modal) { modal.style.display='none'; delete modal.dataset.currentId; }});
+  modalSave.addEventListener('click', ()=>{ const id = modal.dataset.currentId; if(!id) return; modal.style.display='none'; });
+
+  modalDownload.addEventListener('click', ()=>{
+    const id = modal.dataset.currentId; if(!id) return;
+    const all = loadAssignments(); const it = all.find(a=>a.id===id); if(!it) return;
+    let txt = `Contract for ${it.name}\nRole: ${it.roleTitle}\nStart: ${it.start}\nACEM: ${it.acem}\nPackage Base: ${it.packageBase} BDT\nEstimated Gross: ${it.gross} BDT\n`;
+    const blob = new Blob([txt],{type:'text/plain'}); const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href=url; a.download = `${it.name.replace(/\s+/g,'_')}_contract.txt`; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+  });
+
+  raExport.addEventListener('click', ()=>{
+    const data = loadAssignments();
+    if(!data.length) return alert(currentLang === 'bn' ? 'এক্সপোর্ট করার জন্য কোনো নিয়োগ নেই' : 'No assignments to export');
+    let csv = 'Name,Primary Role,Secondary Role,Start,ACEM,Multiplier,PackageBase,Gross,Created\n';
+    data.forEach(d=>{
+      csv += `"${d.name.replace(/"/g,'""')}","${d.roleTitle.replace(/"/g,'""')}","${d.role2Title.replace(/"/g,'""')}","${d.start}","${d.acem}","${d.mult}","${d.packageBase}","${d.gross}","${d.created}"\n`;
+    });
+    const uri = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+    const link = document.createElement('a'); link.href = uri; link.download = 'assignments.csv'; document.body.appendChild(link); link.click(); link.remove();
+  });
+
+  raSearch.addEventListener('input', ()=>{renderList(raSearch.value);});
+  raClear.addEventListener('click', ()=>{ if(!confirm(currentLang === 'bn' ? 'সমস্ত নিয়োগ মুছে ফেলবেন?' : 'Clear all assignments?')) return; localStorage.removeItem('ac_assignments'); renderList(); });
+
+  window.roleAssignment = {
+    updateLanguage: (lang) => {
+        populateDropdowns(lang);
+        renderSummary();
+        renderList();
+    }
+  };
+
+  populateDropdowns(currentLang);
+  renderSummary();
+  renderList();
 })();
+
+document.addEventListener('DOMContentLoaded', () => {
+    buildPositionCards();
+    document.getElementById('pos-search').addEventListener('input', buildPositionCards);
+    document.getElementById('pos-export').addEventListener('click', exportPositionsCSV);
+    
+    if(positionsData.length > 0) {
+        showPositionDetail(positionsData[0].id, false);
+    }
+    
+    updateLanguage(currentLang);
+});
 </script>
-<section id="final-note" class="container mt-6">
-    <h2 class="mb-4">Final Notes & Guild Mandates</h2>
-    <p class="mb-4">
-        All roles, pathways, and training modules are monitored under the ACEM standard. The Guild ensures moral purity, operational excellence, and universalist growth for every member.
-    </p>
-
-    <div class="grid grid-1">
-        <div class="card">
-            <div class="card-body">
-                <h3>Membership Integrity</h3>
-                <p>All onboarding, promotions, and JCM pathways are tracked. Every member is accountable to the ACEM Purity Mandate.</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-body">
-                <h3>Pathways & Compensation</h3>
-                <p>Versatilists and universalists are compensated per function and role. Training and onboarding are aligned with career growth and dignity wage.</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-body">
-                <h3>Guild Oversight</h3>
-                <p>The Founder and Project Lead oversee all operational, HR, financial, and marketing compliance while ensuring ACEM standards are met.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<footer class="site-footer mt-6">
-    <p>Ghuraba Al Manara (The Lighthouse) | Central Hub | All rights reserved &copy; 2025</p>
-</footer>
 </body>
 </html>
