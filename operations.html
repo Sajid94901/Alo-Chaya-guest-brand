@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operations & Staff Strategy (Bureau of Efficiency)</title>
-
+    <title>Operations Strategy - Bureau of Efficiency</title>
     <link rel="stylesheet" href="styles.css">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header class="hero">
+        <div class="lang-switch">
+            <select id="language" onchange="updateLanguage(this.value)">
+                <option value="en">English</option>
+                <option value="bn">বাংলা</option>
+            </select>
+        </div>
         <div class="container">
-            <h1>Operations Strategy (Bureau of Efficiency)</h1>
-            <p class="lead">Execution is governed by the Producer archetype and the Dignified Delegation Mandate.</p>
+            <h1 id="hero-title">Operations Strategy (Bureau of Efficiency)</h1>
+            <p class="lead" id="hero-lead">Execution is governed by the Producer archetype and the Dignified Delegation Mandate.</p>
             
             <nav class="main-nav">
               <ul>
@@ -29,191 +36,371 @@
                 <li><a href="models.html">Models</a></li>
               </ul>
             </nav>
-            </div>
+        </div>
     </header>
 
     <main class="container">
 
-        <h2 class="mt-6 mb-4">Operational Doctrine Panels</h2>
-        <p class="mb-4">
-            Select a panel to review the specific doctrines governing each operational wing. All doctrines are linked to the objective ACEM Score to ensure merit-based execution.
+        <h2 class="mt-6 mb-4" id="section-intro-title">The Five Operational Bureaus</h2>
+        <p class="mb-4" id="section-intro-desc">
+            All operational bureaus are governed by the ACEM Score, ensuring execution purity across HR, Marketing, Sales, Legal, and Kitchen domains. Select a tab to review the doctrine and key metrics for each.
         </p>
 
         <div class="tab-bar">
-            <button data-tab="core" class="active">Core Doctrines</button>
-            <button data-tab="service">Service Model</button>
-            <button data-tab="culinary">Culinary (Gourmet)</button>
+            <button data-tab="hr-ops" id="tab-hr-ops" class="active">HR Operations</button>
+            <button data-tab="marketing-ops" id="tab-marketing-ops">Marketing Operations</button>
+            <button data-tab="sales-ops" id="tab-sales-ops" >Sales Operations</button>
+            <button data-tab="legal-ops" id="tab-legal-ops">Legal Operations</button>
+            <button data-tab="kitchen-ops" id="tab-kitchen-ops">Kitchen Operations</button>
         </div>
-
-        <div class="tab-content" id="core">
-            <div class="interactive-layout" id="core-layout">
-                <div class="grid grid-2" id="core-card-container">
+                <div class="tab-content" id="hr-ops">
+            <div class="interactive-layout">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h3 id="hr-ops-title" class="mb-2">HR Operations (Bureau of Harmony)</h3>
+                        <p id="hr-ops-desc" class="text-justify"></p>
+                        <p class="small mt-3">**Key Metrics:** <span id="hr-ops-metrics"></span></p>
                     </div>
-                <div class="detail-pane" id="core-detail-pane">
-                    </div>
-            </div>
-        </div>
-
-        <div class="tab-content" id="service" hidden>
-            <div class="interactive-layout" id="service-layout">
-                <div class="grid grid-2" id="service-card-container">
-                    </div>
-                <div class="detail-pane" id="service-detail-pane">
-                    </div>
-            </div>
-        </div>
-
-        <div class="tab-content" id="culinary" hidden>
-            <div class="card bg-light">
-                <div class="card-body">
-                    <h3 class="text-muted">Future Sub-Panel: Culinary &amp; Gourmet</h3>
-                    <p class="text-muted mb-0">This panel will contain all doctrines related to the Bureau of Gourmet, including supply chain purity, ACEM scores for chefs, and the "Guest-as-Auditor" mandate.</p>
                 </div>
+                <div class="detail-pane" id="hr-ops-detail-pane"></div>
+                <div class="grid grid-2" id="hr-ops-card-container"></div>
             </div>
         </div>
-        </main>
+
+        <div class="tab-content" id="marketing-ops" hidden>
+            <div class="interactive-layout">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h3 id="marketing-ops-title" class="mb-2">Marketing Operations (Bureau of Aesthetic)</h3>
+                        <p id="marketing-ops-desc" class="text-justify"></p>
+                        <p class="small mt-3">**Key Metrics:** <span id="marketing-ops-metrics"></span></p>
+                    </div>
+                </div>
+                <div class="detail-pane" id="marketing-ops-detail-pane"></div>
+                <div class="grid grid-2" id="marketing-ops-card-container"></div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="sales-ops" hidden>
+            <div class="interactive-layout">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h3 id="sales-ops-title" class="mb-2">Sales Operations (Bureau of Competence)</h3>
+                        <p id="sales-ops-desc" class="text-justify"></p>
+                        <p class="small mt-3">**Key Metrics:** <span id="sales-ops-metrics"></span></p>
+                    </div>
+                </div>
+                <div class="detail-pane" id="sales-ops-detail-pane"></div>
+                <div class="grid grid-2" id="sales-ops-card-container"></div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="legal-ops" hidden>
+            <div class="interactive-layout">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h3 id="legal-ops-title" class="mb-2">Legal Operations (Bureau of Ethics)</h3>
+                        <p id="legal-ops-desc" class="text-justify"></p>
+                        <p class="small mt-3">**Key Metrics:** <span id="legal-ops-metrics"></span></p>
+                    </div>
+                </div>
+                <div class="detail-pane" id="legal-ops-detail-pane"></div>
+                <div class="grid grid-2" id="legal-ops-card-container"></div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="kitchen-ops" hidden>
+            <div class="interactive-layout">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h3 id="kitchen-ops-title" class="mb-2">Kitchen Operations (Bureau of Gourmet)</h3>
+                        <p idid="kitchen-ops-desc" class="text-justify"></p>
+                        <p class="small mt-3">**Key Metrics:** <span id="kitchen-ops-metrics"></span></p>
+                    </div>
+                </div>
+                <div class="detail-pane" id="kitchen-ops-detail-pane"></div>
+                <div class="grid grid-2" id="kitchen-ops-card-container"></div>
+            </div>
+        </div>
+                <section id="versatilist-pay" class="mt-6 mb-6">
+            <h2 id="versatilist-title">Versatilist Pay and Cross-Domain Multipliers</h2>
+            <p id="versatilist-desc" class="lead-small"></p>
+            <div id="versatilist-table-container" class="table-responsive">
+                </div>
+        </section>
+
+    </main>
     
     <footer class="site-footer">
         <p>Ghuraba Al Manara (The Lighthouse) | Bureau of Efficiency Doctrine</p>
     </footer>
 
     <script>
-        // --- 1. The Doctrine Data ---
-        const CORE_DOCTRINES = [
-            {
-                id: 'comp',
-                title: 'ACEM Score & Compensation',
-                summary: 'ACEM Score is the sole trigger for pay raises.',
-                doctrine: 'The **ACEM Score** is the **sole trigger** for **Step Payments** (pay raises). Training and assessment via the **T&D Gateway** directly impact compensation, guaranteeing the Specialist’s financial ascent is immune to subjective managerial judgment and tied only to measurable competence.'
-            },
-            {
-                id: 'manpower',
-                title: 'T&D Gateway & Manpower Planning',
-                summary: 'Using ACEM data to forecast resource needs.',
-                doctrine: 'Operations utilizes the **ACEM Score** data from the **T&D Gateway** to forecast resource needs (**Permanent Power Planning**). This ensures the correct level of Specialist (Trainee, Foundational, Universalist) is always available and competent for execution.'
-            },
-            {
-                id: 'promo',
-                title: 'T&D & Promotions/Mobility',
-                summary: 'Zero-Risk Growth and promotion to Universalist.',
-                doctrine: 'Promotion (e.g., to **Universalist**) is based on ACEM compliance. **Zero-Risk Mobility** (inter-departmental rotation) is facilitated by Operations based on the Specialist\'s ACEM-verified multi-disciplinary competence, protecting the Specialist\'s pay during rotation.'
-            },
-            {
-                id: 'delegate',
-                title: 'The Dignified Delegation Mandate',
-                summary: 'Protecting MBA/BBA time from menial tasks.',
-                doctrine: '**MBA/BBA Specialists** are reserved for strategic **Producer** and **Innovator** tasks. Administrative duties (filing, forms) are codified as the duty of the **Trainee/Foundational Specialist** receiving the **Dignity Wage**. This prevents the exploitation of talent.'
+        const langData = {
+    'en': {
+        'hero-title': 'Operations Strategy (Bureau of Efficiency)',
+        'hero-lead': 'Execution is governed by the Producer archetype and the Dignified Delegation Mandate.',
+        'section-intro-title': 'The Five Operational Bureaus',
+        'section-intro-desc': 'All operational bureaus are governed by the ACEM Score, ensuring execution purity across HR, Marketing, Sales, Legal, and Kitchen domains. Select a tab to review the doctrine and key metrics for each.',
+        'tab-hr-ops': 'HR Operations',
+        'tab-marketing-ops': 'Marketing Operations',
+        'tab-sales-ops': 'Sales Operations',
+        'tab-legal-ops': 'Legal Operations',
+        'tab-kitchen-ops': 'Kitchen Operations',
+        'domain-details-title': 'Key Processes and ACEM Integration',
+        'versatilist-title': 'Versatilist Pay and Cross-Domain Multipliers',
+        'versatilist-desc': 'The salary is calculated as: **(Primary Domain Base Pay) x (Cross-Domain Multiplier)**. The multiplier is assigned based on ACEM-verified competence in secondary roles. Promotions require a consistent ACEM score (70+).',
+        'role-col': 'Role',
+        'primary-col': 'Primary Domain',
+        'secondary-col': 'Secondary Domains',
+        'base-col': 'Base Pay (BDT)',
+        'multiplier-col': 'Multiplier',
+        'non-negotiable': 'This operational doctrine is non-negotiable and links directly to the ACEM Purity Mandate.'
+    },
+    'bn': {
+        'hero-title': 'অপারেশন কৌশল (দক্ষতা ব্যুরো)',
+        'hero-lead': 'উৎপাদক আর্কিটাইপ এবং মর্যাদাপূর্ণ প্রতিনিধি ম্যান্ডেট দ্বারা পরিচালিত হয়।',
+        'section-intro-title': 'পাঁচটি অপারেশনাল ব্যুরো',
+        'section-intro-desc': 'সমস্ত অপারেশনাল ব্যুরো ACEM স্কোর দ্বারা পরিচালিত হয়, যা এইচআর, বিপণন, বিক্রয়, আইনি এবং রান্নাঘর ডোমেন জুড়ে কার্য সম্পাদনের বিশুদ্ধতা নিশ্চিত করে। প্রতিটি মতবাদ এবং মূল মেট্রিক্স পর্যালোচনা করতে একটি ট্যাব নির্বাচন করুন।',
+        'tab-hr-ops': 'এইচআর অপারেশন',
+        'tab-marketing-ops': 'বিপণন অপারেশন',
+        'tab-sales-ops': 'বিক্রয় অপারেশন',
+        'tab-legal-ops': 'আইনি অপারেশন',
+        'tab-kitchen-ops': 'রান্নাঘর অপারেশন',
+        'domain-details-title': 'মূল প্রক্রিয়া এবং ACEM ইন্টিগ্রেশন',
+        'versatilist-title': 'ভার্সাটিলিস্ট বেতন এবং ক্রস-ডোমেইন গুণক',
+        'versatilist-desc': 'বেতন গণনা করা হয়: **(প্রাথমিক ডোমেন বেস পে) x (ক্রস-ডোমেইন গুণক)**। গুণকটি সেকেন্ডারি ভূমিকায় ACEM-যাচাইকৃত যোগ্যতার ভিত্তিতে নির্ধারিত হয়। পদোন্নতির জন্য একটি সামঞ্জস্যপূর্ণ ACEM স্কোর (৭০+) প্রয়োজন।',
+        'role-col': 'ভূমিকা',
+        'primary-col': 'প্রাথমিক ডোমেন',
+        'secondary-col': 'মাধ্যমিক ডোমেন',
+        'base-col': 'বেস বেতন (টাকা)',
+        'multiplier-col': 'গুণক',
+        'non-negotiable': 'এই অপারেশনাল মতবাদ অ-আলোচনাযোগ্য এবং ACEM বিশুদ্ধতা ম্যান্ডেটের সাথে সরাসরি যুক্ত।'
+    }
+};
+
+const DOMAIN_DATA = {
+    'hr-ops': {
+        en_desc: 'Manages the end-to-end Employee Story, ensuring recruitment purity, T&D compliance, and morale based on the Common Heart Doctrine. This bureau controls the ACEM performance data used across all other domains.',
+        bn_desc: 'এন্ড-টু-এন্ড কর্মচারী গল্প পরিচালনা করে, নিয়োগের বিশুদ্ধতা, T&D সম্মতি এবং কমন হার্ট ডকট্রিনের উপর ভিত্তি করে মনোবল নিশ্চিত করে। এই ব্যুরো অন্যান্য সমস্ত ডোমেনে ব্যবহৃত ACEM কর্মক্ষমতা ডেটা নিয়ন্ত্রণ করে।',
+        en_metrics: 'Key Metrics: ACEM Compliance Rate, T&D Skill Gap Closure, Zero-Risk Mobility Success.',
+        bn_metrics: 'মূল মেট্রিক্স: ACEM সম্মতি হার, T&D দক্ষতা ব্যবধান বন্ধ, শূন্য-ঝুঁকি গতিশীলতা সাফল্য।',
+        processes: [
+            { id: 't-d-gateway', en_title: 'T&D Gateway Implementation', bn_title: 'T&D গেটওয়ে বাস্তবায়ন', en_doc: 'Uses **Bloom’s Taxonomy** to codify job roles from "Remember" (Trainee) to "Create" (Universalist). This links measurable skills directly to pay grades.', bn_doc: 'জব রোলগুলিকে "মনে রাখা" (ট্রেইনি) থেকে "সৃষ্টি করা" (ইউনিভার্সালিস্ট) পর্যন্ত কোডিফাই করতে **ব্লুমের ট্যাক্সোনমি** ব্যবহার করে। এটি পরিমাপযোগ্য দক্ষতাকে সরাসরি বেতন স্কেলের সাথে যুক্ত করে।' },
+            { id: 'acem-audit', en_title: 'Quarterly ACEM Audit', bn_title: 'ত্রৈমাসিক ACEM নিরীক্ষা', en_doc: 'Formal checks on the Moral Auditor and Project Lead to ensure they are applying the ACEM Score fairly and without prejudice, enforcing the Dual Audit Mandate.', bn_doc: 'নৈতিক নিরীক্ষক এবং প্রকল্প প্রধানের উপর আনুষ্ঠানিক চেক, নিশ্চিত করা যে তারা কোনো পক্ষপাত ছাড়াই ACEM স্কোর ন্যায্যভাবে প্রয়োগ করছে, দ্বৈত নিরীক্ষা ম্যান্ডেট প্রয়োগ করা হচ্ছে।' }
+        ]
+    },
+    'marketing-ops': {
+        en_desc: 'Develops brand identity and manages all bilingual digital presence (aesthetic). Focuses on creating an immersive guest journey and service experience aligned with the Lighthouse ethos.',
+        bn_desc: 'ব্র্যান্ড পরিচয় বিকাশ করে এবং সমস্ত দ্বিভাষিক ডিজিটাল উপস্থিতি (নান্দনিক) পরিচালনা করে। লাইটহাউস নীতিমালার সাথে সারিবদ্ধ একটি নিমগ্ন অতিথির যাত্রা এবং পরিষেবার অভিজ্ঞতা তৈরি করার উপর মনোযোগ দেয়।',
+        en_metrics: 'Key Metrics: Brand Sentiment Score, Guest NPS (Net Promoter Score), Aesthetic Integrity Compliance.',
+        bn_metrics: 'মূল মেট্রিক্স: ব্র্যান্ড সেন্টিমেন্ট স্কোর, গেস্ট এনপিএস (নেট প্রোমোটার স্কোর), নান্দনিক অখণ্ডতা সম্মতি।',
+        processes: [
+            { id: 'dale-cone', en_title: 'Immersive Guest Experience (Dale’s Cone)', bn_title: 'নিমগ্ন অতিথির অভিজ্ঞতা (ডেলের শঙ্কু)', en_doc: 'Prioritizes **“Doing” (simulation, role-play)** over “Reading” in training. Guest service is designed as an immersive role-play, mirroring the high-retention methods of **Dale’s Cone of Experience**.', bn_doc: 'প্রশিক্ষণে "পড়া"র চেয়ে **"কাজ করা" (সিমুলেশন, রোল-প্লে)**-কে অগ্রাধিকার দেয়। অতিথির পরিষেবা একটি নিমগ্ন রোল-প্লে হিসাবে ডিজাইন করা হয়েছে, যা **ডেলের অভিজ্ঞতার শঙ্কু**-এর উচ্চ-ধারণক্ষমতা পদ্ধতিকে প্রতিফলিত করে।' },
+            { id: 'brand-purity', en_title: 'Brand Purity & Ethics', bn_title: 'ব্র্যান্ড বিশুদ্ধতা ও নীতিশাস্ত্র', en_doc: 'Marketing language must adhere to the **Moral Marketing Mandate** (Ethics), avoiding any deceptive or aggressive consumer tactics. All campaigns are vetted for ACEM compliance.', bn_doc: 'বিপণনের ভাষাকে অবশ্যই **নৈতিক বিপণন ম্যান্ডেট** (নীতিশাস্ত্র) মেনে চলতে হবে, কোনো প্রতারণামূলক বা আগ্রাসী গ্রাহক কৌশল এড়িয়ে চলতে হবে। সমস্ত প্রচারাভিযান ACEM সম্মতির জন্য যাচাই করা হয়।' }
+        ]
+    },
+    'sales-ops': {
+        en_desc: 'Manages guest acquisition, package design, revenue forecasting, and deal-flow purity. **Unlike many hospitality programs in Dhaka, we emphasize Sales Operations** as a strategic core domain.',
+        bn_desc: 'অতিথি অধিগ্রহণ, প্যাকেজ ডিজাইন, রাজস্ব পূর্বাভাস এবং লেনদেন প্রবাহের বিশুদ্ধতা পরিচালনা করে। **ঢাকার অনেক হসপিটালিটি প্রোগ্রামের বিপরীতে, আমরা বিক্রয় অপারেশনকে কৌশলগত মূল ডোমেন হিসাবে জোর দিই।**',
+        en_metrics: 'Key Metrics: Booking Integrity Rate, Deal-Flow Transparency, Revenue Purity (no hidden fees).',
+        bn_metrics: 'মূল মেট্রিক্স: বুকিং অখণ্ডতা হার, লেনদেন প্রবাহ স্বচ্ছতা, রাজস্ব বিশুদ্ধতা (কোনো লুকানো ফি নেই)।',
+        processes: [
+            { id: 'ocean-fit', en_title: 'Role-Fit: High Extraversion + Openness (OCEAN)', bn_title: 'ভূমিকার উপযুক্ততা: উচ্চ এক্সট্রাভার্সন + উন্মুক্ততা (OCEAN)', en_doc: 'Personnel assigned to Sales Operations must demonstrate high scores in **Extraversion and Openness (OCEAN Personality Model)**, confirming a natural aptitude for guest engagement and creative package solution design.', bn_doc: 'বিক্রয় অপারেশনে নিযুক্ত কর্মীদের অবশ্যই **এক্সট্রাভার্সন এবং উন্মুক্ততায় (OCEAN ব্যক্তিত্ব মডেল)** উচ্চ স্কোর দেখাতে হবে, অতিথির সাথে যুক্ত হওয়ার এবং সৃজনশীল প্যাকেজ সমাধানের জন্য একটি স্বাভাবিক প্রবণতা নিশ্চিত করা হয়।' },
+            { id: 'no-targets', en_title: 'Rejection of Individual Sales Targets', bn_title: 'ব্যক্তিগত বিক্রয় লক্ষ্য প্রত্যাখ্যান', en_doc: 'Sales is driven by product quality, not aggression. Operations strictly adheres to the **Moral Marketing Mandate** by banning individual targets that breed internal competition and corruption.', bn_doc: 'বিক্রয় পণ্যের গুণমান দ্বারা চালিত হয়, আগ্রাসন দ্বারা নয়। অপারেশন অভ্যন্তরীণ প্রতিযোগিতা ও দুর্নীতি সৃষ্টি করে এমন ব্যক্তিগত লক্ষ্য নিষিদ্ধ করে **নৈতিক বিপণন ম্যান্ডেট** কঠোরভাবে মেনে চলে।' }
+        ]
+    },
+    'legal-ops': {
+        en_desc: 'Ensures compliance with local law and the internal **Moral Purity Doctrine**. This is the mechanism for enforcing the "no exploitation" rule and managing guest/staff safety and legal risk.',
+        bn_desc: 'স্থানীয় আইন এবং অভ্যন্তরীণ **নৈতিক বিশুদ্ধতা মতবাদ**-এর সাথে সম্মতি নিশ্চিত করে। এটি "কোন শোষণ নয়" নিয়ম প্রয়োগ এবং অতিথি/কর্মী নিরাপত্তা ও আইনি ঝুঁকি পরিচালনার প্রক্রিয়া।',
+        en_metrics: 'Key Metrics: Incident Response Time, Contract Integrity, Zero-Exploitation Audit Score.',
+        bn_metrics: 'মূল মেট্রিক্স: ঘটনা প্রতিক্রিয়া সময়, চুক্তি অখণ্ডতা, শূন্য-শোষণ নিরীক্ষা স্কোর।',
+        processes: [
+            { id: 'moral-guardrail', en_title: 'Enforcing the Moral Guardrail', bn_title: 'নৈতিক গার্ডরাইল প্রয়োগ', en_doc: 'Legal Operations is where the **Moral Purity & Integrity** doctrine is enforced, ensuring contracts protect the staff from bidirectional exploitation (staff exploiting management, or vice-versa).', bn_doc: 'নৈতিক বিশুদ্ধতা ও অখণ্ডতা মতবাদ আইনি অপারেশনে প্রয়োগ করা হয়, নিশ্চিত করা হয় যে চুক্তিগুলি কর্মীদের দ্বিমুখী শোষণ থেকে রক্ষা করে (কর্মকর্তা ব্যবস্থাপনাকে শোষণ করছে, বা উল্টো)।' },
+            { id: 'guest-safety', en_title: 'Guest & Site Safety Audits', bn_title: 'অতিথি ও সাইট নিরাপত্তা নিরীক্ষা', en_doc: 'Conducts regular compliance checks against local safety regulations and internal **Lighthouse Aesthetic** standards to mitigate risk and maintain a secure environment.', bn_doc: 'ঝুঁকি কমাতে এবং একটি নিরাপদ পরিবেশ বজায় রাখতে স্থানীয় নিরাপত্তা নিয়ম এবং অভ্যন্তরীণ **লাইটহাউস নান্দনিক** মানের বিরুদ্ধে নিয়মিত সম্মতি পরীক্ষা পরিচালনা করে।' }
+        ]
+    },
+    'kitchen-ops': {
+        en_desc: 'The Bureau of Gourmet, responsible for all food & beverage quality. Focuses on the **Supply Chain Purity Mandate** and execution efficiency. This domain is where the *product* of the Lighthouse is delivered.',
+        bn_desc: 'গুরমেট ব্যুরো, সমস্ত খাদ্য ও পানীয়ের গুণমানের জন্য দায়ী। **সরবরাহ চেইনের বিশুদ্ধতা ম্যান্ডেট** এবং কার্য সম্পাদনের দক্ষতার উপর মনোযোগ দেয়। এই ডোমেনটি হলো যেখানে লাইটহাউসের *পণ্য* সরবরাহ করা হয়।',
+        en_metrics: 'Key Metrics: Purity Mandate Compliance, Chef ACEM Score, Waste Reduction Ratio.',
+        bn_metrics: 'মূল মেট্রিক্স: বিশুদ্ধতা ম্যান্ডেট সম্মতি, শেফ ACEM স্কোর, বর্জ্য হ্রাস অনুপাত।',
+        processes: [
+            { id: 'guest-auditor', en_title: 'The Guest-as-Auditor Mandate', bn_title: 'অতিথি-হিসাবে-নিরীক্ষক ম্যান্ডেট', en_doc: 'Service is **"Iyashi (Soothing) Policy"** inspired by guest-first anime narratives (e.g., Konohana Kitan, Bed & Breakfast for Spirits). Guests provide **objective, ACEM-trackable** feedback, preventing subjective disputes.', bn_doc: 'পরিষেবাটি হলো **"ইয়াসি (শান্তিদায়ক) নীতি"** যা অতিথির প্রথম অ্যানিমে আখ্যান দ্বারা অনুপ্রাণিত (যেমন, কোনোহানা কিতান, বেড অ্যান্ড ব্রেকফাস্ট ফর স্পিরিটস)। অতিথিরা **উদ্দেশ্যমূলক, ACEM-ট্র্যাকযোগ্য** প্রতিক্রিয়া প্রদান করে, যা ব্যক্তিগত বিরোধ এড়ায়।' },
+            { id: 'purity-mandate', en_title: 'Supply Chain Purity', bn_title: 'সরবরাহ চেইনের বিশুদ্ধতা', en_doc: 'Enforces the ultimate ban on impure ingredients (halal, ethical, non-exploitative sourcing), prioritizing **integrity over cost** and ensuring the physical and moral purity of the product.', bn_doc: 'অপবিত্র উপাদান (হালাল, নৈতিক, অ-শোষণমূলক সোর্সিং)-এর উপর চূড়ান্ত নিষেধাজ্ঞা কার্যকর করে, **খরচের চেয়ে সততাকে অগ্রাধিকার** দেয় এবং পণ্যের শারীরিক ও নৈতিক বিশুদ্ধতা নিশ্চিত করে।' }
+        ]
+    }
+};
+
+const VERSATILIST_ROLES = [
+    {en_role: 'Office Versatilist (GM)', bn_role: 'অফিস ভার্সাটিলিস্ট (জিএম)', primary: 'HR Operations', secondary: 'Marketing + Legal Ops', base: 88000, mult: 1.5, notes: 'Core Strategic Role'},
+    {en_role: 'Sous Chef Trainer', bn_role: 'সোস শেফ ট্রেইনার', primary: 'Kitchen Operations', secondary: 'HR Operations (T&D)', base: 60000, mult: 1.25, notes: 'T&D Instructor'},
+    {en_role: 'Room Coordinator', bn_role: 'রুম কোঅর্ডিনেটর', primary: 'Service Operations', secondary: 'Legal Ops (Safety)', base: 27000, mult: 1.25, notes: 'Dual-duty Safety'},
+    {en_role: 'Gastro Assistant', bn_role: 'গ্যাস্ট্রো অ্যাসিস্ট্যান্ট', primary: 'Kitchen Operations', secondary: 'Marketing Ops (Photo/Video)', base: 24000, mult: 1.1, notes: 'Entry-level T&D'}
+];
+            let currentLang = 'en';
+    const domainKeys = ['hr-ops', 'marketing-ops', 'sales-ops', 'legal-ops', 'kitchen-ops'];
+
+    function updateLanguage(lang) {
+        currentLang = lang;
+        const translations = langData[lang];
+        if (!translations) return; 
+        
+        document.querySelectorAll('[id]').forEach(element => {
+            if (translations[element.id] && element.tagName !== 'SELECT') {
+                element.innerHTML = translations[element.id];
             }
-        ];
-
-        const SERVICE_DOCTRINES = [
-            {
-                id: 'room',
-                title: 'Role Dignification: Room Coordinator',
-                summary: 'Dignified title for housekeeping staff.',
-                doctrine: 'The dignified title for housekeeping staff. They are **"coordinators"** of the guest\'s personal sanctuary, trained in the **"Iyashi (Soothing) Policy."** Their ACEM is based on measurable guest satisfaction and adherence to the Dignity Mandate.'
-            },
-            {
-                id: 'training',
-                title: 'Operational Training Sources',
-                summary: 'Using world-class standards for training.',
-                doctrine: 'Training for all **Foundational Specialist** roles must be sourced from **world-class, practical standards**. Key references include **"Clean My Space" by Melissa Maker** for efficiency, and lessons from **"The Hotel Inspector"** for service protocol and moral accountability.'
-            },
-            {
-                id: 'sales',
-                title: 'Rejection of Sales Targets',
-                summary: 'Moral Marketing Mandate: No sales targets.',
-                doctrine: 'Operations will **never** be driven by individual sales targets, which breed moral corruption and aggression. Customer acquisition is handled by the **Marketing/CPM Bureau**. Operations focuses solely on **service quality and execution purity**.'
-            },
-            {
-                id: 'landscape',
-                title: 'Role Dignification: Landscaper',
-                summary: 'Dignified title for estate and grounds crew.',
-                doctrine: 'The dignified title for estate and grounds crew. They are the **custodians of the "Riverine Seclusion"** and are responsible for the aesthetic beauty and safety of the environment. Their ACEM tracks proactive maintenance.'
-            }
-        ];
-
-        // --- 2. Reusable Interactive Panel Function ---
-        function createInteractivePanel(containerId, detailPaneId, doctrines) {
-            const cardContainer = document.getElementById(containerId);
-            const detailPane = document.getElementById(detailPaneId);
-
-            if (!cardContainer || !detailPane) return; // Safety check
-
-            function showDetails(doctrine) {
-                detailPane.innerHTML = `
-                    <h3>${doctrine.title}</h3>
-                    <p>${doctrine.doctrine.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p>
-                    <p class="small text-muted mt-2">This operational doctrine is non-negotiable.</p>
-                `;
-                
-                // Highlight the active card within this section
-                const activeCard = cardContainer.querySelector('.card.active');
-                if (activeCard) activeCard.classList.remove('active');
-                
-                document.getElementById(`card-${doctrine.id}`).classList.add('active');
-            }
-
-            function createCards() {
-                // Clear container in case it's re-initialized (good practice)
-                cardContainer.innerHTML = '';
-                
-                doctrines.forEach(doctrine => {
-                    const card = document.createElement('div');
-                    card.className = 'card'; // Uses your master CSS class
-                    card.id = `card-${doctrine.id}`;
-                    
-                    card.onclick = () => showDetails(doctrine);
-                    
-                    card.innerHTML = `
-                        <div class="card-body">
-                            <h3>${doctrine.title}</h3>
-                            <p class="small text-muted">${doctrine.summary}</p>
-                        </div>
-                    `;
-                    cardContainer.appendChild(card);
-                });
-            }
-            
-            createCards();
-            // Show the first doctrine by default
-            if (doctrines.length > 0) {
-                showDetails(doctrines[0]);
-            }
-        }
-
-        // --- 3. Run the code when the page loads ---
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // --- A. Initialize the Interactive Panels ---
-            createInteractivePanel('core-card-container', 'core-detail-pane', CORE_DOCTRINES);
-            createInteractivePanel('service-card-container', 'service-detail-pane', SERVICE_DOCTRINES);
-            // Note: Culinary panel will be initialized here when its data is ready
-
-            // --- B. Initialize the NEW Tab Navigation ---
-            const tabButtons = document.querySelectorAll('.tab-bar button');
-            const tabContents = document.querySelectorAll('.tab-content');
-
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const targetTab = button.dataset.tab; // e.g., 'core'
-
-                    // Hide all content panels
-                    tabContents.forEach(content => content.hidden = true);
-                    // Remove 'active' class from all buttons
-                    tabButtons.forEach(btn => btn.classList.remove('active'));
-
-                    // Show the target content panel
-                    document.getElementById(targetTab).hidden = false;
-                    // Add 'active' class to the clicked button
-                    button.classList.add('active');
-                });
-            });
-            
-            // Note: The first tab is already set to active in the HTML
         });
 
-    </script>
+        domainKeys.forEach(key => {
+            const domainData = DOMAIN_DATA[key];
+            
+            document.getElementById(`${key}-title`).textContent = translations[`tab-${key}`] + (lang === 'en' ? ` (Bureau of ${key.split('-')[0].charAt(0).toUpperCase() + key.split('-')[0].slice(1)})` : '');
+            document.getElementById(`${key}-desc`).textContent = lang === 'bn' ? domainData.bn_desc : domainData.en_desc;
+            document.getElementById(`${key}-metrics`).textContent = lang === 'bn' ? domainData.bn_metrics : domainData.en_metrics;
 
+            createInteractivePanel(`${key}-card-container`, `${key}-detail-pane`, domainData.processes, key);
+        });
+
+        renderVersatilistTable(lang);
+
+        const activeTab = document.querySelector('.tab-bar .active');
+        if (activeTab) {
+            const tabKey = activeTab.dataset.tab;
+            const activeDoctrines = DOMAIN_DATA[tabKey].processes;
+            if (activeDoctrines && activeDoctrines.length > 0) {
+                showDetails(activeDoctrines[0], `${tabKey}-detail-pane`, `${tabKey}-card-container`);
+            }
+        }
+    }
+    
+    function showDetails(process, detailPaneId, cardContainerId) {
+        const lang = currentLang;
+        const detailPane = document.getElementById(detailPaneId);
+        
+        const title = lang === 'bn' ? process.bn_title : process.en_title;
+        const doc = lang === 'bn' ? process.bn_doc : process.en_doc;
+        const note = langData[lang]['non-negotiable'];
+
+        detailPane.innerHTML = `
+            <h3>${title}</h3>
+            <p>${doc.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p>
+            <p class="small text-muted mt-2">${note}</p>
+        `;
+        
+        const cardContainer = document.getElementById(cardContainerId);
+        if (cardContainer) {
+            const activeCard = cardContainer.querySelector('.card.active');
+            if (activeCard) activeCard.classList.remove('active');
+            const cardToActivate = document.getElementById(`card-${process.id}`);
+            if (cardToActivate) cardToActivate.classList.add('active');
+        }
+    }
+
+    function createInteractivePanel(containerId, detailPaneId, processes, tabKey) {
+        const cardContainer = document.getElementById(containerId);
+        if (!cardContainer) return; 
+
+        cardContainer.innerHTML = '';
+        const lang = currentLang;
+        
+        processes.forEach(process => {
+            const title = lang === 'bn' ? process.bn_title : process.en_title;
+            const doc = lang === 'bn' ? process.bn_doc : process.en_doc;
+
+            const card = document.createElement('div');
+            card.className = 'card interactive-card';
+            card.id = `card-${process.id}`;
+            
+            card.onclick = () => showDetails(process, detailPaneId, containerId);
+            
+            card.innerHTML = `
+                <div class="card-body">
+                    <h3>${title}</h3>
+                    <p class="small text-muted">${doc.length > 100 ? doc.substring(0, 100) + '...' : doc}</p>
+                </div>
+            `;
+            cardContainer.appendChild(card);
+        });
+        
+        if (processes.length > 0) {
+            const targetTabElement = document.getElementById(tabKey);
+            const isActive = targetTabElement && !targetTabElement.hidden;
+            if (isActive) {
+                 showDetails(processes[0], detailPaneId, containerId);
+            }
+        }
+    }
+
+    function renderVersatilistTable(lang) {
+        const container = document.getElementById('versatilist-table-container');
+        if (!container) return;
+
+        const headers = [
+            langData[lang]['role-col'],
+            langData[lang]['primary-col'],
+            langData[lang]['secondary-col'],
+            langData[lang]['base-col'],
+            langData[lang]['multiplier-col']
+        ];
+        
+        let tableHTML = '<table><thead><tr>';
+        headers.forEach(h => { tableHTML += `<th>${h}</th>`; });
+        tableHTML += '</tr></thead><tbody>';
+
+        VERSATILIST_ROLES.forEach(role => {
+            const roleName = lang === 'bn' ? role.bn_role : role.en_role;
+            const primaryDomain = role.primary;
+            const secondaryDomains = role.secondary;
+            const basePay = role.base.toLocaleString() + ' BDT';
+
+            tableHTML += `
+                <tr>
+                    <td><strong>${roleName}</strong></td>
+                    <td>${primaryDomain}</td>
+                    <td>${secondaryDomains}</td>
+                    <td>${basePay}</td>
+                    <td>${role.mult}x</td>
+                </tr>
+            `;
+        });
+
+        tableHTML += '</tbody></table>';
+        container.innerHTML = tableHTML;
+    }
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        updateLanguage(document.getElementById('language').value);
+
+        const tabButtons = document.querySelectorAll('.tab-bar button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetTab = button.dataset.tab;
+
+                tabContents.forEach(content => content.hidden = true);
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+
+                const targetElement = document.getElementById(targetTab);
+                if(targetElement) targetElement.hidden = false;
+                
+                button.classList.add('active');
+                
+                const activeDoctrines = DOMAIN_DATA[targetTab].processes;
+                if (activeDoctrines && activeDoctrines.length > 0) {
+                    showDetails(activeDoctrines[0], `${targetTab}-detail-pane`, `${targetTab}-card-container`);
+                }
+            });
+        });
+
+        const initialTabKey = 'hr-ops';
+        const initialDoctrines = DOMAIN_DATA[initialTabKey].processes;
+        if (initialDoctrines.length > 0) {
+            showDetails(initialDoctrines[0], `${initialTabKey}-detail-pane`, `${initialTabKey}-card-container`);
+        }
+    });
+</script>
 </body>
 </html>
