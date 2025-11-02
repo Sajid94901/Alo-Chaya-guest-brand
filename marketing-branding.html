@@ -3,17 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marketing & Branding Strategy (Bureau of Presence)</title>
+    <title>Marketing & Branding - Bureau of Presence</title>
     
     <link rel="stylesheet" href="styles.css">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        .img-gallery {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: #f4f4f4;
+        }
+    </style>
 </head>
 <body>
 
     <header class="hero">
+        <div class="lang-switch">
+            <select id="language" onchange="updateLanguage(this.value)">
+                <option value="en">English</option>
+                <option value="bn">বাংলা</option>
+            </select>
+        </div>
         <div class="container">
-            <h1>Bureau of Presence (Marketing & Branding)</h1>
-            <p class="lead">The 7Ps, the "Common Heart" Strategy, and the Lighthouse Brand Identity.</p>
+            <h1 id="hero-title">Bureau of Presence (Marketing & Branding)</h1>
+            <p class="lead" id="hero-lead">The 7Ps, the "Common Heart" Strategy, and the Lighthouse Brand Identity.</p>
             
             <nav class="main-nav">
               <ul>
@@ -33,10 +50,9 @@
     </header>
 
     <main class="container">
-    
-        <section>
-            <h2 class="mt-6 mb-4">1. The 7Ps: The "Common Heart" Strategy</h2>
-            <p class="mb-4" style="color: var(--primary-color); font-weight: 600; font-size: 1.1rem;">
+                <section>
+            <h2 class="mt-6 mb-4" id="s1-title">1. The 7Ps: The "Common Heart" Strategy</h2>
+            <p class="mb-4" id="s1-desc" style="color: var(--primary-color); font-weight: 600; font-size: 1.1rem;">
                 The 7Ps align our "Fairy Tail" family (staff, guests, and their families) with our Doctrine. This is **how we are a lighthouse to all other resorts in the world**: by proving that "Holistic Well-Being" for *all* stakeholders is the only true business model.
             </p>
 
@@ -44,8 +60,8 @@
                 
                 <div class="card">
                     <div class="card-body">
-                        <h3 style="color: var(--primary-color);">Product: The "In-House Training Centre"</h3>
-                        <p class="small text-muted mb-0">
+                        <h3 style="color: var(--primary-color);" id="p1-title">Product: The "In-House Training Centre"</h3>
+                        <p class="small text-muted mb-0" id="p1-desc">
                             Our "product" is not just rooms; it is **Holistic Well-Being**. The core service is the **"In-House Training & Wellness Centre."** This is a shared "Guild Hall" where *both* guests and employees (and their families) are **"students"** together.
                         </p>
                     </div>
@@ -53,17 +69,17 @@
                 
                 <div class="card">
                     <div class="card-body">
-                        <h3 style="color: var(--primary-color);">Price: Premium Scarcity</h3>
-                        <p class="small text-muted mb-0">
-                            Positioned in the **mid-to-high luxury tier**. Justified not by marble, but by our **"Generalization + Specialization"** model. Guests are *investing* in a "Guild" that provides "dignity wages" (e.g., 88k Universalist) to its family.
+                        <h3 style="color: var(--primary-color);" id="p2-title">Price: Premium Scarcity</h3>
+                        <p class="small text-muted mb-0" id="p2-desc">
+                            Positioned in the **mid-to-high luxury tier**. Justified not by marble, but by our **"Generalization + Specialization"** model. Guests are *investing* in a "Guild" that provides "dignity wages" (e.g., 88k Versatilist) to its family.
                         </p>
                     </div>
                 </div>
                 
                 <div class="card">
                     <div class="card-body">
-                        <h3 style="color: var(--primary-color);">Place: The Shared "Guild Hall"</h3>
-                        <p class="small text-muted mb-0">
+                        <h3 style="color: var(--primary-color);" id="p3-title">Place: The Shared "Guild Hall"</h3>
+                        <p class="small text-muted mb-0" id="p3-desc">
                             The **Chandpur Riverine site** is the physical location of our "In-House Training Centre." It is a sanctuary where all "family" (guests and staff) can learn and grow together, proving the "common heart" principle.
                         </p>
                     </div>
@@ -71,8 +87,8 @@
                 
                 <div class="card">
                     <div class="card-body">
-                        <h3 style="color: var(--primary-color);">Promotion: The "Lighthouse" Proof</h3>
-                        <p class="small text-muted mb-0">
+                        <h3 style="color: var(--primary-color);" id="p4-title">Promotion: The "Lighthouse" Proof</h3>
+                        <p class="small text-muted mb-0" id="p4-desc">
                             **This is why you should come to our resort.** We do not sell "luxury"; we promote the "common heart." Our marketing shows the 84k Executive Chef learning *from* the 30k Room Coordinator Chief. We are the "lighthouse" that proves a "Fairy Tail" is a real, functional business model.
                         </p>
                     </div>
@@ -80,8 +96,8 @@
                 
                 <div class="card">
                     <div class="card-body">
-                        <h3 style="color: var(--primary-color);">People: The "Guild" (All are Family)</h3>
-                        <p class="small text-muted mb-0">
+                        <h3 style="color: var(--primary-color);" id="p5-title">People: The "Guild" (All are Family)</h3>
+                        <p class="small text-muted mb-0" id="p5-desc">
                             Staff and Guests are one "Guild." Both have **"rights, duties, and standards."** Our staff are "Dignified Guides" (not servants) and our guests are "Dignified Students" (not tyrants), all learning together in the Training Centre.
                         </p>
                     </div>
@@ -89,8 +105,8 @@
                 
                 <div class="card">
                     <div class="card-body">
-                        <h3 style="color: var(--primary-color);">Process: The "Dejobbing" Journey</h3>
-                        <p class="small text-muted mb-0">
+                        <h3 style="color: var(--primary-color);" id="p6-title">Process: The "Dejobbing" Journey</h3>
+                        <p class="small text-muted mb-0" id="p6-desc">
                             Our service process *is* the **"Generalization + Specialization"** model. The "Onboarding" process for a guest or a new employee is the same: they are introduced to the **Codex** and the **Training Centre** to begin their *personal* growth journey.
                         </p>
                     </div>
@@ -98,61 +114,58 @@
                 
                 <div class="card">
                     <div class="card-body">
-                        <h3 style="color: var(--primary-color);">Physical Evidence: Marble & Manuscript</h3>
-                        <p class="small text-muted mb-0">
-                            This includes the marble interiors, the river view, and the **In-House Training Centre** itself. The **Ghuraba Al Manara Codex** is physical evidence of the "curriculum" that both guests and staff follow.
-                        </JSON:
+                        <h3 style="color: var(--primary-color);" id="p7-title">Physical Evidence: Marble & Manuscript</h3>
+                        <p class="small text-muted mb-0" id="p7-desc">
                         </p>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section>
-            <h2 class="mt-6 mb-4">2. The Brand Prism: Projection & Reflection</h2>
-            <p class="mb-4 text-muted">
+                </section>
+                        <section>
+            <h2 class="mt-6 mb-4" id="s2-title">2. The Brand Prism: Projection & Reflection</h2>
+            <p class="mb-4 text-muted" id="s2-desc">
                 The Prism organizes the brand's identity components, ensuring consistency between what the brand says and what the consumer feels.
             </p>
             
             <div class="card">
                 <div class="card-body">
-                    <h3 style="text-align: center;">GHURABA AL MANARA - BRAND PRISM</h3>
+                    <h3 style="text-align: center;" id="prism-title">GHURABA AL MANARA - BRAND PRISM</h3>
                     
                     <div class="text-center" style="background: var(--bg-light); padding: 0.5rem; border-radius: 5px; margin-top: 1rem;">
-                        <strong>TRANSMITTED BRAND (EXTERNAL)</strong>
+                        <strong id="prism-ext">TRANSMITTED BRAND (EXTERNAL)</strong>
                     </div>
                     
                     <div class="grid grid-3 mt-4 text-center">
                         <div>
-                            <h4 style="color: var(--primary-color);">Physique</h4>
-                            <p class="small text-muted mb-0">Marble, Water, Strength (See **ACEM**)<br>— OUTWARD SIGN —</p>
+                            <h4 style="color: var(--primary-color);" id="prism-phys">Physique</h4>
+                            <p class="small text-muted mb-0" id="prism-phys-desc">Marble, Water, Strength (See **ACEM**)<br>— OUTWARD SIGN —</p>
                         </div>
                         <div>
-                            <h4 style="color: var(--primary-color);">Intellect</h4>
-                            <p class="small text-muted mb-0">Dialogue, Curriculum (See **GLSM**)<br>— CULTURE —</p>
+                            <h4 style="color: var(--primary-color);" id="prism-intel">Intellect</h4>
+                            <p class="small text-muted mb-0" id="prism-intel-desc">Dialogue, Curriculum (See **GLSM**)<br>— CULTURE —</p>
                         </div>
                         <div>
-                            <h4 style="color: var(--primary-color);">Alo Chaya</h4>
-                            <p class="small text-muted mb-0">Heritage, River Seclusion<br>— RELATIONSHIP —</p>
+                            <h4 style="color: var(--primary-color);" id="prism-alo">Alo Chaya</h4>
+                            <p class="small text-muted mb-0" id="prism-alo-desc">Heritage, River Seclusion<br>— RELATIONSHIP —</p>
                         </div>
                     </div>
 
                     <div class="text-center" style="background: var(--bg-light); padding: 0.5rem; border-radius: 5px; margin-top: 1.5rem;">
-                        <strong>REFLECTED BRAND (INTERNAL)</strong>
+                        <strong id="prism-int">REFLECTED BRAND (INTERNAL)</strong>
                     </div>
 
                     <div class="grid grid-3 mt-4 text-center">
                         <div>
-                            <h4 style="color: var(--primary-color);">Nafs</h4>
-                            <p class="small text-muted mb-0">Struggling, Seeking Light<br>— SELF-IMAGE —</p>
+                            <h4 style="color: var(--primary-color);" id="prism-nafs">Nafs</h4>
+                            <p class="small text-muted mb-0" id="prism-nafs-desc">Struggling, Seeking Light<br>— SELF-IMAGE —</p>
                         </div>
                         <div>
-                            <h4 style="color: var(--primary-color);">Ruh & Qalb</h4>
-                            <p class="small text-muted mb-0">Purpose, Inner Peace<br>— PERSONALITY —</p>
+                            <h4 style="color: var(--primary-color);" id="prism-ruh">Ruh & Qalb</h4>
+                            <p class="small text-muted mb-0" id="prism-ruh-desc">Purpose, Inner Peace<br>— PERSONALITY —</p>
                         </div>
                         <div>
-                            <h4 style="color: var(--primary-color);">The Lighthouse</h4>
-                            <p class="small text-muted mb-0">Clarity, Arrival, Hope<br>— MENTAL PICTURE —</p>
+                            <h4 style="color: var(--primary-color);" id="prism-light">The Lighthouse</h4>
+                            <p class="small text-muted mb-0" id="prism-light-desc">Clarity, Arrival, Hope<br>— MENTAL PICTURE —</p>
                         </div>
                     </div>
 
@@ -161,47 +174,265 @@
         </section>
 
         <section>
-            <h2 class="mt-6 mb-4">3. The Brand Pyramid: Core Identity</h2>
-            <p class="mb-4 text-muted">
+            <h2 class="mt-6 mb-4" id="s3-title">3. The Brand Pyramid: Core Identity</h2>
+            <p class="mb-4 text-muted" id="s3-desc">
                 The pyramid defines the ultimate promise and purpose of the **Ghuraba Al Manara** brand, working from tangible features to the spiritual benefit.
             </p>
 
             <div class="card">
                 <div class="card-body">
-                    <h3 style="text-align: center;">THE LIGHTHOUSE BRAND PYRAMID</h3>
+                    <h3 style="text-align: center;" id="pyramid-title">THE LIGHTHOUSE BRAND PYRAMID</h3>
 
                     <div class="brand-pyramid">
                         <div class="brand-pyramid-tier brand-pyramid-tier-5">
-                            <h4>BRAND ESSENCE / PURPOSE</h4>
-                            <p>To **Guide** the **Strangers** to **Clarity** and **Purpose** (Al-Hadi).</p>
+                            <h4 id="pyramid-t5-title">BRAND ESSENCE / PURPOSE</h4>
+                            <p id="pyramid-t5-desc">To **Guide** the **Strangers** to **Clarity** and **Purpose** (Al-Hadi).</p>
                         </div>
                         <div class="brand-pyramid-tier brand-pyramid-tier-4">
-                            <h4>EMOTIONAL BENEFIT</h4>
-                            <p>**Inner Arrival** (A deep sense of rest and profound purpose through **Ruh** and **Qalb** alignment).</p>
+                            <h4 id="pyramid-t4-title">EMOTIONAL BENEFIT</h4>
+                            <p id="pyramid-t4-desc">**Inner Arrival** (A deep sense of rest and profound purpose through **Ruh** and **Qalb** alignment).</p>
                         </div>
                         <div class="brand-pyramid-tier brand-pyramid-tier-3">
-                            <h4>FUNCTIONAL BENEFIT</h4>
-                            <p>The **Curated Track** (A structured path using **GLSM** and **ACEM** to elevate intellectual, spiritual, and physical well-being).</p>
+                            <h4 id="pyramid-t3-title">FUNCTIONAL BENEFIT</h4>
+                            <p id="pyramid-t3-desc">The **Curated Track** (A structured path using **GLSM** and **ACEM** to elevate intellectual, spiritual, and physical well-being).</p>
                         </div>
                         <div class="brand-pyramid-tier brand-pyramid-tier-2">
-                            <h4>BRAND VALUES / PERSONALITY</h4>
-                            <p class="mb-0">**Intellect, Serenity, Discipline, Heritage**.</p>
+                            <h4 id="pyramid-t2-title">BRAND VALUES / PERSONALITY</h4>
+                            <p class="mb-0" id="pyramid-t2-desc">**Intellect, Serenity, Discipline, Heritage**.</p>
                         </div>
                         <div class="brand-pyramid-tier brand-pyramid-tier-1">
-                            <h4>BRAND ATTRIBUTES</h4>
-                            <p class="mb-0">**Riverine Seclusion, All-Marble, Lighthouse Lore, 7,000 sq.ft Lounge.**</p>
+                            <h4 id="pyramid-t1-title">BRAND ATTRIBUTES</h4>
+                            <p class="mb-0" id="pyramid-t1-desc">**Riverine Seclusion, All-Marble, Lighthouse Lore, 7,000 sq.ft Lounge.**</p>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+                <section>
+            <h2 class="mt-6 mb-4" id="s4-title">4. Physical Evidence: The Sanctuary Rooms</h2>
+            <p class="mb-4 text-muted" id="s4-desc">
+                This is the "Physique" of our brand. These are not just rooms, but the tangible "Sanctuary" and "Guild Hall" that enable our "Common Heart" strategy. (2nd & 3rd Floor Selections).
+            </p>
+            <div class="grid grid-3">
+                
+                <div class="card">
+                    <img src="project-leads-room-on-second-floor.jpg" alt="Project Lead's Suite (2nd Floor)" class="img-gallery">
+                    <div class="card-body">
+                        <h3 id="room-project-lead-title">Project Lead's Suite (2nd Floor)</h3>
+                        <p class="small text-muted" id="room-project-lead-desc">The 2nd Floor "Al Ameen" suite, reflecting the core of the "House of Sadiq" heritage.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="second-floor-family-suite's-room-b.jpg" alt="2nd Floor Family Suite (Room B)" class="img-gallery">
+                    <div class="card-body">
+                        <h3 id="room-family-b-title">2nd Floor Family Suite (Room B)</h3>
+                        <p class="small text-muted" id="room-family-b-desc">The companion room to the family suite, designed for "Relationship" and "Common Heart."</p>
+                    </div>
+                </div>
 
+                <div class="card">
+                    <img src="the-sadiq-heritage-prestige.jpg" alt="The Sadiq Heritage Prestige (3rd Floor)" class="img-gallery">
+                    <div class="card-body">
+                        <h3 id="room-sadiq-title">The "Sadiq" Heritage Prestige (3rd Floor)</h3>
+                        <p class="small text-muted" id="room-sadiq-desc">The 3rd Floor royal suite, proving the "Heritage" and "Physique" of the brand.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="the-ayub-sabr-sanctuary.jpg" alt="The Ayub Sabr Sanctuary" class="img-gallery">
+                    <div class="card-body">
+                        <h3 id="room-ayub-title">The "Ayub" Sabr Sanctuary</h3>
+                        <p class="small text-muted" id="room-ayub-desc">A room of "Sabr" (Patience) and "Inner Arrival." Reflects the "Nafs" struggling and seeking light.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="bilquis-royal-family-suite.jpg" alt="Bilquis Royal Family Suite" class="img-gallery">
+                    <div class="card-body">
+                        <h3 id="room-bilquis-title">"Bilquis" Royal Family Suite</h3>
+                        <p class="small text-muted" id="room-bilquis-desc">The dual-canopy family suite, reflecting "Heritage" and "Relationship."</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="the-sheath-intellect-retreat.jpg" alt="The Sheath Intellect Retreat" class="img-gallery">
+                    <div class="card-body">
+                        <h3 id="room-sheath-title">The "Sheath" Intellect Retreat</h3>
+                        <p class="small text-muted" id="room-sheath-desc">The "Medinat Sheath" experience. A design focused on "Intellect" and "Discipline."</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="michal-innovator-hub.jpg" alt="The Michal Innovator's Hub" class="img-gallery">
+                    <div class="card-body">
+                        <h3 id="room-michal-title">The "Michal" Innovator's Hub</h3>
+                        <p class="small text-muted" id="room-michal-desc">The "Innovator's" room. A space for "Synthesis" (Bloom's) and "Creating" (ACEM).</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
     </main>
-    
-    <footer class="site-footer">
+        <footer class="site-footer">
         <p>Ghuraba Al Manara (The Lighthouse) | Bureau of Presence Doctrine</p>
     </footer>
 
+    <script>
+    const langData = {
+        'en': {
+            'hero-title': 'Bureau of Presence (Marketing & Branding)',
+            'hero-lead': 'The 7Ps, the "Common Heart" Strategy, and the Lighthouse Brand Identity.',
+            's1-title': '1. The 7Ps: The "Common Heart" Strategy',
+            's1-desc': 'The 7Ps align our "Fairy Tail" family (staff, guests, and their families) with our Doctrine. This is **how we are a lighthouse to all other resorts in the world**: by proving that "Holistic Well-Being" for *all* stakeholders is the only true business model.',
+            'p1-title': 'Product: The "In-House Training Centre"',
+            'p1-desc': 'Our "product" is not just rooms; it is **Holistic Well-Being**. The core service is the **"In-House Training & Wellness Centre."** This is a shared "Guild Hall" where *both* guests and employees (and their families) are **"students"** together.',
+            'p2-title': 'Price: Premium Scarcity',
+            'p2-desc': 'Positioned in the **mid-to-high luxury tier**. Justified not by marble, but by our **"Generalization + Specialization"** model. Guests are *investing* in a "Guild" that provides "dignity wages" (e.g., 88k Versatilist) to its family.',
+            'p3-title': 'Place: The Shared "Guild Hall"',
+            'p3-desc': 'The **Chandpur Riverine site** is the physical location of our "In-House Training Centre." It is a sanctuary where all "family" (guests and staff) can learn and grow together, proving the "common heart" principle.',
+            'p4-title': 'Promotion: The "Lighthouse" Proof',
+            'p4-desc': '**This is why you should come to our resort.** We do not sell "luxury"; we promote the "common heart." Our marketing shows the 84k Executive Chef learning *from* the 30k Room Coordinator Chief. We are the "lighthouse" that proves a "Fairy Tail" is a real, functional business model.',
+            'p5-title': 'People: The "Guild" (All are Family)',
+            'p5-desc': 'Staff and Guests are one "Guild." Both have **"rights, duties, and standards."** Our staff are "Dignified Guides" (not servants) and our guests are "Dignified Students" (not tyrants), all learning together in the Training Centre.',
+            'p6-title': 'Process: The "Dejobbing" Journey',
+            'p6-desc': 'Our service process *is* the **"Generalization + Specialization"** model. The "Onboarding" process for a guest or a new employee is the same: they are introduced to the **Codex** and the **Training Centre** to begin their *personal* growth journey.',
+            'p7-title': 'Physical Evidence: Marble & Manuscript',
+            'p7-desc': 'This includes the marble interiors, the river view, and the **In-House Training Centre** itself. The **Ghuraba Al Manara Codex** is physical evidence of the "curriculum" that both guests and staff follow.',
+            's2-title': '2. The Brand Prism: Projection & Reflection',
+            's2-desc': "The Prism organizes the brand's identity components, ensuring consistency between what the brand says and what the consumer feels.",
+            'prism-title': 'GHURABA AL MANARA - BRAND PRISM',
+            'prism-ext': 'TRANSMITTED BRAND (EXTERNAL)',
+            'prism-phys': 'Physique',
+            'prism-phys-desc': 'Marble, Water, Strength (See **ACEM**)<br>— OUTWARD SIGN —',
+            'prism-intel': 'Intellect',
+            'prism-intel-desc': 'Dialogue, Curriculum (See **GLSM**)<br>— CULTURE —',
+            'prism-alo': 'Alo Chaya',
+            'prism-alo-desc': 'Heritage, River Seclusion<br>— RELATIONSHIP —',
+            'prism-int': 'REFLECTED BRAND (INTERNAL)',
+            'prism-nafs': 'Nafs',
+            'prism-nafs-desc': 'Struggling, Seeking Light<br>— SELF-IMAGE —',
+            'prism-ruh': 'Ruh & Qalb',
+            'prism-ruh-desc': 'Purpose, Inner Peace<br>— PERSONALITY —',
+            'prism-light': 'The Lighthouse',
+            'prism-light-desc': 'Clarity, Arrival, Hope<br>— MENTAL PICTURE —',
+            's3-title': '3. The Brand Pyramid: Core Identity',
+            's3-desc': 'The pyramid defines the ultimate promise and purpose of the **Ghuraba Al Manara** brand, working from tangible features to the spiritual benefit.',
+            'pyramid-title': 'THE LIGHTHOUSE BRAND PYRAMID',
+            'pyramid-t5-title': 'BRAND ESSENCE / PURPOSE',
+            'pyramid-t5-desc': 'To **Guide** the **Strangers** to **Clarity** and **Purpose** (Al-Hadi).',
+            'pyramid-t4-title': 'EMOTIONAL BENEFIT',
+            'pyramid-t4-desc': '**Inner Arrival** (A deep sense of rest and profound purpose through **Ruh** and **Qalb** alignment).',
+            'pyramid-t3-title': 'FUNCTIONAL BENEFIT',
+            'pyramid-t3-desc': 'The **Curated Track** (A structured path using **GLSM** and **ACEM** to elevate intellectual, spiritual, and physical well-being).',
+            'pyramid-t2-title': 'BRAND VALUES / PERSONALITY',
+            'pyramid-t2-desc': '**Intellect, Serenity, Discipline, Heritage**.',
+            'pyramid-t1-title': 'BRAND ATTRIBUTES',
+            'pyramid-t1-desc': '**Riverine Seclusion, All-Marble, Lighthouse Lore, 7,000 sq.ft Lounge.**',
+            
+            's4-title': '4. Physical Evidence: The Sanctuary Rooms',
+            's4-desc': 'This is the "Physique" of our brand. These are not just rooms, but the tangible "Sanctuary" and "Guild Hall" that enable our "Common Heart" strategy. (2nd & 3rd Floor Selections).',
+            'room-project-lead-title': "Project Lead's Suite (2nd Floor)",
+            'room-project-lead-desc': 'The 2nd Floor "Al Ameen" suite, reflecting the core of the "House of Sadiq" heritage.',
+            'room-family-b-title': '2nd Floor Family Suite (Room B)',
+            'room-family-b-desc': 'The companion room to the family suite, designed for "Relationship" and "Common Heart."',
+            'room-sadiq-title': 'The "Sadiq" Heritage Prestige (3rd Floor)',
+            'room-sadiq-desc': 'The 3rd Floor royal suite, proving the "Heritage" and "Physique" of the brand.',
+            'room-ayub-title': 'The "Ayub" Sabr Sanctuary',
+            'room-ayub-desc': 'A room of "Sabr" (Patience) and "Inner Arrival." Reflects the "Nafs" struggling and seeking light.',
+            'room-bilquis-title': '"Bilquis" Royal Family Suite',
+            'room-bilquis-desc': 'The dual-canopy family suite, reflecting "Heritage" and "Relationship."',
+            'room-sheath-title': 'The "Sheath" Intellect Retreat',
+            'room-sheath-desc': 'The "Medinat Sheath" experience. A design focused on "Intellect" and "Discipline."',
+            'room-michal-title': 'The "Michal" Innovator\'s Hub',
+            'room-michal-desc': 'The "Innovator\'s" room. A space for "Synthesis" (Bloom\'s) and "Creating" (ACEM).'
+        },
+        'bn': {
+                        'hero-title': 'উপস্থিতি ব্যুরো (বিপণন ও ব্র্যান্ডিং)',
+            'hero-lead': '৭পি, "কমন হার্ট" কৌশল এবং লাইটহাউস ব্র্যান্ড আইডেন্টিটি।',
+            's1-title': '১. ৭পি: "কমন হার্ট" কৌশল',
+            's1-desc': '৭পি আমাদের "ফেয়ারি টেল" পরিবারকে (কর্মী, অতিথি এবং তাদের পরিবার) আমাদের মতবাদের সাথে সারিবদ্ধ করে। এভাবেই **আমরা বিশ্বের অন্যান্য সমস্ত রিসোর্টের জন্য একটি বাতিঘর**: প্রমাণ করি যে *সকল* স্টেকহোল্ডারদের জন্য "সামগ্রিক সুস্থতা" একমাত্র সত্যিকারের ব্যবসায়িক মডেল।',
+            'p1-title': 'পণ্য: "ইন-হাউস ট্রেনিং সেন্টার"',
+            'p1-desc': 'আমাদের "পণ্য" শুধু রুম নয়; এটি **সামগ্রিক সুস্থতা**। মূল পরিষেবা হলো **"ইন-হাউস ট্রেনিং অ্যান্ড ওয়েলনেস সেন্টার।"** এটি একটি ভাগ করা "গিল্ড হল" যেখানে অতিথি এবং কর্মচারী (এবং তাদের পরিবার) উভয়েই একসাথে **"ছাত্র"**।',
+            'p2-title': 'মূল্য: প্রিমিয়াম স্বল্পতা',
+            'p2-desc': '**মিড-টু-হাই লাক্সারি টায়ারে** অবস্থান। মার্বেল দ্বারা নয়, আমাদের **"সাধারণীকরণ + বিশেষীকরণ"** মডেল দ্বারা ন্যায়সঙ্গত। অতিথিরা একটি "গিল্ড"-এ *বিনিয়োগ* করছেন যা তার পরিবারকে "মর্যাদা বেতন" (যেমন, ৮৮ হাজার ভার্সাটিলিস্ট) প্রদান করে।',
+            'p3-title': 'স্থান: ভাগ করা "গিল্ড হল"',
+            'p3-desc': '**চাঁদপুর নদী তীরবর্তী সাইট** আমাদের "ইন-হাউস ট্রেনিং সেন্টার"-এর ভৌত অবস্থান। এটি একটি অভয়ারণ্য যেখানে সমস্ত "পরিবার" (অতিথি এবং কর্মী) একসাথে শিখতে এবং বাড়তে পারে, "কমন হার্ট" নীতি প্রমাণ করে।',
+            'p4-title': 'প্রচার: "লাইটহাউস" প্রমাণ',
+            'p4-desc': '**এই কারণেই আপনার আমাদের রিসোর্টে আসা উচিত।** আমরা "বিলাসিতা" বিক্রি করি না; আমরা "কমন হার্ট"-এর প্রচার করি। আমাদের বিপণন দেখায় যে ৮৪ হাজার এক্সিকিউটিভ শেফ ৩০ হাজার রুম কোঅর্ডিনেটর চিফের কাছ থেকে *শিখছেন*। আমরা "বাতিঘর" যা প্রমাণ করে যে একটি "ফেয়ারি টেল" একটি বাস্তব, কার্যকরী ব্যবসায়িক মডেল।',
+            'p5-title': 'মানুষ: "গিল্ড" (সকলেই পরিবার)',
+            'p5-desc': 'কর্মী এবং অতিথি এক "গিল্ড"। উভয়েরই **"অধিকার, কর্তব্য এবং মান"** রয়েছে। আমাদের কর্মীরা "মর্যাদাপূর্ণ গাইড" (চাকর নয়) এবং আমাদের অতিথিরা "মর্যাদাপূর্ণ ছাত্র" (অত্যাচারী নয়), সবাই প্রশিক্ষণ কেন্দ্রে একসাথে শিখছেন।',
+            'p6-title': 'প্রক্রিয়া: "ডিজবনিং" যাত্রা',
+            'p6-desc': 'আমাদের পরিষেবা প্রক্রিয়া *হলো* **"সাধারণীকরণ + বিশেষীকরণ"** মডেল। একজন অতিথি বা নতুন কর্মচারীর জন্য "অনবোর্ডিং" প্রক্রিয়া একই: তাদের *ব্যক্তিগত* বৃদ্ধির যাত্রা শুরু করতে **কোডেক্স** এবং **ট্রেনিং সেন্টারের** সাথে পরিচয় করিয়ে দেওয়া হয়।',
+            'p7-title': 'ভৌত প্রমাণ: মার্বেল ও ম্যানুস্ক্রিপ্ট',
+            'p7-desc': 'এর মধ্যে রয়েছে মার্বেল ইন্টেরিয়র, নদীর দৃশ্য এবং **ইন-হাউস ট্রেনিং সেন্টার** নিজেই। **গুরাবা আল মানারা কোডেক্স** হলো "পাঠ্যক্রমের" ভৌত প্রমাণ যা অতিথি এবং কর্মী উভয়েই অনুসরণ করে।',
+            's2-title': '২. ব্র্যান্ড প্রিজম: প্রক্ষেপণ ও প্রতিফলন',
+            's2-desc': 'প্রিজম ব্র্যান্ডের পরিচয়ের উপাদানগুলিকে সংগঠিত করে, ব্র্যান্ড যা বলে এবং গ্রাহক যা অনুভব করে তার মধ্যে সামঞ্জস্য নিশ্চিত করে।',
+            'prism-title': 'গুরাবা আল মানারা - ব্র্যান্ড প্রিজম',
+            'prism-ext': 'প্রেরিত ব্র্যান্ড (বাহ্যিক)',
+            'prism-phys': 'গঠন',
+            'prism-phys-desc': 'মার্বেল, জল, শক্তি (দেখুন **ACEM**)<br>— বাহ্যিক চিহ্ন —',
+            'prism-intel': 'বুদ্ধিমত্তা',
+            'prism-intel-desc': 'সংলাপ, পাঠ্যক্রম (দেখুন **GLSM**)<br>— সংস্কৃতি —',
+            'prism-alo': 'আলো ছায়া',
+            'prism-alo-desc': 'ঐতিহ্য, নদী নির্জনতা<br>— সম্পর্ক —',
+            'prism-int': 'প্রতিফলিত ব্র্যান্ড (অভ্যন্তরীণ)',
+            'prism-nafs': 'নফস',
+            'prism-nafs-desc': 'সংগ্রামরত, আলো খোঁজা<br>— স্ব-চিত্র —',
+            'prism-ruh': 'রুহ ও কলব',
+            'prism-ruh-desc': 'উদ্দেশ্য, অভ্যন্তরীণ শান্তি<br>— ব্যক্তিত্ব —',
+            'prism-light': 'লাইটহাউস',
+            'prism-light-desc': 'স্বচ্ছতা, আগমন, আশা<br>— মানসিক চিত্র —',
+            's3-title': '৩. ব্র্যান্ড পিরামিড: মূল পরিচয়',
+            's3-desc': '**গুরাবা আল মানারা** ব্র্যান্ডের চূড়ান্ত প্রতিশ্রুতি এবং উদ্দেশ্যকে সংজ্ঞায়িত করে, বাস্তব বৈশিষ্ট্য থেকে আধ্যাত্মিক সুবিধার দিকে কাজ করে।',
+            'pyramid-title': 'লাইটহাউস ব্র্যান্ড পিরামিড',
+            'pyramid-t5-title': 'ব্র্যান্ড সারমর্ম / উদ্দেশ্য',
+            'pyramid-t5-desc': '**অপরিচিতদের** **স্বচ্ছতা** এবং **উদ্দেশ্যের** দিকে **পথপ্রদর্শন** করা (আল-হাদী)।',
+            'pyramid-t4-title': 'আবেগগত সুবিধা',
+            'pyramid-t4-desc': '**অভ্যন্তরীণ আগমন** (**রুহ** এবং **কলব** সারিবদ্ধকরণের মাধ্যমে গভীর বিশ্রাম এবং গভীর উদ্দেশ্যের অনুভূতি)।',
+            'pyramid-t3-title': 'কার্যকরী সুবিধা',
+            'pyramid-t3-desc': 'দ্যা **কিউরেটেড ট্র্যাক** (বুদ্ধিবৃত্তিক, আধ্যাত্মিক এবং শারীরিক সুস্থতা বাড়াতে **GLSM** এবং **ACEM** ব্যবহার করে একটি কাঠামোগত পথ)।',
+            'pyramid-t2-title': 'ব্র্যান্ড মূল্যবোধ / ব্যক্তিত্ব',
+            'pyramid-t2-desc': '**বুদ্ধিমত্তা, প্রশান্তি, শৃঙ্খলা, ঐতিহ্য**।',
+            'pyramid-t1-title': 'ব্র্যান্ড বৈশিষ্ট্য',
+            'pyramid-t1-desc': '**নদী তীরবর্তী নির্জনতা, সম্পূর্ণ মার্বেল, লাইটহাউস লর, ৭,০০০ বর্গফুট লাউঞ্জ।**',
+            
+            's4-title': '৪. ভৌত প্রমাণ: অভয়ারণ্য রুম',
+            's4-desc': 'এটি আমাদের ব্র্যান্ডের "গঠন"। এগুলি কেবল রুম নয়, বরং বাস্তব "অভয়ারণ্য" এবং "গিল্ড হল" যা আমাদের "কমন হার্ট" কৌশলকে সক্ষম করে। (২য় এবং ৩য় তলার নির্বাচন)।',
+            'room-project-lead-title': 'প্রজেক্ট লীডের স্যুট (২য় তলা)',
+            'room-project-lead-desc': '২য় তলার "আল আমিন" স্যুট, "হাউস অফ সাদিক" ঐতিহ্যের মূল প্রতিফলন।',
+            'room-family-b-title': '২য় তলার ফ্যামিলি স্যুট (রুম বি)',
+            'room-family-b-desc': 'ফ্যামিলি স্যুটের সঙ্গী রুম, "সম্পর্ক" এবং "কমন হার্ট" এর জন্য ডিজাইন করা হয়েছে।',
+            'room-sadiq-title': '"সাদিক" হেরিটেজ প্রেস্টিজ (৩য় তলা)',
+            'room-sadiq-desc': '৩য় তলার রাজকীয় স্যুট, ব্র্যান্ডের "ঐতিহ্য" এবং "গঠন" প্রমাণ করে।',
+            'room-ayub-title': '"আইয়ুব" সবর অভয়ারণ্য',
+            'room-ayub-desc': '"সবর" (ধৈর্য) এবং "অভ্যন্তরীণ আগমনের" একটি রুম। "নফস" সংগ্রামরত এবং আলো খোঁজার প্রতিফলন করে।',
+            'room-bilquis-title': '"বিলকিস" রয়্যাল ফ্যামিলি স্যুট',
+            'room-bilquis-desc': 'ডুয়াল-ক্যানোপি ফ্যামিলি স্যুট, "ঐতিহ্য" এবং "সম্পর্ক" প্রতিফলিত করে।',
+            'room-sheath-title': '"শীথ" ইন্টেলেক্ট রিট্রিট',
+            'room-sheath-desc': '"মদিনাত শীথ" অভিজ্ঞতা। "বুদ্ধিমত্তা" এবং "শৃঙ্খলা" এর উপর দৃষ্টি নিবদ্ধ একটি নকশা।',
+            'room-michal-title': '"মিচাল" ইনোভেটরস হাব',
+            'room-michal-desc': '"উদ্ভাবকের" রুম। "সংশ্লেষণ" (ব্লুম) এবং "সৃষ্টি" (ACEM) এর জন্য একটি স্থান।'
+        }
+    };
+
+    let currentLang = 'en';
+
+    function updateLanguage(lang) {
+        currentLang = lang;
+        const translations = langData[lang];
+        if (!translations) return;
+
+        document.querySelectorAll('[id]').forEach(element => {
+            if (translations[element.id] && element.tagName !== 'SELECT') {
+                element.innerHTML = translations[element.id];
+            }
+        });
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        updateLanguage(currentLang);
+    });
+    </script>
 </body>
 </html>
