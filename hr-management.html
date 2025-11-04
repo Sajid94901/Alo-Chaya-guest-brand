@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Management - Bureau of Harmony</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="hero">
+    <div class="lang-switch">
+        <select id="language" onchange="updateLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="bn">বাংলা</option>
+        </select>
+    </div>
+    <div class="container">
+        <h1 id="hero-title">Bureau of Harmony (HR) Strategy</h1>
+        <p class="lead" id="hero-lead">Enforcing the Common Heart Doctrine and the Objective Standard.</p>
+        
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="landing.html">Landing</a></li>
+                <li><a href="about-heritage.html">About & Heritage</a></li>
+                <li><a href="hr-management.html">HR Management</a></li>
+                <li><a href="management-leadership.html">Management & Leadership</a></li>
+                <li><a href="operations.html">Operations</a></li>
+                <li><a href="gourmet-alliances.html">Gourmet Alliances</a></li>
+                <li><a href="marketing-branding.html">Marketing & Branding</a></li>
+                <li><a href="doctrine.html">Doctrine</a></li>
+                <li><a href="models.html">Models</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main class="container">
+
+    <h2 class="mt-6 mb-4" id="section1-title">1. The Inversion of Authority (The Moral Auditor Mandate)</h2>
+    <p class="mb-4" id="section1-desc">The Bureau of Harmony is decentralized. The traditional, un-coachable central HR function is stripped of moral authority. All ethical compliance is handled by the <strong>HR Moral Auditor</strong> at the branch level, who acts as the Specialist’s direct guardian.</p>
+
+    <div class="interactive-layout">
+        <div class="grid grid-2" id="card-container">
+        </div>
+        <div class="detail-pane" id="detail-pane">
+        </div>
+    </div>
+
+    <h2 class="mt-6 mb-4" id="section2-title">2. Moral Purity and Guardrail of Integrity</h2>
+    <p class="mb-4" id="section2-desc">The Bureau of Harmony enforces the moral purity of the Guild, protecting it from both internal and external corruption, as mandated by the Founder's Rule.</p>
+
+    <div class="grid grid-2">
+        <div class="card" data-id="moral-purity">
+            <div class="card-body">
+                <h3 class="text-danger" id="card1-title">Moral Purity and Right to Eject</h3>
+                <p id="card1-desc">Guests are treated as students in the Training Centre. The Guild has the <strong>absolute, non-negotiable right to eject</strong> any guest engaging in gross moral failures (e.g., exploitation, adultery) that violate the spiritual purity and integrity of the Common Heart.</p>
+            </div>
+        </div>
+
+        <div class="card" data-id="guardrail-integrity">
+            <div class="card-body">
+                <h3 class="text-danger" id="card2-title">The Guardrail of Integrity (The Ultimate Test)</h3>
+                <p id="card2-desc">We reject all forms of corruption: 
+                    <ol class="small mt-2" style="list-style-type: decimal; padding-left: 1.5rem;" id="card2-list">
+                        <li>Bidirectional Exploitation: Neither staff exploiting upper management, nor upper management exploiting staff.</li>
+                        <li>External Contamination: The Leader's private life must never introduce external moral/financial poison that destroys the Guild.</li>
+                    </ol>
+                    The <strong>Guild Founder's Rule</strong> (no gambling, internal loans, or debt) is absolute.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="mt-6 mb-4" id="section3-title">3. The Recruitment & Onboarding Protocol (The Employee Story)</h2>
+    <p class="mb-4" id="section3-desc">
+        We do not just "hire" people. We begin the <strong>Employee Story</strong>. Our system is a data-driven model designed for personalization, connecting every stage of the employee lifecycle. This ensures we recruit the right people, grow them as Specialists, and learn from their journey to constantly improve the Guild.
+    </p>
+
+    <div class="grid grid-3">
+        <div class="card">
+            <div class="card-body">
+                <h3 id="section3-card1-title">Step 1: Discovery & Application</h3>
+                <p id="section3-card1-desc">It starts with our <strong>Company Branding</strong> and honest <strong>Recruitment Discovery</strong>. Prospective Specialists apply via our portal, submitting not just a CV, but the raw data for their Employee Story, such as:</p>
+                <ul class="small mt-2" style="list-style-type: square; padding-left: 1.5rem;" id="section3-card1-list">
+                    <li>Full CV (Previous Experience)</li>
+                    <li>Technical & Soft Skill Competencies</li>
+                    <li>MBA/BBA Course Outlines</li>
+                    <li>All relevant certificates</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h3 id="section3-card2-title">Step 2: The ACEM Assessment</h3>
+                <p id="section3-card2-desc">All applications are assessed based on the <strong>ACEM Purity Mandate</strong>. We test <em>only</em> for skills 100% relevant to the codified job role. We ban all irrelevant academic and cultural barriers, ensuring a fair, merit-based selection.</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-body">
+                <h3 id="section3-card3-title">Step 3: The Trainee Specialist</h3>
+                <p id="section3-card3-desc">Successful candidates are not "Interns." They are hired as paid <strong>Trainee Specialists</strong> at a <strong>Dignity Wage</strong>. They are given a codified role to begin their journey, allowing them to learn and contribute from day one.</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="granular-staffing-extended" class="mt-6">
+      <div class="card">
+        <div class="card-body">
+          <h2 style="margin-top:0;" id="section4-title">4. Granular Staffing & Payroll</h2>
+          <p class="small text-muted mb-3" id="section4-desc">Click any role card to see the full breakdown. Use the language switcher at the top-right to toggle বাংলা / English.</p>
+          <div id="position-controls" style="display:flex;gap:8px;align-items:center;margin-bottom:12px;">
+            <input id="pos-search" placeholder="Search role or keyword" style="padding:8px;border-radius:8px;border:1px solid var(--border-color);width:320px">
+            <select id="pos-scenario" style="padding:8px;border-radius:8px;border:1px solid var(--border-color);">
+              <option value="true_mid">True Mid</option>
+              <option value="low_ideal">Low Ideal</option>
+              <option value="high_ideal">High Ideal</option>
+            </select>
+            <button id="pos-export" class="btn" style="padding:.5rem .75rem;">Export CSV</button>
+          </div>
+          <div id="position-cards" class="grid grid-auto" style="gap:12px"></div>
+          <div id="position-detail" class="detail-pane mt-4" style="display:block"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="operations-section" class="operations-section mt-6">
+        <h2 id="section5-title">5. Operations & Departments</h2>
+        <div class="card-grid">
+            <div class="card interactive" data-content="finance">
+                <h3 id="section5-card1-title">Finance & Accounting</h3>
+                <p id="section5-card1-desc">Handles budgeting, ratio analysis, and capital layering for sustainable growth.</p>
+            </div>
+            <div class="card interactive" data-content="marketing">
+                <h3 id="section5-card2-title">Marketing & Branding</h3>
+                <p id="section5-card2-desc">Develops brand identity, campaigns, and bilingual digital presence across all media.</p>
+            </div>
+            <div class="card interactive" data-content="hr">
+                <h3 id="section5-card3-title">HR & Talent Development</h3>
+                <p id="section5-card3-desc">Builds long-term talent pipelines through mentorship, stewardship, and culture building.</p>
+            </div>
+            <div class="card interactive" data-content="hospitality">
+                <h3 id="section5-card4-title">Hospitality & Guest Services</h3>
+                <p id="section5-card4-desc">Creates guest experiences based on Rocco Forte style operational elegance.</p>
+            </div>
+            <div class="card interactive" data-content="architecture">
+                <h3 id="section5-card5-title">Architecture & Design</h3>
+                <p id="section5-card5-desc">Integrates Alo Chaya’s design language with Lighthouse aesthetic and material innovation.</p>
+            </div>
+            <div class="card interactive" data-content="operations">
+                <h3 id="section5-card6-title">Operations & Management</h3>
+                <p id="section5-card6-desc">Oversees logistics, facility performance, and digital workflow integration.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="interactive-modals">
+        <div class="modal hidden" id="modal-finance">
+            <div class="modal-content">
+                <h3 id="modal-finance-title">Finance & Accounting</h3>
+                <p id="modal-finance-desc">Year 1 Revenue = 82 M BDT | Net Profit ≈ 37 M BDT. Incorporates ROI = Annual NOP ÷ CapEx with turnover ratios for reinvestment cycles. Founder — Mr. Hassan; Project Lead — Sajid Hassan.</p>
+                <button class="close-modal" data-lang-key="modal-close">Close</button>
+            </div>
+        </div>
+        <div class="modal hidden" id="modal-marketing">
+            <div class="modal-content">
+                <h3 id="modal-marketing-title">Marketing & Branding</h3>
+                <p id="modal-marketing-desc">Bilingual UI and visual identity combine Rocco Forte hospitality tone with Alo Chaya’s Lighthouse ethos.</p>
+                <button class="close-modal" data-lang-key="modal-close">Close</button>
+            </div>
+        </div>
+        <div class="modal hidden" id="modal-hr">
+            <div class="modal-content">
+                <h3 id="modal-hr-title">HR & Talent Development</h3>
+                <p id="modal-hr-desc">Implements hierarchies MTO → FEO → EO with symbolic allowance structures for training and reinvestment. Monthly Salary Base = 250 000 BDT; Draw = 150 000 – 125 000 BDT under reserve plans.</p>
+                <button class="close-modal" data-lang-key="modal-close">Close</button>
+            </div>
+        </div>
+        <div class="modal hidden" id="modal-hospitality">
+            <div class="modal-content">
+                <h3 id="modal-hospitality-title">Hospitality & Guest Services</h3>
+                <p id="modal-hospitality-desc">Integrates kitchen and restaurant concepts from Soma’s Food Wars and Restaurant to Another World for training simulation and design flair.</p>
+                <button class="close-modal" data-lang-key="modal-close">Close</button>
+            </div>
+        </div>
+        <div class="modal hidden" id="modal-architecture">
+            <div class="modal-content">
+                <h3 id="modal-architecture-title">Architecture & Design</h3>
+                <p id="modal-architecture-desc">Each site incorporates Lighthouse motifs in material composition and eco-spatial form; structural plans reviewed through Architect & Illuminator protocols.</p>
+                <button class="close-modal" data-lang-key="modal-close">Close</button>
+            </div>
+        </div>
+        <div class="modal hidden" id="modal-operations">
+            <div class="modal-content">
+                <h3 id="modal-operations-title">Operations & Management</h3>
+                <p id="modal-operations-desc">Focus on rotational sales cycles, cross-floor room allocation, and Gemini synchronization for efficiency tracking.</p>
+                <button class="close-modal" data-lang-key="modal-close">Close</button>
+            </div>
+        </div>
+    </section>
+    
+    <section id="role-assignment" class="mt-6">
+      <div class="card">
+        <div class="card-body">
+          <h2 id="section6-title">6. Role Assignment & Employee Journey</h2>
+          <p class="small text-muted mb-3" id="section6-desc">Assign a Specialist to one or more roles (Versatilist paths), track onboarding stage and ACEM entry.</p>
+          <div class="tab-bar" style="gap:8px;align-items:center;">
+            <button id="ra-tab-assign" class="active" data-lang-key="ra-tab-assign">Assign Role</button>
+            <button id="ra-tab-list" data-lang-key="ra-tab-list">Assigned List</button>
+            <div style="margin-left:auto;display:flex;gap:.5rem;align-items:center;">
+              <input id="ra-search" placeholder="Search name or role" data-lang-key="ra-search-placeholder">
+              <button id="ra-export" class="btn" style="padding:.5rem .8rem;font-size:.95rem" data-lang-key="ra-export">Export CSV</button>
+            </div>
+          </div>
+    
+          <div id="ra-assign-panel" class="tab-content">
+            <div style="display:grid;grid-template-columns:1fr 360px;gap:1.25rem;">
+              <div>
+                <label style="font-weight:700" data-lang-key="ra-label-name">Employee Full Name
+                  <input id="ra-name" type="text" placeholder="e.g. Munir Chachu" data-lang-key="ra-name-placeholder">
+                </label>
+    
+                <label style="font-weight:700" data-lang-key="ra-label-role1">Primary Role
+                  <select id="ra-role"></select>
+                </label>
+    
+                <label style="font-weight:700" data-lang-key="ra-label-role2">Secondary Role (optional)
+                  <select id="ra-role-2">
+                    <option value="">None</option>
+                  </select>
+                </label>
+    
+                <label style="font-weight:700" data-lang-key="ra-label-start">Start Date
+                  <input id="ra-start" type="date">
+                </label>
+    
+                <label style="font-weight:700" data-lang-key="ra-label-acem">ACEM Entry Score (0-100)
+                  <input id="ra-acem" type="number" min="0" max="100" value="70">
+                </label>
+    
+                <label style="font-weight:700" data-lang-key="ra-label-mult">Package Multiplier
+                  <select id="ra-mult">
+                    <option value="1">Basic ×1.00</option>
+                    <option value="1.5">Package ×1.50</option>
+                    <option value="2">Package ×2.00</option>
+                  </select>
+                </label>
+    
+                <div style="display:flex;gap:.75rem;margin-top:1rem;">
+                  <button id="ra-calc" class="btn" data-lang-key="ra-calc">Calculate Package</button>
+                  <button id="ra-save" class="btn btn-primary" data-lang-key="ra-save">Save Assignment</button>
+                </div>
+              </div>
+    
+              <div class="card bg-light">
+                <div class="card-body">
+                  <h3 id="ra-summary-title" data-lang-key="ra-summary-title">Assignment Summary</h3>
+                  <div id="ra-summary" style="font-family:monospace;line-height:1.5;padding-top:.5rem;">
+                  </div>
+                  <div style="margin-top:1rem;">
+                    <button id="ra-preview-contract" class="btn" style="width:100%;" data-lang-key="ra-preview-contract">Preview Contract</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <div id="ra-list-panel" class="tab-content" style="display:none;">
+            <div id="ra-list" style="margin-top:1rem;"></div>
+            <div style="margin-top:1rem;">
+              <button id="ra-clear" class="btn" style="background:#b91c1c;" data-lang-key="ra-clear">Clear All</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div id="ra-modal" style="display:none;position:fixed;inset:0;background:rgba(2,6,23,0.6);align-items:center;justify-content:center;z-index:9999;">
+        <div style="width:920px;max-width:96%;background:var(--card-bg);border-radius:12px;padding:1.25rem;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <h3 id="ra-modal-title">Assignment Contract</h3>
+            <button id="ra-modal-close" style="background:none;border:none;font-weight:700;cursor:pointer;font-size:18px;">✕</button>
+          </div>
+          <div id="ra-modal-body" style="margin-top:.75rem;font-size:0.95rem;line-height:1.5;"></div>
+          <div style="margin-top:1rem;display:flex;gap:.75rem;justify-content:flex-end;">
+            <button id="ra-modal-download" class="btn" data-lang-key="ra-modal-download">Download</button>
+            <button id="ra-modal-save" class="btn btn-primary" data-lang-key="ra-modal-save">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    </main>
+        <script>
+const langData = {
+    'en': {
+        'hero-title': 'Bureau of Harmony (HR) Strategy',
+        'hero-lead': 'Enforcing the Common Heart Doctrine and the Objective Standard.',
+        'section1-title': '1. The Inversion of Authority (The Dual Audit Mandate)',
+        'section1-desc': 'The Bureau of Harmony is decentralized. Ethical compliance is handled by a **Dual Audit** system, with the **Project Lead** and a **second Moral Auditor** acting as mutual checks and balances to prevent a single point of failure.',
+        'card-s1-1-title': 'The Moral Auditors (Guardians)',
+        'card-s1-1-desc': 'This is a **Dual Audit** system. The **Project Lead** and a **second Moral Auditor** act as mutual guardians. They audit each other and all other departments. They have the power to overrule managers on moral grounds and enforce the ACEM Purity Mandate.',
+        'card-s1-2-title': 'The Specialist (The Asset)',
+        'card-s1-2-desc': 'The Specialist (employee) is the core asset. Their "Employee Story" is the primary data. Their duty is to the Guild (the work) and the Common Heart (the doctrine).',
+        'card-s1-3-title': 'The Manager (The Coach)',
+        'card-s1-3-desc': 'The Manager is a "Coach," not a "Ruler." Their job is to remove barriers and develop the Specialist\'s ACEM score. They are accountable to the Moral Auditors for team well-being.',
+        'section2-title': '2. Moral Purity and Guardrail of Integrity',
+        'section2-desc': 'The Bureau of Harmony enforces the moral purity of the Guild, protecting it from both internal and external corruption, as mandated by the Founder\'s Rule.',
+        'card1-title': 'Moral Purity and Right to Eject',
+        'card1-desc': 'Guests are treated as students in the Training Centre. The Guild has the <strong>absolute, non-negotiable right to eject</strong> any guest engaging in gross moral failures (e.g., exploitation, adultery) that violate the spiritual purity and integrity of the Common Heart.',
+        'card2-title': 'The Guardrail of Integrity (The Ultimate Test)',
+        'card2-list-li1': '<strong>Bidirectional Exploitation:</strong> Neither staff exploiting upper management, nor upper management exploiting staff.',
+        'card2-list-li2': '<strong>External Contamination:</strong> The Leader\'s private life must never introduce external moral/financial poison that destroys the Guild.',
+        'section3-title': '3. The Recruitment & Onboarding Protocol (The Employee Story)',
+        'section3-desc': 'We begin the <strong>Employee Story</strong>. Our system is a data-driven model. <br><br><strong>Referral Accountability:</strong> In internal or connection-based hiring, the referee shares reputational responsibility. The principle: “You chose this candidate; your judgment is now part of their performance record.”<br><br>All assessments are based on our core principles. <a href="models.html" class="link-light">See the models we use for judging character and competence.</a>',
+        'section3-card1-title': 'Step 1: Discovery & Application',
+        'section3-card1-desc': 'It starts with our <strong>Company Branding</strong> and honest <strong>Recruitment Discovery</strong>. Prospective Specialists apply via our portal, submitting not just a CV, but the raw data for their Employee Story.',
+        'section3-card2-title': 'Step 2: The ACEM Assessment',
+        'section3-card2-desc': 'All applications are assessed based on the <strong>ACEM Purity Mandate</strong>. We test <em>only</em> for skills 100% relevant to the codified job role. We ban all irrelevant academic and cultural barriers.',
+        'section3-card3-title': 'Step 3: The Trainee Specialist',
+        'section3-card3-desc': 'Successful candidates are not "Interns." They are hired as paid <strong>Trainee Specialists</strong> at a <strong>Dignity Wage</strong>. They are given a codified role to begin their journey.',
+        
+        'section4-title': '4. The T&D Gateway (Training & Development)',
+        'section4-desc': 'The T&D Gateway is the core link between HR and Operations. This diagram shows how **Bloom’s Taxonomy** and **Dale’s Cone of Experience** integrate into our pipeline. <a href="models.html" class="link-light">See the T&D models here.</a>',
+        
+        'section5-title': '5. Granular Staffing & Payroll',
+        'section5-desc': 'Click any role card to see the full breakdown. Use the language switcher at the top-right to toggle বাংলা / English.',
+        
+        'section6-title': '6. Operations & Departments',
+        'section6-desc': 'This schema illustrates our hierarchical yet moral-management model, combining ACEM Purity and the Bureau system.',
+        'section6-card1-title': 'Finance & Accounting',
+        'section6-card1-desc': 'Handles budgeting, ratio analysis, and capital layering for sustainable growth.',
+        'section6-card2-title': 'Marketing & Branding',
+        'section6-card2-desc': 'Develops brand identity, campaigns, and bilingual digital presence across all media.',
+        'section6-card3-title': 'HR & Talent Development',
+        'section6-card3-desc': 'Manages the full Employee Story, linking all intra-HR functions.',
+        'section6-card4-title': 'Hospitality & Guest Services',
+        'section6-card4-desc': 'Creates guest experiences based on dignified, world-class service models.',
+        'section6-card5-title': 'Architecture & Design',
+        'section6-card5-desc': 'Integrates Alo Chaya’s design language with Lighthouse aesthetic and material innovation.',
+        'section6-card6-title': 'Operations & Management',
+        'section6-card6-desc': 'Oversees logistics, facility performance, and digital workflow integration.',
+        
+        'modal-close': 'Close',
+        'modal-finance-title': 'Finance & Accounting',
+        'modal-finance-desc': '<strong>True Mid (Base):</strong> Revenue = 34.7M BDT | Net Profit ≈ 7.5M BDT<br><strong>Low Ideal (Upside):</strong> Revenue = 52.1M BDT | Net Profit ≈ 20.1M BDT<br><strong>Mid Ideal (Baseline):</strong> Revenue = 57.8M BDT | Net Profit ≈ 24.3M BDT<br><br>Incorporates ROI & turnover ratios. In Worst/Improbable scenarios, the <strong>Founder (Project Lead) contributes 50% of monthly salary</strong> to a contingency equity pool.',
+        'modal-marketing-title': 'Marketing & Branding',
+        'modal-marketing-desc': 'Bilingual UI and visual identity combine Rocco Forte hospitality tone with Alo Chaya’s Lighthouse ethos.',
+        'modal-hr-title': 'HR & Talent Development',
+        'modal-hr-desc': 'This bureau manages the entire **Employee Story**. It links **Recruitment** (testing via ACEM Purity Mandate) to **Onboarding** (orientation) and the **T&D Gateway**. The Gateway uses **Bloom\'s Taxonomy** and **Dale\'s Cone** to link verified skills to **Compensation**, **Promotions**, and the dual-role **"Versatilist"** path. <a href="models.html">See the full T&D model.</a>',
+        'modal-hospitality-title': 'Hospitality & Guest Services',
+        'modal-hospitality-desc': 'Inspired by the service model of **"Kakuriyo: Bed and Breakfast for Spirits,"** but purified of all exploitation and rudeness. Our system is built on dignity and measurable ACEM-based service, not servitude.',
+        'modal-architecture-title': 'Architecture & Design',
+        'modal-architecture-desc': 'Each site incorporates Lighthouse motifs in material composition and eco-spatial form; structural plans reviewed through Architect & Illuminator protocols.',
+        'modal-operations-title': 'Operations & Management',
+        'modal-operations-desc': 'Focus on rotational sales cycles, cross-floor room allocation, and Gemini synchronization for efficiency tracking.',
+        
+        'section7-title': '7. Role Assignment & Employee Journey',
+        'section7-desc': 'Assign a Specialist to one or more roles (Versatilist paths), track onboarding stage and ACEM entry.',
+        'ra-tab-assign': 'Assign Role',
+        'ra-tab-list': 'Assigned List',
+        'ra-search-placeholder': 'Search name or role',
+        'ra-export': 'Export CSV',
+        'ra-label-name': 'Employee Full Name',
+        'ra-name-placeholder': 'e.g. Munir Chachu',
+        'ra-label-role1': 'Primary Role',
+        'ra-label-role2': 'Secondary Role (optional)',
+        'ra-label-start': 'Start Date',
+        'ra-label-acem': 'ACEM Entry Score (0-100)',
+        'ra-label-mult': 'Package Multiplier',
+        'ra-calc': 'Calculate Package',
+        'ra-save': 'Save Assignment',
+        'ra-summary-title': 'Assignment Summary',
+        'ra-preview-contract': 'Preview Contract',
+        'ra-clear': 'Clear All',
+        'ra-modal-download': 'Download',
+        'ra-modal-save': 'Confirm'
+    },
+    'bn': {
+        'hero-title': 'সম্প্রীতি ব্যুরো (এইচআর) কৌশল',
+        'hero-lead': 'কমন হার্ট ডকট্রিন এবং অবজেক্টিভ স্ট্যান্ডার্ড প্রয়োগ করা।',
+        'section1-title': '১. কর্তৃত্বের বিপরীত (দ্বৈত নিরীক্ষা ম্যান্ডেট)',
+        'section1-desc': 'সম্প্রীতি ব্যুরো বিকেন্দ্রীভূত। নৈতিক সম্মতি একটি **দ্বৈত নিরীক্ষা** সিস্টেম দ্বারা পরিচালিত হয়, যেখানে **প্রকল্প প্রধান** এবং একজন **দ্বিতীয় নৈতিক নিরীক্ষক** ব্যর্থতার একক বিন্দু প্রতিরোধ করতে পারস্পরিক চেক এবং ব্যালেন্স হিসাবে কাজ করেন।',
+        'card-s1-1-title': 'নৈতিক নিরীক্ষক (অভিভাবকগণ)',
+        'card-s1-1-desc': 'এটি একটি **দ্বৈত নিরীক্ষা** সিস্টেম। **প্রকল্প প্রধান** এবং একজন **দ্বিতীয় নৈতিক নিরীক্ষক** পারস্পরিক অভিভাবক হিসাবে কাজ করেন। তারা একে অপরকে এবং অন্যান্য সমস্ত বিভাগকে নিরীক্ষা করেন। নৈতিক কারণে পরিচালকদের বাতিল করার এবং ACEM বিশুদ্ধতা ম্যান্ডেট প্রয়োগ করার ক্ষমতা তাদের আছে।',
+        'card-s1-2-title': 'বিশেষজ্ঞ (সম্পদ)',
+        'card-s1-2-desc': 'বিশেষজ্ঞ (কর্মচারী) হলেন মূল সম্পদ। তাদের "কর্মচারীর গল্প" হলো প্রাথমিক ডেটা। তাদের দায়িত্ব গিল্ড (কাজ) এবং কমন হার্ট (মতবাদ)-এর প্রতি।',
+        'card-s1-3-title': 'ম্যানেজার (কোচ)',
+        'card-s1-3-desc': 'ম্যানেজার হলেন "কোচ", "শাসক" নন। তাদের কাজ হলো বাধা দূর করা এবং বিশেষজ্ঞের ACEM স্কোর বাড়ানো। টিমের সুস্থতার জন্য তারা নৈতিক নিরীক্ষকদের কাছে দায়বদ্ধ।',
+        'section2-title': '২. নৈতিক বিশুদ্ধতা এবং অখণ্ডতার গার্ডরাইল',
+        'section2-desc': 'সম্প্রীতি ব্যুরো গিল্ডের নৈতিক বিশুদ্ধতা প্রয়োগ করে, এটিকে অভ্যন্তরীণ এবং বাহ্যিক উভয় দুর্নীতি থেকে রক্ষা করে, যেমনটি প্রতিষ্ঠাতার নিয়ম দ্বারা বাধ্যতামূলক।',
+        'card1-title': 'নৈতিক বিশুদ্ধতা এবং বহিষ্কারের অধিকার',
+        'card1-desc': 'অতিথিদের প্রশিক্ষণ কেন্দ্রে ছাত্র হিসাবে গণ্য করা হয়। গিল্ডের <strong>নিরঙ্কুশ, অ-আলোচনাযোগ্য অধিকার রয়েছে</strong> যে কোনও অতিথিকে স্থূল নৈতিক ব্যর্থতায় (যেমন, শোষণ, ব্যভিচার) জড়িত থাকার জন্য বহিষ্কার করার যা সাধারণ হৃদয়ের আধ্যাত্মিক বিশুদ্ধতা এবং অখণ্ডতা লঙ্ঘন করে।',
+        'card2-title': 'অখণ্ডতার গার্ডরাইল (চূড়ান্ত পরীক্ষা)',
+        'card2-list-li1': '<strong>দ্বিমুখী শোষণ:</strong> কর্মীরা উচ্চ વ્યવস্থাপনাকে শোষণ করবে না, বা উচ্চ વ્યવস্থাপনা কর্মীদের শোষণ করবে না।',
+        'card2-list-li2': '<strong>বাহ্যিক দূষণ:</strong> নেতার ব্যক্তিগত জীবন কখনই বাহ্যিক নৈতিক/আর্থিক বিষ গিল্ডে প্রবর্তন করবে না যা গিল্ডকে ধ্বংস করে।',
+        'section3-title': '৩. নিয়োগ ও অনবোর্ডিং প্রোটোকল (কর্মচারীর গল্প)',
+        'section3-desc': 'আমরা <strong>কর্মচারীর গল্প</strong> শুরু করি। আমাদের সিস্টেমটি একটি ডেটা-চালিত মডেল। <br><br><strong>রেফারেল জবাবদিহিতা:</strong> অভ্যন্তরীণ বা সংযোগ-ভিত্তিক নিয়োগের ক্ষেত্রে, রেফারি খ্যাতিগত দায়িত্ব ভাগ করে নেয়। নীতি: "আপনি এই প্রার্থীকে বেছে নিয়েছেন; আপনার বিচার এখন তাদের কর্মক্ষমতা রেকর্ডের অংশ।"<br><br>সমস্ত মূল্যায়ন আমাদের মূল নীতির উপর ভিত্তি করে। <a href="models.html" class="link-light">চরিত্র এবং দক্ষতা বিচারের জন্য আমরা যে মডেলগুলি ব্যবহার করি তা দেখুন।</a>',
+        'section3-card1-title': 'ধাপ ১: আবিষ্কার এবং আবেদন',
+        'section3-card1-desc': 'এটি আমাদের <strong>কোম্পানির ব্র্যান্ডিং</strong> এবং সৎ <strong>নিয়োগ আবিষ্কার</strong> দিয়ে শুরু হয়। সম্ভাব্য বিশেষজ্ঞরা আমাদের পোর্টালে আবেদন করেন।',
+        'section3-card2-title': 'ধাপ ২: ACEM মূল্যায়ন',
+        'section3-card2-desc': 'সমস্ত আবেদন <strong>ACEM বিশুদ্ধতা ম্যান্ডেট</strong>-এর ভিত্তিতে মূল্যায়ন করা হয়। আমরা <em>শুধুমাত্র</em> প্রাসঙ্গিক দক্ষতার পরীক্ষা করি এবং সমস্ত অপ্রাসঙ্গিক বাধা নিষিদ্ধ করি।',
+        'section3-card3-title': 'ধাপ ৩: ট্রেইনি বিশেষজ্ঞ',
+        'section3-card3-desc': 'সফল প্রার্থীরা "ইন্টার্ন" নন। তাদের <strong>মর্যাদা বেতনে</strong> বেতনভোগী <strong>ট্রেইনি বিশেষজ্ঞ</strong> হিসাবে নিয়োগ করা হয়।',
+        
+        'section4-title': '৪. T&D গেটওয়ে (প্রশিক্ষণ ও উন্নয়ন)',
+        'section4-desc': 'T&D গেটওয়ে হলো এইচআর এবং অপারেশনের মধ্যে মূল লিঙ্ক। এই ডায়াগ্রামটি দেখায় কিভাবে **ব্লুমের ট্যাক্সোনমি** এবং **ডেলের অভিজ্ঞতার শঙ্কু** আমাদের পাইপলাইনে একীভূত হয়। <a href="models.html" class="link-light">মডেলগুলি এখানে দেখুন।</a>',
+        
+        'section5-title': '৫. বিস্তারিত স্টাফিং এবং বেতন',
+        'section5-desc': 'সম্পূর্ণ ব্রেকডাউন দেখতে যেকোনো রোল কার্ডে ক্লিক করুন। বাংলা / ইংরেজি টগল করতে উপরের-ডানদিকে ভাষা সুইচার ব্যবহার করুন।',
+        
+        'section6-title': '৬. অপারেশন এবং বিভাগ',
+        'section6-desc': 'এই স্কিমাটি আমাদের শ্রেণীবদ্ধ অথচ নৈতিক-ব্যবস্থাপনা মডেলকে চিত্রিত করে, যা ACEM বিশুদ্ধতা এবং ব্যুরো সিস্টেমকে একত্রিত করে।',
+        'section6-card1-title': 'অর্থ ও হিসাব',
+        'section6-card1-desc': 'টেকসই প্রবৃদ্ধির জন্য বাজেটিং, অনুপাত বিশ্লেষণ এবং মূলধন স্তরবিন্যাস পরিচালনা করে।',
+        'section6-card2-title': 'বিপণন ও ব্র্যান্ডিং',
+        'section6-card2-desc': 'সমস্ত মিডিয়া জুড়ে ব্র্যান্ড পরিচয়, প্রচারাভিযান এবং দ্বিভাষিক ডিজিটাল উপস্থিতি বিকাশ করে।',
+        'section6-card3-title': 'এইচআর এবং প্রতিভা উন্নয়ন',
+        'section6-card3-desc': 'সম্পূর্ণ এমপ্লয়ি স্টোরি পরিচালনা করে, সমস্ত ইন্ট্রা-এইচআর ফাংশন লিঙ্ক করে।',
+        'section6-card4-title': 'আতিথেয়তা এবং অতিথি সেবা',
+        'section6-card4-desc': 'মর্যাদাপূর্ণ, বিশ্বমানের পরিষেবা মডেলের উপর ভিত্তি করে অতিথিদের অভিজ্ঞতা তৈরি করে।',
+        'section6-card5-title': 'স্থাপত্য ও নকশা',
+        'section6-card5-desc': 'আলো ছায়ার ডিজাইন ল্যাঙ্গুয়েজকে লাইটহাউস নান্দনিক এবং উপাদান উদ্ভাবনের সাথে একীভূত করে।',
+        'section6-card6-title': 'অপারেশন ও ম্যানেজমেন্ট',
+        'section6-card6-desc': 'লজিস্টিকস, সুবিধা কর্মক্ষমতা, এবং ডিজিটাল ওয়ার্কফ্লো ইন্টিগ্রেশন তত্ত্বাবধান করে।',
+        
+        'modal-close': 'বন্ধ করুন',
+        'modal-finance-title': 'অর্থ ও হিসাব',
+        'modal-finance-desc': '<strong>ট্রু মিড (বেস):</strong> রাজস্ব = ৩৪.৭ মিলিয়ন টাকা | নেট লাভ ≈ ৭.৫ মিলিয়ন টাকা<br><strong>লো আইডিয়াল (আপসাইড):</strong> রাজস্ব = ৫২.১ মিলিয়ন টাকা | নেট লাভ ≈ ২০.১ মিলিয়ন টাকা<br><strong>মিড আইডিয়াল (বেসলাইন):</strong> রাজস্ব = ৫৭.৮ মিলিয়ন টাকা | নেট লাভ ≈ ২৪.৩ মিলিয়ন টাকা<br><br>ROI এবং টার্নওভার অনুপাত অন্তর্ভুক্ত করে। সবচেয়ে খারাপ/অসম্ভব পরিস্থিতিতে, <strong>প্রতিষ্ঠাতা (প্রকল্প প্রধান) মাসিক বেতনের ৫০%</strong> কন্টিঞ্জেন্সি ইকুইটি পুলে অবদান রাখেন।',
+        'modal-marketing-title': 'বিপণন ও ব্র্যান্ডিং',
+        'modal-marketing-desc': 'দ্বিভাষিক UI এবং ভিজ্যুয়াল আইডেন্টিটি রোকো ফোর্ট হসপিটালিটি টোনকে আলো ছায়ার লাইটহাউস ইথোসের সাথে একত্রিত করে।',
+        'modal-hr-title': 'এইচআর এবং প্রতিভা উন্নয়ন',
+        'modal-hr-desc': 'এই ব্যুরো সম্পূর্ণ **"কর্মচারীর গল্প"** পরিচালনা করে। এটি **নিয়োগ** (ACEM বিশুদ্ধতা ম্যান্ডেটের মাধ্যমে পরীক্ষা) থেকে **অনবোর্ডিং** (ওরিয়েন্টেশন) এবং **T&D গেটওয়ে**-কে লিঙ্ক করে। গেটওয়ে **ব্লুমের ট্যাক্সোনমি** এবং **ডেলের শঙ্কু** ব্যবহার করে যাচাইকৃত দক্ষতাকে **ক্ষতিপূরণ**, **পদোন্নতি**, এবং দ্বৈত-ভূমিকা **"ভার্সাটিলিস্ট"** পথের সাথে লিঙ্ক করে। <a href="models.html">সম্পূর্ণ T&D মডেল দেখুন।</a>',
+        'modal-hospitality-title': 'আতিথেয়তা এবং অতিথি সেবা',
+        'modal-hospitality-desc': '**"কাকুরিয়ো: বেড অ্যান্ড ব্রেকফাস্ট ফর স্পিরিটস"**-এর পরিষেবা মডেল দ্বারা অনুপ্রাণিত, কিন্তু সমস্ত শোষণ এবং অভদ্রতা থেকে শুদ্ধ। আমাদের সিস্টেম মর্যাদা এবং পরিমাপযোগ্য ACEM-ভিত্তিক পরিষেবার উপর নির্মিত, দাসত্বের উপর নয়।',
+        'modal-architecture-title': 'স্থাপত্য ও নকশা',
+        'modal-architecture-desc': 'প্রতিটি সাইট লাইটহাউস মোটিফগুলিকে উপাদান রচনা এবং ইকো-স্প্যাশিয়াল ফর্মে অন্তর্ভুক্ত করে; আর্কিটেক্ট এবং ইলুমিনেটর প্রোটোকলের মাধ্যমে স্ট্রাকচারাল প্ল্যান পর্যালোচনা করা হয়।',
+        'modal-operations-title': 'অপারেশন ও ম্যানেজমেন্ট',
+        'modal-operations-desc': 'দক্ষতা ট্র্যাকিংয়ের জন্য ঘূর্ণমান বিক্রয় চক্র, ক্রস-ফ্লোর রুম বরাদ্দ এবং জেমিনি সিঙ্ক্রোনাইজেশনের উপর ফোকাস করে।',
+        
+        'section7-title': '৭. ভূমিকায় নিয়োগ ও কর্মজীবন',
+        'section7-desc': 'একজন বিশেষজ্ঞকে এক বা একাধিক ভূমিকায় नियुक्त করুন, অনবোর্ডিং পর্যায় এবং ACEM এন্ট্রি ট্র্যাক করুন।',
+        'ra-tab-assign': 'ভূমিকা অর্পণ',
+        'ra-tab-list': 'অর্পিত তালিকা',
+        'ra-search-placeholder': 'নাম বা পদ খুঁজুন',
+        'ra-export': 'এক্সপোর্ট CSV',
+        'ra-label-name': 'কর্মচারীর সম্পূর্ণ নাম',
+        'ra-name-placeholder': 'উদাঃ মুনির চাচু',
+        'ra-label-role1': 'প্রাথমিক ভূমিকা',
+        'ra-label-role2': 'মাধ্যমিক ভূমিকা (ঐচ্ছিক)',
+        'ra-label-start': 'শুরুর তারিখ',
+        'ra-label-acem': 'ACEM এন্ট্রি স্কোর (০-১০০)',
+        'ra-label-mult': 'প্যাকেজ গুণক',
+        'ra-calc': 'প্যাকেজ হিসাব',
+        'ra-save': 'নিয়োগ সংরক্ষণ',
+        'ra-summary-title': 'নিয়োগ সারসংক্ষেপ',
+        'ra-preview-contract': 'চুক্তি পূর্বরূপ',
+        'ra-clear': 'সমস্ত মুছুন',
+        'ra-modal-download': 'ডাউনলোড',
+        'ra-modal-save': 'নিশ্চিত করুন'
+    }
+};
+</script>
+<script>
+const positionsData = [
+    {id:'founder_lead', en_name:'Founder (Project Lead)', bn_name:'প্রতিষ্ঠাতা (প্রকল্প প্রধান)', category:'Executive Council', basic:250000, package1:375000, package2:500000, notes_en:'Executive. (Draws 125k-150k, reinvests remainder)', notes_bn:'নির্বাহী। (১২৫-১৫০ হাজার গ্রহণ করেন, বাকিটা পুনঃবিনিয়োগ করেন)'},
+    {id:'office_versatilist', en_name:'Office Versatilist (GM)', bn_name:'অফিস ভার্সাটিলিস্ট (জিএম)', category:'Core Management', basic:88000, package1:132000, package2:176000, notes_en:'Core Management', notes_bn:'কোর ম্যানেজমেন্ট'},
+    {id:'sous_chef_trainer', en_name:'Sous Chef Trainer / Head Chef', bn_name:'সোস শেফ ট্রেইনার / হেড শেফ', category:'Culinary & Kitchen', basic:60000, package1:90000, package2:120000, notes_en:'Kitchen lead', notes_bn:'রান্নাঘরের প্রধান'},
+    {id:'pastry_grill_specialist', en_name:'Pastry / Grill Specialist', bn_name:'প্যাস্ট্রি / গ্রিল স্পেশালিস্ট', category:'Culinary & Kitchen', basic:33000, package1:49500, package2:66000, notes_en:'Kitchen Specialist', notes_bn:'রান্নাঘর বিশেষজ্ঞ'},
+    {id:'room_coord', en_name:'Room Coordinator', bn_name:'রুম কোঅর্ডিনেটর', category:'Housekeeping', basic:27000, package1:40500, package2:54000, notes_en:'Former Housekeeping', notes_bn:'সাবেক হাউসকিপিং'},
+    {id:'landscaper', en_name:'Landscaper', bn_name:'ল্যান্ডস্কেপার', category:'Environment Dept', basic:26000, package1:39000, package2:52000, notes_en:'Garden & Grounds', notes_bn:'বাগান ও মাঠ'},
+    {id:'gastro_asst', en_name:'Gastro Assistant', bn_name:'গ্যাস্ট্রো অ্যাসিস্ট্যান্ট', category:'Culinary & Kitchen', basic:24000, package1:36000, package2:48000, notes_en:'Kitchen line', notes_bn:'রান্নাঘর লাইন'},
+    {id:'senior_office_asst', en_name:'Senior Office Assistant', bn_name:'সিনিয়র অফিস অ্যাসিস্ট্যান্ট', category:'Facilities', basic:24000, package1:36000, package2:48000, notes_en:'Support role', notes_bn:'সহায়ক ভূমিকা'},
+    {id:'office_asst', en_name:'Office Assistant', bn_name:'অফিস অ্যাসিস্ট্যান্ট', category:'Facilities', basic:12000, package1:18000, package2:24000, notes_en:'Entry, replaces intern', notes_bn:'এন্ট্রি, ইন্টার্ন প্রতিস্থাপন করে'}
+];
+</script>
+    <script>
+function formatCurrency(n){
+  return n.toLocaleString();
+}
+
+let currentLang = 'en'; 
+let currentDetailId = null; 
+
+function updateLanguage(lang) {
+    currentLang = lang; 
+    const translations = langData[lang];
+    if (!translations) return; 
+    
+    document.querySelectorAll('[id]').forEach(element => {
+        if (translations[element.id]) {
+            element.innerHTML = translations[element.id];
+        }
+    });
+
+    document.querySelectorAll('[data-lang-key]').forEach(element => {
+        const key = element.getAttribute('data-lang-key');
+        if (translations[key]) {
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.placeholder = translations[key];
+            } else {
+                element.textContent = translations[key];
+            }
+        }
+    });
+
+    buildPositionCards();
+    buildSection1Cards();
+    
+    if (currentDetailId) {
+        showPositionDetail(currentDetailId, false); 
+    }
+
+    if (window.roleAssignment) {
+        window.roleAssignment.updateLanguage(lang);
+    }
+}
+
+function buildSection1Cards() {
+    const container = document.getElementById('card-container');
+    if (!container) return;
+    container.innerHTML = '';
+    const lang = currentLang;
+    
+    const card1 = document.createElement('div');
+    card1.className = 'card interactive-card';
+    card1.dataset.id = 's1-1';
+    card1.innerHTML = `<div class="card-body"><h3>${langData[lang]['card-s1-1-title']}</h3></div>`;
+    
+    const card2 = document.createElement('div');
+    card2.className = 'card interactive-card';
+    card2.dataset.id = 's1-2';
+    card2.innerHTML = `<div class="card-body"><h3>${langData[lang]['card-s1-2-title']}</h3></div>`;
+
+    container.appendChild(card1);
+    container.appendChild(card2);
+    
+    container.querySelectorAll('.interactive-card').forEach(card => {
+        card.addEventListener('click', () => {
+            showSection1Detail(card.dataset.id);
+        });
+    });
+
+    const detailPane = document.getElementById('detail-pane');
+    detailPane.innerHTML = `<div class="card bg-light"><div class="card-body"><h3 id="detail-pane-title">${langData[lang]['card-s1-3-title']}</h3><p id="detail-pane-desc">${langData[lang]['card-s1-3-desc']}</p></div></div>`;
+}
+
+function showSection1Detail(id) {
+    const lang = currentLang;
+    const detailPane = document.getElementById('detail-pane');
+    let title = '';
+    let desc = '';
+    
+    if (id === 's1-1') {
+        title = langData[lang]['card-s1-1-title'];
+        desc = langData[lang]['card-s1-1-desc'];
+    } else if (id === 's1-2') {
+        title = langData[lang]['card-s1-2-title'];
+        desc = langData[lang]['card-s1-2-desc'];
+    }
+    
+    detailPane.innerHTML = `<div class="card bg-light"><div class="card-body"><h3 id="detail-pane-title">${title}</h3><p id="detail-pane-desc">${desc}</p></div></div>`;
+}
+
+function buildPositionCards(){
+    const container = document.getElementById('position-cards');
+    if(!container) return;
+    container.innerHTML = '';
+    
+    const q = (document.getElementById('pos-search').value||'').toLowerCase();
+    
+    const filteredData = positionsData.filter(p => {
+        if (!q) return true;
+        return p.en_name.toLowerCase().includes(q) || 
+               p.bn_name.toLowerCase().includes(q) || 
+               p.category.toLowerCase().includes(q) ||
+               (p.notes_en && p.notes_en.toLowerCase().includes(q));
+    });
+
+    filteredData.forEach(pos => {
+        const el = document.createElement('a');
+        el.className = 'card card-link';
+        el.href = '#';
+        el.dataset.id = pos.id;
+        
+        const name = currentLang === 'bn' ? pos.bn_name : pos.en_name;
+        
+        el.innerHTML = `
+          <div class="card-body">
+            <h3 class="role-title">${name}</h3>
+            <p class="small text-muted role-cat">${pos.category}</p>
+            <p class="small mt-2">Basic: <span class="mono">${formatCurrency(pos.basic)}</span></p>
+          </div>`;
+        
+        el.onclick = (e) => { e.preventDefault(); showPositionDetail(pos.id, true); };
+        container.appendChild(el);
+    });
+}
+
+function showPositionDetail(id, shouldScroll = true) {
+    currentDetailId = id; 
+    const pos = positionsData.find(p => p.id === id);
+    if (!pos) return;
+    
+    const detail = document.getElementById('position-detail');
+    if (!detail) return;
+
+    const name = currentLang === 'bn' ? pos.bn_name : pos.en_name;
+    const notes = currentLang === 'bn' ? (pos.notes_bn || pos.notes_en) : pos.notes_en;
+    const notesHeader = currentLang === 'bn' ? 'ভূমিকা এবং ACEM' : 'Role Path & ACEM';
+    const notesDesc = currentLang === 'bn' ? 'ACEM স্কোর এই ভূমিকার স্টেপ-পে এর সাথে ম্যাপ করা হয়েছে। একাধিক ভূমিকা পালনকারী ভার্সাটিলিস্টদের জন্য প্রতি ভূমিকার বেতন এবং একটি ACEM ট্র্যাকার থাকবে। পদোন্নতির জন্য সামঞ্জস্যপূর্ণ ACEM পারফরম্যান্স, মেন্টরের অনুমোদন এবং ক্রস-ব্যুরো প্রমাণ প্রয়োজন।' : 'The ACEM score maps to this role\'s step-pay. Versatilists performing multiple roles will have documented role-pay and an ACEM tracker that records contribution per role. Promotions require consistent ACEM performance, mentor endorsement, and cross-bureau evidence.';
+
+    detail.innerHTML = `
+        <h3>${name}</h3>
+        <p class="small text-muted">Category: ${pos.category}</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;">
+          <div>
+            <p>Basic Pay: <strong class="mono">${formatCurrency(pos.basic)}</strong></p>
+            <p>Package (1.5x): <strong class="mono">${formatCurrency(pos.package1)}</strong></p>
+            <p>Package (2x): <strong class="mono">${formatCurrency(pos.package2)}</strong></p>
+          </div>
+          <div>
+            <p>Allowances (typical):</p>
+            <ul style="padding-left: 1.2rem; list-style-type: square;">
+              <li>House Rent: 30% of basic (if applicable)</li>
+              <li>Conveyance: fixed or commuting stipend</li>
+              <li>Mutual Crisis Fund: contribution from payroll as per doctrine</li>
+            </ul>
+          </div>
+        </div>
+        <div style="margin-top:12px;">
+          <p>${notes}</p>
+          <h4 style="margin-top:8px;">${notesHeader}</h4>
+          <p class="text-justify">${notesDesc}</p>
+        </div>
+    `;
+
+    if (shouldScroll) {
+        detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+}
+
+function exportPositionsCSV(){
+  const headers = ['id','name_en','name_bn','category','basic','package1','package2','notes_en','notes_bn'];
+  const rows = positionsData.map(p=>[p.id,p.en_name,p.bn_name,p.category,p.basic,p.package1,p.package2, `"${p.notes_en || ''}"`, `"${p.notes_bn || ''}"`].join(','));
+  const csv = headers.join(',') + '\n' + rows.join('\n');
+  const uri = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+  const link = document.createElement('a');
+  link.href = uri;
+  link.download = 'positions_export.csv';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+        </script>
+    <script>
+(function(){
+  const roles = window.positionsData ? window.positionsData.map(r => ({
+      id: r.id, 
+      title: r.en_name,
+      bn_title: r.bn_name,
+      basic: r.basic 
+  })) : [];
+
+  const sel = document.getElementById('ra-role');
+  const sel2 = document.getElementById('ra-role-2');
+
+  function populateDropdowns(lang = 'en') {
+      if (!sel || !sel2) return; 
+      sel.innerHTML = '';
+      sel2.innerHTML = '<option value="">None</option>';
+      
+      roles.forEach(r => {
+          const title = (lang === 'bn' ? r.bn_title : r.title) || r.title;
+          const text = `${title} — ${r.basic ? r.basic.toLocaleString()+' BDT':'—'}`;
+          
+          const o = document.createElement('option');
+          o.value = r.id;
+          o.textContent = text;
+          sel.appendChild(o);
+          
+          const o2 = document.createElement('option');
+          o2.value = r.id;
+          o2.textContent = title; 
+          sel2.appendChild(o2);
+      });
+  }
+
+  const tabAssign = document.getElementById('ra-tab-assign');
+  const tabList = document.getElementById('ra-tab-list');
+  const panelAssign = document.getElementById('ra-assign-panel');
+  const panelList = document.getElementById('ra-list-panel');
+  const raSearch = document.getElementById('ra-search');
+  const raExport = document.getElementById('ra-export');
+  const raClear = document.getElementById('ra-clear');
+
+  if (tabAssign) {
+    tabAssign.addEventListener('click', ()=>{tabAssign.classList.add('active');tabList.classList.remove('active');panelAssign.style.display='block';panelList.style.display='none';});
+    tabList.addEventListener('click', ()=>{tabList.classList.add('active');tabAssign.classList.remove('active');panelAssign.style.display='none';panelList.style.display='block';renderList();});
+  }
+
+  function getRoleById(id){
+      return roles.find(r=>r.id===id) || {id:'',title:'—',bn_title:'—',basic:0};
+  }
+
+  function calcPackage(basic,multiplier){
+    const basicNum = Number(basic)||0;
+    const pkg = Math.round(basicNum * Number(multiplier));
+    const convey = Math.round(pkg * 0.05);
+    const hra = Math.round(pkg * 0.18);
+    const crisis = Math.round(pkg * 0.02);
+    const gross = pkg + convey + hra + crisis;
+    return {pkg,gross,convey,hra,crisis};
+  }
+
+  const nameIn = document.getElementById('ra-name');
+  const roleIn = document.getElementById('ra-role');
+  const role2In = document.getElementById('ra-role-2');
+  const startIn = document.getElementById('ra-start');
+  const acemIn = document.getElementById('ra-acem');
+  const multIn = document.getElementById('ra-mult');
+  const calcBtn = document.getElementById('ra-calc');
+  const saveBtn = document.getElementById('ra-save');
+  const summaryEl = document.getElementById('ra-summary');
+  const listEl = document.getElementById('ra-list');
+  const modal = document.getElementById('ra-modal');
+  const modalBody = document.getElementById('ra-modal-body');
+  const modalTitle = document.getElementById('ra-modal-title');
+  const modalClose = document.getElementById('ra-modal-close');
+  const modalDownload = document.getElementById('ra-modal-download');
+  const modalSave = document.getElementById('ra-modal-save');
+
+  if (calcBtn) calcBtn.addEventListener('click', renderSummary);
+
+  function loadAssignments(){try{return JSON.parse(localStorage.getItem('ac_assignments')||'[]')}catch(e){return []}}
+  function saveAssignments(data){localStorage.setItem('ac_assignments',JSON.stringify(data));}
+
+  if (saveBtn) saveBtn.addEventListener('click', ()=>{
+    const name = nameIn.value.trim();
+    if(!name) return alert(currentLang === 'bn' ? 'অনুগ্রহ করে নাম লিখুন' : 'Please enter a name');
+    const r = getRoleById(roleIn.value);
+    const r2 = getRoleById(role2In.value);
+    const start = startIn.value || new Date().toISOString().slice(0,10);
+    const acem = Number(acemIn.value)||0;
+    const mult = Number(multIn.value)||1;
+    const calc = calcPackage(r.basic,mult);
+    const item = {
+      id: 'a'+Date.now(),
+      name, roleId:r.id, roleTitle:r.title, roleTitleBn:r.bn_title, 
+      role2Id:r2.id, role2Title:r2.title, role2TitleBn:r2.bn_title, 
+      start, acem, mult, packageBase:calc.pkg, gross:calc.gross, created: new Date().toISOString()
+    };
+    const all = loadAssignments(); all.unshift(item); saveAssignments(all);
+    renderList();
+    nameIn.value=''; 
+    if(roles.length > 0) {
+        roleIn.value = roles[0].id;
+        role2In.value = '';
+    }
+    startIn.value=''; acemIn.value='70'; multIn.value='1';
+    summaryEl.innerHTML = `<div style="color:var(--text-muted)">${currentLang === 'bn' ? item.name + ' এর জন্য নিয়োগ সংরক্ষিত হয়েছে' : 'Saved assignment for ' + item.name}</div>`;
+  });
+
+  function renderList(filter){
+    if (!listEl) return;
+    const all = loadAssignments();
+    const q = filter || (raSearch ? (raSearch.value||'') : '').toLowerCase();
+    const rows = all.filter(it=>{
+      if(!q) return true;
+      return (it.name||'').toLowerCase().includes(q) || 
+             (it.roleTitle||'').toLowerCase().includes(q) || 
+             (it.role2Title||'').toLowerCase().includes(q) ||
+             (it.roleTitleBn||'').toLowerCase().includes(q) ||
+             (it.role2TitleBn||'').toLowerCase().includes(q);
+    });
+    
+    if(rows.length===0){ 
+        listEl.innerHTML = `<div class="no-data">${currentLang === 'bn' ? 'কোনো নিয়োগ পাওয়া যায়নি' : 'No assignments found'}</div>`; 
+        return; 
+    }
+    
+    const wrapper = document.createElement('div');
+    wrapper.style.display='grid';
+    wrapper.style.gap='8px';
+    
+    rows.forEach(it=>{
+      const card = document.createElement('div');
+      card.className='card';
+      card.style.display='flex';
+      card.style.justifyContent='space-between';
+      card.style.alignItems='center';
+      
+      const lang = currentLang;
+      const r1Title = (lang === 'bn' ? it.roleTitleBn : it.roleTitle) || it.roleTitle;
+      const r2Title = (lang === 'bn' ? it.role2TitleBn : it.role2Title) || it.role2Title;
+      
+      card.innerHTML = `<div style="padding:12px 0;">
+        <div style="font-weight:700">${it.name}</div>
+        <div class="small text-muted">${r1Title}${r2Title && r2Title!=='—' ? ' / '+r2Title : ''} · ${lang === 'bn' ? 'শুরু' : 'Start'}: ${it.start} · ACEM: ${it.acem}</div>
+      </div>
+      <div style="display:flex;gap:.5rem;">
+        <button class="btn ra-view" data-id="${it.id}" style="padding:.5rem .6rem">${lang === 'bn' ? 'দেখুন' : 'View'}</button>
+        <button class="btn" style="background:#f59e0b;padding:.5rem .6rem" data-id="${it.id}" class="ra-edit">${lang === 'bn' ? 'সম্পাদনা' : 'Edit'}</button>
+        <button class="btn" style="background:#ef4444;padding:.5rem .6rem" data-id="${it.id}" class="ra-delete">${lang === 'bn' ? 'মুছুন' : 'Delete'}</button>
+      </div>`;
+      wrapper.appendChild(card);
+    });
+    listEl.innerHTML=''; listEl.appendChild(wrapper);
+    
+    listEl.querySelectorAll('.ra-view').forEach(b=>b.addEventListener('click', e=>{
+      const id=e.currentTarget.getAttribute('data-id'); openModal(id);
+    }));
+    listEl.querySelectorAll('.ra-delete').forEach(b=>b.addEventListener('click', e=>{
+      const id=e.currentTarget.getAttribute('data-id'); 
+      if(!confirm(currentLang === 'bn' ? 'মুছে ফেলবেন?' : 'Are you sure you want to delete?')) return;
+      const all = loadAssignments().filter(a=>a.id!==id); saveAssignments(all); renderList();
+    }));
+    listEl.querySelectorAll('.ra-edit').forEach(b=>b.addEventListener('click', e=>{
+      const id=e.currentTarget.getAttribute('data-id');
+      const all = loadAssignments(); const it = all.find(a=>a.id===id); if(!it) return;
+      tabAssign.click();
+      nameIn.value=it.name; roleIn.value=it.roleId; role2In.value=it.role2Id; startIn.value=it.start; acemIn.value=it.acem; multIn.value=it.mult;
+      renderSummary();
+      const filtered = all.filter(a=>a.id!==id); saveAssignments(filtered);
+    }));
+  }
+
+  function openModal(id){
+    const all = loadAssignments(); const it = all.find(a=>a.id===id); if(!it) return;
+    const lang = currentLang;
+    const r1Title = (lang === 'bn' ? it.roleTitleBn : it.roleTitle) || it.roleTitle;
+    const r2Title = (lang === 'bn' ? it.role2TitleBn : it.role2Title) || it.role2Title;
+
+    modalTitle.textContent = `${lang === 'bn' ? 'চুক্তি' : 'Contract'} — ${it.name}`;
+    modalBody.innerHTML = `
+      <div style="font-weight:700">${it.name}</div>
+      <div style="margin-top:.5rem">${r1Title}${r2Title && r2Title!=='—' ? ' / '+r2Title : ''}</div>
+      <div style="margin-top:.5rem">${lang === 'bn' ? 'শুরুর তারিখ' : 'Start Date'}: ${it.start}</div>
+      <div>${lang === 'bn' ? 'ACEM এন্ট্রি' : 'ACEM Entry'}: ${it.acem}</div>
+      <div>${lang === 'bn' ? 'প্যাকেজ বেস' : 'Package Base'}: ${it.packageBase.toLocaleString()} BDT</div>
+      <div>${lang === 'bn' ? 'আনুমানিক মোট' : 'Estimated Gross'}: ${it.gross.toLocaleString()} BDT</div>
+      <div style="margin-top:.75rem" class="small text-muted">${lang === 'bn' ? 'এটি একটি সারসংক্ষেপ চুক্তি। নিয়োগ লক করতে নিশ্চিত করুন।' : 'This is a summary contract. Confirm to lock assignment.'}</div>`;
+    modal.style.display='flex';
+    modal.dataset.currentId = id;
+  }
+
+  if (modalClose) modalClose.addEventListener('click', ()=>{modal.style.display='none';delete modal.dataset.currentId;});
+  if (modalDownload) modalDownload.addEventListener('click', ()=>{
+      const id = modal.dataset.currentId;
+      const all = loadAssignments(); const it = all.find(a=>a.id===id); if(!it) return;
+      alert((currentLang === 'bn' ? 'ডাউনলোড হচ্ছে ' : 'Downloading ') + it.name + '.pdf...');
+  });
+  if (modalSave) modalSave.addEventListener('click', ()=>{
+      const id = modal.dataset.currentId;
+      alert((currentLang === 'bn' ? 'সংরক্ষিত হয়েছে' : 'Saved ') + id);
+      modal.style.display='none';
+  });
+
+  if (raSearch) raSearch.addEventListener('input', (e)=>{renderList(e.target.value)});
+  if (raExport) raExport.addEventListener('click', ()=>{
+    const all = loadAssignments();
+    const headers = Object.keys(all[0]||{});
+    const rows = all.map(it => headers.map(h => JSON.stringify(it[h])).join(','));
+    const csv = headers.join(',') + '\n' + rows.join('\n');
+    const uri = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+    const link = document.createElement('a');
+    link.href = uri;
+    link.download = 'assignments_export.csv';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+  
+  if (raClear) raClear.addEventListener('click', ()=>{
+    if(!confirm(currentLang === 'bn' ? 'আপনি কি সব মুছে ফেলতে চান?' : 'Are you sure you want to clear all?')) return;
+    saveAssignments([]); renderList();
+  });
+
+  function renderSummary() {
+      if (!summaryEl || !roleIn || !multIn) {
+          if (summaryEl) summaryEl.innerHTML = '';
+          return; 
+      }
+      
+      const r = getRoleById(roleIn.value);
+      const mult = Number(multIn.value) || 1;
+      const calc = calcPackage(r.basic, mult);
+      
+      const title = currentLang === 'bn' ? langData.bn['ra-summary-title'] : langData.en['ra-summary-title'];
+      const basic = r.basic ? r.basic.toLocaleString() : '—';
+      const pkg = calc.pkg ? calc.pkg.toLocaleString() : '—';
+      const gross = calc.gross ? calc.gross.toLocaleString() : '—';
+      
+      summaryEl.innerHTML = `
+          <h4>${title}</h4>
+          <p>Basic Pay: <strong>${basic}</strong> BDT</p>
+          <p>Multiplier: <strong>${mult}x</strong></p>
+          <p>Package Base (Basic * Mult): <strong>${pkg}</strong> BDT</p>
+          <p>Est. Gross (w/ allowances): <strong>${gross}</strong> BDT</p>
+      `;
+  }
+  
+  if (roleIn) roleIn.addEventListener('change', renderSummary);
+  if (multIn) multIn.addEventListener('input', renderSummary);
+
+  window.roleAssignment = {
+    updateLanguage: (lang) => {
+        populateDropdowns(lang);
+        renderSummary();
+        renderList();
+    }
+  };
+
+  populateDropdowns(currentLang);
+  renderSummary();
+  renderList();
+})();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    buildPositionCards();
+    buildSection1Cards();
+    
+    document.getElementById('pos-search').addEventListener('input', buildPositionCards);
+    document.getElementById('pos-export').addEventListener('click', exportPositionsCSV);
+    
+    if(positionsData.length > 0) {
+        showPositionDetail(positionsData[0].id, false);
+    }
+    
+    updateLanguage(currentLang);
+
+    const modalTriggers = document.querySelectorAll('.interactive[data-content]');
+    modalTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const modalId = 'modal-' + trigger.getAttribute('data-content');
+            document.getElementById(modalId).classList.remove('hidden');
+        });
+    });
+
+    const closeButtons = document.querySelectorAll('.close-modal');
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            button.closest('.modal').classList.add('hidden');
+        });
+    });
+
+    document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>
+          
