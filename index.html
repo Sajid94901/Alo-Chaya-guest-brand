@@ -3,212 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ghuraba Al Manara (The Lighthouse) - Central HUD</title>
-    
-    <link rel="stylesheet" href="styles.css"> 
-    
+    <title>M.H. Alo Chaya - The Lighthouse on the Riverine</title>
+
+    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- New Hero Video Styles --- */
+        /* This is the new "Rocco Forte" first impression */
+        .hero-video {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+        .hero-video video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 1;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        .hero-video .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.65); /* Dark overlay for readability */
+            z-index: 2;
+        }
+
+        .hero-video .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero-video h1 {
+            font-family: var(--font-heading, 'Playfair Display'), serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-video .lead {
+            font-family: var(--font-body, 'Inter'), sans-serif;
+            font-size: 1.25rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* --- New Guest-Facing Navigation --- */
+        .guest-nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            z-index: 4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .guest-nav .logo {
+            font-family: var(--font-heading, 'Playfair Display'), serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        .guest-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .guest-nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        .guest-nav ul li a {
+            font-family: var(--font-body, 'Inter'), sans-serif;
+            text-decoration: none;
+            color: #FFFFFF;
+            font-weight: 400;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .guest-nav ul li a:hover {
+            color: var(--color-accent, #CFA76C);
+        }
+        
+        /* Utility for new sections */
+        .section-title {
+            font-family: var(--font-heading, 'Playfair Display'), serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--color-accent, #CFA76C);
+        }
+        .section-subtitle {
+            font-family: var(--font-body, 'Inter'), sans-serif;
+            font-size: 1.1rem;
+            text-align: center;
+            color: var(--color-muted, #8E8E8E);
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+    </style>
 </head>
 <body>
 
-    <header class="hero" style="position: relative;">
-        <div class="lang-switch">
-            <select name="language" id="language">
-                <option value="en">English</option>
-                <option value="bn">বাংলা (Bangla)</option>
-            </select>
-        </div>
+    <header class="hero-video">
+        
+        <nav class="guest-nav">
+            <a href="index.html" class="logo">M.H. Alo Chaya</a>
+            <ul>
+                <li><a href="#heritage">Our Heritage</a></li>
+                <li><a href="#sanctuaries">The Sanctuaries</a></li>
+                <li><a href="about-heritage.html">The Lighthouse</a></li>
+                <li><a href="hub.html">Central Hub</a></li> 
+            </ul>
+            <a href="#booking" class="btn btn-primary">Book Your Sanctuary</a>
+        </nav>
 
-        <div class="container">
-            <h1>Ghuraba Al Manara (The Lighthouse)</h1>
-            <p class="lead">Central Hub for Doctrine, Operations, and Recruitment.</p>
-            
-            <nav class="main-nav">
-              <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="landing.html">Landing</a></li>
-                <li><a href="about-heritage.html">About & Heritage</a></li>
-                <li><a href="doctrine.html">Doctrine</a></li>
-                <li><a href="models.html">Models</a></li>
-                <li><a href="acem-score.html">ACEM Score</a></li>
-                <li><a href="management-leadership.html">Management</a></li>
-                <li><a href="hr-management.html">HR (Harmony)</a></li>
-                <li><a href="operations.html">Operations (Efficiency)</a></li>
-                <li><a href="gourmet-alliances.html">Gourmet (Innovation)</a></li>
-                <li><a href="marketing-branding.html">Marketing (Public)</a></li>
-                <li><a href="cpm.html">CPM (Internal)</a></li>
-                <li><a href="investment.html">Finance (Provision)</a></li>
-              </ul>
-            </nav>
+        <video autoplay loop muted playsinline poster="night-view.jpg">
+            <source src="night-view.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+
+        <div class="hero-content">
+            <h1>The Hassan Choudhury Family Legacy</h1>
+            <p class="lead">
+                Welcome to M.H. Alo Chaya, The Lighthouse. A riverine sanctuary 
+                built on a doctrine of heritage, holistic wellness, and intellectual light.
+            </p>
+            <a href="#heritage" class="btn btn-primary">Discover Our Story</a>
         </div>
     </header>
 
-    <main class="container">
+    <main>
 
-        <h2 class="mt-6 mb-4">The Ghuraba Codex (Architectural Hub)</h2>
-        <p class="mb-4">
-            Select a file to review the verified doctrines that govern the Guild.
-        </p>
-
-        <div class="grid grid-3">
-
-            <a href="doctrine.html" class="card-link">
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Guiding Charter (Doctrine)</h3>
-                        <p class="small">The core manifesto, leadership frameworks, and psychological models.</p>
-                    </div>
-                </div>
-            </a>
-            
-            <a href="acem-score.html" class="card-link">
-                <div class="card">
-                    <div class="card-body">
-                        <h3>The ACEM Objective Standard</h3>
-                        <p class="small">The "Engine of Merit" explaining the Audit, Codify, Execute, Maintain process.</p>
-                    </div>
-                </div>
-            </a>
-            
-            <a href="management-leadership.html" class="card-link">
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Management & Leadership</h3>
-                        <p class="small">Interactive Organogram, Inversion of Authority, and all 6 core sections of the Codex.</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="hr-management.html" class="card-link">
-                <div class="card">
-                    <div class="card-body">
-                        <h3>HR (Bureau of Harmony)</h3>
-                        <p class="small">Interactive HR doctrines, including the Moral Auditor and ACEM Purity.</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="operations.html" class="card-link">
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Operations (Bureau of Efficiency)</h3>
-                        <p class="small">Interactive T&D linkages, Dignified Delegation, and Konohana Kitan Service Model.</p>
-                    </div>
-                </div>
-            </a> <a href="marketing-branding.html" class="card-link">
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Marketing (Public)</h3>
-                        <p class="small">The public-facing brand promises, 7Ps, and guest service model.</p>
-                    </div>
-                </div>
-            </a>
-            
-            <a href="cpm.html" class="card-link">
-                <div class="card">
-                    <div class="card-body">
-                        <h3>CPM (Internal Dashboard)</h3>
-                        <p class="small">The live "Alex Polizzi" audit, guest feedback, and competitor analysis.</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="investment.html" class="card-link">
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Financials (Bureau of Provision)</h3>
-                        <p class="small">The 5-Year Projections, No Debt Mandate, and 88k Dignity Wage.</p>
-                    </div>
-                </div>
-            </a>
-            
-            <a href="gourmet-alliances.html" class="card-link">
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Gourmet (Bureau of Innovation)</h3>
-                        <p class="small">The "Path of Ingenuity," Culinary R&D, and Guild Diplomacy.</p>
-                    </div>
-                </div>
-            </a>
-            
-            <a href="about-heritage.html" class="card-link">
-                <div class="card">
-                    <div class="card-body">
-                        <h3>About & Heritage</h3>
-                        <p class="small">The Hassan Choudhury family legacy and "Alo Chaya" story.</p>
-                    </div>
-                </div>
-            </a>
-            
-            <a href="landing.html" class="card-link">
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Landing Page (Booking)</h3>
-                        <p class="small">The public-facing guest portal and "Portal Night" booking form.</p>
-                    </div>
-                </div>
-            </a>
-            
-            <a href="models.html" class="card-link">
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Strategic Models</h3>
-                        <p class="small">Core theoretical models, including Psychological Architecture and Wellness.</p>
-                    </div>
-                </div>
-            </a>
-
-        </div>
-        
-        <section id="apply-form">
-            <div class="card form-card">
-              <div class="card-body">
-                <h2 class="mb-4" style="margin-top: 0;">Join the Guild (Trainee Specialist Application)</h2>
-                <p class="mb-4">
-                    As per the <strong>ACEM Purity Mandate</strong>, we will not test you on irrelevant knowledge (like geometry). Your assessment will be 100% relevant to the role you apply for. We do not hire "interns"; we hire paid, dignified <strong>Trainee Specialists (Dan Lok)</strong>.
+        <section id="heritage" class="content-section" style="background-color: #f8f9fa;">
+            <div class="container">
+                <h2 class="section-title">Our Heritage</h2>
+                <p class="section-subtitle">
+                    The Hassan Choudhury Family Legacy & The Doctrine of Light.
                 </p>
-    
-                <form action="#" method="POST">
-                    <label>
-                        Full Name
-                        <input type="text" id="name" name="name" required>
-                    </label>
-                    
-                    <label>
-                        Email Address
-                        <input type="email" id="email" name="email" required>
-                    </label>
-    
-                    <label>
-                        Role Applying For
-                        <select id="role" name="role" required>
-                            <option value="">Select a Trainee Position...</option>
-                            <option value="trainee_ops">Trainee Specialist (Operations - Bureau of Efficiency)</option>
-                            <option value="trainee_hr">Trainee Specialist (HR - Bureau of Harmony)</option>
-                            <option value="trainee_cpm">Trainee Specialist (Marketing - Bureau of Presence)</option>
-                            <option value="trainee_fin">Trainee Specialist (Finance - Bureau of Provision)</option>
-                        </select>
-                    </label>
-    
-                    <label>
-                        State Your "Why" (Your Motivation)
-                        <textarea id="why" name="why" placeholder="In line with the Why Mirror, please state your motivation for joining the Guild." required></textarea>
-                    </label>
-    
-                    <div>
-                        <button type="submit" class="btn btn-primary">Submit Application</button>
+                
+                <div class="grid-2">
+                    <div class="grid-item">
+                        <img src="riverine-view.jpg" alt="View of the Dhanagada River from M.H. Alo Chaya" style="width: 100%; border-radius: 8px;">
                     </div>
-                </form>
-              </div>
+                    <div class="grid-item" style="display: flex; flex-direction: column; justify-content: center;">
+                        <h3 style="font-family: var(--font-heading, 'Playfair Display'), serif; font-size: 1.8rem; margin-bottom: 1rem;">
+                            A Riverine Sanctuary Built on 87.54 Bigha
+                        </h3>
+                        <p style="font-family: var(--font-body, 'Inter'), sans-serif; line-height: 1.7; color: #333;">
+                            M.H. Alo Chaya is not a hotel. It is a "Lighthouse" (Ghuraba Al Manara), a sanctuary built on the banks of the Dhanagada river.
+                        </p>
+                        <p style="font-family: var(--font-body, 'Inter'), sans-serif; line-height: 1.7; color: #333; margin-top: 1rem;">
+                            Our philosophy is rooted in the "Doctrine of Light," combining our family legacy with the holistic Ghuraba System—developing the Physique (kayaking, nature), the Qalb (serenity, heart), and the Ilm (intellect, "The Game").
+                        </p>
+                        <a href="about-heritage.html" class="btn btn-primary" style="margin-top: 1.5rem; max-width: 200px;">
+                            Explore Our Doctrine
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sanctuaries" class="content-section">
+            <div class="container">
+                <h2 class="section-title">The Sanctuaries</h2>
+                <p class="section-subtitle">
+                    Our rooms are not numbers. They are experiences, each with a name and a purpose, 
+                    derived from our "Common Heart" marketing strategy.
+                </p>
+
+                <div class="grid-3">
+                    
+                    <div class="card">
+                        <img src="bilquis-suite.jpg" alt="The Bilquis Royal Family Suite" class="img-gallery">
+                        <div class="card-body">
+                            <h3 data-lang="room-bilquis-title">"Bilquis" Royal Family Suite</h3>
+                            <p data-lang="room-bilquis-desc" class="small text-muted" style="min-height: 60px;">
+                                A dual-canopy family suite, reflecting "Heritage" and "Connection."
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="ayub-sanctuary.jpg" alt="The Ayub Sabr Sanctuary" class="img-gallery">
+                        <div class="card-body">
+                            <h3 data-lang="room-ayub-title">"Ayub" Sabr Sanctuary</h3>
+                            <p data-lang="room-ayub-desc" class="small text-muted" style="min-height: 60px;">
+                                A room for "Sabr" (Patience) and "Inner Arrival." Reflects the "Nafs" (self) struggling and seeking light.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="michal-hub.jpg" alt="The Michal Innovator's Hub" class="img-gallery">
+                        <div class="card-body">
+                            <h3 data-lang="room-michal-title">"Michal" Innovator's Hub</h3>
+                            <p data-lang="room-michal-desc" class="small text-muted" style="min-height: 60px;">
+                                The "Innovator's" room. A space for "Synthesis" (Bloom) and "Creation" (ACEM).
+                            </Note>
+                        </div>
+                    </div>
+
+                </div> <div style="text-align: center; margin-top: 3rem;">
+                    <a href="marketing-branding.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 0.8rem 2rem;">
+                        See All 7 Sanctuaries
+                    </a>
+                </div>
+
+            </div>
+        </section>
+        
+        <section id="booking" class="content-section" style="background-color: var(--color-surface, #FFFFFF); border-top: 1px solid var(--color-border, #EFEFEF);">
+            <div class="container" style="text-align: center;">
+                <h2 class="section-title">Book Your Sanctuary</h2>
+                <p class="section-subtitle">
+                    Contact us directly to reserve your experience at The Lighthouse.
+                </p>
+
+                <div class="contact-methods" style="display: flex; justify-content: center; gap: 2rem; font-family: var(--font-body, 'Inter'), sans-serif; font-size: 1.1rem;">
+                    
+                    <div class="contact-item">
+                        <strong style="display: block; font-weight: 600; color: #333;">Phone / WhatsApp</strong>
+                        <a href="https://wa.me/8801327379392" target="_blank" style="color: var(--color-accent, #CFA76C); text-decoration: none; font-weight: 500;">
+                            +8801327379392
+                        </a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <strong style="display: block; font-weight: 600; color: #333;">Email</strong>
+                        <a href="mailto:alochayariverine.info@gmail.com" style="color: var(--color-accent, #CFA76C); text-decoration: none; font-weight: 500;">
+                            alochayariverine.info@gmail.com
+                        </a>
+                    </div>
+
+                </div>
+
+                <div style="margin-top: 3rem;">
+                    <a href="https://wa.me/8801327379392" target="_blank" class="btn btn-primary" style="font-size: 1.1rem; padding: 0.8rem 2rem;">
+                        Contact Us on WhatsApp
+                    </a>
+                </div>
             </div>
         </section>
 
     </main>
-    
+
     <footer class="site-footer">
-        <p>Ghuraba Al Manara (The Lighthouse) | Central Hub</p>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <p style="margin: 0;">Ghuraba Al Manara (The Lighthouse) | Heritage & Doctrine</p>
+                <p class="small" style="margin: 0.25rem 0 0 0; color: var(--color-muted, #8E8E8K);">
+                    © M.H. Alo Chaya. All rights reserved.
+                </p>
+            </div>
+            <ul style="list-style: none; margin: 0; padding: 0; display: flex; gap: 1.5rem;">
+                <li><a href="#heritage" style="color: var(--color-muted, #8E8E8E); text-decoration: none;">Heritage</a></li>
+                <li><a href="#sanctuaries" style="color: var(--color-muted, #8E8E8E); text-decoration: none;">Sanctuaries</a></li>
+                <li><a href="hub.html" style="color: var(--color-muted, #8E8E8E); text-decoration: none;">Central Hub</a></li>
+            </ul>
+        </div>
     </footer>
 
 </body>
