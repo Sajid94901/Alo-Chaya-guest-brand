@@ -113,7 +113,48 @@
       <div class="card">
         <div class="card-body">
           <h2 style="margin-top:0;" id="section4-title">4. Granular Staffing & Payroll</h2>
-          <p class="small text-muted mb-3" id="section4-desc">Click any role card to see the full breakdown. Use the language switcher at the top-right to toggle বাংলা / English.</p>
+          <p class="small text-muted mb-3" id="section4-desc">Click any role card to see the full breakdown. Use the language switcher at the top-right to toggle বাংলা / English.</p><h3 style="color: var(--primary-color); margin-top: 1.5rem; margin-bottom: 0.75rem;" id="section4a-title">Granular Staffing Model Summary</h3>
+<p class="mb-3" style="font-size: 0.95rem;" id="section4a-desc">This table summarizes the total headcount and payroll for each operational scenario, defining the "Platoon" and "Company" levels of our functional "army."</p>
+<div style="overflow-x: auto; border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 1.5rem;">
+    <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+        <thead style="background: var(--bg-light); border-bottom: 2px solid var(--border-color);">
+            <tr>
+                <th style="padding: 12px; text-align: left; font-weight: 600;" id="th-scenario">Scenario</th>
+                <th style="padding: 12px; text-align: right; font-weight: 600;" id="th-headcount">Total Headcount</th>
+                <th style="padding: 12px; text-align: left; font-weight: 600;" id="th-level">Functional Level</th>
+                <th style="padding: 12px; text-align: right; font-weight: 600;" id="th-payroll">Total Monthly Payroll (BDT)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 12px; font-weight: 500;" id="td-scen1">Worst / Improbable Mid</td>
+                <td style="padding: 12px; text-align: right; font-family: monospace;" id="td-head1">38 Staff</td>
+                <td style="padding: 12px; font-weight: 500;" id="td-level1">Platoon</td>
+                <td style="padding: 12px; text-align: right; font-family: monospace;" id="td-pay1">1,042,000</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 12px; font-weight: 500;" id="td-scen2">True Mid</td>
+                <td style="padding: 12px; text-align: right; font-family: monospace;" id="td-head2">53 Staff</td>
+                <td style="padding: 12px; font-weight: 500;" id="td-level2">Reinforced Platoon</td>
+                <td style="padding: 12px; text-align: right; font-family: monospace;" id="td-pay2">1,568,000</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 12px; font-weight: 500;" id="td-scen3">Low Ideal</td>
+                <td style="padding: 12px; text-align: right; font-family: monospace;" id="td-head3">67 Staff</td>
+                <td style="padding: 12px; font-weight: 500;" id="td-level3">Company</td>
+                <td style="padding: 12px; text-align: right; font-family: monospace;" id="td-pay3">1,908,000</td>
+            </tr>
+            <tr>
+                <td style="padding: 12px; font-weight: 700;" id="td-scen4">High Ideal</td>
+                <td style="padding: 12px; text-align: right; font-weight: 700; font-family: monospace;" id="td-head4">82 Staff</td>
+                <td style="padding: 12px; font-weight: 700;" id="td-level4">Strong Company</td>
+                <td style="padding: 12px; text-align: right; font-weight: 700; font-family: monospace;" id="td-pay4">2,280,000</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
           <div id="position-controls" style="display:flex;gap:8px;align-items:center;margin-bottom:12px;">
             <input id="pos-search" placeholder="Search role or keyword" style="padding:8px;border-radius:8px;border:1px solid var(--border-color);width:320px">
             <select id="pos-scenario" style="padding:8px;border-radius:8px;border:1px solid var(--border-color);">
@@ -177,7 +218,7 @@
         <div class="modal hidden" id="modal-hr">
             <div class="modal-content">
                 <h3 id="modal-hr-title">HR & Talent Development</h3>
-                <p id="modal-hr-desc">Implements hierarchies MTO → FEO → EO with symbolic allowance structures for training and reinvestment. Monthly Salary Base = 250 000 BDT; Draw = 150 000 – 125 000 BDT under reserve plans.</p>
+                <p id="modal-hr-desc">Implements hierarchies with symbolic allowance structures for training and reinvestment. Monthly Salary Base = 250 000 BDT; Draw = 150 000 – 125 000 BDT under reserve plans.</p>
                 <button class="close-modal" data-lang-key="modal-close">Close</button>
             </div>
         </div>
