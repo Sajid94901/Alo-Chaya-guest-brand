@@ -1636,14 +1636,43 @@ function exportPositionsCSV(){
   renderList();
 })();
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-
-    var modal = document.getElementById("myFrameworkModal");
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Existing Application Logic (Position Cards, Language, Old Modals) ---
+    buildPositionCards();
+    buildSection1Cards();
     
-    if (modal) {
-        var modalTitle = modal.querySelector("#modal-title");
-        var modalBody = modal.querySelector("#modal-body");
-        var closeBtn = modal.querySelector(".close-btn"); 
+    document.getElementById('pos-search').addEventListener('input', buildPositionCards);
+    document.getElementById('pos-export').addEventListener('click', exportPositionsCSV);
+    
+    if(positionsData.length > 0) {
+        showPositionDetail(positionsData[0].id, false);
+    }
+    
+    updateLanguage(currentLang);
+
+    const modalTriggers = document.querySelectorAll('.interactive[data-content]');
+    modalTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const modalId = 'modal-' + trigger.getAttribute('data-content');
+            document.getElementById(modalId).classList.remove('hidden');
+        });
+    });
+
+    const closeButtons = document.querySelectorAll('.close-modal');
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            button.closest('.modal').classList.add('hidden');
+        });
+    });
+    // --- End Old Application Logic ---
+
+    // --- Frameworks Modal Logic (ACEM/GLSM Cards - The new, clean logic) ---
+    var frameworkModal = document.getElementById("myFrameworkModal");
+    
+    if (frameworkModal) {
+        var modalTitle = frameworkModal.querySelector("#modal-title");
+        var modalBody = frameworkModal.querySelector("#modal-body");
+        var closeBtn = frameworkModal.querySelector(".close-btn"); 
 
         var cards = document.querySelectorAll(".framework-card");
 
@@ -1661,9 +1690,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 let contentHtml = "";
                 
+                // Logic to handle pre-formatted HTML (like the GLSM image and list)
                 if (contentArray.length >= 1 && (contentArray[0].includes('<img') || contentArray[0].includes('<ol>') || contentArray[0].includes('<b>'))) {
                     contentHtml = contentArray.join(''); 
                 } else {
+                    // Standard List builder for simple ACEM/5P lists
                     contentHtml = "<ul>";
                     contentArray.forEach(item => {
                         contentHtml += "<li>" + item + "</li>";
@@ -1673,23 +1704,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 modalTitle.innerHTML = title;
                 modalBody.innerHTML = contentHtml;
-                modal.style.display = "block";
+                frameworkModal.style.display = "block";
             });
         });
 
         if (closeBtn) {
             closeBtn.addEventListener('click', function() {
-                modal.style.display = "none";
+                frameworkModal.style.display = "none";
             });
         }
 
         window.addEventListener('click', function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+            if (event.target == frameworkModal) {
+                frameworkModal.style.display = "none";
             }
         });
     }
 });
 </script>
+    
 </body>
 </html>
