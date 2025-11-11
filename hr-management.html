@@ -1381,53 +1381,65 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
     <script>
-// --- JavaScript for Interactive Frameworks Modal ---
-(function() {
-    // Get the modal
+// --- Frameworks Modal Logic (Wrapped to run safely after all HTML is loaded) ---
+document.addEventListener('DOMContentLoaded', function() {
+
+    // Get the modal elements by their unique IDs
     var modal = document.getElementById("myFrameworkModal");
     
-    // Check if the modal exists on the page
+    // Check if the modal exists before proceeding
     if (modal) {
         var modalTitle = modal.querySelector("#modal-title");
         var modalBody = modal.querySelector("#modal-body");
         var closeBtn = modal.querySelector(".close-btn");
 
-        // Get all framework cards
+        // Get ALL framework cards (these are the elements we want to make clickable)
         var cards = document.querySelectorAll(".framework-card");
 
         // Loop through all cards and add a click event listener
-        for (let card of cards) {
-            card.onclick = function() {
+        cards.forEach(card => {
+            card.addEventListener('click', function() {
                 var title = card.getAttribute("data-title");
                 var contentJSON = card.getAttribute("data-content");
                 
+                // IMPORTANT: Safely parse the JSON data from the data-content attribute
                 var contentArray = JSON.parse(contentJSON);
                 
-                let listHtml = "<ul>";
-                contentArray.forEach(item => {
-                    listHtml += "<li>" + item + "</li>";
-                });
-                listHtml += "</ul>";
+                let contentHtml = "";
                 
+                // Check if the content is already formatted HTML (like the GLSM card with <img> or <ol>)
+                if (contentArray.length >= 1 && (contentArray[0].includes('<img') || contentArray[0].includes('<ol>'))) {
+                    // If it's pre-formatted HTML, just join the array elements
+                    contentHtml = contentArray.join(''); 
+                } else {
+                    // Otherwise, wrap the content in a standard unordered list (for ACEM, 5Ps)
+                    contentHtml = "<ul>";
+                    contentArray.forEach(item => {
+                        contentHtml += "<li>" + item + "</li>";
+                    });
+                    contentHtml += "</ul>";
+                }
+                
+                // Populate and display the modal
                 modalTitle.innerHTML = title;
-                modalBody.innerHTML = listHtml;
+                modalBody.innerHTML = contentHtml;
                 modal.style.display = "block";
-            }
-        }
+            });
+        });
 
-        // When the user clicks on F (x), close the modal
-        closeBtn.onclick = function() {
+        // Close logic for the 'X' button
+        closeBtn.addEventListener('click', function() {
             modal.style.display = "none";
-        }
+        });
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
+        // Close logic for clicking anywhere outside the modal box
+        window.addEventListener('click', function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
-        }
+        });
     }
-})();
-</script>
+});
+    </script>
 </body>
 </html>
