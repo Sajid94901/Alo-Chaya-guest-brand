@@ -1675,38 +1675,34 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
     <script>
-// --- Frameworks Modal Logic (Wrapped to run safely after all HTML is loaded) ---
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Get the modal elements by their unique IDs
     var modal = document.getElementById("myFrameworkModal");
     
-    // Check if the modal exists before proceeding
     if (modal) {
         var modalTitle = modal.querySelector("#modal-title");
         var modalBody = modal.querySelector("#modal-body");
-        var closeBtn = modal.querySelector(".close-btn");
+        var closeBtn = modal.querySelector(".close-btn"); 
 
-        // Get ALL framework cards (these are the elements we want to make clickable)
         var cards = document.querySelectorAll(".framework-card");
 
-        // Loop through all cards and add a click event listener
         cards.forEach(card => {
             card.addEventListener('click', function() {
                 var title = card.getAttribute("data-title");
                 var contentJSON = card.getAttribute("data-content");
                 
-                // IMPORTANT: Safely parse the JSON data from the data-content attribute
-                var contentArray = JSON.parse(contentJSON);
+                try {
+                    var contentArray = JSON.parse(contentJSON);
+                } catch (e) {
+                    console.error("Failed to parse JSON for card:", title, e);
+                    return; 
+                }
                 
                 let contentHtml = "";
                 
-                // Check if the content is already formatted HTML (like the GLSM card with <img> or <ol>)
-                if (contentArray.length >= 1 && (contentArray[0].includes('<img') || contentArray[0].includes('<ol>'))) {
-                    // If it's pre-formatted HTML, just join the array elements
+                if (contentArray.length >= 1 && (contentArray[0].includes('<img') || contentArray[0].includes('<ol>') || contentArray[0].includes('<b>'))) {
                     contentHtml = contentArray.join(''); 
                 } else {
-                    // Otherwise, wrap the content in a standard unordered list (for ACEM, 5Ps)
                     contentHtml = "<ul>";
                     contentArray.forEach(item => {
                         contentHtml += "<li>" + item + "</li>";
@@ -1714,19 +1710,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     contentHtml += "</ul>";
                 }
                 
-                // Populate and display the modal
                 modalTitle.innerHTML = title;
                 modalBody.innerHTML = contentHtml;
                 modal.style.display = "block";
             });
         });
 
-        // Close logic for the 'X' button
-        closeBtn.addEventListener('click', function() {
-            modal.style.display = "none";
-        });
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = "none";
+            });
+        }
 
-        // Close logic for clicking anywhere outside the modal box
         window.addEventListener('click', function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
