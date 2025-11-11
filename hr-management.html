@@ -1226,5 +1226,54 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
+    <script>
+// --- JavaScript for Interactive Frameworks Modal ---
+(function() {
+    // Get the modal
+    var modal = document.getElementById("myFrameworkModal");
+    
+    // Check if the modal exists on the page
+    if (modal) {
+        var modalTitle = modal.querySelector("#modal-title");
+        var modalBody = modal.querySelector("#modal-body");
+        var closeBtn = modal.querySelector(".close-btn");
+
+        // Get all framework cards
+        var cards = document.querySelectorAll(".framework-card");
+
+        // Loop through all cards and add a click event listener
+        for (let card of cards) {
+            card.onclick = function() {
+                var title = card.getAttribute("data-title");
+                var contentJSON = card.getAttribute("data-content");
+                
+                var contentArray = JSON.parse(contentJSON);
+                
+                let listHtml = "<ul>";
+                contentArray.forEach(item => {
+                    listHtml += "<li>" + item + "</li>";
+                });
+                listHtml += "</ul>";
+                
+                modalTitle.innerHTML = title;
+                modalBody.innerHTML = listHtml;
+                modal.style.display = "block";
+            }
+        }
+
+        // When the user clicks on F (x), close the modal
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    }
+})();
+</script>
 </body>
 </html>
