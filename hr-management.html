@@ -1635,46 +1635,7 @@ function exportPositionsCSV(){
   renderSummary();
   renderList();
 })();
-</script>
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    buildPositionCards();
-    buildSection1Cards();
-    
-    document.getElementById('pos-search').addEventListener('input', buildPositionCards);
-    document.getElementById('pos-export').addEventListener('click', exportPositionsCSV);
-    
-    if(positionsData.length > 0) {
-        showPositionDetail(positionsData[0].id, false);
-    }
-    
-    updateLanguage(currentLang);
-
-    const modalTriggers = document.querySelectorAll('.interactive[data-content]');
-    modalTriggers.forEach(trigger => {
-        trigger.addEventListener('click', () => {
-            const modalId = 'modal-' + trigger.getAttribute('data-content');
-            document.getElementById(modalId).classList.remove('hidden');
-        });
-    });
-
-    const closeButtons = document.querySelectorAll('.close-modal');
-    closeButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            button.closest('.modal').classList.add('hidden');
-        });
-    });
-
-    document.querySelectorAll('.modal').forEach(modal => {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.add('hidden');
-            }
-        });
-    });
-});
-</script>
-    <script>
 document.addEventListener('DOMContentLoaded', function() {
 
     var modal = document.getElementById("myFrameworkModal");
@@ -1729,6 +1690,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-    </script>
+</script>
 </body>
 </html>
