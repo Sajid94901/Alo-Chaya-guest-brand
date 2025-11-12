@@ -1295,13 +1295,45 @@ const renderAssignedList = () => {
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-        });
+                    // Function to toggle visibility based on a shared class
+        const setupContentToggler = (triggerId, contentClass) => {
+            const trigger = document.getElementById(triggerId);
+            const content = document.querySelector(`.${contentClass}`);
+            
+            if (trigger && content) {
+                content.style.display = 'none'; 
+                
+                trigger.style.cursor = 'pointer'; 
+                
+                trigger.addEventListener('click', () => {
+                    if (content.style.display === 'none') {
+                        content.style.display = 'block'; 
+                        trigger.querySelector('h2').textContent = trigger.querySelector('h2').textContent.replace('▼', '▲');
+                    } else {
+                        content.style.display = 'none'; 
+                        trigger.querySelector('h2').textContent = trigger.querySelector('h2').textContent.replace('▲', '▼');
+                    }
+                });
+            }
+        };
 
-    });
+        // Initialize the togglers for all major sections
+        setupContentToggler('section7-title-container', 'content-s7');
+        setupContentToggler('section8-title-container', 'content-s8');
+        setupContentToggler('section9-title-container', 'content-s9');
+        setupContentToggler('section10-title-container', 'content-s10');
+        setupContentToggler('section11-title-container', 'content-s11');
+
+        // Initial setup of the trigger texts (adding the close indicator)
+        document.getElementById('section7-title-container').querySelector('h2').textContent += ' ▼';
+        document.getElementById('section8-title-container').querySelector('h2').textContent += ' ▼';
+        document.getElementById('section9-title-container').querySelector('h2').textContent += ' ▼';
+        document.getElementById('section10-title-container').querySelector('h2').textContent += ' ▼';
+        document.getElementById('section11-title-container').querySelector('h2').textContent += ' ▼';
+    
+    }); 
 })(); 
 
 </script> 
 </body>
 </html>
-
-        
