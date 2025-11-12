@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Portal Night Booking — Ghuraba Al Manara</title>
+  <title>Portal Night Booking — MH Alo Chaya Limited</title>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
@@ -15,8 +15,9 @@
       <nav class="main-nav">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="landing.html">Landing</a></li>
-          <li><a href="about-heritage.html">About & Heritage</a></li>
+          <li><a href="landing.html">Reservation Portal</a></li>
+          <li><a href="about-heritage.html">MH Alo Chaya Ltd. & Heritage</a></li>
+          <li><a href="acem-score.html">ACEM Score</a></li>
           <li><a href="hr-management.html">HR Management</a></li>
           <li><a href="management-leadership.html">Management & Leadership</a></li>
           <li><a href="operations.html">Operations</a></li>
@@ -26,7 +27,6 @@
           <li><a href="models.html">Models</a></li>
         </ul>
       </nav>
-
     </div>
   </header>
 
@@ -51,172 +51,30 @@
             Preferred Guild 
             <select id="guild">
               <option value="khadija-orchards">Khadija Orchards</option>
-              <option valuealliances.html">Gourmet Alliances</a></li>
-              <option value="marketing-branding.html">Marketing & Branding</a></li>
-              <option value="doctrine.html">Doctrine</a></li>
-              <option value="models.html">Models</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-    
-      <main class="container">
-    
-        <div class="card" style="max-width: 600px; margin: 2rem auto;">
-          <div class="card-body">
-            <h1 class="mt-6 mb-4" style="text-align: center; margin-top: 0;">Welcome to the Ghuraba Archipelago</h1>
-            <p class="lead" style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">This is the central doctrine hub for the Ghuraba Al Manara guild. Use the navigation above to explore the bureaus.</p>
-            
-            <div class="grid grid-2">
-              <a href="hr-management.html" class="card-link">
-                <div class="card">
-                  <div class="card-body">
-                    <h3 style="color: var(--primary-color);">Bureau of Harmony (HR)</h3>
-                    <p class="small text-muted mb-0">Moral Purity, ACEM Score, and the Inversion of Authority.</p>
-                  </div>
-                </div>
-              </a>
-              <a href="operations.html" class="card-link">
-                <div class="card">
-                  <div class="card-body">
-                    <h3 style="color: var(--primary-color);">Bureau of Efficiency (Ops)</h3>
-                    <p class="small text-muted mb-0">Producer Archetype, T&D Gateway, and Service Models.</p>
-                  </div>
-                </div>
-              </a>
-              <a href="gourmet-alliances.html" class="card-link">
-                <div class="card">
-                  <div class="card-body">
-                    <h3 style="color: var(--primary-color);">Bureau of Innovation (Gourmet)</h3>
-                    <p class="small text-muted mb-0">Culinary Diplomacy, Guild Alliances, and R&D.</p>
-                  </div>
-                </div>
-              </a>
-              <a href="marketing-branding.html" class="card-link">
-                <div class="card">
-                  <div class="card-body">
-                    <h3 style="color: var(--primary-color);">Bureau of Presence (Marketing)</h3>
-                    <p class="small text-muted mb-0">Authentic Representation and Guild Branding.</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-    
-          </div>
-        </div>
-    
-      </main>
-      
-      <footer class="site-footer">
-        <p>Ghuraba Al Manara (The Lighthouse) | Central Doctrine Hub</p>
-      </footer>
-    
-    </body>
-    </html>
-    ```
-* **The Problem:** The `index.html` file *also* needs styling for the new `.card-link` class to make the cards clickable and look good on hover.
-* **The Solution:** I must provide a small block of CSS to add to the master `styles.css` file.
-
-**Plan Refinement:**
-1.  Acknowledge the user's request: He wants the new `index.html`.
-2.  Provide the `index.html` code (clean, no comments).
-3.  **Crucially:** Provide the *additional CSS* that `index.html` needs.
-4.  Instruct the user to add this new CSS to their master `styles.css` file.
-5.  End with a next step.
-
-This ensures the new page will actually *work* and look correct, rather than just being unstyled links.You got it. Here is a clean, simple `index.html` that acts as the main "hub" or "dashboard" for your site.
-
-It reuses our `hero` and `card` styles and adds a simple grid of links to all the main bureau pages.
-
-### 1. 📋 Your New `index.html` File
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Ghuraba Al Manara | Doctrine Hub</title>
-  <link rel="stylesheet" href="styles.css"/>
-</head>
-<body>
-  <header class="hero">
-    <div class="container">
-      <h1>Ghuraba Al Manara (The Lighthouse)</h1>
-      <p class="lead">Central Doctrine & Bureau Hub</p>
-      
-      <nav class="main-nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="landing.html">Landing</a></li>
-          <li><a href="about-heritage.html">About & Heritage</a></li>
-          <li><a href="hr-management.html">HR Management</a></li>
-          <li><a href="management-leadership.html">Management & Leadership</a></li>
-          <li><a href="operations.html">Operations</a></li>
-          <li><a href="gourmet-alliances.html">Gourmet Alliances</a></li>
-          <li><a href="marketing-branding.html">Marketing & Branding</a></li>
-          <li><a href="doctrine.html">Doctrine</a></li>
-          <li><a href="models.html">Models</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-
-    <div class="card" style="max-width: 900px; margin: 2rem auto;">
-      <div class="card-body">
-        <h2 class="mt-6 mb-4" style="text-align: center; margin-top: 0;">Welcome to the Ghuraba Archipelago</h2>
-        <p class="lead" style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">This is the central doctrine hub for the Ghuraba Al Manara guild. Use the navigation above or the links below to explore the bureaus.</p>
-        
-        <div class="grid grid-2">
+              <option value="mh-alo-chaya-limited">MH Alo Chaya Limited (The Lighthouse)</option>
+              <option value="rocco-forte">Rocco Forte</option>
+            </select>
+          </label>
           
-          <a href="hr-management.html" class="card-link">
-            <div class="card">
-              <div class="card-body">
-                <h3 style="color: var(--primary-color);">Bureau of Harmony (HR)</h3>
-                <p class="small text-muted mb-0">Moral Purity, ACEM Score, and the Inversion of Authority.</p>
-              </div>
-            </div>
-          </a>
+          <label>
+            Number of Guests
+            <input type="number" id="guests" min="1" max="10" required>
+          </label>
           
-          <a href="operations.html" class="card-link">
-            <div class="card">
-              <div class="card-body">
-                <h3 style="color: var(--primary-color);">Bureau of Efficiency (Ops)</h3>
-                <p class="small text-muted mb-0">Producer Archetype, T&D Gateway, and Service Models.</p>
-              </div>
-            </div>
-          </a>
-          
-          <a href="gourmet-alliances.html" class="card-link">
-            <div class="card">
-              <div class="card-body">
-                <h3 style="color: var(--primary-color);">Bureau of Innovation (Gourmet)</h3>
-                <p class="small text-muted mb-0">Culinary Diplomacy, Guild Alliances, and R&D.</p>
-              </div>
-            </div>
-          </a>
-          
-          <a href="marketing-branding.html" class="card-link">
-            <div class="card">
-              <div class="card-body">
-                <h3 style="color: var(--primary-color);">Bureau of Presence (Marketing)</h3>
-                <p class="small text-muted mb-0">Authentic Representation and Guild Branding.</p>
-              </div>
-            </div>
-          </a>
+          <label>
+            Date
+            <input type="date" id="date" required>
+          </label>
 
-        </div>
-
+          <button type="submit">Book Reservation</button>
+        </form>
       </div>
     </div>
 
   </main>
   
   <footer class="site-footer">
-    <p>Ghuraba Al Manara (The Lighthouse) | Central Doctrine Hub</p>
+    <p>MH Alo Chaya Limited (The Ghuraba Al Manara Guild) | Portal Night Booking</p>
   </footer>
-
 </body>
 </html>
