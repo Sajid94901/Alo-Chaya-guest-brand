@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The ACEM Objective Standard</title>
+    <title>The Al-Ameen Capability Evolution Model (ACEM)</title>
     
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,7 @@
 
     <header class="hero">
         <div class="container">
-            <h1>The ACEM Objective Standard</h1>
+            <h1>The Al-Ameen Capability Evolution Model (ACEM)</h1>
             <p class="lead">The Engine of Merit for the Ghuraba Al Manara Guild.</p>
             
             <nav class="main-nav">
@@ -40,7 +40,7 @@
 
         <h2 class="mt-6 mb-4">1. What is the ACEM Score?</h2>
         <p class="mb-4">
-            The **ACEM (Audit, Codify, Execute, Maintain) Score** is the single, objective standard for performance, promotion, and pay. It is the central mechanism that enforces our core doctrines of meritocracy and dignity.
+            The **ACEM (Al-Ameen Capability Evolution Model) Score** is the single, objective standard for performance, promotion, and pay. It is the central mechanism that enforces our core doctrines of meritocracy and dignity.
         </p>
 
         <div class="grid grid-2">
@@ -65,26 +65,29 @@
             ACEM is a continuous cycle of improvement, not a one-time review.
         </p>
         
-        <div class="grid grid-4">
-            <div class="card">
+        <div class="grid grid-4 acem-flow">
+            <div class="card flow-step">
                 <div class="card-body">
                     <h3>1. Audit</h3>
                     <p class="small text-muted mb-0">We audit the *actual* duties, responsibilities, and value-add of a specific role. This is a practical, on-the-ground analysis, not a theoretical one.</p>
                 </div>
+                <span class="flow-arrow">➡️</span>
             </div>
-            <div class="card">
+            <div class="card flow-step">
                 <div class="card-body">
                     <h3>2. Codify</h3>
                     <p class="small text-muted mb-0">We codify these duties into a clear, non-negotiable job description. These codified metrics become the sole basis for the ACEM Score for that role.</p>
                 </div>
+                <span class="flow-arrow">➡️</span>
             </div>
-            <div class="card">
+            <div class="card flow-step">
                 <div class="card-body">
                     <h3>3. Execute</h3>
                     <p class="small text-muted mb-0">The Specialist executes their duties. Their performance is measured against the objective, codified metrics—nothing else.</p>
                 </div>
+                <span class="flow-arrow">🔄</span>
             </div>
-            <div class="card">
+            <div class="card flow-step">
                 <div class="card-body">
                     <h3>4. Maintain</h3>
                     <p class="small text-muted mb-0">We constantly maintain the system, auditing roles and removing irrelevant metrics to ensure "ACEM Purity" is always upheld as the Guild evolves.</p>
@@ -124,6 +127,22 @@
                     </div>
                 </div>
             </a>
+        </div>
+        
+        <h2 class="mt-6 mb-4">4. ACEM Final Judgment & 360° Data</h2>
+        <p class="mb-4">
+            This section provides the dynamic, real-time visualization of the ACEM Score, including the 360-degree performance bar data.
+        </p>
+        
+        <div class="acem-judgment-section mb-5">
+            <div id="acem-final-judgment" class="final-score-box">
+                <p class="lead">Final ACEM Score:</p>
+                <h3 class="display-4" id="final-acem-value">N/A</h3>
+            </div>
+            
+            <div id="bars-360-data" class="bars-visualization">
+                <p class="small text-muted">Loading 360° Feedback Visualization...</p>
+            </div>
         </div>
         
     </main>
