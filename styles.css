@@ -88,6 +88,12 @@ main.container {
 .grid-3 {
   grid-template-columns: repeat(3, 1fr);
 }
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.grid-auto {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
 
 .card {
   background: var(--card-bg);
@@ -140,7 +146,18 @@ main.container {
   border: 2px solid var(--primary-color);
   box-shadow: 0 8px 28px rgba(2,6,23,0.12);
 }
-
+.card-link {
+  text-decoration: none;
+  display: block;
+}
+.card-link .card {
+  transition: all 0.2s ease-in-out;
+}
+.card-link:hover .card {
+  transform: translateY(-3px);
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 28px rgba(2,6,23,0.12);
+}
 .tab-bar {
   display: flex;
   border-bottom: 2px solid var(--border-color);
@@ -235,6 +252,7 @@ main.container {
   font-size: .9rem;
 }
 
+/* --- Utility Classes --- */
 .mt-6 { margin-top: 3rem; }
 .mt-5 { margin-top: 2rem; }
 .mt-4 { margin-top: 1.5rem; }
@@ -246,7 +264,9 @@ main.container {
 .text-center { text-align: center; }
 .text-muted { color: var(--text-muted); }
 .small { font-size: .9rem; }
+.text-justify { text-align: justify; }
 
+/* --- Responsive Media Queries --- */
 @media (max-width: 900px) {
   .interactive-layout {
     grid-template-columns: 1fr;
@@ -262,32 +282,12 @@ main.container {
   .hero h1 {
     font-size: 2rem;
   }
-    }
-.accordion-toggle {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 0;
-  border: none;
-  background: none;
-  cursor: pointer;
-  text-align: left;
-}
-.accordion-toggle:hover h3 {
-  color: var(--primary-color);
-}
-.accordion-toggle span {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--primary-color);
-  transform: translateY(-2px);
+  .grid-4 {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-.accordion-content {
-  margin-top: 1.5rem;
-}
-
+/* --- List and Figure Styles --- */
 .card ul,
 .card ol {
   padding-left: 1.5rem;
@@ -295,10 +295,6 @@ main.container {
 }
 .card li {
   margin-bottom: 0.5rem;
-}
-
-.text-justify {
-  text-align: justify;
 }
 
 figure {
@@ -315,91 +311,8 @@ figure figcaption {
   color: var(--text-muted);
   text-align: center;
   margin-top: 0.5rem;
-}
-
-.card-link {
-  text-decoration: none;
-  display: block;
-}
-
-.card-link .card {
-  transition: all 0.2s ease-in-out;
-}
-
-.card-link:hover .card {
-  transform: translateY(-3px);
-  border-color: var(--primary-color);
-  box-shadow: 0 8px 28px rgba(2,6,23,0.12);
-}
-
-.grid-auto {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-
-.brand-pyramid {
-  max-width: 600px;
-  margin: 1rem auto 0 auto;
-  text-align: center;
-}
-.brand-pyramid-tier {
-  padding: 1rem 1.5rem;
-  color: var(--text-color);
-}
-.brand-pyramid-tier h4 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  margin-bottom: 0.25rem;
-}
-.brand-pyramid-tier p {
-  font-size: 0.95rem;
-  margin-bottom: 0;
-}
-.brand-pyramid-tier-5 {
-  background-color: var(--primary-color);
-  color: white;
-  border-radius: 8px 8px 0 0;
-}
-.brand-pyramid-tier-5 h4 { color: white; }
-.brand-pyramid-tier-5 p { color: #d1fae5; }
-
-.brand-pyramid-tier-4 {
-  background-color: var(--accent-color);
-}
-.brand-pyramid-tier-3 {
-  background-color: #fde68a;
-}
-.brand-pyramid-tier-2 {
-  background-color: var(--bg-light);
-  border: 1px solid var(--border-color);
-}
-.brand-pyramid-tier-1 {
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-top: none;
-  border-radius: 0 0 8px 8px;
-}
-.lang-switch {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 10;
-}
-.lang-switch select {
-  padding: 0.5rem;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  background: var(--card-bg);
-  font-weight: 600;
-}
-
-.form-card {
-  max-width: 800px;
-  margin: 2.5rem auto;
-}
-.grid-4 {
-  grid-template-columns: repeat(4, 1fr);
-}
-
+  }
+/* --- Financial Tables --- */
 .financial-table-wrapper {
   overflow-x: auto;
   width: 100%;
@@ -430,7 +343,6 @@ figure figcaption {
   background-color: var(--bg-light);
   z-index: 10;
 }
-
 .mono { 
   font-family: 'Fira Code', 'Courier New', monospace;
   font-size: 0.95rem; 
@@ -440,6 +352,7 @@ figure figcaption {
 .highlight-row { background-color: #fefce8; }
 .highlight-row .sticky-left { background-color: #fefce8; }
 
+/* --- Alerts and Stat Cards --- */
 .alert {
   padding: 1rem;
   border-radius: 8px;
@@ -473,7 +386,6 @@ figure figcaption {
 .alert-danger h3 {
   color: #b91c1c;
 }
-
 .stat-card {
   border: 1px solid var(--border-color);
   padding: 1rem;
@@ -496,12 +408,8 @@ figure figcaption {
   color: var(--accent-color);
 }
 
-@media (max-width: 768px) {
-  .grid-4 {
-    grid-template-columns: 1fr 1fr;
-  }
-  }
-  .cpm-layout {
+/* --- CPM Layout and Components (HR Management File Layout) --- */
+.cpm-layout {
   display: grid;
   grid-template-columns: 375px 1fr;
   height: calc(100vh - 170px);
@@ -533,6 +441,7 @@ figure figcaption {
   list-style: none;
   overflow-y: auto;
   flex-grow: 1;
+  padding: 0;
 }
 .property-list-item button {
   display: block;
@@ -749,6 +658,7 @@ figure figcaption {
   display: block;
 }
 
+/* --- Responsive CPM Layout --- */
 @media (max-width: 900px) {
     .cpm-layout {
         grid-template-columns: 1fr;
@@ -766,8 +676,8 @@ figure figcaption {
     .form-grid {
         grid-template-columns: 1fr;
     }
-}
-/* --- Styles for Interactive Frameworks --- */
+    }
+  /* --- Styles for Interactive Frameworks (Management-Leadership) --- */
 
 #frameworks h3 {
     text-align: center;
@@ -837,74 +747,192 @@ figure figcaption {
     border-color: #fce0a8;
 }
 
-/* The Modal (background) */
-#myFrameworkModal {
-    display: none; 
+/* ---------------------------------------------------------------------- */
+/* --- CRITICAL ACCORDION/PANEL STYLES (Fixes Overwhelming Information) --- */
+/* ---------------------------------------------------------------------- */
+
+/* Style for the main collapsible header (H2 element) */
+.accordion {
+    background-color: var(--card-bg); /* #ffffff */
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 22px;
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: background-color 0.2s, color 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Hover and Open state styling */
+.accordion:hover {
+    background-color: var(--bg-light); 
+}
+
+.accordion.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 8px 8px 0 0;
+    border-bottom: none;
+}
+.accordion.active:hover {
+    background-color: #043a2b; /* Darker primary on hover when active */
+}
+
+/* Style for the collapsible content container (the Panel) */
+.panel {
+    padding: 0 22px;
+    background-color: white;
+    max-height: 0; /* CRITICAL: HIDES THE CONTENT INITIALLY */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out; /* Smooth slide transition */
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    border-radius: 0 0 8px 8px;
+    margin-bottom: 1.5rem; /* Space after panel closes */
+}
+
+/* Style when the panel is open (JS adds the .active class to the accordion header) */
+.accordion.active + .panel {
+    max-height: 3000px; /* A large value to ensure all content is visible */
+    padding-top: 22px;
+    padding-bottom: 22px;
+    border-top: none;
+}
+
+/* ---------------------------------------------------------------------- */
+/* --- MODAL STYLES (Fixes Interactive Card Pop-ups) --- */
+/* ---------------------------------------------------------------------- */
+
+/* The backdrop that covers the screen */
+.modal-backdrop {
+    display: none; /* Hidden by default */
     position: fixed; 
-    z-index: 1000; 
+    z-index: 9999; 
     left: 0;
     top: 0;
     width: 100%; 
     height: 100%; 
     overflow: auto; 
-    background-color: rgba(0, 0, 0, 0.6); 
+    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
 }
 
-/* Modal Content */
-#myFrameworkModal .modal-content {
-    background-color: #fefefe;
-    margin: 10% auto;
+/* The box that holds the content */
+.modal-content {
+    background-color: var(--card-bg);
+    margin: auto;
     padding: 30px;
-    border: 1px solid #888;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 600px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    animation: fadeIn 0.3s;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 650px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transform: translateY(0);
 }
 
-#myFrameworkModal .modal-header {
+.modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 15px;
+    margin-bottom: 20px;
 }
 
-#myFrameworkModal .modal-title {
-    font-size: 1.8em;
-    color: #003366;
+.modal-title-text {
+    font-size: 1.5rem;
+    color: var(--primary-color);
     margin: 0;
 }
 
-/* The Close Button */
-#myFrameworkModal .close-btn {
-    color: #aaa;
-    font-size: 28px;
+.modal-close {
+    color: var(--text-muted);
+    font-size: 2rem;
     font-weight: bold;
     cursor: pointer;
+    line-height: 1;
 }
 
-#myFrameworkModal .close-btn:hover,
-#myFrameworkModal .close-btn:focus {
-    color: #000;
+.modal-close:hover,
+.modal-close:focus {
+    color: var(--danger-color);
     text-decoration: none;
 }
 
-#myFrameworkModal .modal-body ul {
-    list-style-type: disc;
+.modal-body-text p {
+    margin-bottom: 1rem;
+}
+.modal-body-text ul, .modal-body-text ol {
+    margin-bottom: 1rem;
     padding-left: 20px;
 }
 
-#myFrameworkModal .modal-body li {
-    margin-bottom: 10px;
-    line-height: 1.5;
+/* Special class used by JS to disable background scrolling */
+body.modal-open {
+    overflow: hidden;
 }
 
-@keyframes fadeIn {
-    from {opacity: 0; transform: scale(0.95);}
-    to {opacity: 1; transform: scale(1);}
+/* Fix for Brand Pyramid */
+.brand-pyramid-tier-5 {
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 8px 8px 0 0;
 }
-.panel {
-    position: relative !important;
+.brand-pyramid-tier-5 h4 { color: white; }
+.brand-pyramid-tier-5 p { color: #d1fae5; }
+
+.brand-pyramid-tier-4 {
+  background-color: var(--accent-color);
+}
+.brand-pyramid-tier-3 {
+  background-color: #fde68a;
+}
+.brand-pyramid-tier-2 {
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+}
+.brand-pyramid-tier-1 {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+}
+.brand-pyramid {
+  max-width: 600px;
+  margin: 1rem auto 0 auto;
+  text-align: center;
+}
+.brand-pyramid-tier {
+  padding: 1rem 1.5rem;
+  color: var(--text-color);
+}
+.brand-pyramid-tier h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.brand-pyramid-tier p {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+.lang-switch {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+}
+.lang-switch select {
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  font-weight: 600;
 }
