@@ -534,418 +534,309 @@
                 <h3 id="section23-c4-h">False Mask</h3>
             </div>
         </div>
-    </div>
-        </main>
-</div> <div id="doctrinalModal" class="modal-backdrop">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="modalTitle" class="modal-title-text"></h3>
-                <span class="modal-close">&times;</span>
-            </div>
-            <div id="modalBody" class="modal-body-text">
-            </div>
+    </div> 
+</main>
+
+<div id="doctrinalModal" class="modal-backdrop">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title-text" id="modal-title"></h2>
+            <span class="modal-close" onclick="closeModal()">&times;</span>
         </div>
+        <div class="modal-body-text" id="modal-content">
+            </div>
     </div>
-    
-    <style>
-        /* Stronger, Corrected Accordion Styles to override conflicts */
-        h2.accordion {
-            background-color: #ffffff !important;
-            color: #2d3748 !important;
-            cursor: pointer !important;
-            padding: 22px !important;
-            width: 100% !important;
-            border: 1px solid #e2e8f0 !important;
-            border-radius: 8px !important;
-            text-align: left !important;
-            font-size: 1.5rem !important;
-            font-weight: 700 !important;
-            margin-top: 16px !important;
-            margin-bottom: 0 !important;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease !important;
-            position: relative;
-        }
-        h2.accordion:after {
-            content: '\+';
-            font-size: 2rem;
-            color: #718096;
-            float: right;
-            margin-left: 5px;
-            line-height: 1.5rem;
-            position: absolute;
-            right: 22px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        h2.accordion.active:after {
-            content: "\2212";
-        }
-                 div.panel {
-            padding: 0 22px;
-            background-color: white;
-            border: 1px solid #e2e8f0;
-            border-top: 0;
-            border-radius: 0 0 8px 8px;
-            
-            position: relative;
-            max-height: 0; 
-            overflow: hidden;
-            
-            transition: max-height 0.4s ease-out;
-            margin-bottom: 16px;
-                 }
-         /* Modal and Card Styles (Refined) */
-        .modal-backdrop {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.6);
-            animation: fadeIn 0.3s;
-        }
-        .modal-content {
-            background-color: #ffffff;
-            margin: 10% auto;
-            padding: 25px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 700px;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            animation: slideIn 0.4s ease-out;
-        }
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
-        }
-        .modal-title-text { color: #2d3748; font-size: 1.75rem; font-weight: 700; margin: 0; }
-        .modal-close { color: #aaa; font-size: 32px; font-weight: bold; cursor: pointer; }
-        .modal-close:hover, .modal-close:focus { color: #1a202c; }
-        .modal-body-text { font-size: 1.1rem; color: #4a5568; }
-        .modal-body-text p { margin-bottom: 15px; }
-        
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideIn { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        
-    </style>
-        <script>
-        document.addEventListener("DOMContentLoaded", () => {
-        
-            // MODAL AND INTERACTIVE CARD LOGIC
-            const modal = document.getElementById("doctrinalModal");
-            const modalTitle = document.getElementById("modalTitle");
-            const modalBody = document.getElementById("modalBody");
-            const closeModal = document.querySelector(".modal-close");
-            const interactiveCards = document.querySelectorAll(".interactive-card");
-
-            const closeTheModal = () => {
-                modal.style.display = "none";
-            }
-            
-            closeModal.addEventListener("click", closeTheModal);
-            window.addEventListener("click", (event) => {
-                if (event.target == modal) {
-                    closeTheModal();
-                }
-            });
-
-            interactiveCards.forEach(card => {
-                card.addEventListener("click", () => {
-                    const title = card.getAttribute("data-title");
-                    const content = card.getAttribute("data-content");
-                    modalTitle.textContent = title;
-                    modalBody.innerHTML = content;
-                    modal.style.display = "block";
-                });
-            });
-
-            // ACCORDION FUNCTIONALITY (The Final, Clean Engine)
-            const accordions = document.querySelectorAll("h2.accordion");
-            accordions.forEach(acc => {
-                acc.addEventListener("click", function() {
-                    this.classList.toggle("active");
-                    const panel = this.nextElementSibling;
-                    if (panel && panel.classList.contains("panel")) {
-                        if (panel.style.maxHeight) {
-                            panel.style.maxHeight = null;
-                        } else {
-                            panel.style.maxHeight = panel.scrollHeight + "px";
-                        }
-                    }
-                });
-            });
-
-            // LANGUAGE LOGIC
-            // (Assuming languageData is defined elsewhere, this is the remaining logic)
-            let currentLang = "en";
-
-            function updateLanguage(lang) {
-                if (!languageData[lang]) {
-                    console.error("Language data not found for: " + lang);
-                    return;
-                }
-                
-                currentLang = lang;
-                for (const id in languageData[lang]) {
-                    const element = document.getElementById(id);
-                    if (element) {
-                        element.innerHTML = languageData[lang][id];
-                    }
-                }
-                
-                const langSelect = document.getElementById("lang-switch");
-                if (langSelect) {
-                    langSelect.value = lang;
-                }
-            }
-
-            const langSelect = document.getElementById("lang-switch");
-            if (langSelect) {
-                langSelect.addEventListener("change", (e) => {
-                    updateLanguage(e.target.value);
-                });
-            }
-
-            const urlParams = new URLSearchParams(window.location.search);
-            const langFromURL = urlParams.get('lang');
-            if (langFromURL && languageData[langFromURL]) {
-                currentLang = langFromURL;
-            } else {
-                currentLang = "en";
-            }
-            
-            updateLanguage(currentLang);
-
-        });
-        </script>
-    // LANGUAGE SWITCHING FUNCTIONALITY (REVISED)
-            const languageData = {
-            "en": {
-                        "header-title": "Management Architecture & Organogram",
-                "header-lead": "The Inversion of Authority Doctrine: Competence (Al-Ameen Capability Score) supersedes Title and Tenure.",
-                "section1-title": "1. The Lighthouse Doctrine (The 'Why')",
-                "section1-p1": "The core philosophy. Based on <strong>Haqq</strong> (Truth), <strong>Adl</strong> (Justice), and <strong>Ihsan</strong> (Excellence).",
-                "section2-title": "2. The Common Heart Doctrine (The 'How')",
-                "section2-p1": "The rejection of the 'idiot' academic models. Cites <strong>Sahih al-Bukhari 4425</strong> (The Ship Parable) and <strong>Qur'an 24:30</strong> (Lowering the Gaze) as guardrails against internal corruption. Defines the <strong>Ghuraba Doctrine</strong> (Strangers).",
-                "section3-title": "3. The Helix Model (The Structure)",
-                "section3-p1": "The core organogram. Based on the <strong>Inversion of Authority</strong> (competence over title) and our 'Broad Organisation' model. Mandates the <strong>'Hierarchy of Competent Tenure'</strong> (the 'North' model).",
-                "section4-title": "4. Foundational Leadership Models (The Guardrails)",
-                "section4-h1": "Core Models",
-                "section4-l1": "<strong>Jim Collins: Level 5 Leadership:</strong> The 'Faithful Steward' (100-Year Legacy).",
-                "section4-l2": "<strong>The Heraclius Test:</strong> Choosing Haqq over political comfort.",
-                "section4-l3": "<strong>Maxwell Level 1 (Positional) Ban:</strong> The 'Utawarerumono Failure.'",
-                "section4-l4": "<strong>The 'Third Path' (Diyyah):</strong> The guardrail against 'idiot' binary thinking.",
-                "section4-h2": "The 'Westeros Failure' (Warning Archetypes)",
-                "section4-c1-h": "The Tyrants",
-                "section4-c1-p": "(Maegor & Aerys)",
-                "section4-c2-h": "The Moral Fools",
-                "section4-c2-p": "(Ned & Robb Stark)",
-                "section4-c3-h": "Emotional Operators",
-                "section4-c3-p": "(Catelyn Stark)",
-                "section4-c4-h": "The Failed T&D",
-                "section4-c4-p": "(Sansa & Septa Mordane)",
-                "section4-h3": "The 'Bank Failure' (Modern Archetypes)",
-                "section4-c5-h": "The 'Maester Pycelle'",
-                "section4-c5-p": "(The 14-Year AMD)",
-                "section4-c6-h": "The 'False King'",
-                "section4-c6-p": "(The 3-Year MD)",
-                "section4-h4": "The 'Steve Jobs Disaster' (The Flawed Visionary)",
-                "section4-p1": "The 'Westeros Failure' of the modern world. The 'idiot' board ('Maester Pycelles') fired the 'Tyrant' Visionary (Jobs, acting as a 'Maegor'). It was a total failure of the <strong>Tackle Defense Protocol (TDM)</strong>. Our <strong>HR Moral Auditor (Section 6)</strong> is the 'Third Path' to prevent this, 'Tackling' the board's idiocy *and* the Visionary's behavior, while protecting the Vision.",
-                "section5-title": "5. The ACEM Doctrine (The Standard)",
-                "section5-p1": "The Al-Ameen Capability Evolution Model (ACEM) is the core 'Maester' standard for our 'Hierarchy of Competent Tenure.'",
-                "section5-c1-h": "Environment Block",
-                "section5-c2-h": "Individual Block",
-                "section5-c3-h": "Skill & Tool Block",
-                "section5-c4-h": "Alignment Block",
-                "section6-title": "6-8. Operational Ranks & Pillars (The Implementation)",
-                "section6-h1": "The 'HR Moral Auditor' (The 'Bypass Authority')",
-                "section6-p1": "The core 'Maester' of the doctrine. This role has Director-level 'Bypass Authority' to 'Tackle' (Section 9) any member, at any level, for 'Contextual' violations (like arrogance, or 'False King' idiocy) based on the <strong>JiMini Window (Section 23)</strong>. They wear the <strong>Grey Coat</strong>.",
-                "section6-h2": "Ranks (The 'Hierarchy of Competent Tenure')",
-                "section6-p2": "Ranks are based *only* on the <strong>ACEM (Section 5)</strong> score.",
-                "section6-l1": "<strong>Chief Versatilist (Head Maester):</strong> The top Specialist (200k Taka).",
-                "section6-l2": "<strong>Deputy Versatilist (Operational Heir):</strong> The 2nd highest ACEM score (160k Taka).",
-                "section6-l3": "<strong>'Versatilist' (88k Ideal):</strong> The *starting point* of the Versatilist track (88k Taka).",
-                "section6-l4": "<strong>'Maester' (Specialist):</strong> Master of *one* domain (e.g., Head Room Coordinator) (65k Taka).",
-                "section6-l5": "<strong>'Specialist' (Foundational):</strong> The standard competent Specialist (45k Taka).",
-                "section6-l6": "<strong>'Trainee Specialist':</strong> The entry-level 'Dignified Roll' (30k Taka).",
-                "section6-h3": "Financial Pillars (The 'Strong Believer' Model)",
-                "section6-l7": "<strong>The Dignity Wage:</strong> Year 1 salaries based on competence, *not* tenure.",
-                "section6-l8": "<strong>Mutual Crisis Fund:</strong> The 'Common Heart' safety net.",
-                "section6-l9": "<strong>Versatility Pay:</strong> The 'Broad Organisation' model, rewarding 'square footage' (skill variety).",
-                "section9-title": "9. Ground Theory: The Tackle Defense Protocol (TDM)",
-                "section9-p1": "The core principle of tackling the <strong>'Enemy from Within'</strong> (<em>nafs</em>) first. This is the <strong>HR Moral Auditor's</strong> primary protocol, built to 'Tackle' and retrain any 'Maester Pycelle' (Section 4), 'False King' (Section 4), or 'False Mask' (Section 23) archetype.",
-                "section10-title": "10. Strategic Positioning Frameworks (The SPACE Matrix)",
-                "section10-p1": "The **SPACE Matrix** provides the high-level positioning: Internal Strength vs. External Threat, defining the strategic mandate.",
-                "section10-c1-h": "The SPACE Matrix Equation",
-                "section11-title": "11. Internal Coherence Frameworks (The McKinsey 7S Model)",
-                "section11-p1": "The **Internal Alignment Guardrail** ensures all elements of the Guild enforce the Lighthouse Doctrine.",
-                "section11-c1-h": "The 7S Alignment Mandate",
-                "section12-title": "12. External Competitive Frameworks (Porter's Five Forces)",
-                "section12-p1": "The granular analysis of external threats, linking directly to the **Tackle Defense Protocol**.",
-                "section12-c1-h": "Threats to the Market",
-                "section12-c2-h": "Threats to Profitability",
-                "section13-title": "13. Project Risk Frameworks (The NTCP Diamond Model)",
-                "section13-p1": "The doctrinal early warning system for project complexity and risk, ensuring project failure does not compromise the Guild's financial stability.",
-                "section13-c1-h": "The NTCP Diamond Model (Shenhar & Dvir)",
-                "section14-title": "14. Structural Evolution (The Transformation Model Refinement)",
-                "section14-p1": "Refining the $\text{McKinsey 7S}$ by validating alignment against the external world and actual results.",
-                "section14-c1-h": "The Transformation Model (COD) vs. McKinsey 7S",
-                "section15-title": "15. Competence Standard (The IPMA Alignment)",
-                "section15-p1": "Providing external, globally recognized validation for the structural hierarchy of the $\text{ACEM}$ and Specialist Ranks.",
-                "section15-c1-h": "The IPMA Competence Baseline",
-                "section16-title": "16. Competitor Strategy Analysis (Porter's 4 Drivers)",
-                "section16-p1": "The dynamic, forward-looking analysis of competitors' anticipated moves, supporting the <strong>Tackle Defense Protocol</strong>.",
-                "section16-c1-h": "Porter's Four Drivers",
-                "section17-title": "17. Strategic Inquiry (Simon's 7 Strategy Questions)",
-                "section17-p1": "A mandatory quarterly self-audit for leadership to ensure continuous intellectual humility and strategic non-complacency ($\text{Hikmah}$).",
-                "section17-c1-h": "Simon's 7 Strategy Questions",
-                "section18-title": "18. Virtue and Excellence (VIA Classifications)",
-                "section18-p1": "Reinforcing the <strong>Individual Block</strong> of the $\text{ACEM}$ with a comprehensive, non-religious taxonomy for character assessment.",
-                "section18-c1-h": "Peterson & Seligman VIA Classifications",
-                "section19-title": "19. Transformational Leadership Core Competencies",
-                "section19-p1": "Validating the skills required for the <strong>Universalist Rank</strong> and <strong>Project Lead</strong> (Level 4/5 Leaders).",
-                "section19-c1-h": "The Five Transformational Competencies",
-                "section20-title": "20. Intangibles & Competitive Advantage (CA)",
-                "section20-p1": "Formalizing the measurement of <strong>Competitive Advantage ($\text{CA}$)</strong> that supports the Guild's positioning in the <strong>SPACE Matrix</strong>.",
-                "section20-c1-h": "The Four Intangible Drivers of CA",
-                "section21-title": "21. The Abu Bakr Test (The Maester's Role)",
-                "section21-p1": "The core principle of intellectual and professional humility. The **Maester**'s role is not to be a boss, but a **specialized mentor** who ensures the work meets the $\text{Ihsan}$ (Excellence) standard.",
-                "section21-c1-h": "The Test of Competent Humility",
-                "section22-title": "22. The 100-Year Legacy (The Final Guardrail)",
-                "section22-p1": "The <strong>Lighthouse Doctrine</strong> is built to endure, ensuring that the Guild is protected from the failures of inherited power, the **False King** (Section 4), and the ego of the Founder.",
-                "section22-c1-h": "The Legacy Guardrail",
-                "section23-title": "23. The Doctrinal Coat System (The Visible Persona)",
-                "section23-p1": "We reject 'idiot' dress codes. We enforce a system of **Dignified Coats** that represent the wearer's 'Maester' domain and commitment to the Objective Standard. A shirt is function; a coat is persona.",
-                "section23-h1": "Psychographic Personas: The JiMini Window",
-                "section23-p2": "Our 'Tackle Defense' tool for the HR Moral Auditor. This maps the <em>true character</em> of all personnel to identify the 'enemy from within' (the 'False Mask').",
-                "section23-c1-h": "Open Virtue",
-                "section23-c2-h": "Hidden Virtue",
-                "section23-c3-h": "Open Desecrator",
-                "section23-c4-h": "False Mask"
-            },
-    
+</div>
+<script>
+    const languageData = {
+        "en": {
+            "header-title": "Management Architecture & Organogram",
+            "header-lead": "The Inversion of Authority Doctrine: Competence (Al-Ameen Capability Score) supersedes Title and Tenure.",
+            "section1-title": "1. The Lighthouse Doctrine (The 'Why')",
+            "section1-p1": "The core philosophy. Based on <strong>Haqq</strong> (Truth), <strong>Adl</strong> (Justice), and <strong>Ihsan</strong> (Excellence).",
+            "section2-title": "2. The Common Heart Doctrine (The 'How')",
+            "section2-p1": "The rejection of the 'idiot' academic models. Cites <strong>Sahih al-Bukhari 4425</strong> (The Ship Parable) and <strong>Qur'an 24:30</strong> (Lowering the Gaze) as guardrails against internal corruption. Defines the <strong>Ghuraba Doctrine</strong> (Strangers).",
+            "section3-title": "3. The Helix Model (The Structure)",
+            "section3-p1": "The core organogram. Based on the <strong>Inversion of Authority</strong> (competence over title) and our 'Broad Organisation' model. Mandates the <strong>'Hierarchy of Competent Tenure'</strong> (the 'North' model).",
+            "section4-title": "4. Foundational Leadership Models (The Guardrails)",
+            "section4-h1": "Core Models",
+            "section4-l1": "<strong>Jim Collins: Level 5 Leadership:</strong> The 'Faithful Steward' (100-Year Legacy).",
+            "section4-l2": "<strong>The Heraclius Test:</strong> Choosing Haqq over political comfort.",
+            "section4-l3": "<strong>Maxwell Level 1 (Positional) Ban:</strong> The 'Utawarerumono Failure.'",
+            "section4-l4": "<strong>The 'Third Path' (Diyyah):</strong> The guardrail against 'idiot' binary thinking.",
+            "section4-h2": "The 'Westeros Failure' (Warning Archetypes)",
+            "section4-c1-h": "The Tyrants",
+            "section4-c1-p": "(Maegor & Aerys)",
+            "section4-c2-h": "The Moral Fools",
+            "section4-c2-p": "(Ned & Robb Stark)",
+            "section4-c3-h": "Emotional Operators",
+            "section4-c3-p": "(Catelyn Stark)",
+            "section4-c4-h": "The Failed T&D",
+            "section4-c4-p": "(Sansa & Septa Mordane)",
+            "section4-h3": "The 'Bank Failure' (Modern Archetypes)",
+            "section4-c5-h": "The 'Maester Pycelle'",
+            "section4-c5-p": "(The 14-Year AMD)",
+            "section4-c6-h": "The 'False King'",
+            "section4-c6-p": "(The 3-Year MD)",
+            "section4-h4": "The 'Steve Jobs Disaster' (The Flawed Visionary)",
+            "section4-p1": "The 'Westeros Failure' of the modern world. The 'idiot' board ('Maester Pycelles') fired the 'Tyrant' Visionary (Jobs, acting as a 'Maegor'). It was a total failure of the <strong>Tackle Defense Protocol (TDM)</strong>. Our <strong>HR Moral Auditor (Section 6)</strong> is the 'Third Path' to prevent this, 'Tackling' the board's idiocy *and* the Visionary's behavior, while protecting the Vision.",
+            "section5-title": "5. The ACEM Doctrine (The Standard)",
+            "section5-p1": "The Al-Ameen Capability Evolution Model (ACEM) is the core 'Maester' standard for our 'Hierarchy of Competent Tenure.'",
+            "section5-c1-h": "Environment Block",
+            "section5-c2-h": "Individual Block",
+            "section5-c3-h": "Skill & Tool Block",
+            "section5-c4-h": "Alignment Block",
+            "section6-title": "6-8. Operational Ranks & Pillars (The Implementation)",
+            "section6-h1": "The 'HR Moral Auditor' (The 'Bypass Authority')",
+            "section6-p1": "The core 'Maester' of the doctrine. This role has Director-level 'Bypass Authority' to 'Tackle' (Section 9) any member, at any level, for 'Contextual' violations (like arrogance, or 'False King' idiocy) based on the <strong>JiMini Window (Section 23)</strong>. They wear the <strong>Grey Coat</strong>.",
+            "section6-h2": "Ranks (The 'Hierarchy of Competent Tenure')",
+            "section6-p2": "Ranks are based *only* on the <strong>ACEM (Section 5)</strong> score.",
+            "section6-l1": "<strong>Chief Versatilist (Head Maester):</strong> The top Specialist (200k Taka).",
+            "section6-l2": "<strong>Deputy Versatilist (Operational Heir):</strong> The 2nd highest ACEM score (160k Taka).",
+            "section6-l3": "<strong>'Versatilist' (88k Ideal):</strong> The *starting point* of the Versatilist track (88k Taka).",
+            "section6-l4": "<strong>'Maester' (Specialist):</strong> Master of *one* domain (e.g., Head Room Coordinator) (65k Taka).",
+            "section6-l5": "<strong>'Specialist' (Foundational):</strong> The standard competent Specialist (45k Taka).",
+            "section6-l6": "<strong>'Trainee Specialist':</strong> The entry-level 'Dignified Roll' (30k Taka).",
+            "section6-h3": "Financial Pillars (The 'Strong Believer' Model)",
+            "section6-l7": "<strong>The Dignity Wage:</strong> Year 1 salaries based on competence, *not* tenure.",
+            "section6-l8": "<strong>Mutual Crisis Fund:</strong> The 'Common Heart' safety net.",
+            "section6-l9": "<strong>Versatility Pay:</strong> The 'Broad Organisation' model, rewarding 'square footage' (skill variety).",
+            "section9-title": "9. Ground Theory: The Tackle Defense Protocol (TDM)",
+            "section9-p1": "The core principle of tackling the <strong>'Enemy from Within'</strong> (<em>nafs</em>) first. This is the <strong>HR Moral Auditor's</strong> primary protocol, built to 'Tackle' and retrain any 'Maester Pycelle' (Section 4), 'False King' (Section 4), or 'False Mask' (Section 23) archetype.",
+            "section10-title": "10. Strategic Positioning Frameworks (The SPACE Matrix)",
+            "section10-p1": "The **SPACE Matrix** provides the high-level positioning: Internal Strength vs. External Threat, defining the strategic mandate.",
+            "section10-c1-h": "The SPACE Matrix Equation",
+            "section11-title": "11. Internal Coherence Frameworks (The McKinsey 7S Model)",
+            "section11-p1": "The **Internal Alignment Guardrail** ensures all elements of the Guild enforce the Lighthouse Doctrine.",
+            "section11-c1-h": "The 7S Alignment Mandate",
+            "section12-title": "12. External Competitive Frameworks (Porter's Five Forces)",
+            "section12-p1": "The granular analysis of external threats, linking directly to the **Tackle Defense Protocol**.",
+            "section12-c1-h": "Threats to the Market",
+            "section12-c2-h": "Threats to Profitability",
+            "section13-title": "13. Project Risk Frameworks (The NTCP Diamond Model)",
+            "section13-p1": "The doctrinal early warning system for project complexity and risk, ensuring project failure does not compromise the Guild's financial stability.",
+            "section13-c1-h": "The NTCP Diamond Model (Shenhar & Dvir)",
+            "section14-title": "14. Structural Evolution (The Transformation Model Refinement)",
+            "section14-p1": "Refining the $\text{McKinsey 7S}$ by validating alignment against the external world and actual results.",
+            "section14-c1-h": "The Transformation Model (COD) vs. McKinsey 7S",
+            "section15-title": "15. Competence Standard (The IPMA Alignment)",
+            "section15-p1": "Providing external, globally recognized validation for the structural hierarchy of the $\text{ACEM}$ and Specialist Ranks.",
+            "section15-c1-h": "The IPMA Competence Baseline",
+            "section16-title": "16. Competitor Strategy Analysis (Porter's 4 Drivers)",
+            "section16-p1": "The dynamic, forward-looking analysis of competitors' anticipated moves, supporting the <strong>Tackle Defense Protocol</strong>.",
+            "section16-c1-h": "Porter's Four Drivers",
+            "section17-title": "17. Strategic Inquiry (Simon's 7 Strategy Questions)",
+            "section17-p1": "A mandatory quarterly self-audit for leadership to ensure continuous intellectual humility and strategic non-complacency ($\text{Hikmah}$).",
+            "section17-c1-h": "Simon's 7 Strategy Questions",
+            "section18-title": "18. Virtue and Excellence (VIA Classifications)",
+            "section18-p1": "Reinforcing the <strong>Individual Block</strong> of the $\text{ACEM}$ with a comprehensive, non-religious taxonomy for character assessment.",
+            "section18-c1-h": "Peterson & Seligman VIA Classifications",
+            "section19-title": "19. Transformational Leadership Core Competencies",
+            "section19-p1": "Validating the skills required for the <strong>Universalist Rank</strong> and <strong>Project Lead</strong> (Level 4/5 Leaders).",
+            "section19-c1-h": "The Five Transformational Competencies",
+            "section20-title": "20. Intangibles & Competitive Advantage (CA)",
+            "section20-p1": "Formalizing the measurement of <strong>Competitive Advantage ($\text{CA}$)</strong> that supports the Guild's positioning in the <strong>SPACE Matrix</strong>.",
+            "section20-c1-h": "The Four Intangible Drivers of CA",
+            "section21-title": "21. The Abu Bakr Test (The Maester's Role)",
+            "section21-p1": "The core principle of intellectual and professional humility. The **Maester**'s role is not to be a boss, but a **specialized mentor** who ensures the work meets the $\text{Ihsan}$ (Excellence) standard.",
+            "section21-c1-h": "The Test of Competent Humility",
+            "section22-title": "22. The 100-Year Legacy (The Final Guardrail)",
+            "section22-p1": "The <strong>Lighthouse Doctrine</strong> is built to endure, ensuring that the Guild is protected from the failures of inherited power, the **False King** (Section 4), and the ego of the Founder.",
+            "section22-c1-h": "The Legacy Guardrail",
+            "section23-title": "23. The Doctrinal Coat System (The Visible Persona)",
+            "section23-p1": "We reject 'idiot' dress codes. We enforce a system of **Dignified Coats** that represent the wearer's 'Maester' domain and commitment to the Objective Standard. A shirt is function; a coat is persona.",
+            "section23-h1": "Psychographic Personas: The JiMini Window",
+            "section23-p2": "Our 'Tackle Defense' tool for the HR Moral Auditor. This maps the <em>true character</em> of all personnel to identify the 'enemy from within' (the 'False Mask').",
+            "section23-c1-h": "Open Virtue",
+            "section23-c2-h": "Hidden Virtue",
+            "section23-c3-h": "Open Desecrator",
+            "section23-c4-h": "False Mask"
+        },
             "bn": {
-                        "header-title": "গুরাবা মতবাদ: ব্যবস্থাপনা ও নেতৃত্ব",
-                "header-lead": "কর্তৃত্বের উল্টোপথে মতবাদ: পদবি ও কার্যকালের চেয়ে দক্ষতা (আল-আমিন সক্ষমতা স্কোর) শ্রেষ্ঠ।",
-                "section1-title": "১. বাতিঘর মতবাদ ('কেন')",
-                "section1-p1": "মূল দর্শন। <strong>হক</strong> (সত্য), <strong>আদল</strong> (ন্যায়বিচার), এবং <strong>ইহসান</strong> (উৎকর্ষ) এর উপর ভিত্তি করে।",
-                "section2-title": "২. সাধারণ হৃদয় মতবাদ ('কীভাবে')",
-                "section2-p1": "“মূর্খ” একাডেমিক মডেল প্রত্যাখ্যান। <strong>সহীহ বুখারী ৪৪২৫</strong> (নৌকার উপমা) এবং <strong>কুরআন ২৪:৩০</strong> (দৃষ্টি নিম্নগামী রাখা) কে অভ্যন্তরীণ দুর্নীতির বিরুদ্ধে রক্ষাকবচ হিসেবে উল্লেখ করা হয়েছে। <strong>গুরাবা মতবাদ</strong> (আগন্তুক) সংজ্ঞায়িত করা হয়েছে।",
-                "section3-title": "৩. হেলিক্স মডেল (কাঠামো)",
-                "section3-p1": "মূল সংগঠন-চিত্র। <strong>কর্তৃত্বের উল্টোপথে</strong> (পদবির চেয়ে দক্ষতা) এবং আমাদের “প্রশস্ত সংগঠন” মডেলের উপর ভিত্তি করে। <strong>“দক্ষ কার্যকালের ক্রম”</strong> ('উত্তর' মডেল) বাধ্যতামূলক করে।",
-                "section4-title": "৪. ভিত্তিগত নেতৃত্ব মডেল (রক্ষাকবচ)",
-                "section4-h1": "মূল মডেল",
-                "section4-l1": "<strong>জিম কলিন্স: লেভেল ৫ নেতৃত্ব:</strong> “বিশ্বস্ত তত্ত্বাবধায়ক” (১০০ বছরের লিগ্যাসি)।",
-                "section4-l2": "<strong>হিরাক্লিয়াস পরীক্ষা:</strong> রাজনৈতিক স্বাচ্ছন্দ্যের চেয়ে হক (সত্য) নির্বাচন।",
-                "section4-l3": "<strong>ম্যাক্সওয়েল লেভেল ১ (পজিশনাল) নিষিদ্ধ:</strong> “উতাওয়ারেরুমোনো ব্যর্থতা”।",
-                "section4-l4": "<strong>“তৃতীয় পথ” (দিয়াহ):</strong> “মূর্খ” বাইনারি চিন্তাভাবনার বিরুদ্ধে রক্ষাকবচ।",
-                "section4-h2": "“ওয়েস্টেরোস ব্যর্থতা” (সতর্ককারী আর্কিটাইপ)",
-                "section4-c1-h": "স্বৈরশাসক",
-                "section4-c1-p": "(মেগোর ও এইরিস)",
-                "section4-c2-h": "নৈতিক মূর্খ",
-                "section4-c2-p": "(নেড ও রব স্টার্ক)",
-                "section4-c3-h": "আবেগপ্রবণ অপারেটর",
-                "section4-c3-p": "(ক্যাটলিন স্টার্ক)",
-                "section4-c4-h": "ব্যর্থ টি অ্যান্ড ডি",
-                "section4-c4-p": "(স্যানসা ও সেপটা মোরডানে)",
-                "section4-h3": "“ব্যাংক ব্যর্থতা” (আধুনিক আর্কিটাইপ)",
-                "section4-c5-h": "“মায়েস্টার পাইসেল”",
-                "section4-c5-p": "(১৪-বছরের এএমডি)",
-                "section4-c6-h": "“মিথ্যা রাজা”",
-                "section4-c6-p": "(৩-বছরের এমডি)",
-                "section4-h4": "“স্টিভ জবস দুর্যোগ” (ত্রুটিপূর্ণ স্বপ্নদর্শী)",
-                "section4-p1": "আধুনিক বিশ্বের “ওয়েস্টেরোস ব্যর্থতা”। “মূর্খ” বোর্ড (“মায়েস্টার পাইসেল”) “স্বৈরশাসক” স্বপ্নদ্রষ্টা (জবস, যিনি মেগোরের মতো আচরণ করেন) কে বরখাস্ত করে। এটি <strong>ট্যাকল ডিফেন্স প্রোটোকল (টিডিএম)</strong> এর সম্পূর্ণ ব্যর্থতা ছিল। আমাদের <strong>এইচআর নৈতিক অডিটর (ধারা ৬)</strong> এটি প্রতিরোধের “তৃতীয় পথ” – যা বোর্ডের মূর্খতা *এবং* স্বপ্নদ্রষ্টার আচরণকে “ট্যাকল” করে, একই সাথে স্বপ্নকে রক্ষা করে।",
-                "section5-title": "৫. এসিইএম মতবাদ (মান)",
-                "section5-p1": "আল-আমিন ক্যাপাবিলিটি ইভোলিউশন মডেল (এসিইএম) হল আমাদের “দক্ষ কার্যকালের ক্রম”-এর মূল “মায়েস্টার” মানদণ্ড।",
-                "section5-c1-h": "পরিবেশ ব্লক",
-                "section5-c2-h": "ব্যক্তিগত ব্লক",
-                "section5-c3-h": "দক্ষতা ও সরঞ্জাম ব্লক",
-                "section5-c4-h": "সারিবদ্ধতা ব্লক",
-                "section6-title": "৬-৮. অপারেশনাল র‌্যাঙ্ক ও ভিত্তি (বাস্তবায়ন)",
-                "section6-h1": "“এইচআর নৈতিক অডিটর” (“বাইপাস কর্তৃপক্ষ”)",
-                "section6-p1": "মতবাদের মূল “মায়েস্টার”। <strong>জিমি মিনি উইন্ডো (ধারা ২৩)</strong> এর ভিত্তিতে “প্রাসঙ্গিক” লঙ্ঘনের (যেমন অহংকার, বা “মিথ্যা রাজা” এর মূর্খতা) জন্য যে কোনো স্তরের যে কোনো সদস্যকে “ট্যাকল” (ধারা ৯) করার জন্য এই ভূমিকার পরিচালক-স্তরের “বাইপাস ক্ষমতা” রয়েছে। তারা <strong>গ্রে কোট</strong> পরিধান করে।",
-                "section6-h2": "র‌্যাঙ্ক (“দক্ষ কার্যকালের ক্রম”)",
-                "section6-p2": "র‌্যাঙ্কগুলি *শুধুমাত্র* <strong>এসিইএম (ধারা ৫)</strong> স্কোরের উপর ভিত্তি করে।",
-                "section6-l1": "<strong>চিফ ভার্সাটাইলিস্ট (প্রধান মায়েস্টার):</strong> শীর্ষ বিশেষজ্ঞ (২০০ হাজার টাকা)।",
-                "section6-l2": "<strong>ডেপুটি ভার্সাটাইলিস্ট (অপারেশনাল উত্তরাধিকারী):</strong> দ্বিতীয় সর্বোচ্চ এসিইএম স্কোর (১৬০ হাজার টাকা)।",
-                "section6-l3": "<strong>“ভার্সাটাইলিস্ট” (৮৮ হাজার আদর্শ):</strong> ভার্সাটাইলিস্ট ট্র্যাকের *শুরুর বিন্দু* (৮৮ হাজার টাকা)।",
-                "section6-l4": "<strong>“মায়েস্টার” (বিশেষজ্ঞ):</strong> *একটি* ডোমেনের মাস্টার (যেমন হেড রুম কো-অর্ডিনেটর) (৬৫ হাজার টাকা)।",
-                "section6-l5": "<strong>“বিশেষজ্ঞ” (ফাউন্ডেশনাল):</strong> স্ট্যান্ডার্ড দক্ষ বিশেষজ্ঞ (৪৫ হাজার টাকা)।",
-                "section6-l6": "<strong>“ট্রেইনি বিশেষজ্ঞ”:</strong> এন্ট্রি-লেভেল “মর্যাদাপূর্ণ রোল” (৩০ হাজার টাকা)।",
-                "section6-h3": "আর্থিক ভিত্তি (“শক্তিশালী বিশ্বাসী” মডেল)",
-                "section6-l7": "<strong>মর্যাদাপূর্ণ মজুরি:</strong> প্রথম বছরের বেতন দক্ষতার উপর ভিত্তি করে, *কার্যকালের* উপর নয়।",
-                "section6-l8": "<strong>পারস্পরিক সংকট তহবিল:</strong> “সাধারণ হৃদয়ের” সুরক্ষা জাল।",
-                "section6-l9": "<strong>ভার্সাটাইলিস্ট বেতন:</strong> “প্রশস্ত সংগঠন” মডেল, যা “স্কোয়ার ফুটেজ” (দক্ষতার বৈচিত্র্য) এর জন্য পুরস্কৃত করে।",
-                "section9-title": "৯. ভূমি তত্ত্ব: ট্যাকল ডিফেন্স প্রোটোকল (টিডিএম)",
-                "section9-p1": "প্রথমত <strong>“ভিতরের শত্রু”</strong> (নফস) কে ট্যাকল করার মূলনীতি। এটি <strong>এইচআর নৈতিক অডিটরের</strong> প্রাথমিক প্রোটোকল, যা যেকোনো “মায়েস্টার পাইসেল” (ধারা ৪), “মিথ্যা রাজা” (ধারা ৪), বা “মিথ্যা মাস্ক” (ধারা ২৩) আর্কিটাইপকে “ট্যাকল” এবং পুনরায় প্রশিক্ষণ দেওয়ার জন্য তৈরি।",
-                "section10-title": "১০. কৌশলগত অবস্থান কাঠামো (SPACE ম্যাট্রিক্স)",
-                "section10-p1": "<strong>SPACE ম্যাট্রিক্স</strong> অভ্যন্তরীণ শক্তি বনাম বাহ্যিক হুমকির উচ্চ-স্তরের অবস্থান সরবরাহ করে, কৌশলগত ম্যান্ডেট সংজ্ঞায়িত করে।",
-                "section10-c1-h": "SPACE ম্যাট্রিক্স সমীকরণ",
-                "section11-title": "১১. অভ্যন্তরীণ সংহতি কাঠামো (ম্যাককিনজি ৭এস মডেল)",
-                "section11-p1": "<strong>অভ্যন্তরীণ সারিবদ্ধতা রক্ষাকবচ</strong> নিশ্চিত করে যে গিল্ডের সমস্ত উপাদান বাতিঘর মতবাদকে প্রয়োগ করে।",
-                "section11-c1-h": "৭এস সারিবদ্ধতা ম্যান্ডেট",
-                "section12-title": "১২. বাহ্যিক প্রতিযোগিতামূলক কাঠামো (পোর্টারের পাঁচটি শক্তি)",
-                "section12-p1": "বাহ্যিক হুমকির দানাদার বিশ্লেষণ, সরাসরি <strong>ট্যাকল ডিফেন্স প্রোটোকলের</strong> সাথে যুক্ত।",
-                "section12-c1-h": "বাজারের প্রতি হুমকি",
-                "section12-c2-h": "লাভজনকতার প্রতি হুমকি",
-                "section13-title": "১৩. প্রকল্প ঝুঁকি কাঠামো (NTCP ডায়মন্ড মডেল)",
-                "section13-p1": "প্রকল্পের জটিলতা এবং ঝুঁকির জন্য মতবাদগত প্রাথমিক সতর্কতা ব্যবস্থা, যা নিশ্চিত করে যে প্রকল্পের ব্যর্থতা গিল্ডের আর্থিক স্থিতিশীলতাকে প্রভাবিত করবে না।",
-                "section13-c1-h": "NTCP ডায়মন্ড মডেল (শেনহার ও দ্বির)",
-                "section14-title": "১৪. কাঠামোগত বিবর্তন (রূপান্তর মডেলের পরিশোধন)",
-                "section14-p1": "বাহ্যিক বিশ্ব এবং প্রকৃত ফলাফলের বিরুদ্ধে সারিবদ্ধতা যাচাই করে $\text{McKinsey 7S}$ এর পরিশোধন।",
-                "section14-c1-h": "রূপান্তর মডেল (COD) বনাম ম্যাককিনজি ৭এস",
-                "section15-title": "১৫. দক্ষতার মান (IPMA সারিবদ্ধতা)",
-                "section15-p1": "$\text{ACEM}$ এবং বিশেষজ্ঞ র‌্যাঙ্কগুলির কাঠামোগত ক্রমের জন্য বাহ্যিক, বিশ্বব্যাপী স্বীকৃত যাচাইকরণ সরবরাহ।",
-                "section15-c1-h": "IPMA দক্ষতা বেসলাইন",
-                "section16-title": "১৬. প্রতিযোগী কৌশল বিশ্লেষণ (পোর্টারের ৪টি ড্রাইভার)",
-                "section16-p1": "প্রতিযোগীদের প্রত্যাশিত পদক্ষেপগুলির গতিশীল, দূরদর্শী বিশ্লেষণ, যা <strong>ট্যাকল ডিফেন্স প্রোটোকলকে</strong> সমর্থন করে।",
-                "section16-c1-h": "পোর্টারের চারটি ড্রাইভার",
-                "section17-title": "১৭. কৌশলগত অনুসন্ধান (সাইমনের ৭টি কৌশলগত প্রশ্ন)",
-                "section17-p1": "নেতৃত্বের জন্য বাধ্যতামূলক ত্রৈমাসিক স্ব-নিরীক্ষা, যাতে ক্রমাগত বৌদ্ধিক বিনয় এবং কৌশলগত অ-আত্মতুষ্টি ($\text{Hikmah}$) নিশ্চিত হয়।",
-                "section17-c1-h": "সাইমনের ৭টি কৌশলগত প্রশ্ন",
-                "section18-title": "১৮. সদ্গুণ ও উৎকর্ষ (VIA শ্রেণীকরণ)",
-                "section18-p1": "চরিত্র মূল্যায়নের জন্য একটি ব্যাপক, অ-ধর্মীয় শ্রেণিবিন্যাস সহ $\text{ACEM}$ এর <strong>ব্যক্তিগত ব্লক</strong> কে শক্তিশালী করা।",
-                "section18-c1-h": "পিটারসন ও সেলিগম্যান ভিআইএ শ্রেণীকরণ",
-                "section19-title": "১৯. রূপান্তরমূলক নেতৃত্বের মূল দক্ষতা",
-                "section19-p1": "<strong>ইউনিভার্সালিস্ট র‌্যাঙ্ক</strong> এবং <strong>প্রকল্প লিড</strong> (লেভেল ৪/৫ লিডার) এর জন্য প্রয়োজনীয় দক্ষতা যাচাই করা।",
-                "section19-c1-h": "পাঁচটি রূপান্তরমূলক দক্ষতা",
-                "section20-title": "২০. অমূল্য সম্পদ ও প্রতিযোগিতামূলক সুবিধা (CA)",
-                "section20-p1": "প্রতিযোগিতামূলক সুবিধা ($\text{CA}$) পরিমাপকে আনুষ্ঠানিক রূপ দেওয়া, যা গিল্ডের অবস্থানকে <strong>SPACE ম্যাট্রিক্সে</strong> সমর্থন করে।",
-                "section20-c1-h": "CA এর চারটি অমূল্য ড্রাইভার",
-                "section21-title": "২১. আবু বকর পরীক্ষা (“মায়েস্টারের” ভূমিকা)",
-                "section21-p1": "বৌদ্ধিক এবং পেশাদার বিনয়ের মূলনীতি। **মায়েস্টার**-এর ভূমিকা বস হওয়া নয়, বরং একজন **বিশেষজ্ঞ পরামর্শদাতা** হওয়া, যিনি নিশ্চিত করেন যে কাজটি $\text{Ihsan}$ (উৎকর্ষ) মান পূরণ করছে।",
-                "section21-c1-h": "দক্ষ বিনয়ের পরীক্ষা",
-                "section22-title": "২২. ১০০ বছরের লিগ্যাসি (চূড়ান্ত রক্ষাকবচ)",
-                "section22-p1": "উত্তরাধিকারসূত্রে প্রাপ্ত ক্ষমতা, **মিথ্যা রাজা** (ধারা ৪), এবং প্রতিষ্ঠাতার অহংকার থেকে গিল্ড সুরক্ষিত আছে তা নিশ্চিত করার জন্য <strong>বাতিঘর মতবাদ</strong> তৈরি করা হয়েছে।",
-                "section22-c1-h": "লিগ্যাসি রক্ষাকবচ",
-                "section23-title": "২৩. মতবাদগত কোট সিস্টেম (দৃশ্যমান ব্যক্তিত্ব)",
-                "section23-p1": "আমরা “মূর্খ” ড্রেস কোড প্রত্যাখ্যান করি। আমরা **মর্যাদাপূর্ণ কোট** এর একটি সিস্টেম প্রয়োগ করি, যা পরিধানকারীর “মায়েস্টার” ডোমেন এবং উদ্দেশ্যমূলক মানের প্রতি অঙ্গীকারকে প্রতিনিধিত্ব করে। শার্ট হল ফাংশন; কোট হল ব্যক্তিত্ব।",
-                "section23-h1": "সাইকোগ্রাফিক ব্যক্তিত্ব: জিমি মিনি উইন্ডো",
-                "section23-p2": "এইচআর নৈতিক অডিটরের জন্য আমাদের “ট্যাকল ডিফেন্স” টুল। এটি “ভিতরের শত্রু” (“মিথ্যা মাস্ক”) সনাক্ত করার জন্য সমস্ত কর্মীদের <em>সত্যিকারের চরিত্র</em> ম্যাপ করে।",
-                "section23-c1-h": "প্রকাশ্য সদ্গুণ",
-                "section23-c2-h": "লুকানো সদ্গুণ",
-                "section23-c3-h": "প্রকাশ্য অপব্যবহারকারী",
-                "section23-c4-h": "মিথ্যা মাস্ক"
+            "header-title": "গুরাবা মতবাদ: ব্যবস্থাপনা ও নেতৃত্ব",
+            "header-lead": "কর্তৃত্বের উল্টোপথে মতবাদ: পদবি ও কার্যকালের চেয়ে দক্ষতা (আল-আমিন সক্ষমতা স্কোর) শ্রেষ্ঠ।",
+            "section1-title": "১. বাতিঘর মতবাদ ('কেন')",
+            "section1-p1": "মূল দর্শন। <strong>হক</strong> (সত্য), <strong>আদল</strong> (ন্যায়বিচার), এবং <strong>ইহসান</strong> (উৎকর্ষ) এর উপর ভিত্তি করে।",
+            "section2-title": "২. সাধারণ হৃদয় মতবাদ ('কীভাবে')",
+            "section2-p1": "“মূর্খ” একাডেমিক মডেল প্রত্যাখ্যান। <strong>সহীহ বুখারী ৪৪২৫</strong> (নৌকার উপমা) এবং <strong>কুরআন ২৪:৩০</strong> (দৃষ্টি নিম্নগামী রাখা) কে অভ্যন্তরীণ দুর্নীতির বিরুদ্ধে রক্ষাকবচ হিসেবে উল্লেখ করা হয়েছে। <strong>গুরাবা মতবাদ</strong> (আগন্তুক) সংজ্ঞায়িত করা হয়েছে।",
+            "section3-title": "৩. হেলিক্স মডেল (কাঠামো)",
+            "section3-p1": "মূল সংগঠন-চিত্র। <strong>কর্তৃত্বের উল্টোপথে</strong> (পদবির চেয়ে দক্ষতা) এবং আমাদের “প্রশস্ত সংগঠন” মডেলের উপর ভিত্তি করে। <strong>“দক্ষ কার্যকালের ক্রম”</strong> ('উত্তর' মডেল) বাধ্যতামূলক করে।",
+            "section4-title": "৪. ভিত্তিগত নেতৃত্ব মডেল (রক্ষাকবচ)",
+            "section4-h1": "মূল মডেল",
+            "section4-l1": "<strong>জিম কলিন্স: লেভেল ৫ নেতৃত্ব:</strong> “বিশ্বস্ত তত্ত্বাবধায়ক” (১০০ বছরের লিগ্যাসি)।",
+            "section4-l2": "<strong>হিরাক্লিয়াস পরীক্ষা:</strong> রাজনৈতিক স্বাচ্ছন্দ্যের চেয়ে হক (সত্য) নির্বাচন।",
+            "section4-l3": "<strong>ম্যাক্সওয়েল লেভেল ১ (পজিশনাল) নিষিদ্ধ:</strong> “উতাওয়ারেরুমোনো ব্যর্থতা”।",
+            "section4-l4": "<strong>“তৃতীয় পথ” (দিয়াহ):</strong> “মূর্খ” বাইনারি চিন্তাভাবনার বিরুদ্ধে রক্ষাকবচ।",
+            "section4-h2": "“ওয়েস্টেরোস ব্যর্থতা” (সতর্ককারী আর্কিটাইপ)",
+            "section4-c1-h": "স্বৈরশাসক",
+            "section4-c1-p": "(মেগোর ও এইরিস)",
+            "section4-c2-h": "নৈতিক মূর্খ",
+            "section4-c2-p": "(নেড ও রব স্টার্ক)",
+            "section4-c3-h": "আবেগপ্রবণ অপারেটর",
+            "section4-c3-p": "(ক্যাটলিন স্টার্ক)",
+            "section4-c4-h": "ব্যর্থ টি অ্যান্ড ডি",
+            "section4-c4-p": "(স্যানসা ও সেপটা মোরডানে)",
+            "section4-h3": "“ব্যাংক ব্যর্থতা” (আধুনিক আর্কিটাইপ)",
+            "section4-c5-h": "“মায়েস্টার পাইসেল”",
+            "section4-c5-p": "(১৪-বছরের এএমডি)",
+            "section4-c6-h": "“মিথ্যা রাজা”",
+            "section4-c6-p": "(৩-বছরের এমডি)",
+            "section4-h4": "“স্টিভ জবস দুর্যোগ” (ত্রুটিপূর্ণ স্বপ্নদর্শী)",
+            "section4-p1": "আধুনিক বিশ্বের “ওয়েস্টেরোস ব্যর্থতা”। “মূর্খ” বোর্ড (“মায়েস্টার পাইসেল”) “স্বৈরশাসক” স্বপ্নদ্রষ্টা (জবস, যিনি মেগোরের মতো আচরণ করেন) কে বরখাস্ত করে। এটি <strong>ট্যাকল ডিফেন্স প্রোটোকল (টিডিএম)</strong> এর সম্পূর্ণ ব্যর্থতা ছিল। আমাদের <strong>এইচআর নৈতিক অডিটর (ধারা ৬)</strong> এটি প্রতিরোধের “তৃতীয় পথ” – যা বোর্ডের মূর্খতা *এবং* স্বপ্নদ্রষ্টার আচরণকে “ট্যাকল” করে, একই সাথে স্বপ্নকে রক্ষা করে।",
+            "section5-title": "৫. এসিইএম মতবাদ (মান)",
+            "section5-p1": "আল-আমিন ক্যাপাবিলিটি ইভোলিউশন মডেল (এসিইএম) হল আমাদের “দক্ষ কার্যকালের ক্রম”-এর মূল “মায়েস্টার” মানদণ্ড।",
+            "section5-c1-h": "পরিবেশ ব্লক",
+            "section5-c2-h": "ব্যক্তিগত ব্লক",
+            "section5-c3-h": "দক্ষতা ও সরঞ্জাম ব্লক",
+            "section5-c4-h": "সারিবদ্ধতা ব্লক",
+            "section6-title": "৬-৮. অপারেশনাল র‌্যাঙ্ক ও ভিত্তি (বাস্তবায়ন)",
+            "section6-h1": "“এইচআর নৈতিক অডিটর” (“বাইপাস কর্তৃপক্ষ”)",
+            "section6-p1": "মতবাদের মূল “মায়েস্টার”। <strong>জিমি মিনি উইন্ডো (ধারা ২৩)</strong> এর ভিত্তিতে “প্রাসঙ্গিক” লঙ্ঘনের (যেমন অহংকার, বা “মিথ্যা রাজা” এর মূর্খতা) জন্য যে কোনো স্তরের যে কোনো সদস্যকে “ট্যাকল” (ধারা ৯) করার জন্য এই ভূমিকার পরিচালক-স্তরের “বাইপাস ক্ষমতা” রয়েছে। তারা <strong>গ্রে কোট</strong> পরিধান করে।",
+            "section6-h2": "র‌্যাঙ্ক (“দক্ষ কার্যকালের ক্রম”)",
+            "section6-p2": "র‌্যাঙ্কগুলি *শুধুমাত্র* <strong>এসিইএম (ধারা ৫)</strong> স্কোরের উপর ভিত্তি করে।",
+            "section6-l1": "<strong>চিফ ভার্সাটাইলিস্ট (প্রধান মায়েস্টার):</strong> শীর্ষ বিশেষজ্ঞ (২০০ হাজার টাকা)।",
+            "section6-l2": "<strong>ডেপুটি ভার্সাটাইলিস্ট (অপারেশনাল উত্তরাধিকারী):</strong> দ্বিতীয় সর্বোচ্চ এসিইএম স্কোর (১৬০ হাজার টাকা)।",
+            "section6-l3": "<strong>“ভার্সাটাইলিস্ট” (৮৮ হাজার আদর্শ):</strong> ভার্সাটাইলিস্ট ট্র্যাকের *শুরুর বিন্দু* (৮৮ হাজার টাকা)।",
+            "section6-l4": "<strong>“মায়েস্টার” (বিশেষজ্ঞ):</strong> *একটি* ডোমেনের মাস্টার (যেমন হেড রুম কো-অর্ডিনেটর) (৬৫ হাজার টাকা)।",
+            "section6-l5": "<strong>“বিশেষজ্ঞ” (ফাউন্ডেশনাল):</strong> স্ট্যান্ডার্ড দক্ষ বিশেষজ্ঞ (৪৫ হাজার টাকা)।",
+            "section6-l6": "<strong>“ট্রেইনি বিশেষজ্ঞ”:</strong> এন্ট্রি-লেভেল “মর্যাদাপূর্ণ রোল” (৩০ হাজার টাকা)।",
+            "section6-h3": "আর্থিক ভিত্তি (“শক্তিশালী বিশ্বাসী” মডেল)",
+            "section6-l7": "<strong>মর্যাদাপূর্ণ মজুরি:</strong> প্রথম বছরের বেতন দক্ষতার উপর ভিত্তি করে, *কার্যকালের* উপর নয়।",
+            "section6-l8": "<strong>পারস্পরিক সংকট তহবিল:</strong> “সাধারণ হৃদয়ের” সুরক্ষা জাল।",
+            "section6-l9": "<strong>ভার্সাটাইলিস্ট বেতন:</strong> “প্রশস্ত সংগঠন” মডেল, যা “স্কোয়ার ফুটেজ” (দক্ষতার বৈচিত্র্য) এর জন্য পুরস্কৃত করে।",
+            "section9-title": "৯. ভূমি তত্ত্ব: ট্যাকল ডিফেন্স প্রোটোকল (টিডিএম)",
+            "section9-p1": "প্রথমত <strong>“ভিতরের শত্রু”</strong> (নফস) কে ট্যাকল করার মূলনীতি। এটি <strong>এইচআর নৈতিক অডিটরের</strong> প্রাথমিক প্রোটোকল, যা যেকোনো “মায়েস্টার পাইসেল” (ধারা ৪), “মিথ্যা রাজা” (ধারা ৪), বা “মিথ্যা মাস্ক” (ধারা ২৩) আর্কিটাইপকে “ট্যাকল” এবং পুনরায় প্রশিক্ষণ দেওয়ার জন্য তৈরি।",
+            "section10-title": "১০. কৌশলগত অবস্থান কাঠামো (SPACE ম্যাট্রিক্স)",
+            "section10-p1": "<strong>SPACE ম্যাট্রিক্স</strong> অভ্যন্তরীণ শক্তি বনাম বাহ্যিক হুমকির উচ্চ-স্তরের অবস্থান সরবরাহ করে, কৌশলগত ম্যান্ডেট সংজ্ঞায়িত করে।",
+            "section10-c1-h": "SPACE ম্যাট্রিক্স সমীকরণ",
+            "section11-title": "১১. অভ্যন্তরীণ সংহতি কাঠামো (ম্যাককিনজি ৭এস মডেল)",
+            "section11-p1": "<strong>অভ্যন্তরীণ সারিবদ্ধতা রক্ষাকবচ</strong> নিশ্চিত করে যে গিল্ডের সমস্ত উপাদান বাতিঘর মতবাদকে প্রয়োগ করে।",
+            "section11-c1-h": "৭এস সারিবদ্ধতা ম্যান্ডেট",
+            "section12-title": "১২. বাহ্যিক প্রতিযোগিতামূলক কাঠামো (পোর্টারের পাঁচটি শক্তি)",
+            "section12-p1": "বাহ্যিক হুমকির দানাদার বিশ্লেষণ, সরাসরি <strong>ট্যাকল ডিফেন্স প্রোটোকলের</strong> সাথে যুক্ত।",
+            "section12-c1-h": "বাজারের প্রতি হুমকি",
+            "section12-c2-h": "লাভজনকতার প্রতি হুমকি",
+            "section13-title": "১৩. প্রকল্প ঝুঁকি কাঠামো (NTCP ডায়মন্ড মডেল)",
+            "section13-p1": "প্রকল্পের জটিলতা এবং ঝুঁকির জন্য মতবাদগত প্রাথমিক সতর্কতা ব্যবস্থা, যা নিশ্চিত করে যে প্রকল্পের ব্যর্থতা গিল্ডের আর্থিক স্থিতিশীলতাকে প্রভাবিত করবে না।",
+            "section13-c1-h": "NTCP ডায়মন্ড মডেল (শেনহার ও দ্বির)",
+            "section14-title": "১৪. কাঠামোগত বিবর্তন (রূপান্তর মডেলের পরিশোধন)",
+            "section14-p1": "বাহ্যিক বিশ্ব এবং প্রকৃত ফলাফলের বিরুদ্ধে সারিবদ্ধতা যাচাই করে $\text{McKinsey 7S}$ এর পরিশোধন।",
+            "section14-c1-h": "রূপান্তর মডেল (COD) বনাম ম্যাককিনজি ৭এস",
+            "section15-title": "১৫. দক্ষতার মান (IPMA সারিবদ্ধতা)",
+            "section15-p1": "$\text{ACEM}$ এবং বিশেষজ্ঞ র‌্যাঙ্কগুলির কাঠামোগত ক্রমের জন্য বাহ্যিক, বিশ্বব্যাপী স্বীকৃত যাচাইকরণ সরবরাহ।",
+            "section15-c1-h": "IPMA দক্ষতা বেসলাইন",
+            "section16-title": "১৬. প্রতিযোগী কৌশল বিশ্লেষণ (পোর্টারের ৪টি ড্রাইভার)",
+            "section16-p1": "প্রতিযোগীদের প্রত্যাশিত পদক্ষেপগুলির গতিশীল, দূরদর্শী বিশ্লেষণ, যা <strong>ট্যাকল ডিফেন্স প্রোটোকলকে</strong> সমর্থন করে।",
+            "section16-c1-h": "পোর্টারের চারটি ড্রাইভার",
+            "section17-title": "১৭. কৌশলগত অনুসন্ধান (সাইমনের ৭টি কৌশলগত প্রশ্ন)",
+            "section17-p1": "নেতৃত্বের জন্য বাধ্যতামূলক ত্রৈমাসিক স্ব-নিরীক্ষা, যাতে ক্রমাগত বৌদ্ধিক বিনয় এবং কৌশলগত অ-আত্মতুষ্টি ($\text{Hikmah}$) নিশ্চিত হয়।",
+            "section17-c1-h": "সাইমনের ৭টি কৌশলগত প্রশ্ন",
+            "section18-title": "১৮. সদ্গুণ ও উৎকর্ষ (VIA শ্রেণীকরণ)",
+            "section18-p1": "চরিত্র মূল্যায়নের জন্য একটি ব্যাপক, অ-ধর্মীয় শ্রেণিবিন্যাস সহ $\text{ACEM}$ এর <strong>ব্যক্তিগত ব্লক</strong> কে শক্তিশালী করা।",
+            "section18-c1-h": "পিটারসন ও সেলিগম্যান ভিআইএ শ্রেণীকরণ",
+            "section19-title": "১৯. রূপান্তরমূলক নেতৃত্বের মূল দক্ষতা",
+            "section19-p1": "<strong>ইউনিভার্সালিস্ট র‌্যাঙ্ক</strong> এবং <strong>প্রকল্প লিড</strong> (লেভেল ৪/৫ লিডার) এর জন্য প্রয়োজনীয় দক্ষতা যাচাই করা।",
+            "section19-c1-h": "পাঁচটি রূপান্তরমূলক দক্ষতা",
+            "section20-title": "২০. অমূল্য সম্পদ ও প্রতিযোগিতামূলক সুবিধা (CA)",
+            "section20-p1": "প্রতিযোগিতামূলক সুবিধা ($\text{CA}$) পরিমাপকে আনুষ্ঠানিক রূপ দেওয়া, যা গিল্ডের অবস্থানকে <strong>SPACE ম্যাট্রিক্সে</strong> সমর্থন করে।",
+            "section20-c1-h": "CA এর চারটি অমূল্য ড্রাইভার",
+            "section21-title": "২১. আবু বকর পরীক্ষা (“মায়েস্টারের” ভূমিকা)",
+            "section21-p1": "বৌদ্ধিক এবং পেশাদার বিনয়ের মূলনীতি। **মায়েস্টার**-এর ভূমিকা বস হওয়া নয়, বরং একজন **বিশেষজ্ঞ পরামর্শদাতা** হওয়া, যিনি নিশ্চিত করেন যে কাজটি $\text{Ihsan}$ (উৎকর্ষ) মান পূরণ করছে।",
+            "section21-c1-h": "দক্ষ বিনয়ের পরীক্ষা",
+            "section22-title": "২২. ১০০ বছরের লিগ্যাসি (চূড়ান্ত রক্ষাকবচ)",
+            "section22-p1": "উত্তরাধিকারসূত্রে প্রাপ্ত ক্ষমতা, **মিথ্যা রাজা** (ধারা ৪), এবং প্রতিষ্ঠাতার অহংকার থেকে গিল্ড সুরক্ষিত আছে তা নিশ্চিত করার জন্য <strong>বাতিঘর মতবাদ</strong> তৈরি করা হয়েছে।",
+            "section22-c1-h": "লিগ্যাসি রক্ষাকবচ",
+            "section23-title": "২৩. মতবাদগত কোট সিস্টেম (দৃশ্যমান ব্যক্তিত্ব)",
+            "section23-p1": "আমরা “মূর্খ” ড্রেস কোড প্রত্যাখ্যান করি। আমরা **মর্যাদাপূর্ণ কোট** এর একটি সিস্টেম প্রয়োগ করি, যা পরিধানকারীর “মায়েস্টার” ডোমেন এবং উদ্দেশ্যমূলক মানের প্রতি অঙ্গীকারকে প্রতিনিধিত্ব করে। শার্ট হল ফাংশন; কোট হল ব্যক্তিত্ব।",
+            "section23-h1": "সাইকোগ্রাফিক ব্যক্তিত্ব: জিমি মিনি উইন্ডো",
+            "section23-p2": "এইচআর নৈতিক অডিটরের জন্য আমাদের “ট্যাকল ডিফেন্স” টুল। এটি “ভিতরের শত্রু” (“মিথ্যা মাস্ক”) সনাক্ত করার জন্য সমস্ত কর্মীদের <em>সত্যিকারের চরিত্র</em> ম্যাপ করে।",
+            "section23-c1-h": "প্রকাশ্য সদ্গুণ",
+            "section23-c2-h": "লুকানো সদ্গুণ",
+            "section23-c3-h": "প্রকাশ্য অপব্যবহারকারী",
+            "section23-c4-h": "মিথ্যা মাস্ক"
+        }
+    };
+        // UTILITY FUNCTIONS
+    function showDoctrinalModal(title, content) {
+        document.getElementById('modal-title').innerHTML = title;
+        document.getElementById('modal-content').innerHTML = content;
+        document.getElementById('doctrinalModal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('doctrinalModal').style.display = 'none';
+    }
+    
+    let currentLang = "en";
+
+    function updateLanguage(lang) {
+        if (!languageData[lang]) {
+            console.error("Language data not found for: " + lang);
+            return;
+        }
+        
+        currentLang = lang;
+        for (const id in languageData[lang]) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.innerHTML = languageData[lang][id];
             }
-        };
-                </script>
-    <div id="doctrinalModal" class="modal-backdrop">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="modalTitle" class="modal-title-text"></h3>
-                <span class="modal-close">&times;</span>
-            </div>
-            <div id="modalBody" class="modal-body-text">
-            </div>
-        </div>
-    </div>
+        }
+        
+        const langSelect = document.getElementById("lang-switch");
+        if (langSelect) {
+            langSelect.value = lang;
+        }
+    }
+
+    // MAIN EXECUTION LOGIC
+    document.addEventListener('DOMContentLoaded', () => {
+        // ACCORDION FUNCTIONALITY
+        const accordions = document.querySelectorAll("h2.accordion");
+        accordions.forEach(acc => {
+            acc.addEventListener("click", function() {
+                this.classList.toggle("active");
+                const panel = this.nextElementSibling;
+                if (panel && panel.classList.contains("panel")) {
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                }
+            });
+        });
+
+        // MODAL CLICK LISTENERS (for interactive-card elements)
+        document.querySelectorAll('.interactive-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const title = card.getAttribute('data-title');
+                const content = card.getAttribute('data-content');
+                showDoctrinalModal(title, content);
+            });
+        });
+
+        // LANGUAGE INITIALIZATION & LISTENER
+        const langSelect = document.getElementById("lang-switch");
+        if (langSelect) {
+            langSelect.addEventListener("change", (e) => {
+                updateLanguage(e.target.value);
+            });
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const langFromURL = urlParams.get('lang');
+        let initialLang = "en";
+        
+        if (langFromURL && languageData[langFromURL]) {
+            initialLang = langFromURL;
+        }
+
+        // Initial language update
+        updateLanguage(initialLang);
+
+    }); // END DOMContentLoaded
+</script>
+
 </body>
 </html>
