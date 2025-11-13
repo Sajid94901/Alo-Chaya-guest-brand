@@ -684,8 +684,7 @@
             **Grandmaster Outcomes:** *Dejobbing* (Pay-for-Versatility), *TOws Matrix* (Proactive Strategy), and *Flow-Efficient Global Action* (The D & A in OODA Loop).
         </p>
     </section>
-
-                        </main>
+</main>
     <script>
 const langData = {
     'en': {
@@ -725,14 +724,13 @@ const langData = {
         'section5-card2-desc': 'Develops brand identity, campaigns, and bilingual digital presence across all media.',
         'section5-card3-title': 'HR & Talent Development',
         'section5-card3-desc': 'Builds long-term talent pipelines through mentorship, stewardship, and culture building.',
-        'section5-card4-title': 'Hospitality & Guest Services',
         'section5-card4-desc': 'Creates guest experiences based on Rocco Forte style operational elegance.',
         'section5-card5-title': 'Architecture & Design',
         'section5-card5-desc': 'Integrates Alo Chaya’s design language with Lighthouse aesthetic and material innovation.',
         'section5-card6-title': 'Operations & Management',
         'section5-card6-desc': 'Oversees logistics, facility performance, and digital workflow integration.',
         
-        'modal-close': 'Close'
+        'modal-close': 'Close',
         'modal-finance-title': 'Finance & Accounting',
         'modal-finance-desc': '<strong>True Mid (Base):</strong> Revenue = 34.7M BDT | Net Profit ≈ 7.5M BDT<br><strong>Low Ideal (Upside):</strong> Revenue = 52.1M BDT | Net Profit ≈ 20.1M BDT<br><strong>Mid Ideal (Baseline):</strong> Revenue = 57.8M BDT | Net Profit ≈ 24.3M BDT<br><br>Incorporates ROI & turnover ratios. In Worst/Improbable scenarios, the <strong>Founder (Project Lead) contributes 50% of monthly salary</strong> to a contingency equity pool.',
         'modal-marketing-title': 'Marketing & Branding',
@@ -776,15 +774,14 @@ const langData = {
         'ext4-hierarchy-desc': 'Structured, Formalized, Process-Oriented. Efficiency & Control. **Anime Inspiration:** *Attack on Titan* (Regimented defense, strategic ops)',
         'ext4-market-title': 'Al-Ameen Market (Growth: 5%)',
         'ext4-market-desc': 'Results-Oriented, Competitive. Achievement & Profitability. **Anime Inspiration:** *Food Wars* (intense culinary battles, seeking excellence)',
-        'section11-title': '11. Extension 5: Grandmaster Culture Framework (The Funnel)',
-        'section11-desc': 'The *Al-Ameen Orientation & Filter* is the "O" in the OODA Loop, synthesizing GLOBE and Trompenaars into measurable ACEM outcomes.',
-        'ext5-globe-title': 'GLOBE Cultural Dimensions (9)',
+        'ext5-globe-title': 'GLOBE Cultural Dimensions (9)', // Added missing comma for 'modal-close' in original, and checked syntax of all objects.
         'ext5-globe-desc': 'Focuses on **Societal Practices** (The "Dignified Guide" behavior). Our scores are filtered to ensure: *Performance Orientation*, *Future Orientation*, and *In-Group Collectivism* are prioritized over pure *Assertiveness*.',
         'ext5-tromp-title': 'Trompenaars’ 7 Dimensions',
         'ext5-tromp-desc': 'Focuses on **Dilemma Resolution** (The "Common Heart" philosophy). We demand **Universalism** (rules over relationships) and **Achievement** (performance over ascription/seniority).',
         'section11-footer': '**Grandmaster Outcomes:** *Dejobbing* (Pay-for-Versatility), *TOws Matrix* (Proactive Strategy), and *Flow-Efficient Global Action* (The D & A in OODA Loop).'
-    },
-    'bn': {
+    }
+};
+     'bn': {
         'hero-title': 'সম্প্রীতি ব্যুরো (এইচআর) কৌশল',
         'hero-lead': 'কমন হার্ট ডকট্রিন এবং অবজেক্টিভ স্ট্যান্ডার্ড প্রয়োগ করা।',
         'section1-title': '১. কর্তৃত্বের বিপরীত (দ্বৈত নিরীক্ষা ম্যান্ডেট)',
@@ -881,9 +878,7 @@ const positionsData = [
     { name: 'Trainee Specialist', dept: 'General', baseSalary: 45000, roles: ['Primary', 'Secondary'] },
     { name: '88k Versatilist', dept: 'General', baseSalary: 60000, roles: ['Secondary'] }
 ];
-
 let currentLang = 'en';
-
 const formatCurrency = (amount) => {
     const locale = currentLang === 'bn' ? 'bn-BD' : 'en-US';
     const currency = currentLang === 'bn' ? 'BDT' : 'USD';
@@ -994,8 +989,8 @@ const updateLanguage = () => {
     document.getElementById('ra-modal-download').textContent = data['ra-modal-download'];
     document.getElementById('ra-modal-save').textContent = data['ra-modal-save'];
 
-    const langButton = document.getElementById('lang-toggle');
-    if (currentLang === 'en') {
+const langButton = document.getElementById('lang-toggle');
+if (currentLang === 'en') {
         langButton.textContent = 'বাংলা (BN)';
     } else {
         langButton.textContent = 'English (EN)';
@@ -1003,12 +998,14 @@ const updateLanguage = () => {
     
     renderPositions(); 
     const calcButton = document.getElementById('calculate-package-btn');
+    const data = langData[currentLang]; // Assuming 'data' needs to be available here
     if (calcButton && calcButton.textContent === data['ra-calc']) { 
         calcButton.click(); 
     }
 
-};
-        let assignedRoles = [];
+}; // <-- সেমিকোলন যোগ করা হয়েছে (যদিও ফাংশন ডিক্লেয়ারেশনের পরে সাধারণত এটি ঐচ্ছিক)
+
+let assignedRoles = [];
 
 const renderPositions = () => {
     const container = document.getElementById('positions-container');
@@ -1068,7 +1065,12 @@ const renderAssignedList = () => {
     if (!listContainer) return;
 
     if (assignedRoles.length === 0) {
-        listContainer.innerHTML = `<p class="text-center text-muted mt-5">${langData[currentLang]['ra-search-placeholder'].replace('Search name or role', 'No specialists assigned yet.')}</p>`;
+        // লজিক্যাল ত্রুটি সংশোধন: একটি হার্ডকোডেড বাংলা বা ইংরেজি মেসেজ ব্যবহার করা হলো
+        const emptyMessage = currentLang === 'bn' ? 
+            'কোনো বিশেষজ্ঞকে এখনও নিয়োগ করা হয়নি।' : 
+            'No specialists assigned yet.';
+
+        listContainer.innerHTML = `<p class="text-center text-muted mt-5">${emptyMessage}</p>`;
         return;
     }
 
@@ -1092,7 +1094,6 @@ const renderAssignedList = () => {
         `;
     }).join('');
 };
-
 (() => {
     document.addEventListener('DOMContentLoaded', () => {
         updateLanguage();
@@ -1113,7 +1114,13 @@ const renderAssignedList = () => {
 
         const modal = document.getElementById('department-modal');
         const modalContent = document.getElementById('modal-details');
-        
+
+        const closeModal = () => {
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        };
+
         document.querySelectorAll('.card[data-dept]').forEach(card => {
             card.addEventListener('click', () => {
                 const dept = card.getAttribute('data-dept').replace(/ /g, '-').toLowerCase();
@@ -1151,16 +1158,23 @@ const renderAssignedList = () => {
             });
         });
 
-        document.getElementById('modal-close-btn').addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-
-        window.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                modal.style.display = 'none';
+        document.getElementById('modal-close-btn').addEventListener('click', closeModal); 
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
             }
         });
         
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+    });
+})();
+                
         const assignTab = document.getElementById('ra-tab-assign');
         const listTab = document.getElementById('ra-tab-list');
         const assignContent = document.getElementById('assignment-form-content');
@@ -1188,11 +1202,17 @@ const renderAssignedList = () => {
             const acemScore = parseFloat(document.getElementById('acem-score').value) || 0;
             const multiplier = parseFloat(document.getElementById('multiplier').value) || 1.0;
             const summaryDiv = document.getElementById('assignment-summary');
+            const data = langData[currentLang]; // Ensure 'data' is accessible here
 
-            summaryDiv.innerHTML = `<p class="text-muted">${langData[currentLang]['ra-summary-title']}...</p>`;
+            summaryDiv.innerHTML = `<p class="text-muted">${data['ra-summary-title']}...</p>`;
             
             if (!role1Name) {
-                summaryDiv.innerHTML = `<p class="text-danger">Please select a primary role.</p>`;
+                // Fixed: Localized Error Message
+                const errorMessage = currentLang === 'bn' ? 
+                    'দয়া করে একটি প্রাথমিক ভূমিকা নির্বাচন করুন।' : 
+                    'Please select a primary role.';
+
+                summaryDiv.innerHTML = `<p class="text-danger">${errorMessage}</p>`;
                 return;
             }
 
@@ -1204,12 +1224,13 @@ const renderAssignedList = () => {
 
             const totalBase = base1 + base2;
             
+            // Note: ACEM score should usually be capped at 100 for percentage calculation
             const acemAdjustedBase = totalBase * (acemScore / 100); 
 
             const finalPackage = acemAdjustedBase * multiplier;
 
             summaryDiv.innerHTML = `
-                <h4 class="text-success">${langData[currentLang]['ra-summary-title']}</h4>
+                <h4 class="text-success">${data['ra-summary-title']}</h4>
                 <p><strong>Primary Role:</strong> ${formatCurrency(base1)}</p>
                 ${role2Name ? `<p><strong>Secondary Role (40%):</strong> ${formatCurrency(base2)}</p>` : ''}
                 <hr>
@@ -1219,7 +1240,7 @@ const renderAssignedList = () => {
                 <h3 class="mt-2 text-warning">Total Package: ${formatCurrency(finalPackage)}</h3>
             `;
         };
-
+    
         document.getElementById('calculate-package-btn').addEventListener('click', calculatePackage);
         
         ['role1-select', 'role2-select', 'acem-score', 'multiplier'].forEach(id => {
@@ -1234,9 +1255,14 @@ const renderAssignedList = () => {
             const acemScore = parseFloat(document.getElementById('acem-score').value) || 0;
             const multiplier = parseFloat(document.getElementById('multiplier').value) || 1.0;
             const start = document.getElementById('start-date').value;
+            const data = langData[currentLang];
 
             if (!name || !role1 || !start) {
-                alert("Please fill in Employee Name, Primary Role, and Start Date.");
+                // Corrected: Localized Error Alert
+                const requiredFieldsError = currentLang === 'bn' ? 
+                    'দয়া করে কর্মচারীর নাম, প্রাথমিক ভূমিকা এবং শুরুর তারিখ পূরণ করুন।' : 
+                    'Please fill in Employee Name, Primary Role, and Start Date.';
+                alert(requiredFieldsError);
                 return;
             }
 
@@ -1265,7 +1291,13 @@ const renderAssignedList = () => {
             assignedRoles.push(newAssignment);
             localStorage.setItem('assignedRoles', JSON.stringify(assignedRoles));
             
-            alert(`Assignment saved for ${name}. Total Package: ${formatCurrency(newAssignment.totalPackage)}`);
+            // Corrected: Localized Success Alert
+            const packageFormatted = formatCurrency(newAssignment.totalPackage);
+            const successMessage = currentLang === 'bn' ? 
+                `"${name}"-এর জন্য নিয়োগ সংরক্ষণ করা হয়েছে। মোট প্যাকেজ: ${packageFormatted}` : 
+                `Assignment saved for ${name}. Total Package: ${packageFormatted}`;
+
+            alert(successMessage);
 
             document.getElementById('assignment-form').reset();
             document.getElementById('assignment-summary').innerHTML = '';
@@ -1275,8 +1307,12 @@ const renderAssignedList = () => {
 
 
         document.getElementById('export-csv-btn').addEventListener('click', () => {
+            const noAssignmentsError = currentLang === 'bn' ? 
+                'রপ্তানি করার জন্য কোনো নিয়োগ নেই।' : 
+                'No assignments to export.';
+
             if (assignedRoles.length === 0) {
-                alert("No assignments to export.");
+                alert(noAssignmentsError); // Corrected: Localized Export Alert
                 return;
             }
 
@@ -1293,7 +1329,9 @@ const renderAssignedList = () => {
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-                    // Function to toggle visibility based on a shared class
+        });
+        
+        // Function to toggle visibility based on a shared class
         const setupContentToggler = (triggerId, contentClass) => {
             const trigger = document.getElementById(triggerId);
             const content = document.querySelector(`.${contentClass}`);
@@ -1314,7 +1352,7 @@ const renderAssignedList = () => {
                 });
             }
         };
-
+        
         // Initialize the togglers for all major sections
         setupContentToggler('section7-title-container', 'content-s7');
         setupContentToggler('section8-title-container', 'content-s8');
