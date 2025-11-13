@@ -1010,7 +1010,21 @@
             } else {
                 currentLang = "en";
             }
-            
+                        // Accordion Logic: Essential Click Handler
+            const accordions = document.querySelectorAll("h2.accordion");
+            accordions.forEach(acc => {
+                acc.addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    const panel = this.nextElementSibling;
+                    if (panel && panel.classList.contains("panel")) {
+                        if (panel.style.maxHeight) {
+                            panel.style.maxHeight = null;
+                        } else {
+                            panel.style.maxHeight = panel.scrollHeight + "px";
+                        }
+                    }
+                });
+            });
             updateLanguage(currentLang);
 
         });
