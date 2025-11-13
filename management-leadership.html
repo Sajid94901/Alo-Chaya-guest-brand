@@ -11,127 +11,127 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
     <style>
-        .lang-switch {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 100;
-        }
-        .lang-switch select {
-            padding: 8px 12px;
-            border-radius: 6px;
-            border: 1px solid #cbd5e0;
-            background-color: #f7fafc;
-            font-weight: 600;
-            cursor: pointer;
-        }
-        h2.accordion {
-            background-color: #ffffff;
-            color: #2d3748;
-            cursor: pointer;
-            padding: 22px;
-            width: 100%;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            text-align: left;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-top: 16px;
-            margin-bottom: 0;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        h2.accordion:after {
-            content: '\+';
-            font-size: 2rem;
-            color: #718096;
-            float: right;
-            margin-left: 5px;
-            line-height: 1.5rem;
-        }
-        h2.accordion.active:after {
-            content: "\2212";
-        }
-        h2.accordion:hover {
-            background-color: #f7fafc;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-        div.panel {
-            padding: 0 22px;
-            background-color: white;
-            border: 1px solid #e2e8f0;
-            border-top: 0;
-            border-radius: 0 0 8px 8px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            margin-bottom: 16px;
-        }
-        div.panel h3 { margin-top: 20px; }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 16px;
-            margin-bottom: 20px;
-        }
-        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-        
-        .interactive-card {
-            background-color: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 20px;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-            text-align: center;
-        }
-        .interactive-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
-        }
-        .interactive-card h3 { margin: 0; color: #2d3748; font-size: 1.15rem; }
-        .interactive-card p.small { font-size: 0.9rem; color: #4a5568; margin-top: 8px; }
-        /* Modal Styles */
-        .modal-backdrop {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.6);
-            animation: fadeIn 0.3s;
-        }
-        .modal-content {
-            background-color: #ffffff;
-            margin: 10% auto;
-            padding: 25px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 700px;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            animation: slideIn 0.4s ease-out;
-        }
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
-        }
-        .modal-title-text { color: #2d3748; font-size: 1.75rem; font-weight: 700; margin: 0; }
-        .modal-close { color: #aaa; font-size: 32px; font-weight: bold; cursor: pointer; }
-        .modal-close:hover, .modal-close:focus { color: #1a202c; }
-        .modal-body-text { font-size: 1.1rem; color: #4a5568; }
-        .modal-body-text p { margin-bottom: 15px; }
-        
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideIn { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .lang-switch {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 100;
+    }
+    .lang-switch select {
+        padding: 8px 12px;
+        border-radius: 6px;
+        border: 1px solid #cbd5e0;
+        background-color: #f7fafc;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    h2.accordion {
+        background-color: #ffffff;
+        color: #2d3748;
+        cursor: pointer;
+        padding: 22px;
+        width: 100%;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        text-align: left;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-top: 16px;
+        margin-bottom: 0;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    h2.accordion:after {
+        content: '\+';
+        font-size: 2rem;
+        color: #718096;
+        float: right;
+        margin-left: 5px;
+        line-height: 1.5rem;
+    }
+    h2.accordion.active:after {
+        content: "\2212";
+    }
+    h2.accordion:hover {
+        background-color: #f7fafc;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    div.panel {
+        padding: 0 22px;
+        background-color: white;
+        border: 1px solid #e2e8f0;
+        border-top: 0;
+        border-radius: 0 0 8px 8px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out;
+        margin-bottom: 16px;
+    }
+    div.panel h3 { margin-top: 20px; }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 16px;
+        margin-bottom: 20px;
+    }
+    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    
+    .interactive-card {
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 20px;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        text-align: center;
+    }
+    .interactive-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+    }
+    .interactive-card h3 { margin: 0; color: #2d3748; font-size: 1.15rem; }
+    .interactive-card p.small { font-size: 0.9rem; color: #4a5568; margin-top: 8px; }
+    /* Modal Styles */
+    .modal-backdrop {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.6);
+        animation: fadeIn 0.3s;
+    }
+    .modal-content {
+        background-color: #ffffff;
+        margin: 10% auto;
+        padding: 25px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 700px;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        animation: slideIn 0.4s ease-out;
+    }
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #e2e8f0;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+    }
+    .modal-title-text { color: #2d3748; font-size: 1.75rem; font-weight: 700; margin: 0; }
+    .modal-close { color: #aaa; font-size: 32px; font-weight: bold; cursor: pointer; }
+    .modal-close:hover, .modal-close:focus { color: #1a202c; }
+    .modal-body-text { font-size: 1.1rem; color: #4a5568; }
+    .modal-body-text p { margin-bottom: 15px; }
+    
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideIn { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     </style>
 </head>
 <body>
