@@ -658,17 +658,20 @@
         h2.accordion.active:after {
             content: "\2212";
         }
-        div.panel {
-            padding: 0 22px !important;
-            background-color: white !important;
-            border: 1px solid #e2e8f0 !important;
-            border-top: 0 !important;
-            border-radius: 0 0 8px 8px !important;
-            max-height: 0 !important;
-            overflow: hidden !important;
-            transition: max-height 0.4s ease-out !important;
-            margin-bottom: 16px !important;
-        }
+                div.panel {
+            padding: 0 22px;
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            border-top: 0;
+            border-radius: 0 0 8px 8px;
+            
+            max-height: 0; 
+            overflow: hidden;
+            
+            transition: max-height 0.4s ease-out;
+            margin-bottom: 16px;
+                }
+    
         
         /* Modal and Card Styles (Refined) */
         .modal-backdrop {
@@ -713,7 +716,7 @@
         
     </style>
     
-    <script>
+        <script>
         document.addEventListener("DOMContentLoaded", () => {
         
             // MODAL AND INTERACTIVE CARD LOGIC
@@ -744,13 +747,9 @@
                 });
             });
 
-            // ACCORDION FUNCTIONALITY
+            // ACCORDION FUNCTIONALITY (The Final, Clean Engine)
             const accordions = document.querySelectorAll("h2.accordion");
             accordions.forEach(acc => {
-                const panel = acc.nextElementSibling;
-                if (panel && panel.classList.contains("panel")) {
-                     panel.style.maxHeight = null;
-                }
                 acc.addEventListener("click", function() {
                     this.classList.toggle("active");
                     const panel = this.nextElementSibling;
@@ -763,8 +762,51 @@
                     }
                 });
             });
+
+            // LANGUAGE LOGIC
+            // (Assuming languageData is defined elsewhere, this is the remaining logic)
+            let currentLang = "en";
+
+            function updateLanguage(lang) {
+                if (!languageData[lang]) {
+                    console.error("Language data not found for: " + lang);
+                    return;
+                }
+                
+                currentLang = lang;
+                for (const id in languageData[lang]) {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        element.innerHTML = languageData[lang][id];
+                    }
+                }
+                
+                const langSelect = document.getElementById("lang-switch");
+                if (langSelect) {
+                    langSelect.value = lang;
+                }
+            }
+
+            const langSelect = document.getElementById("lang-switch");
+            if (langSelect) {
+                langSelect.addEventListener("change", (e) => {
+                    updateLanguage(e.target.value);
+                });
+            }
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const langFromURL = urlParams.get('lang');
+            if (langFromURL && languageData[langFromURL]) {
+                currentLang = langFromURL;
+            } else {
+                currentLang = "en";
+            }
             
-            // LANGUAGE SWITCHING FUNCTIONALITY (REVISED)
+            updateLanguage(currentLang);
+
+        });
+        </script>
+    // LANGUAGE SWITCHING FUNCTIONALITY (REVISED)
             const languageData = {
             "en": {
                         "header-title": "Management Architecture & Organogram",
