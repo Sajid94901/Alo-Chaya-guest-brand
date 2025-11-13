@@ -43,6 +43,9 @@
             The **ACEM (Al-Ameen Capability Evolution Model) Score** is the single, objective standard for performance, promotion, and pay. It is the central mechanism that enforces our core doctrines of meritocracy and dignity.
         </p>
 
+        <div class="model-image-container mb-4">
+            <img src="glsm.jpg" alt="Visualization of the GLSM (Goal-Line Standardization Model)" style="max-width: 100%; height: auto;">
+        </div>
         <div class="grid grid-2">
             <div class="card">
                 <div class="card-body">
@@ -65,6 +68,9 @@
             ACEM is a continuous cycle of improvement, not a one-time review.
         </p>
         
+        <div class="model-image-container mb-4">
+            <img src="acem.png" alt="Diagram illustrating the 4-Step ACEM Process" style="max-width: 100%; height: auto;">
+        </div>
         <div class="grid grid-4 acem-flow">
             <div class="card flow-step">
                 <div class="card-body">
@@ -145,11 +151,53 @@
             </div>
         </div>
         
-    </main>
+        <h2 class="mt-6 mb-4" id="acem-accordion-example">5. ACEM Details (Accordion Example)</h2>
+        
+        <div class="accordion-container">
+            
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <h3>Mandate 1: Enforce Haqq (Truth)</h3>
+                </button>
+                <div class="accordion-content">
+                    <p>This mandate requires the immediate, non-negotiable hiring of an External CA firm to handle all statutory filings for ALO CHAYA LIMITED, protecting the new entity from contamination by the previous financial fraud.</p>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <h3>Mandate 2: Enforce Adl (Justice)</h3>
+                </button>
+                <div class="accordion-content">
+                    <p>Justice is enforced by ensuring that all rank and compensation are tied to the objective ACEM Score and Stage-Gate performance, thereby banning the use of Lineage or personal influence in promotion decisions.</p>
+                </div>
+            </div>
+            
+        </div>
+        </main>
     
     <footer class="site-footer">
         <p>Ghuraba Al Manara (The Lighthouse) | The Objective Standard</p>
     </footer>
 
-</body>
-</html>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const headers = document.querySelectorAll('.accordion-header');
+
+            headers.forEach(header => {
+                header.addEventListener('click', function () {
+                    const content = this.nextElementSibling;
+                    this.classList.toggle('active'); // CSS class for visual styling (e.g., changing arrow/color)
+                    
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null; // Collapse
+                    } else {
+                        // Expand smoothly by setting max-height to its natural size
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            });
+        });
+    </script>
+    </body>
+    </html>
