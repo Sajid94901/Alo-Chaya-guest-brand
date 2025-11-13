@@ -10,13 +10,144 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
+    <style>
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        .lang-switch select {
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e0;
+            background-color: #f7fafc;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        h2.accordion {
+            background-color: #ffffff;
+            color: #2d3748;
+            cursor: pointer;
+            padding: 22px;
+            width: 100%;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 16px;
+            margin-bottom: 0;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        h2.accordion:after {
+            content: '\+';
+            font-size: 2rem;
+            color: #718096;
+            float: right;
+            margin-left: 5px;
+            line-height: 1.5rem;
+        }
+        h2.accordion.active:after {
+            content: "\2212";
+        }
+        h2.accordion:hover {
+            background-color: #f7fafc;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        div.panel {
+            padding: 0 22px;
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            border-top: 0;
+            border-radius: 0 0 8px 8px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            margin-bottom: 16px;
+        }
+        div.panel h3 { margin-top: 20px; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+        
+        .interactive-card {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+            text-align: center;
+        }
+        .interactive-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+        }
+        .interactive-card h3 { margin: 0; color: #2d3748; font-size: 1.15rem; }
+        .interactive-card p.small { font-size: 0.9rem; color: #4a5568; margin-top: 8px; }
+        
+        /* Modal Styles */
+        .modal-backdrop {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            animation: fadeIn 0.3s;
+        }
+        .modal-content {
+            background-color: #ffffff;
+            margin: 10% auto;
+            padding: 25px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 700px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: slideIn 0.4s ease-out;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .modal-title-text { color: #2d3748; font-size: 1.75rem; font-weight: 700; margin: 0; }
+        .modal-close { color: #aaa; font-size: 32px; font-weight: bold; cursor: pointer; }
+        .modal-close:hover, .modal-close:focus { color: #1a202c; }
+        .modal-body-text { font-size: 1.1rem; color: #4a5568; }
+        .modal-body-text p { margin-bottom: 15px; }
+        
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideIn { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    </style>
 </head>
 <body>
 
     <header class="hero">
         <div class="container">
-            <h1>Management Architecture & Organogram</h1>
-            <p class="lead">Engineered by Sajid Hassan (Project Lead). The Inversion of Authority Doctrine: Competence (Al-Ameen Capability Score) supersedes Title and Tenure.</p>
+            <div class="lang-switch">
+                <select id="lang-switch" onchange="updateLanguage(this.value)">
+                    <option value="en">English (EN)</option>
+                    <option value="bn">বাংলা (BN)</option>
+                </select>
+            </div>
+            
+            <h1 id="header-title">Management Architecture & Organogram</h1>
+            <p class="lead" id="header-lead">Engineered by Sajid Hassan (Project Lead). The Inversion of Authority Doctrine: Competence (Al-Ameen Capability Score) supersedes Title and Tenure.</p>
             
             <nav class="main-nav">
               <ul>
@@ -36,579 +167,619 @@
         </div>
     </header>
 
+    <div class="container">
     <main class="container">
-
-        <h2 class="mt-6 mb-4">1. The Ghuraba Codex (Integrated Corporate Culture)</h2>
-        <p class="mb-4">
-            The Guild's corporate culture is the non-negotiable moral foundation for all operations, ensuring <strong>Ihsan (Excellence)</strong> and <strong>Dignity</strong> are universally applied.
+        <h2 class="accordion" id="section1-title">1. The Lighthouse Doctrine (The 'Why')</h2>
+    <div class="panel">
+        <p class="mb-4" id="section1-p1">
+            The core philosophy. Based on <strong>Haqq</strong> (Truth), <strong>Adl</strong> (Justice), and <strong>Ihsan</strong> (Excellence).
         </p>
+    </div>
+
+    <h2 class="accordion" id="section2-title">2. The Common Heart Doctrine (The 'How')</h2>
+    <div class="panel">
+        <p class="mb-4" id="section2-p1">
+            The rejection of the "idiot" academic models. Cites <strong>Sahih al-Bukhari 4425</strong> (The Ship Parable) and <strong>Qur'an 24:30</strong> (Lowering the Gaze) as guardrails against internal corruption. Defines the <strong>Ghuraba Doctrine</strong> (Strangers).
+        </p>
+    </div>
+
+    <h2 class="accordion" id="section3-title">3. The Helix Model (The Structure)</h2>
+    <div class="panel">
+        <p class="mb-4" id="section3-p1">
+            The core organogram. Based on the <strong>Inversion of Authority</strong> (competence over title) and our "Broad Organisation" model. Mandates the <strong>"Hierarchy of Competent Tenure"</strong> (the "North" model).
+        </p>
+    </div>
+
+    <h2 class="accordion" id="section4-title">4. Foundational Leadership Models (The Guardrails)</h2>
+    <div class="panel">
+        <h3 class="mt-4 mb-2" id="section4-h1">Core Models</h3>
+        <ul class="mb-4">
+            <li id="section4-l1"><strong>Jim Collins: Level 5 Leadership:</strong> The "Faithful Steward" (100-Year Legacy).</li>
+            <li id="section4-l2"><strong>The Heraclius Test:</strong> Choosing Haqq over political comfort.</li>
+            <li id="section4-l3"><strong>Maxwell Level 1 (Positional) Ban:</strong> The "Utawarerumono Failure."</li>
+            <li id="section4-l4"><strong>The "Third Path" (Diyyah):</strong> The guardrail against "idiot" binary thinking.</li>
+        </ul>
+        
+        <h3 class="mt-4 mb-2" id="section4-h2">The "Westeros Failure" (Warning Archetypes)</h3>
+        <div class="grid grid-4">
+            <div class="interactive-card" data-title="The Tyrants (The 'Bloody Idiots')" data-content="<p>e.g., Maegor & Aerys. Leaders who rule by fear and ego. They are an 'Open Desecrator' (Section 23) and an immediate 'Tackle' target.</p>">
+                <h3 id="section4-c1-h">The Tyrants</h3>
+                <p class="small" id="section4-c1-p">(Maegor & Aerys)</p>
+            </div>
+            <div class="interactive-card" data-title="The Moral Fools (The 'Good Idiots')" data-content="<p>e.g., Ned Stark (Inflexible Honor) & Robb Stark (Inflexible Justice). They let their personal 'nafs' (ego) of honor override the 100-Year Legacy, leading to total destruction.</p>">
+                <h3 id="section4-c2-h">The Moral Fools</h3>
+                <p class="small" id="section4-c2-p">(Ned & Robb Stark)</p>
+            </div>
+            <div class="interactive-card" data-title="The Emotional Operators" data-content="<p>e.g., Catelyn Stark. A leader who lets personal grief, emotion, or family ties override the Haqq (Truth) and the 'Abu Bakr Test' (Section 21).</p>">
+                <h3 id="section4-c3-h">Emotional Operators</h3>
+                <p class="small" id="section4-c3-p">(Catelyn Stark)</p>
+            </div>
+            <div class="interactive-card" data-title="The Failed T&D" data-content="<p>e.g., Sansa Stark (The Idealist Fool) & Septa Mordane (The Failed Trainer). This is the failure to 'Tackle' incompetence and idealism, creating a weak link.</p>">
+                <h3 id="section4-c4-h">The Failed T&D</h3>
+                <p class="small" id="section4-c4-p">(Sansa & Septa Mordane)</p>
+            </div>
+        </div>
+
+        <h3 class="mt-4 mb-2" id="section4-h3">The "Bank Failure" (Modern Archetypes)</h3>
         <div class="grid grid-2">
-            <div class="card">
-                <div class="card-body">
-                    <h3>The Objective Standard (Rules, Not Tears)</h3>
-                    <p class="small">All appraisals and disputes are judged solely by verifiable data in the <strong>Accountability Ledger</strong> and the <strong>Al-Ameen Capability Score</strong>, eliminating subjective humiliation and linguistic bias.</p>
-                </div>
+            <div class="interactive-card" data-title="The 'Maester Pycelle' (The 'Idiot with Tenure')" data-content="<p>The 14-year AMD. A 'False King' (Section 21) who is rewarded (400,000 Taka) for tenure, not competence. He is the 'Weak Believer' our ACEM (Section 5) is built to expose.</p>">
+                <h3 id="section4-c5-h">The 'Maester Pycelle'</h3>
+                <p class="small" id="section4-c5-p">(The 14-Year AMD)</p>
             </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3>The Common Heart Doctrine</h3>
-                    <p class="small">The ethical foundation demanding mutual welfare and dignity. It directly mandates the <strong>Dignity Wage</strong> and the <strong>Mutual Crisis Fund</strong> to ensure no Specialist is forced to accept exploitation.</p>
-                </div>
-            </div>
-        </div>
-        
-        <h2 class="mt-6 mb-4">2. The Guardrail of Authority and the Doctrine of Dignity</h2>
-        <p class="mb-4">
-            The Doctrine of the Lighthouse maintains a dual approach to authority, founded on the non-negotiable moral foundation of Islamic history, which serves as a powerful **Guardrail of Integrity** for the entire Guild.
-        </p>
-        
-        <div class="grid grid-3">
-            <div class="card bg-danger-light">
-                <div class="card-body">
-                    <h3>The Guardrail of Pinnacle Authority (Structural Limit)</h3>
-                    <p class="small">This principle reserves the **Pinnacle Leadership** role based on the authentic prophetic tradition, which establishes a structural guardrail against a specific governance failure.</p>
-                    <blockquote class="blockquote small mt-2">
-                        <p class="mb-0">"A people will never prosper who appoint a woman as their ruler."</p>
-                        <footer class="blockquote-footer">Authentic Hadith (Reference: **Sahih al-Bukhari 4425**)</footer>
-                    </blockquote>
-                    <p class="small mt-2">This is a non-negotiable **Guardrail** against ultimate political/pinnacle leadership, ensuring the stability and prosperity of the Guild in alignment with the *Haqq* (Truth).</p>
-                </div>
-            </div>
-            <div class="card bg-success-light">
-                <div class="card-body">
-                    <h3>The Doctrine of Empowerment (The Cover Moon)</h3>
-                    <p class="small">This principle dictates absolute equality and pioneering rights for women in **all other ranks** based on the **Al-Ameen Capability Evolution Model (ACEM)** score, not gender.</p>
-                    <p class="small mt-2">Historically, women were the **Cover Moon**—The Guardian of the Women. While Western women could not vote until the 20th century (Reference: **US 19th Amendment, UK Representation of the People Act 1918**), Islam granted women full property, land, and voting rights in the **7th Century (600s CE)**.</p>
-                    <p class="small mt-2">The Guild champions women as **Universalists, Project Leads, and Bureau Heads** whose authority is derived **objectively** from their **ACEM Score** and moral purity, rejecting Western historical limitations.</p>
-                </div>
-            </div>
-            <div class="card bg-primary-light">
-                <div class="card-body">
-                    <h3>The Mandate of Moral Purity (For Men)</h3>
-                    <p class="small">Acknowledging that men are doctrinally recognized as **more visual creatures** (Reference: **Qur'an 24:30**), the mandate is **not merely to lower the gaze, but to actively look away** (from the prohibited). The Guild ensures all operational spaces (**Ayna Tura'una**) uphold dignity and facilitate this act of **Ihsan**, supporting the Specialist's sole focus on the **ACEM** score.</p>
-                </div>
+            <div class="interactive-card" data-title="The 'False King' (The 'Idiot with Power')" data-content="<p>The 3-year MD. The ultimate 'False King' (Section 21) and 'False Mask' (Section 23). He is rewarded (800,000 Taka) *despite* 'idiocy.' Our HR Moral Auditor (Section 6) is built to 'Tackle' this archetype.</p>">
+                <h3 id="section4-c6-h">The 'False King'</h3>
+                <p class="small" id="section4-c6-p">(The 3-Year MD)</p>
             </div>
         </div>
 
-        <div class="container mt-6">
-        <h2 class="mt-6 mb-4">3. The Ghuraba Organogram (Helix Model & Clickable Chain)</h2>
-    <p class="mb-4">
-        This is the <strong>Inversion of Authority</strong> in practice, built on the <strong>McKinsey Helix Model</strong>. This model separates accountability into two parallel axes:
-        <br><strong>1. Value Creation (The "What"):</strong> The Project Lead (SBU) focused on immediate business outcomes.
-        <br><strong>2. Capability Building (The "How"):</strong> The Department Heads (Bureaus) focused on long-term standards, skills, and enforcing the Codex.
-        <br>This structure is *why* the <strong>HR Moral Auditor</strong> can bypass the project hierarchy. Click on any role to see the specific Codex Doctrine that governs its authority and accountability.
-    </p>
+        <h3 class="mt-4 mb-2" id="section4-h4">The "Steve Jobs Disaster" (The Flawed Visionary)</h3>
+        <p class="mb-4" id="section4-p1">
+            The "Westeros Failure" of the modern world. The "idiot" board ('Maester Pycelles') fired the "Tyrant" Visionary (Jobs, acting as a 'Maegor'). It was a total failure of the <strong>Tackle Defense Protocol (TDM)</strong>. Our <strong>HR Moral Auditor (Section 6)</strong> is the "Third Path" to prevent this, "Tackling" the board's idiocy *and* the Visionary's behavior, while protecting the Vision.
+        </p>
+    </div>
+
+    <h2 class="accordion" id="section5-title">5. The ACEM Doctrine (The Standard)</h2>
+    <div class="panel">
+        <p class="mb-4" id="section5-p1">
+            The Al-Ameen Capability Evolution Model. This is the core "Maester" standard for our "Hierarchy of Competent Tenure."
+        </p>
+        <div class="grid grid-4">
+            <div class="interactive-card" data-title="ACEM Environment Block" data-content="<p>Measures the Specialist's ability to perceive and adapt to the external environment (Market) and internal environment (Culture).</p>">
+                <h3 id="section5-c1-h">Environment Block</h3>
+            </div>
+            <div class="interactive-card" data-title="ACEM Individual Block" data-content="<p>The 'Strong Believer' test. Measures character, humility, integrity, and alignment with the 'JiMini Window' (Section 23).</p>">
+                <h3 id="section5-c2-h">Individual Block</h3>
+            </div>
+            <div class="interactive-card" data-title="ACEM Skill & Tool Block" data-content="<p>The 'Maester' test. Measures mastery of the Objective Standard (e.g., the 'Melissa Maker' standard, Section 21).</p>">
+                <h3 id="section5-c3-h">Skill & Tool Block</h3>
+            </div>
+            <div class="interactive-card" data-title="ACEM Alignment Block" data-content="<p>The 'Common Heart' test. Measures the Specialist's commitment to the 'Lighthouse Doctrine' (Section 1) and the 100-Year Legacy.</p>">
+                <h3 id="section5-c4-h">Alignment Block</h3>
+            </div>
+        </div>
+    </div>
+        
+            <h2 class="accordion" id="section1-title">1. The Lighthouse Doctrine (The 'Why')</h2>
+    <div class="panel">
+        <p class="mb-4" id="section1-p1">
+            The core philosophy. Based on <strong>Haqq</strong> (Truth), <strong>Adl</strong> (Justice), and <strong>Ihsan</strong> (Excellence).
+        </p>
+    </div>
+
+    <h2 class="accordion" id="section2-title">2. The Common Heart Doctrine (The 'How')</h2>
+    <div class="panel">
+        <p class="mb-4" id="section2-p1">
+            The rejection of the "idiot" academic models. Cites <strong>Sahih al-Bukhari 4425</strong> (The Ship Parable) and <strong>Qur'an 24:30</strong> (Lowering the Gaze) as guardrails against internal corruption. Defines the <strong>Ghuraba Doctrine</strong> (Strangers).
+        </p>
+    </div>
+
+    <h2 class="accordion" id="section3-title">3. The Helix Model (The Structure)</h2>
+    <div class="panel">
+        <p class="mb-4" id="section3-p1">
+            The core organogram. Based on the <strong>Inversion of Authority</strong> (competence over title) and our "Broad Organisation" model. Mandates the <strong>"Hierarchy of Competent Tenure"</strong> (the "North" model).
+        </p>
+    </div>
+
+    <h2 class="accordion" id="section4-title">4. Foundational Leadership Models (The Guardrails)</h2>
+    <div class="panel">
+        <h3 class="mt-4 mb-2" id="section4-h1">Core Models</h3>
+        <ul class="mb-4">
+            <li id="section4-l1"><strong>Jim Collins: Level 5 Leadership:</strong> The "Faithful Steward" (100-Year Legacy).</li>
+            <li id="section4-l2"><strong>The Heraclius Test:</strong> Choosing Haqq over political comfort.</li>
+            <li id="section4-l3"><strong>Maxwell Level 1 (Positional) Ban:</strong> The "Utawarerumono Failure."</li>
+            <li id="section4-l4"><strong>The "Third Path" (Diyyah):</strong> The guardrail against "idiot" binary thinking.</li>
+        </ul>
+        
+        <h3 class="mt-4 mb-2" id="section4-h2">The "Westeros Failure" (Warning Archetypes)</h3>
+        <div class="grid grid-4">
+            <div class="interactive-card" data-title="The Tyrants (The 'Bloody Idiots')" data-content="<p>e.g., Maegor & Aerys. Leaders who rule by fear and ego. They are an 'Open Desecrator' (Section 23) and an immediate 'Tackle' target.</p>">
+                <h3 id="section4-c1-h">The Tyrants</h3>
+                <p class="small" id="section4-c1-p">(Maegor & Aerys)</p>
+            </div>
+            <div class="interactive-card" data-title="The Moral Fools (The 'Good Idiots')" data-content="<p>e.g., Ned Stark (Inflexible Honor) & Robb Stark (Inflexible Justice). They let their personal 'nafs' (ego) of honor override the 100-Year Legacy, leading to total destruction.</p>">
+                <h3 id="section4-c2-h">The Moral Fools</h3>
+                <p class="small" id="section4-c2-p">(Ned & Robb Stark)</p>
+            </div>
+            <div class="interactive-card" data-title="The Emotional Operators" data-content="<p>e.g., Catelyn Stark. A leader who lets personal grief, emotion, or family ties override the Haqq (Truth) and the 'Abu Bakr Test' (Section 21).</p>">
+                <h3 id="section4-c3-h">Emotional Operators</h3>
+                <p class="small" id="section4-c3-p">(Catelyn Stark)</p>
+            </div>
+            <div class="interactive-card" data-title="The Failed T&D" data-content="<p>e.g., Sansa Stark (The Idealist Fool) & Septa Mordane (The Failed Trainer). This is the failure to 'Tackle' incompetence and idealism, creating a weak link.</p>">
+                <h3 id="section4-c4-h">The Failed T&D</h3>
+                <p class="small" id="section4-c4-p">(Sansa & Septa Mordane)</p>
+            </div>
+        </div>
+
+        <h3 class="mt-4 mb-2" id="section4-h3">The "Bank Failure" (Modern Archetypes)</h3>
+        <div class="grid grid-2">
+            <div class="interactive-card" data-title="The 'Maester Pycelle' (The 'Idiot with Tenure')" data-content="<p>The 14-year AMD. A 'False King' (Section 21) who is rewarded (400,000 Taka) for tenure, not competence. He is the 'Weak Believer' our ACEM (Section 5) is built to expose.</p>">
+                <h3 id="section4-c5-h">The 'Maester Pycelle'</h3>
+                <p class="small" id="section4-c5-p">(The 14-Year AMD)</p>
+            </div>
+            <div class="interactive-card" data-title="The 'False King' (The 'Idiot with Power')" data-content="<p>The 3-year MD. The ultimate 'False King' (Section 21) and 'False Mask' (Section 23). He is rewarded (800,000 Taka) *despite* 'idiocy.' Our HR Moral Auditor (Section 6) is built to 'Tackle' this archetype.</p>">
+                <h3 id="section4-c6-h">The 'False King'</h3>
+                <p class="small" id="section4-c6-p">(The 3-Year MD)</p>
+            </div>
+        </div>
+
+        <h3 class="mt-4 mb-2" id="section4-h4">The "Steve Jobs Disaster" (The Flawed Visionary)</h3>
+        <p class="mb-4" id="section4-p1">
+            The "Westeros Failure" of the modern world. The "idiot" board ('Maester Pycelles') fired the "Tyrant" Visionary (Jobs, acting as a 'Maegor'). It was a total failure of the <strong>Tackle Defense Protocol (TDM)</strong>. Our <strong>HR Moral Auditor (Section 6)</strong> is the "Third Path" to prevent this, "Tackling" the board's idiocy *and* the Visionary's behavior, while protecting the Vision.
+        </p>
+    </div>
+
+    <h2 class="accordion" id="section5-title">5. The ACEM Doctrine (The Standard)</h2>
+    <div class="panel">
+        <p class="mb-4 text-center">
+            <img src="glsm.jpg" alt="Grandmaster Leadership Strategy Matrix (GLSM) Flowchart" class="img-fluid" style="max-width: 100%; height: auto; margin: 15px 0; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        </p>
+        <p class="mb-4" id="section5-p1">
+            The Al-Ameen Capability Evolution Model (ACEM) is the core "Maester" standard for our "Hierarchy of Competent Tenure."
+        </p>
+        <div class="grid grid-4">
+            <div class="interactive-card" data-title="ACEM Environment Block" data-content="<p>Measures the Specialist's ability to perceive and adapt to the external environment (Market) and internal environment (Culture).</p>">
+                <h3 id="section5-c1-h">Environment Block</h3>
+            </div>
+            <div class="interactive-card" data-title="ACEM Individual Block" data-content="<p>The 'Strong Believer' test. Measures character, humility, integrity, and alignment with the 'JiMini Window' (Section 23).</p>">
+                <h3 id="section5-c2-h">Individual Block</h3>
+            </div>
+            <div class="interactive-card" data-title="ACEM Skill & Tool Block" data-content="<p>The 'Maester' test. Measures mastery of the Objective Standard (e.g., the 'Melissa Maker' standard, Section 21).</p>">
+                <h3 id="section5-c3-h">Skill & Tool Block</h3>
+            </div>
+            <div class="interactive-card" data-title="ACEM Alignment Block" data-content="<p>The 'Common Heart' test. Measures the Specialist's commitment to the 'Lighthouse Doctrine' (Section 1) and the 100-Year Legacy.</p>">
+                <h3 id="section5-c4-h">Alignment Block</h3>
+            </div>
+        </div>
+    </div>
+    <h2 class="accordion" id="section6-title">6-8. Operational Ranks & Pillars (The Implementation)</h2>
+    <div class="panel">
+        <h3 class="mt-4 mb-2" id="section6-h1">The "HR Moral Auditor" (The "Bypass Authority")</h3>
+        <p class="mb-4" id="section6-p1">
+            The core "Maester" of the doctrine. This role has Director-level "Bypass Authority" to "Tackle" (Section 9) any member, at any level, for "Contextual" violations (like arrogance, or "False King" idiocy) based on the <strong>JiMini Window (Section 23)</strong>. They wear the <strong>Grey Coat</strong>.
+        </p>
+        
+        <h3 class="mt-4 mb-2" id="section6-h2">Ranks (The "Hierarchy of Competent Tenure")</h3>
+        <p class="mb-4" id="section6-p2">
+            Ranks are based *only* on the <strong>ACEM (Section 5)</strong> score.
+        </p>
+        <ul class="mb-4">
+            <li id="section6-l1"><strong>Chief Versatilist (Head Maester):</strong> The top Specialist (200k Taka).</li>
+            <li id="section6-l2"><strong>Deputy Versatilist (Operational Heir):</strong> The 2nd highest ACEM score (160k Taka).</li>
+            <li id="section6-l3"><strong>"Versatilist" (88k Ideal):</strong> The *starting point* of the Versatilist track (88k Taka).</li>
+            <li id="section6-l4"><strong>"Maester" (Specialist):</strong> Master of *one* domain (e.g., Head Room Coordinator) (65k Taka).</li>
+            <li id="section6-l5"><strong>"Specialist" (Foundational):</strong> The standard competent Specialist (45k Taka).</li>
+            <li id="section6-l6"><strong>"Trainee Specialist":</strong> The entry-level "Dignified Roll" (30k Taka).</li>
+        </ul>
+
+        <h3 class="mt-4 mb-2" id="section6-h3">Financial Pillars (The "Strong Believer" Model)</h3>
+        <ul class="mb-4">
+            <li id="section6-l7"><strong>The Dignity Wage:</strong> Year 1 salaries based on competence, *not* tenure.</li>
+            <li id="section6-l8"><strong>Mutual Crisis Fund:</strong> The "Common Heart" safety net.</li>
+            <li id="section6-l9"><strong>Versatility Pay:</strong> The "Broad Organisation" model, rewarding "square footage" (skill variety).</li>
+        </ul>
+    </div>
+
+    <h2 class="accordion" id="section9-title">9. Ground Theory: The Tackle Defense Protocol (TDM)</h2>
+    <div class="panel">
+        <p class="mb-4" id="section9-p1">
+            The core principle of tackling the <strong>"Enemy from Within"</strong> (<em>nafs</em>) first. This is the <strong>HR Moral Auditor's</strong> primary protocol, built to "Tackle" and retrain any "Maester Pycelle" (Section 4), "False King" (Section 4), or "False Mask" (Section 23) archetype.
+        </p>
+    </div>
+        
+            <h2 class="accordion" id="section6-title">6-8. Operational Ranks & Pillars (The Implementation)</h2>
+    <div class="panel">
+        <h3 class="mt-4 mb-2" id="section6-h1">The "HR Moral Auditor" (The "Bypass Authority")</h3>
+        <p class="mb-4" id="section6-p1">
+            The core "Maester" of the doctrine. This role has Director-level "Bypass Authority" to "Tackle" (Section 9) any member, at any level, for "Contextual" violations (like arrogance, or "False King" idiocy) based on the <strong>JiMini Window (Section 23)</strong>. They wear the <strong>Grey Coat</strong>.
+        </p>
+        
+        <h3 class="mt-4 mb-2" id="section6-h2">Ranks (The "Hierarchy of Competent Tenure")</h3>
+        <p class="mb-4" id="section6-p2">
+            Ranks are based *only* on the <strong>ACEM (Section 5)</strong> score.
+        </p>
+        <ul class="mb-4">
+            <li id="section6-l1"><strong>Chief Versatilist (Head Maester):</strong> The top Specialist (200k Taka).</li>
+            <li id="section6-l2"><strong>Deputy Versatilist (Operational Heir):</strong> The 2nd highest ACEM score (160k Taka).</li>
+            <li id="section6-l3"><strong>"Versatilist" (88k Ideal):</strong> The *starting point* of the Versatilist track (88k Taka).</li>
+            <li id="section6-l4"><strong>"Maester" (Specialist):</strong> Master of *one* domain (e.g., Head Room Coordinator) (65k Taka).</li>
+            <li id="section6-l5"><strong>"Specialist" (Foundational):</strong> The standard competent Specialist (45k Taka).</li>
+            <li id="section6-l6"><strong>"Trainee Specialist":</strong> The entry-level "Dignified Roll" (30k Taka).</li>
+        </ul>
+
+        <h3 class="mt-4 mb-2" id="section6-h3">Financial Pillars (The "Strong Believer" Model)</h3>
+        <ul class="mb-4">
+            <li id="section6-l7"><strong>The Dignity Wage:</strong> Year 1 salaries based on competence, *not* tenure.</li>
+            <li id="section6-l8"><strong>Mutual Crisis Fund:</strong> The "Common Heart" safety net.</li>
+            <li id="section6-l9"><strong>Versatility Pay:</strong> The "Broad Organisation" model, rewarding "square footage" (skill variety).</li>
+        </ul>
+    </div>
+
+    <h2 class="accordion" id="section9-title">9. Ground Theory: The Tackle Defense Protocol (TDM)</h2>
+    <div class="panel">
+        <p class="mb-4" id="section9-p1">
+            The core principle of tackling the <strong>"Enemy from Within"</strong> (<em>nafs</em>) first. This is the <strong>HR Moral Auditor's</strong> primary protocol, built to "Tackle" and retrain any "Maester Pycelle" (Section 4), "False King" (Section 4), or "False Mask" (Section 23) archetype.
+        </p>
+    </div>
     
-    <div class="interactive-layout">
-        <div class="grid grid-2" id="card-container">
-        </div>
-        <div class="detail-pane" id="detail-pane">
+    <h2 class="accordion" id="section10-title">10. Strategic Positioning Frameworks (The SPACE Matrix)</h2>
+    <div class="panel">
+        <p class="mb-4" id="section10-p1">
+            The **SPACE Matrix** provides the high-level positioning: Internal Strength vs. External Threat, defining the strategic mandate.
+        </p>
+        <div class="interactive-card" data-title="The SPACE Matrix Equation" data-content="
+            <p class='small' id='section10-c1-p1'>
+            $$
+            \text{SPACE Matrix} = \text{Internal Position (FS, CA)} + \text{External Position (ES, IS)}
+            $$
+            </p>
+            <p class='small mt-2' id='section10-c1-p2'><strong>Internal Strength:</strong> <strong>Financial Strength ($\text{FS}$)</strong> includes the stability of the <strong>Dignity Wage</strong>. <strong>Competitive Advantage ($\text{CA}$)</strong> is defined by the <strong>ACEM Standard</strong> and <strong>Anti-Haram</strong> guardrails.</p>
+            <p class='small mt-2' id='section10-c1-p3'><strong>External Threat:</strong> <strong>Environmental Stability ($\text{ES}$)</strong> and <strong>Industry Strength ($\text{IS}$)</strong> define the velocity and nature of threats requiring the <strong>Tackle Defense Protocol</strong>.</p>
+        ">
+            <h3 id="section10-c1-h">The SPACE Matrix Equation</h3>
         </div>
     </div>
+
+    <h2 class="accordion" id="section11-title">11. Internal Coherence Frameworks (The McKinsey 7S Model)</h2>
+    <div class="panel">
+        <p class="mb-4" id="section11-p1">
+            The **Internal Alignment Guardrail** ensures all elements of the Guild enforce the Lighthouse Doctrine.
+        </p>
+        <div class="interactive-card" data-title="The 7S Alignment Mandate" data-content="
+            <p class='small' id='section11-c1-p1'>Ensuring all <strong>Hard</strong> elements (Strategy, Structure, Systems) and <strong>Soft</strong> elements (Style, Staff, Skills) align with the <strong>Shared Values (Lighthouse Doctrine)</strong>.</p>
+            <p class='small mt-2' id='section11-c1-p2'><strong>Operational Haram:</strong> Misalignment between a Hard Element and a Soft Element—e.g., a system of compensation that contradicts the Shared Value of Dignity—is an <strong>Operational Haram</strong> that must be instantly corrected via the <strong>TDM</strong>.</p>
+        ">
+            <h3 id="section11-c1-h">The 7S Alignment Mandate</h3>
         </div>
-        
-        <h2 class="mt-6 mb-4">4. Foundational Leadership Models (The Anti-Arrogance Standard)</h2>
-        <p class="mb-4">
-            Our organogram is built on these two core, yet frequently *ignored*, models. **Jim Collins' Level 5 Leadership** is the "Why" (the character of the Founder), and **Maxwell's 5 Levels of Leadership** is the "How" (the path every Specialist must walk). These models are often rejected by **arrogant** leaders (who fail the **Heraclius Test** by rejecting a known truth for political comfort) and **cocky** managers, which proves their vital necessity to the Ghuraba Doctrine.
-        </p>
-        <div class="grid grid-2">
-            <div class="card">
-                <div class="card-body">
-                    <h3>Jim Collins: Level 5 Leadership</h3>
-                    <p class="small">The Guild is led by a <strong>Level 5 Leader</strong>: someone who channels their ego <em>away</em> from themselves and <em>into</em> the <strong>Lighthouse Doctrine</strong>. They must **pass the Heraclius Test**—choosing known truth over public or political comfort. They are driven by <strong>Faithful Stewardship</strong> (the "Why Mirror") and build a system that will outlast them (the <strong>Legacy Guardrail</strong>), ensuring it never succumbs to the structural arrogance of leaders like Heraclius.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3>Maxwell: The 5 Levels of Leadership</h3>
-                    <p class="small">A Specialist's authority is <em>earned</em>, not given. **Lvl 1 (Position): The "Un-coachable Boss" (rejected).** This level is doctrinally banned as it leads to the **Utawarerumono Failure**—where leadership is granted by lineage or emotional appeal, proving that **Wisdom (Ilm)** must supersede **Emotion and Title** for any leadership role to function effectively.</p>
-                </div>
-                <div class="card">
-    <div class="card-body">
-        <h3>The Westeros Failure (Warning Archetypes)</h3>
-        <p class="small">This module defines the failure mode of leaders driven by emotion, inherited title, and strategic shortsightedness, reinforcing the necessity of the <strong>Al-Ameen Capability Evolution Model (ACEM)</strong> for all genders.</p>
-        <p class="small mt-2">
-            <span style="font-weight: 600;">Cersei Lannister:</span> Embodies pure **Arrogance**—rejecting known truths (Haqq) and prioritizing private emotion.<br>
-            <span style="font-weight: 600;">Daenerys Targaryen:</span> Embodies the failure of inherited authority and **Emotional Instability**.<br>
-            <span style="font-weight: 600;">Olenna & Margaery Tyrell:</span> Embodies **Strategic Shortsightedness** (failing to pursue the clear alliance).<br>
-            <span style="font-weight: 600;">Eddard (Ned) Stark:</span> Embodies **Moral Foolishness** (Moral Purity insufficient without Strategic Competence).<br>
-            <span style="font-weight: 600;">Robert Baratheon:</span> Embodies the failure of **Strategic Temperament**. His inability to act as the stabilizing, temperate force required proves the need for objective **ACEM judgment** over pure charisma. The **wisdom of Renly's "What If"** (supporting Stannis, the rightful heir) proves that **Strategic Competence** is defined by the ability to submit to the **Haqq (Rightful Order)**, a failure of vision that cost the realm.
-        </p>
     </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        <h2 class="mt-6 mb-4">5. The ACEM (Al-Ameen Capability Evolution Model) Doctrine</h2>
-        <p class="mb-4">
-            The **ACEM** is the single objective standard that guarantees the **Inversion of Authority**, ensuring competence and moral purity supersede title and tenure. The **ACEM** itself is a subset of the **Grandmaster Leadership Strategy Matrix (GLSM)**, which is the **Supreme Universal Standard** for assessing all Specialists (references: **Sajid Hassan & OpenAI CARASPT**; published in the **Eid Ul Azha special edition**).
-        </p>
-        <p class="mb-4">
-            The ACEM rejects the subjective biases of legacy institutions by assessing four non-negotiable blocks (References: **ACEM Structure 1000098436.png**):
+
+    <h2 class="accordion" id="section12-title">12. External Competitive Frameworks (Porter's Five Forces)</h2>
+    <div class="panel">
+        <p class="mb-4" id="section12-p1">
+            The granular analysis of external threats, linking directly to the **Tackle Defense Protocol**.
         </p>
         <div class="grid grid-2">
-            <div class="card">
-                <div class="card-body">
-                    <h3>Environment Block</h3>
-                    <p class="small">Focuses on *why* they lead/follow—who they are (e.g., Hofstede's 6D, Cultural Context, and Organizational Culture).</p>
-                </div>
+            <div class="interactive-card" data-title="Threats to the Market (External Danger)" data-content="
+                <p class='small' id='section12-c1-p1'><strong>1. Threat of New Entrants:</strong> Monitored by the unique and high cost of reproducing the <strong>ACEM</strong> and <strong>Anti-Haram</strong> operational ethics. The ethical barrier is the highest defense.</p>
+                <p class='small mt-2' id='section12-c1-p2'><strong>2. Threat of Substitute Products or Services:</strong> Mitigated by the Guild's commitment to <strong>Ihsan (Excellence)</strong> and focusing on core, recession-proof human needs that are difficult to substitute with technology.</p>
+            ">
+                <h3 id="section12-c1-h">Threats to the Market</h3>
             </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3>Individual Block</h3>
-                    <p class="small">Focuses on *who* they lead/follow—who they are (e.g., Aristotelian Virtue-Vice Spectrum, Dark Triad, and the Islamic Ethics Overlay).</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3>Skill & Tool Block (1) & (2)</h3>
-                    <p class="small">Focuses on *why* they lead/follow—skills and evolution (e.g., Gartner Skill Pyramid, Dan Lok-Inspired Model, and the necessary leadership levels).</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3>Leader-Follower Level & Alignment Block</h3>
-                    <p class="small">Focuses on Identity-Role-Context (e.g., Maslow-Islamic integration, and Strategic-Tactical-Operational alignment).</p>
-                </div>
+            <div class="interactive-card" data-title="Threats to Profitability (Internal Stress)" data-content="
+                <p class='small' id='section12-c2-p1'><strong>3. Bargaining Power of Suppliers:</strong> Managed by rigorous ethical auditing and commitment to **Haqq (Truth)** and mutually beneficial contracts, avoiding exploitative arrangements.</p>
+                <p class='small mt-2' id='section12-c2-p2'><strong>4. Bargaining Power of Customers:</strong> Mitigated by the core belief that value derived from <strong>Ihsan</strong> and ethical operations naturally creates a strong, loyal customer base.</p>
+                <p class='small mt-2' id='section12-c2-p3'><strong>5. Intensity of Competitive Rivalry:</strong> Addressed by shifting the competitive frame from price/volume to **Ethical Quality**, making the Guild's operational model difficult to copy.</p>
+            ">
+                <h3 id="section12-c2-h">Threats to Profitability</h3>
             </div>
         </div>
-        <blockquote class="blockquote small mt-4">
-            <p class="mb-0"><strong>The ACEM Purity Mandate:</strong> The entire system enforces that testing must be 100% job-relevant. The inclusion of objective tools like the **Big Five**, **Dark Triad**, and **Aristotelian Virtues** (as shown in the **GLSM Flowchart 1000098473.jpg**) ensures that moral, behavioral, and intellectual flaws are quantified and corrected, preventing the Heraclius and Westeros Failures.</p>
-        </blockquote>
-        
-        <h2 class="mt-6 mb-4">6. Departmental Architecture & Accountability</h2>
-        <p class="mb-4">
-            Functional departments are the core executors of the Codex, operating under the principle of <strong>Dignified Delegation</strong>.
-        </p>
-        <div class="grid grid-2">
-            <div class="card">
-                <div class="card-body">
-                    <h3>Human Resources (Bureau of Harmony)</h3>
-                    <p class="small">Enforces the <strong>Codex</strong> and the <strong>Common Heart Doctrine</strong>. Decentralized via the <strong>HR Moral Auditor</strong> who reports <strong>Dignity Violations</strong> directly to the Governance Panel, bypassing the un-coachable central hierarchy.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3>Operations (Bureau of Efficiency)</h3>
-                    <p class="small">Executes the service model with <strong>Effectiveness and Efficiency</strong>. Responsible for <strong>Dignified Delegation</strong>: ensuring that MBA/BBA Specialists focus on strategic tasks, and <strong>Foundational Specialists</strong> handle codified administrative duties.</p>
-                </div>
-            </div>
-        </div>
-        
-        <h2 class="mt-6 mb-4">7. Personnel Ranks & Growth</h2>
-        <p class="mb-4">
-            The Specialist's path is objective, rejecting subjective titles. It is guaranteed by the <strong>Al-Ameen Capability Evolution Model (ACEM) Score</strong> and the principles of <strong>Dignity</strong> and <strong>Zero-Risk Mobility</strong>.
-        </p>
-        <div class="grid grid-3">
-            <div class="card">
-                <div class="card-body">
-                    <h3>Trainee Specialist (Dan Lok)</h3>
-                    <p class="small">Replaces the banned term "Intern." A paid, codified position receiving the <strong>Dignity Wage</strong> at the Trainee Step. Their sole focus is completing the <strong>Codex Immersion</strong> and passing the Foundational ACEM test.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3>Foundational Specialist</h3>
-                    <p class="small">The core execution rank. Advancement occurs via <strong>Step Payments</strong> tied to increases in the ACEM Score. They are responsible for the daily execution of all codified procedures and administrative duties.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3>The Universalist Rank</h3>
-                    <p class="small">Achieved only after demonstrating cross-functional mastery through <strong>mandatory, facilitated inter-departmental rotations (Zero-Risk Mobility)</strong>. The Universalist earns the highest non-managerial <strong>Dignity Wage</strong>.</p>
-                </div>
-            </div>
-        </div>
-            <h2 class="mt-6 mb-4">3. The Ghuraba Organogram (Helix Model & Clickable Chain)</h2>
-    <p class="mb-4">
-        This is the <strong>Inversion of Authority</strong> in practice, built on the <strong>McKinsey Helix Model</strong>. This model separates accountability into two parallel axes:
-        <br><strong>1. Value Creation (The "What"):</strong> The Project Lead (SBU) focused on immediate business outcomes.
-        <br><strong>2. Capability Building (The "How"):</strong> The Department Heads (Bureaus) focused on long-term standards, skills, and enforcing the Codex.
-        <br>This structure is *why* the <strong>HR Moral Auditor</strong> can bypass the project hierarchy. Click on any role to see the specific Codex Doctrine that governs its authority and accountability.
-    </p>
+    </div>
     
-    <div class="interactive-layout">
-        <div class="grid grid-2" id="card-container">
-        </div>
-        <div class="detail-pane" id="detail-pane">
-        </div>
-    </div>
-        </div>
-        
-        <h2 class="mt-6 mb-4">4. Foundational Leadership Models (The Anti-Arrogance Standard)</h2>
-        <p class="mb-4">
-            Our organogram is built on these two core, yet frequently *ignored*, models. **Jim Collins' Level 5 Leadership** is the "Why" (the character of the Founder), and **Maxwell's 5 Levels of Leadership** is the "How" (the path every Specialist must walk). These models are often rejected by **arrogant** leaders (who fail the **Heraclius Test** by rejecting a known truth for political comfort) and **cocky** managers, which proves their vital necessity to the Ghuraba Doctrine.
+                <h2 class="accordion" id="section13-title">13. Project Risk Frameworks (The NTCP Diamond Model)</h2>
+    <div class="panel">
+        <p class="mb-4" id="section13-p1">
+            The doctrinal early warning system for project complexity and risk, ensuring project failure does not compromise the Guild's financial stability.
         </p>
-        <div class="grid grid-2">
-            <div class="card">
-                <div class="card-body">
-                    <h3>Jim Collins: Level 5 Leadership</h3>
-                    <p class="small">The Guild is led by a <strong>Level 5 Leader</strong>: someone who channels their ego <em>away</em> from themselves and <em>into</em> the <strong>Lighthouse Doctrine</strong>. They must **pass the Heraclius Test**—choosing known truth over public or political comfort. They are driven by <strong>Faithful Stewardship</strong> (the "Why Mirror") and build a system that will outlast them (the <strong>Legacy Guardrail</strong>), ensuring it never succumbs to the structural arrogance of leaders like Heraclius.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3>Maxwell: The 5 Levels of Leadership</h3>
-                    <p class="small">A Specialist's authority is <em>earned</em>, not given. **Lvl 1 (Position): The "Un-coachable Boss" (rejected).** This level is doctrinally banned as it leads to the **Utawarerumono Failure**—where leadership is granted by lineage or emotional appeal, proving that **Wisdom (Ilm)** must supersede **Emotion and Title** for any leadership role to function effectively.</p>
-                </div>
-                <div class="card">
-    <div class="card-body">
-        <h3>The Westeros Failure (Warning Archetypes)</h3>
-        <p class="small">This module defines the failure mode of leaders driven by emotion, inherited title, and strategic shortsightedness, reinforcing the necessity of the <strong>Al-Ameen Capability Evolution Model (ACEM)</strong> for all genders.</p>
-        <p class="small mt-2">
-            <span style="font-weight: 600;">Cersei Lannister:</span> Embodies pure **Arrogance**—rejecting known truths (Haqq) and prioritizing private emotion.<br>
-            <span style="font-weight: 600;">Daenerys Targaryen:</span> Embodies the failure of inherited authority and **Emotional Instability**.<br>
-            <span style="font-weight: 600;">Olenna & Margaery Tyrell:</span> Embodies **Strategic Shortsightedness** (failing to pursue the clear alliance).<br>
-            <span style="font-weight: 600;">Eddard (Ned) Stark:</span> Embodies **Moral Foolishness** (Moral Purity insufficient without Strategic Competence).<br>
-            <span style="font-weight: 600;">Robert Baratheon:</span> Embodies the failure of **Strategic Temperament**. His inability to act as the stabilizing, temperate force required proves the need for objective **ACEM judgment** over pure charisma. The **wisdom of Renly's "What If"** (supporting Stannis, the rightful heir) proves that **Strategic Competence** is defined by the ability to submit to the **Haqq (Rightful Order)**, a failure of vision that cost the realm.
-        </p>
-    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        <h2 class="mt-6 mb-4">5. The ACEM (Al-Ameen Capability Evolution Model) Doctrine</h2>
-        <p class="mb-4">
-            The **ACEM** is the single objective standard that guarantees the **Inversion of Authority**, ensuring competence and moral purity supersede title and tenure. The **ACEM** itself is a subset of the **Grandmaster Leadership Strategy Matrix (GLSM)**, which is the **Supreme Universal Standard** for assessing all Specialists (references: **Sajid Hassan & OpenAI CARASPT**; published in the **Eid Ul Azha special edition**).
-        </p>
-        <p class="mb-4">
-            The ACEM rejects the subjective biases of legacy institutions by assessing four non-negotiable blocks (References: **ACEM Structure 1000098436.png**):
-        </p>
-        <div class="grid grid-2">
-            <div class="card">
-                <div class="card-body">
-                    <h3>Environment Block</h3>
-                    <p class="small">Focuses on *why* they lead/follow—who they are (e.g., Hofstede's 6D, Cultural Context, and Organizational Culture).</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3>Individual Block</h3>
-                    <p class="small">Focuses on *who* they lead/follow—who they are (e.g., Aristotelian Virtue-Vice Spectrum, Dark Triad, and the Islamic Ethics Overlay).</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3>Skill & Tool Block (1) & (2)</h3>
-                    <p class="small">Focuses on *why* they lead/follow—skills and evolution (e.g., Gartner Skill Pyramid, Dan Lok-Inspired Model, and the necessary leadership levels).</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3>Leader-Follower Level & Alignment Block</h3>
-                    <p class="small">Focuses on Identity-Role-Context (e.g., Maslow-Islamic integration, and Strategic-Tactical-Operational alignment).</p>
-                </div>
-            </div>
-        </div>
-        <blockquote class="blockquote small mt-4">
-            <p class="mb-0"><strong>The ACEM Purity Mandate:</strong> The entire system enforces that testing must be 100% job-relevant. The inclusion of objective tools like the **Big Five**, **Dark Triad**, and **Aristotelian Virtues** (as shown in the **GLSM Flowchart 1000098473.jpg**) ensures that moral, behavioral, and intellectual flaws are quantified and corrected, preventing the Heraclius and Westeros Failures.</p>
-        </blockquote>
-        
-        <h2 class="mt-6 mb-4">6. Departmental Architecture & Accountability</h2>
-        <p class="mb-4">
-            Functional departments are the core executors of the Codex, operating under the principle of <strong>Dignified Delegation</strong>.
-        </p>
-        <div class="grid grid-2">
-            <div class="card">
-                <div class="card-body">
-                    <h3>Human Resources (Bureau of Harmony)</h3>
-                    <p class="small">Enforces the <strong>Codex</strong> and the <strong>Common Heart Doctrine</strong>. Decentralized via the <strong>HR Moral Auditor</strong> who reports <strong>Dignity Violations</strong> directly to the Governance Panel, bypassing the un-coachable central hierarchy.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3>Operations (Bureau of Efficiency)</h3>
-                    <p class="small">Executes the service model with <strong>Effectiveness and Efficiency</strong>. Responsible for <strong>Dignified Delegation</strong>: ensuring that MBA/BBA Specialists focus on strategic tasks, and <strong>Foundational Specialists</strong> handle codified administrative duties.</p>
-                </div>
-            </div>
-        </div>
-        
-        <h2 class="mt-6 mb-4">7. Personnel Ranks & Growth</h2>
-        <p class="mb-4">
-            The Specialist's path is objective, rejecting subjective titles. It is guaranteed by the <strong>Al-Ameen Capability Evolution Model (ACEM) Score</strong> and the principles of <strong>Dignity</strong> and <strong>Zero-Risk Mobility</strong>.
-        </p>
-        <div class="grid grid-3">
-            <div class="card">
-                <div class="card-body">
-                    <h3>Trainee Specialist (Dan Lok)</h3>
-                    <p class="small">Replaces the banned term "Intern." A paid, codified position receiving the <strong>Dignity Wage</strong> at the Trainee Step. Their sole focus is completing the <strong>Codex Immersion</strong> and passing the Foundational ACEM test.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3>Foundational Specialist</h3>
-                    <p class="small">The core execution rank. Advancement occurs via <strong>Step Payments</strong> tied to increases in the ACEM Score. They are responsible for the daily execution of all codified procedures and administrative duties.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3>The Universalist Rank</h3>
-                    <p class="small">Achieved only after demonstrating cross-functional mastery through <strong>mandatory, facilitated inter-departmental rotations (Zero-Risk Mobility)</strong>. The Universalist earns the highest non-managerial <strong>Dignity Wage</strong>.</p>
-                </div>
-            </div>
-    </div>
-        </div>
-    <h2 class="mt-6 mb-4">4. Foundational Leadership Models (The Anti-Arrogance Standard)</h2>
-    <p class="mb-4">
-        The Guild's leadership mandate is built on the **Humility of the Steward**, designed to neutralize ego and positional bias.
-    </p>
-    <div class="grid grid-2">
-        <div class="interactive-card" data-title="Jim Collins: Level 5 Leadership (The Heraclius Test)" data-content="
-            <p class='small'><strong>The Guardrail of Humility:</strong> The Founder and Pinnacle Leadership must be a Humble/Faithful Steward who channels ego into the **Lighthouse Doctrine**. The Leader must pass the **Heraclius Test**—choosing the objective truth over personal political comfort.</p>
-            <p class='small mt-2'><strong>ACEM Link:</strong> The Level 5 Leader is the required benchmark for all **Universalist Specialists** and above. Failure is a violation of the ACEM's <strong>Individual Block</strong>.</p>
-        ">
-            <h3>Jim Collins: Level 5 Leadership (The Heraclius Test)</h3>
-        </div>
-        <div class="interactive-card" data-title="Maxwell: The 5 Levels of Leadership (Positional Ban)" data-content="
-            <p class='small'><strong>The Positional Ban:</strong> Leadership derived solely from a title (Maxwell Level 1: Position) is doctrinally banned due to the **Utawarerumono Failure**—a system where unearned authority corrupts the entire command chain.</p>
-            <p class='small mt-2'><strong>ACEM Link:</strong> Authority must be earned via the **ACEM Score** (Level 2: Permission/Relationships, Level 3: Production/Results), ensuring every promotion validates competence over tenure.</p>
-        ">
-            <h3>Maxwell: The 5 Levels of Leadership (Positional Ban)</h3>
-        </div>
-    </div>
-    <div class="interactive-card mt-4" data-title="The Westeros Failure (Warning Archetypes)" data-content="
-        <p class='small'><strong>The Risk of Self-Deception:</strong> Archetypes from historical and fictional failures—like Cersei (Arrogance), Daenerys (Emotional Instability), and Ned Stark (Moral Foolishness)—define the high-level failure modes that the objective **ACEM** is designed to prevent.</p>
-        <p class='small mt-2'><strong>Mandate:</strong> Leadership must be assessed against behavioral archetypes, demanding continuous self-audit to prevent the erosion of objective judgment (Hikmah).</p>
-    ">
-        <h3>The Westeros Failure (Warning Archetypes)</h3>
-    </div>
-
-
-    <h2 class="mt-6 mb-4">5. The Al-Ameen Capability Evolution Model (ACEM) Doctrine</h2>
-    <p class="mb-4">
-        The **ACEM** is the single objective standard, a non-negotiable metric for competence, acting as the Guild's ultimate proof of **Justice ($\text{Adl}$)**.
-    </p>
-    <div class="grid grid-2">
-        <div class="interactive-card" data-title="The ACEM Structural Blocks (The GLSM Subset)" data-content="
-            <p class='small'>The ACEM is a proprietary subset of the **Grandmaster Leadership Strategy Matrix (GLSM)**, assessing the Specialist across four objective blocks (refer to the schematic for details):</p>
-            <ul class='small mt-2'>
-                <li><strong>Environment Block:</strong> Why they lead/follow—who they are in context (Hofstede's 6D, Cultural Types).</li>
-                <li><strong>Individual Block:</strong> Why they lead/follow—who they are as a moral person (Aristotelian Virtues, Dark Triad, Islamic Ethics Overlay).</li>
-                <li><strong>Skill & Tool Block:</strong> Why they lead/follow—skills and evolution (Gartner Skill Pyramid, Dan Lok Model).</li>
-                <li><strong>Leader-Follower Level & Alignment Block:</strong> Identity, context, and operational readiness (Maslow-Islamic integration, Strategic-Tactical-Operational alignment).</li>
+        <div class="interactive-card" data-title="The NTCP Diamond Model (Shenhar & Dvir)" data-content="
+            <p class='small' id='section13-c1-p1'>The $\text{NTCP}$ is a <strong>Codex Requirement</strong> for any project exceeding the Foundational Specialist scope. It assesses project risk across four dimensions:</p>
+            <ul class='small mt-2' id='section13-c1-l'>
+                <li><strong>N - Novelty:</strong> Market uncertainty (Derivative to Breakthrough).</li>
+                <li><strong>T - Technology:</strong> Technical uncertainty (Low Tech to High Tech).</li>
+                <li><strong>C - Complexity:</strong> Organizational/Product difficulty (Assembly to Array).</li>
+                <li><strong>P - Pace:</strong> Time sensitivity (Regular to Blitz Project).</li>
             </ul>
         ">
-            <h3>The ACEM Structural Blocks (The GLSM Subset)</h3>
-        </div>
-        <div class="interactive-card" data-title="The ACEM Purity Mandate (Testing Guardrail)" data-content="
-            <p class='small'><strong>The Banned Test:</strong> Testing must be **100% job-relevant**. Irrelevant academic tests, linguistic biases, and general knowledge assessments (e.g., geometry/algebra) that do not directly pertain to the role are **doctrinally banned**.</p>
-            <p class='small mt-2'><strong>The Mandate:</strong> Testing must be auditable and prove competence in the <strong>Skill & Tool Block</strong> and moral purity in the <strong>Individual Block</strong>. This ensures **Justice ($\text{Adl}$)** in the appraisal process.</p>
-        ">
-            <h3>The ACEM Purity Mandate (Testing Guardrail)</h3>
+            <h3 id="section13-c1-h">The NTCP Diamond Model (Shenhar & Dvir)</h3>
         </div>
     </div>
 
-    <h2 class="mt-6 mb-4">6-8. Operational Ranks and Financial Pillars</h2>
-    <p class="mb-4">
-        These sections define the structure and the non-negotiable financial mechanisms that enforce the **Dignity Wage** and the **Anti-Haram** guardrails.
-    </p>
-    <div class="grid grid-3">
-        <div class="interactive-card" data-title="The HR Moral Auditor (The Bypass Authority)" data-content="
-            <p class='small'>The **HR Moral Auditor** is a unique position with the authority to bypass the entire project hierarchy (SBU Lead to Pinnacle) based solely on evidence of ethical violation, exploitation, or compromise of the **Dignity Wage**. </p>
-            <p class='small mt-2'><strong>Function:</strong> Acts as the ultimate internal check on **Justice ($\text{Adl}$)**, ensuring no Specialist is subject to humiliation or economic harm.</p>
-        ">
-            <h3>The HR Moral Auditor (The Bypass Authority)</h3>
-        </div>
-        <div class="interactive-card" data-title="The Ranks (The Evolution of Competence)" data-content="
-            <p class='small'>Ranks are a progression of **ACEM Score** and competence, not tenure:</p>
-            <ul class='small mt-2'>
-                <li><strong>Trainee Specialist (Dan Lok Model):</strong> Focus on fundamental skill acquisition.</li>
-                <li><strong>Foundational Specialist:</strong> Proven competence, meets minimum $\text{ACEM}$ score (Level 2).</li>
-                <li><strong>Universalist Rank:</strong> Proven high competence and ethical resilience (Level 4/5 Leadership), can lead any SBU/Bureau.</li>
+    <h2 class="accordion" id="section14-title">14. Structural Evolution (The Transformation Model Refinement)</h2>
+    <div class="panel">
+        <p class="mb-4" id="section14-p1">
+            Refining the $\text{McKinsey 7S}$ by validating alignment against the external world and actual results.
+        </p>
+        <div class="interactive-card" data-title="The Transformation Model (COD) vs. McKinsey 7S" data-content="
+            <p class='small' id='section14-c1-p1'>The <strong>Transformation Model</strong> provides the necessary <strong>External Guardrail</strong> by including two critical elements the 7S omits:</p>
+            <ul class='small mt-2' id='section14-c1-l'>
+                <li><strong>ENVIRONMENT:</strong> Explicitly validates the $\text{ACEM}$'s <strong>Environment Block</strong> by demanding alignment with external cultural and market trends.</li>
+                <li><strong>RESULTS:</strong> Links the Guild's ethical mandates ($\text{Haqq}$) directly to measurable organizational performance ($\text{Adl}$), providing a check on the success of the <strong>Dignity Wage</strong> model.</li>
             </ul>
         ">
-            <h3>The Ranks (The Evolution of Competence)</h3>
+            <h3 id="section14-c1-h">The Transformation Model (COD) vs. McKinsey 7S</h3>
         </div>
-        <div class="interactive-card" data-title="Financial Pillars (Zero Exploitation)" data-content="
-            <p class='small'>The non-negotiable financial commitments:</p>
-            <ul class='small mt-2'>
-                <li><strong>The Dignity Wage:</strong> Non-exploitative compensation based on **market-plus** rates, removing the structural necessity for exploitation.</li>
-                <li><strong>Mutual Crisis Fund:</strong> A mandatory reserve protecting Specialists from external economic pressure (zero-risk mobility).</li>
+    </div>
+
+    <h2 class="accordion" id="section15-title">15. Competence Standard (The IPMA Alignment)</h2>
+    <div class="panel">
+        <p class="mb-4" id="section15-p1">
+            Providing external, globally recognized validation for the structural hierarchy of the $\text{ACEM}$ and Specialist Ranks.
+        </p>
+        <div class="interactive-card" data-title="The IPMA Competence Baseline" data-content="
+            <p class='small' id='section15-c1-p1'>The <strong>$\text{IPMA}$ Competence Baseline</strong> (International Project Management Association) is integrated to validate the $\text{ACEM}$ structure:</p>
+            <ul class='small mt-2' id='section15-c1-l1'>
+                <li><strong>Competence Formula:</strong> $\text{Applied Knowledge + Relevant Experience (Skill) + Professional Behavior (Attitude)}$. This directly aligns with the $\text{ACEM}$'s four blocks.</li>
+                <li><strong>Hierarchical Validation:</strong> The $\text{IPMA}$ four-level hierarchy ($\text{A-D}$) reinforces the <strong>Inversion of Authority</strong> concept by aligning with the Specialist Ranks (Foundational to Universalist).</li>
             </ul>
         ">
-            <h3>Financial Pillars (Zero Exploitation)</h3>
+            <h3 id="section15-c1-h">The IPMA Competence Baseline</h3>
         </div>
     </div>
-        <h2 class="mt-6 mb-4">9. Ground Theory & The Tackle Defense Protocol</h2>
-    <p class="mb-4">
-        The Guild operates under a **Defense-First Mandate**—stability is the precondition for any offensive strategy.
-    </p>
-    <div class="interactive-card" data-title="The Tackle Defense Protocol" data-content="
-        <p class='small'>Strategy is modeled after American Football defense: Priority is to **neutralize the threat's ability to move (Tackle)** before any offensive action (Scoring Drive) is considered. A failure to prevent structural harm to staff or integrity is the greatest loss.</p>
-        <p class='small mt-2'><strong>The TDM (Tackle Defense Module):</strong> Any operational failure must be codified into a defense module within 72 hours. **Failure to codify the error is the graver violation** than the initial failure itself, as it compromises future $\text{Hikmah}$ (Wisdom).</p>
-    ">
-        <h3>The Tackle Defense Protocol</h3>
-    </div>
 
-    <h2 class="mt-6 mb-4">10. Strategic Positioning Frameworks (The SPACE Matrix)</h2>
-    <p class="mb-4">
-        The **SPACE Matrix** provides the high-level positioning: Internal Strength vs. External Threat, defining the strategic mandate.
-    </p>
-    <div class="interactive-card" data-title="The SPACE Matrix Equation" data-content="
-        <p class='small'>$$
-        \text{SPACE Matrix} = \text{Internal Position (FS, CA)} + \text{External Position (ES, IS)}
-        $$</p>
-        <p class='small mt-2'><strong>Internal Strength:</strong> **Financial Strength ($\text{FS}$)** includes the stability of the **Dignity Wage**. **Competitive Advantage ($\text{CA}$)** is defined by the **ACEM Standard** and **Anti-Haram** guardrails.</p>
-        <p class='small mt-2'><strong>External Threat:</strong> **Environmental Stability ($\text{ES}$)** and **Industry Strength ($\text{IS}$)** define the velocity and nature of threats requiring the **Tackle Defense Protocol**.</p>
-    ">
-        <h3>The SPACE Matrix Equation</h3>
-    </div>
-
-    <h2 class="mt-6 mb-4">11. Internal Coherence Frameworks (The McKinsey 7S Model)</h2>
-    <p class="mb-4">
-        The **Internal Alignment Guardrail** ensures all elements of the Guild enforce the Lighthouse Doctrine.
-    </p>
-    <div class="interactive-card" data-title="The 7S Alignment Mandate" data-content="
-        <p class='small'>Ensuring all **Hard** elements (Strategy, Structure, Systems) and **Soft** elements (Style, Staff, Skills) align with the **Shared Values (Lighthouse Doctrine)**.</p>
-        <p class='small mt-2'><strong>Operational Haram:</strong> Misalignment between a Hard Element and a Soft Element—e.g., a system of compensation that contradicts the Shared Value of Dignity—is an **Operational Haram** that must be instantly corrected via the **TDM**.</p>
-    ">
-        <h3>The 7S Alignment Mandate</h3>
-    </div>
-
-    <h2 class="mt-6 mb-4">12. External Competitive Frameworks (Porter's Five Forces)</h2>
-    <p class="mb-4">
-        The granular analysis of external threats, linking directly to the **Tackle Defense Protocol**.
-    </p>
-    <div class="grid grid-2">
-        <div class="interactive-card" data-title="Threats to the Market (External Danger)" data-content="
-            <p class='small'><strong>1. Threat of New Entrants:</strong> Monitored by the unique and high cost of reproducing the **ACEM** and **Anti-Haram** operational ethics. The ethical barrier is the highest defense.</p>
-            <p class='small mt-2'><strong>2. Threat of Substitute Products or Services:</strong> Mitigated by the Guild's commitment to **Ihsan (Excellence)** and focusing on core, recession-proof human needs that are difficult to substitute with technology.</p>
+    <h2 class="accordion" id="section16-title">16. Competitor Strategy Analysis (Porter's 4 Drivers)</h2>
+    <div class="panel">
+        <p class="mb-4" id="section16-p1">
+            The dynamic, forward-looking analysis of competitors' anticipated moves, supporting the <strong>Tackle Defense Protocol</strong>.
+        </p>
+        <div class="interactive-card" data-title="Porter's Four Drivers" data-content="
+            <p class='small' id='section16-c1-p1'>The analysis breaks down the competitor's anticipated strategy across four key quadrants:</p>
+            <ul class='small mt-2' id='section16-c1-l'>
+                <li><strong>Drivers:</strong> What motivates the company (Financial Goals, Corporate Culture). <strong>Must be benchmarked against the Ghuraba Codex.</strong></li>
+                <li><strong>Strategy:</strong> How the company acts (Differential Position, Value Chain Investment). <strong>Must enforce Anti-Haram differentiation.</strong></li>
+                <li><strong>Capabilities:</strong> What the company can do (Financial Strength, Workforce Strengths). <strong>The Guild's ACEM-driven workforce must surpass theirs.</strong></li>
+                <li><strong>Management Assumptions:</strong> Their perceived strengths/weaknesses. <strong>Must exploit their assumption that the Guild will compromise its Dignity Wage.</strong></li>
+            </ul>
         ">
-            <h3>Threats to the Market (External Danger)</h3>
+            <h3 id="section16-c1-h">Porter's Four Drivers</h3>
         </div>
-        <div class="interactive-card" data-title="Bargaining Power (Pressure on Dignity)" data-content="
-            <p class='small'><strong>3. Bargaining Power of Buyers:</strong> The **Dignity Wage** and **Common Heart Doctrine** defend against buyer pressure. We refuse to compromise staff welfare for low pricing mandates.</p>
-            <p class='small mt-2'><strong>4. Bargaining Power of Suppliers:</strong> Managed by **Anti-Monopoly Sourcing** and maintaining high **Financial Strength ($\text{FS}$)** to ensure supply integrity.</p>
-            <p class='small mt-2'><strong>5. Rivalry Among Existing Competitors:</strong> Irrelevant. Our goal is **Monopolistic Competition** based on non-replicable ethics and unique quality, not price wars.</p>
+    </div>
+
+    <h2 class="accordion" id="section17-title">17. Strategic Inquiry (Simon's 7 Strategy Questions)</h2>
+    <div class="panel">
+        <p class="mb-4" id="section17-p1">
+            A mandatory quarterly self-audit for leadership to ensure continuous intellectual humility and strategic non-complacency ($\text{Hikmah}$).
+        </p>
+        <div class="interactive-card" data-title="Simon's 7 Strategy Questions" data-content="
+            <p class='small' id='section17-c1-p1'>The quarterly audit questions serve as a structural guardrail against complacency:</p>
+            <ul class='small mt-2' id='section17-c1-l'>
+                <li>How to prioritize customer, shareholders, and employees' needs with core values? <strong>(Tests the Dignity Wage commitment)</strong>.</li>
+                <li>How committed are your employees to helping each other? <strong>(Direct audit of the Common Heart Doctrine)</strong>.</li>
+                <li>What strategic boundaries have you set? <strong>(Are the Anti-Haram guardrails clear?)</strong>.</li>
+                <li>Who is your primary customer? / How are you generating creative tension? / What critical performance variables are you tracking? / What strategic uncertainties keep you awake at night?.</li>
+            </ul>
         ">
-            <h3>Bargaining Power (Pressure on Dignity)</h3>
+            <h3 id="section17-c1-h">Simon's 7 Strategy Questions</h3>
         </div>
     </div>
-        <h2 class="mt-6 mb-4">13. Project Risk Frameworks (The NTCP Diamond Model)</h2>
-    <p class="mb-4">
-        The doctrinal early warning system for project complexity and risk, ensuring project failure does not compromise the Guild's financial stability.
-    </p>
-    <div class="interactive-card" data-title="The NTCP Diamond Model (Shenhar & Dvir)" data-content="
-        <p class='small'>The $\text{NTCP}$ is a **Codex Requirement** for any project exceeding the Foundational Specialist scope. It assesses project risk across four dimensions:</p>
-        <ul class='small mt-2'>
-            <li><strong>N - Novelty:</strong> Market uncertainty (Derivative to Breakthrough).</li>
-            <li><strong>T - Technology:</strong> Technical uncertainty (Low Tech to High Tech).</li>
-            <li><strong>C - Complexity:</strong> Organizational/Product difficulty (Assembly to Array).</li>
-            <li><strong>P - Pace:</strong> Time sensitivity (Regular to Blitz Project).</li>
-        </ul>
-    ">
-        <h3>The NTCP Diamond Model (Shenhar & Dvir)</h3>
+
+    <h2 class="accordion" id="section18-title">18. Virtue and Excellence (VIA Classifications)</h2>
+    <div class="panel">
+        <p class="mb-4" id="section18-p1">
+            Reinforcing the <strong>Individual Block</strong> of the $\text{ACEM}$ with a comprehensive, non-religious taxonomy for character assessment.
+        </p>
+        <div class="interactive-card" data-title="Peterson & Seligman VIA Classifications" data-content="
+            <p class='small' id='section18-c1-p1'>The six categories of Virtue align directly with the $\text{ACEM}$'s moral purity mandate, serving as an objective check against the <strong>Dark Triad</strong>:</p>
+            <ul class='small mt-2' id='section18-c1-l'>
+                <li><strong>Justice ($\text{Adl}$):</strong> Teamwork, Fairness, and Leadership.</li>
+                <li><strong>Temperance:</strong> Prudence, Forgiveness, and Self-Regulation.</li>
+                <li><strong>Wisdom & Knowledge:</strong> Judgment, Creativity, and Perspective.</li>
+                <li><strong>Courage:</strong> Bravery, Honesty, and Perseverance.</li>
+                <li><strong>Humanity:</strong> Love, Kindness, and Social Intelligence.</li>
+                <li><strong>Transcendence:</strong> Hope, Gratitude, and Spirituality.</li>
+            </ul>
+        ">
+            <h3 id="section18-c1-h">Peterson & Seligman VIA Classifications</h3>
+        </div>
     </div>
 
-    <h2 class="mt-6 mb-4">14. Structural Evolution (The Transformation Model Refinement)</h2>
-    <p class="mb-4">
-        Refining the $\text{McKinsey 7S}$ by validating alignment against the external world and actual results.
-    </p>
-    <div class="interactive-card" data-title="The Transformation Model (COD) vs. McKinsey 7S" data-content="
-        <p class='small'>The **Transformation Model** provides the necessary **External Guardrail** by including two critical elements the 7S omits:</p>
-        <ul class='small mt-2'>
-            <li><strong>ENVIRONMENT:</strong> Explicitly validates the $\text{ACEM}$'s **Environment Block** by demanding alignment with external cultural and market trends.</li>
-            <li><strong>RESULTS:</strong> Links the Guild's ethical mandates ($\text{Haqq}$) directly to measurable organizational performance ($\text{Adl}$), providing a check on the success of the **Dignity Wage** model.</li>
-        </ul>
-    ">
-        <h3>The Transformation Model (COD) vs. McKinsey 7S</h3>
+        <h2 class="accordion" id="section19-title">19. Transformational Leadership Core Competencies</h2>
+    <div class="panel">
+        <p class="mb-4" id="section19-p1">
+            Validating the skills required for the <strong>Universalist Rank</strong> and <strong>Project Lead</strong> (Level 4/5 Leaders).
+        </p>
+        <div class="interactive-card" data-title="The Five Transformational Competencies" data-content="
+            <p class='small' id='section19-c1-p1'>The core skills required for the highest ranks, ensuring sustained leadership effectiveness:</p>
+            <ul class='small mt-2' id='section19-c1-l'>
+                <li><strong>Continuous Personal Development:</strong> Personal values, vision, and risk-taking.</li>
+                <li><strong>Trans. Management:</strong> Organizational and system shifts, strategic alliances, and collaborative relationships.</li>
+                <li><strong>Managing Information & Knowledge:</strong> Critical thinking, technology breakthroughs.</li>
+                <li><strong>Business Acumen:</strong> Financing strategies, organizational dynamics.</li>
+                <li><strong>Process Toolkit:</strong> Negotiation, dispute resolution, and concept mapping.</li>
+            </ul>
+        ">
+            <h3 id="section19-c1-h">The Five Transformational Competencies</h3>
+        </div>
     </div>
 
-    <h2 class="mt-6 mb-4">15. Competence Standard (The IPMA Alignment)</h2>
-    <p class="mb-4">
-        Providing external, globally recognized validation for the structural hierarchy of the $\text{ACEM}$ and Specialist Ranks.
-    </p>
-    <div class="interactive-card" data-title="The IPMA Competence Baseline" data-content="
-        <p class='small'>The **$\text{IPMA}$ Competence Baseline** (International Project Management Association) is integrated to validate the $\text{ACEM}$ structure:</p>
-        <ul class='small mt-2'>
-            <li><strong>Competence Formula:</strong> $\text{Applied Knowledge + Relevant Experience (Skill) + Professional Behavior (Attitude)}$. This directly aligns with the $\text{ACEM}$'s four blocks.</li>
-            <li><strong>Hierarchical Validation:</strong> The $\text{IPMA}$ four-level hierarchy ($\text{A-D}$) reinforces the **Inversion of Authority** concept by aligning with the Specialist Ranks (Foundational to Universalist).</li>
-        </ul>
-    ">
-        <h3>The IPMA Competence Baseline</h3>
+    <h2 class="accordion" id="section20-title">20. Intangibles & Competitive Advantage (CA)</h2>
+    <div class="panel">
+        <p class="mb-4" id="section20-p1">
+            Formalizing the measurement of <strong>Competitive Advantage ($\text{CA}$)</strong> that supports the Guild's positioning in the <strong>SPACE Matrix</strong>.
+        </p>
+        <div class="interactive-card" data-title="The Four Intangible Drivers of CA" data-content="
+            <p class='small' id='section20-c1-p1'>The four non-replicable assets that support the Dignity Wage model:</p>
+            <ul class='small mt-2' id='section20-c1-l'>
+                <li><strong>Reputation:</strong> Built on the unwavering commitment to the <strong>Dignity Wage</strong> and $\text{Anti-Haram}$ principles, making it a unique ethical brand.</li>
+                <li><strong>Intellectual Property (IP):</strong> The <strong>ACEM</strong>, the <strong>GLSM</strong>, and the entire <strong>Ghuraba Codex</strong> are proprietary $\text{IP}$ that is non-replicable by competitors.</li>
+                <li><strong>Length of Service:</strong> High Specialist retention driven by the $\text{Dignity Wage}$, ensuring deep organizational knowledge.</li>
+                <li><strong>Niche Market:</strong> A focus on high-$\text{Ihsan}$ products/services that serve a niche market willing to pay for moral purity and quality.</li>
+            </ul>
+        ">
+            <h3 id="section20-c1-h">The Four Intangible Drivers of CA</h3>
+        </div>
     </div>
+    
+    <h2 class="accordion" id="section23-title">23. The Doctrinal Coat System (The Visible Persona)</h2>
+    <div class="panel">
+        <p class="mb-4" id="section23-p1">
+            We reject "idiot" dress codes. We enforce a system of **Dignified Coats** that represent the wearer's "Maester" domain and commitment to the Objective Standard. A shirt is function; a coat is persona.
+        </p>
 
-    <h2 class="mt-6 mb-4">16. Competitor Strategy Analysis (Porter's 4 Drivers)</h2>
-    <p class="mb-4">
-        The dynamic, forward-looking analysis of competitors' anticipated moves, supporting the **Tackle Defense Protocol**.
-    </p>
-    <div class="interactive-card" data-title="Porter's Four Drivers" data-content="
-        <p class='small'>The analysis breaks down the competitor's anticipated strategy across four key quadrants:</p>
-        <ul class='small mt-2'>
-            <li><strong>Drivers:</strong> What motivates the company (Financial Goals, Corporate Culture). **Must be benchmarked against the Ghuraba Codex.**</li>
-            <li><strong>Strategy:</strong> How the company acts (Differential Position, Value Chain Investment). **Must enforce Anti-Haram differentiation.**</li>
-            <li><strong>Capabilities:</strong> What the company can do (Financial Strength, Workforce Strengths). **The Guild's ACEM-driven workforce must surpass theirs.**</li>
-            <li><strong>Management Assumptions:</strong> Their perceived strengths/weaknesses. **Must exploit their assumption that the Guild will compromise its Dignity Wage.**</li>
-        </ul>
-    ">
-        <h3>Porter's Four Drivers</h3>
-    </div>
-            <h2 class="mt-6 mb-4">17. Strategic Inquiry (Simon's 7 Strategy Questions)</h2>
-    <p class="mb-4">
-        A mandatory quarterly self-audit for leadership to ensure continuous intellectual humility and strategic non-complacency ($\text{Hikmah}$).
-    </p>
-    <div class="interactive-card" data-title="Simon's 7 Strategy Questions" data-content="
-        <p class='small'>The quarterly audit questions serve as a structural guardrail against complacency:</p>
-        <ul class='small mt-2'>
-            <li>How to prioritize customer, shareholders, and employees' needs with core values? **(Tests the Dignity Wage commitment)**.</li>
-            <li>How committed are your employees to helping each other? **(Direct audit of the Common Heart Doctrine)**.</li>
-            <li>What strategic boundaries have you set? **(Are the Anti-Haram guardrails clear?)**.</li>
-            <li>Who is your primary customer? / How are you generating creative tension? / What critical performance variables are you tracking? / What strategic uncertainties keep you awake at night?.</li>
-        </ul>
-    ">
-        <h3>Simon's 7 Strategy Questions</h3>
-    </div>
-
-    <h2 class="mt-6 mb-4">18. Virtue and Excellence (VIA Classifications)</h2>
-    <p class="mb-4">
-        Reinforcing the **Individual Block** of the $\text{ACEM}$ with a comprehensive, non-religious taxonomy for character assessment.
-    </p>
-    <div class="interactive-card" data-title="Peterson & Seligman VIA Classifications" data-content="
-        <p class='small'>The six categories of Virtue align directly with the $\text{ACEM}$'s moral purity mandate, serving as an objective check against the **Dark Triad**:</p>
-        <ul class='small mt-2'>
-            <li><strong>Justice ($\text{Adl}$):</strong> Teamwork, Fairness, and Leadership.</li>
-            <li><strong>Temperance:</strong> Prudence, Forgiveness, and Self-Regulation.</li>
-            <li><strong>Wisdom & Knowledge:</strong> Judgment, Creativity, and Perspective.</li>
-            <li><strong>Courage:</strong> Bravery, Honesty, and Perseverance.</li>
-            <li><strong>Humanity:</strong> Love, Kindness, and Social Intelligence.</li>
-            <li><strong>Transcendence:</strong> Hope, Gratitude, and Spirituality.</li>
-        </ul>
-    ">
-        <h3>Peterson & Seligman VIA Classifications</h3>
-    </div>
-
-    <h2 class="mt-6 mb-4">19. Transformational Leadership Core Competencies</h2>
-    <p class="mb-4">
-        Validating the skills required for the **Universalist Rank** and **Project Lead** (Level 4/5 Leaders).
-    </p>
-    <div class="interactive-card" data-title="The Five Transformational Competencies" data-content="
-        <p class='small'>The core skills required for the highest ranks, ensuring sustained leadership effectiveness:</p>
-        <ul class='small mt-2'>
-            <li><strong>Continuous Personal Development:</strong> Personal values, vision, and risk-taking.</li>
-            <li><strong>Trans. Management:</strong> Organizational and system shifts, strategic alliances, and collaborative relationships.</li>
-            <li><strong>Managing Information & Knowledge:</strong> Critical thinking, technology breakthroughs.</li>
-            <li><strong>Business Acumen:</strong> Financing strategies, organizational dynamics.</li>
-            <li><strong>Process Toolkit:</strong> Negotiation, dispute resolution, and concept mapping.</li>
-        </ul>
-    ">
-        <h3>The Five Transformational Competencies</h3>
-    </div>
-
-    <h2 class="mt-6 mb-4">20. Intangibles & Competitive Advantage (CA)</h2>
-    <p class="mb-4">
-        Formalizing the measurement of **Competitive Advantage ($\text{CA}$)** that supports the Guild's positioning in the **SPACE Matrix**.
-    </p>
-    <div class="interactive-card" data-title="The Four Intangible Drivers of CA" data-content="
-        <p class='small'>The four non-replicable assets that support the Dignity Wage model:</p>
-        <ul class='small mt-2'>
-            <li><strong>Reputation:</strong> Built on the unwavering commitment to the **Dignity Wage** and $\text{Anti-Haram}$ principles, making it a unique ethical brand.</li>
-            <li><strong>Intellectual Property (IP):</strong> The **ACEM**, the **GLSM**, and the entire **Ghuraba Codex** are proprietary $\text{IP}$ that is non-replicable by competitors.</li>
-            <li><strong>Length of Service:</strong> High Specialist retention driven by the $\text{Dignity Wage}$, ensuring deep organizational knowledge.</li>
-            <li><strong>Niche Market:</strong> A focus on high-$\text{Ihsan}$ products/services that serve a niche market willing to pay for moral purity and quality.</li>
-        </ul>
-    ">
-        <h3>The Four Intangible Drivers of CA</h3>
+        <h3 class="mt-4 mb-2" id="section23-h1">Psychographic Personas: The JiMini Window</h3>
+        <p class="mb-4" id="section23-p2">
+            Our "Tackle Defense" tool for the HR Moral Auditor. This maps the <em>true character</em> of all personnel to identify the "enemy from within" (the "False Mask").
+        </p>
+        <div class="grid grid-2">
+            <div class="interactive-card" data-title="Open Virtue" data-content="<p class='small' id='section23-c1-p'>Publicly good and aligned with the doctrine (e.g., Mehwish, Sahiba).</p>">
+                <h3 id="section23-c1-h">Open Virtue</h3>
+            </div>
+            <div class="interactive-card" data-title="Hidden Virtue" data-content="<p class='small' id='section23-c2-p'>Good but misunderstood. (e.g., Idrees' Orcs).</p>">
+                <h3 id="section23-c2-h">Hidden Virtue</h3>
+            </div>
+            <div class="interactive-card" data-title="Open Desecrator" data-content="<p class='small' id='section23-c3-p'>Shamelessly corrupt. (e.g., Melissa-type figures). An immediate 'Tackle' target.</p>">
+                <h3 id="section23-c3-h">Open Desecrator</h3>
+            </div>
+            <div class="interactive-card" data-title="False Mask" data-content="<p class='small' id='section23-c4-p'>Pretends piety, hides decay. The 'False King' (Section 4) archetype. The *primary* 'Tackle' target.</p>">
+                <h3 id="section23-c4-h">False Mask</h3>
+            </div>
+        </div>
     </div>
         
+
+    <h3 class="mt-6 mb-2">The Coat System: Colour Psychology</h3>
+    <p class="mb-4">
+        The colors assigned to our "Dignified Rolls" (e.g., Room Coordinator), reflecting their "Maester" (Specialist) function. Based on the Hadith: "Wear white, for it is the best of your garments..." (Tirmidhi)
+    </p>
+    <div class="grid grid-4">
+        <div class="interactive-card" data-title="White Coats" data-content="<p class='small'>Healers, soul-doctors, spiritual guides. Representing purity.</p>">
+            <h3>White Coats</h3>
+        </div>
+        <div class="interactive-card" data-title="Blue Coats" data-content="<p class='small'>Engineers, builders, architects. Truth-driven, calm, and competent.</p>">
+            <h3>Blue Coats</h3>
+        </div>
+        <div class="interactive-card" data-title="Brown Coats" data-content="<p class='small'>HR and Frontline Operatives (e.g., Room Coordinators). Dependable, empathetic, and strong.</p>">
+            <h3>Brown Coats</h3>
+        </div>
+        <div class="interactive-card" data-title="Grey Coats" data-content="<p class='small'>Intelligence, covert, strategic. Worn by the HR Moral Auditor. Neutral and misunderstood.</p>">
+            <h3>Grey Coats</h3>
+        </div>
+    </div>
+                <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        
+        const modal = document.getElementById("doctrinalModal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalBody = document.getElementById("modalBody");
+        const closeModal = document.querySelector(".modal-close");
+        const interactiveCards = document.querySelectorAll(".interactive-card");
+
+        interactiveCards.forEach(card => {
+            card.addEventListener("click", () => {
+                const title = card.getAttribute("data-title");
+                const content = card.getAttribute("data-content");
+                modalTitle.textContent = title;
+                modalBody.innerHTML = content;
+                modal.style.display = "block";
+            });
+        });
+
+        const closeTheModal = () => {
+            modal.style.display = "none";
+        }
+        closeModal.addEventListener("click", closeTheModal);
+        window.addEventListener("click", (event) => {
+            if (event.target == modal) {
+                closeTheModal();
+            }
+        });
+
+        const accordions = document.querySelectorAll("h2.accordion");
+        accordions.forEach(acc => {
+            const panel = acc.nextElementSibling;
+            if (panel && panel.classList.contains("panel")) {
+                 panel.style.maxHeight = null;
+            }
+            acc.addEventListener("click", function() {
+                this.classList.toggle("active");
+                const panel = this.nextElementSibling;
+                if (panel && panel.classList.contains("panel")) {
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                }
+            });
+        });
+
+        const languageData = {
+            "en": {
+                "header-title": "Ghuraba Doctrine: Management & Leadership",
+                "header-lead": "The Objective Standard for the 100-Year Legacy.",
+                "section1-title": "1. The Lighthouse Doctrine (The 'Why')",
+                "section1-p1": "The core philosophy. Based on <strong>Haqq</strong> (Truth), <strong>Adl</strong> (Justice), and <strong>Ihsan</strong> (Excellence).",
+            },
+            "bn": {
+                "header-title": "গুরাবা মতবাদ: ব্যবস্থাপনা ও নেতৃত্ব",
+                "header-lead": "১০০ বছরের লিগ্যাসির জন্য অবজেক্টিভ স্ট্যান্ডার্ড।",
+                "section1-title": "১. বাতিঘর মতবাদ ('কেন')",
+                "section1-p1": "মূল দর্শন। <strong>হক</strong> (সত্য), <strong>আদল</strong> (ন্যায়বিচার), এবং <strong>ইহসান</strong> (উৎকর্ষ) এর উপর ভিত্তি করে।",
+            }
+        };
+
+        let currentLang = "en";
+
+        function updateLanguage(lang) {
+            if (!languageData[lang]) {
+                console.error("Language data not found for: " + lang);
+                return;
+            }
+            
+            currentLang = lang;
+            
+            for (const id in languageData[lang]) {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.innerHTML = languageData[lang][id];
+                }
+            }
+            
+            const langSelect = document.getElementById("lang-switch");
+            if (langSelect) {
+                langSelect.value = lang;
+            }
+        }
+
+        const langSelect = document.getElementById("lang-switch");
+        if (langSelect) {
+            langSelect.addEventListener("change", (e) => {
+                updateLanguage(e.target.value);
+            });
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const langFromURL = urlParams.get('lang');
+        
+        if (langFromURL && languageData[langFromURL]) {
+            currentLang = langFromURL;
+        } else {
+            currentLang = "en";
+        }
+        
+        updateLanguage(currentLang);
+
+    });
+                    </script>
+                        <div id="doctrinalModal" class="modal-backdrop">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle" class="modal-title-text"></h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div id="modalBody" class="modal-body-text">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
