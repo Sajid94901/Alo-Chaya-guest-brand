@@ -936,3 +936,13 @@ body.modal-open {
   background: var(--card-bg);
   font-weight: 600;
 }
+/* --- FIX: Ensure Toggler Content Starts Hidden (Critical for JS) --- */
+.content-s7,
+.content-s8,
+.content-s9,
+.content-s10,
+.content-s11 {
+    /* This rule forces the content to be hidden on initial load, 
+       allowing the JavaScript to control its visibility. */
+    display: none !important; 
+}
