@@ -1301,7 +1301,8 @@ document.addEventListener('DOMContentLoaded', () => {
 }; 
   const setupContentToggler = (triggerId, contentSelector) => {
     const trigger = document.getElementById(triggerId);
-    const content = document.querySelector(contentSelector); 
+    
+    const content = document.querySelector('.' + contentSelector); 
     
     if (trigger && content) {
         content.style.display = 'none'; 
@@ -1319,7 +1320,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-}; 
+};
+        
         // Initialize the togglers for all major sections
         setupContentToggler('section7-title-container', 'content-s7');
         setupContentToggler('section8-title-container', 'content-s8');
