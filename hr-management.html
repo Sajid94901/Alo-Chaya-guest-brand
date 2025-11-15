@@ -724,656 +724,258 @@
     </section>
     
 </main>
-    <script>
-const langData = {
-    'en': {
-        'hero-title': 'Bureau of Harmony (HR) Strategy',
-        'hero-lead': 'Enforcing the Common Heart Doctrine and the Objective Standard.',
-        'section1-title': '1. The Inversion of Authority (The Dual Audit Mandate)',
-        'section1-desc': 'The Bureau of Harmony is decentralized. Ethical compliance is handled by a **Dual Audit** system, with the **Project Lead** and a **second Moral Auditor** acting as mutual checks and balances to prevent a single point of failure.',
-        'card-s1-1-title': 'The Moral Auditors (Guardians)',
-        'card-s1-1-desc': 'This is a **Dual Audit** system. The **Project Lead** and a **second Moral Auditor** act as mutual guardians. They audit each other and all other departments. They have the power to overrule managers on moral grounds and enforce the ACEM Purity Mandate.',
-        'card-s1-2-title': 'The Specialist (The Asset)',
-        'card-s1-2-desc': 'The Specialist (employee) is the core asset. Their "Employee Story" is the primary data. Their duty is to the Guild (the work) and the Common Heart (the doctrine).',
-        'card-s1-3-title': 'The Manager (The Coach)',
-        'card-s1-3-desc': 'The Manager is a "Coach," not a "Ruler." Their job is to remove barriers and develop the Specialist\'s ACEM score. They are accountable to the Moral Auditors for team well-being.',
-        'section2-title': '2. Moral Purity and Guardrail of Integrity',
-        'section2-desc': 'The Bureau of Harmony enforces the moral purity of the Guild, protecting it from both internal and external corruption, as mandated by the Founder\'s Rule.',
-        'card1-title': 'Moral Purity and Right to Eject',
-        'card1-desc': 'Guests are treated as students in the Training Centre. The Guild has the <strong>absolute, non-negotiable right to eject</strong> any guest engaging in gross moral failures (e.g., exploitation, adultery) that violate the spiritual purity and integrity of the Common Heart.',
-        'card2-title': 'The Guardrail of Integrity (The Ultimate Test)',
-        'card2-list-li1': '<strong>Bidirectional Exploitation:</strong> Neither staff exploiting upper management, nor upper management exploiting staff.',
-        'card2-list-li2': '<strong>External Contamination:</strong> The Leader\'s private life must never introduce external moral/financial poison that destroys the Guild.',
-        'section3-title': '3. The Recruitment & Onboarding Protocol (The Employee Story)',
-        'section3-desc': 'We begin the <strong>Employee Story</strong>. Our system is a data-driven model. <br><br><strong>Referral Accountability:</strong> In internal or connection-based hiring, the referee shares reputational responsibility. The principle: “You chose this candidate; your judgment is now part of their performance record.”<br><br>All assessments are based on our core principles. <a href="models.html" class="link-light">See the models we use for judging character and competence.</a>',
-        'section3-card1-title': 'Step 1: Discovery & Application',
-        'section3-card1-desc': 'It starts with our <strong>Company Branding</strong> and honest <strong>Recruitment Discovery</strong>. Prospective Specialists apply via our portal, submitting not just a CV, but the raw data for their Employee Story.',
-        'section3-card2-title': 'Step 2: The ACEM Assessment',
-        'section3-card2-desc': 'All applications are assessed based on the <strong>ACEM Purity Mandate</strong>. We test <em>only</em> for skills 100% relevant to the codified job role. We ban all irrelevant academic and cultural barriers.',
-        'section3-card3-title': 'Step 3: The Trainee Specialist',
-        'section3-card3-desc': 'Successful candidates are not "Interns." They are hired as paid <strong>Trainee Specialists</strong> at a <strong>Dignity Wage</strong>. They are given a codified role to begin their journey.',
-        'section4-title': '4. Granular Staffing & Payroll',
-        'section4-desc': 'Click any role card to see the full breakdown. Use the language switcher at the top-right to toggle বাংলা / English.',
-        'section5-title': '5. Operations & Departments',
-        'section5-card1-title': 'Finance & Accounting',
-        'section5-card1-desc': 'Handles budgeting, ratio analysis, and capital layering for sustainable growth.',
-        'section5-card2-title': 'Marketing & Branding',
-        'section5-card2-desc': 'Develops brand identity, campaigns, and bilingual digital presence across all media.',
-        'section5-card3-title': 'HR & Talent Development',
-        'section5-card3-desc': 'Builds long-term talent pipelines through mentorship, stewardship, and culture building.',
-        'section5-card4-title': 'Hospitality & Guest Services',
-        'section5-card4-desc': 'Creates guest experiences based on Rocco Forte style operational elegance.',
-        'section5-card5-title': 'Architecture & Design',
-        'section5-card5-desc': 'Integrates Alo Chaya’s design language with Lighthouse aesthetic and material innovation.',
-        'section5-card6-title': 'Operations & Management',
-        'section5-card6-desc': 'Oversees logistics, facility performance, and digital workflow integration.',
-        'modal-close': 'Close',
-        'modal-finance-title': 'Finance & Accounting',
-        'modal-finance-desc': '<strong>True Mid (Base):</strong> Revenue = 34.7M BDT | Net Profit ≈ 7.5M BDT<br><strong>Low Ideal (Upside):</strong> Revenue = 52.1M BDT | Net Profit ≈ 20.1M BDT<br><strong>Mid Ideal (Baseline):</strong> Revenue = 57.8M BDT | Net Profit ≈ 24.3M BDT<br><br>Incorporates ROI & turnover ratios. In Worst/Improbable scenarios, the <strong>Founder (Project Lead) contributes 50% of monthly salary</strong> to a contingency equity pool.',
-        'modal-marketing-title': 'Marketing & Branding',
-        'modal-marketing-desc': 'Bilingual UI and visual identity combine Rocco Forte hospitality tone with Alo Chaya’s Lighthouse ethos.',
-        'modal-hr-title': 'HR & Talent Development',
-        'modal-hr-desc': 'This bureau manages the entire **Employee Story**. It links **Recruitment** (testing via ACEM Purity Mandate) to **Onboarding** (orientation) and the **T&D Gateway**. The Gateway uses **Bloom\'s Taxonomy** and **Dale\'s Cone** to link verified skills to **Compensation**, **Promotions**, and the dual-role **"Versatilist"** path. <a href="models.html">See the full T&D model.</a>',
-        'modal-hospitality-title': 'Hospitality & Guest Services',
-        'modal-hospitality-desc': 'Inspired by the service model of **"Kakuriyo: Bed and Breakfast for Spirits,"** but purified of all exploitation and rudeness. Our system is built on dignity and measurable ACEM-based service, not servitude.',
-        'modal-architecture-title': 'Architecture & Design',
-        'modal-architecture-desc': 'Each site incorporates Lighthouse motifs in material composition and eco-spatial form; structural plans reviewed through Architect & Illuminator protocols.',
-        'modal-operations-title': 'Operations & Management',
-        'modal-operations-desc': 'Focus on rotational sales cycles, cross-floor room allocation, and Gemini synchronization for efficiency tracking.',
-        'section6-title': '6. Role Assignment & Employee Journey',
-        'section6-desc': 'Assign a Specialist to one or more roles (Versatilist paths), track onboarding stage and ACEM entry.',
-        'ra-tab-assign': 'Assign Role',
-        'ra-tab-list': 'Assigned List',
-        'ra-search-placeholder': 'Search name or role',
-        'ra-export': 'Export CSV',
-        'ra-label-name': 'Employee Full Name',
-        'ra-name-placeholder': 'e.g. Resort Director',
-        'ra-label-role1': 'Primary Role',
-        'ra-label-role2': 'Secondary Role (optional)',
-        'ra-label-start': 'Start Date',
-        'ra-label-acem': 'ACEM Entry Score (0-100)',
-        'ra-label-mult': 'Package Multiplier',
-        'ra-calc': 'Calculate Package',
-        'ra-save': 'Save Assignment',
-        'ra-summary-title': 'Assignment Summary',
-        'ra-preview-contract': 'Preview Contract',
-        'ra-clear': 'Clear All',
-        'ra-modal-download': 'Download',
-        'ra-modal-save': 'Confirm',
-        'section10-title': '10. Extension 4: The Al-Ameen Grandmaster Culture Profile (The Blend)',
-        'section10-desc': 'Our culture is an intentional, managed blend of the Competing Values Framework (CVF) types. This profile ensures we are not a mono-culture, but a dynamic, flow-efficient **Al-Ameen Adhocracy**.',
-        'ext4-clan-title': 'Al-Ameen Clan (Core: 50%)',
-        'ext4-clan-desc': 'High Trust, Character-Driven, People-Oriented. Collaborative & values cohesion. **Anime Inspiration:** *Aol\'s Cooking* (building *vaith* and skill)',
-        'ext4-adhoc-title': 'Al-Ameen Adhocracy (Focus: 35%)',
-        'ext4-adhoc-desc': 'Dynamic, Entrepreneurial, Creative. Innovation & Flexibility. **Anime Inspiration:** *One Piece* (collaborative journey, overcoming impossible odds)',
-        'ext4-hierarchy-title': 'Al-Ameen Hierarchy (Support: 10%)',
-        'ext4-hierarchy-desc': 'Structured, Formalized, Process-Oriented. Efficiency & Control. **Anime Inspiration:** *Attack on Titan* (Regimented defense, strategic ops)',
-        'ext4-market-title': 'Al-Ameen Market (Growth: 5%)',
-        'ext4-market-desc': 'Results-Oriented, Competitive. Achievement & Profitability. **Anime Inspiration:** *Food Wars* (intense culinary battles, seeking excellence)',
-        'ext5-globe-title': 'GLOBE Cultural Dimensions (9)', 
-        'ext5-globe-desc': 'Focuses on **Societal Practices** (The "Dignified Guide" behavior). Our scores are filtered to ensure: *Performance Orientation*, *Future Orientation*, and *In-Group Collectivism* are prioritized over pure *Assertiveness*.',
-        'ext5-tromp-title': 'Trompenaars’ 7 Dimensions',
-        'ext5-tromp-desc': 'Focuses on **Dilemma Resolution** (The "Common Heart" philosophy). We demand **Universalism** (rules over relationships) and **Achievement** (performance over ascription/seniority).',
-        'section11-footer': '**Grandmaster Outcomes:** *Dejobbing* (Pay-for-Versatility), *TOws Matrix* (Proactive Strategy), and *Flow-Efficient Global Action* (The D & A in OODA Loop).'
-    }
-};
-
-const positionsData = [
-    { name: 'Financial Analyst', dept: 'Finance & Accounting', baseSalary: 75000, roles: ['Primary'] },
-    { name: 'Tax Specialist', dept: 'Finance & Accounting', baseSalary: 80000, roles: ['Primary'] },
-    { name: 'Brand Strategist', dept: 'Marketing & Branding', baseSalary: 95000, roles: ['Primary'] },
-    { name: 'Digital Content Creator (Bilingual)', dept: 'Marketing & Branding', baseSalary: 70000, roles: ['Primary', 'Secondary'] },
-    { name: 'Moral Auditor', dept: 'HR & Talent Development', baseSalary: 110000, roles: ['Primary'] },
-    { name: 'Talent Acquisition Specialist', dept: 'HR & Talent Development', baseSalary: 85000, roles: ['Primary'] },
-    { name: 'Guest Services Lead', dept: 'Hospitality & Guest Services', baseSalary: 65000, roles: ['Primary', 'Secondary'] },
-    { name: 'Floor Manager (Versatilist)', dept: 'Hospitality & Guest Services', baseSalary: 90000, roles: ['Primary', 'Secondary'] },
-    { name: 'Architect & Illuminator', dept: 'Architecture & Design', baseSalary: 130000, roles: ['Primary'] },
-    { name: 'Material Innovation Specialist', dept: 'Architecture & Design', baseSalary: 105000, roles: ['Primary'] },
-    { name: 'Supply Chain Analyst', dept: 'Operations & Management', baseSalary: 72000, roles: ['Primary'] },
-    { name: 'Digital Workflow Integrator', dept: 'Operations & Management', baseSalary: 88000, roles: ['Primary', 'Secondary'] },
-    { name: 'Trainee Specialist', dept: 'General', baseSalary: 45000, roles: ['Primary', 'Secondary'] },
-    { name: '88k Versatilist', dept: 'General', baseSalary: 60000, roles: ['Secondary'] }
-];
-
-const specialistRosterData = [
-    { name: "Khalid R. Khan", rank: "L-4 (Sr. Specialist)", tenure: 6, acem: 89, moral: "A+", jimini: "Low Risk" },
-    { name: "Farah M. Haq", rank: "L-3 (Manager)", tenure: 4, acem: 72, moral: "B-", jimini: "Medium Risk" },
-    { name: "Zahid S. Islam", rank: "L-5 (Master Maester)", tenure: 10, acem: 95, moral: "A++", jimini: "Minimal Risk" },
-    { name: "Rina A. Begum", rank: "L-2 (Associate)", tenure: 2, acem: 68, moral: "C", jimini: "High Risk (E-Op)" }
-];
-
-let currentLang = 'en';
-let assignedRoles = [];
-
-const formatCurrency = (amount) => {
-    // Note: Removed locale check, defaulting to English/US locale for currency formatting
-    const locale = 'en-US';
-    const currency = 'BDT';
-    return new Intl.NumberFormat(locale, {
-        style: 'currency',
-        currency: currency,
-        minimumFractionDigits: 0
-    }).format(amount);
-};
-        const updateLanguage = (newLang = currentLang) => {
-    currentLang = newLang;
-    const data = langData[currentLang];
-    
-    const langSelect = document.getElementById('language');
-    if (langSelect) langSelect.value = currentLang;
-
-    const elementsToUpdate = {
-        'hero-title': 'textContent', 'hero-lead': 'textContent', 'section1-title': 'textContent', 'section1-desc': 'textContent', 'card-s1-1-title': 'textContent', 'card-s1-1-desc': 'textContent', 'card-s1-2-title': 'textContent', 'card-s1-2-desc': 'textContent', 'card-s1-3-title': 'textContent', 'card-s1-3-desc': 'textContent', 'section2-title': 'textContent', 'section2-desc': 'textContent', 'card1-title': 'textContent', 'card1-desc': 'innerHTML', 'card2-title': 'textContent', 'card2-list-li1': 'innerHTML', 'card2-list-li2': 'innerHTML', 'section3-title': 'textContent', 'section3-desc': 'innerHTML', 'section3-card1-title': 'textContent', 'section3-card1-desc': 'textContent', 'section3-card2-title': 'textContent', 'section3-card2-desc': 'textContent', 'section3-card3-title': 'textContent', 'section3-card3-desc': 'textContent', 'section4-title': 'textContent', 'section4-desc': 'textContent', 'section5-title': 'textContent', 'section5-card1-title': 'textContent', 'section5-card1-desc': 'textContent', 'section5-card2-title': 'textContent', 'section5-card2-desc': 'textContent', 'section5-card3-title': 'textContent', 'section5-card3-desc': 'textContent', 'section5-card4-title': 'textContent', 'section5-card4-desc': 'textContent', 'section5-card5-title': 'textContent', 'section5-card5-desc': 'textContent', 'section5-card6-title': 'textContent', 'section5-card6-desc': 'textContent', 'modal-close': 'textContent', 'modal-finance-title': 'textContent', 'modal-finance-desc': 'innerHTML', 'modal-marketing-title': 'textContent', 'modal-marketing-desc': 'textContent', 'modal-hr-title': 'textContent', 'modal-hr-desc': 'innerHTML', 'modal-hospitality-title': 'textContent', 'modal-hospitality-desc': 'innerHTML', 'modal-architecture-title': 'textContent', 'modal-architecture-desc': 'textContent', 'modal-operations-title': 'textContent', 'modal-operations-desc': 'textContent', 'section6-title': 'textContent', 'section6-desc': 'textContent', 'ra-tab-assign': 'textContent', 'ra-tab-list': 'textContent', 'ra-export': 'textContent', 'ra-label-name': 'textContent', 'ra-label-role1': 'textContent', 'ra-label-role2': 'textContent', 'ra-label-start': 'textContent', 'ra-label-acem': 'textContent', 'ra-label-mult': 'textContent', 'ra-calc': 'textContent', 'ra-save': 'textContent', 'ra-summary-title': 'textContent', 'ra-preview-contract': 'textContent', 'ra-clear': 'textContent', 'ra-modal-download': 'textContent', 'ra-modal-save': 'textContent', 'section10-title': 'textContent', 'section10-desc': 'textContent', 'ext4-clan-title': 'textContent', 'ext4-clan-desc': 'textContent', 'ext4-adhoc-title': 'textContent', 'ext4-adhoc-desc': 'textContent', 'ext4-hierarchy-title': 'textContent', 'ext4-hierarchy-desc': 'textContent', 'ext4-market-title': 'textContent', 'ext4-market-desc': 'textContent', 'ext5-globe-title': 'textContent', 'ext5-globe-desc': 'textContent', 'ext5-tromp-title': 'textContent', 'ext5-tromp-desc': 'textContent', 'section11-footer': 'innerHTML'
+  <script>
+(function() {
+    // LANGUAGE TOGGLER
+    const langData = {
+        'en': {
+            'nav-home': 'Home',
+            'nav-hr': 'HR Management',
+            'nav-cpm': 'CPM',
+            'nav-doctrine': 'Doctrine',
+            'nav-models': 'Models',
+            'nav-acem': 'ACEM Score',
+            'nav-heritage': 'About Heritage',
+            'nav-investment': 'Investment',
+            'nav-gourmet': 'Gourmet Alliances',
+            'nav-marketing': 'Marketing',
+            'nav-operations': 'Operations',
+            'nav-management': 'Management',
+            'main-title': 'Grandmaster HR: The Objective Standard',
+            'main-desc': 'This is the Al-Ameen "Bureau of Harmony" (HR) model. We replace subjective, "subpar" HR practices with an objective, data-driven system based on the <strong>ACEM Score</strong> and <strong>GLSM (Grandmaster Leadership Strategy Matrix)</strong>. This codifies the "Common Heart Doctrine" into a measurable process.',
+            'section1-title': '1. The Core Problem: "Credential-Based Lethargy"',
+            'section1-desc': 'Traditional HR models fail because they are "Subjective" (based on manager opinion) and "Credential-Based" (promoting based on a degree, not objective capacity). This creates **Credential-Based Lethargy**: a high-cost, low-output workforce that hides behind titles.',
+            'section2-title': '2. The Solution: The "Objective Standard" (ACEM & GLSM)',
+            'section2-desc': 'Our system ("The Objective Standard") solves this by enforcing the "Common Heart Doctrine" through two core tools:',
+            'section2-p1-title': 'ACEM (Al-Ameen Capability Evolution Matrix)',
+            'section2-p1-desc': 'The <strong>diagnostic tool</strong> used during recruitment and orientation to measure an individual\'s objective "Capacity" (Intellect, Physique, and Character).',
+            'section2-p2-title': 'GLSM (Grandmaster Leadership Strategy Matrix)',
+            'section2-p2-desc': 'The <strong>intervention tool</strong> used by management. When an employee\'s ACEM score drops, the GLSM is used to diagnose the "Stem Cause" (the Vice) and prescribe a non-linear OODA Loop solution.',
+            'section3-title': '3. The Philosophy: "Ghuraba Guild" (The 88k Dignity Wage)',
+            'section3-p1-title': 'The "88k Dignity Wage"',
+            'section3-p1-desc': 'We reject "subpar" local market rates. We pay an <strong>88,000 BDT minimum wage</strong>, framed as a "Dignity Wage." This is not a "salary"; it is an investment in a high-capacity "Versatilist" (the 88k Ideal).',
+            'section3-p2-title': 'The "Ghuraba Guild" (The Strangers)',
+            'section3-p2-desc': 'In exchange for the 88k wage, the employee joins the "Ghuraba Guild," signifying their commitment to being a "Stranger" to the local "subpar" culture of lethargy. This makes high performance an ethical obligation, not just a job task.',
+            'section4-title': '4. Process 1: Recruitment (The "Objective Filter")',
+            'section4-desc': 'The "Objective Filter" stops "Credential-Based Lethargy" *before* it enters the system. We reject traditional interviews and instead filter for "Capacity" using the ACEM Matrix.',
+            'section4-p1-title': 'The Filter Mechanism',
+            'section4-p1-desc': 'Candidates are tested against the <strong>ACEM Individual Block</strong>. We actively filter *for* Conscientiousness (Diligence) and *against* Dark Triad traits (Arrogance, Deceit). High-prestige credentials (e.g., "NSU, IBA") trigger *increased* scrutiny, not preference.',
+            'section4-p2-title': 'The Stem Cause Diagnosis',
+            'section4-p2-desc': 'A candidate is never rejected for being "under-qualified." The GLSM is used to provide a "Stem Cause" diagnosis (e.g., "Rejected: Vice of Lethargy," "Rejected: Vice of Arrogance").',
+            'section5-title': '5. Process 2: Orientation (The "Ethical Commitment")',
+            'section5-desc': 'Orientation is the process of cultural and ethical alignment, contrasting our **Task-Oriented culture** with the local **Person-Oriented culture** to prevent conflict. It is an affirmation of the **Common Heart Doctrine** and the ethical obligation tied to the 88k Dignity Wage.',
+            'section5-p1-title': 'Ethical Commitment Sign-Off',
+            'section5-p1-desc': 'Employees sign a commitment document affirming their understanding of the **Virtue-Vice Spectrum**. This makes the demonstration of **Honesty** and **Diligence** an explicit contractual and ethical obligation, not just a suggestion.',
+            'section5-p2-title': 'Cultural Alignment Check',
+            'section5-p2-desc': 'The briefing explicitly contrasts the desired **Task-Oriented Culture** (Trompenaars) with the local **Person-Oriented Culture**. We make the difference transparent, forcing the employee to consciously choose to shed habits that prioritize connections over objective output.',
+            'section6-title': '6. Process 3: Performance Management (The "Character Audit")',
+            'section6-desc': 'Performance management is the objective enforcement of the **Common Heart Doctrine** via data. We use **Behaviorally Anchored Rating Scales (BARS)** and **360-Degree Feedback** across all levels to replace subjective judgment with objective behavioral scores, making it impossible for low-capacity individuals to hide behind a title.',
+            'section6-p1-title': 'BARS: Measuring Character, Not Just Output',
+            'section6-p1-desc': 'We use **BARS** (Behaviorally Anchored Rating Scales) to score **Virtues and Vices** (Aristotelian Spectrum), ensuring performance is measured against observable, minute behaviors, not just general outcomes. This ties the **ACEM Individual Block** directly to the performance review.',
+            'section6-p2-title': '360-Degree Feedback: Auditing the Hierarchy',
+            'section6-p2-desc': '360-Degree feedback is applied at *all* levels to prevent "Credential-Based Arrogance" from insulating any employee. It ensures that an executive is audited not just by supervisors, but by the people they impact most: their subordinates and peers.',
+            'section6-p3-title': 'The ACEM Score: The Final Judgment',
+            'section6-p3-desc': 'The ACEM Score data forms the only input for the employee\'s "ACEM Score." This score is the objective standard for professional evolution, promotion, and termination, making subjective managerial preference irrelevant.',
+            'section6-p4-title': 'Final Integration',
+            'section6-p4-desc': '**Pay:** Raises and bonuses are exclusively tied to a rising ACEM Score, reinforcing the Objective Standard. <br>**Intervention:** A consistently low ACEM Score triggers mandatory, immediate intervention via the <strong>GLSM diagnostic flow</strong> (Observe -> Orient -> Decide on a Vice Prescription), bypassing the typical bureaucratic HR warning process.',
+            'section7-title': '7. Extension 1: The ACEM Matrix (The 5 Blocks)',
+            'section7-desc': 'The ACEM Matrix is the primary diagnostic framework. It defines "Capacity" as the synthesis of 5 key blocks, moving from the abstract (Environment) to the concrete (Alignment).',
+            'section8-title': '8. Extension 2: Glocalisation Model & GLSM',
+            'section8-desc': 'The Glocalisation Model is the hybrid framework (Bushido + Flow) that feeds the GLSM diagnostic tool.',
+            'section9-title': '9. Extension 3: The ACEM Score (The 5 \'Vices\')',
+            'section9-desc': 'The ACEM Score is the objective standard for performance, replacing subjective reviews. It diagnoses the **Stem Cause** of failure, mapping it to one of the 5 Vices.',
+            'ext4-virtue-title': '1. The Virtue-Vice Spectrum',
+            'ext4-virtue-desc': 'We reject the modern idea that \'anything is acceptable\'. Our standard is based on the Aristotelian mean, where virtue is the balance between two extremes (vices). This is the basis for diagnosing ethical failure.',
+            'ext4-personality-title': '2. Personality & Hierarchy Frameworks',
+            'ext4-personality-desc': 'These models provide the "Individual Block" context. We use them to identify core traits (Conscientiousness, Dark Triad) and map an individual\'s potential progression.',
+            'section10-title': '10. Extension 4: The Al-Ameen Cultural Profile (Virtues & Vices)',
+            'section10-desc': 'This defines the non-negotiable ethical and personality foundation (the "Individual Block" from the ACEM Matrix). It provides the objective framework for diagnosing the Vices.',
+            'section10-footer': '**Note:** The Big Five model (e.g., `bigfive-deyoung-and-peterson-neopir.webp`) is the foundation for the "Personality" diagram shown above.',
+            'section11-title': '11. Extension 5: Grandmaster Culture Framework (The Funnel)',
+            'section11-desc': 'The *Al-Ameen Orientation & Filter* is the "O" in the OODA Loop, synthesizing GLOBE and Trompenaars into measurable ACEM outcomes.',
+            'ext5-globe-title': 'GLOBE Cultural Dimensions (9)',
+            'ext5-globe-desc': 'Focuses on **Societal Practices** (The "Dignified Guide" behavior). Our scores are filtered to ensure: *Performance Orientation*, *Future Orientation*, and *In-Group Collectivism* are prioritized over pure *Assertiveness*.',
+            'ext5-tromp-title': 'Trompenaars’ 7 Dimensions',
+            'ext5-tromp-desc': 'Focuses on **Dilemma Resolution** (The "Common Heart" philosophy). We demand **Universalism** (rules over relationships) and **Achievement** (performance over ascription/seniority).',
+            'section11-footer': '**Grandmaster Outcomes:** *Dejobbing* (Pay-for-Versatility), *TOws Matrix* (Proactive Strategy), and *Flow-Efficient Global Action* (The D & A in OODA Loop).'
+        },
+        'bn': {
+            'nav-home': 'হোম',
+            'nav-hr': 'এইচআর ম্যানেজমেন্ট',
+            'nav-cpm': 'সিপিএম',
+            'nav-doctrine': 'মতবাদ',
+            'nav-models': 'মডেল',
+            'nav-acem': 'ACEM স্কোর',
+            'nav-heritage': 'ঐতিহ্য',
+            'nav-investment': 'বিনিয়োগ',
+            'nav-gourmet': 'গোরমেট অ্যালায়েন্স',
+            'nav-marketing': 'মার্কেটিং',
+            'nav-operations': 'অপারেশন',
+            'nav-management': 'ম্যানেজমেন্ট',
+            'main-title': 'গ্র্যান্ডমাস্টার এইচআর: অবজেক্টিভ স্ট্যান্ডার্ড',
+            'main-desc': 'এটি আল-আমীন "ব্যুরো অফ হারমোনি" (এইচআর) মডেল। আমরা সাবজেক্টিভ, "নিম্নমানের" এইচআর অনুশীলনগুলিকে একটি অবজেক্টিভ, ডেটা-ভিত্তিক সিস্টেম দিয়ে প্রতিস্থাপন করি যা <strong>ACEM স্কোর</strong> এবং <strong>GLSM (গ্র্যান্ডমাস্টার লিডারশিপ স্ট্র্যাটেজি ম্যাট্রিক্স)</strong> এর উপর ভিত্তি করে। এটি "কমন হার্ট ডকট্রিন" কে একটি পরিমাপযোগ্য প্রক্রিয়ায় পরিণত করে।',
+            'section1-title': '১. মূল সমস্যা: "ক্রেডেনশিয়াল-ভিত্তিক অলসতা"',
+            'section1-desc': 'প্রচলিত এইচআর মডেলগুলি ব্যর্থ হয় কারণ সেগুলি "সাবজেক্টিভ" (ম্যানেজারের মতামতের উপর ভিত্তি করে) এবং "ক্রেডেনশিয়াল-ভিত্তিক" (অবজেক্টিভ ক্ষমতার পরিবর্তে ডিগ্রির উপর ভিত্তি করে পদোন্নতি)। এটি **ক্রেডেনশিয়াল-ভিত্তিক অলসতা** তৈরি করে: একটি উচ্চ-বেতনের, নিম্ন-উৎপাদনশীল কর্মী বাহিনী যা টাইটেলের আড়ালে লুকিয়ে থাকে।',
+            'section2-title': '২. সমাধান: "অবজেক্টিভ স্ট্যান্ডার্ড" (ACEM এবং GLSM)',
+            'section2-desc': 'আমাদের সিস্টেম ("অবজেক্টিভ স্ট্যান্ডার্ড") দুটি মূল টুলের মাধ্যমে "কমন হার্ট ডকট্রিন" প্রয়োগ করে এই সমস্যার সমাধান করে:',
+            'section2-p1-title': 'ACEM (আল-আমীন ক্যাপাবিলিটি ইভোলিউশন ম্যাট্রিক্স)',
+            'section2-p1-desc': 'নিয়োগ এবং ওরিয়েন্টেশনের সময় ব্যবহৃত <strong>ডায়াগনস্টিক টুল</strong> যা একজন ব্যক্তির অবজেক্টিভ "ক্ষমতা" (বুদ্ধিমত্তা, শারীরিক গঠন এবং চরিত্র) পরিমাপ করে।',
+            'section2-p2-title': 'GLSM (গ্র্যান্ডমাস্টার লিডারশিপ স্ট্র্যাটেজি ম্যাট্রিক্স)',
+            'section2-p2-desc': 'ম্যানেজমেন্ট দ্বারা ব্যবহৃত <strong>হস্তক্ষেপ টুল</strong>। যখন একজন কর্মচারীর ACEM স্কোর কমে যায়, তখন GLSM ব্যবহার করে "মূল কারণ" (দোষ) নির্ণয় করা হয় এবং একটি নন-লিনিয়ার OODA লুপ সমাধান নির্ধারণ করা হয়।',
+            'section3-title': '৩. দর্শন: "গুরাবা গিল্ড" (৮৮ হাজার ডিগনিটি ওয়েজ)',
+            'section3-p1-title': '"৮৮ হাজার ডিগনিটি ওয়েজ"',
+            'section3-p1-desc': 'আমরা "নিম্নমানের" স্থানীয় বাজার দর প্রত্যাখ্যান করি। আমরা <strong>৮৮,০০০ টাকা সর্বনিম্ন মজুরি</strong> প্রদান করি, যা একটি "ডিগনিটি ওয়েজ" হিসাবে পরিচিত। এটি "বেতন" নয়; এটি একটি উচ্চ-ক্ষমতাসম্পন্ন "ভার্সাটাইলিস্ট" (৮৮ হাজার আইডিয়াল) এর উপর বিনিয়োগ।',
+            'section3-p2-title': '"গুরাবা গিল্ড" (দ্য স্ট্রেঞ্জার্স)',
+            'section3-p2-desc': '৮৮ হাজার মজুরির বিনিময়ে, কর্মচারী "গুরাবা গিল্ড"-এ যোগ দেন, যা অলসতার স্থানীয় "নিম্নমানের" সংস্কৃতির প্রতি "অপরিচিত" হওয়ার প্রতিশ্রুতি নির্দেশ করে। এটি উচ্চ পারফরম্যান্সকে একটি নৈতিক বাধ্যবাধকতা করে তোলে, কেবল একটি কাজের দায়িত্ব নয়।',
+            'section4-title': '৪. প্রক্রিয়া ১: নিয়োগ ("অবজেক্টিভ ফিল্টার")',
+            'section4-desc': '"অবজেক্টিভ ফিল্টার" সিস্টেমে প্রবেশের *আগেই* "ক্রেডেনশিয়াল-ভিত্তিক অলসতা" বন্ধ করে দেয়। আমরা প্রথাগত সাক্ষাৎকার প্রত্যাখ্যান করি এবং পরিবর্তে ACEM ম্যাট্রিক্স ব্যবহার করে "ক্ষমতা" ফিল্টার করি।',
+            'section4-p1-title': 'ফিল্টার মেকানিজম',
+            'section4-p1-desc': 'প্রার্থীদের <strong>ACEM ইন্ডিভিজুয়াল ব্লক</strong> এর বিপরীতে পরীক্ষা করা হয়। আমরা সক্রিয়ভাবে কনসায়েন্টিয়াসনেস (অধ্যবসায়) এর *পক্ষে* এবং ডার্ক ট্রায়াড বৈশিষ্ট্যগুলির (অহংকার, প্রতারণা) *বিপক্ষে* ফিল্টার করি। উচ্চ-মর্যাদাপূর্ণ ক্রেডেনশিয়াল (যেমন, "NSU, IBA") *অগ্রাধিকার* না পেয়ে *অতিরিক্ত* যাচাই-বাছাইয়ের সম্মুখীন হয়।',
+            'section4-p2-title': 'মূল কারণ নির্ণয়',
+            'section4-p2-desc': 'একজন প্রার্থীকে কখনো "অযোগ্য" বলে প্রত্যাখ্যান করা হয় না। GLSM ব্যবহার করে একটি "মূল কারণ" নির্ণয় করা হয় (যেমন, "প্রত্যাখ্যাত: অলসতার দোষ," "প্রত্যাখ্যাত: অহংকারের দোষ")।',
+            'section5-title': '৫. প্রক্রিয়া ২: ওরিয়েন্টেশন ("নৈতিক প্রতিশ্রুতি")',
+            'section5-desc': 'ওরিয়েন্টেশন হল সাংস্কৃতিক এবং নৈতিক সারিবদ্ধকরণের প্রক্রিয়া, যা আমাদের **টাস্ক-ওরিয়েন্টেড সংস্কৃতি** এবং স্থানীয় **পার্সন-ওরিয়েন্টেড সংস্কৃতি**-এর মধ্যে বৈসাদৃশ্য তুলে ধরে দ্বন্দ্ব প্রতিরোধ করে। এটি **কমন হার্ট ডকট্রিন** এবং ৮৮ হাজার ডিগনিটি ওয়েজের সাথে যুক্ত নৈতিক বাধ্যবাধকতার একটি স্বীকৃতি।',
+            'section5-p1-title': 'নৈতিক প্রতিশ্রুতি স্বাক্ষর',
+            'section5-p1-desc': 'কর্মচারীরা <strong>ভার্চু-ভাইস স্পেকট্রাম</strong> সম্পর্কে তাদের উপলব্ধি নিশ্চিত করে একটি প্রতিশ্রুতি নথিতে স্বাক্ষর করে। এটি **সততা** এবং **অধ্যবসায়** প্রদর্শনকে কেবল একটি পরামর্শ নয়, একটি সুস্পষ্ট চুক্তিগত এবং নৈতিক বাধ্যবাধকতা করে তোলে।',
+            'section5-p2-title': 'সাংস্কৃতিক সারিবদ্ধকরণ পরীক্ষা',
+            'section5-p2-desc': 'ব্রিফিংয়ে কাঙ্ক্ষিত **টাস্ক-ওরিয়েন্টেড সংস্কৃতি** (ট্রাম্পেনার্স) এবং স্থানীয় **পার্সন-ওরিয়েন্টেড সংস্কৃতি**-এর মধ্যে সুস্পষ্ট বৈসাদৃশ্য তুলে ধরা হয়। আমরা পার্থক্যটি স্বচ্ছ করি, যা কর্মচারীকে সচেতনভাবে সেই অভ্যাসগুলি ত্যাগ করতে বাধ্য করে যা অবজেক্টিভ আউটপুটের চেয়ে সংযোগকে অগ্রাধিকার দেয়।',
+            'section6-title': '৬. প্রক্রিয়া ৩: পারফরম্যান্স ম্যানেজমেন্ট ("চরিত্র অডিট")',
+            'section6-desc': 'পারফরম্যান্স ম্যানেজমেন্ট হল ডেটার মাধ্যমে **কমন হার্ট ডকট্রিন**-এর অবজেক্টিভ প্রয়োগ। আমরা সাবজেক্টিভ বিচারকে অবজেক্টিভ আচরণগত স্কোর দিয়ে প্রতিস্থাপন করতে সব স্তরে **বিহেভিওরালি অ্যাঙ্করড রেটিং স্কেল (BARS)** এবং **৩৬০-ডিগ্রি ফিডব্যাক** ব্যবহার করি, যা নিম্ন-ক্ষমতার ব্যক্তিদের টাইটেলের আড়ালে লুকাতে অসম্ভব করে তোলে।',
+            'section6-p1-title': 'BARS: কেবল আউটপুট নয়, চরিত্র পরিমাপ',
+            'section6-p1-desc': 'আমরা <strong>ভার্চু এবং ভাইস</strong> (অ্যারিস্টোটেলিয়ান স্পেকট্রাম) স্কোর করতে **BARS** (বিহেভিওরালি অ্যাঙ্করড রেটিং স্কেল) ব্যবহার করি, নিশ্চিত করে যে পারফরম্যান্স কেবল সাধারণ ফলাফলের পরিবর্তে পর্যবেক্ষণযোগ্য, ক্ষুদ্র আচরণের বিরুদ্ধে পরিমাপ করা হয়। এটি **ACEM ইন্ডিভিজুয়াল ব্লক**-কে সরাসরি পারফরম্যান্স পর্যালোচনার সাথে যুক্ত করে।',
+            'section6-p2-title': '৩৬০-ডিগ্রি ফিডব্যাক: শ্রেণিবিন্যাস অডিট',
+            'section6-p2-desc': 'যেকোনো কর্মচারীকে "ক্রেডেনশিয়াল-ভিত্তিক অহংকার" থেকে রক্ষা করতে *সকল* স্তরে ৩৬০-ডিগ্রি ফিডব্যাক প্রয়োগ করা হয়। এটি নিশ্চিত করে যে একজন নির্বাহী শুধুমাত্র সুপারভাইজারদের দ্বারা নয়, বরং তাদের দ্বারা সবচেয়ে বেশি প্রভাবিত ব্যক্তিদের দ্বারাও অডিট করা হয়: তাদের অধস্তন এবং সহকর্মীরা।',
+            'section6-p3-title': 'ACEM স্কোর: চূড়ান্ত রায়',
+            'section6-p3-desc': 'ACEM স্কোর ডেটা কর্মচারীর "ACEM স্কোর"-এর জন্য একমাত্র ইনপুট গঠন করে। এই স্কোরটি পেশাদার বিকাশ, পদোন্নতি এবং অবসানের জন্য অবজেক্টিভ স্ট্যান্ডার্ড, যা সাবজেক্টিভ ব্যবস্থাপকীয় পছন্দকে অপ্রাসঙ্গিক করে তোলে।',
+            'section6-p4-title': 'চূড়ান্ত একীকরণ',
+            'section6-p4-desc': '**বেতন:** বেতন বৃদ্ধি এবং বোনাস একচেটিয়াভাবে ACEM স্কোরের বৃদ্ধির সাথে যুক্ত, যা অবজেক্টিভ স্ট্যান্ডার্ডকে শক্তিশালী করে। <br>**হস্তক্ষেপ:** একটি ধারাবাহিকভাবে নিম্ন ACEM স্কোর <strong>GLSM ডায়াগনস্টিক ফ্লো</strong> (পর্যবেক্ষণ -> ওরিয়েন্ট -> একটি ভাইস প্রেসক্রিপশনে সিদ্ধান্ত) এর মাধ্যমে বাধ্যতামূলক, অবিলম্বে হস্তক্ষেপকে ট্রিগার করে, প্রথাগত আমলাতান্ত্রিক এইচআর সতর্কীকরণ প্রক্রিয়াকে বাইপাস করে।',
+            'section7-title': '৭. এক্সটেনশন ১: ACEM ম্যাট্রিক্স (৫টি ব্লক)',
+            'section7-desc': 'ACEM ম্যাট্রিক্স হল প্রাথমিক ডায়াগনস্টিক ফ্রেমওয়ার্ক। এটি "ক্ষমতা" কে ৫টি মূল ব্লকের সংশ্লেষণ হিসাবে সংজ্ঞায়িত করে, যা বিমূর্ত (পরিবেশ) থেকে সুনির্দিষ্ট (সারিবদ্ধকরণ) দিকে অগ্রসর হয়।',
+            'section8-title': '৮. এক্সটেনশন ২: গ্লোকালাইজেশন মডেল এবং জিএলএসএম',
+            'section8-desc': 'গ্লোকালাইজেশন মডেল হল হাইব্রিড ফ্রেমওয়ার্ক (বুশিডো + ফ্লো) যা জিএলএসএম ডায়াগনস্টিক টুলকে ফিড করে।',
+            'section9-title': '৯. এক্সটেনশন ৩: ACEM স্কোর (৫টি \'দোষ\')',
+            'section9-desc': 'ACEM স্কোর হল পারফরম্যান্সের অবজেক্টিভ স্ট্যান্ডার্ড, যা সাবজেক্টিভ রিভিউ প্রতিস্থাপন করে। এটি ব্যর্থতার **মূল কারণ** নির্ণয় করে, এটিকে ৫টি দোষের একটিতে ম্যাপ করে।',
+            'ext4-virtue-title': '১. পুণ্য-পাপ বর্ণালী',
+            'ext4-virtue-desc': 'আমরা \'সবকিছু গ্রহণযোগ্য\' এই আধুনিক ধারণা প্রত্যাখ্যান করি। আমাদের মান অ্যারিস্টোটেলিয়ান মীনের উপর ভিত্তি করে, যেখানে পুণ্য হল দুটি চরম (পাপ) অবস্থার মধ্যে ভারসাম্য। এটি নৈতিক ব্যর্থতা নির্ণয়ের ভিত্তি।',
+            'ext4-personality-title': '২. ব্যক্তিত্ব এবং শ্রেণিবিন্যাস কাঠামো',
+            'ext4-personality-desc': 'এই মডেলগুলি "স্বতন্ত্র ব্লক" প্রসঙ্গ সরবরাহ করে। আমরা মূল বৈশিষ্ট্যগুলি (সততা, ডার্ক ট্রায়াড) সনাক্ত করতে এবং একজন ব্যক্তির সম্ভাব্য অগ্রগতি ম্যাপ করতে এগুলি ব্যবহার করি।',
+            'section10-title': '১০. এক্সটেনশন ৪: আল-আমীন সাংস্কৃতিক প্রোফাইল (পুণ্য ও পাপ)',
+            'section10-desc': 'এটি অ-আলোচনাযোগ্য নৈতিক এবং ব্যক্তিত্বের ভিত্তি ("ACEM ম্যাট্রিক্স" থেকে "স্বতন্ত্র ব্লক") সংজ্ঞায়িত করে। এটি পাপ নির্ণয়ের জন্য অবজেক্টিভ কাঠামো সরবরাহ করে।',
+            'section10-footer': '**দ্রষ্টব্য:** বিগ ফাইভ মডেল (যেমন, `bigfive-deyoung-and-peterson-neopir.webp`) উপরে দেখানো "পার্সোনালিটি" ডায়াগ্রামের ভিত্তি।',
+            'section11-title': '১১. এক্সটেনশন ৫: গ্র্যান্ডমাস্টার কালচার ফ্রেমওয়ার্ক (দ্য ফানেল)',
+            'section11-desc': '*আল-আমীন ওরিয়েন্টেশন এবং ফিল্টার* হল OODA লুপের "O", যা GLOBE এবং ট্রাম্পেনার্সকে পরিমাপযোগ্য ACEM ফলাফলে সংশ্লেষিত করে।',
+            'ext5-globe-title': 'গ্লোব সাংস্কৃতিক মাত্রা (৯)',
+            'ext5-globe-desc': '**সামাজিক অনুশীলন** ("মর্যাদাপূর্ণ গাইড" আচরণ) এর উপর দৃষ্টি নিবদ্ধ করে। আমাদের স্কোরগুলি ফিল্টার করা হয় তা নিশ্চিত করতে: *পারফরম্যান্স ওরিয়েন্টেশন*, *ফিউচার ওরিয়েন্টেশন*, এবং *ইন-গ্রুপ কালেকটিভিজম* কে বিশুদ্ধ *দৃঢ়তা*র চেয়ে অগ্রাধিকার দেওয়া হয়।',
+            'ext5-tromp-title': 'ট্রাম্পেনার্সের ৭টি মাত্রা',
+            'ext5-tromp-desc': '**দ্বিধা সমাধানের** ("কমন হার্ট" দর্শন) এর উপর দৃষ্টি নিবদ্ধ করে। আমরা **সার্বজনীনতা** (সম্পর্কের উপর নিয়ম) এবং **অর্জন** (আরোপ/জ্যেষ্ঠতার উপর কর্মক্ষমতা) দাবি করি।',
+            'section11-footer': '**গ্র্যান্ডমাস্টার ফলাফল:** *ডিজবিং* (বহুমুখিতার জন্য বেতন), *টিওএস ম্যাট্রিক্স* (সক্রিয় কৌশল), এবং *প্রবাহ-দক্ষ বৈশ্বিক অ্যাকশন* (ওওডিএ লুপে ডি এবং এ)।'
+        }
     };
+                    const setupLanguageToggler = () => {
+        const langToggle = document.getElementById('lang-toggle');
+        if (!langToggle) return;
 
-    Object.keys(elementsToUpdate).forEach(id => {
-        const element = document.getElementById(id);
-        if (element && data[id]) {
-            element[elementsToUpdate[id]] = data[id];
-        }
-    });
-
-    const searchPlaceholder = document.getElementById('ra-search');
-    if(searchPlaceholder) searchPlaceholder.placeholder = data['ra-search-placeholder'];
-
-    const namePlaceholder = document.getElementById('ra-name');
-    if(namePlaceholder) namePlaceholder.placeholder = data['ra-name-placeholder'];
-
-    renderPositions();
-    renderAssignedList(); 
-};
-        function showJiMiniAssessment(specialistName) {
-    console.log(`Preparing JiMini Assessment for: ${specialistName}`);
-    alert(`Initiating JiMini Audit for ${specialistName}. Full assessment tool will load here.`);
-}
-
-function renderSpecialistRoster() {
-    const tableBody = document.getElementById('acem-roster-body');
-    if (!tableBody) return; 
-
-    tableBody.innerHTML = ''; 
-
-    specialistRosterData.forEach(specialist => {
-        const row = tableBody.insertRow();
-        let acemClass = specialist.acem > 85 ? 'text-success' : specialist.acem > 70 ? 'text-warning' : 'text-danger';
-
-        row.innerHTML = `
-            <td>${specialist.name}</td>
-            <td>${specialist.rank}</td>
-            <td>${specialist.tenure} yrs</td>
-            <td class="${acemClass} fw-bold">${specialist.acem}%</td>
-            <td class="text-success fw-bold">${specialist.moral}</td>
-            <td class="text-danger fw-bold">${specialist.jimini}</td>
-            <td><button class="btn btn-sm btn-outline-dark" onclick="showJiMiniAssessment('${specialist.name}')">Audit</button></td>
-        `;
-
-        if (specialist.jimini.includes("High Risk")) {
-            row.classList.add('table-danger');
-        }
-    });
-}
-
-const renderPositions = () => {};
-
-const populateRoleDropdowns = () => {
-    const select1 = document.getElementById('ra-role');
-    const select2 = document.getElementById('ra-role-2');
-
-    if(!select1 || !select2) return;
-
-    select1.innerHTML = `<option value="">Select Primary Role</option>`;
-    select2.innerHTML = `<option value="">Select Secondary Role (Optional)</option>`;
-
-    positionsData.forEach(pos => {
-        if (pos.roles.includes('Primary')) {
-            const option1 = document.createElement('option');
-            option1.value = pos.name;
-            option1.textContent = pos.name;
-            select1.appendChild(option1);
-        }
-        if (pos.roles.includes('Secondary')) {
-            const option2 = document.createElement('option');
-            option2.value = pos.name;
-            option2.textContent = pos.name;
-            select2.appendChild(option2);
-        }
-    });
-};
-        const renderAssignedList = () => {
-    const listContainer = document.getElementById('ra-list');
-    if (!listContainer) return;
-
-    if (assignedRoles.length === 0) {
-        listContainer.innerHTML = `<p class="text-center text-muted mt-5">No specialists assigned yet.</p>`;
-        return;
-    }
-
-    listContainer.innerHTML = assignedRoles.map((assignment) => {
-        const totalSalary = formatCurrency(assignment.totalPackage);
-        const roles = [assignment.role1, assignment.role2].filter(r => r).join(' / ');
-        
-        return `
-            <div class="card p-3 mb-3">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <strong>${assignment.name}</strong>
-                        <br>
-                        <small class="text-info">${roles}</small>
-                        <br>
-                        <small class="text-success">Package: ${totalSalary} (x${assignment.multiplier})</small>
-                    </div>
-                    <span class="badge badge-warning">${assignment.acemScore}% ACEM</span>
-                </div>
-            </div>
-        `;
-    }).join('');
-};
-
-const calculatePackage = () => {
-    const role1Name = document.getElementById('ra-role').value;
-    const role2Name = document.getElementById('ra-role-2').value;
-    const acemScore = parseFloat(document.getElementById('ra-acem').value) || 0;
-    const multiplier = parseFloat(document.getElementById('ra-mult').value) || 1.0;
-    const summaryDiv = document.getElementById('ra-summary');
-    const data = langData[currentLang];
-
-    summaryDiv.innerHTML = `<p class="text-muted">${data['ra-summary-title']}...</p>`;
-    
-    if (!role1Name) {
-        summaryDiv.innerHTML = `<p class="text-danger">Please select a primary role.</p>`;
-        return;
-    }
-
-    const role1 = positionsData.find(p => p.name === role1Name);
-    const role2 = positionsData.find(p => p.name === role2Name);
-
-    let base1 = role1 ? role1.baseSalary : 0;
-    let base2 = role2 ? role2.baseSalary * 0.4 : 0; 
-
-    const totalBase = base1 + base2;
-    const acemAdjustedBase = totalBase * (acemScore / 100); 
-    const finalPackage = acemAdjustedBase * multiplier;
-
-    summaryDiv.innerHTML = `
-        <h4 class="text-success">${data['ra-summary-title']}</h4>
-        <p><strong>Primary Role:</strong> ${formatCurrency(base1)}</p>
-        ${role2Name ? `<p><strong>Secondary Role (40%):</strong> ${formatCurrency(base2)}</p>` : ''}
-        <hr>
-        <p><strong>Total Base Salary:</strong> ${formatCurrency(totalBase)}</p>
-        <p><strong>ACEM Score (${acemScore}%):</strong> ${formatCurrency(acemAdjustedBase)}</p>
-        <p><strong>Package Multiplier (x${multiplier.toFixed(2)}):</strong></p>
-        <h3 class="mt-2 text-warning">Total Package: ${formatCurrency(finalPackage)}</h3>
-    `;
-};
-
-const saveAssignment = () => {
-    const name = document.getElementById('ra-name').value.trim();
-    const role1 = document.getElementById('ra-role').value;
-    const role2 = document.getElementById('ra-role-2').value;
-    const acemScore = parseFloat(document.getElementById('ra-acem').value) || 0;
-    const multiplier = parseFloat(document.getElementById('ra-mult').value) || 1.0;
-    const start = document.getElementById('ra-start').value;
-    const listTab = document.getElementById('ra-tab-list');
-
-    if (!name || !role1 || !start) {
-        alert('Please fill in Employee Name, Primary Role, and Start Date.');
-        return;
-    }
-
-    const role1Data = positionsData.find(p => p.name === role1);
-    const role2Data = positionsData.find(p => p.name === role2);
-
-    let base1 = role1Data ? role1Data.baseSalary : 0;
-    let base2 = role2Data ? role2Data.baseSalary * 0.4 : 0; 
-    const totalBase = base1 + base2;
-    const acemAdjustedBase = totalBase * (acemScore / 100); 
-    const finalPackage = acemAdjustedBase * multiplier;
-
-    const newAssignment = {
-        id: Date.now(), name, role1, role2: role2 || null, start, acemScore,
-        multiplier: multiplier.toFixed(2),
-        totalPackage: Math.round(finalPackage),
-        timestamp: new Date().toISOString()
-    };
-
-    assignedRoles.push(newAssignment);
-    localStorage.setItem('assignedRoles', JSON.stringify(assignedRoles));
-    
-    const packageFormatted = formatCurrency(newAssignment.totalPackage);
-    alert(`Assignment saved for ${name}. Total Package: ${packageFormatted}`);
-
-    document.getElementById('ra-name').value = '';
-    document.getElementById('ra-role').value = '';
-    document.getElementById('ra-role-2').value = '';
-    document.getElementById('ra-acem').value = 70;
-    document.getElementById('ra-mult').value = 1;
-    document.getElementById('ra-start').value = '';
-    document.getElementById('ra-summary').innerHTML = '';
-    renderAssignedList();
-    if(listTab) listTab.click(); 
-};
-
-const exportCSV = () => {
-    if (assignedRoles.length === 0) {
-        alert('No assignments to export.');
-        return;
-    }
-
-    let csv = 'Name,Primary Role,Secondary Role,Start Date,ACEM Score (%),Multiplier,Total Package (BDT)\n';
-
-    assignedRoles.forEach(role => {
-        csv += `${role.name},${role.role1},${role.role2 || 'N/A'},${role.start},${role.acemScore},${role.multiplier},${role.totalPackage}\n`;
-    });
-
-    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.setAttribute('download', 'AlAmeen_HR_Assignments.csv');
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-};
-    const setupModals = () => {
-    document.querySelectorAll('.card.interactive[data-content]').forEach(card => {
-        card.addEventListener('click', () => {
-            const contentKey = card.getAttribute('data-content'); 
-            const targetModal = document.getElementById(`modal-${contentKey}`);
+        const setLanguage = (lang) => {
+            const data = langData[lang];
+            document.documentElement.lang = lang;
+            langToggle.textContent = (lang === 'en') ? 'বাংলা' : 'English';
             
-            document.querySelectorAll('.modal').forEach(m => m.classList.add('hidden'));
-
-            if (targetModal) {
-                targetModal.classList.remove('hidden');
-                targetModal.style.display = 'flex';
+            for (const key in data) {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.innerHTML = data[key];
+                }
             }
-        });
-    });
+            localStorage.setItem('preferredLang', lang);
+        };
 
-    const closeButtons = document.querySelectorAll('.close-modal');
-    closeButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            const modalToClose = e.target.closest('.modal');
-            if (modalToClose) {
-                modalToClose.classList.add('hidden');
-                modalToClose.style.display = 'none';
-            }
-        });
-    });
-    
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            document.querySelectorAll('.modal').forEach(modal => {
-                modal.classList.add('hidden');
-                modal.style.display = 'none';
-            });
-        }
-    });
-};
-
-document.addEventListener('DOMContentLoaded', () => {
-    const storedLang = localStorage.getItem('currentLang') || 'en';
-    updateLanguage(storedLang);
-    
-    const storedRoles = localStorage.getItem('assignedRoles');
-    if (storedRoles) {
-        assignedRoles = JSON.parse(storedRoles);
-    }
-
-    populateRoleDropdowns();
-    renderAssignedList();
-    renderSpecialistRoster();
-
-    setupModals();
-    
-    const langSelect = document.getElementById('language');
-    if(langSelect) {
-        langSelect.addEventListener('change', (e) => {
-            localStorage.setItem('currentLang', e.target.value);
-            updateLanguage(e.target.value);
-        });
-    }
-
-    const assignTab = document.getElementById('ra-tab-assign');
-    const listTab = document.getElementById('ra-tab-list');
-    const assignContent = document.getElementById('ra-assign-panel'); 
-    const listContent = document.getElementById('ra-list-panel');    
-
-    if (assignTab && listTab && assignContent && listContent) {
-        assignTab.addEventListener('click', () => {
-            assignTab.classList.add('active');
-            listTab.classList.remove('active');
-            assignContent.style.display = 'grid';
-            listContent.style.display = 'none';
+        langToggle.addEventListener('click', () => {
+            const currentLang = localStorage.getItem('preferredLang') || 'en';
+            const newLang = (currentLang === 'en') ? 'bn' : 'en';
+            setLanguage(newLang);
         });
 
-        listTab.addEventListener('click', () => {
-            listTab.classList.add('active');
-            assignTab.classList.remove('active');
-            assignContent.style.display = 'none';
-            listContent.style.display = 'block';
-            renderAssignedList(); 
-        });
-    }
-
-    const calcButton = document.getElementById('ra-calc');
-    if(calcButton) calcButton.addEventListener('click', calculatePackage);
-    
-    const saveButton = document.getElementById('ra-save');
-    if(saveButton) saveButton.addEventListener('click', saveAssignment);
-
-    ['ra-role', 'ra-role-2', 'ra-acem', 'ra-mult'].forEach(id => {
-        const element = document.getElementById(id);
-        if(element) element.addEventListener('change', calculatePackage);
-    });
-    
-    const exportBtn = document.getElementById('ra-export');
-    if(exportBtn) exportBtn.addEventListener('click', exportCSV);
-
+        const preferredLang = localStorage.getItem('preferredLang') || 'en';
+        setLanguage(preferredLang);
+    };
+        // CONTENT TOGGLER (NEW VERSION)
     const setupContentToggler = (triggerId, contentSelector) => {
         const trigger = document.getElementById(triggerId);
-        const content = document.querySelector(contentSelector);
+        const content = document.querySelector(contentSelector); // Changed to use querySelector
         
         if (trigger && content) {
             content.style.display = 'none'; 
-            trigger.style.cursor = 'pointer'; 
+            trigger.style.cursor = 'pointer';
             
+            // Add the arrow to the H2 element inside the trigger
             const h2 = trigger.querySelector('h2');
-            if(h2) h2.textContent += ' ▼';
+            if (h2) {
+                h2.innerHTML += ' <span class="toggle-arrow">▼</span>'; // Use innerHTML to add span
+            }
 
             trigger.addEventListener('click', () => {
+                const arrow = trigger.querySelector('.toggle-arrow');
+                
                 if (content.style.display === 'none') {
                     content.style.display = 'block'; 
-                    if(h2) h2.textContent = h2.textContent.replace('▼', '▲');
+                    if(arrow) arrow.textContent = '▲';
                 } else {
                     content.style.display = 'none'; 
-                    if(h2) h2.textContent = h2.textContent.replace('▲', '▼');
+                    if(arrow) arrow.textContent = '▼';
                 }
             });
         }
     };
-    
-    setupContentToggler('section7-title', '#strategic-models-5p > div.grid.grid-3');
-    setupContentToggler('section8-title', '#strategic-models-glocalization > div.grid.grid-2');
-    setupContentToggler('section9-title', '#strategic-models-archetypes > div.grid.grid-3');
-    setupContentToggler('section10-title', '#culture-profile > div.grid.grid-4');
-    setupContentToggler('section11-title', '#culture-framework > div.grid.grid-2');
-    
-});
-        
-        'bn': {
-        'hero-title': 'সম্প্রীতি ব্যুরো (এইচআর) কৌশল',
-        'hero-lead': 'মানব সম্পদকে 'অস্ত্রশস্ত্র' হিসাবে দেখায়: সংস্কৃতি-প্রথম কাঠামো, কর্মপ্রবাহ-দক্ষতা এবং উচ্চ-মূল্যের আউটপুট অর্জনের জন্য নমনীয়তা এবং গতিকে উৎসাহিত করে।',
+          // MODAL HANDLER
+    const setupFrameworkModal = () => {
+        const modal = document.getElementById("myFrameworkModal");
+        const cards = document.querySelectorAll(".framework-card");
+        const closeModal = document.querySelector(".close-btn");
+        const modalTitle = document.getElementById("modal-title");
+        const modalBody = document.getElementById("modal-body");
 
-        // Section 1: Core Values
-        'section1-title': '১. আমাদের মূল: সংস্কৃতি-প্রথম মূল্যবোধ',
-        'section1-desc': 'আমাদের কৌশলগুলি পাঁচটি কেন্দ্রীয় মূল্যের উপর প্রতিষ্ঠিত, যা আল-আমিন ক্ল্যান দর্শনকে অনুপ্রাণিত করে।',
-        'card-s1-1-title': '১.১. প্রজ্ঞা (Wisdom)',
-        'card-s1-1-desc': 'স্বচ্ছতা, জ্ঞান বিনিময় এবং নৈতিক সততাকে মূল্য দেওয়া।',
-        'card-s1-2-title': '১.২. ঐক্য (Unity)',
-        'card-s1-2-desc': 'সহযোগী সম্পর্ক, দলগত সংহতি এবং পারস্পরিক শ্রদ্ধাকে গুরুত্ব দেওয়া।',
-        'card-s1-3-title': '১.৩. প্রবাহ (Flow)',
-        'card-s1-3-desc': 'গতিশীল দক্ষতা, অভিযোজন ক্ষমতা এবং পরিবর্তনকে গ্রহণ করা।',
-        
-        // Section 2: Strategy Core
-        'section2-title': '২. কোর কৌশলগত ভিত্তি',
-        'section2-desc': 'আমাদের HR কৌশল দুটি মূল স্তম্ভের উপর দাঁড়িয়ে আছে: **মানুষের দক্ষতা** এবং **সাংস্কৃতিক পরিবেশ**।',
-        'card1-title': 'কমন হার্ট দর্শন',
-        'card1-desc': 'আমাদের দর্শন হলো **দ্বিধা সমাধান** (Dilemma Resolution) এর মাধ্যমে কাজ করা। আমরা **বিশ্বাস/আস্থার** ওপর নিয়ম/বিধিকে অগ্রাধিকার দিই এবং **সাফল্য/অর্জনকে** পদমর্যাদার ওপর গুরুত্ব দিই।',
-        'card2-title': 'উদ্দেশ্য (Purpose)',
-        'card2-list-li1': '**ভয়েস ইন দ্য হল (VOITH):** প্রতিটি ব্যক্তির কথা শোনা ও মূল্য দেওয়া।',
-        'card2-list-li2': '**ওওডিএ লুপের ডি এবং এ (D & A in OODA Loop):** সিদ্ধান্ত (Decide) ও কাজ (Act)-এর জন্য প্রবাহ ও দ্রুততা নিশ্চিত করা।',
-                    // Section 3: HR Models
-        'section3-title': '৩. প্রতিভা ব্যবস্থাপনা (Talent Management)',
-        'section3-desc': 'আমরা দক্ষতা এবং সাংস্কৃতিক ফিটের উপর ভিত্তি করে বহুমুখী প্রতিভা নিয়োগ, উন্নয়ন এবং স্বীকৃতি দিই। **ডিজবিং (DiZbing)** এবং **টিওএস (TOS) ম্যাট্রিক্স** এই প্রক্রিয়াটিকে চালিত করে।',
-        'section3-card1-title': '৩.১. ACEM স্কোর (সাংস্কৃতিক ফিট)',
-        'section3-card1-desc': 'অ্যালাইমেন্ট, কম্পিটেন্সি, এফোর্ট, এবং মরাল (ACEM) - এই চারটি প্যারামিটারের ভিত্তিতে মূল্যায়ন, যা **সাংস্কৃতিক ফিট** এবং কর্মক্ষমতা নির্দেশ করে।',
-        'section3-card2-title': '৩.২. রিয়েল এস্টেট অ্যাসাইনমেন্ট (RA)',
-        'section3-card2-desc': 'প্রতিটি ভূমিকাকে একটি `Base` বা `40% Secondary` পজিশনে নিযুক্ত করা হয়। ACEM স্কোর এবং প্যাকেজ গুণক (`Multiplier`) চূড়ান্ত ক্ষতিপূরণ নির্ধারণ করে।',
-        'section3-card3-title': '৩.৩. ডিজাইনিং ফর বাইলিঙ্গুয়ালিজম (DiZbing)',
-        'section3-card3-desc': 'একই ব্যক্তি একাধিক ভূমিকা পালন করে। প্রাথমিক (Primary) এবং একটি অতিরিক্ত (Secondary) ভূমিকা রাখার মাধ্যমে **versatilist** মডেল তৈরি করা হয়।',
-        
-        // Section 4: Performance & Alignment
-        'section4-title': '৪. টিওএস ম্যাট্রিক্স (TOS Matrix)',
-        'section4-desc': 'সময়, উদ্দেশ্য এবং সংস্থানগুলির একটি সক্রিয় ম্যাট্রিক্স (Time, Objective, Resources) যা নিশ্চিত করে যে ব্যক্তিগত এবং দলীয় কাজগুলি সর্বদা কৌশলগত লক্ষ্যের সাথে সংযুক্ত থাকে।',
-        
-        // Section 5: Strategic Roles
-        'section5-title': '৫. মূল ভূমিকা: আল-আমিন স্পেশালিস্ট',
-        'section5-card1-title': 'নৈতিক নিরীক্ষক (Moral Auditor)',
-        'section5-card1-desc': 'সাংস্কৃতিক সংহতি বজায় রাখা এবং সিদ্ধান্তের সময় নৈতিক দিকনির্দেশনা প্রদান করা।',
-        'section5-card2-title': 'ফ্লোর ম্যানেজার (ভার্সেটিলিস্ট)',
-        'section5-card2-desc': 'দৈনিক ক্রিয়াকলাপের তত্ত্বাবধান এবং অপ্রত্যাশিত পরিস্থিতিতে দ্রুত অভিযোজন ক্ষমতা নিশ্চিত করা।',
-        'section5-card3-title': 'জি-টু-আই ট্রান্সলেটর (G-to-I Translator)',
-        'section5-card3-desc': 'বৈশ্বিক (Global) কৌশলকে স্থানীয় (Internal) বাস্তবায়নের সাথে সংযোগ স্থাপন করা।',
-        'section5-card4-title': '৮৮কে ভার্সেটিলিস্ট (88k Versatilist)',
-        'section5-card4-desc': 'অতিরিক্ত বা বিশেষ প্রয়োজনের জন্য সহায়ক হিসাবে কাজ করা নমনীয় কর্মী।',
-        'section5-card5-title': 'ডিজিটাল ওয়ার্কফ্লো ইন্টিগ্রেটর',
-        'section5-card5-desc': 'সমস্ত বিভাগ জুড়ে কর্মপ্রবাহের ডিজিটাল টুলস এবং প্রক্রিয়াগুলির একীকরণকে ত্বরান্বিত করা।',
-        'section5-card6-title': 'আর্কিটেক্ট ও ইলুমিনেটর',
-        'section5-card6-desc': 'কর্মক্ষেত্রের পরিবেশ ডিজাইন করা, যা সংস্কৃতি ও উদ্ভাবনকে উৎসাহিত করে।',
-                    // Section 6: Roster & Assignment Tool
-        'section6-title': '৬. স্পেশালিস্ট রোস্টার ও অ্যাসাইনমেন্ট টুল',
-        'section6-desc': 'কর্মচারীদের কর্মক্ষমতা এবং তাদের দায়িত্বগুলি পরিচালনা করার জন্য একটি ডায়নামিক HR টুলের অ্যাক্সেস।',
-        'ra-tab-assign': 'ভূমিকা বরাদ্দ',
-        'ra-tab-list': 'বরাদ্দ তালিকা',
-        'ra-search-placeholder': 'নাম বা ভূমিকা দ্বারা অনুসন্ধান করুন...',
-        'ra-export': 'CSV রপ্তানি করুন',
-        'ra-label-name': 'কর্মচারীর নাম',
-        'ra-name-placeholder': 'সম্পূর্ণ নাম',
-        'ra-label-role1': 'প্রাথমিক ভূমিকা (বেস ক্ষতিপূরণ)',
-        'ra-label-role2': 'মাধ্যমিক ভূমিকা (ঐচ্ছিক, ৪০% ক্ষতিপূরণ)',
-        'ra-label-start': 'শুরুর তারিখ',
-        'ra-label-acem': 'ACEM স্কোর (%)',
-        'ra-label-mult': 'প্যাকেজ গুণক (x)',
-        'ra-calc': 'প্যাকেজ গণনা করুন',
-        'ra-save': 'বরাদ্দ সংরক্ষণ করুন',
-        'ra-summary-title': 'ক্ষতিপূরণ প্যাকেজের সারসংক্ষেপ',
-        'ra-preview-contract': 'চুক্তি প্রিভিউ',
-        'ra-clear': 'ফর্ম পরিষ্কার করুন',
-        'ra-modal-download': 'ডাউনলোড করুন',
-        'ra-modal-save': 'নিশ্চিত করুন',
-        
-        // Section 7: Strategic Models 5P
-        'section7-title': '৭. এক্সটেনশন ১: ৫-পি স্ট্র্যাটেজিক ফ্রেমওয়ার্ক',
-        'section7-desc': 'পরিকল্পনা, প্রক্রিয়া, উদ্দেশ্য, জনগণ, এবং পণ্যের একটি সমন্বিত দৃষ্টিভঙ্গি।',
-        'ext1-plan-title': 'পরিকল্পনা (Plan)',
-        'ext1-plan-desc': 'স্বচ্ছতা, গতি এবং প্রবাহ-দক্ষ কৌশলকে মূল্য দেওয়া।',
-        'ext1-process-title': 'প্রক্রিয়া (Process)',
-        'ext1-process-desc': 'উচ্চ মানের ফলাফল প্রদানের জন্য সামঞ্জস্যপূর্ণ প্রক্রিয়া।',
-        'ext1-purpose-title': 'উদ্দেশ্য (Purpose)',
-        'ext1-purpose-desc': 'কমন হার্ট দর্শন এবং মিশনকে কেন্দ্র করে।',
-        'ext1-people-title': 'জনগণ (People)',
-        'ext1-people-desc': 'ACEM স্কোর এবং DiZbing এর মাধ্যমে প্রতিভা পরিচালনা।',
-        'ext1-product-title': 'পণ্য (Product)',
-        'ext1-product-desc': 'উদ্ভাবন এবং বাজারের প্রতিক্রিয়া দ্বারা চালিত।',
+        if (!modal) return;
 
-        // Section 8: Glocalization
-        'section8-title': '৮. এক্সটেনশন ২: গ্লোকালাইজেশন (Glocalization)',
-        'section8-desc': 'আমরা বৈশ্বিক কৌশল (Global Strategy) এবং স্থানীয়ভাবে প্রাসঙ্গিক (Local Relevance) বাস্তবায়নের মধ্যে ভারসাম্য বজায় রাখি।',
-        'ext2-global-title': 'গ্লোবাল স্ট্র্যাটেজি',
-        'ext2-global-desc': 'কমন হার্ট দর্শন, ক্ল্যান-আধোক্রেসি সংস্কৃতি এবং মানসম্মত নীতিগুলি জুড়ে স্কেল ও দক্ষতা।',
-        'ext2-local-title': 'স্থানীয় বাস্তবায়ন',
-        'ext2-local-desc': 'নমনীয় কৌশল, স্থানীয় বাজারের প্রয়োজন অনুসারে অভিযোজন, এবং সাংস্কৃতিক সংবেদনশীলতা।',
-                    // Section 9: Archetypes
-        'section9-title': '৯. এক্সটেনশন ৩: টাস্ক আর্কিটাইপস',
-        'section9-desc': 'আমাদের কাজের প্রকৃতিকে তিনটি মৌলিক আর্কিটাইপে শ্রেণীবদ্ধ করা হয় যা দক্ষতার সাথে সংস্থান বরাদ্দ করতে সাহায্য করে।',
-        'ext3-task-title': 'কার্যকর টাস্ক (Effective Task)',
-        'ext3-task-desc': 'উচ্চ-মূল্যের আউটপুট অর্জনের জন্য দক্ষতার উপর দৃষ্টি নিবদ্ধ করা। (যেমন: ফ্লো ম্যানেজার)',
-        'ext3-social-title': 'সামাজিক টাস্ক (Social Task)',
-        'ext3-social-desc': 'সাংস্কৃতিক সংহতি এবং দলের মানসিকতাকে শক্তিশালী করা। (যেমন: নৈতিক নিরীক্ষক)',
-        'ext3-flow-title': 'প্রবাহ টাস্ক (Flow Task)',
-        'ext3-flow-desc': 'অভ্যন্তরীণ প্রক্রিয়ায় ঘর্ষণ বা বাধাগুলি সরিয়ে কর্মপ্রবাহের গতি বাড়ানো। (যেমন: ডিজিটাল ওয়ার্কফ্লো ইন্টিগ্রেটর)',
+        cards.forEach(card => {
+            card.addEventListener("click", () => {
+                const title = card.getAttribute("data-title");
+                const contentData = card.getAttribute("data-content");
 
-        // Department Modals
-        'modal-close': 'বন্ধ করুন',
-        'modal-finance-title': 'অর্থ ও হিসাবরক্ষণ',
-        'modal-finance-desc': 'আমরা **দক্ষতা, নির্ভুলতা এবং নৈতিক জবাবদিহিতা** নিশ্চিত করতে প্রক্রিয়া-ভিত্তিক ভূমিকা এবং ডিজিটাল অটোমেশনের উপর নির্ভর করি।',
-        'modal-marketing-title': 'বিপণন ও ব্র্যান্ডিং',
-        'modal-marketing-desc': 'ব্র্যান্ড স্ট্র্যাটেজি এবং দ্বিভাষিক (Bilingual) ডিজিটাল কনটেন্টের মাধ্যমে বাজারকে প্রভাবিত করা, যা আল-আমিন সংস্কৃতির প্রতিচ্ছবি।',
-        'modal-hr-title': 'এইচআর ও প্রতিভা উন্নয়ন',
-        'modal-hr-desc': 'এই বিভাগটি আমাদের **ACEM, DiZbing, এবং TOS ম্যাট্রিক্স** মডেলগুলির ভিত্তি। নৈতিক নিরীক্ষক (Moral Auditor) ভূমিকাটি সংস্কৃতিকে শক্তিশালী করে।',
-        'modal-hospitality-title': 'আতিথেয়তা ও অতিথি সেবা',
-        'modal-hospitality-desc': 'ভার্সেটিলিস্ট ম্যানেজারদের নেতৃত্বে **উচ্চ আস্থা, চরিত্র-চালিত** পরিষেবা প্রদানের উপর দৃষ্টি নিবদ্ধ করা।',
-        'modal-architecture-title': 'স্থাপত্য ও ডিজাইন',
-        'modal-architecture-desc': 'কর্মক্ষেত্রকে একটি **"Illuminated"** পরিবেশে ডিজাইন করা, যা সংস্কৃতি, প্রবাহ এবং সৃজনশীলতাকে উদ্দীপিত করে।',
-        'modal-operations-title': 'পরিচালনা ও ব্যবস্থাপনা',
-        'modal-operations-desc': 'নিয়ন্ত্রণ ও কাঠামো বজায় রেখে সাপ্লাই চেইন এবং ডিজিটাল ওয়ার্কফ্লোতে দক্ষতা এবং অভিযোজন ক্ষমতাকে নিশ্চিত করা।',
-                    // Section 10: Culture Profile (Al-Ameen Grandmaster Culture)
-        'section10-title': '১০. এক্সটেনশন ৪: আল-আমিন গ্র্যান্ডমাস্টার কালচার প্রোফাইল (মিশ্রণ)',
-        'section10-desc': 'আমাদের সংস্কৃতি কম্পিটিং ভ্যালুস ফ্রেমওয়ার্ক (সিভিএফ) প্রকারের একটি উদ্দেশ্যমূলক, পরিচালিত মিশ্রণ। এই প্রোফাইলটি নিশ্চিত করে যে আমরা একটি মনো-কালচার নই, বরং একটি গতিশীল, প্রবাহ-দক্ষ **আল-আমিন আধোক্রেসি**।',
-        'ext4-clan-title': 'আল-আমিন ক্ল্যান (কোর: ৫০%)',
-        'ext4-clan-desc': 'উচ্চ আস্থা, চরিত্র-চালিত, জন-ভিত্তিক। সহযোগী ও মূল্যবোধের সংহতি। **এনিমে অনুপ্রেরণা:** *আওল’স কুকিং* (*ভইথ* এবং দক্ষতা তৈরি করা)',
-        'ext4-adhoc-title': 'আল-আমিন আধোক্রেসি (ফোকাস: ৩৫%)',
-        'ext4-adhoc-desc': 'গতিশীল, উদ্যোক্তা, সৃজনশীল। উদ্ভাবন ও নমনীয়তা। **এনিমে অনুপ্রেরণা:** *ওয়ান পিস* (সহযোগী যাত্রা, অসম্ভব বাধা অতিক্রম)',
-        'ext4-hierarchy-title': 'আল-আমিন হায়ারার্কি (সাপোর্ট: ১০%)',
-        'ext4-hierarchy-desc': 'কাঠামোগত, আনুষ্ঠানিক, প্রক্রিয়া-ভিত্তিক। দক্ষতা ও নিয়ন্ত্রণ। **এনিমে অনুপ্রেরণা:** *অ্যাটাক অন টাইটান* (নিয়ন্ত্রিত প্রতিরক্ষা, কৌশলগত অপারেশন)',
-        'ext4-market-title': 'আল-আমিন মার্কেট (গ্রোথ: ৫%)',
-        'ext4-market-desc': 'ফলাফল-ভিত্তিক, প্রতিযোগিতামূলক। অর্জন ও লাভজনকতা। **এনিমে অনুপ্রেরণা:** *ফুড ওয়ার্স* (তীব্র রন্ধন যুদ্ধ, শ্রেষ্ঠত্ব চাওয়া)',
-        
-        // Section 11: Frameworks
-        'section11-title': '১১. এক্সটেনশন ৫: বৈশ্বিক সাংস্কৃতিক ফ্রেমওয়ার্ক',
-        'section11-desc': 'আমরা আমাদের অভ্যন্তরীণ সংস্কৃতিকে বহিরাগত মডেলের বিপরীতে ম্যাপ করি।',
-        'ext5-globe-title': 'গ্লোব সাংস্কৃতিক মাত্রা (৯)',
-        'ext5-globe-desc': '**সামাজিক অনুশীলনের** (The "Dignified Guide" আচরণ) উপর দৃষ্টি নিবদ্ধ করে। আমাদের স্কোরগুলি নিশ্চিত করার জন্য ফিল্টার করা হয়েছে: *কর্মক্ষমতা অভিযোজন*, *ভবিষ্যত অভিযোজন*, এবং *ইন-গ্রুপ সমষ্টিবাদ* খাঁটি *দৃঢ়তার* চেয়ে বেশি অগ্রাধিকার পায়।',
-        'ext5-tromp-title': 'ট্রোমপেনার্স-এর ৭ মাত্রা',
-        'ext5-tromp-desc': '**দ্বিধা সমাধানের** ("কমন হার্ট" দর্শন) উপর দৃষ্টি নিবদ্ধ করে। আমরা **সার্বজনীনতা** (সম্পর্কের উপর নিয়ম) এবং **অর্জন** (আরোপ/জ্যেষ্ঠতার উপর কর্মক্ষমতা) দাবি করি।',
-        'section11-footer': '**গ্র্যান্ডমাস্টার ফলাফল:** *ডিজবিং* (বহুমুখিতার জন্য বেতন), *টিওএস ম্যাট্রিক্স* (সক্রিয় কৌশল), এবং *প্রবাহ-দক্ষ বৈশ্বিক অ্যাকশন* (ওওডিএ লুপে ডি এবং এ)।'
-    } 
-}; 
-  const setupContentToggler = (triggerId, contentSelector) => {
-    const trigger = document.getElementById(triggerId);
-    
-    const content = document.querySelector('.' + contentSelector); 
-    
-    if (trigger && content) {
-        content.style.display = 'none'; 
-        trigger.style.cursor = 'pointer'; 
-
-        trigger.addEventListener('click', () => {
-            const h2 = trigger.querySelector('h2');
-            
-            if (content.style.display === 'none') {
-                content.style.display = 'block'; 
-                if(h2) h2.textContent = h2.textContent.replace('▼', '▲');
-            } else {
-                content.style.display = 'none'; 
-                if(h2) h2.textContent = h2.textContent.replace('▲', '▼');
-            }
+                if (contentData) {
+                    modalTitle.textContent = title;
+                    
+                    try {
+                        const contentArray = JSON.parse(contentData);
+                        modalBody.innerHTML = contentArray.map(item => `<p>${item}</p>`).join('');
+                    } catch (e) {
+                        modalBody.innerHTML = `<p>${contentData}</p>`;
+                    }
+                    
+                    modal.style.display = "block";
+                }
+            });
         });
-    }
-};
+
+        const close = () => modal.style.display = "none";
+        closeModal.onclick = close;
+        window.onclick = (event) => {
+            if (event.target == modal) {
+                close();
+            }
+        };
+    };
+          // Initialize all scripts on DOM content load
+    document.addEventListener('DOMContentLoaded', () => {
+        setupLanguageToggler();
+        setupFrameworkModal();
         
         // Initialize the togglers for all major sections
-        setupContentToggler('section7-title-container', 'content-s7');
-        setupContentToggler('section8-title-container', 'content-s8');
-        setupContentToggler('section9-title-container', 'content-s9');
-        setupContentToggler('section10-title-container', 'content-s10');
-        setupContentToggler('section11-title-container', 'content-s11');
-
-        // Initial setup of the trigger texts (adding the close indicator)
-        document.getElementById('section7-title-container').querySelector('h2').textContent += ' ▼';
-        document.getElementById('section8-title-container').querySelector('h2').textContent += ' ▼';
-        document.getElementById('section9-title-container').querySelector('h2').textContent += ' ▼';
-        document.getElementById('section10-title-container').querySelector('h2').textContent += ' ▼';
-        document.getElementById('section11-title-container').querySelector('h2').textContent += ' ▼';
+        // This now uses the correct CSS selector for the content
+        setupContentToggler('section7-title-container', '.content-s7');
+        setupContentToggler('section8-title-container', '.content-s8');
+        setupContentToggler('section9-title-container', '.content-s9');
+        setupContentToggler('section10-title-container', '.content-s10');
+        setupContentToggler('section11-title-container', '.content-s11');
     
     }); 
 })(); 
