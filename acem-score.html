@@ -13,29 +13,37 @@
 <body>
 
     <header class="hero">
-        <div class="container">
-            <h1 data-lang-key="main-title">Grandmaster HR: The Objective Standard</h1>
-            <p class="lead" data-lang-key="main-desc">
-                This is the Al-Ameen "Bureau of Harmony" (HR) model. We replace subjective, "subpar" HR practices with an objective, data-driven system based on the <strong>ACEM Score</strong> and <strong>GLSM (Grandmaster Leadership Strategy Matrix)</strong>. This codifies the "Common Heart Doctrine" into a measurable process.
-            </p>
-            
-            <nav class="main-nav">
-              <ul>
-                <li><a href="index.html" data-lang-key="nav-home">Home</a></li>
-                <li><a href="landing.html">Landing</a></li>
-                <li><a href="about-heritage.html" data-lang-key="nav-heritage">About & Heritage</a></li>
-                <li><a href="doctrine.html" data-lang-key="nav-doctrine">Doctrine</a></li>
-                <li><a href="models.html" data-lang-key="nav-models">Models</a></li>
-                <li><a href="acem-score.html" data-lang-key="nav-acem">ACEM Score</a></li>
-                <li><a href="management-leadership.html" data-lang-key="nav-management">Management</a></li>
-                <li><a href="operations.html" data-lang-key="nav-operations">Operations (Efficiency)</a></li>
-                <li><a href="gourmet-alliances.html" data-lang-key="nav-gourmet">Gourmet (Innovation)</a></li>
-                <li><a href="marketing-branding.html" data-lang-key="nav-marketing">Marketing (Presence)</a></li>
-                <li><a href="investment.html" data-lang-key="nav-investment">Finance (Provision)</a></li>
-              </ul>
-            </nav>
-        </div>
+
+    <div class="lang-switch">
+        <select id="language" onchange="updateLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="bn">বাংলা</option>
+        </select>
+    </div>
+    <div class="container">
+        <h1 data-lang-key="main-title" id="hero-title">Grandmaster HR: The Objective Standard</h1>
+        <p class="lead" data-lang-key="main-desc" id="hero-lead">
+            This is the Al-Ameen "Bureau of Harmony" (HR) model. We replace subjective, "subpar" HR practices with an objective, data-driven system based on the <strong>ACEM Score</strong> and <strong>GLSM (Grandmaster Leadership Strategy Matrix)</strong>. This codifies the "Common Heart Doctrine" into a measurable process.
+        </p>
+        
+        <nav class="main-nav">
+          <ul>
+            <li><a href="index.html" data-lang-key="nav-home">Home</a></li>
+            <li><a href="landing.html">Landing</a></li>
+            <li><a href="about-heritage.html" data-lang-key="nav-heritage">About & Heritage</a></li>
+            <li><a href="doctrine.html" data-lang-key="nav-doctrine">Doctrine</a></li>
+            <li><a href="models.html" data-lang-key="nav-models">Models</a></li>
+            <li><a href="acem-score.html" data-lang-key="nav-acem">ACEM Score</a></li>
+            <li><a href="management-leadership.html" data-lang-key="nav-management">Management</a></li>
+            <li><a href="operations.html" data-lang-key="nav-operations">Operations (Efficiency)</a></li>
+            <li><a href="gourmet-alliances.html" data-lang-key="nav-gourmet">Gourmet (Innovation)</a></li>
+            <li><a href="marketing-branding.html" data-lang-key="nav-marketing">Marketing (Presence)</a></li>
+            <li><a href="investment.html" data-lang-key="nav-investment">Finance (Provision)</a></li>
+          </ul>
+        </nav>
+    </div>
     </header>
+    
 
     <main class="container">
                 <h2 class="mt-6 mb-4">1. What is the ACEM Score?</h2>
@@ -280,6 +288,7 @@
     </div>
 </section>
 
+
 <section id="culture-profile" class="mt-6">
     <div id="section10-title-container">
         <h2 class="mt-6 mb-4" id="section10-title">10. Extension 4: The Al-Ameen Cultural Profile (Virtues & Vices)</h2>
@@ -310,7 +319,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="mt-0">Core Personality</h4>
-                    <img src="bigfive-deyoung-and-peterson-neopir.webp" alt="Personality Trait Model (Big Five)" style="width:100%; border-radius: 8px;">
+                    <img src="bigfive-deyoung-and-peterson-neopir.jpg" alt="Personality Trait Model (Big Five)" style="width:100%; border-radius: 8px;">
                 </div>
             </div>
             <div class="card">
@@ -322,12 +331,12 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="mt-0">Hierarchy of Pursuits</h4>
-                    <img src="hierachy-of-pursuits.png" alt="Hierarchy of Pursuits (Maslow/Islamic)" style="width:100%; border-radius: 8px;">
+                    <img src="hierarchy-of-pursuits.png" alt="Hierarchy of Pursuits (Maslow/Islamic)" style="width:100%; border-radius: 8px;">
                 </div>
             </div>
         </div>
         <p class="mt-4 small text-muted text-center" id="section10-footer">
-            **Note:** The Big Five model (e.g., `bigfive-deyoung-and-peterson-neopir.webp`) is the foundation for the "Personality" diagram shown above.
+            **Note:** The Big Five model (e.g., `bigfive-deyoung-and-peterson-neopir.jpg`) is the foundation for the "Personality" diagram shown above.
         </p>
     </div>
 </section>
@@ -1177,7 +1186,7 @@
     };
             document.addEventListener('DOMContentLoaded', () => {
         const preferredLang = localStorage.getItem('preferredLang') || 'en';
-        document.getElementById('language').value = preferredLang;
+       // document.getElementById('language').value = preferredLang;
         updateLanguage(preferredLang);
 
         const scenarioSelect = document.getElementById('pos-scenario');
