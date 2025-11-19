@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Management - Bureau of Harmony</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Accordion Logic */
+        .accordion {
+            background-color: #f8f9fa;
+            color: #333;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1.1rem;
+            transition: 0.4s;
+            border-bottom: 1px solid #ddd;
+            font-weight: 600;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .active, .accordion:hover { background-color: #e9ecef; }
+        .accordion:after { content: '\002B'; font-weight: bold; margin-left: 5px; }
+        .active:after { content: "\2212"; }
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* NEW VISUAL STEP FLOW STYLES */
+        .cycle-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .step-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            border-radius: 4px;
+            position: relative;
+            transition: transform 0.2s;
+        }
+        .step-card:hover { transform: translateX(5px); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .step-number {
+            font-weight: 900;
+            color: #ddd;
+            font-size: 2rem;
+            position: absolute;
+            right: 15px;
+            top: 5px;
+        }
+        .step-title { font-weight: bold; color: var(--primary-color); display: block; margin-bottom: 5px; }
+        
+        /* Versatilist Highlight */
+        .step-card.versatilist {
+            border-left-color: #27ae60; /* Green for Growth */
+            background: #f9fff9;
+        }
+
+        /* Salary Table Style */
+        .salary-breakdown-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        .salary-breakdown-table td { padding: 6px; border-bottom: 1px solid #eee; }
+        .salary-breakdown-table tr:last-child { font-weight: bold; border-top: 2px solid #333; }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <div class="lang-switch">
+        <select id="language" onchange="updateLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="bn">বাংলা</option>
+        </select>
+    </div>
+    <div class="container">
+        <h1 id="hero-title">Bureau of Harmony (HR)</h1>
+        <p class="lead" id="hero-lead">The OODA Loop, The ACEM Score, and The Dignity Wage.</p>
+        
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="hr-management.html" class="active">HR Management</a></li>
+                <li><a href="acem-score.html">ACEM Models</a></li>
+                <li><a href="management-leadership.html">Management</a></li>
+                <li><a href="operations.html">Operations</a></li>
+                <li><a href="marketing-branding.html">Marketing</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <section>
+        <h2 class="mt-6 mb-4">Bureau of Harmony Dashboard</h2>
+        <div class="grid grid-4">
+            <div class="stat-card">
+                <p class="stat-label">Total Payroll (Monthly)</p>
+                <p class="stat-value" id="stat-payroll">--</p>
+            </div>
+            <div class="stat-card">
+                <p class="stat-label">Total Positions</p>
+                <p class="stat-value" id="stat-total-pos">--</p>
+            </div>
+            <div class="stat-card">
+                <p class="stat-label">Avg. ACEM Score</p>
+                <p class="stat-value" id="stat-avg-acem">--</p>
+            </div>
+            <div class="stat-card">
+                <p class="stat-label">Versatilist Ratio</p>
+                <p class="stat-value" id="stat-ratio">--</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="mt-6 mb-4">The Doctrine of Harmony</h2>
+        
+        <button class="accordion">1. The Non-Linear OODA Loop</button>
+        <div class="panel">
+            <div class="card-body">
+                <p>We do not use linear "Annual Reviews." We use the <strong>Boyd Cycle (OODA Loop)</strong> applied to HR.</p>
+                <ul>
+                    <li><strong>Observe:</strong> Daily "Why Mirror" & Floor Efficiency Data.</li>
+                    <li><strong>Orient:</strong> Compare against the <strong>ACEM Score</strong> (Physique) and <strong>GLSM</strong> (Intellect).</li>
+                    <li><strong>Decide:</strong> Assign "Kata" (Training) or Promotion.</li>
+                    <li><strong>Act:</strong> Execute the role (e.g., Project Lead executes 250k strategy).</li>
+                </ul>
+            </div>
+        </div>
+        <button class="accordion">2. The Great Cycle (Training & Performance)</button>
+        <div class="panel">
+            <div class="card-body">
+                <div class="grid grid-2">
+                    
+                    <div>
+                        <h3 style="text-align:center; color:#555;">The Academy Cycle</h3>
+                        <div class="cycle-container">
+                            <div class="step-card">
+                                <span class="step-number">1</span>
+                                <span class="step-title">Identification</span>
+                                <p class="small text-muted">Identify Gap in ACEM Score (e.g., Staff has low "Physique").</p>
+                            </div>
+                            <div class="step-card">
+                                <span class="step-number">2</span>
+                                <span class="step-title">Design</span>
+                                <p class="small text-muted">Create specific "Kata" (Drill) in the Daily Schedule.</p>
+                            </div>
+                            <div class="step-card">
+                                <span class="step-number">3</span>
+                                <span class="step-title">Delivery</span>
+                                <p class="small text-muted">Project Lead or Exec Chef teaches the skill (On-the-Job).</p>
+                            </div>
+                            <div class="step-card">
+                                <span class="step-number">4</span>
+                                <span class="step-title">Evaluation</span>
+                                <p class="small text-muted">Re-score ACEM after 30 days (Shokugeki Challenge).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 style="text-align:center; color:#555;">The Performance Cycle</h3>
+                        <div class="cycle-container">
+                            <div class="step-card">
+                                <span class="step-number">1</span>
+                                <span class="step-title">Planning</span>
+                                <p class="small text-muted">Set GLSM/ACEM Targets for the Quarter.</p>
+                            </div>
+                            <div class="step-card">
+                                <span class="step-number">2</span>
+                                <span class="step-title">Monitoring</span>
+                                <p class="small text-muted">Daily Stand-up & "Why Mirror" Debriefs.</p>
+                            </div>
+                            <div class="step-card versatilist">
+                                <span class="step-number">3</span>
+                                <span class="step-title">Developing (Versatility)</span>
+                                <p class="small text-muted"><strong>Cross-Training</strong>. Moving from Specialist to Generalist to Versatilist.</p>
+                            </div>
+                            <div class="step-card">
+                                <span class="step-number">4</span>
+                                <span class="step-title">Rewarding</span>
+                                <p class="small text-muted">Unlock the <strong>88k Dignity Wage</strong> based on Score.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2 class="mt-6 mb-4">Extension 5: The Team Energy Architecture</h2>
+        <p class="mb-4 text-muted">We assign roles based on "Energy Flow." The Project Lead is the Linker who connects the Creator (Vision) to the Concluder (Execution).</p>
+        
+        <div class="card" style="margin-bottom: 2rem;">
+            <div class="card-body">
+                <h3 style="text-align:center; color:#2c3e50; margin-bottom:15px;">The Team Energy Wheel</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                    <div style="background:#e3f2fd; padding:15px; border-radius:4px; border-top:4px solid #2196f3; text-align:center;">
+                        <strong style="color:#2196f3;">Creator-Innovator</strong><br>
+                        <span class="small">The Visionary<br>(Project Lead)</span>
+                    </div>
+                    <div style="background:#e8f5e9; padding:15px; border-radius:4px; border-top:4px solid #4caf50; text-align:center;">
+                        <strong style="color:#4caf50;">Thruster-Organizer</strong><br>
+                        <span class="small">The Executor<br>(Chefs / Deputy)</span>
+                    </div>
+                    <div style="background:#f3e5f5; padding:15px; border-radius:4px; border-top:4px solid #9c27b0; text-align:center;">
+                        <strong style="color:#9c27b0;">Explorer-Promoter</strong><br>
+                        <span class="small">The Persuader<br>(Marketing Chief)</span>
+                    </div>
+                    <div style="background:#fff3e0; padding:15px; border-radius:4px; border-top:4px solid #ff9800; text-align:center;">
+                        <strong style="color:#ff9800;">Concluder-Producer</strong><br>
+                        <span class="small">The Finisher<br>(Room Coordinator)</span>
+                    </div>
+                </div>
+                <div style="margin-top:15px; padding:10px; background:#2c3e50; color:#fff; text-align:center; border-radius:4px;">
+                    <strong>THE LINKER:</strong> You (Grandmaster) connect the Energy Flow (5 Days/Week).
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="mt-6 mb-4">Extension 6: The Academy Curriculum</h2>
+        <div class="card" style="margin-bottom: 2rem;">
+            <div class="card-body">
+                <div class="cycle-container">
+                    <div class="step-card">
+                        <span class="step-number" style="color:#95a5a6;">01</span>
+                        <span class="step-title">Skill Block 1: Operational Kata</span>
+                        <p class="small text-muted"><strong>Focus:</strong> Physical Mastery (ACEM).</p>
+                        <ul class="small" style="margin-bottom:0; padding-left:20px;">
+                            <li>Daily Grind (Cleaning/Cooking).</li>
+                            <li>Sanctuary Maintenance.</li>
+                        </ul>
+                    </div>
+                    <div class="step-card versatilist" style="border-left-color:#8e44ad;">
+                        <span class="step-number" style="color:#8e44ad;">02</span>
+                        <span class="step-title">Skill Block 2: Leadership Models</span>
+                        <p class="small text-muted"><strong>Focus:</strong> Hersey & Blanchard.</p>
+                        <ul class="small" style="margin-bottom:0; padding-left:20px;">
+                            <li><strong>Situational Leadership:</strong> Directing vs. Supporting.</li>
+                            <li><strong>Continuum Theory:</strong> Tannenbaum & Schmidt.</li>
+                        </ul>
+                    </div>
+                    <div class="step-card" style="border-left-color:#c0392b; background:#fff5f5;">
+                        <span class="step-number" style="color:#c0392b;">03</span>
+                        <span class="step-title">Skill Block 3: Grandmaster Strategy</span>
+                        <p class="small text-muted"><strong>Focus:</strong> The OODA Loop.</p>
+                        <ul class="small" style="margin-bottom:0; padding-left:20px;">
+                            <li>Capital Allocation & P&L.</li>
+                            <li>Culture Creation (The "Why" Mirror).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="mt-6 mb-4">Extension 7: The Feedback Engine</h2>
+        <p class="mb-4 text-muted">We look Backward (Evidence) with STAR and Forward (Action) with Starfish.</p>
+        
+        <div class="card" style="margin-bottom: 2rem;">
+            <div class="card-body">
+                <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                    <div style="flex: 1; min-width: 300px; border: 1px solid #eee; padding: 15px; border-radius: 8px;">
+                        <h4 style="color:#2980b9; text-align:center;">Step 1: STAR (Evidence)</h4>
+                        <ul class="small" style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 5px;"><strong>Situation:</strong> "During Lunch Rush..."</li>
+                            <li style="margin-bottom: 5px;"><strong>Task:</strong> "Clear tables..."</li>
+                            <li style="margin-bottom: 5px;"><strong>Action:</strong> "You ignored guests..."</li>
+                            <li style="margin-bottom: 5px;"><strong>Result:</strong> "Complaint filed."</li>
+                        </ul>
+                    </div>
+                    <div style="flex: 1; min-width: 300px; border: 1px solid #eee; padding: 15px; border-radius: 8px;">
+                        <h4 style="color:#27ae60; text-align:center;">Step 2: Starfish (Action)</h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+                            <div style="background:#e8f5e9; padding:5px; text-align:center;"><strong style="color:#27ae60;">Start</strong></div>
+                            <div style="background:#ffebee; padding:5px; text-align:center;"><strong style="color:#c0392b;">Stop</strong></div>
+                            <div style="background:#fff3e0; padding:5px; text-align:center;"><strong style="color:#e67e22;">More Of</strong></div>
+                            <div style="background:#e0f7fa; padding:5px; text-align:center;"><strong style="color:#00acc1;">Less Of</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<script>
+    // --- DATA: THE GRANDMASTER HIERARCHY (Hard-Coded Reality) ---
+    const positionsData = [
+        {
+            "id": "B1-PL",
+            "title": "Project Lead (The Grandmaster)",
+            "bureau": "Bureau of Harmony",
+            "type": "Grandmaster (Universalist)",
+            "mccann_role": "Creator-Innovator (Linker)",
+            "salary": 250000, 
+            "versatility_bonus": 0,
+            "bonus_desc": "The Source (On-Site 5 Days/Week)",
+            "glsm_score": 100,
+            "acem_score": 100,
+            "summary": "The Architect. Present 5 days a week to Link all Bureaus. The target for all others to aspire to.",
+            "responsibilities": ["Strategy Architecture", "Capital Allocation", "Universal Oversight"]
+        },
+        {
+            "id": "B1-DEP",
+            "title": "Project Deputy (The Hand)",
+            "bureau": "Bureau of Harmony",
+            "type": "Grandmaster (Universalist)",
+            "mccann_role": "Thruster-Organizer",
+            "salary": 225000, 
+            "versatility_bonus": 0,
+            "bonus_desc": "Executive Will",
+            "glsm_score": 95,
+            "acem_score": 95,
+            "summary": "The Executor. Translates the Grandmaster's Concept into Action.",
+            "responsibilities": ["Operational Oversight", "Bureau Coordination", "Crisis Management"]
+        },
+        {
+            "id": "B3-RCV-DIR",
+            "title": "Room Coordinator (Director)",
+            "bureau": "Bureau of Process",
+            "type": "Versatilist (Master)",
+            "mccann_role": "Concluder-Producer",
+            "salary": 200000, 
+            "versatility_bonus": 0,
+            "bonus_desc": "Master Trainer (2.5x Multiplier)",
+            "glsm_score": 90,
+            "acem_score": 95,
+            "summary": "The Physical Master. Trains the Chiefs on the 'Active Duty' standard.",
+            "responsibilities": ["Guest Experience Director", "Sanctuary Standard", "Versatilist Training Lead"]
+        },
+        {
+            "id": "B5-HBC",
+            "title": "Bureau Chief (Harmony)",
+            "bureau": "Bureau of Harmony",
+            "type": "Specialist (Rising)",
+            "mccann_role": "Controller-Inspector",
+            "salary": 100000,
+            "versatility_bonus": 15000, 
+            "bonus_desc": "Active: Working with Project Lead (+15k)",
+            "glsm_score": 90,
+            "acem_score": 60,
+            "summary": "Aspiring Universalist. Working alongside Project Lead to learn the 'Whole Board'.",
+            "responsibilities": ["HR Operations", "Compliance", "Cross-Bureau Rotation (Active)"]
+        },
+        {
+            "id": "B1-MBC",
+            "title": "Bureau Chief (Presence)",
+            "bureau": "Bureau of Presence",
+            "type": "Specialist (Rising)",
+            "mccann_role": "Explorer-Promoter",
+            "salary": 90000,
+            "versatility_bonus": 15000, 
+            "bonus_desc": "Active: Cross-Training in HR (+15k)",
+            "glsm_score": 85,
+            "acem_score": 50,
+            "summary": "Aspiring Universalist. Learning Recruitment to understand Brand Promise.",
+            "responsibilities": ["Brand Strategy", "Guest Communication", "HR Rotation (Active)"]
+        },
+        {
+            "id": "B3-RCV",
+            "title": "Room Coordinator (Starting)",
+            "bureau": "Bureau of Process",
+            "type": "Versatilist (Universalist)",
+            "mccann_role": "Concluder-Producer",
+            "salary": 88000, 
+            "versatility_bonus": 22500,
+            "bonus_desc": "Supply Chain (+15k) + HR (+7.5k)",
+            "glsm_score": 70,
+            "acem_score": 85,
+            "summary": "The 88k Elite Entry. Supply Chain Co-Pilot.",
+            "responsibilities": ["Supply Chain Selection", "Housekeeping", "Barista Duties"]
+        },
+        {
+            "id": "B4-K-EC",
+            "title": "Executive Chef",
+            "bureau": "Bureau of Essence",
+            "type": "Specialist (Physical)",
+            "mccann_role": "Thruster-Organizer",
+            "salary": 84000,
+            "versatility_bonus": 0,
+            "bonus_desc": "Specialist Cap",
+            "glsm_score": 78,
+            "acem_score": 80,
+            "summary": "Kitchen General. Organizes the Brigade.",
+            "responsibilities": ["Menu Engineering", "Kitchen Mgmt", "Sourcing"]
+        },
+        {
+            "id": "B3-SEC-C",
+            "title": "Security Chief",
+            "bureau": "Bureau of Process",
+            "type": "Specialist (Physical)",
+            "mccann_role": "Upholder-Maintainer",
+            "salary": 30000,
+            "versatility_bonus": 15000,
+            "bonus_desc": "Active: Gardening (+15k)",
+            "glsm_score": 65,
+            "acem_score": 80,
+            "summary": "Protector & Groundskeeper.",
+            "responsibilities": ["Perimeter Defense", "Guest Safety", "Organic Harvest"]
+        }
+    ];
+</script>
+<script>
+    // --- LOGIC: ACCORDION ---
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            var allPanels = document.getElementsByClassName("panel");
+            var allAccs = document.getElementsByClassName("accordion");
+            var thisPanel = this.nextElementSibling;
+            var isAlreadyOpen = thisPanel.style.maxHeight;
+            for(var j=0; j<allPanels.length; j++){
+                allPanels[j].style.maxHeight = null;
+                allAccs[j].classList.remove("active");
+            }
+            if (!isAlreadyOpen) {
+                this.classList.add("active");
+                thisPanel.style.maxHeight = thisPanel.scrollHeight + "px";
+            }
+        });
+    }
+
+    // --- LOGIC: SALARY BREAKDOWN ---
+    // Calculates the Dignity Wage components (Base, House, Medical, Conveyance)
+    function getBreakdown(gross, bonus) {
+        let total_gross = gross + bonus;
+        let base = Math.round(total_gross / 1.6); 
+        let house = Math.round(base * 0.5); // 50% of Base
+        let medical = Math.round(base * 0.1); // 10% of Base
+        let conveyance = total_gross - (base + house + medical); // Remainder
+        return { base, house, medical, conveyance, total_gross };
+    }
+</script>
+<script>
+    // --- LOGIC: RENDER LIST & DETAILS (With Forensic Validators) ---
+    (function() {
+        const list = document.getElementById('position-list');
+        const detail = document.getElementById('position-detail');
+        
+        // Dashboard Stats
+        const totalPayroll = positionsData.reduce((acc, p) => acc + p.salary + p.versatility_bonus, 0);
+        const totalPos = positionsData.length;
+        
+        document.getElementById('stat-payroll').textContent = "৳" + totalPayroll.toLocaleString();
+        document.getElementById('stat-total-pos').textContent = totalPos;
+        document.getElementById('stat-avg-acem').textContent = (positionsData.reduce((acc,p)=>acc+p.acem_score,0)/totalPos).toFixed(1);
+        const physCount = positionsData.filter(p => p.type.includes('Physical') || p.type.includes('Universalist')).length;
+        document.getElementById('stat-ratio').textContent = physCount + " : " + (totalPos - physCount);
+        
+        function renderList() {
+            list.innerHTML = '';
+            positionsData.forEach(pos => {
+                const card = document.createElement('div');
+                card.className = 'position-list-item';
+                let color = '#333';
+                if (pos.type.includes('Grandmaster')) color = '#c0392b';
+                if (pos.type.includes('Physical') || pos.type.includes('Versatilist')) color = '#27ae60';
+                
+                card.innerHTML = `<h4 style="color:${color}">${pos.title}</h4><p class="small text-muted">${pos.mccann_role}</p>`;
+                card.onclick = () => renderDetail(pos);
+                list.appendChild(card);
+            });
+        }
+
+        function renderDetail(pos) {
+            const b = getBreakdown(pos.salary, pos.versatility_bonus);
+            
+            // --- 1. COMPLIANCE VALIDATOR (Housing 50%) ---
+            const expectedRent = Math.round(b.base * 0.5);
+            const isCompliant = (Math.abs(expectedRent - b.house) < 1000);
+            
+            let warningMsg = '';
+            let cardStyle = 'background:#fff;';
+            
+            if (!isCompliant) {
+                 warningMsg = `<div style="background:#ffebee; color:#c62828; padding:10px; border:1px solid #c62828; border-radius:4px; margin-bottom:10px;">
+                    <strong>⚠️ AUDIT ALERT: NON-COMPLIANT STRUCTURE</strong><br>
+                    Housing is NOT 50% of Basic. Memo HB 9057 Detected.
+                 </div>`;
+                 cardStyle = 'background:#fff5f5; border:1px solid #ffcdd2;';
+            }
+
+            // --- 2. FORENSIC VALIDATOR (The "Sonjoy" Block) ---
+            // Simulating a check against "Bundled" payments
+            // If this were a real input form, it would reject "Rasif & Asif"
+            let taxMsg = `<div style="background:#e3f2fd; color:#0d47a1; padding:10px; border:1px solid #2196f3; border-radius:4px; margin-bottom:10px; font-size:0.85rem;">
+                <strong>🛡️ TAX COMPLIANCE SECURED</strong><br>
+                Tax ID: <strong>${pos.id}-TAX</strong> (Individual Only).<br>
+                <em>System rejects "Bundled" payments (e.g., "&", "Cash").</em>
+            </div>`;
+
+            // Bonus Row Logic
+            let bonusRow = '';
+            if (pos.versatility_bonus > 0) {
+                bonusRow = `<tr style="background:#e8f5e9; color:#27ae60;">
+                    <td><strong>Active Duty Pay</strong><br><span style="font-size:0.8em; color:#555;">(${pos.bonus_desc})</span></td>
+                    <td style="text-align:right; vertical-align:middle;"><strong>+ ৳${pos.versatility_bonus.toLocaleString()}</strong></td>
+                </tr>`;
+            }
+
+            detail.innerHTML = `
+                <h2 style="color:${pos.type.includes('Grandmaster') ? '#c0392b' : '#333'}">${pos.title}</h2>
+                <p class="text-muted">${pos.bureau} | <strong>${pos.type}</strong></p>
+                
+                ${warningMsg}
+                ${taxMsg}
+
+                <div class="card" style="background:#f4f8ff; border-left:4px solid #4a90e2; margin-bottom:1rem;">
+                    <div class="card-body" style="padding:10px;">
+                        <p class="small" style="margin:0;"><strong>McCann Profile:</strong> <span style="color:#4a90e2; font-weight:bold;">${pos.mccann_role}</span></p>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top:1rem; ${cardStyle}">
+                    <div class="card-body">
+                        <h3 style="border-bottom:1px solid #ddd; padding-bottom:5px;">Salary Structure (Monthly)</h3>
+                        <table class="salary-breakdown-table">
+                            <tr><td>Basic Salary</td><td style="text-align:right">৳${b.base.toLocaleString()}</td></tr>
+                            <tr><td>House Rent (50%)</td><td style="text-align:right">৳${b.house.toLocaleString()}</td></tr>
+                            <tr><td>Medical Allowance (10%)</td><td style="text-align:right">৳${b.medical.toLocaleString()}</td></tr>
+                            <tr><td>Conveyance/F&B</td><td style="text-align:right">৳${b.conveyance.toLocaleString()}</td></tr>
+                            ${bonusRow}
+                            <tr><td><strong>GROSS TOTAL</strong></td><td style="text-align:right"><strong>৳${b.total_gross.toLocaleString()}</strong></td></tr>
+                        </table>
+                        <p class="small text-muted mt-2"><em>*Includes Tax Deductible Allowances.</em></p>
+                    </div>
+                </div>
+
+                <h4 class="mt-4">Scores</h4>
+                <div class="grid grid-2">
+                    <div class="stat-card mini"><p class="stat-label">GLSM</p><p class="stat-value small">${pos.glsm_score}</p></div>
+                    <div class="stat-card mini"><p class="stat-label">ACEM</p><p class="stat-value small">${pos.acem_score}</p></div>
+                </div>
+                
+                <h4 class="mt-4">Responsibilities</h4>
+                <ul>${pos.responsibilities.map(r => `<li>${r}</li>`).join('')}</ul>
+            `;
+        }
+
+        renderList();
+        if(positionsData.length > 0) renderDetail(positionsData[0]);
+        
+        // Search
+        document.getElementById('pos-search').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            const filtered = positionsData.filter(p => p.title.toLowerCase().includes(term) || p.mccann_role.toLowerCase().includes(term));
+            list.innerHTML = '';
+            filtered.forEach(pos => {
+                const card = document.createElement('div');
+                card.className = 'position-list-item';
+                card.innerHTML = `<h4>${pos.title}</h4><p class="small text-muted">${pos.mccann_role}</p>`;
+                card.onclick = () => renderDetail(pos);
+                list.appendChild(card);
+            });
+        });
+    })();
+    
+    // Export CSV
+    document.getElementById('pos-export').addEventListener('click', () => {
+        let csv = "ID,Title,Type,McCann_Role,Base_Salary,Active_Duty_Bonus,Total_Gross\n";
+        positionsData.forEach(p => {
+            let total = p.salary + p.versatility_bonus;
+            csv += `${p.id},${p.title},${p.type},${p.mccann_role},${p.salary},${p.versatility_bonus},${total}\n`;
+        });
+        const link = document.createElement("a");
+        link.href = "data:text/csv;charset=utf-8," + encodeURI(csv);
+        link.download = "grandmaster_salary_report.csv";
+        link.click();
+    });
+
+    function updateLanguage(lang) { console.log("Language: " + lang); }
+</script>
+</body>
+</html>
