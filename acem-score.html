@@ -6,14 +6,14 @@
     <title>HR Management & ACEM Score - The Objective Standard</title>
     
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500&family=Playfair+Display:wght=600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Base Styles (Added for presentation) */
+        /* Base Styles */
         body { font-family: 'Inter', sans-serif; background-color: #f4f7f9; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 15px; }
         
-        /* Header & Navigation Styles (Improved) */
+        /* Header & Navigation Styles */
         .hero { background-color: #2c3e50; color: white; padding: 2rem 0; }
         .hero h1 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2.5rem; margin-bottom: 0.5rem; }
         .main-nav ul { list-style: none; padding: 0; margin-top: 1rem; display: flex; gap: 15px; }
@@ -76,14 +76,84 @@
         .btn-delete { background: #e74c3c; }
         .tool-section { margin-top: 2rem; padding: 1rem; background: #fff; border: 1px solid #ddd; border-radius: 8px; }
         .mt-4 { margin-top: 1.5rem; }
+
+        /* Entrepreneur Levels Diagram Styles */
+        .level-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+        }
+        .level-box {
+            background-color: #f7f3e8; /* Light brown/tan background */
+            border-left: 5px solid;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        .level-box:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .level-box h4 {
+            margin-top: 0;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        .level-box p {
+            margin: 5px 0 0;
+            font-size: 0.9rem;
+        }
+        /* Color Coding for Entrepreneur Levels */
+        .tech-tammy { border-color: #e74c3c; } 
+        .manager-michelle { border-color: #f39c12; } 
+        .owner-olivia { border-color: #2ecc71; } 
+        .entrepreneur-eva { border-color: #3498db; } 
+
+        /* Leadership Levels Diagram Styles */
+        .leadership-levels {
+            display: grid;
+            grid-template-columns: 50px repeat(3, 1fr); /* Level | Maxwell | Collins | Bradt */
+            gap: 1px;
+            border: 1px solid #ddd;
+            background-color: #eee;
+            margin-top: 1rem;
+        }
+        .leadership-levels div {
+            padding: 10px;
+            background-color: white;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #f4f4f4;
+        }
+        .leadership-levels .header {
+            font-weight: 700;
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+        }
+        .leadership-levels .level {
+            font-weight: 700;
+            background-color: #ecf0f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /* Color Coding for Maxwell Levels */
+        .level-5 { background-color: #f1c40f !important; } 
+        .level-4 { background-color: #2ecc71 !important; } 
+        .level-3 { background-color: #3498db !important; } 
+        .level-2 { background-color: #9b59b6 !important; } 
+        .level-1 { background-color: #e74c3c !important; } 
     </style>
 </head>
 <body>
 
     <header class="hero">
         <div class="container">
-            <h1>Grandmaster HR: The Objective Standard</h1>
-            <p class="lead">The ACEM Score, GLSM Matrix, and Bureau of Harmony Tools.</p>
+            <h1>Ghuraba HR: The Objective Standard</h1>
+            <p class="lead">The Al Ameen Capability Evolution Model (ACEM) and Ghuraba Leadership Strategy Matrix (GLSM).</p>
             <nav class="main-nav">
               <ul>
                 <li><a href="index.html">Home</a></li>
@@ -95,11 +165,12 @@
     </header>
 
     <main class="container">
-        <button class="accordion">1. ACEM: Capability Evolution Model</button>
+        <button class="accordion">1. Al Ameen Capability Evolution Model (ACEM) & Assessment Criteria</button>
         <div class="panel">
             <div class="panel-content">
-                <h3>The Hierarchy of Skills</h3>
-                <p>We track the evolution from "Stranger" to "Guide" using Bloom's Taxonomy applied to hospitality.</p>
+                <h3>The Hierarchy of Skills: Stranger to Guide</h3>
+                <p>ACEM tracks evolution using Bloom's Taxonomy. The assessment must be **Objective, Consistent, and Contextual**.</p>
+                
                 <div class="grid grid-2">
                     <div>
                         <img src="acem.png" alt="ACEM Model Visual" class="model-img">
@@ -110,28 +181,137 @@
                         <p class="small text-muted">Bloom's Taxonomy Integration</p>
                     </div>
                 </div>
+
+                <details class="mt-4">
+                    <summary>🎯 **Assessor Guide: The 3 C's of Assessment**</summary>
+                    <div class="detail-body">
+                        <p>A score is valid only if it meets these criteria for the assessor (Teacher/Manager):</p>
+                        <ul>
+                            <li>**Consistency:** The same behavior must yield the same score across all staff and assessors.</li>
+                            <li>**Contextuality:** The skill is only relevant when applied in the operational context (Situation $\ne$ Theory).</li>
+                            <li>**Clarity/Objectivity:** Use only observable metrics. Never score on "attitude" or "feeling."</li>
+                        </ul>
+                        <p class="small text-muted"><strong>Rule:</strong> If you can't measure it, don't score it.</p>
+                    </div>
+                </details>
+                                <details>
+                    <summary>📊 **ACEM Component Breakdown**</summary>
+                    <div class="detail-body">
+                        <p>The total ACEM Score is the average of these four core components:</p>
+                        <ul>
+                            <li>**A - Accountability:** Reliability, Time Management, Taking Ownership.</li>
+                            <li>**C - Competency:** Technical Skill mastery and efficiency (measured against SOPs).</li>
+                            <li>**E - Engagement:** Proactive communication, team support, seeking growth (self-study).</li>
+                            <li>**M - Mentorship/Mastery:** Ability to teach others and innovate processes (Level 3+).</li>
+                        </ul>
+                    </div>
+                </details>
             </div>
         </div>
-                <button class="accordion">2. GLSM: Leadership Strategy Matrix</button>
+
+        <button class="accordion">2. Ghuraba Leadership Strategy Matrix (GLSM) & Situational Flowchart</button>
         <div class="panel">
             <div class="panel-content">
                 <h3>Diagnosing Leadership & The 5 Vices</h3>
-                <p>The GLSM (Grandmaster Leadership Strategy Matrix) determines how we manage staff based on their ACEM score.</p>
+                <p>The GLSM determines how we manage staff based on their ACEM score, using Hersey-Blanchard's Model.</p>
                 
                 <div class="grid grid-2">
                     <img src="paul-hershey-and-kenneth-blachard-situational-leadership.png" alt="Situational Leadership" class="model-img">
                     <img src="leadership-levels.jpg" alt="Leadership Levels" class="model-img">
                 </div>
 
-                <h4 class="mt-4">Advanced Theory</h4>
-                <div class="grid grid-3">
-                    <img src="jim-collins-level-five-leadership.png" alt="Jim Collins Level 5" class="model-img">
-                    <img src="john-c-maxwells-level-five-leadership.png" alt="Maxwell Levels" class="model-img">
-                    <img src="transformational-leadership.jpg" alt="Transformational Leadership" class="model-img">
-                </div>
+                <details class="mt-4">
+                    <summary>➡️ **GLSM Management Flowchart (Operational Process)**</summary>
+                    <div class="detail-body">
+                        <img src="acem-process-flowchart.png" alt="ACEM Management Process Flow" class="model-img">
+                        <ol>
+                            <li>**Assess ACEM:** Determine the staff member's current ACEM score (D/R level).</li>
+                            <li>**Diagnose Readiness:** Match D-level to the appropriate S-level (S1, S2, S3, or S4).</li>
+                            <li>**Apply Strategy:** Implement the corresponding management behavior (Directing, Coaching, Supporting, or Delegating).</li>
+                            <li>**Monitor & Adjust:** Regularly reassess ACEM score; if performance changes, move to the next strategy (Flow is circular).</li>
+                        </ol>
+                        <p class="small text-muted">This process ensures managerial effort is **aligned with staff need**.</p>
+                    </div>
+                </details>
+                                <details>
+                    <summary>🎓 **Situational Leadership Styles (S1, S2, S3, S4)**</summary>
+                    <div class="detail-body">
+                        <p>These four styles define the management strategy based on the employee's **Readiness Level (D)**, clearly diagnosing if the issue is **Skill** (Competence) or **Will** (Commitment).</p>
+                        <table class="hr-table">
+                            <thead>
+                                <tr><th>Style</th><th>Readiness (D)</th><th>Skill/Will Diagnosis</th><th>Manager Action</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>**S1: Directing**</td>
+                                    <td>D1: Low Competence, High Commitment (New Starter)</td>
+                                    <td>**Skill Issue:** Needs Training/Guidance.</td>
+                                    <td>Tell them *what* to do, *how* to do it, and *when* to do it (High Task).</td>
+                                </tr>
+                                <tr>
+                                    <td>**S2: Coaching**</td>
+                                    <td>D2: Low-to-Some Competence, Low Commitment (Disillusioned Learner)</td>
+                                    <td>**Skill & Will Issue:** Needs Training AND Motivation/Clarification.</td>
+                                    <td>Explain decisions, clarify tasks, and provide encouragement (High Task, High Relation).</td>
+                                </tr>
+                                <tr>
+                                    <td>**S3: Supporting**</td>
+                                    <td>D3: Moderate-to-High Competence, Variable Commitment (Capable but Cautious)</td>
+                                    <td>**Will Issue:** Needs Motivation/Confidence.</td>
+                                    <td>Facilitate, listen, and encourage self-direction. Share responsibility for decision-making (High Relation, Low Task).</td>
+                                </tr>
+                                <tr>
+                                    <td>**S4: Delegating**</td>
+                                    <td>D4: High Competence, High Commitment (Master/Expert)</td>
+                                    <td>**No Issue:** Self-reliant and Motivated.</td>
+                                    <td>Turn over responsibility for decision-making and problem-solving to them (Low Task, Low Relation).</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>📚 **Comparative Leadership Levels (Maxwell, Collins, Bradt) - CSS Diagram**</summary>
+                    <div class="detail-body">
+                        <p>A multi-disciplinary view on the levels required for true Level 5 (Pinnacle) leadership:</p>
+                        <div class="leadership-levels">
+                            <div class="header">Level</div>
+                            <div class="header">John Maxwell: Why People Follow</div>
+                            <div class="header">Jim Collins: What You Do (Good to Great)</div>
+                            <div class="header">George Bradt: What You Bring Out in Others</div>
+                            
+                            <div class="level level-5">5</div>
+                            <div class="level-5">Pinnacle - Respect</div>
+                            <div class="level-5">Executive</div>
+                            <div class="level-5">Evolve - Self-confidence</div>
+
+                            <div class="level level-4">4</div>
+                            <div class="level-4">People Development - Reproduction</div>
+                            <div class="level-4">Effective Leader</div>
+                            <div class="level-4">Excel - Drive</div>
+
+                            <div class="level level-3">3</div>
+                            <div class="level-3">Production - Results</div>
+                            <div class="level-3">Competent Manager</div>
+                            <div class="level-3">Deliver - Motivation</div>
+
+                            <div class="level level-2">2</div>
+                            <div class="level-2">Permission - Relationships</div>
+                            <div class="level-2">Contributing Team Member</div>
+                            <div class="level-2">Contribute - Interest</div>
+
+                            <div class="level level-1">1</div>
+                            <div class="level-1">Position - Rights</div>
+                            <div class="level-1">Highly Capable Individual</div>
+                            <div class="level-1">Comply - Willingness</div>
+                        </div>
+                    </div>
+                </details>
             </div>
         </div>
-                <button class="accordion">3. Character & Trait Theory</button>
+
+        <button class="accordion">3. Character & Trait Theory</button>
         <div class="panel">
             <div class="panel-content">
                 <h3>Historical Models of Leadership Traits</h3>
@@ -158,8 +338,7 @@
                          <img src="trait-theory-of-leadership-historical.jpg" alt="Historical Overview of Trait Theory" class="model-img">
                     </div>
                 </details>
-
-                <details>
+                                <details>
                     <summary>2. McCall and Lombardo (1983)</summary>
                     <div class="detail-body">
                         <p>Examined both success and failure, identifying four critical factors:</p>
@@ -268,8 +447,51 @@
                             <li><strong>Openness:</strong> <strong>Intellect</strong> (abstract ideas) & <strong>Openness</strong> (aesthetics/imagination).</li>
                             <li><strong>Conscientiousness:</strong> <strong>Industriousness</strong> (work ethic) & <strong>Orderliness</strong> (tidiness).</li>
                             <li><strong>Extraversion:</strong> <strong>Assertiveness</strong> (dominance) & <strong>Enthusiasm</strong> (sociability).</li>
-                            <li><strong>Agreeableness:</strong> <strong>Compassion</strong> (empathy) & <strong>Politeness</strong> (social norms).</li>
-                            <li><strong>Neuroticism:</strong> <strong>Withdrawal</strong> (anxiety/sadness) & <strong>Volatility</strong> (irritability/mood swings).</li>
+                            <li><strong>Agreeableness (A):</strong> <strong>Compassion</strong> (empathy) & <strong>Politeness</strong> (social norms).</li>
+                            <li><strong>Neuroticism (N):</strong> <strong>Withdrawal</strong> (anxiety/sadness) & <strong>Volatility</strong> (irritability/mood swings).</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </div>
+                <button class="accordion">5. The Entrepreneur Levels: Growth & Focus Diagram</button>
+        <div class="panel">
+            <div class="panel-content">
+                <h3>Diagnosing Business Maturity: The E-Myth Revisited</h3>
+                <p>This interactive diagram models the transition from Technician to Entrepreneur, linking staff roles (ACEM) to necessary organizational system development. </p>
+                
+                <div class="level-diagram">
+                    <div class="level-box entrepreneur-eva">
+                        <h4>4. Entrepreneur Eva (Freedom)</h4>
+                        <p><strong>Focus:</strong> Strategic Investment, Next Big Idea, Higher Returns.</p>
+                        <p><strong>Challenge:</strong> Maintaining culture and delegation without interference.</p>
+                    </div>
+                    <div class="level-box owner-olivia">
+                        <h4>3. Owner Olivia (Growth)</h4>
+                        <p><strong>Focus:</strong> System Creation & Replication, Finding Good Employees.</p>
+                        <p><strong>Challenge:</strong> Fixing problems; difficulty scaling operations due to reliance on key individuals.</p>
+                    </div>
+                    <div class="level-box manager-michelle">
+                        <h4>2. Manager Michelle (Security)</h4>
+                        <p><strong>Focus:</strong> Managing the Doers, Putting Systems in Place.</p>
+                        <p><strong>Challenge:</strong> Inconsistent performance; shifting focus from technical work to management structure.</p>
+                    </div>
+                    <div class="level-box tech-tammy">
+                        <h4>1. Technician Tammy (Survival)</h4>
+                        <p><strong>Focus:</strong> Doing the Work, Survival.</p>
+                        <p><strong>Challenge:</strong> Always looking for work or working long hours. Everything depends on their effort.</p>
+                    </div>
+                </div>
+
+                <details class="mt-4">
+                    <summary>🧭 **Strategic Alignment: The Value Pyramid**</summary>
+                    <div class="detail-body">
+                        <p>The Value Pyramid provides a hierarchy for motivating and aligning staff (Will/Commitment). As staff progress through ACEM levels, their motivation should move up the pyramid:</p>
+                        <img src="value-pyramid.png" alt="Hierarchy of Values from Happiness to Truth" class="model-img">
+                        <ul>
+                            <li>**ACEM Level 1/2 (Survival/Security):** Motivated by **Happiness, Cool, Popularity, Prestige** (Base of the Pyramid).</li>
+                            <li>**ACEM Level 3 (Growth/Mastery):** Motivated by **Money** and **Excellence**.</li>
+                            <li>**ACEM Level 4 (Guide/Entrepreneur):** Motivated by **Impact** and **Truth** (Apex of the Pyramid).</li>
                         </ul>
                     </div>
                 </details>
@@ -320,31 +542,41 @@
     </main>
         <footer class="site-footer"><p>&copy; 2025 Ghuraba Al Manara</p></footer>
     <script>
-        // 1. Accordion Logic
+        // 1. Accordion Logic (Exclusive Behavior Fix)
         var acc = document.getElementsByClassName("accordion");
+
         for (var i = 0; i < acc.length; i++) {
             acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
+                var clickedAccordion = this;
+                var panel = clickedAccordion.nextElementSibling;
+                
+                // Close all other panels
+                for (var j = 0; j < acc.length; j++) {
+                    if (acc[j] !== clickedAccordion && acc[j].classList.contains('active')) {
+                        acc[j].classList.remove("active");
+                        acc[j].nextElementSibling.style.maxHeight = null;
+                    }
+                }
+
+                // Toggle the clicked panel
+                clickedAccordion.classList.toggle("active");
                 if (panel.style.maxHeight) {
                     panel.style.maxHeight = null;
                 } else {
-                    // Added extra padding for the scrollHeight to handle nested <details>
+                    // Keep the +500px for nested content
                     panel.style.maxHeight = (panel.scrollHeight + 500) + "px"; 
-                } 
+                }
             });
         }
 
-        // 2. HR Tool Logic (FIXED to include salary in exports)
+        // 2. HR Tool Logic 
         let assignments = JSON.parse(localStorage.getItem('hrAssignments')) || [];
 
         function getSalaryFromRole(roleValue) {
-            // Role value is "Role Name,Salary,ACEM Level"
             return parseInt(roleValue.split(',')[1]);
         }
         
         function getRoleName(roleValue) {
-            // Returns "Role Name (ACEM Level)"
             return roleValue.split(',')[0] + " (" + roleValue.split(',')[2] + ")";
         }
 
