@@ -6,9 +6,20 @@
     <title>HR Management & ACEM Score - The Objective Standard</title>
     
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500&family=Playfair+Display:wght=600;700&display=swap" rel="stylesheet">
     
     <style>
+        /* Base Styles (Added for presentation) */
+        body { font-family: 'Inter', sans-serif; background-color: #f4f7f9; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 15px; }
+        
+        /* Header & Navigation Styles (Improved) */
+        .hero { background-color: #2c3e50; color: white; padding: 2rem 0; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .main-nav ul { list-style: none; padding: 0; margin-top: 1rem; display: flex; gap: 15px; }
+        .main-nav a { color: #8198ab; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .main-nav a:hover { color: white; }
+
         /* Accordion Styles */
         .accordion {
             background-color: #f8f9fa;
@@ -39,7 +50,18 @@
             transition: max-height 0.3s ease-out;
             border-bottom: 1px solid #eee;
         }
-        
+
+        /* Nested Content Styles */
+        .panel-content { padding: 1.5rem 0; }
+        .panel-content details { margin-bottom: 1rem; border: 1px solid #eee; border-radius: 4px; }
+        .panel-content summary { padding: 10px 15px; background-color: #f0f0f5; font-weight: 500; cursor: pointer; }
+        .detail-body { padding: 15px; }
+        .detail-body ul { margin-top: 10px; padding-left: 20px; }
+        .grid { display: grid; gap: 20px; }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+        /* Image & Table Styles */
         .model-img {
             width: 100%;
             max-width: 100%;
@@ -47,15 +69,13 @@
             border-radius: 6px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-
-        /* HR Tools Table Styles */
         .hr-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
         .hr-table th, .hr-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
         .hr-table th { background-color: #2c3e50; color: white; }
         .btn-action { padding: 5px 10px; background: #2c3e50; color: white; border: none; cursor: pointer; border-radius: 4px; }
         .btn-delete { background: #e74c3c; }
-        
         .tool-section { margin-top: 2rem; padding: 1rem; background: #fff; border: 1px solid #ddd; border-radius: 8px; }
+        .mt-4 { margin-top: 1.5rem; }
     </style>
 </head>
 <body>
@@ -77,7 +97,7 @@
     <main class="container">
         <button class="accordion">1. ACEM: Capability Evolution Model</button>
         <div class="panel">
-            <div class="card-body">
+            <div class="panel-content">
                 <h3>The Hierarchy of Skills</h3>
                 <p>We track the evolution from "Stranger" to "Guide" using Bloom's Taxonomy applied to hospitality.</p>
                 <div class="grid grid-2">
@@ -92,10 +112,9 @@
                 </div>
             </div>
         </div>
-
-        <button class="accordion">2. GLSM: Leadership Strategy Matrix</button>
+                <button class="accordion">2. GLSM: Leadership Strategy Matrix</button>
         <div class="panel">
-            <div class="card-body">
+            <div class="panel-content">
                 <h3>Diagnosing Leadership & The 5 Vices</h3>
                 <p>The GLSM (Grandmaster Leadership Strategy Matrix) determines how we manage staff based on their ACEM score.</p>
                 
@@ -112,53 +131,151 @@
                 </div>
             </div>
         </div>
-        <button class="accordion">3. The Table of Virtues & Vices</button>
+                <button class="accordion">3. Character & Trait Theory</button>
         <div class="panel">
-            <div class="card-body">
-                <h3>The Moral Compass</h3>
-                <p>We define character objectively. A "Sadiq" must embody these virtues.</p>
-                <div class="grid grid-2">
-                    <img src="table-of-virtues-and-vices.jpg" alt="Table of Virtues" class="model-img">
-                    <img src="six-categories-of-virtue.png.jpg" alt="Six Categories" class="model-img">
-                </div>
+            <div class="panel-content">
+                <h3>Historical Models of Leadership Traits</h3>
+                <p>Defining the objective traits required for success, moving from single theories to combined influences.</p>
+
+                <details>
+                    <summary>1. Ralph Stogdill's Findings (1948 & 1974)</summary>
+                    <div class="detail-body">
+                        <p>Stogdill noted that a successful leader must possess traits **relevant to the situation**, arguing against a universal trait list. His analysis yielded two key lists of distinguishing traits:</p>
+                        
+                        <h4>1948 Findings (Eight Traits):</h4>
+                        <ul>
+                            <li>Intelligence, Alertness, Insight.</li>
+                            <li>Responsibility, Initiative, Persistence.</li>
+                            <li>Self-confidence, Sociability.</li>
+                        </ul>
+                        
+                        <h4>1974 Findings (Trait and Situational Factors):</h4>
+                        <ul>
+                            <li>Achievement, Persistence, Insight, Initiative, Self-confidence, Responsibility.</li>
+                            <li>Cooperativeness, Tolerance, Influence, Sociability.</li>
+                        </ul>
+                        <p class="small text-muted mt-2">The key shift was acknowledging the importance of **both** trait and situational factors.</p>
+                         <img src="trait-theory-of-leadership-historical.jpg" alt="Historical Overview of Trait Theory" class="model-img">
+                    </div>
+                </details>
+
+                <details>
+                    <summary>2. McCall and Lombardo (1983)</summary>
+                    <div class="detail-body">
+                        <p>Examined both success and failure, identifying four critical factors:</p>
+                        <ul>
+                            <li>Emotional Stability.</li>
+                            <li>Admitting Mistakes.</li>
+                            <li>Good Interpersonal Skills.</li>
+                            <li>Intellectual Breadth.</li>
+                        </ul>
+                    </div>
+                </details>
+        
+                <details>
+                    <summary>3. Kouzes and Posner (1987) - The Follower Perspective</summary>
+                    <div class="detail-body">
+                        <p>Derived from surveying followers on the qualities they valued in great leaders:</p>
+                        <ul>
+                            <li>Honest, Forward-looking, Inspirational, Competent.</li>
+                            <li>Fair-minded, Supportive, Broad-minded, Intelligent.</li>
+                            <li>Straightforward, Dependable.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>4. Kirkpatrick & Locke (1991) - The Basic Toolset</summary>
+                    <div class="detail-body">
+                        <p>Suggested these traits equip leaders with the tools to develop into great leaders:</p>
+                        <ul>
+                            <li>Drive, Leadership Motivation.</li>
+                            <li>Honesty and Integrity.</li>
+                            <li>Self-confidence.</li>
+                            <li>Cognitive Ability & Knowledge of the Business.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>5. Zaccaro, Kemp, and Bader (2004) - Trait Interaction</summary>
+                    <div class="detail-body">
+                        <p>Proposed that leadership emerges from the **combined influence and interaction** between multiple traits, not traits existing independently:</p>
+                        <ul>
+                            <li>Extraversion, Cognitive abilities, Conscientiousness, Emotional stability, Openness, Agreeableness, Motivation.</li>
+                            <li>Social intelligence, Self-monitoring, Emotional intelligence, Problem-solving.</li>
+                        </ul>
+                    </div>
+                </details>
             </div>
         </div>
-
-        <button class="accordion">4. Personality Architecture</button>
+                <button class="accordion">4. Personality Architecture & Core Frameworks</button>
         <div class="panel">
-            <div class="card-body">
-                <h3>Understanding the "Nafs"</h3>
-                <p>Using DeYoung & Peterson's Big Five to understand staff personality profiles.</p>
+            <div class="panel-content">
+                <h3>Understanding the "Nafs" (Self)</h3>
+                <p>We combine philosophical (Aristotle) and empirical (Seligman, Big Five) models to understand staff personality profiles.</p>
+                
                 <div class="grid grid-2">
                     <img src="bigfive-deyoung-and-peterson-neopir.jpg" alt="Big Five NeoPIR" class="model-img">
-                    <img src="trait-theory-of-leadership.jpg" alt="Trait Theory" class="model-img">
+                    <img src="six-categories-of-virtue.png.jpg" alt="VIA Six Categories of Virtue" class="model-img">
                 </div>
-            </div>
-        </div>
-        <button class="accordion">3. The Table of Virtues & Vices</button>
-        <div class="panel">
-            <div class="card-body">
-                <h3>The Moral Compass</h3>
-                <p>We define character objectively. A "Sadiq" must embody these virtues.</p>
-                <div class="grid grid-2">
-                    <img src="table-of-virtues-and-vices.jpg" alt="Table of Virtues" class="model-img">
-                    <img src="six-categories-of-virtue.png.jpg" alt="Six Categories" class="model-img">
-                </div>
-            </div>
-        </div>
 
-        <button class="accordion">4. Personality Architecture</button>
-        <div class="panel">
-            <div class="card-body">
-                <h3>Understanding the "Nafs"</h3>
-                <p>Using DeYoung & Peterson's Big Five to understand staff personality profiles.</p>
-                <div class="grid grid-2">
-                    <img src="bigfive-deyoung-and-peterson-neopir.jpg" alt="Big Five NeoPIR" class="model-img">
-                    <img src="trait-theory-of-leadership.jpg" alt="Trait Theory" class="model-img">
-                </div>
+                <details class="mt-4">
+                    <summary>1. Seligman's VIA Classification vs. Aristotle's Nicomachean Ethics</summary>
+                    <div class="detail-body">
+                        <p>The distinction lies in the approach to excellence ($eudaimonia$):</p>
+                        <ul>
+                            <li><strong>VIA Classification:</strong> Modern, **empirical, descriptive** framework (24 strengths). Goal is flourishing by utilizing individual **"signature strengths."**</li>
+                            <li><strong>Aristotle's Ethics:</strong> **Prescriptive philosophical** work. Goal is the highest good by cultivating virtue through finding the **"golden mean"** using **$phronesis$ (practical wisdom).**</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>2. VIA Classification of Character Strengths (24 Strengths, 6 Virtues)</summary>
+                    <div class="detail-body">
+                        <p>The 24 specific character strengths are grouped under six broad moral virtues:</p>
+                        <div style="border-left: 3px solid #007bff; padding-left: 10px; margin-top: 10px;">
+                            <p>1. <strong>Wisdom and Knowledge:</strong> Creativity, Curiosity, Judgment/Critical Thinking, Love of Learning, Perspective/Wisdom.</p>
+                            <p>2. <strong>Courage:</strong> Bravery, Honesty/Integrity, Perseverance/Persistence, Zest/Vitality.</p>
+                            <p>3. <strong>Humanity:</strong> Kindness/Generosity, Love, Social Intelligence.</p>
+                            <p>4. <strong>Justice:</strong> Fairness, Leadership, Teamwork/Citizenship.</p>
+                            <p>5. <strong>Temperance:</strong> Forgiveness/Mercy, Humility/Modesty, Prudence, Self-Regulation/Self-Control.</p>
+                            <p>6. <strong>Transcendence:</strong> Appreciation of Beauty & Excellence, Gratitude, Hope/Optimism, Humor/Playfulness, Spirituality/Purpose.</p>
+                        </div>
+                    </div>
+                </details>
+                
+                <details>
+                    <summary>3. NEO-PI-R 30 Facets (The Big Five Breakdown)</summary>
+                    <div class="detail-body">
+                        <p>Measures five broad personality domains (The "Big Five") through 30 specific facets:</p>
+                        <ul>
+                            <li><strong>Neuroticism (N):</strong> Anxiety, Angry Hostility, Depression, Self-Consciousness, Impulsiveness, Vulnerability.</li>
+                            <li><strong>Extraversion (E):</strong> Warmth, Gregariousness, Assertiveness, Activity, Excitement Seeking, Positive Emotions.</li>
+                            <li><strong>Openness to Experience (O):</strong> Fantasy, Aesthetics, Feelings, Actions, Ideas, Values.</li>
+                            <li><strong>Agreeableness (A):</strong> Trust, Straightforwardness, Altruism, Compliance, Modesty, Tender-Mindedness.</li>
+                            <li><strong>Conscientiousness (C):</strong> Competence, Order, Dutifulness, Achievement Striving, Self-Discipline, Deliberation.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>4. Colin DeYoung & Jordan Peterson 10 Aspects (Sub-Factors)</summary>
+                    <div class="detail-body">
+                        <p>Identified two distinct "aspects" (sub-factors) within each of the five Big Five domains:</p>
+                        <ul>
+                            <li><strong>Openness:</strong> <strong>Intellect</strong> (abstract ideas) & <strong>Openness</strong> (aesthetics/imagination).</li>
+                            <li><strong>Conscientiousness:</strong> <strong>Industriousness</strong> (work ethic) & <strong>Orderliness</strong> (tidiness).</li>
+                            <li><strong>Extraversion:</strong> <strong>Assertiveness</strong> (dominance) & <strong>Enthusiasm</strong> (sociability).</li>
+                            <li><strong>Agreeableness:</strong> <strong>Compassion</strong> (empathy) & <strong>Politeness</strong> (social norms).</li>
+                            <li><strong>Neuroticism:</strong> <strong>Withdrawal</strong> (anxiety/sadness) & <strong>Volatility</strong> (irritability/mood swings).</li>
+                        </ul>
+                    </div>
+                </details>
             </div>
         </div>
-        <div class="tool-section">
+                <div class="tool-section">
             <h2 style="border-bottom: 2px solid #2c3e50; padding-bottom: 10px;">Bureau of Harmony: Staff Assignment</h2>
             <p>Assign roles, calculate "Dignity Wages", and export your HR report.</p>
             
@@ -169,10 +286,10 @@
                     
                     <label><strong>Select Role (ACEM Level)</strong></label>
                     <select id="empRole" style="width: 100%; padding: 8px; margin-bottom: 10px;">
-                        <option value="Executive Chef">Executive Chef (84k) - ACEM 3</option>
-                        <option value="Versatilist">Versatilist (88k) - ACEM 3</option>
-                        <option value="Room Coordinator">Room Coordinator (30k) - ACEM 2</option>
-                        <option value="Trainee">Trainee (15k) - ACEM 1</option>
+                        <option value="Executive Chef,84000,ACEM 3">Executive Chef (৳ 84k) - ACEM 3</option>
+                        <option value="Versatilist,88000,ACEM 3">Versatilist (৳ 88k) - ACEM 3</option>
+                        <option value="Room Coordinator,30000,ACEM 2">Room Coordinator (৳ 30k) - ACEM 2</option>
+                        <option value="Trainee,15000,ACEM 1">Trainee (৳ 15k) - ACEM 1</option>
                     </select>
                     
                     <button class="btn-action" onclick="addAssignment()">+ Assign Role</button>
@@ -201,7 +318,7 @@
         </div>
 
     </main>
-    <footer class="site-footer"><p>&copy; 2025 Ghuraba Al Manara</p></footer>
+        <footer class="site-footer"><p>&copy; 2025 Ghuraba Al Manara</p></footer>
     <script>
         // 1. Accordion Logic
         var acc = document.getElementsByClassName("accordion");
@@ -212,13 +329,24 @@
                 if (panel.style.maxHeight) {
                     panel.style.maxHeight = null;
                 } else {
-                    panel.style.maxHeight = panel.scrollHeight + "px";
+                    // Added extra padding for the scrollHeight to handle nested <details>
+                    panel.style.maxHeight = (panel.scrollHeight + 500) + "px"; 
                 } 
             });
         }
 
-        // 2. HR Tool Logic
+        // 2. HR Tool Logic (FIXED to include salary in exports)
         let assignments = JSON.parse(localStorage.getItem('hrAssignments')) || [];
+
+        function getSalaryFromRole(roleValue) {
+            // Role value is "Role Name,Salary,ACEM Level"
+            return parseInt(roleValue.split(',')[1]);
+        }
+        
+        function getRoleName(roleValue) {
+            // Returns "Role Name (ACEM Level)"
+            return roleValue.split(',')[0] + " (" + roleValue.split(',')[2] + ")";
+        }
 
         function renderTable() {
             const tbody = document.getElementById('assignmentList');
@@ -226,18 +354,13 @@
             let total = 0;
 
             assignments.forEach((a, index) => {
-                let salary = 0;
-                // Simple logic for salary based on selection
-                if(a.role.includes('84k')) salary = 84000;
-                if(a.role.includes('88k')) salary = 88000;
-                if(a.role.includes('30k')) salary = 30000;
-                if(a.role.includes('15k')) salary = 15000;
-                
+                let salary = a.salary; 
+                let roleName = getRoleName(a.role);
                 total += salary;
 
                 let row = `<tr>
                     <td>${a.name}</td>
-                    <td>${a.role}</td>
+                    <td>${roleName}</td>
                     <td>৳ ${salary.toLocaleString()}</td>
                     <td><button class="btn-action btn-delete" onclick="removeAssignment(${index})">X</button></td>
                 </tr>`;
@@ -251,13 +374,15 @@
 
         function addAssignment() {
             const name = document.getElementById('empName').value;
-            const role = document.getElementById('empRole').value;
-            if(name) {
-                assignments.push({name, role});
-                document.getElementById('empName').value = ''; // Clear input
+            const roleValue = document.getElementById('empRole').value;
+            const salary = getSalaryFromRole(roleValue);
+            
+            if(name && !isNaN(salary)) {
+                assignments.push({name, role: roleValue, salary: salary});
+                document.getElementById('empName').value = ''; 
                 renderTable();
             } else {
-                alert("Please enter a name.");
+                alert("Please enter a name and select a valid role.");
             }
         }
 
@@ -270,7 +395,8 @@
             if (assignments.length === 0) { alert("No data to export!"); return; }
             let csvContent = "data:text/csv;charset=utf-8,Name,Role,Salary\n";
             assignments.forEach(a => {
-                 csvContent += `${a.name},${a.role}\n`;
+                 let roleName = getRoleName(a.role);
+                 csvContent += `"${a.name}","${roleName}","${a.salary}"\n`;
             });
             const encodedUri = encodeURI(csvContent);
             const link = document.createElement("a");
