@@ -1,522 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MH Alo Chaya - Imperial Human Capital Command</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-        <style>
-        :root {
-            /* Rank Colors */
-            --gold: #f1c40f;   /* Emperor/Archduke */
-            --silver: #bdc3c7; /* Marquess/Earl */
-            --bronze: #d35400; /* Baronet/Cadet */
-            
-            /* Bureau Colors */
-            --harmony-brown: #8d6e63;
-            --provision-green: #27ae60;
-            --presence-maroon: #800020;
-            --efficiency-blue: #2980b9;
-            
-            /* System Colors */
-            --navy: #2c3e50;
-            --teal: #1abc9c;   /* The Standard */
-            --crimson: #c0392b; /* Alerts/Guardrails */
-            --white: #ffffff;
-            --light-bg: #f4f6f7;
-            --dark-overlay: rgba(0,0,0,0.9);
-        }
-                    body { font-family: 'Inter', sans-serif; background-color: var(--light-bg); margin: 0; color: var(--navy); line-height: 1.6; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        
-        .hero { 
-            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%); 
-            color: var(--white); padding: 70px 0; text-align: center; margin-bottom: 30px; 
-            border-bottom: 8px solid var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin: 0; letter-spacing: -1px; }
-        .subtitle { letter-spacing: 4px; text-transform: uppercase; font-size: 0.9rem; margin-top: 15px; color: var(--gold); font-weight: bold; }
-                    .nav-bar { 
-            background: var(--white); padding: 20px; border-radius: 8px; margin-bottom: 40px; 
-            display: flex; flex-wrap: wrap; gap: 20px; border-bottom: 4px solid #e0e0e0; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05); justify-content: center;
-        }
-        .nav-item { 
-            font-weight: 700; font-size: 0.95rem; cursor: pointer; color: #7f8c8d; 
-            padding: 8px 16px; border-radius: 4px; transition: all 0.3s ease; text-transform: uppercase;
-        }
-        .nav-item:hover { background: var(--navy); color: var(--white); transform: translateY(-2px); }
-
-        .section-header { 
-            font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--navy); 
-            border-left: 8px solid var(--navy); padding-left: 20px; margin: 60px 0 30px 0; 
-        }
-                    .imperial-table { width: 100%; border-collapse: collapse; background: var(--white); margin-bottom: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; }
-        .imperial-table th { background: var(--navy); color: var(--white); padding: 18px; text-align: left; font-family: 'Playfair Display', serif; font-size: 1.1rem; }
-        .imperial-table td { padding: 15px; border-bottom: 1px solid #eee; font-size: 0.95rem; vertical-align: middle; }
-        .force-active { background: #e8f6f3; font-weight: bold; border-left: 6px solid var(--teal); }
-        .total-row { background: var(--navy); color: white; font-weight: bold; }
-        .role-badge { padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; background: #eee; }
-                    .rank-card { 
-            background: var(--white); margin-bottom: 25px; border-radius: 8px; padding: 30px; 
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05); border-left: 10px solid #ccc; position: relative;
-        }
-        .rank-0, .rank-1 { border-left-color: var(--gold); }
-        .rank-2, .rank-3 { border-left-color: var(--silver); }
-        .rank-4, .rank-5 { border-left-color: var(--bronze); }
-        
-        .rank-top { display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px; align-items: flex-start; }
-        .rank-titles { display: flex; flex-direction: column; }
-        .t-corp { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: bold; color: var(--navy); }
-        .t-noble { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: #7f8c8d; font-weight: 800; margin-bottom: 5px; }
-        .pay-pill { background: var(--navy); color: var(--white); padding: 6px 12px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
-        
-        .veto-badge { 
-            background: var(--crimson); color: white; font-size: 0.7rem; padding: 4px 8px; 
-            border-radius: 4px; margin-left: 10px; text-transform: uppercase; letter-spacing: 1px; vertical-align: middle;
-            }
-                    .grid-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
-        .bureau-card { background: var(--white); padding: 30px; border-radius: 8px; border-top: 8px solid #ccc; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.2s; }
-        .bureau-card:hover { transform: translateY(-5px); }
-        
-        .b-harmony { border-top-color: var(--harmony-brown); }
-        .b-provision { border-top-color: var(--provision-green); }
-        .b-presence { border-top-color: var(--presence-maroon); }
-        .b-efficiency { border-top-color: var(--efficiency-blue); }
-        
-        .winchester { display: inline-block; padding: 6px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; margin-top: 15px; border: 1px solid #ccc; background: #f9f9f9; width: 100%; text-align: center; box-sizing: border-box; }
-        .anime-doctrine { font-size: 0.85rem; font-weight: bold; color: #555; margin-top: 10px; display: block; border-bottom: 1px dashed #ccc; padding-bottom: 10px; }
-        
-        .sub-func-list { list-style: none; padding: 0; margin-top: 15px; font-size: 0.9rem; }
-        .sub-func-list li { margin-bottom: 8px; padding-left: 15px; border-left: 3px solid #eee; }
-                    .lifecycle-row { display: flex; gap: 15px; flex-wrap: wrap; background: var(--white); padding: 30px; border-radius: 8px; margin-bottom: 50px; border: 1px solid #e0e0e0; }
-        .cycle-step { flex: 1; text-align: center; min-width: 130px; padding: 20px; background: #fdfdfd; border-radius: 6px; border: 1px solid #eee; transition: 0.3s; }
-        .cycle-step:hover { background: var(--navy); color: white; border-color: var(--navy); }
-        .cycle-num { font-size: 1.8rem; font-weight: bold; display: block; margin-bottom: 5px; opacity: 0.8; }
-
-        .calculator-box { background: var(--white); padding: 40px; border-radius: 8px; border-top: 8px solid var(--teal); box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-top: 40px; }
-        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px; }
-        .input-group label { display: block; font-weight: 800; margin-bottom: 10px; color: var(--navy); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
-        .input-group input { width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 6px; box-sizing: border-box; font-size: 1.1rem; transition: 0.3s; }
-        .input-group input:focus { border-color: var(--teal); outline: none; }
-        
-        .btn-calc { background: var(--teal); color: var(--white); width: 100%; padding: 18px; border: none; font-size: 1.2rem; font-weight: 800; cursor: pointer; border-radius: 6px; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
-        .btn-calc:hover { background: #16a085; transform: scale(1.01); }
-        
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: var(--dark-overlay); backdrop-filter: blur(5px); }
-        .modal-content { margin: 5vh auto; display: block; width: 90%; max-width: 900px; max-height: 90vh; object-fit: contain; box-shadow: 0 0 50px rgba(0,0,0,0.5); }
-        .close-btn { position: absolute; top: 20px; right: 40px; color: white; font-size: 50px; cursor: pointer; transition: 0.3s; }
-        .close-btn:hover { color: var(--teal); transform: rotate(90deg); }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MH Alo Chaya - Imperial Human Capital Doctrine</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg: #f4f6f7;
+    --card: #ffffff;
+    --muted: #7f8c8d;
+    --accent: #2c3e50;
+    --accent-2: #1abc9c;
+    --gold: #f1c40f;
+    --crimson: #c0392b;
+    --nav-active: #e8f6f3;
+}
+body { font-family: 'Inter', sans-serif; background-color: var(--bg); margin: 0; color: var(--accent); line-height: 1.5; }
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+.card { background: var(--card); padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 20px; border-top: 4px solid var(--accent); }
+.btn { background: var(--accent); color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+.btn:hover { background: #34495e; }
+.pill { display: inline-block; padding: 5px 15px; background: #eee; border-radius: 20px; margin-right: 5px; cursor: pointer; font-size: 0.9rem; transition: 0.2s; }
+.pill.active { background: var(--accent); color: white; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 720px) { .grid-2 { grid-template-columns: 1fr; } }
+h1, h2, h3 { font-family: 'Playfair Display', serif; margin-top: 0; }
+input { padding: 8px; border: 1px solid #ddd; border-radius: 4px; width: 100%; box-sizing: border-box; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { padding: 10px; border-bottom: 1px solid #eee; text-align: left; font-size: 0.9rem; }
+th { background: var(--accent); color: white; }
+.modal-root { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); align-items: center; justify-content: center; z-index: 1000; }
+.modal-box { background: white; padding: 20px; max-width: 600px; width: 90%; border-radius: 8px; position: relative; max-height: 90vh; overflow-y: auto; }
+.close-modal { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; color: #999; }
+</style>
 </head>
 <body>
-               <header class="hero">
-        <div class="container">
-            <h1>MH Alo Chaya Limited</h1>
-            <div class="subtitle">Imperial Human Capital • Force Level: Strong Platoon (34)</div>
+<div class="container">
+    <div class="card" style="text-align: center; border-top: 6px solid var(--gold);">
+    <h1>MH Alo Chaya Limited</h1>
+    <p style="font-size: 1.1rem; color: var(--muted);">Imperial Human Capital Doctrine • Bureau of Harmony • 2025</p>
+    <p style="font-size: 0.9rem; font-style: italic;">"Execution is governed by the Producer archetype and the Dignified Delegation Mandate."</p>
+    </div>
+    <div class="card">
+    <h3>ACEM Score Calculation</h3>
+    <div class="grid-2" style="margin-bottom: 15px;">
+        <div><label>Personality (P)</label><input type="number" id="p_score" value="50"></div>
+        <div><label>Skill (S)</label><input type="number" id="s_score" value="50"></div>
+        <div><label>Environment (E)</label><input type="number" id="e_score" value="50"></div>
+        <div><label>Performance (PERF)</label><input type="number" id="perf_score" value="50"></div>
+    </div>
+    <button class="btn" onclick="calculateACEM()">Calculate Score</button>
+    <div id="acem_output" style="margin-top: 15px; font-weight: bold; color: var(--accent-2);"></div>
+    </div>
+    <div class="card">
+    <h3>Force Scaling Models</h3>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <button class="btn" style="background: var(--muted);" onclick="demoStaffModel(22)">Squad (22)</button>
+        <button class="btn" style="background: var(--accent-2);" onclick="demoStaffModel(34)">Strong Platoon (34)</button>
+        <button class="btn" style="background: var(--muted);" onclick="demoStaffModel(52)">Full Platoon (52)</button>
+        <button class="btn" style="background: var(--muted);" onclick="demoStaffModel(82)">Company (82)</button>
+    </div>
+    </div>
+    <div class="card">
+    <h3>Bureau Command</h3>
+    <div id="bureauNav" style="margin-bottom: 15px;">
+        <span class="pill" data-bureau="harmony" onclick="selectBureau(this)">Harmony (HR)</span>
+        <span class="pill" data-bureau="efficiency" onclick="selectBureau(this)">Efficiency (Ops)</span>
+        <span class="pill" data-bureau="provision" onclick="selectBureau(this)">Provision (Fin)</span>
+        <span class="pill" data-bureau="presence" onclick="selectBureau(this)">Presence (Brand)</span>
+    </div>
+    <div id="bureauArea" style="padding: 10px; background: #f9f9f9; border-radius: 4px; border: 1px dashed #ccc;">
+        <p style="color: #999; text-align: center;">Select a Bureau to view mandate.</p>
+    </div>
+    </div>
+    <div class="card">
+    <h3>HR Lifecycle (Talking Function)</h3>
+    <div style="display: flex; gap: 10px; margin-bottom: 15px; overflow-x: auto; white-space: nowrap;">
+        <button class="pill" onclick="showHRStep('recruit')">1. Recruit</button>
+        <button class="pill" onclick="showHRStep('exam')">2. Exam</button>
+        <button class="pill" onclick="showHRStep('training')">3. Training</button>
+        <button class="pill" onclick="showHRStep('appraisal')">4. Appraisal</button>
+        <button class="pill" onclick="showHRStep('comp')">5. Compensation</button>
+    </div>
+    <div id="hrDetail" style="padding: 15px; background: #fff; border: 1px solid #eee; border-radius: 4px;"></div>
+    </div>
+    <div class="card">
+    <h3>Imperial Hierarchy</h3>
+    <table>
+        <thead><tr><th>Rank</th><th>Noble Title</th><th>Military Title</th><th>Corporate Role</th></tr></thead>
+        <tbody>
+            <tr><td>Rank 0</td><td>Emperor</td><td>Field Marshal</td><td>Chairman & CEO</td></tr>
+            <tr><td>Rank 1</td><td>Archduke</td><td>General</td><td>Group COO</td></tr>
+            <tr><td>Rank 2</td><td>Marquess</td><td>Commander</td><td>SBU President</td></tr>
+            <tr><td>Rank 3</td><td>Earl</td><td>Colonel</td><td>Bureau Chief</td></tr>
+            <tr><td>Rank 4</td><td>Baronet</td><td>Captain</td><td>Specialist</td></tr>
+            <tr><td>Rank 5</td><td>Commoner</td><td>Cadet</td><td>Trainee</td></tr>
+        </tbody>
+    </table>
+    </div>
+    <div class="card">
+    <h3>Compensation Grid (Pay Bands)</h3>
+    <table>
+        <thead><tr><th>Rank</th><th>Rate (BDT)</th><th>Notes</th></tr></thead>
+        <tbody>
+            <tr><td>Rank 1 (Archduke)</td><td>25,000</td><td>Per sub-function</td></tr>
+            <tr><td>Rank 2 (Marquess)</td><td>15,000</td><td>Per sub-function</td></tr>
+            <tr><td>Rank 3 (Earl)</td><td>10,000</td><td>Per sub-function</td></tr>
+            <tr><td>Rank 4 (Baronet)</td><td>7,500</td><td>Per sub-function</td></tr>
+            <tr><td>Rank 5 (Trainee-V)</td><td>6,000</td><td>Versatility Track</td></tr>
+            <tr><td>Rank 5 (Trainee-S)</td><td>4,000</td><td>Specialist Track</td></tr>
+        </tbody>
+    </table>
+    </div>
+    <div class="card" style="border-left: 5px solid var(--crimson);">
+    <h3 style="color: var(--crimson);">Operational Guardrails</h3>
+    <ul>
+        <li><strong>Recruitment:</strong> Priority to U-Lab graduates. Character > CGPA.</li>
+        <li><strong>Finance:</strong> No cash for salary/suppliers. Digital Mandate active.</li>
+        <li><strong>Conduct:</strong> "Red Flag" rule for social oversharing/intimacy.</li>
+        <li><strong>Testing:</strong> "Shokugeki" practical exam mandatory for Rank 4+.</li>
+    </ul>
+    </div>
+    <div class="card">
+    <h3>Performance Models</h3>
+    <div class="grid-2">
+        <div>
+            <h4>Starfish Evaluation</h4>
+            <p>Stop • Start • Continue • Do More • Do Less</p>
         </div>
-    </header>
+        <div>
+            <h4>OODA Loop</h4>
+            <p>Observe → Orient → Decide → Act</p>
+            <small>Continuous real-time judgment evaluation.</small>
+        </div>
+    </div>
+    </div>
+    <div class="card">
+    <h3>Gastronomy & Culinary Arts</h3>
+    <div class="grid-2" style="grid-template-columns: repeat(3, 1fr);">
+        <img src="alo-chaya-project-lead-golden-basa-fillets.jpg" style="width:100%; border-radius:4px; cursor:pointer;" onclick="openModal('alo-chaya-project-lead-golden-basa-fillets.jpg','Golden Basa Fillets')">
+        <img src="cafe.jpg" style="width:100%; border-radius:4px; cursor:pointer;" onclick="openModal('cafe.jpg','Resort Cafe')">
+        <img src="bilquis-royal-family-suite.jpg" style="width:100%; border-radius:4px; cursor:pointer;" onclick="openModal('bilquis-royal-family-suite.jpg','Royal Dining')">
+    </div>
+    </div>
+    <div class="card">
+    <h3>Wellness & Games Sanctuary</h3>
+    <ul>
+        <li><strong>Badminton:</strong> 44' x 20' court.</li>
+        <li><strong>Table Tennis:</strong> 9' x 5' table.</li>
+        <li><strong>Carrom:</strong> 29" x 29" board.</li>
+        <li><strong>Ludo/Chess:</strong> Strategic play zones.</li>
+    </ul>
+    </div>
+    <div class="card">
+    <h3>Presence & PR Controls</h3>
+    <div style="display: flex; gap: 10px;">
+        <button class="pill" onclick="openContentModal('PR Charter','Bureau of Presence manages social media. No unauthorized posts. Tone: Imperial & Welcoming.')">PR Charter</button>
+        <button class="pill" onclick="openContentModal('Crisis Flow','1. Silence. 2. Notify Bureau Chief. 3. Official Statement by Rank 1/2 only.')">Crisis Response</button>
+    </div>
+    </div>
+    <div class="card" style="background: #fffbe6; border-top: 4px solid var(--gold);">
+    <h3>IP Vault & Documentation</h3>
+    <p>All operational logic, ACEM scores, and Bureau mandates must be archived physically and digitally.</p>
+    <p><strong>Authority:</strong> Vendor's Agreement (Asset Transfer) & Part-7 Directives.</p>
+    </div>
+    <div class="card">
+    <h3>Governance Rhythm</h3>
+    <ul>
+        <li><strong>Weekly:</strong> Intra-Bureau 360 (Chief + Operators + Specialists).</li>
+        <li><strong>Monthly:</strong> Inter-Bureau 360 (All Chiefs + Archduke).</li>
+        <li><strong>Bi-Monthly:</strong> Resort Assembly (All Staff).</li>
+        <li><strong>Quarterly:</strong> Strategic Review (Chiefs + Rank 4 + Finance + HR + Archduke).</li>
+        <li><strong>Semi-Annual:</strong> Imperial Review (Emperor + Archduke + Senior Leadership).</li>
+    </ul>
+    </div>
+    <div class="card">
+    <h3>Implementation Checklist</h3>
+    <ul>
+        <li><input type="checkbox"> Lock CP module: Issue Anti-CP memo.</li>
+        <li><input type="checkbox"> Open dedicated bank accounts for ops.</li>
+        <li><input type="checkbox"> Pilot ACEM for 10 staff.</li>
+        <li><input type="checkbox"> Procure Bureau Coats & Winchester Shirts.</li>
+        <li><input type="checkbox"> Create Vendor's Agreement (Proprietorship to Ltd).</li>
+    </ul>
+    </div>
+    <div class="card">
+    <h3>Strategic Models</h3>
+    <div class="grid-2">
+        <img src="glsm.jpg" style="width:100%; cursor:pointer; border:1px solid #ccc;" onclick="openModal('glsm.jpg','GLSM Model')">
+        <img src="acem.png" style="width:100%; cursor:pointer; border:1px solid #ccc;" onclick="openModal('acem.png','ACEM Model')">
+    </div>
+    </div>
+    <div class="card">
+    <h3>Quick Tools</h3>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <button class="btn" onclick="demoStaffModel(34)">Show 34</button>
+        <button class="btn" onclick="selectBureau(document.querySelector('[data-bureau=\'harmony\']'))">Open HR</button>
+        <button class="btn" onclick="selectBureau(document.querySelector('[data-bureau=\'presence\']'))">Open Presence</button>
+        <button class="btn" onclick="openContentModal('Imperial Charter','Publish Rank & Pay charter on official letterhead immediately.')">Charter</button>
+    </div>
+    <div id="miniLog" style="margin-top: 10px; font-family: monospace; font-size: 0.8rem; color: #aaa;"></div>
+    </div>
+    <div id="modalRoot" class="modal-root" role="dialog">
+    <div id="modalBox" class="modal-box">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div id="modalContent"></div>
+    </div>
+</div>
+
+<script>
+function calculateACEM() {
+    const p = parseFloat(document.getElementById('p_score').value) || 0;
+    const s = parseFloat(document.getElementById('s_score').value) || 0;
+    const e = parseFloat(document.getElementById('e_score').value) || 0;
+    const perf = parseFloat(document.getElementById('perf_score').value) || 0;
     
-    <div class="container">
-        <nav class="nav-bar">
-            <span class="nav-item" onclick="window.scrollTo(0, 500)">Force Model</span>
-            <span class="nav-item" onclick="window.scrollTo(0, 1200)">Manifest</span>
-            <span class="nav-item" onclick="window.scrollTo(0, 2000)">Hierarchy</span>
-            <span class="nav-item" onclick="window.scrollTo(0, 3500)">Bureaus</span>
-            <span class="nav-item" onclick="window.scrollTo(0, 5000)">Guardrails</span>
-            <span class="nav-item" onclick="window.scrollTo(0, 6000)">Calculator</span>
-        </nav>
+    const composite = ((p * 0.30) + (s * 0.25) + (e * 0.25) + (perf * 0.20)).toFixed(2);
+    
+    const output = document.getElementById('acem_output');
+    output.innerText = `Local ACEM: ${composite}`;
+    
+    fetch('/calculate_acem', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ p, s, e, perf, composite, timestamp: Date.now() })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data.score) output.innerText += ` | Server ACEM: ${data.score} — ${data.level}`;
+    })
+    .catch(err => {
+        output.innerText += ' (Server unreachable)';
+        console.error(err);
+    });
+}
 
-        <h2 class="section-header">1. Force Scaling Model (The 5-Year Evolution)</h2>
-        <table class="imperial-table">
-            <thead><tr><th>Phase</th><th>Count</th><th>Designation</th><th>Operational Trigger & Capability</th></tr></thead>
-            <tbody>
-                <tr style="opacity:0.7; background:#f4f4f4;"><td>Contingency</td><td>22</td><td>Survival Squad</td><td><strong>Emergency Only.</strong> Security + Core Rooms. (Cashflow Critical)</td></tr>
-                
-                <tr class="force-active">
-                    <td><strong>Year 1</strong></td>
-                    <td><strong>34</strong></td>
-                    <td><strong>Strong Platoon</strong></td>
-                    <td><strong>Current Standard.</strong> Full Compliance. Winterfell Day Care Active. Versatility Rotation.</td>
-                </tr>
-                
-                <tr><td>Year 2</td><td>48</td><td>Reinforced Platoon</td><td><strong>Growth Mode.</strong> Wellness Wing Active. Event Unit Deployed.</td></tr>
-                <tr><td>Year 3</td><td>57</td><td>Task Force</td><td><strong>Expansion Mode.</strong> Full Occupancy Staffing. R&D Content Unit.</td></tr>
-                <tr><td>Year 4</td><td>67</td><td>Battalion (-)</td><td><strong>High-Tempo Mode.</strong> 3-Shift Security Rotation. Dedicated Transport Fleet.</td></tr>
-                <tr><td>Year 5</td><td>82</td><td>Company</td><td><strong>Empire Mode.</strong> 87.5 Bigha Project Full Integration. Agricultural Division.</td></tr>
-            </tbody>
-        </table>
-        
-                <h2 class="section-header">3. The Imperial Hierarchy & Inversion</h2>
-        
-        <div class="rank-card rank-0">
-            <div class="rank-top">
-                <div class="rank-titles"><span class="t-noble">Rank 0 • Emperor • Field Marshal</span><span class="t-corp">Chairman & Group CEO</span></div>
-                <span class="pay-pill" style="background:var(--gold); color:black;">EQUITY</span>
-            </div>
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; font-size:0.9rem;">
-                <div><strong>Mandate:</strong> Vision, Capital, Governance.</div>
-                <div><strong>Psychology:</strong> Maxwell Level 5 (Pinnacle) • Mintzberg Entrepreneur • Belbin Shaper • VIA Wisdom.</div>
-            </div>
-        </div>
+function openModal(src, alt) {
+    document.getElementById('modalContent').innerHTML = `<img src="${src}" alt="${alt}" style="width:100%; height:auto;">`;
+    document.getElementById('modalRoot').style.display = 'flex';
+}
 
-        <div class="rank-card rank-1">
-            <div class="rank-top">
-                <div class="rank-titles"><span class="t-noble">Rank 1 • Archduke • General</span><span class="t-corp">Group President & COO</span></div>
-                <span class="pay-pill">৳25,000 / SUB</span>
-            </div>
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; font-size:0.9rem;">
-                <div><strong>Mandate:</strong> Enterprise Execution. 5-Day Presence.</div>
-                <div><strong>Psychology:</strong> Maxwell Level 4 (People Dev) • OCEAN Competence • VIA Courage & Humanity.</div>
-            </div>
-        </div>
+function openContentModal(title, content) {
+    document.getElementById('modalContent').innerHTML = `<h3>${title}</h3><p>${content}</p>`;
+    document.getElementById('modalRoot').style.display = 'flex';
+}
 
-        <div class="rank-card rank-2">
-            <div class="rank-top">
-                <div class="rank-titles"><span class="t-noble">Rank 2 • Marquess • Commander</span><span class="t-corp">SBU President</span></div>
-                <span class="pay-pill">৳15,000 / SUB</span>
-            </div>
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; font-size:0.9rem;">
-                <div><strong>Mandate:</strong> Domain Lord (Resort). P&L Owner.</div>
-                <div><strong>Psychology:</strong> Neo-Piagetian Strategist • Mintzberg Negotiator • Belbin Resource Investigator.</div>
-            </div>
-        </div>
-                <div class="rank-card rank-3">
-            <div class="rank-top">
-                <div class="rank-titles">
-                    <span class="t-noble">Rank 3 • Earl • Colonel</span>
-                    <span class="t-corp">Bureau Chief <span class="veto-badge">AUTHORITY INVERSION</span></span>
-                </div>
-                <span class="pay-pill">৳10,000 / SUB</span>
-            </div>
-            <p><strong>Mandate:</strong> Operational Pivot. Replaces GM. Has <strong>Veto Power</strong> on Compliance Issues (Section 55).</p>
-            <div style="background:#f9f9f9; padding:10px; font-size:0.85rem; border-radius:4px;">
-                <strong>Psychology:</strong> Mintzberg Monitor • Belbin Implementer • Hersey-Blanchard S1 (Directing).
-            </div>
-        </div>
+function closeModal() {
+    document.getElementById('modalRoot').style.display = 'none';
+    document.getElementById('modalContent').innerHTML = '';
+}
 
-        <div class="rank-card rank-4">
-            <div class="rank-top">
-                <div class="rank-titles">
-                    <span class="t-noble">Rank 4 • Baronet • Captain</span>
-                    <span class="t-corp">Senior Specialist <span class="veto-badge">TECHNE OVERRIDE</span></span>
-                </div>
-                <span class="pay-pill">৳7,500 / SUB</span>
-            </div>
-            <p><strong>Mandate:</strong> Elite Technical Skill. Can <strong>Override Rank 2</strong> on technical safety/quality (e.g., Food Safety).</p>
-            <div style="background:#f9f9f9; padding:10px; font-size:0.85rem; border-radius:4px;">
-                <strong>Psychology:</strong> Belbin Specialist • OCEAN Intellect • Hersey-Blanchard S4 (Expert).
-            </div>
-        </div>
+function selectBureau(el) {
+    document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+    if(el) el.classList.add('active');
+    
+    const bureau = el ? el.dataset.bureau : '';
+    const area = document.getElementById('bureauArea');
+    
+    if(bureau === 'harmony') {
+        area.innerHTML = '<div class="card"><h3>Bureau of Harmony</h3><p class="small">Recruit → ACEM → Royal Tutor → Promotion. Weekly 360s.</p></div>';
+    } else if(bureau === 'efficiency') {
+        area.innerHTML = '<div class="card"><h3>Bureau of Efficiency</h3><p class="small">SOPs, technical exams, ops checklists.</p></div>';
+    } else if(bureau === 'provision') {
+        area.innerHTML = '<div class="card"><h3>Bureau of Provision</h3><p class="small">Payroll, treasury, digital mandate.</p></div>';
+    } else if(bureau === 'presence') {
+        area.innerHTML = '<div class="card"><h3>Bureau of Presence</h3><p class="small">Brand, PR, gastronomy.</p></div>';
+    }
+}
 
-        <div class="rank-card rank-5">
-            <div class="rank-top">
-                <div class="rank-titles"><span class="t-noble">Rank 5 • Commoner • Cadet</span><span class="t-corp">Trainee Cohort</span></div>
-                <span class="pay-pill" style="background:#7f8c8d;">ENTRY</span>
-            </div>
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-top:15px;">
-                <div style="background:#fff; padding:15px; border-left:4px solid var(--teal); border:1px solid #eee;">
-                    <strong style="color:var(--teal);">Versatility Cadet</strong>
-                    <div style="font-size:1.4rem; font-weight:800; margin:5px 0;">৳6,000</div>
-                    <small>Rotational Growth. High Potential.</small>
-                </div>
-                <div style="background:#fff; padding:15px; border-left:4px solid #999; border:1px solid #eee;">
-                    <strong style="color:#7f8c8d;">Specialist Cadet</strong>
-                    <div style="font-size:1.4rem; font-weight:800; margin:5px 0;">৳4,000</div>
-                    <small>Fixed Function. Static Role.</small>
-                </div>
-            </div>
-        </div>
-                <h2 class="section-header">4. Bureau Architecture & Sub-Functions</h2>
-        <div class="grid-box">
-            <div class="bureau-card b-harmony">
-                <h3>Bureau of Harmony (HR)</h3>
-                <span class="winchester" style="background:#f5f5dc; color:#5d4037; border-color:#8d6e63;">Winchester: Beige/Sand</span>
-                <span class="anime-doctrine">Doctrine: The Royal Tutor (Heine Protocol)</span>
-                <ul class="sub-func-list">
-                    <li><strong>Recruiting:</strong> The "Iron Gate" Filter.</li>
-                    <li><strong>Onboarding:</strong> Cultural Integration (GLSM).</li>
-                    <li><strong>ACEM Process:</strong> 5-Block Profiling.</li>
-                    <li><strong>Training (T&D):</strong> Mentorship & Rotation.</li>
-                </ul>
-                <div style="margin-top:15px; padding:10px; background:#fdfbf7; border-left:4px solid var(--harmony-brown);">
-                    <strong style="color:var(--harmony-brown);">The Winterfell Sanctuary</strong>
-                    <p style="font-size:0.8rem; margin:5px 0;"><strong>Doctrine:</strong> "The Saint's Magic." No-Clubbing Zone. Protected Day Care for Staff Children.</p>
-                </div>
-            </div>
-            
-            <div class="bureau-card b-efficiency">
-                <h3>Bureau of Efficiency (Ops)</h3>
-                <span class="winchester" style="background:#e3f2fd; color:#0d47a1; border-color:#2980b9;">Winchester: Sky Blue</span>
-                <span class="anime-doctrine">Doctrine: Kakuriyo (Tenjin-ya Standard)</span>
-                <ul class="sub-func-list">
-                    <li><strong>Technical Exams:</strong> Written & Verbal.</li>
-                    <li><strong>Performance Mgmt:</strong> 360° & BARS.</li>
-                    <li><strong>SOP Execution:</strong> Daily Standards.</li>
-                </ul>
-            </div>
+function showHRStep(step) {
+    const detail = document.getElementById('hrDetail');
+    if(step === 'recruit') detail.innerHTML = '<h4>1. Recruitment</h4><p>Iron Gate: U-Lab priority, Character screening, Document audit.</p>';
+    if(step === 'exam') detail.innerHTML = '<h4>2. Exams</h4><p>Written technical + Verbal presentation. Shokugeki practical.</p>';
+    if(step === 'training') detail.innerHTML = '<h4>3. Training</h4><p>Royal Tutor Protocol. OODA Loops. Versatility rotation.</p>';
+    if(step === 'appraisal') detail.innerHTML = '<h4>4. Appraisal</h4><p>360 Degree, BARS, Starfish evaluation.</p>';
+    if(step === 'comp') detail.innerHTML = '<h4>5. Compensation</h4><p>Base pay + Sub-function multipliers. No cash.</p>';
+}
 
-            <div class="bureau-card b-provision">
-                <h3>Bureau of Provision (Finance)</h3>
-                <span class="winchester" style="background:#e8f5e9; color:#1b5e20; border-color:#27ae60;">Winchester: Mint/Olive</span>
-                <span class="anime-doctrine">Doctrine: Fullmetal Alchemist</span>
-                <ul class="sub-func-list">
-                    <li><strong>Compensation:</strong> Pay Bands & Versatility.</li>
-                    <li><strong>Payroll Logic:</strong> Section 55 Compliance.</li>
-                    <li><strong>Asset Protection:</strong> The Tower.</li>
-                </ul>
-            </div>
+function demoStaffModel(n) {
+    openContentModal('Staff Model: ' + n, `Active Force Level: ${n} personnel.<br>Configuration loaded based on Imperial Scaling Model.`);
+}
 
-            <div class="bureau-card b-presence">
-                <h3>Bureau of Presence & Gastronomy</h3>
-                <span class="winchester" style="background:#e0f2f1; color:#004d40; border-color:#00897b;">Winchester: Teal/Violet</span>
-                <span class="anime-doctrine">Doctrine: Toriko / Food Wars</span>
-                <ul class="sub-func-list">
-                    <li><strong>Gastronomical Specialist:</strong> Cathedral Role.</li>
-                    <li><strong>Brand:</strong> The "Imperial" Aesthetics.</li>
-                    <li><strong>Cross-Function:</strong> Menu Engineering.</li>
-                </ul>
-            </div>
-        </div>
-                <h2 class="section-header">5. The Iron Gate & Guardrails</h2>
-        
-        <div style="background:white; padding:30px; border-left:8px solid var(--crimson); margin-bottom:40px; border-radius:4px; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
-            <h3 style="margin-top:0; color:var(--crimson); font-size:1.5rem;">⚠️ The Anti-Donkey Protocol (Guardrails)</h3>
-            <p style="font-style:italic; margin-bottom:20px; color:#555;">"The example of those who were entrusted with the Torah and then did not take it on is like that of a donkey who carries volumes of books..." (62:5)</p>
-            
-            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:30px;">
-                <div>
-                    <strong style="color:var(--navy); font-size:1.1rem;">1. Sourcing & Filtering</strong>
-                    <p><strong>Target:</strong> U-Lab Graduates (Character Priority).</p>
-                    <p><strong>The Trap:</strong> High CGPA (3.9+) from NSU/BRAC is a "Red Flag" until proven otherwise. We value <strong>Amal (Action)</strong> over Ilm (Knowledge).</p>
-                </div>
-                <div>
-                    <strong style="color:var(--navy); font-size:1.1rem;">2. Documentation & Conduct</strong>
-                    <p><strong>Format:</strong> PDF Mandatory. Must include Course Outline.</p>
-                    <p><strong>Behavior:</strong> Zero Tolerance for oversharing intimate details. Professional Distance is law.</p>
-                </div>
-                <div style="grid-column: span 2; border-top:1px solid #eee; padding-top:10px;">
-                    <strong style="color:var(--navy); font-size:1.1rem;">3. The Shokugeki (Battle)</strong>
-                    <p>No title (Professor/Expert) is accepted without passing the <strong>Live Technical Battle</strong>. If they cannot fix a broken process in real-time, they are rejected.</p>
-                </div>
-            </div>
-        </div>
-                <h2 class="section-header">6. The Talking Function (Lifecycle Chain)</h2>
-        <div class="lifecycle-row">
-            <div class="cycle-step"><span class="cycle-num">1</span>Recruit<br><small>Harmony</small></div>
-            <div class="cycle-step"><span class="cycle-num">2</span>Exam (Written)<br><small>Efficiency</small></div>
-            <div class="cycle-step"><span class="cycle-num">3</span>Exam (Verbal)<br><small>Presence</small></div>
-            <div class="cycle-step"><span class="cycle-num">4</span>Training<br><small>Royal Tutor</small></div>
-            <div class="cycle-step"><span class="cycle-num">5</span>Omni-View<br><small>360 / BARS</small></div>
-            <div class="cycle-step"><span class="cycle-num">6</span>Pay<br><small>Provision</small></div>
-        </div>
-
-        <h2 class="section-header">7. Intellectual Property Vault</h2>
-        <div class="grid-box">
-            <div class="bureau-card" style="border-top:none;">
-                <img src="acem.png" style="width:100%; cursor:pointer;" onclick="openModal('acem.png')" alt="ACEM">
-                <p align="center"><strong>ACEM Model</strong></p>
-            </div>
-            <div class="bureau-card" style="border-top:none;">
-                <img src="mh-alo-chaya-corporate-culture.jpg" style="width:100%; cursor:pointer;" onclick="openModal('mh-alo-chaya-corporate-culture.jpg')" alt="GLSM">
-                <p align="center"><strong>Corporate Culture</strong></p>
-            </div>
-            <div class="bureau-card" style="border-top:none;">
-                <img src="the-ps-of-mh-alo-chaya.png" style="width:100%; cursor:pointer;" onclick="openModal('the-ps-of-mh-alo-chaya.png')" alt="ABSC">
-                <p align="center"><strong>ABSC Scorecard</strong></p>
-            </div>
-        </div>
-                <div class="calculator-box" id="calculator">
-            <h3 style="font-family:'Playfair Display'; font-size:2rem; margin-bottom:10px;">The Gate of Truth (Equivalent Exchange)</h3>
-            <p style="margin-bottom:30px;">Input the raw data (Sacrifice) to transmute the Objective Truth (Score).</p>
-            
-            <div class="input-row">
-                <div class="input-group">
-                    <label>1. Personality (P)</label>
-                    <input type="number" id="inputP" placeholder="0-100" value="50">
-                </div>
-                <div class="input-group">
-                    <label>2. Skill (S)</label>
-                    <input type="number" id="inputS" placeholder="0-100" value="50">
-                </div>
-                <div class="input-group">
-                    <label>3. Environment (E)</label>
-                    <input type="number" id="inputE" placeholder="0-100" value="50">
-                </div>
-                <div class="input-group">
-                    <label>4. Performance (PERF)</label>
-                    <input type="number" id="inputPERF" placeholder="0-100" value="50">
-                </div>
-            </div>
-            
-            <button class="btn-calc" onclick="calculateACEM()">REVEAL TRUTH</button>
-            
-            <div class="result-box">
-                <h1 id="acemResult" style="color:var(--teal); margin:0; font-size:4rem;">---</h1>
-                <small id="serverMsg" style="color:#888; font-weight:bold; letter-spacing:1px;">WAITING FOR ALCHEMY...</small>
-            </div>
-        </div>
-    </div>
-        <div style="max-width:1200px; margin:60px auto; padding:20px; text-align:center;">
-        <h3 class="section-header" style="border:none; margin:0 0 30px 0;">Live Command View</h3>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:30px;">
-            <div>
-                <video width="100%" controls style="border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,0.15);">
-                    <source src="night-view.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <p style="font-weight:bold; color:var(--navy); margin-top:10px;">Night Perimeter Status</p>
-            </div>
-            <div>
-                <video width="100%" controls style="border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,0.15);">
-                    <source src="family-suite.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <p style="font-weight:bold; color:var(--navy); margin-top:10px;">Suite Readiness Check</p>
-            </div>
-        </div>
-        </div>
-            <div id="imageModal" class="modal">
-        <span class="close-btn">&times;</span>
-        <img class="modal-content" id="modalImage">
-    </div>
-
-    <script>
-            <div id="imageModal" class="modal">
-        <span class="close-btn">&times;</span>
-        <img class="modal-content" id="modalImage">
-        <div id="caption" style="text-align:center; color:white; padding:10px;"></div>
-    </div>
-
-    <script>
-        // 1. MODAL LOGIC (Visual Focus)
-        var modal = document.getElementById("imageModal");
-        var modalImg = document.getElementById("modalImage");
-        var span = document.getElementsByClassName("close-btn")[0];
-        
-        function openModal(src) {
-            modal.style.display = "block";
-            modalImg.src = src;
-        }
-        
-        span.onclick = function() { modal.style.display = "none"; }
-        window.onclick = function(event) { if (event.target == modal) modal.style.display = "none"; }
-
-        // 2. ACCORDION LOGIC (The "Sub-Tit" Toggle)
-        // This automatically turns Bureau Sub-functions into collapsible accordions
-        document.addEventListener("DOMContentLoaded", function() {
-            const bureauCards = document.querySelectorAll('.bureau-card');
-            
-            bureauCards.forEach(card => {
-                const subFuncList = card.querySelector('.sub-func-list');
-                const doctrine = card.querySelector('.anime-doctrine');
-                
-                if(subFuncList && doctrine) {
-                    // Create Toggle Button
-                    const toggleBtn = document.createElement('button');
-                    toggleBtn.className = 'accordion-btn';
-                    toggleBtn.innerHTML = '▼ View Sub-Functions';
-                    
-                    // Insert before the list
-                    subFuncList.parentNode.insertBefore(toggleBtn, subFuncList);
-                    
-                    // Hide list by default
-                    subFuncList.style.display = 'none';
-                    
-                    // Add Click Event
-                    toggleBtn.addEventListener('click', function() {
-                        this.classList.toggle("active");
-                        if (subFuncList.style.display === "block") {
-                            subFuncList.style.display = "none";
-                            this.innerHTML = '▼ View Sub-Functions';
-                        } else {
-                            subFuncList.style.display = "block";
-                            this.innerHTML = '▲ Hide Sub-Functions';
-                        }
-                    });
-                }
-            });
-        });
-
-        // 3. THE ALCHEMY (ACEM Calculator)
-        async function calculateACEM() {
-            const p = document.getElementById('inputP').value;
-            const s = document.getElementById('inputS').value;
-            const e = document.getElementById('inputE').value;
-            const perf = document.getElementById('inputPERF').value;
-            
-            // The Sacrifice (Data Packet)
-            const data = { personality: p, skill: s, environment: e, performance: perf };
-            
-            document.getElementById('serverMsg').innerText = "TRANSMUTING...";
-            
-            try {
-                const response = await fetch('http://127.0.0.1:5000/calculate', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-
-                if (!response.ok) throw new Error("Connection Severed");
-
-                const result = await response.json();
-                
-                // The Truth (Result)
-                document.getElementById('acemResult').innerText = result.acem_score;
-                document.getElementById('serverMsg').innerText = "EXCHANGE COMPLETE";
-                
-                // Color Logic
-                if(result.acem_score < 50) {
-                    document.getElementById('acemResult').style.color = "var(--crimson)";
-                    document.getElementById('serverMsg').innerText = "WARNING: LOW SCORE";
-                } else {
-                    document.getElementById('acemResult').style.color = "var(--teal)";
-                }
-
-            } catch (error) {
-                document.getElementById('acemResult').innerText = "ERR";
-                document.getElementById('serverMsg').innerText = "LAUNCH `python app.py`";
-                alert("Alchemy Failed: The Python Engine is not running.");
-            }
-        }
-    </script>
-
-            <style>
-        /* Extra Styles for JS Interactivity */
-        .accordion-btn {
-            background-color: #eee;
-            color: var(--navy);
-            cursor: pointer;
-            padding: 10px;
-            width: 100%;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 0.8rem;
-            font-weight: bold;
-            transition: 0.4s;
-            border-radius: 4px;
-            margin-top: 10px;
-        }
-        .accordion-btn.active, .accordion-btn:hover {
-            background-color: var(--navy);
-            color: white;
-        }
-        .sub-func-list {
-            animation: fadeIn 0.5s;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-    </style>
-
-    <footer style="text-align:center; padding:50px 20px; color:#7f8c8d; font-size:0.85rem; border-top:1px solid #eee; margin-top:60px; background:#fdfdfd;">
-        <h3 style="font-family:'Playfair Display'; color:var(--navy); margin:0 0 10px 0;">MH Alo Chaya Limited</h3>
-        <p style="margin-bottom:5px;">Imperial Human Capital Doctrine • 2025</p>
-        <p style="font-weight:bold; color:var(--teal);">
-            Section 55 Compliant • Digital Mandate Active • Winterfell Sanctuary Protected
-        </p>
-    </footer>
+document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
+document.getElementById('miniLog').innerText = 'Ready';
+</script>
+</div>
 </body>
 </html>
