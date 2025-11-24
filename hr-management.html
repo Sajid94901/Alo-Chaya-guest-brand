@@ -3,350 +3,446 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACEM SCORE: HR Personnel Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <style>
-        /* Define the font variables used in styles.css for system font fallback */
+    <title>MH Alo Chaya - Imperial Human Capital Command</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+        <style>
         :root {
-            --font-body: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
-            --font-heading: 'Playfair Display', serif;
+            /* Rank Colors */
+            --gold: #f1c40f;   /* Emperor/Archduke */
+            --silver: #bdc3c7; /* Marquess/Earl */
+            --bronze: #d35400; /* Baronet/Cadet */
+            
+            /* Bureau Colors */
+            --harmony-brown: #8d6e63;
+            --provision-green: #27ae60;
+            --presence-maroon: #800020;
+            --efficiency-blue: #2980b9;
+            
+            /* System Colors */
+            --navy: #2c3e50;
+            --teal: #1abc9c;   /* The Standard */
+            --crimson: #c0392b; /* Alerts/Guardrails */
+            --white: #ffffff;
+            --light-bg: #f4f6f7;
+            --dark-overlay: rgba(0,0,0,0.9);
         }
+                    body { font-family: 'Inter', sans-serif; background-color: var(--light-bg); margin: 0; color: var(--navy); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
+        .hero { 
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%); 
+            color: var(--white); padding: 70px 0; text-align: center; margin-bottom: 30px; 
+            border-bottom: 8px solid var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin: 0; letter-spacing: -1px; }
+        .subtitle { letter-spacing: 4px; text-transform: uppercase; font-size: 0.9rem; margin-top: 15px; color: var(--gold); font-weight: bold; }
+                    .nav-bar { 
+            background: var(--white); padding: 20px; border-radius: 8px; margin-bottom: 40px; 
+            display: flex; flex-wrap: wrap; gap: 20px; border-bottom: 4px solid #e0e0e0; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); justify-content: center;
+        }
+        .nav-item { 
+            font-weight: 700; font-size: 0.95rem; cursor: pointer; color: #7f8c8d; 
+            padding: 8px 16px; border-radius: 4px; transition: all 0.3s ease; text-transform: uppercase;
+        }
+        .nav-item:hover { background: var(--navy); color: var(--white); transform: translateY(-2px); }
+
+        .section-header { 
+            font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--navy); 
+            border-left: 8px solid var(--navy); padding-left: 20px; margin: 60px 0 30px 0; 
+        }
+                    .imperial-table { width: 100%; border-collapse: collapse; background: var(--white); margin-bottom: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; }
+        .imperial-table th { background: var(--navy); color: var(--white); padding: 18px; text-align: left; font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+        .imperial-table td { padding: 15px; border-bottom: 1px solid #eee; font-size: 0.95rem; vertical-align: middle; }
+        .force-active { background: #e8f6f3; font-weight: bold; border-left: 6px solid var(--teal); }
+        .total-row { background: var(--navy); color: white; font-weight: bold; }
+        .role-badge { padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; background: #eee; }
+                    .rank-card { 
+            background: var(--white); margin-bottom: 25px; border-radius: 8px; padding: 30px; 
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); border-left: 10px solid #ccc; position: relative;
+        }
+        .rank-0, .rank-1 { border-left-color: var(--gold); }
+        .rank-2, .rank-3 { border-left-color: var(--silver); }
+        .rank-4, .rank-5 { border-left-color: var(--bronze); }
+        
+        .rank-top { display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px; align-items: flex-start; }
+        .rank-titles { display: flex; flex-direction: column; }
+        .t-corp { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: bold; color: var(--navy); }
+        .t-noble { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: #7f8c8d; font-weight: 800; margin-bottom: 5px; }
+        .pay-pill { background: var(--navy); color: var(--white); padding: 6px 12px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
+        
+        .veto-badge { 
+            background: var(--crimson); color: white; font-size: 0.7rem; padding: 4px 8px; 
+            border-radius: 4px; margin-left: 10px; text-transform: uppercase; letter-spacing: 1px; vertical-align: middle;
+            }
+                    .grid-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
+        .bureau-card { background: var(--white); padding: 30px; border-radius: 8px; border-top: 8px solid #ccc; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.2s; }
+        .bureau-card:hover { transform: translateY(-5px); }
+        
+        .b-harmony { border-top-color: var(--harmony-brown); }
+        .b-provision { border-top-color: var(--provision-green); }
+        .b-presence { border-top-color: var(--presence-maroon); }
+        .b-efficiency { border-top-color: var(--efficiency-blue); }
+        
+        .winchester { display: inline-block; padding: 6px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; margin-top: 15px; border: 1px solid #ccc; background: #f9f9f9; width: 100%; text-align: center; box-sizing: border-box; }
+        .anime-doctrine { font-size: 0.85rem; font-weight: bold; color: #555; margin-top: 10px; display: block; border-bottom: 1px dashed #ccc; padding-bottom: 10px; }
+        
+        .sub-func-list { list-style: none; padding: 0; margin-top: 15px; font-size: 0.9rem; }
+        .sub-func-list li { margin-bottom: 8px; padding-left: 15px; border-left: 3px solid #eee; }
+                    .lifecycle-row { display: flex; gap: 15px; flex-wrap: wrap; background: var(--white); padding: 30px; border-radius: 8px; margin-bottom: 50px; border: 1px solid #e0e0e0; }
+        .cycle-step { flex: 1; text-align: center; min-width: 130px; padding: 20px; background: #fdfdfd; border-radius: 6px; border: 1px solid #eee; transition: 0.3s; }
+        .cycle-step:hover { background: var(--navy); color: white; border-color: var(--navy); }
+        .cycle-num { font-size: 1.8rem; font-weight: bold; display: block; margin-bottom: 5px; opacity: 0.8; }
+
+        .calculator-box { background: var(--white); padding: 40px; border-radius: 8px; border-top: 8px solid var(--teal); box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-top: 40px; }
+        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px; }
+        .input-group label { display: block; font-weight: 800; margin-bottom: 10px; color: var(--navy); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+        .input-group input { width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 6px; box-sizing: border-box; font-size: 1.1rem; transition: 0.3s; }
+        .input-group input:focus { border-color: var(--teal); outline: none; }
+        
+        .btn-calc { background: var(--teal); color: var(--white); width: 100%; padding: 18px; border: none; font-size: 1.2rem; font-weight: 800; cursor: pointer; border-radius: 6px; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
+        .btn-calc:hover { background: #16a085; transform: scale(1.01); }
+        
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: var(--dark-overlay); backdrop-filter: blur(5px); }
+        .modal-content { margin: 5vh auto; display: block; width: 90%; max-width: 900px; max-height: 90vh; object-fit: contain; box-shadow: 0 0 50px rgba(0,0,0,0.5); }
+        .close-btn { position: absolute; top: 20px; right: 40px; color: white; font-size: 50px; cursor: pointer; transition: 0.3s; }
+        .close-btn:hover { color: var(--teal); transform: rotate(90deg); }
     </style>
 </head>
 <body>
-
-    <header class="hero">
+            <header class="hero">
         <div class="container">
-            <h1>HR Personnel Management Dashboard</h1>
-            <p class="lead">Centralized system for ACEM Score tracking, performance reviews, and dignity wage management.</p>
-            <nav class="main-nav">
-              <ul>
-                <li><a href="hr-management-index.html" class="active">HR Management</a></li>
-                <li><a href="acem-score-index.html">ACEM Score Index</a></li>
-                <li><a href="acem-module-1.html">1. ACEM (Skill)</a></li>
-                <li><a href="glsm-module-2.html">2. GLSM (Strategy)</a></li>
-                <li><a href="trait-module-3.html">3. Trait Theory</a></li>
-                <li><a href="virtue-module-4.html">4. Virtue/Ethics</a></li>
-                <li><a href="neopir-module-5.html">5. NEO-PI-R (30 Facets)</a></li>
-                <li><a href="deyoung-module-6.html">6. D&P (10 Aspects)</a></li>
-              </ul>
-            </nav>
+            <h1>MH Alo Chaya Limited</h1>
+            <div class="subtitle">Imperial Human Capital • Force Level: Strong Platoon (34)</div>
         </div>
     </header>
+    
+    <div class="container">
+        <nav class="nav-bar">
+            <span class="nav-item" onclick="window.scrollTo(0, 500)">Force Model</span>
+            <span class="nav-item" onclick="window.scrollTo(0, 1200)">Manifest</span>
+            <span class="nav-item" onclick="window.scrollTo(0, 2000)">Hierarchy</span>
+            <span class="nav-item" onclick="window.scrollTo(0, 3500)">Bureaus</span>
+            <span class="nav-item" onclick="window.scrollTo(0, 5000)">Guardrails</span>
+            <span class="nav-item" onclick="window.scrollTo(0, 6000)">Calculator</span>
+        </nav>
 
-        <main class="container">
-                         <div class="left-panel">
-                <div class="search-bar">
-                    <input type="text" placeholder="Search Employee by Position or ID...">
+        <h2 class="section-header">1. Force Scaling Model (Military Logic)</h2>
+        <table class="imperial-table">
+            <thead><tr><th>Level</th><th>Designation</th><th>Count</th><th>Operational Status & Capabilities</th></tr></thead>
+            <tbody>
+                <tr><td>Level 1</td><td>Squad</td><td>22</td><td><strong>Survival Mode.</strong> Security, Core Rooms, Basic Finance.</td></tr>
+                <tr class="force-active"><td>Level 2</td><td>Strong Platoon</td><td>34</td><td><strong>Standard Ops.</strong> Full Compliance. <strong>Winterfell (Day Care) Active.</strong></td></tr>
+                <tr><td>Level 3</td><td>Full Platoon</td><td>52</td><td><strong>Growth Mode.</strong> Wellness Wing, Events, R&D Content.</td></tr>
+                <tr><td>Level 4</td><td>Company</td><td>82</td><td><strong>Empire Mode.</strong> 87.5 Bigha Project, Multi-shift Security, Transport Fleet.</td></tr>
+            </tbody>
+        </table>
+                <h2 class="section-header">2. Staffing Manifest (The 34 Breakdown)</h2>
+        <table class="imperial-table">
+            <thead><tr><th>Rank</th><th>Role</th><th>Count</th><th>Attire Code</th></tr></thead>
+            <tbody>
+                <tr><td>Rank 0</td><td>Chairman & CEO</td><td>1</td><td>Navy/Black Formal (Sherwani/Suit)</td></tr>
+                <tr><td>Rank 1</td><td>Group COO</td><td>1</td><td>Navy/Black Formal (Sherwani/Suit)</td></tr>
+                <tr><td>Rank 2</td><td>SBU President</td><td>1</td><td>Grey/Silver Suit</td></tr>
+                
+                <tr><td>Rank 3</td><td>Earl (HR & Finance)</td><td>1</td><td>Grey/Silver Suit</td></tr>
+                <tr><td>Rank 3</td><td>Earl (Operations)</td><td>1</td><td>Grey/Silver Suit</td></tr>
+
+                <tr><td>Rank 4</td><td>Baronet (IT & Systems)</td><td>1</td><td>Teal Uniform + Badge</td></tr>
+                <tr><td>Rank 4</td><td>Baronet (Supply Chain)</td><td>1</td><td>Teal Uniform + Badge</td></tr>
+                <tr><td>Rank 4</td><td>Baronet (Head Chef)</td><td>1</td><td>Premium Chef Whites</td></tr>
+                <tr><td>Rank 4</td><td>Baronet (Engineering)</td><td>1</td><td>Teal Uniform + Badge</td></tr>
+
+                <tr><td>Rank 5</td><td>Senior Knights (Specialists)</td><td>5</td><td>Standard Uniform</td></tr>
+
+                <tr><td>Rank 5</td><td>Cadets (Versatility)</td><td>5</td><td>Light Blue (Trainee)</td></tr>
+                <tr><td>Rank 5</td><td>Cadets (Specialist)</td><td>5</td><td>Standard Uniform</td></tr>
+                <tr><td>Rank 5</td><td>Support (Security)</td><td>6</td><td>Guard Uniform (Black/Grey)</td></tr>
+                <tr><td>Rank 5</td><td>Support (Housekeeping)</td><td>4</td><td>Utility Uniform</td></tr>
+
+                <tr class="total-row"><td colspan="2">TOTAL IMPERIAL FORCE</td><td>34</td><td>FULL DEPLOYMENT</td></tr>
+            </tbody>
+        </table>
+                <h2 class="section-header">3. The Imperial Hierarchy & Inversion</h2>
+        
+        <div class="rank-card rank-0">
+            <div class="rank-top">
+                <div class="rank-titles"><span class="t-noble">Rank 0 • Emperor • Field Marshal</span><span class="t-corp">Chairman & Group CEO</span></div>
+                <span class="pay-pill" style="background:var(--gold); color:black;">EQUITY</span>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; font-size:0.9rem;">
+                <div><strong>Mandate:</strong> Vision, Capital, Governance.</div>
+                <div><strong>Psychology:</strong> Maxwell Level 5 (Pinnacle) • Mintzberg Entrepreneur • Belbin Shaper • VIA Wisdom.</div>
+            </div>
+        </div>
+
+        <div class="rank-card rank-1">
+            <div class="rank-top">
+                <div class="rank-titles"><span class="t-noble">Rank 1 • Archduke • General</span><span class="t-corp">Group President & COO</span></div>
+                <span class="pay-pill">৳25,000 / SUB</span>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; font-size:0.9rem;">
+                <div><strong>Mandate:</strong> Enterprise Execution. 5-Day Presence.</div>
+                <div><strong>Psychology:</strong> Maxwell Level 4 (People Dev) • OCEAN Competence • VIA Courage & Humanity.</div>
+            </div>
+        </div>
+
+        <div class="rank-card rank-2">
+            <div class="rank-top">
+                <div class="rank-titles"><span class="t-noble">Rank 2 • Marquess • Commander</span><span class="t-corp">SBU President</span></div>
+                <span class="pay-pill">৳15,000 / SUB</span>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; font-size:0.9rem;">
+                <div><strong>Mandate:</strong> Domain Lord (Resort). P&L Owner.</div>
+                <div><strong>Psychology:</strong> Neo-Piagetian Strategist • Mintzberg Negotiator • Belbin Resource Investigator.</div>
+            </div>
+        </div>
+                <div class="rank-card rank-3">
+            <div class="rank-top">
+                <div class="rank-titles">
+                    <span class="t-noble">Rank 3 • Earl • Colonel</span>
+                    <span class="t-corp">Bureau Chief <span class="veto-badge">AUTHORITY INVERSION</span></span>
                 </div>
+                <span class="pay-pill">৳10,000 / SUB</span>
+            </div>
+            <p><strong>Mandate:</strong> Operational Pivot. Replaces GM. Has <strong>Veto Power</strong> on Compliance Issues (Section 55).</p>
+            <div style="background:#f9f9f9; padding:10px; font-size:0.85rem; border-radius:4px;">
+                <strong>Psychology:</strong> Mintzberg Monitor • Belbin Implementer • Hersey-Blanchard S1 (Directing).
+            </div>
+        </div>
 
-                                             <ul class="property-list">
-                    <li class="property-list-item">
-                        <button class="active" onclick="selectEmployee('101')">
-                            <strong>A. Officer (ID: 101)</strong>
-                            <span class="small">Accounts Officer</span>
-                        </button>
-                    </li>
-                    <li class="property-list-item">
-                        <button onclick="selectEmployee('102')">
-                            <strong>J. Manager (ID: 102)</strong>
-                            <span class="small">Junior Project Manager</span>
-                        </button>
-                    </li>
-                    <li class="property-list-item">
-                        <button onclick="selectEmployee('103')">
-                            <strong>S. Manager (ID: 103)</strong>
-                            <span class="small">Senior Manager</span>
-                        </button>
-                    </li>
-                    <li class="property-list-item">
-                        <button onclick="selectEmployee('104')">
-                            <strong>P. Manager (ID: 104)</strong>
-                            <span class="small">Project Manager</span>
-                        </button>
-                    </li>
-                    <li class="property-list-item">
-                        <button onclick="selectEmployee('105')">
-                            <strong>Asst. Acct. (ID: 105)</strong>
-                            <span class="small">Assistant Accountant</span>
-                        </button>
-                    </li>
-                    </ul>
+        <div class="rank-card rank-4">
+            <div class="rank-top">
+                <div class="rank-titles">
+                    <span class="t-noble">Rank 4 • Baronet • Captain</span>
+                    <span class="t-corp">Senior Specialist <span class="veto-badge">TECHNE OVERRIDE</span></span>
+                </div>
+                <span class="pay-pill">৳7,500 / SUB</span>
+            </div>
+            <p><strong>Mandate:</strong> Elite Technical Skill. Can <strong>Override Rank 2</strong> on technical safety/quality (e.g., Food Safety).</p>
+            <div style="background:#f9f9f9; padding:10px; font-size:0.85rem; border-radius:4px;">
+                <strong>Psychology:</strong> Belbin Specialist • OCEAN Intellect • Hersey-Blanchard S4 (Expert).
+            </div>
+        </div>
+
+        <div class="rank-card rank-5">
+            <div class="rank-top">
+                <div class="rank-titles"><span class="t-noble">Rank 5 • Commoner • Cadet</span><span class="t-corp">Trainee Cohort</span></div>
+                <span class="pay-pill" style="background:#7f8c8d;">ENTRY</span>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-top:15px;">
+                <div style="background:#fff; padding:15px; border-left:4px solid var(--teal); border:1px solid #eee;">
+                    <strong style="color:var(--teal);">Versatility Cadet</strong>
+                    <div style="font-size:1.4rem; font-weight:800; margin:5px 0;">৳6,000</div>
+                    <small>Rotational Growth. High Potential.</small>
+                </div>
+                <div style="background:#fff; padding:15px; border-left:4px solid #999; border:1px solid #eee;">
+                    <strong style="color:#7f8c8d;">Specialist Cadet</strong>
+                    <div style="font-size:1.4rem; font-weight:800; margin:5px 0;">৳4,000</div>
+                    <small>Fixed Function. Static Role.</small>
+                </div>
+            </div>
+        </div>
+                <h2 class="section-header">4. Bureau Architecture & Sub-Functions</h2>
+        <div class="grid-box">
+            <div class="bureau-card b-harmony">
+                <h3>Bureau of Harmony (HR)</h3>
+                <span class="winchester" style="background:#f5f5dc; color:#5d4037; border-color:#8d6e63;">Winchester: Beige/Sand</span>
+                <span class="anime-doctrine">Doctrine: The Royal Tutor (Heine Protocol)</span>
+                <ul class="sub-func-list">
+                    <li><strong>Recruiting:</strong> The "Iron Gate" Filter.</li>
+                    <li><strong>Onboarding:</strong> Cultural Integration (GLSM).</li>
+                    <li><strong>ACEM Process:</strong> 5-Block Profiling.</li>
+                    <li><strong>Training (T&D):</strong> Mentorship & Rotation.</li>
+                </ul>
+                <div style="margin-top:15px; padding:10px; background:#fdfbf7; border-left:4px solid var(--harmony-brown);">
+                    <strong style="color:var(--harmony-brown);">The Winterfell Sanctuary</strong>
+                    <p style="font-size:0.8rem; margin:5px 0;"><strong>Doctrine:</strong> "The Saint's Magic." No-Clubbing Zone. Protected Day Care for Staff Children.</p>
+                </div>
+            </div>
+            
+            <div class="bureau-card b-efficiency">
+                <h3>Bureau of Efficiency (Ops)</h3>
+                <span class="winchester" style="background:#e3f2fd; color:#0d47a1; border-color:#2980b9;">Winchester: Sky Blue</span>
+                <span class="anime-doctrine">Doctrine: Kakuriyo (Tenjin-ya Standard)</span>
+                <ul class="sub-func-list">
+                    <li><strong>Technical Exams:</strong> Written & Verbal.</li>
+                    <li><strong>Performance Mgmt:</strong> 360° & BARS.</li>
+                    <li><strong>SOP Execution:</strong> Daily Standards.</li>
+                </ul>
             </div>
 
-                        <div class="right-panel">
-                <div class="right-panel-header">
-                    <h2>Accounts Officer (Active Profile)</h2>
-                    <p>Personnel ID: 101 — **ACEM Score: 87.5%**</p>
-                </div>
-
-                <div class="kpi-grid">
-                    <div class="kpi-card">
-                        <div class="kpi-title">ACEM Composite Score</div>
-                        <div class="kpi-value kpi-value-accent">87.5%</div>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="kpi-title">Current Basic Salary</div>
-                        <div class="kpi-value mono">68,500 ৳</div>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="kpi-title">GLSM Level (Strategy)</div>
-                        <div class="kpi-value">S4 (Delegating)</div>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="kpi-title">ACEM Skill Level</div>
-                        <div class="kpi-value">Guide</div>
-                    </div>
-                </div>
-
-
-                                            <div class="tab-bar">
-                    <button class="active" onclick="openTab(event, 'vitals')">ACEM Vitals & Personality</button>
-                    <button onclick="openTab(event, 'reviews')">Performance Review Log</button>
-                    <button onclick="openTab(event, 'financials')">Dignity Wage & Finance</button>
-                    <button onclick="openTab(event, 'assessment')">New Assessment (Form)</button>
-                </div>
-
-                                            <div id="vitals" class="tab-content">
-                    <div class="grid grid-2">
-                        <div class="card bg-light">
-                            <div class="card-body">
-                                <h3>ACEM Core Breakdown</h3>
-                                <ul class="kpi-list">
-                                    <li>**A**bility (Skill/Bloom's): <span>95% (Guide)</span></li>
-                                    <li>**C**apability (Strategy/GLSM): <span>90% (S4)</span></li>
-                                    <li>**E**thics (Virtue/VIA): <span>80% (Highly Virtuous)</span></li>
-                                    <li>**M**anagement (Trait/D&P): <span>85% (Disciplined)</span></li>
-                                </ul>
-                                <p class="small text-justify"><em>Composite score is 87.5% (A+C+E+M)/4. The next review is scheduled for Q1-2026.</em></p>
-                            </div>
-                        </div>
-
-                        <div class="card bg-light">
-                            <div class="card-body">
-                                <h3>Personality Profile Summary</h3>
-                                <p class="mb-2"><strong>Dominant Aspects (D&P):</strong></p>
-                                <ul class="tags-list">
-                                    <li class="tag like">Industriousness (High)</li>
-                                    <li class="tag like">Intellect (High)</li>
-                                    <li class="tag like">Orderliness (High)</li>
-                                    <li class="tag dislike">Volatility (Low)</li>
-                                </ul>
-                                <p class="mt-3 mb-0 small text-muted">Core strength: Highly reliable, goal-focused, and emotionally stable (Low N).</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                                            <div id="reviews" class="tab-content" style="display: none;">
-                    <h3>Historical Performance Visits</h3>
-                    <div class="visit-card card">
-                        <div class="card-body">
-                            <div class="visit-header">
-                                <div class="visit-title">Q3 2025 Review</div>
-                                <div class="visit-rating">89%</div>
-                            </div>
-                            <p class="small text-muted mb-0">Review Date: 20/09/2025 | Reviewer: **Senior Management**</p>
-                            <h4>Key Strengths (Tags)</h4>
-                            <ul class="tags-list">
-                                <li class="tag like">Prudence</li>
-                                <li class="tag like">Knowledge of Business</li>
-                                <li class="tag like">Self-Control</li>
-                                <li class="tag like">Drive</li>
-                            </ul>
-                            <h4>Areas for Improvement</h4>
-                            <p>Needs to delegate more administrative tasks to subordinates (GLSM-S4 focus). Must reduce focus on perfection (Orderliness aspect) to increase task throughput.</p>
-                        </div>
-                    </div>
-
-                    <div class="visit-card card">
-                        <div class="card-body">
-                            <div class="visit-header">
-                                <div class="visit-title">Q1 2025 Review (Initial)</div>
-                                <div class="visit-rating">85%</div>
-                            </div>
-                            <p class="small text-muted mb-0">Review Date: 22/03/2025 | Reviewer: **Head of Department**</p>
-                            <h4>Key Strengths (Tags)</h4>
-                            <ul class="tags-list">
-                                <li class="tag like">Honesty</li>
-                                <li class="tag like">Competence</li>
-                                <li class="tag like">Responsibility</li>
-                            </ul>
-                            <h4>Areas for Improvement</h4>
-                            <p>Demonstrated strong technical skill (ACEM/Bloom's). Needs to develop **Leadership Motivation** and train a deputy (Capacity).</p>
-                        </div>
-                    </div>
-                </div>
-
-                                            <div id="financials" class="tab-content" style="display: none;">
-                    <h3>Dignity Wage Calculation (Based on 87.5% ACEM Score)</h3>
-                    <div class="alert alert-success">
-                        <h3>Compliance Status: Fully Compliant</h3>
-                        <p>The current Basic Salary (68,500 ৳) exceeds the calculated Dignity Minimum Wage for this ACEM Score (87.5%).</p>
-                    </div>
-
-                    <div class="grid grid-2 mt-4">
-                        <div class="kpi-card">
-                            <div class="kpi-title">Dignity Minimum Wage</div>
-                            <div class="kpi-value" style="color: #059669;">65,000 ৳</div>
-                        </div>
-                        <div class="kpi-card">
-                            <div class="kpi-title">Annual Performance Bonus Target</div>
-                            <div class="kpi-value" style="color: #007bff;">75,000 ৳</div>
-                        </div>
-                    </div>
-                    
-                    <h4 class="mt-5">Recent Salary Transactions (From Register)</h4>
-                    <div class="financial-table-wrapper">
-                        <table class="financial-table">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Description</th>
-                                    <th>Amount</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>03-July-2025</td>
-                                    <td>Paid salary June-2025 to Accounts Officer (ID 101)</td>
-                                    <td class="mono">58,190.00</td>
-                                </tr>
-                                <tr>
-                                    <td>02-June-2025</td>
-                                    <td>Paid salary May-2025 to Accounts Officer (ID 101)</td>
-                                    <td class="mono">58,190.00</td>
-                                </tr>
-                                <tr>
-                                    <td>29-April-2025</td>
-                                    <td>Paid salary April-2025 to Accounts Officer (ID 101)</td>
-                                    <td class="mono">58,190.00</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div id="assessment" class="tab-content" style="display: none;">
-                    <h3>Conduct New ACEM Assessment (Q4 2025)</h3>
-                    <div class="card form-card-cpm">
-                        <div class="card-body">
-                            <form onsubmit="submitAssessment(event)">
-                                <div class="form-grid">
-                                    <div class="form-group-cpm">
-                                        <label for="assessor">Assessor Name</label>
-                                        <input type="text" id="assessor" required value="CEO Office">
-                                    </div>
-                                    <div class="form-group-cpm">
-                                        <label for="date">Assessment Date</label>
-                                        <input type="date" id="date" required value="2025-11-20">
-                                    </div>
-
-                                    <div class="form-group-cpm">
-                                        <label for="acem_score">New ACEM Score (%)</label>
-                                        <input type="number" id="acem_score" min="0" max="100" step="0.1" required>
-                                    </div>
-                                    <div class="form-group-cpm">
-                                        <label for="glsm_level">New GLSM Strategy Level</label>
-                                        <select id="glsm_level">
-                                            <option value="S1">S1 (Telling)</option>
-                                            <option value="S2">S2 (Selling)</option>
-                                            <option value="S3">S3 (Participating)</option>
-                                            <option value="S4">S4 (Delegating)</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group-cpm full-width">
-                                        <label>Key Performance Tags (Traits, Virtues, Aspects)</label>
-                                        <div class="checkbox-group">
-                                            <label><input type="checkbox" name="tags" value="honesty"> Honesty</label>
-                                            <label><input type="checkbox" name="tags" value="prudence"> Prudence</label>
-                                            <label><input type="checkbox" name="tags" value="industriousness"> Industriousness</label>
-                                            <label><input type="checkbox" name="tags" value="empathy"> Empathy</label>
-                                            <label><input type="checkbox" name="tags" value="volatility"> Volatility</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group-cpm full-width">
-                                        <label for="summary">Review Summary & Recommendations</label>
-                                        <textarea id="summary" placeholder="Enter key observations, strengths, and development goals..."></textarea>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-lg mt-4">Save & Calculate Dignity Wage</button>
-                                <div id="success-message" class="success-message">Assessment submitted successfully!</div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                                        </div> 
+            <div class="bureau-card b-provision">
+                <h3>Bureau of Provision (Finance)</h3>
+                <span class="winchester" style="background:#e8f5e9; color:#1b5e20; border-color:#27ae60;">Winchester: Mint/Olive</span>
+                <span class="anime-doctrine">Doctrine: Fullmetal Alchemist</span>
+                <ul class="sub-func-list">
+                    <li><strong>Compensation:</strong> Pay Bands & Versatility.</li>
+                    <li><strong>Payroll Logic:</strong> Section 55 Compliance.</li>
+                    <li><strong>Asset Protection:</strong> The Tower.</li>
+                </ul>
             </div>
-        </main>
 
-    <footer class="site-footer">
-        <p>&copy; 2025 Ghuraba Al Manara | ACEM Score Doctrine v2.0</p>
-    </footer>
+            <div class="bureau-card b-presence">
+                <h3>Bureau of Presence & Gastronomy</h3>
+                <span class="winchester" style="background:#e0f2f1; color:#004d40; border-color:#00897b;">Winchester: Teal/Violet</span>
+                <span class="anime-doctrine">Doctrine: Toriko / Food Wars</span>
+                <ul class="sub-func-list">
+                    <li><strong>Gastronomical Specialist:</strong> Cathedral Role.</li>
+                    <li><strong>Brand:</strong> The "Imperial" Aesthetics.</li>
+                    <li><strong>Cross-Function:</strong> Menu Engineering.</li>
+                </ul>
+            </div>
+        </div>
+                <h2 class="section-header">5. The Iron Gate & Guardrails</h2>
+        
+        <div style="background:white; padding:30px; border-left:8px solid var(--crimson); margin-bottom:40px; border-radius:4px; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
+            <h3 style="margin-top:0; color:var(--crimson); font-size:1.5rem;">⚠️ The Anti-Donkey Protocol (Guardrails)</h3>
+            <p style="font-style:italic; margin-bottom:20px; color:#555;">"The example of those who were entrusted with the Torah and then did not take it on is like that of a donkey who carries volumes of books..." (62:5)</p>
+            
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:30px;">
+                <div>
+                    <strong style="color:var(--navy); font-size:1.1rem;">1. Sourcing & Filtering</strong>
+                    <p><strong>Target:</strong> U-Lab Graduates (Character Priority).</p>
+                    <p><strong>The Trap:</strong> High CGPA (3.9+) from NSU/BRAC is a "Red Flag" until proven otherwise. We value <strong>Amal (Action)</strong> over Ilm (Knowledge).</p>
+                </div>
+                <div>
+                    <strong style="color:var(--navy); font-size:1.1rem;">2. Documentation & Conduct</strong>
+                    <p><strong>Format:</strong> PDF Mandatory. Must include Course Outline.</p>
+                    <p><strong>Behavior:</strong> Zero Tolerance for oversharing intimate details. Professional Distance is law.</p>
+                </div>
+                <div style="grid-column: span 2; border-top:1px solid #eee; padding-top:10px;">
+                    <strong style="color:var(--navy); font-size:1.1rem;">3. The Shokugeki (Battle)</strong>
+                    <p>No title (Professor/Expert) is accepted without passing the <strong>Live Technical Battle</strong>. If they cannot fix a broken process in real-time, they are rejected.</p>
+                </div>
+            </div>
+        </div>
+                <h2 class="section-header">6. The Talking Function (Lifecycle Chain)</h2>
+        <div class="lifecycle-row">
+            <div class="cycle-step"><span class="cycle-num">1</span>Recruit<br><small>Harmony</small></div>
+            <div class="cycle-step"><span class="cycle-num">2</span>Exam (Written)<br><small>Efficiency</small></div>
+            <div class="cycle-step"><span class="cycle-num">3</span>Exam (Verbal)<br><small>Presence</small></div>
+            <div class="cycle-step"><span class="cycle-num">4</span>Training<br><small>Royal Tutor</small></div>
+            <div class="cycle-step"><span class="cycle-num">5</span>Omni-View<br><small>360 / BARS</small></div>
+            <div class="cycle-step"><span class="cycle-num">6</span>Pay<br><small>Provision</small></div>
+        </div>
+
+        <h2 class="section-header">7. Intellectual Property Vault</h2>
+        <div class="grid-box">
+            <div class="bureau-card" style="border-top:none;">
+                <img src="acem.png" style="width:100%; cursor:pointer;" onclick="openModal('acem.png')" alt="ACEM">
+                <p align="center"><strong>ACEM Model</strong></p>
+            </div>
+            <div class="bureau-card" style="border-top:none;">
+                <img src="mh-alo-chaya-corporate-culture.jpg" style="width:100%; cursor:pointer;" onclick="openModal('mh-alo-chaya-corporate-culture.jpg')" alt="GLSM">
+                <p align="center"><strong>Corporate Culture</strong></p>
+            </div>
+            <div class="bureau-card" style="border-top:none;">
+                <img src="the-ps-of-mh-alo-chaya.png" style="width:100%; cursor:pointer;" onclick="openModal('the-ps-of-mh-alo-chaya.png')" alt="ABSC">
+                <p align="center"><strong>ABSC Scorecard</strong></p>
+            </div>
+        </div>
+                <div class="calculator-box" id="calculator">
+            <h3 style="font-family:'Playfair Display'; font-size:2rem; margin-bottom:10px;">The Gate of Truth (Equivalent Exchange)</h3>
+            <p style="margin-bottom:30px;">Input the raw data (Sacrifice) to transmute the Objective Truth (Score).</p>
+            
+            <div class="input-row">
+                <div class="input-group">
+                    <label>1. Personality (P)</label>
+                    <input type="number" id="inputP" placeholder="0-100" value="50">
+                </div>
+                <div class="input-group">
+                    <label>2. Skill (S)</label>
+                    <input type="number" id="inputS" placeholder="0-100" value="50">
+                </div>
+                <div class="input-group">
+                    <label>3. Environment (E)</label>
+                    <input type="number" id="inputE" placeholder="0-100" value="50">
+                </div>
+                <div class="input-group">
+                    <label>4. Performance (PERF)</label>
+                    <input type="number" id="inputPERF" placeholder="0-100" value="50">
+                </div>
+            </div>
+            
+            <button class="btn-calc" onclick="calculateACEM()">REVEAL TRUTH</button>
+            
+            <div class="result-box">
+                <h1 id="acemResult" style="color:var(--teal); margin:0; font-size:4rem;">---</h1>
+                <small id="serverMsg" style="color:#888; font-weight:bold; letter-spacing:1px;">WAITING FOR ALCHEMY...</small>
+            </div>
+        </div>
+    </div>
+        <div style="max-width:1200px; margin:60px auto; padding:20px; text-align:center;">
+        <h3 class="section-header" style="border:none; margin:0 0 30px 0;">Live Command View</h3>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:30px;">
+            <div>
+                <video width="100%" controls style="border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,0.15);">
+                    <source src="night-view.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p style="font-weight:bold; color:var(--navy); margin-top:10px;">Night Perimeter Status</p>
+            </div>
+            <div>
+                <video width="100%" controls style="border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,0.15);">
+                    <source src="family-suite.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p style="font-weight:bold; color:var(--navy); margin-top:10px;">Suite Readiness Check</p>
+            </div>
+        </div>
+        </div>
+            <div id="imageModal" class="modal">
+        <span class="close-btn">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
 
     <script>
-        // --- Essential JavaScript for Tab Functionality ---
-        function openTab(evt, tabName) {
-            var i, tabcontent, tablinks;
-            
-            // Get all elements with class="tab-content" and hide them
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-
-            // Get all elements with class="tab-bar button" and remove the active class
-            tablinks = document.querySelector('.tab-bar').getElementsByTagName('button');
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-
-            // Show the current tab, and add an "active" class to the button that opened the tab
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
+        // Modal Logic
+        var modal = document.getElementById("imageModal");
+        var modalImg = document.getElementById("modalImage");
+        var span = document.getElementsByClassName("close-btn")[0];
+        
+        function openModal(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
         }
+        
+        span.onclick = function() { modal.style.display = "none"; }
+        window.onclick = function(event) { if (event.target == modal) modal.style.display = "none"; }
 
-        // Initialize: Open the first tab by default on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('vitals').style.display = "block";
-            // The first button in the HTML (Part 6) should already have the 'active' class
-        });
-
-        // --- JavaScript for Employee Selection (Placeholder) ---
-        function selectEmployee(employeeId) {
-            // Placeholder: In a real app, this would fetch data for the selected employee ID
-            // and dynamically update the content in the right-panel (Parts 5, 7, 8, 9).
-            console.log("Selected Employee ID:", employeeId);
-
-            // Update active state in the left panel
-            document.querySelectorAll('.property-list-item button').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.currentTarget.classList.add('active');
-        }
-
-        // --- JavaScript for Form Submission (Placeholder) ---
-        function submitAssessment(event) {
-            event.preventDefault(); 
-            // In a real application, submit data to a server here.
+        // Calculator Logic
+        async function calculateACEM() {
+            const p = document.getElementById('inputP').value;
+            const s = document.getElementById('inputS').value;
+            const e = document.getElementById('inputE').value;
+            const perf = document.getElementById('inputPERF').value;
+            const data = { personality: p, skill: s, environment: e, performance: perf };
             
-            // Display success message
-            const successMessage = document.getElementById('success-message');
-            successMessage.classList.add('show');
+            document.getElementById('serverMsg').innerText = "TRANSMUTING DATA...";
             
-            // Hide message after a few seconds
-            setTimeout(() => {
-                successMessage.classList.remove('show');
-            }, 3000); 
-
-            // Clear the form fields if needed: event.target.reset();
+            try {
+                const response = await fetch('http://127.0.0.1:5000/calculate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                if (!response.ok) throw new Error("Connection Failed");
+                const result = await response.json();
+                document.getElementById('acemResult').innerText = result.acem_score;
+                document.getElementById('serverMsg').innerText = "EXCHANGE COMPLETE";
+            } catch (error) {
+                document.getElementById('acemResult').innerText = "ERR";
+                document.getElementById('serverMsg').innerText = "LAUNCH `python app.py`";
+                alert("Alchemy Failed: Launch Python Engine");
+            }
         }
     </script>
-
+    
+    <footer style="background:var(--navy); color:var(--white); padding:60px 20px; text-align:center; margin-top:80px;">
+        <h3 style="font-family:'Playfair Display'; margin:0 0 20px 0;">MH Alo Chaya Limited</h3>
+        <p style="font-size:0.9rem; opacity:0.8; margin-bottom:5px;">Imperial Human Capital Doctrine • 2025</p>
+        <p style="font-size:0.9rem; opacity:0.8; font-weight:bold; color:var(--teal);">Section 55 Compliant • Digital Mandate Active • Winterfell Sanctuary Protected</p>
+    </footer>
 </body>
 </html>
-                                    
