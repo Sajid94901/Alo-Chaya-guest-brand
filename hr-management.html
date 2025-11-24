@@ -494,95 +494,155 @@ body { font-family: Arial, sans-serif; background-color: #f0f4f8; color: #1a1a1a
   </div>
 </section>
 
-<!-- Part 10 - Accordion / Toggle JS -->
+<!-- Part 10 - Unified Bureau-HR Integration Module -->
+<section id="bureau-hr-integration">
+
+  <!-- Bureau Tabs -->
+  <nav class="tab-bar">
+    <button class="tab-btn active" data-target="b-harmony">Harmony Bureau</button>
+    <button class="tab-btn" data-target="b-efficiency">Efficiency Bureau</button>
+    <button class="tab-btn" data-target="b-provision">Provision Bureau</button>
+    <button class="tab-btn" data-target="b-presence">Presence Bureau</button>
+  </nav>
+
+  <!-- Harmony Bureau -->
+  <div class="process-panel" id="b-harmony" style="display:block;">
+    <div class="card">
+      <h3>Bureau of Harmony (HR)</h3>
+      <p class="small">
+        • Recruitment: Iron Gate filter, character-first.<br>
+        • Lifecycle Gatekeeping: ACEM scoring + document verification.<br>
+        • HR Exams: behavioral, moral, cultural alignment.<br>
+        • Placement: assigns trainees to correct bureau based on ACEM.<br>
+        • Oversight: Weekly 360s for all bureaus.
+      </p>
+
+      <!-- Starfish -->
+      <div class="starfish-panel">
+        <div class="starfish-header">Starfish Actions</div>
+        <div class="starfish-content" style="display:none;"></div>
+        <div class="starfish-btns">
+          <button class="starfish-action-btn" data-type="start" data-text="Start doing weekly ACEM review.">Start Doing</button>
+          <button class="starfish-action-btn" data-type="stop" data-text="Stop isolated HR-only tasks.">Stop Doing</button>
+          <button class="starfish-action-btn" data-type="continue" data-text="Continue ACEM placement & evaluation.">Continue Doing</button>
+          <button class="starfish-action-btn" data-type="more" data-text="Do more cross-bureau rotational training.">Do More</button>
+          <button class="starfish-action-btn" data-type="less" data-text="Do less decorative-only HR reporting.">Do Less</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Efficiency Bureau -->
+  <div class="process-panel" id="b-efficiency" style="display:none;">
+    <div class="card">
+      <h3>Bureau of Efficiency (Ops)</h3>
+      <p class="small">
+        • Technical Exams (Ops Exam Stage of HR Lifecycle).<br>
+        • SOP Enforcement: Daily checks → weekly reports to HR.<br>
+        • Skill Certification: Required before Rank 4 promotion.<br>
+        • Performance Input: Sends efficiency scores to HR for appraisal.
+      </p>
+
+      <div class="starfish-panel">
+        <div class="starfish-header">Starfish Actions</div>
+        <div class="starfish-content" style="display:none;"></div>
+        <div class="starfish-btns">
+          <button class="starfish-action-btn" data-type="start" data-text="Start cross-bureau shadow rotation.">Start Doing</button>
+          <button class="starfish-action-btn" data-type="stop" data-text="Stop isolated checklist reviews.">Stop Doing</button>
+          <button class="starfish-action-btn" data-type="continue" data-text="Continue operational performance reporting.">Continue Doing</button>
+          <button class="starfish-action-btn" data-type="more" data-text="Do more situational ops simulations.">Do More</button>
+          <button class="starfish-action-btn" data-type="less" data-text="Do less repetitive SOP checks.">Do Less</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Provision Bureau -->
+  <div class="process-panel" id="b-provision" style="display:none;">
+    <div class="card">
+      <h3>Bureau of Provision (Finance)</h3>
+      <p class="small">
+        • Compliance Screening: Verifies documents during recruitment.<br>
+        • Payroll Integration: Inserts pay band after HR appraisal.<br>
+        • Digital Mandate: Rejects cash; enforces Section 55.<br>
+        • Risk Input: Sends financial discipline data to HR appraisal.
+      </p>
+
+      <div class="starfish-panel">
+        <div class="starfish-header">Starfish Actions</div>
+        <div class="starfish-content" style="display:none;"></div>
+        <div class="starfish-btns">
+          <button class="starfish-action-btn" data-type="start" data-text="Start enforcing digital salary mandate.">Start Doing</button>
+          <button class="starfish-action-btn" data-type="stop" data-text="Stop manual cash handling.">Stop Doing</button>
+          <button class="starfish-action-btn" data-type="continue" data-text="Continue sending risk reports to HR.">Continue Doing</button>
+          <button class="starfish-action-btn" data-type="more" data-text="Do more compliance simulations.">Do More</button>
+          <button class="starfish-action-btn" data-type="less" data-text="Do less unverified transactions.">Do Less</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Presence Bureau -->
+  <div class="process-panel" id="b-presence" style="display:none;">
+    <div class="card">
+      <h3>Bureau of Presence (Brand / Gastronomy)</h3>
+      <p class="small">
+        • Presentation Exam: Final verbal exam in HR lifecycle.<br>
+        • Guest Communication Protocol: Behavior standards.<br>
+        • Culinary-Gastronomy Oversight: Evaluates kitchen trainees.<br>
+        • PR Discipline: Sends conduct data to HR appraisal.
+      </p>
+
+      <div class="starfish-panel">
+        <div class="starfish-header">Starfish Actions</div>
+        <div class="starfish-content" style="display:none;"></div>
+        <div class="starfish-btns">
+          <button class="starfish-action-btn" data-type="start" data-text="Start evaluating guest communication.">Start Doing</button>
+          <button class="starfish-action-btn" data-type="stop" data-text="Stop decorative-only PR activities.">Stop Doing</button>
+          <button class="starfish-action-btn" data-type="continue" data-text="Continue culinary oversight routines.">Continue Doing</button>
+          <button class="starfish-action-btn" data-type="more" data-text="Do more inter-bureau PR drills.">Do More</button>
+          <button class="starfish-action-btn" data-type="less" data-text="Do less isolated branding work.">Do Less</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- JS Integration -->
 <script>
-document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const parent = btn.closest('.bureau-section');
-    parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    parent.querySelectorAll('.process-panel').forEach(panel => panel.style.display = 'none');
-    btn.classList.add('active');
-    parent.querySelector(`#${btn.dataset.target}`).style.display = 'block';
-  });
-});
-</script>// === MH Alo Chaya Exclusive Accordion + Starfish JS ===
 document.addEventListener('DOMContentLoaded', function () {
-  
   // --- Tab Switching ---
-  const tabBars = document.querySelectorAll('.tab-bar');
-  tabBars.forEach(bar => {
-    const buttons = bar.querySelectorAll('.tab-btn');
-    buttons.forEach(btn => {
-      btn.addEventListener('click', function() {
-        // deactivate all buttons
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        // hide all panels
-        const panels = bar.parentElement.querySelectorAll('.process-panel');
-        panels.forEach(p => p.style.display = 'none');
-
-        // show target panel
-        const targetId = btn.getAttribute('data-target');
-        const targetPanel = document.getElementById(targetId);
-        if(targetPanel) targetPanel.style.display = 'block';
-      });
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const parent = btn.closest('#bureau-hr-integration');
+      parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      parent.querySelectorAll('.process-panel').forEach(p => p.style.display='none');
+      btn.classList.add('active');
+      const target = btn.getAttribute('data-target');
+      const panel = document.getElementById(target);
+      if(panel) panel.style.display='block';
     });
   });
 
-  // --- Exclusive Accordion ---
-  const accordions = document.querySelectorAll('.accordion-header');
-  accordions.forEach(header => {
-    header.addEventListener('click', function() {
-      const parentSection = header.closest('.bureau-section');
-      const allPanels = parentSection.querySelectorAll('.accordion-panel');
-
-      allPanels.forEach(panel => {
-        if(panel !== header.nextElementSibling) panel.style.display = 'none';
-      });
-
-      const panel = header.nextElementSibling;
-      panel.style.display = (panel.style.display === 'block') ? 'none' : 'block';
-    });
-  });
-
-  // --- Nested Starfish Blocks ---
-  const starfishHeaders = document.querySelectorAll('.starfish-header');
-  starfishHeaders.forEach(h => {
+  // --- Exclusive Accordion for Starfish ---
+  document.querySelectorAll('.starfish-header').forEach(h => {
     h.addEventListener('click', function() {
       const panel = h.nextElementSibling;
-      panel.style.display = (panel.style.display === 'block') ? 'none' : 'block';
+      panel.style.display = (panel.style.display==='block') ? 'none' : 'block';
     });
   });
 
-  // Optional: Starfish action buttons inside each panel
-  const starfishBtns = document.querySelectorAll('.starfish-action-btn');
-  starfishBtns.forEach(btn => {
+  // --- Starfish action buttons ---
+  document.querySelectorAll('.starfish-action-btn').forEach(btn => {
     btn.addEventListener('click', function() {
-      const type = btn.getAttribute('data-type'); // do-more, do-less, start, stop, continue
       const content = btn.closest('.starfish-panel').querySelector('.starfish-content');
-      // Toggle active class
-      const siblings = btn.parentElement.querySelectorAll('.starfish-action-btn');
-      siblings.forEach(s => s.classList.remove('active'));
+      btn.parentElement.querySelectorAll('.starfish-action-btn').forEach(s => s.classList.remove('active'));
       btn.classList.add('active');
-      // Update content dynamically
       content.textContent = btn.getAttribute('data-text');
     });
   });
-
-  // --- Inter-bureau reference hinting ---
-  const crossRefBtns = document.querySelectorAll('.cross-bureau-btn');
-  crossRefBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-      const targetId = btn.getAttribute('data-target');
-      const targetPanel = document.getElementById(targetId);
-      if(targetPanel) {
-        targetPanel.style.display = 'block';
-        targetPanel.scrollIntoView({behavior:'smooth'});
-      }
-    });
-  });
-
-});</script>
+});
+</script>
 </body>
 </html>
