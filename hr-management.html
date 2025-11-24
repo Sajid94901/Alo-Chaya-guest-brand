@@ -110,7 +110,7 @@
     </style>
 </head>
 <body>
-            <header class="hero">
+               <header class="hero">
         <div class="container">
             <h1>MH Alo Chaya Limited</h1>
             <div class="subtitle">Imperial Human Capital • Force Level: Strong Platoon (34)</div>
@@ -127,42 +127,26 @@
             <span class="nav-item" onclick="window.scrollTo(0, 6000)">Calculator</span>
         </nav>
 
-        <h2 class="section-header">1. Force Scaling Model (Military Logic)</h2>
+        <h2 class="section-header">1. Force Scaling Model (The 5-Year Evolution)</h2>
         <table class="imperial-table">
-            <thead><tr><th>Level</th><th>Designation</th><th>Count</th><th>Operational Status & Capabilities</th></tr></thead>
+            <thead><tr><th>Phase</th><th>Count</th><th>Designation</th><th>Operational Trigger & Capability</th></tr></thead>
             <tbody>
-                <tr><td>Level 1</td><td>Squad</td><td>22</td><td><strong>Survival Mode.</strong> Security, Core Rooms, Basic Finance.</td></tr>
-                <tr class="force-active"><td>Level 2</td><td>Strong Platoon</td><td>34</td><td><strong>Standard Ops.</strong> Full Compliance. <strong>Winterfell (Day Care) Active.</strong></td></tr>
-                <tr><td>Level 3</td><td>Full Platoon</td><td>52</td><td><strong>Growth Mode.</strong> Wellness Wing, Events, R&D Content.</td></tr>
-                <tr><td>Level 4</td><td>Company</td><td>82</td><td><strong>Empire Mode.</strong> 87.5 Bigha Project, Multi-shift Security, Transport Fleet.</td></tr>
-            </tbody>
-        </table>
-                <h2 class="section-header">2. Staffing Manifest (The 34 Breakdown)</h2>
-        <table class="imperial-table">
-            <thead><tr><th>Rank</th><th>Role</th><th>Count</th><th>Attire Code</th></tr></thead>
-            <tbody>
-                <tr><td>Rank 0</td><td>Chairman & CEO</td><td>1</td><td>Navy/Black Formal (Sherwani/Suit)</td></tr>
-                <tr><td>Rank 1</td><td>Group COO</td><td>1</td><td>Navy/Black Formal (Sherwani/Suit)</td></tr>
-                <tr><td>Rank 2</td><td>SBU President</td><td>1</td><td>Grey/Silver Suit</td></tr>
+                <tr style="opacity:0.7; background:#f4f4f4;"><td>Contingency</td><td>22</td><td>Survival Squad</td><td><strong>Emergency Only.</strong> Security + Core Rooms. (Cashflow Critical)</td></tr>
                 
-                <tr><td>Rank 3</td><td>Earl (HR & Finance)</td><td>1</td><td>Grey/Silver Suit</td></tr>
-                <tr><td>Rank 3</td><td>Earl (Operations)</td><td>1</td><td>Grey/Silver Suit</td></tr>
-
-                <tr><td>Rank 4</td><td>Baronet (IT & Systems)</td><td>1</td><td>Teal Uniform + Badge</td></tr>
-                <tr><td>Rank 4</td><td>Baronet (Supply Chain)</td><td>1</td><td>Teal Uniform + Badge</td></tr>
-                <tr><td>Rank 4</td><td>Baronet (Head Chef)</td><td>1</td><td>Premium Chef Whites</td></tr>
-                <tr><td>Rank 4</td><td>Baronet (Engineering)</td><td>1</td><td>Teal Uniform + Badge</td></tr>
-
-                <tr><td>Rank 5</td><td>Senior Knights (Specialists)</td><td>5</td><td>Standard Uniform</td></tr>
-
-                <tr><td>Rank 5</td><td>Cadets (Versatility)</td><td>5</td><td>Light Blue (Trainee)</td></tr>
-                <tr><td>Rank 5</td><td>Cadets (Specialist)</td><td>5</td><td>Standard Uniform</td></tr>
-                <tr><td>Rank 5</td><td>Support (Security)</td><td>6</td><td>Guard Uniform (Black/Grey)</td></tr>
-                <tr><td>Rank 5</td><td>Support (Housekeeping)</td><td>4</td><td>Utility Uniform</td></tr>
-
-                <tr class="total-row"><td colspan="2">TOTAL IMPERIAL FORCE</td><td>34</td><td>FULL DEPLOYMENT</td></tr>
+                <tr class="force-active">
+                    <td><strong>Year 1</strong></td>
+                    <td><strong>34</strong></td>
+                    <td><strong>Strong Platoon</strong></td>
+                    <td><strong>Current Standard.</strong> Full Compliance. Winterfell Day Care Active. Versatility Rotation.</td>
+                </tr>
+                
+                <tr><td>Year 2</td><td>48</td><td>Reinforced Platoon</td><td><strong>Growth Mode.</strong> Wellness Wing Active. Event Unit Deployed.</td></tr>
+                <tr><td>Year 3</td><td>57</td><td>Task Force</td><td><strong>Expansion Mode.</strong> Full Occupancy Staffing. R&D Content Unit.</td></tr>
+                <tr><td>Year 4</td><td>67</td><td>Battalion (-)</td><td><strong>High-Tempo Mode.</strong> 3-Shift Security Rotation. Dedicated Transport Fleet.</td></tr>
+                <tr><td>Year 5</td><td>82</td><td>Company</td><td><strong>Empire Mode.</strong> 87.5 Bigha Project Full Integration. Agricultural Division.</td></tr>
             </tbody>
         </table>
+        
                 <h2 class="section-header">3. The Imperial Hierarchy & Inversion</h2>
         
         <div class="rank-card rank-0">
@@ -398,7 +382,14 @@
     </div>
 
     <script>
-        // Modal Logic
+            <div id="imageModal" class="modal">
+        <span class="close-btn">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption" style="text-align:center; color:white; padding:10px;"></div>
+    </div>
+
+    <script>
+        // 1. MODAL LOGIC (Visual Focus)
         var modal = document.getElementById("imageModal");
         var modalImg = document.getElementById("modalImage");
         var span = document.getElementsByClassName("close-btn")[0];
@@ -411,15 +402,53 @@
         span.onclick = function() { modal.style.display = "none"; }
         window.onclick = function(event) { if (event.target == modal) modal.style.display = "none"; }
 
-        // Calculator Logic
+        // 2. ACCORDION LOGIC (The "Sub-Tit" Toggle)
+        // This automatically turns Bureau Sub-functions into collapsible accordions
+        document.addEventListener("DOMContentLoaded", function() {
+            const bureauCards = document.querySelectorAll('.bureau-card');
+            
+            bureauCards.forEach(card => {
+                const subFuncList = card.querySelector('.sub-func-list');
+                const doctrine = card.querySelector('.anime-doctrine');
+                
+                if(subFuncList && doctrine) {
+                    // Create Toggle Button
+                    const toggleBtn = document.createElement('button');
+                    toggleBtn.className = 'accordion-btn';
+                    toggleBtn.innerHTML = '▼ View Sub-Functions';
+                    
+                    // Insert before the list
+                    subFuncList.parentNode.insertBefore(toggleBtn, subFuncList);
+                    
+                    // Hide list by default
+                    subFuncList.style.display = 'none';
+                    
+                    // Add Click Event
+                    toggleBtn.addEventListener('click', function() {
+                        this.classList.toggle("active");
+                        if (subFuncList.style.display === "block") {
+                            subFuncList.style.display = "none";
+                            this.innerHTML = '▼ View Sub-Functions';
+                        } else {
+                            subFuncList.style.display = "block";
+                            this.innerHTML = '▲ Hide Sub-Functions';
+                        }
+                    });
+                }
+            });
+        });
+
+        // 3. THE ALCHEMY (ACEM Calculator)
         async function calculateACEM() {
             const p = document.getElementById('inputP').value;
             const s = document.getElementById('inputS').value;
             const e = document.getElementById('inputE').value;
             const perf = document.getElementById('inputPERF').value;
+            
+            // The Sacrifice (Data Packet)
             const data = { personality: p, skill: s, environment: e, performance: perf };
             
-            document.getElementById('serverMsg').innerText = "TRANSMUTING DATA...";
+            document.getElementById('serverMsg').innerText = "TRANSMUTING...";
             
             try {
                 const response = await fetch('http://127.0.0.1:5000/calculate', {
@@ -427,22 +456,67 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
-                if (!response.ok) throw new Error("Connection Failed");
+
+                if (!response.ok) throw new Error("Connection Severed");
+
                 const result = await response.json();
+                
+                // The Truth (Result)
                 document.getElementById('acemResult').innerText = result.acem_score;
                 document.getElementById('serverMsg').innerText = "EXCHANGE COMPLETE";
+                
+                // Color Logic
+                if(result.acem_score < 50) {
+                    document.getElementById('acemResult').style.color = "var(--crimson)";
+                    document.getElementById('serverMsg').innerText = "WARNING: LOW SCORE";
+                } else {
+                    document.getElementById('acemResult').style.color = "var(--teal)";
+                }
+
             } catch (error) {
                 document.getElementById('acemResult').innerText = "ERR";
                 document.getElementById('serverMsg').innerText = "LAUNCH `python app.py`";
-                alert("Alchemy Failed: Launch Python Engine");
+                alert("Alchemy Failed: The Python Engine is not running.");
             }
         }
     </script>
-    
-    <footer style="background:var(--navy); color:var(--white); padding:60px 20px; text-align:center; margin-top:80px;">
-        <h3 style="font-family:'Playfair Display'; margin:0 0 20px 0;">MH Alo Chaya Limited</h3>
-        <p style="font-size:0.9rem; opacity:0.8; margin-bottom:5px;">Imperial Human Capital Doctrine • 2025</p>
-        <p style="font-size:0.9rem; opacity:0.8; font-weight:bold; color:var(--teal);">Section 55 Compliant • Digital Mandate Active • Winterfell Sanctuary Protected</p>
+
+            <style>
+        /* Extra Styles for JS Interactivity */
+        .accordion-btn {
+            background-color: #eee;
+            color: var(--navy);
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transition: 0.4s;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .accordion-btn.active, .accordion-btn:hover {
+            background-color: var(--navy);
+            color: white;
+        }
+        .sub-func-list {
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+
+    <footer style="text-align:center; padding:50px 20px; color:#7f8c8d; font-size:0.85rem; border-top:1px solid #eee; margin-top:60px; background:#fdfdfd;">
+        <h3 style="font-family:'Playfair Display'; color:var(--navy); margin:0 0 10px 0;">MH Alo Chaya Limited</h3>
+        <p style="margin-bottom:5px;">Imperial Human Capital Doctrine • 2025</p>
+        <p style="font-weight:bold; color:var(--teal);">
+            Section 55 Compliant • Digital Mandate Active • Winterfell Sanctuary Protected
+        </p>
     </footer>
 </body>
 </html>
