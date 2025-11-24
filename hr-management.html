@@ -3,288 +3,586 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MH Alo Chaya - Imperial Human Capital Doctrine</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<title>MH Alo Chaya Imperial Operational Charter</title>
 <style>
-:root {
-    --bg: #f4f6f7;
-    --card: #ffffff;
-    --muted: #7f8c8d;
-    --accent: #2c3e50;
-    --accent-2: #1abc9c;
-    --gold: #f1c40f;
-    --crimson: #c0392b;
-    --nav-active: #e8f6f3;
-}
-body { font-family: 'Inter', sans-serif; background-color: var(--bg); margin: 0; color: var(--accent); line-height: 1.5; }
-.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
-.card { background: var(--card); padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 20px; border-top: 4px solid var(--accent); }
-.btn { background: var(--accent); color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; }
-.btn:hover { background: #34495e; }
-.pill { display: inline-block; padding: 5px 15px; background: #eee; border-radius: 20px; margin-right: 5px; cursor: pointer; font-size: 0.9rem; transition: 0.2s; }
-.pill.active { background: var(--accent); color: white; }
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-@media (max-width: 720px) { .grid-2 { grid-template-columns: 1fr; } }
-h1, h2, h3 { font-family: 'Playfair Display', serif; margin-top: 0; }
-input { padding: 8px; border: 1px solid #ddd; border-radius: 4px; width: 100%; box-sizing: border-box; }
-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-th, td { padding: 10px; border-bottom: 1px solid #eee; text-align: left; font-size: 0.9rem; }
-th { background: var(--accent); color: white; }
-.modal-root { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); align-items: center; justify-content: center; z-index: 1000; }
-.modal-box { background: white; padding: 20px; max-width: 600px; width: 90%; border-radius: 8px; position: relative; max-height: 90vh; overflow-y: auto; }
-.close-modal { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; color: #999; }
+body { font-family: Arial, sans-serif; background-color: #f0f4f8; color: #1a1a1a; margin: 0; padding: 0; }
+.container { max-width: 1200px; margin: auto; padding: 20px; }
+.accordion { background-color: #004080; color: #fff; cursor: pointer; padding: 15px; width: 100%; border: none; text-align: left; outline: none; font-size: 16px; transition: 0.3s; border-radius: 5px; margin-top: 5px; }
+.accordion.active, .accordion:hover { background-color: #0059b3; }
+.panel { padding: 0 15px; display: none; background-color: #e6f0ff; overflow: hidden; border-radius: 5px; margin-bottom: 10px; }
+.subfunction { margin-left: 20px; padding: 5px 0; }
+.task { margin-left: 40px; font-size: 14px; }
+.rank-header { font-weight: bold; color: #003366; margin-top: 10px; }
 </style>
 </head>
 <body>
 <div class="container">
-    <div class="card" style="text-align: center; border-top: 6px solid var(--gold);">
-    <h1>MH Alo Chaya Limited</h1>
-    <p style="font-size: 1.1rem; color: var(--muted);">Imperial Human Capital Doctrine • Bureau of Harmony • 2025</p>
-    <p style="font-size: 0.9rem; font-style: italic;">"Execution is governed by the Producer archetype and the Dignified Delegation Mandate."</p>
-    </div>
-    <div class="card">
-    <h3>ACEM Score Calculation</h3>
-    <div class="grid-2" style="margin-bottom: 15px;">
-        <div><label>Personality (P)</label><input type="number" id="p_score" value="50"></div>
-        <div><label>Skill (S)</label><input type="number" id="s_score" value="50"></div>
-        <div><label>Environment (E)</label><input type="number" id="e_score" value="50"></div>
-        <div><label>Performance (PERF)</label><input type="number" id="perf_score" value="50"></div>
-    </div>
-    <button class="btn" onclick="calculateACEM()">Calculate Score</button>
-    <div id="acem_output" style="margin-top: 15px; font-weight: bold; color: var(--accent-2);"></div>
-    </div>
-    <div class="card">
-    <h3>Force Scaling Models</h3>
-    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-        <button class="btn" style="background: var(--muted);" onclick="demoStaffModel(22)">Squad (22)</button>
-        <button class="btn" style="background: var(--accent-2);" onclick="demoStaffModel(34)">Strong Platoon (34)</button>
-        <button class="btn" style="background: var(--muted);" onclick="demoStaffModel(52)">Full Platoon (52)</button>
-        <button class="btn" style="background: var(--muted);" onclick="demoStaffModel(82)">Company (82)</button>
-    </div>
-    </div>
-    <div class="card">
-    <h3>Bureau Command</h3>
-    <div id="bureauNav" style="margin-bottom: 15px;">
-        <span class="pill" data-bureau="harmony" onclick="selectBureau(this)">Harmony (HR)</span>
-        <span class="pill" data-bureau="efficiency" onclick="selectBureau(this)">Efficiency (Ops)</span>
-        <span class="pill" data-bureau="provision" onclick="selectBureau(this)">Provision (Fin)</span>
-        <span class="pill" data-bureau="presence" onclick="selectBureau(this)">Presence (Brand)</span>
-    </div>
-    <div id="bureauArea" style="padding: 10px; background: #f9f9f9; border-radius: 4px; border: 1px dashed #ccc;">
-        <p style="color: #999; text-align: center;">Select a Bureau to view mandate.</p>
-    </div>
-    </div>
-    <div class="card">
-    <h3>HR Lifecycle (Talking Function)</h3>
-    <div style="display: flex; gap: 10px; margin-bottom: 15px; overflow-x: auto; white-space: nowrap;">
-        <button class="pill" onclick="showHRStep('recruit')">1. Recruit</button>
-        <button class="pill" onclick="showHRStep('exam')">2. Exam</button>
-        <button class="pill" onclick="showHRStep('training')">3. Training</button>
-        <button class="pill" onclick="showHRStep('appraisal')">4. Appraisal</button>
-        <button class="pill" onclick="showHRStep('comp')">5. Compensation</button>
-    </div>
-    <div id="hrDetail" style="padding: 15px; background: #fff; border: 1px solid #eee; border-radius: 4px;"></div>
-    </div>
-    <div class="card">
-    <h3>Imperial Hierarchy</h3>
-    <table>
-        <thead><tr><th>Rank</th><th>Noble Title</th><th>Military Title</th><th>Corporate Role</th></tr></thead>
-        <tbody>
-            <tr><td>Rank 0</td><td>Emperor</td><td>Field Marshal</td><td>Chairman & CEO</td></tr>
-            <tr><td>Rank 1</td><td>Archduke</td><td>General</td><td>Group COO</td></tr>
-            <tr><td>Rank 2</td><td>Marquess</td><td>Commander</td><td>SBU President</td></tr>
-            <tr><td>Rank 3</td><td>Earl</td><td>Colonel</td><td>Bureau Chief</td></tr>
-            <tr><td>Rank 4</td><td>Baronet</td><td>Captain</td><td>Specialist</td></tr>
-            <tr><td>Rank 5</td><td>Commoner</td><td>Cadet</td><td>Trainee</td></tr>
-        </tbody>
-    </table>
-    </div>
-    <div class="card">
-    <h3>Compensation Grid (Pay Bands)</h3>
-    <table>
-        <thead><tr><th>Rank</th><th>Rate (BDT)</th><th>Notes</th></tr></thead>
-        <tbody>
-            <tr><td>Rank 1 (Archduke)</td><td>25,000</td><td>Per sub-function</td></tr>
-            <tr><td>Rank 2 (Marquess)</td><td>15,000</td><td>Per sub-function</td></tr>
-            <tr><td>Rank 3 (Earl)</td><td>10,000</td><td>Per sub-function</td></tr>
-            <tr><td>Rank 4 (Baronet)</td><td>7,500</td><td>Per sub-function</td></tr>
-            <tr><td>Rank 5 (Trainee-V)</td><td>6,000</td><td>Versatility Track</td></tr>
-            <tr><td>Rank 5 (Trainee-S)</td><td>4,000</td><td>Specialist Track</td></tr>
-        </tbody>
-    </table>
-    </div>
-    <div class="card" style="border-left: 5px solid var(--crimson);">
-    <h3 style="color: var(--crimson);">Operational Guardrails</h3>
-    <ul>
-        <li><strong>Recruitment:</strong> Priority to U-Lab graduates. Character > CGPA.</li>
-        <li><strong>Finance:</strong> No cash for salary/suppliers. Digital Mandate active.</li>
-        <li><strong>Conduct:</strong> "Red Flag" rule for social oversharing/intimacy.</li>
-        <li><strong>Testing:</strong> "Shokugeki" practical exam mandatory for Rank 4+.</li>
-    </ul>
-    </div>
-    <div class="card">
-    <h3>Performance Models</h3>
-    <div class="grid-2">
-        <div>
-            <h4>Starfish Evaluation</h4>
-            <p>Stop • Start • Continue • Do More • Do Less</p>
-        </div>
-        <div>
-            <h4>OODA Loop</h4>
-            <p>Observe → Orient → Decide → Act</p>
-            <small>Continuous real-time judgment evaluation.</small>
-        </div>
-    </div>
-    </div>
-    <div class="card">
-    <h3>Gastronomy & Culinary Arts</h3>
-    <div class="grid-2" style="grid-template-columns: repeat(3, 1fr);">
-        <img src="alo-chaya-project-lead-golden-basa-fillets.jpg" style="width:100%; border-radius:4px; cursor:pointer;" onclick="openModal('alo-chaya-project-lead-golden-basa-fillets.jpg','Golden Basa Fillets')">
-        <img src="cafe.jpg" style="width:100%; border-radius:4px; cursor:pointer;" onclick="openModal('cafe.jpg','Resort Cafe')">
-        <img src="bilquis-royal-family-suite.jpg" style="width:100%; border-radius:4px; cursor:pointer;" onclick="openModal('bilquis-royal-family-suite.jpg','Royal Dining')">
-    </div>
-    </div>
-    <div class="card">
-    <h3>Wellness & Games Sanctuary</h3>
-    <ul>
-        <li><strong>Badminton:</strong> 44' x 20' court.</li>
-        <li><strong>Table Tennis:</strong> 9' x 5' table.</li>
-        <li><strong>Carrom:</strong> 29" x 29" board.</li>
-        <li><strong>Ludo/Chess:</strong> Strategic play zones.</li>
-    </ul>
-    </div>
-    <div class="card">
-    <h3>Presence & PR Controls</h3>
-    <div style="display: flex; gap: 10px;">
-        <button class="pill" onclick="openContentModal('PR Charter','Bureau of Presence manages social media. No unauthorized posts. Tone: Imperial & Welcoming.')">PR Charter</button>
-        <button class="pill" onclick="openContentModal('Crisis Flow','1. Silence. 2. Notify Bureau Chief. 3. Official Statement by Rank 1/2 only.')">Crisis Response</button>
-    </div>
-    </div>
-    <div class="card" style="background: #fffbe6; border-top: 4px solid var(--gold);">
-    <h3>IP Vault & Documentation</h3>
-    <p>All operational logic, ACEM scores, and Bureau mandates must be archived physically and digitally.</p>
-    <p><strong>Authority:</strong> Vendor's Agreement (Asset Transfer) & Part-7 Directives.</p>
-    </div>
-    <div class="card">
-    <h3>Governance Rhythm</h3>
-    <ul>
-        <li><strong>Weekly:</strong> Intra-Bureau 360 (Chief + Operators + Specialists).</li>
-        <li><strong>Monthly:</strong> Inter-Bureau 360 (All Chiefs + Archduke).</li>
-        <li><strong>Bi-Monthly:</strong> Resort Assembly (All Staff).</li>
-        <li><strong>Quarterly:</strong> Strategic Review (Chiefs + Rank 4 + Finance + HR + Archduke).</li>
-        <li><strong>Semi-Annual:</strong> Imperial Review (Emperor + Archduke + Senior Leadership).</li>
-    </ul>
-    </div>
-    <div class="card">
-    <h3>Implementation Checklist</h3>
-    <ul>
-        <li><input type="checkbox"> Lock CP module: Issue Anti-CP memo.</li>
-        <li><input type="checkbox"> Open dedicated bank accounts for ops.</li>
-        <li><input type="checkbox"> Pilot ACEM for 10 staff.</li>
-        <li><input type="checkbox"> Procure Bureau Coats & Winchester Shirts.</li>
-        <li><input type="checkbox"> Create Vendor's Agreement (Proprietorship to Ltd).</li>
-    </ul>
-    </div>
-    <div class="card">
-    <h3>Strategic Models</h3>
-    <div class="grid-2">
-        <img src="glsm.jpg" style="width:100%; cursor:pointer; border:1px solid #ccc;" onclick="openModal('glsm.jpg','GLSM Model')">
-        <img src="acem.png" style="width:100%; cursor:pointer; border:1px solid #ccc;" onclick="openModal('acem.png','ACEM Model')">
-    </div>
-    </div>
-    <div class="card">
-    <h3>Quick Tools</h3>
-    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-        <button class="btn" onclick="demoStaffModel(34)">Show 34</button>
-        <button class="btn" onclick="selectBureau(document.querySelector('[data-bureau=\'harmony\']'))">Open HR</button>
-        <button class="btn" onclick="selectBureau(document.querySelector('[data-bureau=\'presence\']'))">Open Presence</button>
-        <button class="btn" onclick="openContentModal('Imperial Charter','Publish Rank & Pay charter on official letterhead immediately.')">Charter</button>
-    </div>
-    <div id="miniLog" style="margin-top: 10px; font-family: monospace; font-size: 0.8rem; color: #aaa;"></div>
-    </div>
-    <div id="modalRoot" class="modal-root" role="dialog">
-    <div id="modalBox" class="modal-box">
-        <span class="close-modal" onclick="closeModal()">&times;</span>
-        <div id="modalContent"></div>
-    </div>
+<h1>MH Alo Chaya — Imperial Operational Charter</h1>
+<p>This document outlines the 6-rank hierarchy, bureau-specific HR lifecycles, versatility rotations, inter-bureau dependencies, and full operational doctrine for MH Alo Chaya.</p>
+
+<!-- Snippet 1: Executive Overview -->
+<button class="accordion">Supreme Rank: Chairman & Group CEO / MD (Emperor / Field Marshal)</button>
+<div class="panel">
+  <div class="rank-header">Role Overview</div>
+  <div class="subfunction">
+    Governance, capital allocation, succession planning, inter-SBU oversight.
+  </div>
+  <div class="subfunction">
+    Mintzberg: Figurehead, Entrepreneur, Negotiator.
+  </div>
+  <div class="subfunction">
+    Belbin: Coordinator, Shaper.
+  </div>
+  <div class="subfunction">
+    OCEAN: C3 Order, C5 Self-Discipline, O6 Values.
+  </div>
+  <div class="subfunction">
+    VIA Virtues: Wisdom, Justice.
+  </div>
+  <div class="subfunction">
+    Leadership style: S4 Delegating for Rank 1 Archdukes.
+  </div>
+  <div class="subfunction">
+    Versatility: Shadow functions in operational, culinary, and training oversight.
+  </div>
+  <div class="subfunction">
+    Inter-bureau integration: Harmony, Efficiency, Provision, Presence — all connected.
+  </div>
+  <div class="subfunction">
+    ACEM/GURABA: Full doctrinal scoring applied.
+  </div>
 </div>
 
+<button class="accordion">Rank 1: Group President & COO (Archduke / General)</button>
+<div class="panel">
+  <div class="rank-header">Role Overview</div>
+  <div class="subfunction">
+    Links Emperor's vision to SBUs; operational execution and strategic alignment.
+  </div>
+  <div class="subfunction">
+    Mintzberg: Resource Allocator, Disturbance Handler.
+  </div>
+  <div class="subfunction">
+    Belbin: Shaper, Coordinator.
+  </div>
+  <div class="subfunction">
+    OCEAN: Competence (C4), Gregariousness (E2).
+  </div>
+  <div class="subfunction">
+    VIA Virtues: Courage, Humanity.
+  </div>
+  <div class="subfunction">
+    Leadership style: S3 Participating for SBU Heads.
+  </div>
+  <div class="subfunction">
+    HR Lifecycle Integration:
+    <div class="task">Recruitment: Oversees bureau-specific recruitment approvals.</div>
+    <div class="task">Orientation: Ensures alignment with imperial virtues.</div>
+    <div class="task">Training: Monitors rotational versatility programs.</div>
+    <div class="task">Compensation: Approves sub-function pay adjustments.</div>
+    <div class="task">Promotion: Oversees 12-month KPI attainment and 360° reviews.</div>
+    <div class="task">Testing: Monitors written exams, situational tests, and STAR/STARFISH simulations.</div>
+    <div class="task">Feedback Loops: Enforces OODA loops across bureaus.</div>
+  </div>
+  <div class="subfunction">
+    Bureau Interaction:
+    <div class="task">Harmony: ACEM and recruitment validation.</div>
+    <div class="task">Efficiency: SOP alignment and operational flow.</div>
+    <div class="task">Provision: Finance integrity oversight.</div>
+    <div class="task">Presence: Brand and PR strategic mandates.</div>
+  </div>
+</div>
+<button class="accordion">Rank 2: SBU President / Executive Director (Marquess / Commander)</button>
+<div class="panel">
+  <div class="rank-header">Role Overview</div>
+  <div class="subfunction">Oversees SBU P&L, vendor ecosystems, and business development.</div>
+  <div class="subfunction">Mintzberg Roles: Entrepreneur, Negotiator.</div>
+  <div class="subfunction">Belbin Roles: Resource Investigator, Shaper.</div>
+  <div class="subfunction">OCEAN Facets: Deliberation (C6), Assertiveness (E3).</div>
+  <div class="subfunction">VIA Virtues: Justice, Temperance.</div>
+  <div class="subfunction">Leadership Style: S2 Selling/Coaching for D2 followers.</div>
+  <div class="subfunction">
+    HR Lifecycle Integration
+    <div class="task">Recruitment: Approves bureau-specific hiring plans, ensures virtue alignment, reviews ACEM/GURABA scoring results.</div>
+    <div class="task">Onboarding: Designs rotational multi-bureau orientation for new hires, assigns initial STAR/STARFISH exercises.</div>
+    <div class="task">Testing: Oversees written exams, situational scenarios, presentations, OODA loops per bureau.</div>
+    <div class="task">Training & Development: Coordinates multi-level training programs, cross-bureau rotations, shadow assignments.</div>
+    <div class="task">Promotion & Retesting: Ensures KPI attainment, 360° feedback integration, virtue alignment checks, multi-bureau competence verification.</div>
+    <div class="task">Compensation: Monitors sub-function pay rates, cross-charge calculations, bonuses for versatility.</div>
+  </div>
+  <div class="subfunction">
+    Bureau Interaction
+    <div class="task">Harmony: Oversees ACEM approvals, HR lifecycle adaptations, recruitment metrics.</div>
+    <div class="task">Efficiency: Monitors SOP compliance, room coordination rotations, operational readiness assessments.</div>
+    <div class="task">Provision: Approves budget allocations, treasury monitoring, vendor and payment audit reviews.</div>
+    <div class="task">Presence: Reviews marketing campaigns, guest experience KPIs, PR performance metrics.</div>
+  </div>
+</div>
+
+<button class="accordion">Rank 3: Bureau Chief (Earl / Colonel)</button>
+<div class="panel">
+  <div class="rank-header">Role Overview</div>
+  <div class="subfunction">Operational SBU head of function; enforces Part-7 compliance, signs sub-function certifications.</div>
+  <div class="subfunction">Mintzberg Roles: Disseminator, Monitor.</div>
+  <div class="subfunction">Belbin Roles: Implementer, Coordinator.</div>
+  <div class="subfunction">OCEAN Facets: Dutifulness (C2), Conscientiousness.</div>
+  <div class="subfunction">VIA Virtues: Prudence, Honesty.</div>
+  <div class="subfunction">Leadership Style: S1 Directing for D1/early D2 staff.</div>
+  <div class="subfunction">
+    HR Lifecycle Integration
+    <div class="task">Recruitment: Executes bureau-specific interviews, ensures ACEM/GURABA alignment.</div>
+    <div class="task">Onboarding: Assigns new hires to rotational versatility paths within the bureau.</div>
+    <div class="task">Training: Oversees sub-function technical training, shadowing, and cross-bureau mentorship.</div>
+    <div class="task">Testing: Conducts written, situational, presentation, STAR/STARFISH assessments.</div>
+    <div class="task">Promotion: Approves sub-function promotions, verifies KPI achievement, virtue alignment, and rotational competence.</div>
+    <div class="task">Compensation: Implements per-sub-function pay, ensures internal cross-charges, approves bonus incentives for multi-role execution.</div>
+  </div>
+  <div class="subfunction">
+    Bureau Interaction
+    <div class="task">Harmony: Facilitates HR lifecycle at operational level, monitors recruiting standards, onboarding flow, and training feedback.</div>
+    <div class="task">Efficiency: Oversees operational workflow, room coordinator rotations, and SOP compliance.</div>
+    <div class="task">Provision: Approves budget spend, procurement compliance, and audit evidence verification.</div>
+    <div class="task">Presence: Supports marketing, PR campaigns, and guest feedback integration; ensures alignment with ACEM virtues.</div>
+  </div>
+</div>
+
+<button class="accordion">Rank 4: Specialist / Senior Staff (Baronet / Captain)</button>
+<div class="panel">
+  <div class="rank-header">Role Overview</div>
+  <div class="subfunction">Deep functional experts who also assist cross-functionally in other bureaus.</div>
+  <div class="subfunction">Belbin Roles: Specialist, Completer-Finisher.</div>
+  <div class="subfunction">OCEAN Facets: Intellect (O5), Altruism (A3).</div>
+  <div class="subfunction">VIA Virtues: Wisdom, Love of Learning.</div>
+  <div class="subfunction">Leadership Style: S4 delegating for core tasks; S2-S3 coaching for juniors.</div>
+  <div class="subfunction">
+    HR Lifecycle Integration
+    <div class="task">Training: Mentors Trainee-Versatility and Trainee-Specialist; ensures rotational exposure across bureaus.</div>
+    <div class="task">Testing: Administers written, situational, presentations, and STAR/STARFISH loops for junior ranks.</div>
+    <div class="task">Rotation: Supports cross-bureau assignments, including Efficiency, Presence, and minor support for Provision and Harmony.</div>
+    <div class="task">Compensation & KPI Tracking: Supports Rank 3 and Rank 2 in sub-function certification and pay verification.</div>
+  </div>
+</div>
+
+<button class="accordion">Rank 5: Trainee — Versatility / Trainee — Specialist (Commoner / Cadet)</button>
+<div class="panel">
+  <div class="rank-header">Role Overview</div>
+  <div class="subfunction">Entry tier; Trainee-Versatility rotates across multiple sub-functions; Trainee-Specialist deep-trains in one craft.</div>
+  <div class="subfunction">VIA Virtues: Curiosity, Hope, Humility.</div>
+  <div class="subfunction">Leadership Style: S1 → S2 coaching; clear direction, high supervision.</div>
+  <div class="subfunction">
+    HR Lifecycle Integration
+    <div class="task">Recruitment: Assigned through bureau-specific hiring plan, virtue alignment enforced, ACEM/GURABA scored.</div>
+    <div class="task">Onboarding: Rotational orientation with Harmony, Efficiency, Provision, Presence; OODA loop applied.</div>
+    <div class="task">Training: Multi-bureau task rotations, shadowing Specialists, cross-training across bureaus, situational STAR/STARFISH exercises.</div>
+    <div class="task">Testing: Written exams, situational simulations, presentations, STAR/STARFISH cycles, 360° feedback from all bureaus.</div>
+    <div class="task">Promotion & Retesting: KPI attainment, multi-source feedback, virtue and versatility verification, cross-bureau competency check.</div>
+    <div class="task">Compensation: 6k/sub for Trainee-Versatility, 4k/sub for Trainee-Specialist; reflects multi-bureau capabilities and versatility.</div>
+  </div>
+</div>
+<!-- Part 4 - Provision Bureau (full D-R-A-S-C-I-O + ACEM anchors) -->
+<section id="provision-bureau" class="bureau-section">
+  <header class="bureau-header">Provision Bureau — Finance & Resource Allocation</header>
+
+  <nav class="tab-bar">
+    <button class="tab-btn active" data-target="p-budget">Budget & Forecast</button>
+    <button class="tab-btn" data-target="p-invoice">Invoice & Accounts</button>
+    <button class="tab-btn" data-target="p-proc">Procurement & Vendors</button>
+    <button class="tab-btn" data-target="p-innovation">Innovation & ROI</button>
+    <button class="tab-btn" data-target="p-compliance">Audit & Compliance</button>
+  </nav>
+
+  <div class="process-panel" id="p-budget" style="display:block;">
+    <h4>Budget & Forecast</h4>
+    <div class="grid grid-2">
+      <div class="card">
+        <p><strong>Daily</strong> — cash-flow check; treasury vs operations ledger; alert if variance > 0.5%.</p>
+        <p><strong>Weekly</strong> — rolling 4-week forecast; Responsible: Financial Analyst (D); Accountable: Bureau Chief Provision (A); Owner: Rank 2 Marquess (O).</p>
+        <p><strong>Quarterly</strong> — variance analysis; Rank 1 Archduke reviews; DMADOV gate for capital projects.</p>
+      </div>
+      <div class="card">
+        <p><strong>D-R-A-S-C-I-O mapping</strong></p>
+        <ul>
+          <li>Drive (D): Financial Analyst / Ops Lead</li>
+          <li>Responsible (R): Accounts Officer</li>
+          <li>Accountable (A): Bureau Chief Provision (Rank 3)</li>
+          <li>Supporting (S): Auditor, Payroll Officer</li>
+          <li>Consulted (C): Ops Head, HR Lead</li>
+          <li>Informed (I): Rank 1 & Board</li>
+          <li>Owner (O): Rank 2 Marquess</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <h5>ACEM & GURABA anchors (applied)</h5>
+      <ul>
+        <li>Capability: certified subfunction count → included in payroll formula.</li>
+        <li>Evolution: quarterly training budget tied to Learning & Growth ACEM node.</li>
+        <li>Model: pay formula = Σ(certified_subfunctions × rate_by_rank) + PrimePremium.</li>
+        <li>GURABA virtue check: Al-Amin compliance required for vendor acceptance.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="process-panel" id="p-invoice" style="display:none;">
+    <h4>Invoice & Accounts</h4>
+    <div class="card">
+      <p>Daily invoice validation against PO. Any non-bank payment flagged as non-compliant. Responsible: Accounts Officer (R). Accountable: Bureau Chief Provision (A).</p>
+      <p>Monthly reconciliation with auditors; decertification triggers: missing voucher, cash > threshold, Section 55 violation.</p>
+    </div>
+  </div>
+
+  <div class="process-panel" id="p-proc" style="display:none;">
+    <h4>Procurement & Vendor Alliances</h4>
+    <div class="card">
+      <p>Vendor scorecard: On-Time Delivery, Quality, Price Stability, Ethical Fit. Responsible: Procurement Lead (D). Accountable: Rank 2 (A). Owner: Archduke (O).</p>
+      <p>Quarterly vendor review; add 1 strategic vendor per quarter to reduce cost by 2–3% target.</p>
+    </div>
+  </div>
+
+  <div class="process-panel" id="p-innovation" style="display:none;">
+    <h4>Innovation & ROI</h4>
+    <div class="card">
+      <p>Weekly idea capture: 1 cost-saving or income initiative per team. Link to Presence for upsell experiments. Tie to ACEM Learning KPI.</p>
+    </div>
+  </div>
+
+  <div class="process-panel" id="p-compliance" style="display:none;">
+    <h4>Audit, Compliance & DMADOV</h4>
+    <div class="card">
+      <p>All capital commits require Rank 1 signatory + documented quorum. DMADOV alert triggers on bypass attempts. Audit log immutable; flagged entries require Bureau Chief remediation within 72 hours.</p>
+    </div>
+  </div>
+</section><!-- Part 5 - Efficiency Bureau (Rooms / F&B / Landscaping / Wellness) — granular rotations & STARFISH -->
+<section id="efficiency-bureau" class="bureau-section">
+  <header class="bureau-header">Efficiency Bureau — Operations & Floor Delivery</header>
+
+  <nav class="tab-bar">
+    <button class="tab-btn active" data-target="e-rooms">Rooms & Housekeeping</button>
+    <button class="tab-btn" data-target="e-fnb">Food & Beverage</button>
+    <button class="tab-btn" data-target="e-landscape">Landscaping & Grounds</button>
+    <button class="tab-btn" data-target="e-wellness">Wellness & Games</button>
+  </nav>
+
+  <div class="process-panel" id="e-rooms" style="display:block;">
+    <h4>Rooms / Housekeeping</h4>
+    <div class="card">
+      <p>Sub-function design: 3 attendants per room cluster (1 toilet specialist, 2 room specialists). Room Coordinator (Rank 4/Baronet) supervises up to 8 attendants. Rotation: 8-hour shifts, rotational cross-training every 2 weeks.</p>
+      <p>Testing sequence: written hygiene exam → situational clean-up test → STAR practical (guest scenario) → Shokugiki-style timed cook-service if F&B crossover needed.</p>
+    </div>
+
+    <div class="card">
+      <h5>Starfish Template (only visible when toggled per rank)</h5>
+      <ul>
+        <li>Stop: single-point handover without checklist</li>
+        <li>Start: cross-bureau feedback before shift change</li>
+        <li>Continue: hourly room quality walkthroughs</li>
+        <li>Do More: guest-facing training for coordinators</li>
+        <li>Do Less: unscheduled cleaning without supervisor notification</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <p>KPIs: Room score (guest feedback), time-to-service, error rate. Escalation: Rank 4 reports to Rank 3; repeated failure triggers STARFISH corrective program.</p>
+    </div>
+  </div>
+
+  <div class="process-panel" id="e-fnb" style="display:none;">
+    <h4>Food & Beverage</h4>
+    <div class="card">
+      <p>Kitchen staffing: 15 Line Chefs target at Full Ideal. Peak rotations require Rank 4+ specialists to rotate into prep and pass Shokugeki practical exams for Rank 4+ certification.</p>
+      <p>Training: hygiene written exam, cooking practical, service scenario (presentation + OODA loop practice), monthly taste panel (Presence + Rank 1 oversight).</p>
+    </div>
+  </div>
+
+  <div class="process-panel" id="e-landscape" style="display:none;">
+    <h4>Landscaping & Grounds</h4>
+    <div class="card">
+      <p>Daily: morning inspection, irrigation check, guest path safety. Weekly: seasonal planting schedule. Responsible: Landscape Lead (D). Accountable: Bureau Chief Efficiency (A).</p>
+    </div>
+  </div>
+
+  <div class="process-panel" id="e-wellness" style="display:none;">
+    <h4>Wellness & Games</h4>
+    <div class="card">
+      <p>Facilities: badminton court, table tennis, carrom, strategic play zones. Safety check every shift. Rotational staff support from Efficiency and Presence for events.</p>
+    </div>
+  </div>
+</section>
+<!-- Part 6 - Presence Bureau (Ghuraba, Invitation Strategy, 7Ps, Campaign & PR) -->
+<section id="presence-bureau" class="bureau-section">
+  <header class="bureau-header">Presence Bureau — Branding, PR & Gastronomy</header>
+
+  <nav class="tab-bar">
+    <button class="tab-btn active" data-target="pr-invite">Invitation Strategy</button>
+    <button class="tab-btn" data-target="pr-gastronomy">Gastronomy & Specialist Chain</button>
+    <button class="tab-btn" data-target="pr-digital">Digital & Offline</button>
+    <button class="tab-btn" data-target="pr-crisis">Crisis Flow & PR Charter</button>
+  </nav>
+
+  <div class="process-panel" id="pr-invite" style="display:block;">
+    <h4>Invitation Strategy (Ghuraba)</h4>
+    <div class="card">
+      <p>Reject "targeting"; communicate as Invitation to Lighthouse Community. Premium scarcity: only 2 Family Suites, limited seasonal pop-ups (Moonflower rooftop, 350–530 sq ft modules).</p>
+      <p>Responsible: Bureau Chief Presence (R). Accountable: Rank 2 Marquess (A). Owner: Rank 1 Archduke (O).</p>
+    </div>
+
+    <div class="card">
+      <h5>7 Ps mapped to ACEM</h5>
+      <ul>
+        <li>Product → menu engineering & hospitality setup (Presence + Efficiency)</li>
+        <li>Price → Dignity Price benchmarks (Provision)</li>
+        <li>Place → rooftop, popup positions (Ops)</li>
+        <li>Promotion → digital & invitation-based campaigns</li>
+        <li>People → trained Versatility staff (Harmony)</li>
+        <li>Process → SOPs in guest journey (Efficiency)</li>
+        <li>Physical evidence → curated suite & brand artifacts</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="process-panel" id="pr-gastronomy" style="display:none;">
+    <h4>Gastronomy & Specialist Chain</h4>
+    <div class="card">
+      <p>Gastronomical Specialist sits under Presence; chain: Executive Chef (Rank 2), Head Chefs (Rank 3/4), Sous (Rank 4), Line Chefs (Rank 4/5). Shokugiki practical required for Rank 4+ certification.</p>
+    </div>
+  </div>
+
+  <div class="process-panel" id="pr-digital" style="display:none;">
+    <h4>Digital & Offline Brand</h4>
+    <div class="card">
+      <p>Content cadence: Invitation posts (monthly), Feature gastronomy (weekly), Community drops (quarterly). Social conduct: Red Flag rule for oversharing; Bureau of Presence must pre-approve any personal staff posts.</p>
+    </div>
+  </div>
+
+  <div class="process-panel" id="pr-crisis" style="display:none;">
+    <h4>Crisis Flow & PR Charter</h4>
+    <div class="card">
+      <p>1. Silence; 2. Notify Bureau Chief; 3. Official statement only by Rank 1/2. PR Charter enforces approval matrix and escalation tree.</p>
+    </div>
+  </div>
+</section>
+<!-- Part 7 - Harmony Bureau (Full HR lifecycle, ACEM calculator, tests, Royal Tutor modules) -->
+<section id="harmony-bureau" class="bureau-section">
+  <header class="bureau-header">Harmony Bureau — Recruitment, Training & People Ops</header>
+
+  <nav class="tab-bar">
+    <button class="tab-btn active" data-target="h-recruit">Recruit & Select</button>
+    <button class="tab-btn" data-target="h-train">Training & Royal Tutor</button>
+    <button class="tab-btn" data-target="h-eval">Evaluation & ACEM</button>
+    <button class="tab-btn" data-target="h-gate">Promotion Gate & Certification</button>
+  </nav>
+
+  <div class="process-panel" id="h-recruit" style="display:block;">
+    <h4>Recruit & Selection</h4>
+    <div class="card">
+      <p>Pipeline: U-Lab priority → resume screening → written technical exam → situational simulations → panel interview (Rank 3 + Rank 4) → ACEM pre-score → Royal Tutor interview (virtue anchor).</p>
+      <p>Shokugiki practical required for Rank 4 candidates in F&B and Operations.</p>
+    </div>
+  </div>
+
+  <div class="process-panel" id="h-train" style="display:none;">
+    <h4>Training & Royal Tutor (Haine & Gote13)</h4>
+    <div class="card">
+      <p>Modular training: Week 1 (Orientation & Virtue Induction), Week 2 (Technical Foundations), Week 3 (Situational & OODA practice), Week 4 (Shadow & Rotation). Ongoing: quarterly refreshers.</p>
+      <p>Versatility rotation schedule: 8–12 weeks across core bureaus for Trainee-Versatility.</p>
+    </div>
+  </div>
+
+  <div class="process-panel" id="h-eval" style="display:none;">
+    <h4>Evaluation & ACEM</h4>
+    <div class="card">
+      <p>ACEM composite = P(30%) + S(25%) + E(25%) + PERF(20%). Local ACEM displayed in profile; server ACEM verified by Bureau Chief.</p>
+      <p>Testing types: written (knowledge), practical (Shokugiki/Shokugeki), situational (OODA loops), presentation, 360° feedback.</p>
+    </div>
+  </div>
+
+  <div class="process-panel" id="h-gate" style="display:none;">
+    <h4>Promotion Gate & Certification</h4>
+    <div class="card">
+      <p>Promotion criteria: certified subfunction count, 12-month KPI attainment, 360° people fit, virtue anchor verified by Rank 3. Maxwell ladder applied: Position → Permission → Production → People Development → Pinnacle.</p>
+    </div>
+  </div>
+</section>
+<!-- Part 8 - Governance Rhythm -->
+<section id="governance-rhythm" class="bureau-section">
+  <header class="bureau-header">Governance Rhythm — GLSM & GHURABA</header>
+
+  <nav class="tab-bar">
+    <button class="tab-btn active" data-target="gr-glsm">GLSM Matrix</button>
+    <button class="tab-btn" data-target="gr-ghuraba">GHURABA Virtue Anchors</button>
+    <button class="tab-btn" data-target="gr-starfish">STARFISH Actions</button>
+  </nav>
+
+  <div class="process-panel" id="gr-glsm" style="display:block;">
+    <h4>GLSM — Al-Amin Leadership Strategy Matrix</h4>
+    <ul>
+      <li>G: Governance alignment & virtue embedding</li>
+      <li>L: Learning & Growth — cross-bureau training</li>
+      <li>S: Situational & STAR evaluation — decision loops per rank</li>
+      <li>M: Metrics — KPI, ACEM, 360° feedback, STARFISH outcomes</li>
+    </ul>
+  </div>
+
+  <div class="process-panel" id="gr-ghuraba" style="display:none;">
+    <h4>GHURABA Virtue Anchors</h4>
+    <ul>
+      <li>Qalb (Heart) — empathy & HR fairness</li>
+      <li>Nafs (Self) — discipline & personal growth</li>
+      <li>Ruh (Spirit) — vision alignment & cross-bureau synergy</li>
+      <li>Sirr (Secret) — confidential assessments & internal control</li>
+      <li>Intellectual — strategic foresight</li>
+      <li>Physique — operational presence</li>
+    </ul>
+  </div>
+
+  <div class="process-panel" id="gr-starfish" style="display:none;">
+    <h4>STARFISH Actions — Rank-Specific</h4>
+    <div class="card">
+      <p>Each rank can toggle their actions:</p>
+      <ul>
+        <li><strong>Do Less Of:</strong> Tasks that are redundant or low impact</li>
+        <li><strong>Stop Doing:</strong> Tasks that violate virtue anchors or operational rules</li>
+        <li><strong>Start Doing:</strong> New behaviors required for inter-bureau synergy</li>
+        <li><strong>Continue Doing:</strong> Effective behaviors to maintain consistency</li>
+        <li><strong>Do More Of:</strong> High-impact tasks with visible cross-bureau effect</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Part 9 - Bureau Interdependency -->
+<section id="bureau-synergy" class="bureau-section">
+  <header class="bureau-header">Bureau Interdependency — Symbiosis & Synergy</header>
+
+  <nav class="tab-bar">
+    <button class="tab-btn active" data-target="bi-matrix">Interdependency Matrix</button>
+    <button class="tab-btn" data-target="bi-intra">Intradependency / Shadow Roles</button>
+    <button class="tab-btn" data-target="bi-synergy">Symbiosis & Synergy Mapping</button>
+  </nav>
+
+  <div class="process-panel" id="bi-matrix" style="display:block;">
+    <h4>Interdependency Matrix</h4>
+    <table>
+      <tr><th>Bureau</th><th>Interacts With</th><th>Notes</th></tr>
+      <tr><td>Harmony</td><td>Efficiency, Provision, Presence</td><td>Guides recruitment & virtue alignment</td></tr>
+      <tr><td>Efficiency</td><td>Presence, Provision, Harmony</td><td>Operational execution with rotation</td></tr>
+      <tr><td>Provision</td><td>Efficiency, Harmony, Presence</td><td>Budget & procurement alignment</td></tr>
+      <tr><td>Presence</td><td>Harmony, Efficiency, Provision</td><td>Marketing & guest feedback loops</td></tr>
+    </table>
+  </div>
+
+  <div class="process-panel" id="bi-intra" style="display:none;">
+    <h4>Intradependency / Shadow Roles</h4>
+    <ul>
+      <li>Rank 1–2: Oversight + guidance</li>
+      <li>Rank 3: Certification of subordinate ranks</li>
+      <li>Rank 4: Cross-bureau support & training</li>
+      <li>Rank 5: Rotational versatility + 360° feedback input</li>
+    </ul>
+  </div>
+
+  <div class="process-panel" id="bi-synergy" style="display:none;">
+    <h4>Symbiosis & Synergy</h4>
+    <ul>
+      <li>Harmony ↔ Efficiency: Staffing & competency guidance</li>
+      <li>Provision ↔ Presence: Incentives & brand alignment</li>
+      <li>Efficiency ↔ Provision: KPI ↔ Budget alignment</li>
+      <li>Presence ↔ Harmony: Branding ↔ Virtue & training</li>
+      <li>All ↔ Ranks: STARFISH loops maintain virtuous & operational standards</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Part 10 - Accordion / Toggle JS -->
 <script>
-function calculateACEM() {
-    const p = parseFloat(document.getElementById('p_score').value) || 0;
-    const s = parseFloat(document.getElementById('s_score').value) || 0;
-    const e = parseFloat(document.getElementById('e_score').value) || 0;
-    const perf = parseFloat(document.getElementById('perf_score').value) || 0;
-    
-    const composite = ((p * 0.30) + (s * 0.25) + (e * 0.25) + (perf * 0.20)).toFixed(2);
-    
-    const output = document.getElementById('acem_output');
-    output.innerText = `Local ACEM: ${composite}`;
-    
-    fetch('/calculate_acem', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ p, s, e, perf, composite, timestamp: Date.now() })
-    })
-    .then(res => res.json())
-    .then(data => {
-        if(data.score) output.innerText += ` | Server ACEM: ${data.score} — ${data.level}`;
-    })
-    .catch(err => {
-        output.innerText += ' (Server unreachable)';
-        console.error(err);
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const parent = btn.closest('.bureau-section');
+    parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    parent.querySelectorAll('.process-panel').forEach(panel => panel.style.display = 'none');
+    btn.classList.add('active');
+    parent.querySelector(`#${btn.dataset.target}`).style.display = 'block';
+  });
+});
+</script>// === MH Alo Chaya Exclusive Accordion + Starfish JS ===
+document.addEventListener('DOMContentLoaded', function () {
+  
+  // --- Tab Switching ---
+  const tabBars = document.querySelectorAll('.tab-bar');
+  tabBars.forEach(bar => {
+    const buttons = bar.querySelectorAll('.tab-btn');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        // deactivate all buttons
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // hide all panels
+        const panels = bar.parentElement.querySelectorAll('.process-panel');
+        panels.forEach(p => p.style.display = 'none');
+
+        // show target panel
+        const targetId = btn.getAttribute('data-target');
+        const targetPanel = document.getElementById(targetId);
+        if(targetPanel) targetPanel.style.display = 'block';
+      });
     });
-}
+  });
 
-function openModal(src, alt) {
-    document.getElementById('modalContent').innerHTML = `<img src="${src}" alt="${alt}" style="width:100%; height:auto;">`;
-    document.getElementById('modalRoot').style.display = 'flex';
-}
+  // --- Exclusive Accordion ---
+  const accordions = document.querySelectorAll('.accordion-header');
+  accordions.forEach(header => {
+    header.addEventListener('click', function() {
+      const parentSection = header.closest('.bureau-section');
+      const allPanels = parentSection.querySelectorAll('.accordion-panel');
 
-function openContentModal(title, content) {
-    document.getElementById('modalContent').innerHTML = `<h3>${title}</h3><p>${content}</p>`;
-    document.getElementById('modalRoot').style.display = 'flex';
-}
+      allPanels.forEach(panel => {
+        if(panel !== header.nextElementSibling) panel.style.display = 'none';
+      });
 
-function closeModal() {
-    document.getElementById('modalRoot').style.display = 'none';
-    document.getElementById('modalContent').innerHTML = '';
-}
+      const panel = header.nextElementSibling;
+      panel.style.display = (panel.style.display === 'block') ? 'none' : 'block';
+    });
+  });
 
-function selectBureau(el) {
-    document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
-    if(el) el.classList.add('active');
-    
-    const bureau = el ? el.dataset.bureau : '';
-    const area = document.getElementById('bureauArea');
-    
-    if(bureau === 'harmony') {
-        area.innerHTML = '<div class="card"><h3>Bureau of Harmony</h3><p class="small">Recruit → ACEM → Royal Tutor → Promotion. Weekly 360s.</p></div>';
-    } else if(bureau === 'efficiency') {
-        area.innerHTML = '<div class="card"><h3>Bureau of Efficiency</h3><p class="small">SOPs, technical exams, ops checklists.</p></div>';
-    } else if(bureau === 'provision') {
-        area.innerHTML = '<div class="card"><h3>Bureau of Provision</h3><p class="small">Payroll, treasury, digital mandate.</p></div>';
-    } else if(bureau === 'presence') {
-        area.innerHTML = '<div class="card"><h3>Bureau of Presence</h3><p class="small">Brand, PR, gastronomy.</p></div>';
-    }
-}
+  // --- Nested Starfish Blocks ---
+  const starfishHeaders = document.querySelectorAll('.starfish-header');
+  starfishHeaders.forEach(h => {
+    h.addEventListener('click', function() {
+      const panel = h.nextElementSibling;
+      panel.style.display = (panel.style.display === 'block') ? 'none' : 'block';
+    });
+  });
 
-function showHRStep(step) {
-    const detail = document.getElementById('hrDetail');
-    if(step === 'recruit') detail.innerHTML = '<h4>1. Recruitment</h4><p>Iron Gate: U-Lab priority, Character screening, Document audit.</p>';
-    if(step === 'exam') detail.innerHTML = '<h4>2. Exams</h4><p>Written technical + Verbal presentation. Shokugeki practical.</p>';
-    if(step === 'training') detail.innerHTML = '<h4>3. Training</h4><p>Royal Tutor Protocol. OODA Loops. Versatility rotation.</p>';
-    if(step === 'appraisal') detail.innerHTML = '<h4>4. Appraisal</h4><p>360 Degree, BARS, Starfish evaluation.</p>';
-    if(step === 'comp') detail.innerHTML = '<h4>5. Compensation</h4><p>Base pay + Sub-function multipliers. No cash.</p>';
-}
+  // Optional: Starfish action buttons inside each panel
+  const starfishBtns = document.querySelectorAll('.starfish-action-btn');
+  starfishBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const type = btn.getAttribute('data-type'); // do-more, do-less, start, stop, continue
+      const content = btn.closest('.starfish-panel').querySelector('.starfish-content');
+      // Toggle active class
+      const siblings = btn.parentElement.querySelectorAll('.starfish-action-btn');
+      siblings.forEach(s => s.classList.remove('active'));
+      btn.classList.add('active');
+      // Update content dynamically
+      content.textContent = btn.getAttribute('data-text');
+    });
+  });
 
-function demoStaffModel(n) {
-    openContentModal('Staff Model: ' + n, `Active Force Level: ${n} personnel.<br>Configuration loaded based on Imperial Scaling Model.`);
-}
+  // --- Inter-bureau reference hinting ---
+  const crossRefBtns = document.querySelectorAll('.cross-bureau-btn');
+  crossRefBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const targetId = btn.getAttribute('data-target');
+      const targetPanel = document.getElementById(targetId);
+      if(targetPanel) {
+        targetPanel.style.display = 'block';
+        targetPanel.scrollIntoView({behavior:'smooth'});
+      }
+    });
+  });
 
-document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
-document.getElementById('miniLog').innerText = 'Ready';
-</script>
-</div>
+});</script>
 </body>
 </html>
