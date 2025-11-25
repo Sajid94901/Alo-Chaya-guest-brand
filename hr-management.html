@@ -14,81 +14,119 @@
     --accent-2: #1abc9c;
     --gold: #f1c40f;
     --crimson: #c0392b;
-    --harmony: #8d6e63;
-    --efficiency: #2980b9;
-    --provision: #27ae60;
-    --presence: #800020;
+    --harmony: #8d6e63; /* Brown */
+    --efficiency: #2980b9; /* Blue */
+    --provision: #27ae60; /* Green */
+    --presence: #800020; /* Maroon */
+    --wellness: #00acc1; /* Teal */
+    --gourmet: #e67e22; /* Burnt Orange */
 }
-body { font-family: 'Inter', sans-serif; background-color: var(--bg); margin: 0; color: var(--accent); line-height: 1.5; }
-.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
-.card { background: var(--card); padding: 25px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.05); margin-bottom: 20px; border-top: 4px solid var(--accent); }
-.btn { background: var(--accent); color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; transition: 0.2s; }
-.btn:hover { background: #34495e; transform: translateY(-2px); }
-.pill { display: inline-block; padding: 6px 12px; background: #eee; border-radius: 20px; margin-right: 5px; cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: 0.3s; margin-bottom:5px; }
+body { font-family: 'Inter', sans-serif; background-color: var(--bg); margin: 0; color: var(--accent); line-height: 1.6; }
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+</style>
+<style>
+/* CORE */
+.card { background: var(--card); padding: 25px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.05); margin-bottom: 25px; border-top: 5px solid var(--accent); transition: transform 0.2s; }
+.card:hover { transform: translateY(-2px); }
+.btn { background: var(--accent); color: white; border: none; padding: 10px 18px; border-radius: 4px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+.pill { display: inline-block; padding: 6px 14px; background: #eee; border-radius: 20px; margin-right: 8px; cursor: pointer; font-size: 0.85rem; font-weight: bold; transition: 0.3s; margin-bottom: 5px; }
 .pill.active { background: var(--accent); color: white; }
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-@media (max-width: 720px) { .grid-2 { grid-template-columns: 1fr; } }
-h1, h2, h3 { font-family: 'Playfair Display', serif; margin-top: 0; }
-input { padding: 10px; border: 1px solid #ddd; border-radius: 4px; width: 100%; box-sizing: border-box; }
-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-th, td { padding: 12px; border-bottom: 1px solid #eee; text-align: left; font-size: 0.9rem; }
-th { background: var(--accent); color: white; font-family: 'Playfair Display', serif; }
-.modal-root { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; z-index: 1000; backdrop-filter: blur(4px); }
-.modal-box { background: white; padding: 25px; max-width: 700px; width: 95%; border-radius: 8px; position: relative; max-height: 90vh; overflow-y: auto; }
-.close-modal { position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; color: #999; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+@media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; margin-top: 0; color: var(--accent); }
+
+/* THE VEIL */
+.granular-only { display: none; animation: fadeIn 0.5s; }
+.command-mode .granular-only { display: block; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* TOGGLE SWITCH */
+.mode-switch {
+    position: fixed; bottom: 20px; right: 20px; z-index: 9999;
+    background: var(--accent); color: white; padding: 10px 20px;
+    border-radius: 30px; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    font-weight: bold; font-size: 0.8rem; border: 2px solid var(--gold);
+}
+</style>
+<style>
+/* TABLES */
+.imperial-table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.imperial-table { width: 100%; border-collapse: collapse; min-width: 600px; background: white; }
+.imperial-table th, .imperial-table td { padding: 12px 15px; border-bottom: 1px solid #eee; text-align: left; font-size: 0.9rem; }
+.imperial-table th { background: var(--accent); color: white; font-family: 'Playfair Display', serif; }
+
+/* MODALS */
+.modal-root { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; z-index: 2000; backdrop-filter: blur(5px); }
+.modal-box { background: white; padding: 30px; max-width: 800px; width: 90%; border-radius: 8px; max-height: 90vh; overflow-y: auto; position: relative; }
+.close-modal { position: absolute; top: 15px; right: 20px; font-size: 30px; cursor: pointer; color: #999; transition: 0.3s; }
+.close-modal:hover { color: var(--crimson); }
+input { padding: 10px; border: 1px solid #ddd; width: 100%; box-sizing: border-box; border-radius: 4px; margin-bottom: 10px; }
 </style>
 </head>
 <body>
 <div class="container">
-  <div class="card" style="text-align: center; border-top: 6px solid var(--gold);">
+<div class="card" style="text-align: center; border-top: 8px solid var(--gold); background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);">
+    <span style="font-size:0.75rem; letter-spacing:2px; color:var(--gold); font-weight:bold; text-transform:uppercase;">Doctrine of Al-Amin (Trustworthy)</span>
     <h1 style="font-size: 2.5rem; margin-bottom: 10px;">MH Alo Chaya Limited</h1>
-    <p style="font-size: 1.1rem; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; font-weight: bold;">Imperial Human Capital Doctrine • 2025</p>
-    <div style="background: #fffbe6; padding: 15px; margin-top: 20px; border-left: 4px solid var(--gold); text-align: left;">
+    <p style="font-size: 1rem; color: var(--muted); font-weight: bold;">Imperial Human Capital Doctrine • 2025</p>
+    
+    <div style="background: #fffbe6; padding: 15px; margin-top: 20px; border-left: 4px solid var(--gold); text-align: left; font-size:0.9rem;">
         <strong>⚠️ The Hierarchy of Loyalty (Bay'ah):</strong>
-        <p style="margin: 5px 0 0 0; font-size: 0.9rem;">
-            1. To <strong>Allah (SWT)</strong> (The Ultimate Authority).<br>
-            2. To the <strong>Emperor/Archduke/Project Lead</strong> (The Visionary & Commander).<br>
-            3. To the <strong>Resort</strong> (The Trust/Amanah).<br>
-            4. To the <strong>Bureau</strong> (The Function).<br>
-            <em>*Bureau loyalty never supersedes loyalty to the Emperor or Divine Law.*</em>
-        </p>
+        <ol style="margin: 5px 0 0 20px; padding:0;">
+            <li>To <strong>Allah (SWT)</strong> (The Ultimate Authority).</li>
+            <li>To the <strong>Emperor/Archduke</strong> (Vision & Command).</li>
+            <li>To the <strong>Resort</strong> (The Amanah).</li>
+            <li>To the <strong>Bureau</strong> (The Function).</li>
+        </ol>
     </div>
-  </div>
-  <div class="card">
-    <h3>The Gate of Truth (ACEM Calculation)</h3>
-    <div class="grid-2" style="margin-bottom: 15px;">
-        <div><label style="font-weight:bold;">Personality (P)</label><input type="number" id="p_score" value="50"></div>
-        <div><label style="font-weight:bold;">Skill (S)</label><input type="number" id="s_score" value="50"></div>
-        <div><label style="font-weight:bold;">Environment (E)</label><input type="number" id="e_score" value="50"></div>
-        <div><label style="font-weight:bold;">Performance (PERF)</label><input type="number" id="perf_score" value="50"></div>
+</div>
+<div class="card">
+    <h3>1. Force Scaling Model (The 5-Year Roadmap)</h3>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px;">
+        <button class="btn" style="background:var(--muted);" onclick="demoStaffModel(22)">Squad (22)</button>
+        <button class="btn" style="background:var(--accent-2);" onclick="demoStaffModel(34)">Strong Platoon (34)</button>
+        <button class="btn" style="background:var(--muted);" onclick="demoStaffModel(57)">Task Force (57)</button>
+        <button class="btn" style="background:var(--muted);" onclick="demoStaffModel(82)">Company (82)</button>
     </div>
-    <button class="btn" style="width:100%; background:var(--accent-2);" onclick="calculateACEM()">REVEAL TRUTH</button>
-    <div id="acem_output" style="margin-top: 15px; font-weight: bold; color: var(--accent-2); text-align: center; font-size: 1.2rem;"></div>
-  </div>
-  <div class="card">
-    <h3>Force Scaling Models (5-Year Map)</h3>
-    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-        <button class="btn" style="background: var(--muted);" onclick="demoStaffModel(22)">Squad (22)</button>
-        <button class="btn" style="background: var(--accent-2);" onclick="demoStaffModel(34)">Strong Platoon (34)</button>
-        <button class="btn" style="background: var(--muted);" onclick="demoStaffModel(57)">Task Force (57)</button>
-        <button class="btn" style="background: var(--muted);" onclick="demoStaffModel(82)">Company (82)</button>
+    <div class="imperial-table-wrapper">
+        <table class="imperial-table">
+            <thead><tr><th>Phase</th><th>Count</th><th>Designation</th><th>Status</th></tr></thead>
+            <tbody>
+                <tr style="opacity:0.6;"><td>Defcon 1</td><td>22</td><td>Survival Squad</td><td>Emergency Only.</td></tr>
+                <tr style="background:#e0f2f1; font-weight:bold;"><td>Year 1</td><td>34</td><td>Strong Platoon</td><td><strong>Active.</strong> Full Compliance. Winterfell Active.</td></tr>
+                <tr><td>Year 3</td><td>57</td><td>Task Force</td><td>Growth. R&D Units Active.</td></tr>
+                <tr><td>Year 5</td><td>82</td><td>Company</td><td>Empire Mode. 87.5 Bigha Active.</td></tr>
+            </tbody>
+        </table>
     </div>
-    <p style="font-size:0.85rem; color:#666; margin-top:10px;">*Current Active Phase: <strong>Year 1 (34 Staff)</strong> - Winterfell Active.</p>
-  </div>
-  <div class="card">
-    <h3>Bureau Command & Virtue Anchors</h3>
-    <div id="bureauNav" style="margin-bottom: 15px;">
+</div>
+<div class="card">
+    <h3>2. Bureau Command & Virtue Anchors</h3>
+    <div id="bureauNav" style="margin-bottom: 20px;">
         <span class="pill" data-bureau="harmony" onclick="selectBureau(this)" style="border-left:4px solid var(--harmony);">Harmony (HR)</span>
         <span class="pill" data-bureau="efficiency" onclick="selectBureau(this)" style="border-left:4px solid var(--efficiency);">Efficiency (Ops)</span>
         <span class="pill" data-bureau="provision" onclick="selectBureau(this)" style="border-left:4px solid var(--provision);">Provision (Fin)</span>
         <span class="pill" data-bureau="presence" onclick="selectBureau(this)" style="border-left:4px solid var(--presence);">Presence (Brand)</span>
+        <span class="pill" data-bureau="wellness" onclick="selectBureau(this)" style="border-left:4px solid var(--wellness);">Wellness</span>
+        <span class="pill" data-bureau="gourmet" onclick="selectBureau(this)" style="border-left:4px solid var(--gourmet);">Gourmet</span>
     </div>
-    <div id="bureauArea" style="padding: 20px; background: #fcfcfc; border-radius: 4px; border: 1px dashed #ccc;">
-        <p style="color: #999; text-align: center;">Select a Bureau to view Mandate, Attire & Sub-functions.</p>
+    <div id="bureauArea" style="padding: 20px; background: #fcfcfc; border: 1px solid #eee; border-radius: 6px;">
+        <p style="color: #999; text-align: center;">Select a Bureau to view Mandate, Attire & Granular Battles.</p>
     </div>
-  </div>
-  <div class="card">
-    <h3>The HR Talking Function (Lifecycle)</h3>
+</div>
+<div class="card">
+    <h3>3. The HR Talking Function (Lifecycle)</h3>
+    
+    <div style="background: #fff5f5; border-left: 5px solid var(--crimson); padding: 15px; margin-bottom: 20px;">
+        <h4 style="margin:0 0 5px 0; color:var(--crimson);">🔗 Imperium Governance Anchor</h4>
+        <p style="font-size:0.85rem; margin-bottom:10px;">
+            All HR activities operate under the <strong>Defense & Offense Handbook</strong>.
+            <br>• <strong>Defense:</strong> Internal Control, Punishments, 360° Discipline.
+            <br>• <strong>Offense:</strong> Marketing 7Ps, PR Warfare, Competitive Strategy.
+        </p>
+        <a href="defense-offense-handbook.html" target="_blank" class="btn" style="background:var(--navy); font-size:0.8rem; padding:8px 15px; text-decoration:none; display:inline-block;">📖 OPEN HANDBOOK (Version 0.1)</a>
+    </div>
+
     <div style="display: flex; gap: 5px; margin-bottom: 15px; overflow-x: auto; white-space: nowrap; padding-bottom:5px;">
         <button class="pill" onclick="showHRStep('recruit')">1. Recruit</button>
         <button class="pill" onclick="showHRStep('exam')">2. Exam</button>
@@ -99,471 +137,322 @@ th { background: var(--accent); color: white; font-family: 'Playfair Display', s
     <div id="hrDetail" style="padding: 20px; background: #fff; border: 1px solid #eee; border-radius: 4px;">
         <strong>Select a stage to view the Protocol & Bureau ownership.</strong>
     </div>
-  </div>
-  <div class="card">
-    <h3>Imperial Hierarchy & Attire</h3>
-    <table>
-        <thead><tr><th>Rank</th><th>Title</th><th>Loyalty & Attire</th><th>Role</th></tr></thead>
-        <tbody>
-            <tr><td>R0</td><td>Emperor</td><td><strong>Allah > Vision.</strong> Bespoke Navy Suit.</td><td>Chairman</td></tr>
-            <tr><td>R1</td><td>Archduke</td><td><strong>Allah > Emperor.</strong> Bespoke Navy Suit.</td><td>COO</td></tr>
-            <tr><td>R2</td><td>Marquess</td><td><strong>Emperor > Bureau.</strong> Grey Suit + Winch.</td><td>SBU Pres</td></tr>
-            <tr><td>R3</td><td>Earl</td><td><strong>Emperor > Compliance.</strong> Grey Suit + Winch.</td><td>Bureau Chief</td></tr>
-            <tr><td>R4</td><td>Baronet</td><td><strong>Safety > Rank.</strong> Waistcoat + Winch.</td><td>Specialist</td></tr>
-            <tr><td>R5</td><td>Cadet</td><td><strong>Growth > Comfort.</strong> Shirt Only.</td><td>Trainee</td></tr>
-        </tbody>
-    </table>
-  </div>
-  <div class="card">
-    <h3>Compensation Grid (Pay Bands)</h3>
-    <table>
-        <thead><tr><th>Rank</th><th>Rate (BDT)</th><th>Structure</th></tr></thead>
-        <tbody>
-            <tr><td>Rank 1 (Archduke)</td><td>25,000</td><td>Per Sub-function</td></tr>
-            <tr><td>Rank 2 (Marquess)</td><td>15,000</td><td>Per Sub-function</td></tr>
-            <tr><td>Rank 3 (Earl)</td><td>10,000</td><td>Per Sub-function</td></tr>
-            <tr><td>Rank 4 (Baronet)</td><td>7,500</td><td>Per Sub-function</td></tr>
-            <tr style="background:#e0f2f1;"><td>Rank 5 (Versatility)</td><td><strong>6,000</strong></td><td><strong>2 Sub-functions (High Growth)</strong></td></tr>
-            <tr><td>Rank 5 (Specialist)</td><td>4,000</td><td>1 Sub-function (Static)</td></tr>
-        </tbody>
-    </table>
-  </div>
-  <div class="card" style="border-left: 5px solid var(--crimson);">
-    <h3 style="color: var(--crimson);">Operational Guardrails (Anti-Donkey)</h3>
-    <ul>
-        <li><strong>Recruitment:</strong> Priority to <strong>U-Lab Graduates</strong>. High CGPA from NSU/BRAC is a "Red Flag" (Books on a Donkey) until proven.</li>
-        <li><strong>Finance:</strong> No cash for salary/suppliers. Digital Mandate.</li>
-        <li><strong>Conduct:</strong> Zero Tolerance for oversharing intimate details.</li>
-        <li><strong>Testing:</strong> "Shokugeki" (Live Battle) mandatory for all titles.</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>Performance Models</h3>
-    <div class="grid-2">
-        <div>
-            <h4>Starfish Evaluation</h4>
-            <p>Stop • Start • Continue • Do More • Do Less</p>
-        </div>
-        <div>
-            <h4>OODA Loop</h4>
-            <p>Observe → Orient → Decide → Act</p>
-            <small>Continuous real-time judgment.</small>
-        </div>
+</div>
+<div class="card">
+    <h3>4. Staffing Manifest & Attire Matrix</h3>
+    <div class="imperial-table-wrapper">
+        <table class="imperial-table">
+            <thead><tr><th>Rank</th><th>Role</th><th>Attire (Primary)</th><th>Attire (Secondary)</th></tr></thead>
+            <tbody>
+                <tr><td>Rank 0</td><td>Emperor</td><td><strong>Double-Breasted Suit.</strong> Peak Lapel. Navy/Black.</td><td><strong>The Omni-Square:</strong> Silk weave of ALL 4 Bureau colors.</td></tr>
+                <tr><td>Rank 1</td><td>Archduke</td><td><strong>Double-Breasted Suit.</strong> Peak Lapel. Navy/Black.</td><td><strong>The Omni-Square:</strong> Plus Strategic Lapel Pin.</td></tr>
+                
+                <tr><td>Rank 2</td><td>Marquess</td><td><strong>Single-Breasted Suit.</strong> Grey.</td><td><strong>Winchester Body:</strong> Bureau Color.</td></tr>
+                <tr><td>Rank 3</td><td>Earl</td><td><strong>Single-Breasted Suit.</strong> Grey.</td><td><strong>Winchester Body:</strong> Bureau Color.</td></tr>
+
+                <tr><td>Rank 4</td><td>Baronet</td><td><strong>Waistcoat Only.</strong> (5-Button).</td><td><strong>Winchester Shirt:</strong> Bureau Color.</td></tr>
+
+                <tr><td>Rank 5</td><td>Versatility</td><td><strong>Shirt Only.</strong> No Waistcoat.</td><td><strong>Two-Tone:</strong> Body (Major) + Collar (Minor).</td></tr>
+                <tr><td>Rank 5</td><td>Specialist</td><td><strong>Shirt Only.</strong> No Waistcoat.</td><td><strong>Solid:</strong> Single Bureau Color.</td></tr>
+            </tbody>
+        </table>
     </div>
 </div>
-<div class="card" style="border-left: 6px solid var(--crimson);">
-    <h3 style="color: var(--crimson);">6. The Anti-Donkey Protocol (Guardrails)</h3>
-    <p style="font-style:italic; margin-bottom:15px;">"A donkey laden with books is still a donkey..." (62:5)</p>
-    <ul style="line-height: 1.8;">
-        <li><strong>The Target:</strong> We hire <strong>Character & Capability (Amal)</strong>, not Brands.</li>
-        <li><strong>The Trap:</strong> High CGPA (3.8+) from <strong>ANY Private Uni (ULAB, NSU, BRAC, AIUB)</strong> is a "Red Flag." It indicates "Book Smart," not "Street Smart."</li>
-        <li><strong>The Filter:</strong> No Title (Associate Professor) and No Degree protects you. You must pass the <strong>Shokugeki (Live Battle)</strong>.</li>
-        <li><strong>Conduct:</strong> Zero Tolerance for oversharing intimacy.</li>
-    </ul>
+<div class="card">
+    <h3>5. The Imperial Hierarchy & Capability Levels</h3>
+    
+    <div style="border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px;">
+        <h4>Rank 0 • Emperor</h4>
+        <p><strong>Loyalty:</strong> To Allah (SWT) Alone.</p>
+        <p><strong>Maxwell Level 5 (Pinnacle):</strong> People follow because of who you are and what you represent.</p>
+        <p><strong>Kotler Level 5 (Potential Product):</strong> You define what the Resort <em>could</em> be in 10 years. Pure Vision.</p>
+    </div>
+
+    <div style="border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px;">
+        <h4>Rank 1 • Archduke • General</h4>
+        <p><strong>Loyalty:</strong> 1. Allah → 2. Emperor.</p>
+        <div style="background:#f0fdfa; padding:10px; border-left:4px solid var(--teal); margin-top:5px; font-size:0.9rem;">
+            <strong>Maxwell Level 4 (People Development):</strong>
+            <br>People follow because of what you have done for <em>them</em> (Mentorship).
+            <br><strong>Kotler Level 4 (Augmented Product):</strong> You add the "Magic" (Service/Culture) that exceeds expectations.
+        </div>
+    </div>
+
+    <div>
+        <h4>Rank 2 • Marquess • Commander</h4>
+        <p><strong>Loyalty:</strong> 1. Allah → 2. Emperor → 3. Resort.</p>
+        <p><strong>Maxwell Level 3 (Production):</strong> People follow because of what you do for the organization (Results).</p>
+    </div>
 </div>
-  <div class="card" style="border-top: 5px solid var(--accent-2);">
+<div class="card">
+    <div style="border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px;">
+        <h4>Rank 3 • Earl (Bureau Chief)</h4>
+        <p><strong>Maxwell Level 2 (Permission):</strong> People follow because they want to (Relationships).</p>
+        <p><strong>Kotler Level 3 (Expected Product):</strong> You ensure the Wi-Fi works, the AC is cold, and the food is hot. (Standards).</p>
+        <p><strong>Authority:</strong> <span style="color:var(--crimson); font-weight:bold;">INVERSION CAPABLE</span> (Veto Power).</p>
+    </div>
+
+    <div style="border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px;">
+        <h4>Rank 4 • Baronet (Specialist)</h4>
+        <p><strong>Maxwell Level 1 (Position):</strong> People follow because they have to (Rights).</p>
+        <p><strong>Kotler Level 2 (Basic Product):</strong> You ensure the bed is made, the pipe is fixed, the curry is cooked.</p>
+        <p><strong>Mandate:</strong> Techne Override (Can override Rank 3 on Safety/Quality).</p>
+    </div>
+
+    <div>
+        <h4>Rank 5 • Cadet (Trainee)</h4>
+        <p><strong>Kotler Level 1 (Core Benefit):</strong> You deliver the root need: <strong>Sleep & Safety.</strong></p>
+        <p><strong>The Patrol Duty:</strong> You are the eyes. If you see a threat, you report instantly. <strong>"See Something, Say Something."</strong></p>
+    </div>
+</div>
+<div class="card granular-only" style="border-left: 6px solid var(--accent);">
+    <h3>6. The Rhythm of Command (Granular Schedule)</h3>
+    <div class="imperial-table-wrapper">
+        <table class="imperial-table">
+            <thead><tr><th>Rank & Titles</th><th>Daily (Dawn/Dusk)</th><th>Weekly (Jumu'ah Cycle)</th><th>Monthly (Moon Cycle)</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>Rank 1</strong><br>
+                        <span style="color:var(--gold); font-size:0.85rem; font-weight:bold;">Archduke • General</span><br>
+                        <em style="font-size:0.8rem;">Group COO</em>
+                    </td>
+                    <td><strong>Dawn:</strong> Fajr + Perimeter Walk.<br><strong>Dusk:</strong> "Vibe Check" (Music/Light).</td>
+                    <td><strong>Tue:</strong> Winterfell Check.<br><strong>Thu:</strong> Payroll/PO Sign.</td>
+                    <td><strong>1st Sat:</strong> "Grand Tutor" Session.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Rank 2</strong><br>
+                        <span style="color:var(--accent); font-size:0.85rem; font-weight:bold;">Marquess • Commander</span><br>
+                        <em style="font-size:0.8rem;">SBU President</em>
+                    </td>
+                    <td><strong>AM:</strong> Review Night Logs.<br><strong>PM:</strong> Guest Hour.</td>
+                    <td><strong>Mon:</strong> P&L Review.</td>
+                    <td><strong>15th:</strong> War Game Sim.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Rank 3</strong><br>
+                        <span style="color:var(--accent); font-size:0.85rem; font-weight:bold;">Earl • Colonel</span><br>
+                        <em style="font-size:0.8rem;">Bureau Chief</em>
+                    </td>
+                    <td><strong>AM:</strong> Grooming (Adab).<br><strong>PM:</strong> Handover Audit.</td>
+                    <td><strong>Wed:</strong> Shokugeki (Testing).</td>
+                    <td><strong>30th:</strong> Asset Inventory.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Rank 4</strong><br>
+                        <span style="color:#d35400; font-size:0.85rem; font-weight:bold;">Baronet • Captain</span><br>
+                        <em style="font-size:0.8rem;">Senior Specialist</em>
+                    </td>
+                    <td><strong>Continuous:</strong> Quality Control.<br><strong>End:</strong> Station Lock.</td>
+                    <td><strong>Sun:</strong> Deep Clean / Maint.</td>
+                    <td><strong>End:</strong> Technical Exam Creation.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Rank 5</strong><br>
+                        <span style="color:var(--muted); font-size:0.85rem; font-weight:bold;">Cadet • Infantry</span><br>
+                        <em style="font-size:0.8rem;">Trainee Cohort</em>
+                    </td>
+                    <td><strong>AM:</strong> Setup & Mise-en-place.<br><strong>PM:</strong> Breakdown.</td>
+                    <td><strong>Fri:</strong> Learning Log Submission.</td>
+                    <td><strong>End:</strong> Skill Assessment (Pass/Fail).</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="card granular-only" style="border-left: 6px solid var(--gold);">
+    <h3>7. The Detailed Coat-Code Map (Function & Sub-Function)</h3>
+    <div class="imperial-table-wrapper">
+        <table class="imperial-table">
+            <thead><tr><th>Bureau</th><th>Function</th><th>Outer Color</th><th>Winchester Body</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Harmony (HR)</strong></td><td>Recruit / Onboard</td><td>Brown/Camel</td><td>Cream / Beige</td></tr>
+                <tr><td><strong>Provision (Fin)</strong></td><td>Treasury / Audit</td><td>Forest / Olive</td><td>Emerald / Mint</td></tr>
+                <tr><td><strong>Marketing</strong></td><td>Brand / R&D</td><td>Navy Blue</td><td>Sky / Cobalt</td></tr>
+                <tr><td><strong>Presence</strong></td><td>Guest Relations</td><td>Maroon / Plum</td><td>Warm Maroon</td></tr>
+                <tr><td><strong>Efficiency</strong></td><td>Resort Ops</td><td>Charcoal / Grey</td><td>Pale Blue</td></tr>
+                <tr><td><strong>Wellness</strong></td><td>Spa / Fitness</td><td>Teal / Turquoise</td><td>Aqua / Sea-Glass</td></tr>
+                <tr><td><strong>Gourmet</strong></td><td>Kitchen / F&B</td><td>Chef Whites / Brown</td><td>Burnt Orange</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="card" style="border-top: 5px solid var(--accent-2);">
     <h3>The Wellness & Recreation Wing</h3>
     <p><strong>Oversight:</strong> Archduke (Rank 1). Physical Readiness is Strategic.</p>
     <ul>
         <li><strong>Fitness:</strong> Gym (44' x 20' Badminton Court).</li>
         <li><strong>Strategy:</strong> Chess/Carrom (Mental Sharpness).</li>
-        <li><strong>Recovery:</strong> Spa & Steam.</li>
+        <li><strong>Recovery:</strong> Spa & Steam (Healing).</li>
     </ul>
     <div style="margin-top:10px; background:#e0f7fa; padding:10px; border-left:4px solid #006064;">
         <strong>The Winterfell Sanctuary (Day Care):</strong>
         <br>Doctrine: "Saint's Magic." Protected zone for Staff & Guest children. No-Clubbing Rule.
     </div>
-  </div>
-          <h2 class="section-header">4. Bureau Architecture & Battle Protocols</h2>
-        <div class="grid-box">
-            <div class="bureau-card b-harmony">
-                <h3>Bureau of Harmony (HR)</h3>
-                <span class="winchester" style="background:#f5f5dc; color:#5d4037; border-color:#8d6e63;">Winchester: Beige/Sand</span>
-                <span class="anime-doctrine">Doctrine: The Royal Tutor</span>
-                
-                <div style="margin-top:15px; font-size:0.85rem;">
-                    <strong style="color:var(--harmony-brown);">The Iron Gate Battles:</strong>
-                    <ul style="padding-left:15px; margin-top:5px;">
-                        <li><strong>Written:</strong> <em>Labor Law & ACEM Logic.</em> (Pass: 90%)</li>
-                        <li><strong>Psychometric:</strong> <em>Big 5 Traits.</em> (Filter: Low Conscientiousness).</li>
-                        <li><strong>The Battle:</strong> <em>"The Toxic Star."</em> Scenario: A high-performer violates ethics. Candidate must fire them. (Pass/Fail).</li>
-                    </ul>
-                </div>
-
-                <div style="margin-top:15px; padding:10px; background:#fdfbf7; border-left:4px solid var(--harmony-brown);">
-                    <strong style="color:var(--harmony-brown);">The Winterfell Sanctuary</strong>
-                    <p style="font-size:0.8rem; margin:5px 0;"><strong>Doctrine:</strong> "The Saint's Magic." No-Clubbing Zone. Protected Day Care for Staff Children.</p>
-                </div>
-            </div>
-            
-            <div class="bureau-card b-efficiency">
-                <h3>Bureau of Efficiency (Ops)</h3>
-                <span class="winchester" style="background:#e3f2fd; color:#0d47a1; border-color:#2980b9;">Winchester: Sky Blue</span>
-                <span class="anime-doctrine">Doctrine: Kakuriyo (Tenjin-ya)</span>
-                
-                <div style="margin-top:15px; font-size:0.85rem;">
-                    <strong style="color:var(--efficiency-blue);">The Operational Shokugeki:</strong>
-                    <ul style="padding-left:15px; margin-top:5px;">
-                        <li><strong>Written:</strong> <em>SOP Memorization.</em> (Pass: 95%)</li>
-                        <li><strong>The Battle:</strong> <em>"The Blind Inspection."</em> Find 10 hidden errors in a staged room in 5 minutes.</li>
-                        <li><strong>Performance (360):</strong> Peer Review on "Support Speed."</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="bureau-card b-provision">
-                <h3>Bureau of Provision (Finance)</h3>
-                <span class="winchester" style="background:#e8f5e9; color:#1b5e20; border-color:#27ae60;">Winchester: Mint/Olive</span>
-                <span class="anime-doctrine">Doctrine: Fullmetal Alchemist</span>
-                
-                <div style="margin-top:15px; font-size:0.85rem;">
-                    <strong style="color:var(--provision-green);">The Audit Battles:</strong>
-                    <ul style="padding-left:15px; margin-top:5px;">
-                        <li><strong>Written:</strong> <em>Section 55 & VAT Act.</em> (Pass: 100%)</li>
-                        <li><strong>The Battle:</strong> <em>"The Fake Ledger."</em> Find the 3 hidden tax violations in a dummy account stack.</li>
-                        <li><strong>Mandate:</strong> Digital Only. Cash is Forbidden.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="bureau-card b-presence">
-                <h3>Bureau of Presence & Gastronomy</h3>
-                <span class="winchester" style="background:#e0f2f1; color:#004d40; border-color:#00897b;">Winchester: Teal/Violet</span>
-                <span class="anime-doctrine">Doctrine: Toriko / Food Wars</span>
-                
-                <div style="margin-top:15px; font-size:0.85rem;">
-                    <strong style="color:var(--presence-maroon);">The Sensory Battles:</strong>
-                    <ul style="padding-left:15px; margin-top:5px;">
-                        <li><strong>Written:</strong> <em>Imperial Aesthetics & Tone.</em></li>
-                        <li><strong>The Battle (Chef):</strong> <em>"The Egg Dish."</em> Create a signature dish under strict cost limits.</li>
-                        <li><strong>The Battle (Brand):</strong> <em>"The Crisis."</em> Draft a PR response to a rumor in 3 minutes.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-          <div id="guardrails">
-            <h2 class="section-header">5. The Iron Gate & Guardrails</h2>
-            
-            <div class="card" style="border-left: 6px solid var(--crimson);">
-                <h3 style="color: var(--crimson);">⚠️ The Anti-Donkey Protocol</h3>
-                <p style="font-style:italic; margin-bottom:15px; color:#666;">"The example of those who were entrusted with the Torah and then did not take it on is like that of a donkey who carries volumes of books..." (62:5)</p>
-                
-                <div class="grid-2">
-                    <div>
-                        <h4 style="font-size:1rem; color:var(--navy);">1. Sourcing Strategy</h4>
-                        <ul style="font-size:0.9rem; line-height:1.6;">
-                            <li><strong>Target:</strong> U-Lab Graduates (Character Focus).</li>
-                            <li><strong>The Trap:</strong> High CGPA (3.8+) from <strong>NSU, BRAC, AIUB</strong> is a "Red Flag." It often indicates <em>Ilm</em> (Book Knowledge) without <em>Amal</em> (Action).</li>
-                            <li><strong>The Filter:</strong> We value "Street Smarts" & Operational Discipline over degrees.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 style="font-size:1rem; color:var(--navy);">2. Conduct & Testing</h4>
-                        <ul style="font-size:0.9rem; line-height:1.6;">
-                            <li><strong>Zero Tolerance:</strong> No oversharing of intimate details. Professional distance is Law.</li>
-                            <li><strong>The Shokugeki:</strong> No title (Associate Professor/Expert) is accepted without passing the <strong>Live Technical Battle</strong>.</li>
-                            <li><strong>Docs:</strong> PDF Mandatory (Course Outline Required).</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-          </div>
-          <div id="scenarios">
-            <h2 class="section-header">6. Governance Rhythm & Strategic Scenarios</h2>
-            
-            <div class="card">
-                <h3>The Governance Rhythm (Cadence)</h3>
-                <ul style="line-height: 1.8; margin-bottom:20px;">
-                    <li><strong>Weekly:</strong> Intra-Bureau 360 (Chief + Operators). Focus: Micro-corrections.</li>
-                    <li><strong>Monthly:</strong> Inter-Bureau 360 (All Chiefs + Archduke). Focus: Silo-busting.</li>
-                    <li><strong>Bi-Monthly:</strong> Resort Assembly (All Staff). Focus: Culture & Morale.</li>
-                    <li><strong>Quarterly:</strong> Strategic Review (Chiefs + Rank 4 + Fin/HR). Focus: Promotions & Pivot.</li>
-                    <li><strong>Semi-Annual:</strong> Imperial Review (Emperor + Archduke). Focus: The 5-Year Map.</li>
-                </ul>
-            </div>
-
-            <div class="card" style="border-left: 6px solid var(--navy);">
-                <h3>The Strategic Scenario Matrix (War & Peace)</h3>
-                <div class="imperial-table-wrapper">
-                    <table class="imperial-table">
-                        <thead><tr><th>State</th><th>Scenario Type</th><th>Condition</th><th>Required Protocol</th></tr></thead>
-                        <tbody>
-                            <tr style="background:#e8f6f3;">
-                                <td rowspan="2" style="font-weight:bold; color:var(--teal);">PAX IMPERIA<br>(Peace)</td>
-                                <td><strong>Internal Harmony</strong></td>
-                                <td>High Morale, High ACEM scores.</td>
-                                <td><strong>Cultivation Mode:</strong> Focus on T&D, Bonuses, and "Winterfell" expansion.</td>
-                            </tr>
-                            <tr style="background:#e8f6f3;">
-                                <td><strong>External Dominance</strong></td>
-                                <td>High Occupancy, No Legal Threats.</td>
-                                <td><strong>Expansion Mode:</strong> Accelerate to Year 2 (48 Staff). Aggressive Branding.</td>
-                            </tr>
-
-                            <tr style="background:#fff5f5;">
-                                <td rowspan="2" style="font-weight:bold; color:var(--crimson);">STATE OF SIEGE<br>(War)</td>
-                                <td><strong>Internal Disharmony</strong></td>
-                                <td>Mutiny, Theft, Toxic Culture.</td>
-                                <td><strong>Purge Mode:</strong> Immediate "Shokugeki" Audits. Freeze Hiring. Activate "Squad" (22) Protocols.</td>
-                            </tr>
-                            <tr style="background:#fff5f5;">
-                                <td><strong>External Threat</strong></td>
-                                <td>Legal Attacks, NBR Audit, Sabotage.</td>
-                                <td><strong>Fortress Mode:</strong> Total Info Lockdown. Bureau of Provision takes Command. Rank 0/1 Direct Control.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-          </div>
-          <h2 class="section-header">7. Implementation & Intellectual Property</h2>
-
-        <div class="card">
-            <h3>Implementation Checklist</h3>
-            <ul style="list-style:none; padding-left:0; line-height:1.8;">
-                <li><input type="checkbox"> <strong>Lock CP Module:</strong> Issue Anti-CP memo immediately.</li>
-                <li><input type="checkbox"> <strong>Finance:</strong> Open dedicated bank accounts for ops (Digital Mandate).</li>
-                <li><input type="checkbox"> <strong>Pilot:</strong> Run ACEM profiling for first 10 staff.</li>
-                <li><input type="checkbox"> <strong>Attire:</strong> Procure Bureau Coats & Winchester Shirts.</li>
-                <li><input type="checkbox"> <strong>Legal:</strong> Create Vendor's Agreement (Proprietorship to Ltd).</li>
+</div>
+<div class="card granular-only" style="border-left: 6px solid var(--crimson);">
+    <h3 style="color: var(--crimson);">8. The Anti-Donkey Protocol</h3>
+    <p style="font-style:italic; font-size:0.9rem;">"A donkey laden with books is still a donkey..."</p>
+    <div class="grid-2">
+        <div>
+            <strong>Sourcing:</strong>
+            <ul style="font-size:0.85rem; padding-left:15px;">
+                <li><strong>Target:</strong> U-Lab Graduates (Character Focus).</li>
+                <li><strong>Trap:</strong> High CGPA from NSU/BRAC/AIUB is a "Red Flag." Value Amal (Action) over Ilm.</li>
             </ul>
         </div>
-
-        <div class="card">
-            <h3>Intellectual Property Vault</h3>
-            <div class="grid-2" style="grid-template-columns: repeat(3, 1fr);">
-                <div class="bureau-card" style="border-top:none; padding:10px; text-align:center;">
-                    <img src="acem.png" class="model-thumb" onclick="openModal('acem.png','ACEM Model')" alt="ACEM">
-                    <p style="font-size:0.8rem; margin-top:5px;"><strong>ACEM Model</strong></p>
-                </div>
-                <div class="bureau-card" style="border-top:none; padding:10px; text-align:center;">
-                    <img src="mh-alo-chaya-corporate-culture.jpg" class="model-thumb" onclick="openModal('mh-alo-chaya-corporate-culture.jpg','Corporate Culture')" alt="GLSM">
-                    <p style="font-size:0.8rem; margin-top:5px;"><strong>Corporate Culture</strong></p>
-                </div>
-                <div class="bureau-card" style="border-top:none; padding:10px; text-align:center;">
-                    <img src="the-ps-of-mh-alo-chaya.png" class="model-thumb" onclick="openModal('the-ps-of-mh-alo-chaya.png','ABSC Scorecard')" alt="ABSC">
-                    <p style="font-size:0.8rem; margin-top:5px;"><strong>ABSC Scorecard</strong></p>
-                </div>
-            </div>
+        <div>
+            <strong>Testing:</strong>
+            <ul style="font-size:0.85rem; padding-left:15px;">
+                <li><strong>Filter:</strong> No Title accepted without Live Shokugeki.</li>
+                <li><strong>Conduct:</strong> Zero tolerance for oversharing.</li>
+            </ul>
         </div>
-          <div id="calculator">
-            <div class="calculator-box">
-                <h3 style="font-family:'Playfair Display'; font-size:2rem; margin-bottom:10px;">The Gate of Truth (Equivalent Exchange)</h3>
-                <p style="margin-bottom:30px;">Input the raw data (Sacrifice) to transmute the Objective Truth (Score).</p>
-                
-                <div class="input-row">
-                    <div class="input-group">
-                        <label>1. Personality (P)</label>
-                        <input type="number" id="inputP" placeholder="0-100" value="50">
-                    </div>
-                    <div class="input-group">
-                        <label>2. Skill (S)</label>
-                        <input type="number" id="inputS" placeholder="0-100" value="50">
-                    </div>
-                    <div class="input-group">
-                        <label>3. Environment (E)</label>
-                        <input type="number" id="inputE" placeholder="0-100" value="50">
-                    </div>
-                    <div class="input-group">
-                        <label>4. Performance (PERF)</label>
-                        <input type="number" id="inputPERF" placeholder="0-100" value="50">
-                    </div>
-                </div>
-                
-                <button class="btn-calc" onclick="calculateACEM()">REVEAL TRUTH</button>
-                
-                <div class="result-box">
-                    <h1 id="acemResult" style="color:var(--teal); margin:0; font-size:4rem;">---</h1>
-                    <small id="serverMsg" style="color:#888; font-weight:bold; letter-spacing:1px;">WAITING FOR ALCHEMY...</small>
-                </div>
-            </div>
-          </div>
-          <div style="max-width:1200px; margin:60px auto; padding:20px; text-align:center;">
-            <h3 class="section-header" style="border:none; margin:0 0 30px 0;">Live Command View</h3>
-            
-            <div style="display:grid; grid-template-columns:1fr; gap:30px; max-width:800px; margin:0 auto;">
-                <div>
-                    <video width="100%" controls style="border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,0.15); border: 2px solid var(--navy);">
-                        <source src="night-view.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <p style="font-weight:bold; color:var(--navy); margin-top:10px;">Night Perimeter Status (Live)</p>
-                </div>
-            </div>
-        </div>
-    </div> ```
-
-    <div id="imageModal" class="modal">
-        <span class="close-btn">&times;</span>
-        <img class="modal-content" id="modalImage">
-        <div id="imageModal" class="modal">
-        <span class="close-btn">&times;</span>
-        <img class="modal-content" id="modalImage">
+    </div>
+</div>
+<div class="card">
+    <h3>9. Governance & Strategic Scenarios</h3>
+    
+    <div class="imperial-table-wrapper granular-only">
+        <table class="imperial-table">
+            <thead><tr><th>State</th><th>Scenario</th><th>Protocol</th></tr></thead>
+            <tbody>
+                <tr style="background:#e8f6f3;">
+                    <td><strong>PEACE</strong></td>
+                    <td>Internal Harmony</td>
+                    <td><strong>Cultivation Mode:</strong> T&D Focus. Winterfell Expansion.</td>
+                </tr>
+                <tr style="background:#fff5f5;">
+                    <td><strong>WAR</strong></td>
+                    <td>Internal Disharmony</td>
+                    <td><strong>Purge Mode:</strong> Immediate "Shokugeki". Freeze Hiring.</td>
+                </tr>
+                <tr style="background:#fff5f5;">
+                    <td><strong>WAR</strong></td>
+                    <td>External Threat</td>
+                    <td><strong>Fortress Mode:</strong> Info Lockdown. Rank 1 Direct Control.</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
-    <script>
-        var modal = document.getElementById("imageModal");
-        var modalImg = document.getElementById("modalImage");
-        var span = document.getElementsByClassName("close-btn")[0];
+    <div class="granular-only" style="margin-top:20px; padding-top:10px; border-top:2px dashed #ccc;">
+        <h4>The Interconnectivity Matrix (Who Tests Whom?)</h4>
+        <div class="imperial-table-wrapper">
+            <table class="imperial-table">
+                <thead><tr><th>Target</th><th>Tested By Harmony</th><th>Tested By Efficiency</th><th>Tested By Provision</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Harmony</strong></td><td style="background:#eee;">(Ethics Audit)</td><td>Speed of Hiring</td><td>Payroll Accuracy</td></tr>
+                    <tr><td><strong>Efficiency</strong></td><td>Retention Rate</td><td style="background:#eee;">(SOP Drill)</td><td>Inventory Waste</td></tr>
+                    <tr><td><strong>Provision</strong></td><td>Staff Happiness</td><td>Procurement Speed</td><td style="background:#eee;">(Ledger Audit)</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="calculator">
+    <div class="card" style="border-top: 6px solid var(--teal);">
+        <h3>The Gate of Truth (Equivalent Exchange)</h3>
+        <div class="grid-2" style="margin-bottom: 15px;">
+            <div><label>Personality (P)</label><input type="number" id="inputP" value="50"></div>
+            <div><label>Skill (S)</label><input type="number" id="inputS" value="50"></div>
+            <div><label>Environment (E)</label><input type="number" id="inputE" value="50"></div>
+            <div><label>Performance (PERF)</label><input type="number" id="inputPERF" value="50"></div>
+        </div>
+        <button class="btn" style="width:100%; background:var(--teal);" onclick="calculateACEM()">REVEAL TRUTH</button>
+        <div id="acem_output" style="margin-top: 15px; font-size: 1.5rem; font-weight: bold; color: var(--teal); text-align: center;">---</div>
+    </div>
+</div>
+<div style="max-width:1200px; margin:40px auto; padding:20px; text-align:center;">
+    <h3 style="margin:0 0 20px 0;">Live Command View</h3>
+    <div style="max-width:700px; margin:0 auto;">
+        <video width="100%" controls style="border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,0.15); border: 2px solid var(--navy);">
+            <source src="night-view.mp4" type="video/mp4">
+            Video Feed Offline.
+        </video>
+        <p style="font-weight:bold; color:var(--navy); margin-top:10px;">Night Perimeter Status (Live)</p>
+    </div>
+</div>
+</div> ```
+
+### PASTE THIS LAST (Part 19: The Brain & Footer)
+*The Complete Granular Logic Script.*
+
+```html
+<div id="imageModal" class="modal-root">
+    <div class="modal-box">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div id="modalContent"></div>
+    </div>
+</div>
+
+<button class="mode-switch" onclick="toggleCommandMode()">🔒 ACTIVATE COMMAND VIEW</button>
+
+<script>
+    function toggleCommandMode() {
+        document.body.classList.toggle('command-mode');
+        const btn = document.querySelector('.mode-switch');
+        if(document.body.classList.contains('command-mode')) {
+            btn.innerText = "🔓 COMMAND VIEW ACTIVE";
+            btn.style.background = "var(--crimson)";
+        } else {
+            btn.innerText = "🔒 ACTIVATE COMMAND VIEW";
+            btn.style.background = "var(--accent)";
+        }
+    }
+
+    var modal = document.getElementById("imageModal");
+    function openModal(src, alt) { document.getElementById('modalContent').innerHTML = `<img src="${src}" style="width:100%;">`; modal.style.display = "flex"; }
+    function openContentModal(title, content) { document.getElementById('modalContent').innerHTML = `<h3>${title}</h3><p>${content}</p>`; modal.style.display = "flex"; }
+    function closeModal() { modal.style.display = "none"; }
+    window.onclick = function(e) { if (e.target == modal) closeModal(); }
+
+    function calculateACEM() {
+        const p = parseFloat(document.getElementById('inputP').value) || 0;
+        const s = parseFloat(document.getElementById('inputS').value) || 0;
+        const e = parseFloat(document.getElementById('inputE').value) || 0;
+        const perf = parseFloat(document.getElementById('inputPERF').value) || 0;
+        const composite = ((p * 0.30) + (s * 0.25) + (e * 0.25) + (perf * 0.20)).toFixed(2);
+        const out = document.getElementById('acem_output');
+        out.innerText = `Truth Score: ${composite}`;
+        out.style.color = composite < 50 ? "var(--crimson)" : "var(--teal)";
+    }
+
+    function selectBureau(el) {
+        document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+        if(el) el.classList.add('active');
+        const b = el.dataset.bureau;
+        const area = document.getElementById('bureauArea');
         
-        function openModal(src, alt) { 
-            modal.style.display = "block"; 
-            modalImg.src = src; 
-        }
-        
-        span.onclick = function() { 
-            modal.style.display = "none"; 
-        }
-        
-        window.onclick = function(event) { 
-            if (event.target == modal) {
-                modal.style.display = "none"; 
-            }
-        }
+        if(b === 'harmony') area.innerHTML = `<div class="card" style="border-top-color:var(--harmony);"><h3>Bureau of Harmony (HR)</h3><p><strong>Virtue:</strong> Sabr. <strong>Winchester:</strong> Cream/Beige.</p><div class="granular-only" style="border-top:1px dashed #ccc; margin-top:10px; padding-top:10px;"><strong style="color:var(--crimson);">COMMAND:</strong><br>Battle: "The Toxic Star".<br>Daily: 08:00 Grooming Check.</div></div>`;
+        if(b === 'efficiency') area.innerHTML = `<div class="card" style="border-top-color:var(--efficiency);"><h3>Bureau of Efficiency (Ops)</h3><p><strong>Virtue:</strong> Ihsan. <strong>Winchester:</strong> Pale Blue.</p><div class="granular-only" style="border-top:1px dashed #ccc; margin-top:10px; padding-top:10px;"><strong style="color:var(--crimson);">COMMAND:</strong><br>Battle: "The Blind Inspection".<br>Daily: Dawn Patrol.</div></div>`;
+        if(b === 'provision') area.innerHTML = `<div class="card" style="border-top-color:var(--provision);"><h3>Bureau of Provision (Fin)</h3><p><strong>Virtue:</strong> Amanah. <strong>Winchester:</strong> Mint/Emerald.</p><div class="granular-only" style="border-top:1px dashed #ccc; margin-top:10px; padding-top:10px;"><strong style="color:var(--crimson);">COMMAND:</strong><br>Battle: "The Fake Ledger".<br>Daily: 17:00 Cash Lock.</div></div>`;
+        if(b === 'presence') area.innerHTML = `<div class="card" style="border-top-color:var(--presence);"><h3>Bureau of Presence (Brand)</h3><p><strong>Virtue:</strong> Khidmah. <strong>Winchester:</strong> Maroon/Plum.</p><div class="granular-only" style="border-top:1px dashed #ccc; margin-top:10px; padding-top:10px;"><strong style="color:var(--crimson);">COMMAND:</strong><br>Battle: "The Crisis Response".<br>Daily: 19:00 Vibe Check.</div></div>`;
+        if(b === 'wellness') area.innerHTML = `<div class="card" style="border-top-color:var(--wellness);"><h3>Bureau of Wellness</h3><p><strong>Virtue:</strong> Strength. <strong>Winchester:</strong> Aqua/Teal.</p><div class="granular-only" style="border-top:1px dashed #ccc; margin-top:10px; padding-top:10px;"><strong style="color:var(--crimson);">COMMAND:</strong><br>Battle: "The Fitness Test".<br>Daily: Equipment Safety Check.</div></div>`;
+        if(b === 'gourmet') area.innerHTML = `<div class="card" style="border-top-color:var(--gourmet);"><h3>Gourmet Alliance</h3><p><strong>Virtue:</strong> Nourishment. <strong>Winchester:</strong> Burnt Orange.</p><div class="granular-only" style="border-top:1px dashed #ccc; margin-top:10px; padding-top:10px;"><strong style="color:var(--crimson);">COMMAND:</strong><br>Battle: "The Egg Dish".<br>Daily: Taste Calibration.</div></div>`;
+    }
 
-        function openContentModal(title, content) {
-            var box = document.getElementById("modalContent");
-            // If modal content box exists inside modal structure, use it. 
-            // However, the image modal structure is simple. 
-            // We will reuse the modal logic or alert for simple text if structure differs.
-            // For this specific file structure, let's use a simple overlay or reuse the modal div if capable.
-            // Since the previous HTML setup for modal only had an IMG tag, we will use the Image Modal for images only.
-            // For Text Content (Charter/Staff Models), we will inject a temporary text container or use alert for simplicity 
-            // unless we modify HTML. To keep it clean, we will use a simple alert for text-based modals 
-            // OR we can dynamically replace the innerHTML of the modalBox. 
-            // Let's do the dynamic replace for a premium feel.
-            
-            var modalBox = document.getElementsByClassName("modal-content")[0];
-            // Temporarily hide image, show text
-            modal.style.display = "block";
-            modalBox.style.display = "none"; // Hide the image tag
-            
-            // Check if text container exists, if not create one
-            var textDiv = document.getElementById("tempTextModal");
-            if (!textDiv) {
-                textDiv = document.createElement("div");
-                textDiv.id = "tempTextModal";
-                textDiv.style.background = "white";
-                textDiv.style.padding = "20px";
-                textDiv.style.maxWidth = "600px";
-                textDiv.style.margin = "10% auto";
-                textDiv.style.borderRadius = "8px";
-                textDiv.style.position = "relative";
-                
-                var close = document.createElement("span");
-                close.innerHTML = "&times;";
-                close.style.position = "absolute";
-                close.style.right = "20px";
-                close.style.top = "10px";
-                close.style.fontSize = "30px";
-                close.style.cursor = "pointer";
-                close.onclick = function() { modal.style.display = "none"; textDiv.remove(); };
-                
-                textDiv.appendChild(close);
-                
-                var titleEl = document.createElement("h3");
-                titleEl.innerHTML = title;
-                textDiv.appendChild(titleEl);
-                
-                var contentEl = document.createElement("div");
-                contentEl.innerHTML = content;
-                textDiv.appendChild(contentEl);
-                
-                modal.appendChild(textDiv);
-            }
-        }
+    function showHRStep(step) {
+        const d = document.getElementById('hrDetail');
+        if(step === 'recruit') d.innerHTML = '<h4>1. Recruit</h4><p>Iron Gate. U-Lab Priority. Anti-Donkey Filter.</p>';
+        if(step === 'exam') d.innerHTML = '<h4>2. Exam</h4><p>Written + Practical Shokugeki.</p>';
+        if(step === 'training') d.innerHTML = '<h4>3. Training</h4><p>Royal Tutor. 6-Month Rotation. Winterfell Active.</p>';
+        if(step === 'appraisal') d.innerHTML = '<h4>4. Omni-View</h4><p>360 Degree. BARS. Inversion Check.</p>';
+        if(step === 'comp') d.innerHTML = '<h4>5. Pay</h4><p>Base + Versatility Bonus. No Cash.</p>';
+    }
 
-        document.querySelectorAll('.bureau-card').forEach(card => {
-            const list = card.querySelector('.sub-func-list'); 
-            if(list) {
-                const btn = document.createElement('button');
-                btn.className = 'accordion-btn';
-                btn.innerHTML = '▼ View Battle Protocols & Details';
-                list.style.display = 'none';
-                
-                btn.onclick = () => {
-                    if(list.style.display === 'none') {
-                        list.style.display = 'block';
-                        btn.innerHTML = '▲ Hide Details';
-                        btn.classList.add('active');
-                    } else {
-                        list.style.display = 'none';
-                        btn.innerHTML = '▼ View Battle Protocols & Details';
-                        btn.classList.remove('active');
-                    }
-                };
-                list.parentNode.insertBefore(btn, list);
-            }
-        });
+    function demoStaffModel(n) { openContentModal('Force Model: ' + n, `Active Force Level: ${n} personnel.`); }
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
+</script>
 
-        async function calculateACEM() {
-            const p = document.getElementById('inputP').value;
-            const s = document.getElementById('inputS').value;
-            const e = document.getElementById('inputE').value;
-            const perf = document.getElementById('inputPERF').value;
-            const data = { personality: p, skill: s, environment: e, performance: perf };
-            const composite = ((p * 0.30) + (s * 0.25) + (e * 0.25) + (perf * 0.20)).toFixed(2);
-            
-            document.getElementById('acem_output').innerText = "TRUTH SCORE: " + composite;
-            document.getElementById('serverMsg').innerText = "ANALYSIS COMPLETE";
-            
-            if(composite < 50) {
-                document.getElementById('acem_output').style.color = "var(--crimson)";
-                document.getElementById('serverMsg').innerText = "REJECT: Below Standard";
-            } else {
-                document.getElementById('acem_output').style.color = "var(--teal)";
-            }
-        }
-
-        function selectBureau(el) {
-            document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
-            if(el) el.classList.add('active');
-            
-            const bureau = el.dataset.bureau;
-            const area = document.getElementById('bureauArea');
-            
-            if(bureau === 'harmony') {
-                area.innerHTML = '<div class="card" style="border-top-color:var(--harmony);"><h3>Bureau of Harmony (HR)</h3><p><strong>Virtue:</strong> Sabr (Patience). <strong>Mandate:</strong> The Royal Tutor.</p><ul style="font-size:0.9rem; margin-top:10px;"><li><strong>Recruit:</strong> Iron Gate (Anti-Donkey Protocol).</li><li><strong>Sanctuary:</strong> Winterfell Day Care Active.</li><li><strong>Battle:</strong> "The Toxic Star" (Ethics Test).</li></ul></div>';
-            } else if(bureau === 'efficiency') {
-                area.innerHTML = '<div class="card" style="border-top-color:var(--efficiency);"><h3>Bureau of Efficiency (Ops)</h3><p><strong>Virtue:</strong> Ihsan (Excellence). <strong>Mandate:</strong> Kakuriyo Standard.</p><ul style="font-size:0.9rem; margin-top:10px;"><li><strong>Exam:</strong> SOP Memorization (Written).</li><li><strong>Battle:</strong> "The Blind Inspection" (Find 10 Errors).</li><li><strong>Uniform:</strong> Sky Blue Winchester.</li></ul></div>';
-            } else if(bureau === 'provision') {
-                area.innerHTML = '<div class="card" style="border-top-color:var(--provision);"><h3>Bureau of Provision (Fin)</h3><p><strong>Virtue:</strong> Amanah (Trust). <strong>Mandate:</strong> Fullmetal Alchemist.</p><ul style="font-size:0.9rem; margin-top:10px;"><li><strong>Law:</strong> Section 55 Compliance (No Cash).</li><li><strong>Battle:</strong> "The Fake Ledger" (Tax Audit).</li><li><strong>Asset:</strong> The Tower Protection.</li></ul></div>';
-            } else if(bureau === 'presence') {
-                area.innerHTML = '<div class="card" style="border-top-color:var(--presence);"><h3>Bureau of Presence (Brand)</h3><p><strong>Virtue:</strong> Khidmah (Service). <strong>Mandate:</strong> Toriko / Food Wars.</p><ul style="font-size:0.9rem; margin-top:10px;"><li><strong>Battle:</strong> "The Crisis" (PR Response).</li><li><strong>Culinary:</strong> "The Egg Dish" (Cost/Taste Eng).</li><li><strong>Uniform:</strong> Teal/Violet Winchester.</li></ul></div>';
-            }
-        }
-
-        function showHRStep(step) {
-            const d = document.getElementById('hrDetail');
-            if(step === 'recruit') {
-                d.innerHTML = '<h4 style="color:var(--harmony);">1. Recruitment & Selecting (The Iron Gate)</h4><ul style="font-size:0.9rem; line-height:1.6;"><li><strong>Sourcing:</strong> Universal Suspicion. High CGPA from Pvt Unis (NSU/BRAC/ULAB) is a Red Flag.</li><li><strong>Selecting:</strong> Must pass "The Toxic Star" Scenario.</li><li><strong>Conduct:</strong> Zero Tolerance for oversharing. PDF Docs only.</li></ul>';
-            } else if(step === 'exam') {
-                d.innerHTML = '<h4 style="color:var(--efficiency);">2. The Shokugeki (Exams)</h4><ul style="font-size:0.9rem; line-height:1.6;"><li><strong>Written:</strong> Technical SOPs & Labor Law (Pass: 90%).</li><li><strong>Verbal:</strong> Presentation of a strategic idea.</li><li><strong>Practical:</strong> "The Blind Inspection" (Ops) or "The Fake Ledger" (Fin). No pass, no title.</li></ul>';
-            } else if(step === 'training') {
-                d.innerHTML = '<h4 style="color:var(--harmony);">3. Onboarding & Training (Royal Tutor)</h4><ul style="font-size:0.9rem; line-height:1.6;"><li><strong>Onboarding:</strong> Cultural Injection (GLSM).</li><li><strong>The Crucible:</strong> 6-Month Rotation. Must master <strong>Two Sub-Functions</strong> (Duality).</li><li><strong>Sanctuary:</strong> Staff children enter Winterfell (Day Care).</li></ul>';
-            } else if(step === 'appraisal') {
-                d.innerHTML = '<h4 style="color:var(--accent);">4. Omni-View (Performance)</h4><ul style="font-size:0.9rem; line-height:1.6;"><li><strong>Metric:</strong> 360° Review + BARS.</li><li><strong>Tool:</strong> Starfish (Stop/Start/Continue).</li><li><strong>Inversion Check:</strong> Did the Specialist use Veto power correctly?</li></ul>';
-            } else if(step === 'comp') {
-                d.innerHTML = '<h4 style="color:var(--provision);">5. Compensation & Reward</h4><ul style="font-size:0.9rem; line-height:1.6;"><li><strong>Base Pay:</strong> Ranked (25k - 4k).</li><li><strong>Versatility Bonus:</strong> +2k for Dual-Function Cadets.</li><li><strong>Compliance:</strong> Bank Transfer Only (Section 55). No Cash.</li></ul>';
-            }
-        }
-
-        function demoStaffModel(n) {
-            let detail = "";
-            if(n==34) detail = "<strong>Strong Platoon.</strong> Current Active State. Winterfell Active.";
-            if(n==22) detail = "<strong>Survival Squad.</strong> Security + Core only.";
-            if(n==57) detail = "<strong>Task Force.</strong> Full Occupancy. R&D Units Active.";
-            if(n==82) detail = "<strong>Company.</strong> 87.5 Bigha Active.";
-            openContentModal('Force Model: ' + n, `Active Force Level: ${n} personnel.<br>${detail}`);
-        }
-
-        document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
-    </script>
-    
-    <footer style="background:var(--navy); color:var(--white); padding:60px 20px; text-align:center; margin-top:80px;">
-        <h3 style="font-family:'Playfair Display'; margin:0 0 20px 0;">MH Alo Chaya Limited</h3>
-        <p style="font-size:0.9rem; opacity:0.8; margin-bottom:5px;">Imperial Human Capital Doctrine • 2025</p>
-        <p style="font-size:0.9rem; opacity:0.8; font-weight:bold; color:var(--teal);">Section 55 Compliant • Digital Mandate Active • Winterfell Sanctuary Protected</p>
-    </footer>
+<footer style="background:var(--navy); color:var(--white); padding:50px 20px; text-align:center; margin-top:60px;">
+    <h3 style="font-family:'Playfair Display'; margin:0 0 10px 0;">MH Alo Chaya Limited</h3>
+    <p style="font-size:0.8rem; opacity:0.7;">Imperial Human Capital Doctrine • 2025 • Section 55 Compliant</p>
+</footer>
 </body>
 </html>
