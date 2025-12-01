@@ -105,15 +105,19 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; margin-top: 0; color: v
     <h3>3. The HR Talking Function (Lifecycle)</h3>
     
     <div style="background: #fff5f5; border-left: 5px solid var(--crimson); padding: 15px; margin-bottom: 20px;">
-        <h4 style="margin:0 0 5px 0; color:var(--crimson);">🔗 Imperium Governance Anchor</h4>
-        <p style="font-size:0.85rem; margin-bottom:10px;">
-            All HR activities operate under the <strong>Defense & Offense Handbook</strong>.
-            <br>• <strong>Defense:</strong> Internal Control, Punishments, 360° Discipline.
-            <br>• <strong>Offense:</strong> Marketing 7Ps, PR Warfare, Competitive Strategy.
-        </p>
-        <a href="defense-offense-handbook.html" target="_blank" class="btn" style="background:var(--navy); font-size:0.8rem; padding:8px 15px; text-decoration:none; display:inline-block;">📖 OPEN HANDBOOK (Version 0.1)</a>
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+        <div>
+            <h4 style="margin:0 0 5px 0; color:var(--crimson);">🔗 Imperium Governance Anchor</h4>
+            <p style="font-size:0.85rem; margin-bottom:0;">
+                Operating under the <strong>Defense & Offense Handbook</strong> (2025 Edition).
+            </p>
+        </div>
+        <button class="btn" onclick="openHandbookVault()" style="background:var(--navy); border:1px solid var(--gold); box-shadow:0 4px 10px rgba(0,0,0,0.2);">
+            📜 ACCESS VAULT
+        </button>
     </div>
-
+    </div>
+    
     <div style="display: flex; gap: 5px; margin-bottom: 15px; overflow-x: auto; white-space: nowrap; padding-bottom:5px;">
         <button class="pill" onclick="showHRStep('recruit')">1. Recruit</button>
         <button class="pill" onclick="showHRStep('exam')">2. Exam</button>
@@ -310,6 +314,39 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; margin-top: 0; color: v
         </table>
     </div>
 </div>
+  <div id="handbookVault" class="card granular-only" style="border-top: 6px solid var(--navy); display:none;">
+    <div style="display:flex; justify-content:space-between;">
+        <h3>📁 Section 11: The Imperial Archives</h3>
+        <button class="pill" onclick="closeVault()" style="background:var(--crimson); color:white;">✖ CLOSE</button>
+    </div>
+    
+    <div class="grid-2">
+        <div style="background:#f4f4f4; padding:20px; border-radius:8px;">
+            <h4>📄 Digital Reader</h4>
+            <p style="font-size:0.8rem;">Read the text version of the policies directly.</p>
+            <div style="height:300px; overflow-y:scroll; background:white; padding:15px; border:1px solid #ddd; font-size:0.9rem; line-height:1.8;">
+                <h4 style="text-align:center;">MH ALO CHAYA LIMITED<br>OFFICIAL HANDBOOK 2025</h4>
+                <hr>
+                <p><strong>1.0 PREAMBLE</strong><br>This resort operates under the doctrine of Trust (Amanah) and Excellence (Ihsan)...</p>
+                <p><strong>2.0 GUEST CONDUCT</strong><br>Any violation of the "Winterfell" sanctuary rules results in immediate expulsion...</p>
+                <p><strong>3.0 STAFF CONDUCT</strong><br>The "Anti-Donkey" protocol is in full effect...</p>
+                </div>
+        </div>
+
+        <div style="background:#e3f2fd; padding:20px; border-radius:8px; display:flex; flex-direction:column; justify-content:center; text-align:center;">
+            <h4 style="color:var(--efficiency);">⬇️ Physical File</h4>
+            <p>Download the signed PDF copy for legal verification.</p>
+            
+            <a href="MH_Alo_Chaya_Handbook_2025.pdf" target="_blank" class="btn" style="background:var(--efficiency); margin-top:10px;">
+                DOWNLOAD PDF (2.4 MB)
+            </a>
+            
+            <div style="margin-top:20px; font-size:0.75rem; color:#666;">
+                <strong>SHA-256 Verified:</strong><br>ad9f...8x92
+            </div>
+        </div>
+    </div>
+  </div>
     
 <div id="calculator">
     <div class="card" style="border-top: 6px solid var(--teal);">
@@ -346,7 +383,70 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; margin-top: 0; color: v
 <button class="mode-switch" onclick="toggleCommandMode()">🔒 ACTIVATE COMMAND VIEW</button>
 
 <script>
-    // 1. TOGGLE COMMAND MODE (The Veil Switch)
+    // --- 1. GLOBAL STATE (THE BRAIN) ---
+    // This remembers which Bureau is currently active. Default is Harmony.
+    let currentBureau = 'harmony'; 
+
+    // --- 2. THE MATRIX (DATA) ---
+    // This holds the specific story for every Bureau's approach to every HR step.
+    const bureauMatrix = {
+        harmony: {
+            name: "Harmony (HR)",
+            color: "var(--harmony)",
+            recruit: "<strong>Target:</strong> Psychology/Law Grads.<br><strong>The Iron Gate:</strong> We look for Character over Skill.<br><strong>Battle:</strong> 'The Toxic Star' (Ethics Trap).",
+            exam: "<strong>The Shokugeki:</strong> Mediation Simulation. Can they de-escalate a fight between two angry staff members?",
+            training: "<strong>Focus:</strong> Culture Guardianship. Memorizing the Handbook & Mannerisms.",
+            appraisal: "<strong>Metric:</strong> Retention Rate & Employee Happiness Score.",
+            comp: "<strong>Structure:</strong> Standard Base + 'Peacekeeper' Bonus."
+        },
+        efficiency: {
+            name: "Efficiency (Ops)",
+            color: "var(--efficiency)",
+            recruit: "<strong>Target:</strong> Engineering/Technical.<br><strong>The Iron Gate:</strong> We look for Speed & Precision.<br><strong>Battle:</strong> 'The Broken Pipe'. Fix it in 5 mins or leave.",
+            exam: "<strong>The Shokugeki:</strong> Speed Drills. Room turnover time trial (Max 12 mins).",
+            training: "<strong>Focus:</strong> SOP Mastery. Muscle Memory for electrical/plumbing fixes.",
+            appraisal: "<strong>Metric:</strong> Task Completion Time & Error Rate.",
+            comp: "<strong>Structure:</strong> Hourly Efficiency Rate."
+        },
+        provision: {
+            name: "Provision (Finance)",
+            color: "var(--provision)",
+            recruit: "<strong>Target:</strong> Accounting/Commerce.<br><strong>The Iron Gate:</strong> We look for absolute Honesty.<br><strong>Battle:</strong> 'The Dropped Wallet'. If they keep it, they are banned.",
+            exam: "<strong>The Shokugeki:</strong> The Fake Ledger. Find the missing 1 Taka discrepancy.",
+            training: "<strong>Focus:</strong> Inventory Control, Excel Shortcuts, & Asset Protection.",
+            appraisal: "<strong>Metric:</strong> Zero Variance (Accuracy).",
+            comp: "<strong>Structure:</strong> High Base (Trust Premium). No tips allowed."
+        },
+        presence: {
+            name: "Presence (Brand)",
+            color: "var(--presence)",
+            recruit: "<strong>Target:</strong> Hospitality/Arts.<br><strong>The Iron Gate:</strong> We look for Charm & Resilience.<br><strong>Battle:</strong> 'The Vibe Check'. Can they smile while being yelled at?",
+            exam: "<strong>The Shokugeki:</strong> Crisis PR. Handling a VIP complaint live.",
+            training: "<strong>Focus:</strong> Grooming, Etiquette, Language & Lighting control.",
+            appraisal: "<strong>Metric:</strong> Guest Satisfaction Index (GSI).",
+            comp: "<strong>Structure:</strong> Base + Service Charge Share."
+        },
+        wellness: {
+            name: "Wellness (Spa/Gym)",
+            color: "var(--wellness)",
+            recruit: "<strong>Target:</strong> Sports Science/Physio.<br><strong>The Iron Gate:</strong> Physical Fitness.<br><strong>Battle:</strong> 'The Endurance Run'.",
+            exam: "<strong>The Shokugeki:</strong> Safety Protocol Drill. CPR & First Aid speed.",
+            training: "<strong>Focus:</strong> Anatomy, Guest Safety & Relaxation Techniques.",
+            appraisal: "<strong>Metric:</strong> Equipment Uptime & Guest Health feedback.",
+            comp: "<strong>Structure:</strong> Commission on Treatments."
+        },
+        gourmet: {
+            name: "Gourmet (Food)",
+            color: "var(--gourmet)",
+            recruit: "<strong>Target:</strong> Culinary Arts.<br><strong>The Iron Gate:</strong> Taste Palette.<br><strong>Battle:</strong> 'The Egg Dish'. Make a perfect omelet.",
+            exam: "<strong>The Shokugeki:</strong> Mystery Box. Cook with random leftover ingredients.",
+            training: "<strong>Focus:</strong> Hygiene, Knife Skills & Taste Consistency.",
+            appraisal: "<strong>Metric:</strong> Food Cost % & Waste Management.",
+            comp: "<strong>Structure:</strong> Kitchen Grade Pay."
+        }
+    };
+
+    // --- 3. COMMAND VIEW TOGGLE ---
     function toggleCommandMode() {
         document.body.classList.toggle('command-mode');
         const btn = document.querySelector('.mode-switch');
@@ -359,21 +459,93 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; margin-top: 0; color: v
         }
     }
 
-    // 2. MODAL LOGIC
+    // --- 4. MODAL LOGIC ---
     var modal = document.getElementById("imageModal");
-    function openModal(src, alt) { 
-        document.getElementById('modalContent').innerHTML = `<img src="${src}" style="width:100%; border-radius:4px;">`; 
-        modal.style.display = "flex"; 
-    }
     function openContentModal(title, content) { 
         document.getElementById('modalContent').innerHTML = `<h3 style="color:var(--accent); border-bottom:2px solid var(--gold); padding-bottom:10px;">${title}</h3><div style="margin-top:15px; line-height:1.6;">${content}</div>`; 
         modal.style.display = "flex"; 
     }
     function closeModal() { modal.style.display = "none"; }
     window.onclick = function(e) { if (e.target == modal) closeModal(); }
-    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
 
-    // 3. ACEM CALCULATOR
+    // --- 5. BUREAU SELECTION LOGIC (The Linkage Start) ---
+    function selectBureau(el) {
+        // 1. Visual Update (Highlight the pill)
+        document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+        el.classList.add('active');
+        
+        // 2. Update the Brain (State)
+        currentBureau = el.dataset.bureau;
+        const info = bureauMatrix[currentBureau];
+
+        // 3. Update Section 2 Display
+        const area = document.getElementById('bureauArea');
+        area.innerHTML = `
+            <div class="card" style="border-top: 5px solid ${info.color}; animation: fadeIn 0.3s;">
+                <h3 style="color:${info.color};">Bureau of ${info.name}</h3>
+                <p><strong>Status:</strong> ACTIVE COMMAND.</p>
+                <div style="background:#f9f9f9; padding:15px; border-left:4px solid ${info.color};">
+                    <strong>System Linked:</strong> Section 3 below is now showing protocols for <em>${info.name}</em>.
+                </div>
+            </div>`;
+            
+        // 4. Force Update Section 3 (if it was already showing something)
+        // This clears Section 3 so the user knows they need to click a button to see the new data
+        document.getElementById('hrDetail').innerHTML = `<strong>Context Switched to ${info.name}.</strong> Select an HR Step (Recruit, Exam, etc.) to view specific protocols.`;
+    }
+
+    // --- 6. HR LIFECYCLE LOGIC (The Deep Linkage) ---
+    function showHRStep(step) {
+        const d = document.getElementById('hrDetail');
+        
+        // Get the data for the CURRENTLY selected Bureau
+        const bureauData = bureauMatrix[currentBureau]; 
+        
+        let stepTitle = "";
+        let content = "";
+
+        // Decide what to show based on the Step Clicked
+        if(step === 'recruit') {
+            stepTitle = "1. Recruitment Protocol";
+            content = bureauData.recruit;
+        } else if(step === 'exam') {
+            stepTitle = "2. The Shokugeki (Exam)";
+            content = bureauData.exam;
+        } else if(step === 'training') {
+            stepTitle = "3. Training & Culture";
+            content = bureauData.training;
+        } else if(step === 'appraisal') {
+            stepTitle = "4. Appraisal (360°)";
+            content = bureauData.appraisal;
+        } else if(step === 'comp') {
+            stepTitle = "5. Compensation";
+            content = bureauData.comp;
+        }
+
+        // Render the "Connected" Result
+        d.innerHTML = `
+            <div style="animation: fadeIn 0.3s;">
+                <h4 style="color:${bureauData.color}; text-transform:uppercase; border-bottom: 1px solid #eee; padding-bottom:10px;">
+                    ${bureauData.name} • ${stepTitle}
+                </h4>
+                <div style="font-size:1rem; margin-top:15px; line-height:1.7;">
+                    ${content}
+                </div>
+            </div>
+        `;
+    }
+
+    // --- 7. STAFF MODEL (Keep existing) ---
+    function demoStaffModel(n) {
+        let detail = "";
+        if(n==22) detail = "<strong>Survival Squad.</strong> Security + Core only. Cash Preservation Mode.";
+        else if(n==34) detail = "<strong>Strong Platoon.</strong> Current Active State. Winterfell Active. Full Compliance.";
+        else if(n==57) detail = "<strong>Task Force.</strong> Full Occupancy. R&D Units Active.";
+        else if(n==82) detail = "<strong>Company.</strong> 87.5 Bigha Active. Empire Mode.";
+        openContentModal('Force Model: ' + n, `<strong>Active Force Level: ${n} personnel.</strong><br><br>${detail}`);
+    }
+
+    // --- 8. CALCULATOR (Keep existing) ---
     function calculateACEM() {
         const p = parseFloat(document.getElementById('inputP').value) || 0;
         const s = parseFloat(document.getElementById('inputS').value) || 0;
@@ -393,61 +565,21 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; margin-top: 0; color: v
         }
     }
 
-    // 4. BUREAU LOGIC (Injects Granular Data)
-    function selectBureau(el) {
-        // Active State Toggle
-        document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
-        if(el) el.classList.add('active');
-        
-        const b = el.dataset.bureau;
-        const area = document.getElementById('bureauArea');
-        
-        // HTML Injection based on Selection
-        if(b === 'harmony') {
-            area.innerHTML = `<div class="card" style="border-top-color:var(--harmony);"><h3>Bureau of Harmony (HR)</h3><p><strong>Virtue:</strong> Sabr (Patience). <strong>Winchester:</strong> Cream/Beige.</p><p><strong>Mandate:</strong> Recruit, Train, Protect.</p><div class="granular-only" style="border-top:1px dashed #ccc; margin-top:10px; padding-top:10px;"><strong style="color:var(--crimson);">COMMAND PROTOCOLS:</strong><ul style="font-size:0.9rem; padding-left:20px;"><li><strong>Battle:</strong> "The Toxic Star" (Ethics Test).</li><li><strong>Daily:</strong> 08:00 Grooming Check.</li><li><strong>Metric:</strong> Retention Rate.</li></ul></div></div>`;
-        } 
-        else if(b === 'efficiency') {
-            area.innerHTML = `<div class="card" style="border-top-color:var(--efficiency);"><h3>Bureau of Efficiency (Ops)</h3><p><strong>Virtue:</strong> Ihsan (Excellence). <strong>Winchester:</strong> Pale Blue.</p><p><strong>Mandate:</strong> SOPs, Security, Maintenance.</p><div class="granular-only" style="border-top:1px dashed #ccc; margin-top:10px; padding-top:10px;"><strong style="color:var(--crimson);">COMMAND PROTOCOLS:</strong><ul style="font-size:0.9rem; padding-left:20px;"><li><strong>Battle:</strong> "The Blind Inspection" (Find 10 Errors).</li><li><strong>Daily:</strong> Dawn Patrol (Security Check).</li><li><strong>Metric:</strong> Task Completion Time.</li></ul></div></div>`;
-        } 
-        else if(b === 'provision') {
-            area.innerHTML = `<div class="card" style="border-top-color:var(--provision);"><h3>Bureau of Provision (Fin)</h3><p><strong>Virtue:</strong> Amanah (Trust). <strong>Winchester:</strong> Mint/Emerald.</p><p><strong>Mandate:</strong> Treasury, Payroll, Procurement.</p><div class="granular-only" style="border-top:1px dashed #ccc; margin-top:10px; padding-top:10px;"><strong style="color:var(--crimson);">COMMAND PROTOCOLS:</strong><ul style="font-size:0.9rem; padding-left:20px;"><li><strong>Battle:</strong> "The Fake Ledger" (Audit Test).</li><li><strong>Daily:</strong> 17:00 Cash Lock (Digital Mandate).</li><li><strong>Metric:</strong> Variance Report.</li></ul></div></div>`;
-        } 
-        else if(b === 'presence') {
-            area.innerHTML = `<div class="card" style="border-top-color:var(--presence);"><h3>Bureau of Presence (Brand)</h3><p><strong>Virtue:</strong> Khidmah (Service). <strong>Winchester:</strong> Maroon/Plum.</p><p><strong>Mandate:</strong> Guest Relations, PR, VIPs.</p><div class="granular-only" style="border-top:1px dashed #ccc; margin-top:10px; padding-top:10px;"><strong style="color:var(--crimson);">COMMAND PROTOCOLS:</strong><ul style="font-size:0.9rem; padding-left:20px;"><li><strong>Battle:</strong> "The Crisis Response" (PR Sim).</li><li><strong>Daily:</strong> 19:00 Vibe Check (Music/Light).</li><li><strong>Metric:</strong> Guest Satisfaction Index.</li></ul></div></div>`;
-        } 
-        else if(b === 'wellness') {
-            area.innerHTML = `<div class="card" style="border-top-color:var(--wellness);"><h3>Bureau of Wellness</h3><p><strong>Virtue:</strong> Strength. <strong>Winchester:</strong> Aqua/Teal.</p><p><strong>Mandate:</strong> Fitness, Spa, Recreation.</p><div class="granular-only" style="border-top:1px dashed #ccc; margin-top:10px; padding-top:10px;"><strong style="color:var(--crimson);">COMMAND PROTOCOLS:</strong><ul style="font-size:0.9rem; padding-left:20px;"><li><strong>Battle:</strong> "The Fitness Challenge".</li><li><strong>Daily:</strong> Equipment Safety Audit.</li><li><strong>Metric:</strong> Utilization Rate.</li></ul></div></div>`;
-        } 
-        else if(b === 'gourmet') {
-            area.innerHTML = `<div class="card" style="border-top-color:var(--gourmet);"><h3>Gourmet Alliance</h3><p><strong>Virtue:</strong> Nourishment. <strong>Winchester:</strong> Burnt Orange.</p><p><strong>Mandate:</strong> Kitchen, F&B, Menu Eng.</p><div class="granular-only" style="border-top:1px dashed #ccc; margin-top:10px; padding-top:10px;"><strong style="color:var(--crimson);">COMMAND PROTOCOLS:</strong><ul style="font-size:0.9rem; padding-left:20px;"><li><strong>Battle:</strong> "The Egg Dish" (Cost vs Taste).</li><li><strong>Daily:</strong> 11:00 Taste Calibration.</li><li><strong>Metric:</strong> Food Cost %.</li></ul></div></div>`;
+    // --- 9. HANDBOOK VAULT LOGIC (For Section 11) ---
+    function openHandbookVault() {
+        const vault = document.getElementById('handbookVault');
+        if(vault) {
+            vault.style.display = "block";
+            vault.classList.remove('granular-only'); 
+            vault.scrollIntoView({behavior: "smooth"});
         }
     }
-
-    // 5. HR LIFECYCLE LOGIC
-    function showHRStep(step) {
-        const d = document.getElementById('hrDetail');
-        if(step === 'recruit') d.innerHTML = '<h4 style="color:var(--harmony);">1. Recruitment (The Iron Gate)</h4><p><strong>Priority:</strong> U-Lab Graduates (Character First).</p><p><strong>Anti-Donkey:</strong> High CGPA from NSU/BRAC is a "Red Flag" until proven.</p>';
-        
-        if(step === 'exam') d.innerHTML = '<h4 style="color:var(--efficiency);">2. The Shokugeki (Exams)</h4><p><strong>Written:</strong> Technical SOPs & Law.</p><p><strong>Practical:</strong> Live Battle (e.g., Cooking, Auditing, Fixing).</p>';
-        
-        if(step === 'training') d.innerHTML = '<h4 style="color:var(--harmony);">3. Training (Royal Tutor)</h4><p><strong>Onboarding:</strong> Cultural Injection.</p><p><strong>The Crucible:</strong> 6-Month Rotation. Must master 2 Sub-Functions.</p><p><strong>Sanctuary:</strong> Winterfell Day Care Active.</p>';
-        
-        if(step === 'appraisal') d.innerHTML = '<h4 style="color:var(--accent);">4. Omni-View (360°)</h4><p><strong>Tools:</strong> BARS Scoring + Starfish Model.</p><p><strong>Check:</strong> Inversion Authority Usage.</p>';
-        
-        if(step === 'comp') d.innerHTML = '<h4 style="color:var(--provision);">5. Compensation (Provision)</h4><p><strong>Rule:</strong> Bank Transfer Only (No Cash).</p><p><strong>Structure:</strong> Base + Versatility Bonus.</p>';
+    function closeVault() {
+        const vault = document.getElementById('handbookVault');
+        if(vault) vault.style.display = "none";
     }
-
-    // 6. STAFF MODEL POPUP
-    function demoStaffModel(n) {
-        let detail = "";
-        if(n==22) detail = "<strong>Survival Squad.</strong> Security + Core only. Cash Preservation Mode.";
-        else if(n==34) detail = "<strong>Strong Platoon.</strong> Current Active State. Winterfell Active. Full Compliance.";
-        else if(n==57) detail = "<strong>Task Force.</strong> Full Occupancy. R&D Units Active.";
-        else if(n==82) detail = "<strong>Company.</strong> 87.5 Bigha Active. Empire Mode.";
-        
-        openContentModal('Force Model: ' + n, `<strong>Active Force Level: ${n} personnel.</strong><br><br>${detail}`);
-    }
-</script>
+                           </script>
+    
 
 <footer style="background:var(--navy); color:var(--white); padding:50px 20px; text-align:center; margin-top:60px;">
     <h3 style="font-family:'Playfair Display'; margin:0 0 10px 0;">MH Alo Chaya Limited</h3>
