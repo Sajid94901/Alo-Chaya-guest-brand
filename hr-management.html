@@ -69,24 +69,23 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; margin-top: 0; color: v
 </div>
 <div class="card">
     <h3>1. Force Scaling Model (The 5-Year Roadmap)</h3>
-    <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px;">
-        <button class="btn" style="background:var(--muted);" onclick="demoStaffModel(22)">Squad (22)</button>
-        <button class="btn" style="background:var(--accent-2);" onclick="demoStaffModel(34)">Strong Platoon (34)</button>
-        <button class="btn" style="background:var(--muted);" onclick="demoStaffModel(57)">Task Force (57)</button>
-        <button class="btn" style="background:var(--muted);" onclick="demoStaffModel(82)">Company (82)</button>
+    <p style="font-size:0.9rem; margin-bottom:15px;">
+        <strong>Phase Selection:</strong> Click to view Hierarchy, Pay & Logic.
+    </p>
+    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;">
+        <button class="btn" onclick="renderForce(22)">Skeleton (22)</button>
+        <button class="btn" style="background:var(--accent-2);" onclick="renderForce(34)">Mid (34)</button>
+        <button class="btn" style="background:var(--efficiency);" onclick="renderForce(46)">Mature (46)</button>
+        <button class="btn" style="background:var(--muted);" onclick="renderForce(58)">Scale (58)</button>
+        <button class="btn" style="background:var(--muted);" onclick="renderForce(70)">Deep (70)</button>
+        <button class="btn" style="background:var(--gold); color:black;" onclick="renderForce(82)">Empire (82)</button>
     </div>
-    <div class="imperial-table-wrapper">
-        <table class="imperial-table">
-            <thead><tr><th>Phase</th><th>Count</th><th>Designation</th><th>Status</th></tr></thead>
-            <tbody>
-                <tr style="opacity:0.6;"><td>Defcon 1</td><td>22</td><td>Survival Squad</td><td>Emergency Only.</td></tr>
-                <tr style="background:#e0f2f1; font-weight:bold;"><td>Year 1</td><td>34</td><td>Strong Platoon</td><td><strong>Active.</strong> Full Compliance. Winterfell Active.</td></tr>
-                <tr><td>Year 3</td><td>57</td><td>Task Force</td><td>Growth. R&D Units Active.</td></tr>
-                <tr><td>Year 5</td><td>82</td><td>Company</td><td>Empire Mode. 87.5 Bigha Active.</td></tr>
-            </tbody>
-        </table>
+    
+    <div id="forceDisplay" style="background:#f8f9fa; border:1px solid #eee; padding:15px; border-radius:6px; min-height:100px;">
+        <em style="color:#999;">System Ready. Select a Phase above.</em>
     </div>
 </div>
+
 <div class="card">
     <h3>2. Bureau Command & Virtue Anchors</h3>
     <div id="bureauNav" style="margin-bottom: 20px;">
@@ -98,7 +97,25 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; margin-top: 0; color: v
         <span class="pill" data-bureau="gourmet" onclick="selectBureau(this)" style="border-left:4px solid var(--gourmet);">Gourmet</span>
     </div>
     <div id="bureauArea" style="padding: 20px; background: #fcfcfc; border: 1px solid #eee; border-radius: 6px;">
-        <p style="color: #999; text-align: center;">Select a Bureau to view Mandate, Attire & Granular Battles.</p>
+        <p style=<div class="card">
+    <h3>1. Force Scaling Model (The 5-Year Roadmap)</h3>
+    <p style="font-size:0.9rem; margin-bottom:15px;">
+        <strong>Phase Selection:</strong> Click to view Hierarchy, Pay & Logic.
+    </p>
+    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;">
+        <button class="btn" onclick="renderForce(22)">Skeleton (22)</button>
+        <button class="btn" style="background:var(--accent-2);" onclick="renderForce(34)">Mid (34)</button>
+        <button class="btn" style="background:var(--efficiency);" onclick="renderForce(46)">Mature (46)</button>
+        <button class="btn" style="background:var(--muted);" onclick="renderForce(58)">Scale (58)</button>
+        <button class="btn" style="background:var(--muted);" onclick="renderForce(70)">Deep (70)</button>
+        <button class="btn" style="background:var(--gold); color:black;" onclick="renderForce(82)">Empire (82)</button>
+    </div>
+    
+    <div id="forceDisplay" style="background:#f8f9fa; border:1px solid #eee; padding:15px; border-radius:6px; min-height:100px;">
+        <em style="color:#999;">System Ready. Select a Phase above.</em>
+    </div>
+    </div>
+            "color: #999; text-align: center;">Select a Bureau to view Mandate, Attire & Granular Battles.</p>
     </div>
 </div>
 <div class="card">
@@ -652,9 +669,8 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; margin-top: 0; color: v
     </div>
 </div>
 
-<button class="mode-switch" onclick="toggleCommandMode()">🔒 ACTIVATE COMMAND VIEW</button>
-
-<script>
+<button class="mode-switch" onclick="toggleCommandMode()">🔒 A
+    <script>
     // --- 1. GLOBAL STATE (THE BRAIN) ---
     // This remembers which Bureau is currently active. Default is Harmony.
     let currentBureau = 'harmony'; 
@@ -740,13 +756,13 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; margin-top: 0; color: v
     function closeModal() { modal.style.display = "none"; }
     window.onclick = function(e) { if (e.target == modal) closeModal(); }
 
-    // --- 5. BUREAU SELECTION LOGIC (The Linkage Start) ---
+    // --- 5. BUREAU SELECTION LOGIC (The Linkage) ---
     function selectBureau(el) {
-        // 1. Visual Update (Highlight the pill)
+        // 1. Visual Update
         document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
         el.classList.add('active');
         
-        // 2. Update the Brain (State)
+        // 2. Update the Brain
         currentBureau = el.dataset.bureau;
         const info = bureauMatrix[currentBureau];
 
@@ -761,40 +777,24 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; margin-top: 0; color: v
                 </div>
             </div>`;
             
-        // 4. Force Update Section 3 (if it was already showing something)
-        // This clears Section 3 so the user knows they need to click a button to see the new data
-        document.getElementById('hrDetail').innerHTML = `<strong>Context Switched to ${info.name}.</strong> Select an HR Step (Recruit, Exam, etc.) to view specific protocols.`;
+        // 4. Force Update Section 3 Hint
+        document.getElementById('hrDetail').innerHTML = `<strong>Context Switched to ${info.name}.</strong> Select an HR Step above.`;
     }
 
     // --- 6. HR LIFECYCLE LOGIC (The Deep Linkage) ---
     function showHRStep(step) {
         const d = document.getElementById('hrDetail');
-        
-        // Get the data for the CURRENTLY selected Bureau
         const bureauData = bureauMatrix[currentBureau]; 
         
         let stepTitle = "";
         let content = "";
 
-        // Decide what to show based on the Step Clicked
-        if(step === 'recruit') {
-            stepTitle = "1. Recruitment Protocol";
-            content = bureauData.recruit;
-        } else if(step === 'exam') {
-            stepTitle = "2. The Shokugeki (Exam)";
-            content = bureauData.exam;
-        } else if(step === 'training') {
-            stepTitle = "3. Training & Culture";
-            content = bureauData.training;
-        } else if(step === 'appraisal') {
-            stepTitle = "4. Appraisal (360°)";
-            content = bureauData.appraisal;
-        } else if(step === 'comp') {
-            stepTitle = "5. Compensation";
-            content = bureauData.comp;
-        }
+        if(step === 'recruit') { stepTitle = "1. Recruitment Protocol"; content = bureauData.recruit; }
+        else if(step === 'exam') { stepTitle = "2. The Shokugeki (Exam)"; content = bureauData.exam; }
+        else if(step === 'training') { stepTitle = "3. Training & Culture"; content = bureauData.training; }
+        else if(step === 'appraisal') { stepTitle = "4. Appraisal (360°)"; content = bureauData.appraisal; }
+        else if(step === 'comp') { stepTitle = "5. Compensation"; content = bureauData.comp; }
 
-        // Render the "Connected" Result
         d.innerHTML = `
             <div style="animation: fadeIn 0.3s;">
                 <h4 style="color:${bureauData.color}; text-transform:uppercase; border-bottom: 1px solid #eee; padding-bottom:10px;">
@@ -807,15 +807,113 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; margin-top: 0; color: v
         `;
     }
 
-    // --- 7. STAFF MODEL (Keep existing) ---
-    function demoStaffModel(n) {
-        let detail = "";
-        if(n==22) detail = "<strong>Survival Squad.</strong> Security + Core only. Cash Preservation Mode.";
-        else if(n==34) detail = "<strong>Strong Platoon.</strong> Current Active State. Winterfell Active. Full Compliance.";
-        else if(n==57) detail = "<strong>Task Force.</strong> Full Occupancy. R&D Units Active.";
-        else if(n==82) detail = "<strong>Company.</strong> 87.5 Bigha Active. Empire Mode.";
-        openContentModal('Force Model: ' + n, `<strong>Active Force Level: ${n} personnel.</strong><br><br>${detail}`);
+    // --- 7. IMPERIAL FORCE SCALING (UPGRADED ENGINE) ---
+    const forceData = {
+        22: {
+            t: "⚔️ Survival Squad (22)",
+            soc: [
+                "<strong>R2 (Shakir)</strong> ➜ Supervises All R3s & R4s directly.",
+                "<strong>R3 (Harmony)</strong> ➜ 2–3 R4s.",
+                "<strong>R3 (Ops/Brand)</strong> ➜ 2 R4s each.",
+                "<strong>R4 (Leads)</strong> ➜ 2–4 R5s."
+            ],
+            ranks: [
+                "<strong>R2 Chief:</strong> 20k BDT. Sheikh Shakir.",
+                "<strong>R3 Deputy:</strong> 15k BDT. 1 per Bureau.",
+                "<strong>R4 Lead:</strong> 12k BDT. Covers 2 sub-functions.",
+                "<strong>R5 Versatilist:</strong> 10k BDT. Mandatory Duality."
+            ],
+            note: "Skeleton Crew. Highest pressure on Sheikh Shakir."
+        },
+        34: {
+            t: "🛡️ Strong Platoon (34)",
+            soc: [
+                "<strong>R2 (Chief)</strong> ➜ Supervises R3 Deputies.",
+                "<strong>R3 (Harmony)</strong> ➜ 3 R4s.",
+                "<strong>R3 (Ops/Brand)</strong> ➜ 3 R4s each.",
+                "<strong>R4 (Leads)</strong> ➜ Expanded R5 teams."
+            ],
+            ranks: [
+                "<strong>R3 Expansion:</strong> Ops & Brand get 2nd Deputy.",
+                "<strong>R4 Expansion:</strong> Harmony(3), Eff(3), Pres(3), Prov(2).",
+                "<strong>R6/7:</strong> Recruited via FEWEP."
+            ],
+            note: "Mid-Phase. Full coverage of core bureaus."
+        },
+        46: {
+            t: "🛡️ Strong Platoon (Reinforced) (46)",
+            soc: [
+                "<strong>R2</strong> ➜ R3 Deputies (Strategic).",
+                "<strong>R3</strong> ➜ R4 Team Leads (Operational).",
+                "<strong>R4</strong> ➜ R5 Versatilists (Tactical)."
+            ],
+            ranks: [
+                "<strong>Legislation:</strong> New R4s added for oversight.",
+                "<strong>R5:</strong> Must perform 1 Cross-Bureau function."
+            ],
+            note: "Maturity Phase. Stable State."
+        },
+        58: {
+            t: "🚀 Task Force (58)",
+            soc: [
+                "<strong>Dynamic Ratio:</strong> 1 R3 ➜ 4–6 R4s.",
+                "<strong>Dynamic Ratio:</strong> 1 R4 ➜ 3–5 R5s."
+            ],
+            ranks: [
+                "<strong>R2:</strong> Promoted only if new Bureau created.",
+                "<strong>R7:</strong> Entry-level pipeline active."
+            ],
+            note: "Extended Growth. Dynamic Scaling."
+        },
+        70: {
+            t: "🚀 Task Force (Deep) (70)", 
+            soc: [ "<strong>Dynamic Ratio:</strong> 1 R3 ➜ 4–6 R4s.", "<strong>Dynamic Ratio:</strong> 1 R4 ➜ 3–5 R5s." ],
+            ranks: ["<strong>Same Logic as 58.</strong> Deepening of R5/R6 pools."], 
+            note: "Extended Growth. Density increases." 
+        },
+        82: {
+            t: "👑 The Company (82)", 
+            soc: [ "<strong>Command:</strong> Full Bureau Autonomy.", "<strong>Oversight:</strong> Archduke only intervenes on Exception." ],
+            ranks: ["<strong>Maximum Density.</strong> 87.5 Bigha Active."], 
+            note: "Empire Mode. Full Occupation." 
+        }
+    };
+
+    function renderForce(n) {
+        const data = forceData[n] || forceData[58]; 
+        const display = document.getElementById('forceDisplay');
+        
+        // Safety check if the user hasn't updated the HTML yet
+        if(!display) {
+             openContentModal(data.t, "Please update the HTML to see the full dashboard.");
+             return;
+        }
+
+        let listHtml = data.ranks.map(r => `<li style="margin-bottom:6px;">${r}</li>`).join('');
+        
+        let socHtml = "";
+        if(data.soc) {
+            socHtml = `
+            <div style="background:#e8f6f3; border-left:4px solid var(--provision); padding:10px; margin-bottom:15px; font-size:0.85rem;">
+                <strong style="color:var(--provision);">⛓️ SPAN OF CONTROL (Command Chain):</strong>
+                <ul style="margin:5px 0 0 15px; padding:0;">
+                    ${data.soc.map(s => `<li>${s}</li>`).join('')}
+                </ul>
+            </div>`;
+        }
+
+        display.innerHTML = `
+            <h4 style="color:var(--accent); margin-top:0; text-transform:uppercase; letter-spacing:1px;">${data.t}</h4>
+            ${socHtml}
+            <ul style="padding-left:20px; font-size:0.9rem; line-height:1.6; margin-top:0;">${listHtml}</ul>
+            <div style="font-size:0.8rem; color:var(--crimson); margin-top:10px; font-weight:bold; border-top:1px solid #eee; padding-top:5px;">
+                ⚠️ Strategy: ${data.note}
+            </div>
+        `;
     }
+    
+    // Kept for backward compatibility if you have old buttons
+    function demoStaffModel(n) { renderForce(n); }
 
     // --- 8. CALCULATOR (Keep existing) ---
     function calculateACEM() {
@@ -850,7 +948,15 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; margin-top: 0; color: v
         const vault = document.getElementById('handbookVault');
         if(vault) vault.style.display = "none";
     }
-                           </script>
+
+    // Initialize Force Logic on Load (Optional)
+    window.onload = function() {
+        // Uncomment below if you want it to load Phase 22 automatically
+        // renderForce(22);
+    };
+                </script>
+    
+                        
     
 
 <footer style="background:var(--navy); color:var(--white); padding:50px 20px; text-align:center; margin-top:60px;">
