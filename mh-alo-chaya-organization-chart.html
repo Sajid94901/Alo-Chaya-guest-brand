@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imperial Org Chart - With Span of Control</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg: #f4f6f7;
+    --card: #ffffff;
+    --muted: #95a5a6;
+    --gold: #f1c40f;   
+    --crimson: #c0392b; 
+    --harmony: #8d6e63; 
+    --efficiency: #2980b9; 
+    --gourmet: #e67e22; 
+    --accent: #2c3e50;
+}
+
+body { font-family: 'Inter', sans-serif; background-color: var(--bg); display: flex; flex-direction: column; align-items: center; padding: 40px; margin: 0; }
+
+.tree { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 900px; }
+
+/* NODE STYLES */
+.node {
+    background: var(--card);
+    padding: 12px 18px;
+    border-radius: 6px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border: 1px solid #ddd;
+    min-width: 200px;
+    z-index: 2;
+}
+
+/* SoC BADGE (The New Addition) */
+.soc-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: var(--accent);
+    color: white;
+    font-size: 9px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* TEXT */
+h3 { margin: 0; font-family: 'Playfair Display', serif; font-size: 13px; letter-spacing: 0.5px; }
+p { margin: 4px 0 0; font-size: 11px; font-weight: 600; color: var(--accent); }
+.role { font-size: 10px; font-style: italic; color: #666; display: block; margin-top: 2px; }
+
+/* RANKS */
+.passive { border-top: 4px solid var(--muted); background: #f8f9fa; opacity: 0.6; }
+.r1 { border: 2px solid var(--gold); background: #fffdf0; border-top: 6px solid var(--gold); }
+.r1 h3 { color: #d4ac0d; }
+
+.r2 { border-top: 5px solid var(--accent); }
+.r3-harmony { border-top: 5px solid var(--harmony); }
+.r3-efficiency { border-top: 5px solid var(--efficiency); }
+.r3-gourmet { border-top: 5px solid var(--gourmet); }
+
+/* CONNECTORS */
+.connector-v { width: 2px; background: #ccc; height: 25px; }
+.grid-row { display: flex; gap: 20px; margin-top: 10px; }
+.branch { display: flex; flex-direction: column; align-items: center; }
+
+/* DASHBOARD (Force Logic) */
+.dashboard {
+    margin-top: 40px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 5px solid var(--crimson);
+    width: 100%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.dash-item strong { display: block; font-size: 12px; color: var(--crimson); text-transform: uppercase; }
+.dash-item span { font-size: 11px; color: #555; }
+
+</style>
+</head>
+<body>
+
+<div class="tree">
+    
+    <div class="node passive">
+        <h3>THE SUBSCRIBERS</h3>
+        <p>Rasif & Asif Hassan</p>
+        <span class="role">Output: Zero</span>
+    </div>
+    <div class="connector-v" style="border-left: 2px dotted #999; background: none;"></div>
+
+    <div class="node r1">
+        <div class="soc-badge">SoC: Absolute</div>
+        <h3>RANK 1: ARCHDUKE</h3>
+        <p>SAJID HASSAN</p>
+        <span class="role">Span: Entire Dominion</span>
+    </div>
+    <div class="connector-v"></div>
+
+    <div class="node r2">
+        <div class="soc-badge">SoC: 1 : 3 Bureaus</div>
+        <h3>RANK 2: MARQUESS</h3>
+        <p>THE GENERALS</p>
+        <span class="role">Direct Command over Deputies</span>
+    </div>
+    <div class="connector-v"></div>
+
+    <div class="grid-row">
+        <div class="branch">
+            <div class="node r3-harmony">
+                <div class="soc-badge" style="background:var(--harmony)">SoC: 1 : 3 R4s</div>
+                <h3>RANK 3: EARL</h3>
+                <p>HARMONY (HR)</p>
+            </div>
+            <div class="connector-v"></div>
+            <div class="node" style="border-left: 4px solid var(--harmony); text-align:left;">
+                <h3>Rank 4: Captain</h3>
+                <p>Core HR Team (x3)</p>
+            </div>
+        </div>
+
+        <div class="branch">
+            <div class="node r3-efficiency">
+                <div class="soc-badge" style="background:var(--efficiency)">SoC: 1 : 4 R4s</div>
+                <h3>RANK 3: EARL</h3>
+                <p>EFFICIENCY (OPS)</p>
+            </div>
+            <div class="connector-v"></div>
+            <div class="node" style="border-left: 4px solid var(--efficiency); text-align:left;">
+                <h3>Rank 4: Captain</h3>
+                <p>Core Ops Team (x4)</p>
+            </div>
+        </div>
+
+        <div class="branch">
+            <div class="node r3-gourmet">
+                <div class="soc-badge" style="background:var(--gourmet)">SoC: 1 : 2 R4s</div>
+                <h3>RANK 3: EARL</h3>
+                <p>GOURMET (KITCHEN)</p>
+            </div>
+            <div class="connector-v"></div>
+            <div class="node" style="border-left: 4px solid var(--gourmet); text-align:left;">
+                <h3>Rank 4: Captain</h3>
+                <p>Core Chefs (x2)</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="connector-v"></div>
+    <div class="node" style="width: 80%; border-top: 4px solid var(--accent);">
+        <h3>RANK 5 & 6 (THE REGIMENT)</h3>
+        <p>Total Force: 34 Active Personnel</p>
+        <span class="role">Span of Control: 1 Rank 4 commands 3-5 Rank 5s</span>
+    </div>
+
+</div>
+
+<div class="dashboard">
+    <div class="dash-item">
+        <strong>Phase 34: Strong Platoon Logic</strong>
+        <span>Current operational state requires tighter control. Ratios are compressed to ensure 100% SOP compliance.</span>
+    </div>
+    <div class="dash-item">
+        <strong>The Anti-Donkey Ratio</strong>
+        <span>Max Span is 1:5. Any leader managing >5 staff triggers an automatic promotion of a new Rank 4 to split the load.</span>
+    </div>
+</div>
+
+</body>
+</html>
