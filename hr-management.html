@@ -674,11 +674,9 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; margin-top: 0; color: v
 <button class="mode-switch" onclick="toggleCommandMode()">🔒 A
     <script>
     // --- 1. GLOBAL STATE (THE BRAIN) ---
-    // This remembers which Bureau is currently active. Default is Harmony.
     let currentBureau = 'harmony'; 
 
     // --- 2. THE MATRIX (DATA) ---
-    // This holds the specific story for every Bureau's approach to every HR step.
     const bureauMatrix = {
         harmony: {
             name: "Harmony (HR)",
@@ -750,270 +748,96 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; margin-top: 0; color: v
     }
 
     // --- 4. MODAL LOGIC ---
-    var modal = document.getElementById("imageModal");
     function openContentModal(title, content) { 
-        document.getElementById('modalContent').innerHTML = `<h3 style="color:var(--accent); border-bottom:2px solid var(--gold); padding-bottom:10px;">${title}</h3><div style="margin-top:15px; line-height:1.6;">${content}</div>`; 
+        const modal = document.getElementById("imageModal");
+        document.getElementById('modalContent').innerHTML = `<h3>${title}</h3><div>${content}</div>`; 
         modal.style.display = "flex"; 
     }
-    function closeModal() { modal.style.display = "none"; }
-    window.onclick = function(e) { if (e.target == modal) closeModal(); }
+    function closeModal() { document.getElementById("imageModal").style.display = "none"; }
 
-    // --- 5. BUREAU SELECTION LOGIC (The Linkage) ---
+    // --- 5. BUREAU SELECTION LOGIC ---
     function selectBureau(el) {
-        // 1. Visual Update
         document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
         el.classList.add('active');
-        
-        // 2. Update the Brain
         currentBureau = el.dataset.bureau;
         const info = bureauMatrix[currentBureau];
-
-        // 3. Update Section 2 Display
-        const area = document.getElementById('bureauArea');
-        area.innerHTML = `
-            <div class="card" style="border-top: 5px solid ${info.color}; animation: fadeIn 0.3s;">
+        document.getElementById('bureauArea').innerHTML = `
+            <div class="card" style="border-top: 5px solid ${info.color};">
                 <h3 style="color:${info.color};">Bureau of ${info.name}</h3>
                 <p><strong>Status:</strong> ACTIVE COMMAND.</p>
-                <div style="background:#f9f9f9; padding:15px; border-left:4px solid ${info.color};">
-                    <strong>System Linked:</strong> Section 3 below is now showing protocols for <em>${info.name}</em>.
-                </div>
             </div>`;
-            
-        // 4. Force Update Section 3 Hint
-        document.getElementById('hrDetail').innerHTML = `<strong>Context Switched to ${info.name}.</strong> Select an HR Step above.`;
     }
 
-    // --- 6. HR LIFECYCLE LOGIC (The Deep Linkage) ---
+    // --- 6. HR LIFECYCLE LOGIC ---
     function showHRStep(step) {
         const d = document.getElementById('hrDetail');
         const bureauData = bureauMatrix[currentBureau]; 
-        
-        let stepTitle = "";
-        let content = "";
-
-        if(step === 'recruit') { stepTitle = "1. Recruitment Protocol"; content = bureauData.recruit; }
-        else if(step === 'exam') { stepTitle = "2. The Shokugeki (Exam)"; content = bureauData.exam; }
-        else if(step === 'training') { stepTitle = "3. Training & Culture"; content = bureauData.training; }
-        else if(step === 'appraisal') { stepTitle = "4. Appraisal (360°)"; content = bureauData.appraisal; }
-        else if(step === 'comp') { stepTitle = "5. Compensation"; content = bureauData.comp; }
-
-        d.innerHTML = `
-            <div style="animation: fadeIn 0.3s;">
-                <h4 style="color:${bureauData.color}; text-transform:uppercase; border-bottom: 1px solid #eee; padding-bottom:10px;">
-                    ${bureauData.name} • ${stepTitle}
-                </h4>
-                <div style="font-size:1rem; margin-top:15px; line-height:1.7;">
-                    ${content}
-                </div>
-            </div>
-        `;
+        let content = bureauData[step];
+        d.innerHTML = `<div style="animation: fadeIn 0.3s;"><h4>${bureauData.name} Protocol</h4><p>${content}</p></div>`;
     }
 
-    // --- 7. IMPERIAL FORCE SCALING (UPGRADED ENGINE) ---
-    const forceData = {
-        22: {
-            t: "⚔️ Survival Squad (22)",
-            soc: [
-                "<strong>R2 (Shakir)</strong> ➜ Supervises All R3s & R4s directly.",
-                "<strong>R3 (Harmony)</strong> ➜ 2–3 R4s.",
-                "<strong>R3 (Ops/Brand)</strong> ➜ 2 R4s each.",
-                "<strong>R4 (Leads)</strong> ➜ 2–4 R5s."
-            ],
-            ranks: [
-                "<strong>R2 Chief:</strong> 20k BDT. Sheikh Shakir.",
-                "<strong>R3 Deputy:</strong> 15k BDT. 1 per Bureau.",
-                "<strong>R4 Lead:</strong> 12k BDT. Covers 2 sub-functions.",
-                "<strong>R5 Versatilist:</strong> 10k BDT. Mandatory Duality."
-            ],
-            note: "Skeleton Crew. Highest pressure on Sheikh Shakir."
-        },
-        34: {
-            t: "🛡️ Strong Platoon (34)",
-            soc: [
-                "<strong>R2 (Chief)</strong> ➜ Supervises R3 Deputies.",
-                "<strong>R3 (Harmony)</strong> ➜ 3 R4s.",
-                "<strong>R3 (Ops/Brand)</strong> ➜ 3 R4s each.",
-                "<strong>R4 (Leads)</strong> ➜ Expanded R5 teams."
-            ],
-            ranks: [
-                "<strong>R3 Expansion:</strong> Ops & Brand get 2nd Deputy.",
-                "<strong>R4 Expansion:</strong> Harmony(3), Eff(3), Pres(3), Prov(2).",
-                "<strong>R6/7:</strong> Recruited via FEWEP."
-            ],
-            note: "Mid-Phase. Full coverage of core bureaus."
-        },
-        46: {
-            t: "🛡️ Strong Platoon (Reinforced) (46)",
-            soc: [
-                "<strong>R2</strong> ➜ R3 Deputies (Strategic).",
-                "<strong>R3</strong> ➜ R4 Team Leads (Operational).",
-                "<strong>R4</strong> ➜ R5 Versatilists (Tactical)."
-            ],
-            ranks: [
-                "<strong>Legislation:</strong> New R4s added for oversight.",
-                "<strong>R5:</strong> Must perform 1 Cross-Bureau function."
-            ],
-            note: "Maturity Phase. Stable State."
-        },
-        58: {
-            t: "🚀 Task Force (58)",
-            soc: [
-                "<strong>Dynamic Ratio:</strong> 1 R3 ➜ 4–6 R4s.",
-                "<strong>Dynamic Ratio:</strong> 1 R4 ➜ 3–5 R5s."
-            ],
-            ranks: [
-                "<strong>R2:</strong> Promoted only if new Bureau created.",
-                "<strong>R7:</strong> Entry-level pipeline active."
-            ],
-            note: "Extended Growth. Dynamic Scaling."
-        },
-        70: {
-            t: "🚀 Task Force (Deep) (70)", 
-            soc: [ "<strong>Dynamic Ratio:</strong> 1 R3 ➜ 4–6 R4s.", "<strong>Dynamic Ratio:</strong> 1 R4 ➜ 3–5 R5s." ],
-            ranks: ["<strong>Same Logic as 58.</strong> Deepening of R5/R6 pools."], 
-            note: "Extended Growth. Density increases." 
-        },
-        82: {
-            t: "👑 The Company (82)", 
-            soc: [ "<strong>Command:</strong> Full Bureau Autonomy.", "<strong>Oversight:</strong> Archduke only intervenes on Exception." ],
-            ranks: ["<strong>Maximum Density.</strong> 87.5 Bigha Active."], 
-            note: "Empire Mode. Full Occupation." 
-        }
-    };
-
-    function renderForce(n) {
-        const data = forceData[n] || forceData[58]; 
-        const display = document.getElementById('forceDisplay');
-        
-        // Safety check if the user hasn't updated the HTML yet
-        if(!display) {
-             openContentModal(data.t, "Please update the HTML to see the full dashboard.");
-             return;
-        }
-
-        let listHtml = data.ranks.map(r => `<li style="margin-bottom:6px;">${r}</li>`).join('');
-        
-        let socHtml = "";
-        if(data.soc) {
-            socHtml = `
-            <div style="background:#e8f6f3; border-left:4px solid var(--provision); padding:10px; margin-bottom:15px; font-size:0.85rem;">
-                <strong style="color:var(--provision);">⛓️ SPAN OF CONTROL (Command Chain):</strong>
-                <ul style="margin:5px 0 0 15px; padding:0;">
-                    ${data.soc.map(s => `<li>${s}</li>`).join('')}
-                </ul>
-            </div>`;
-        }
-
-        display.innerHTML = `
-            <h4 style="color:var(--accent); margin-top:0; text-transform:uppercase; letter-spacing:1px;">${data.t}</h4>
-            ${socHtml}
-            <ul style="padding-left:20px; font-size:0.9rem; line-height:1.6; margin-top:0;">${listHtml}</ul>
-            <div style="font-size:0.8rem; color:var(--crimson); margin-top:10px; font-weight:bold; border-top:1px solid #eee; padding-top:5px;">
-                ⚠️ Strategy: ${data.note}
-            </div>
-        `;
-    }
-    
-    // Kept for backward compatibility if you have old buttons
-    function demoStaffModel(n) { renderForce(n); }
-
-    // --- 8. CALCULATOR (Keep existing) ---
+    // --- 7. CALCULATOR ---
     function calculateACEM() {
         const p = parseFloat(document.getElementById('inputP').value) || 0;
         const s = parseFloat(document.getElementById('inputS').value) || 0;
         const e = parseFloat(document.getElementById('inputE').value) || 0;
         const perf = parseFloat(document.getElementById('inputPERF').value) || 0;
-        
         const composite = ((p * 0.30) + (s * 0.25) + (e * 0.25) + (perf * 0.20)).toFixed(2);
-        const out = document.getElementById('acem_output');
-        out.innerText = `Truth Score: ${composite}`;
-        
-        if(composite < 50) {
-            out.style.color = "var(--crimson)";
-            out.innerHTML += "<br><span style='font-size:0.8rem; color:#666;'>Status: REJECT</span>";
-        } else {
-            out.style.color = "var(--teal)";
-            out.innerHTML += "<br><span style='font-size:0.8rem; color:#666;'>Status: STRONG</span>";
-        }
+        document.getElementById('acem_output').innerText = `Truth Score: ${composite}`;
     }
+</script>
 
-    // --- 9. HANDBOOK VAULT LOGIC (For Section 11) ---
-    function openHandbookVault() {
-        const vault = document.getElementById('handbookVault');
-        if(vault) {
-            vault.style.display = "block";
-            vault.classList.remove('granular-only'); 
-            vault.scrollIntoView({behavior: "smooth"});
-        }
-    }
-    function closeVault() {
-        const vault = document.getElementById('handbookVault');
-        if(vault) vault.style.display = "none";
-    }
+<div class="container">
+    <div class="card" style="border-top: 5px solid var(--harmony); margin-top: 30px;">
+        <h3 style="font-family:'Playfair Display';">Rank Application Gateway</h3>
+        <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 20px;">
+            In accordance with the <strong>Doctrine of Al-Amin</strong>, all specialists must submit proof of Techne.
+        </p>
 
-    // Initialize Force Logic on Load (Optional)
-    window.onload = function() {
-        // Uncomment below if you want it to load Phase 22 automatically
-        // renderForce(22);
-    };
-                </script>
-    
-                        
-    
+        <form action="https://formspree.io/f/xnjqepko" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_to" value="Alochayariverine.info@gmail.com">
+            <input type="hidden" name="_subject" value="New Specialist Application - Alo Chaya">
 
-<footer style="background:var(--navy); color:var(--white); padding:50px 20px; text-align:center; margin-top:60px;">
+            <div class="grid-2">
+                <div class="form-group">
+                    <label style="display:block; font-weight:bold; font-size:0.8rem;">FULL NAME</label>
+                    <input type="text" name="Candidate_Name" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px;" required>
+                </div>
+                <div class="form-group">
+                    <label style="display:block; font-weight:bold; font-size:0.8rem;">TARGET BUREAU</label>
+                    <select name="Target_Bureau" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px;" required>
+                        <option value="Harmony">Harmony (HR)</option>
+                        <option value="Efficiency">Efficiency (Ops)</option>
+                        <option value="Provision">Provision (Fin)</option>
+                        <option value="Presence">Presence (Brand)</option>
+                        <option value="Gourmet">Gourmet (Kitchen)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div style="margin-top:20px;">
+                <label style="display:block; font-weight:bold; font-size:0.8rem;">THE WHY MIRROR STATEMENT</label>
+                <textarea name="Why_Mirror" rows="4" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px;" placeholder="Alignment with Ihsan..." required></textarea>
+            </div>
+
+            <div style="margin-top:20px; background:#f9f9f9; padding:20px; border: 2px dashed var(--gold); border-radius:8px; text-align:center;">
+                <label style="font-weight:bold; font-size:0.8rem;">CV (Required)</label><br>
+                <input type="file" name="CV_Document" accept=".pdf,.docx" required>
+                <br><br>
+                <label style="font-weight:bold; font-size:0.8rem;">COURSE OUTLINES</label><br>
+                <input type="file" name="Course_Outline" accept=".pdf,.docx">
+            </div>
+
+            <button type="submit" class="btn" style="width:100%; margin-top:20px; background:var(--accent); padding:15px;">SUBMIT TO REGISTRY</button>
+        </form>
+    </div>
+</div>
+
+<footer style="background:var(--accent); color:white; padding:50px 20px; text-align:center; margin-top:60px;">
     <h3 style="font-family:'Playfair Display'; margin:0 0 10px 0;">MH Alo Chaya Limited</h3>
     <p style="font-size:0.8rem; opacity:0.7;">Imperial Human Capital Doctrine • 2025 • Section 55 Compliant</p>
-<div class="card" style="border-top: 5px solid var(--harmony); margin-top: 30px;">
-    <h3>Rank Application Gateway (Bureau of Harmony)</h3>
-    <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 20px;">
-        [span_5](start_span)In accordance with the <strong>Doctrine of Al-Amin</strong>, all specialists must submit documented proof of their Techne (Skill)[span_5](end_span).
-    </p>
-
-    <form action="https://formspree.io/f/xnjqepko" method="POST" enctype="multipart/form-data">
-        
-        <input type="hidden" name="_to" value="Alochayariverine.info@gmail.com">
-        <input type="hidden" name="_subject" value="New Specialist Application - Alo Chaya">
-
-        <div class="grid-2">
-            <div class="form-group">
-                <label style="display:block; font-weight:bold; font-size:0.8rem;">FULL NAME</label>
-                <input type="text" name="Candidate_Name" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px;" required>
-            </div>
-            <div class="form-group">
-                <label style="display:block; font-weight:bold; font-size:0.8rem;">TARGET BUREAU</label>
-                <select name="Target_Bureau" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px;" required>
-                    <option value="Harmony">Harmony (HR)</option>
-                    <option value="Efficiency">Efficiency (Ops)</option>
-                    <option value="Provision">Provision (Fin)</option>
-                    <option value="Presence">Presence (Brand)</option>
-                    <option value="Gourmet">Gourmet (Kitchen)</option>
-                </select>
-            </div>
-        </div>
-
-        <div style="margin-top:20px;">
-            <label style="display:block; font-weight:bold; font-size:0.8rem;">THE WHY MIRROR STATEMENT</label>
-            <textarea name="Why_Mirror" rows="4" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px;" placeholder="How does your Ihsan prevent Vices of Excess or Deficiency?" required></textarea>
-        </div>
-
-        <div style="margin-top:20px; background:#f9f9f9; padding:20px; border: 2px dashed var(--gold); border-radius:8px; text-align:center;">
-            <div style="margin-bottom:15px;">
-                <label style="font-weight:bold; font-size:0.8rem;">CURRICULUM VITAE (CV)</label><br>
-                <input type="file" name="CV_Document" accept=".pdf,.docx" required>
-            </div>
-            <hr style="border:0; border-top:1px solid #eee; margin:15px 0;">
-            <div>
-                <label style="font-weight:bold; font-size:0.8rem;">COURSE OUTLINE / CERTIFICATIONS</label><br>
-                <input type="file" name="Course_Outline_Document" accept=".pdf,.docx">
-            </div>
-        </div>
-
-        <button type="submit" class="btn" style="width:100%; margin-top:20px; background:var(--accent); font-size:1rem; padding:15px;">
-            SUBMIT TO IMPERIAL REGISTRY
-        </button>
-    </form>
-</div>
 </footer>
+
 </body>
 </html>
+                                        
