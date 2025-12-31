@@ -23,8 +23,7 @@
 }
 body { font-family: 'Inter', sans-serif; background-color: var(--bg); margin: 0; color: var(--accent); line-height: 1.6; }
 .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-</style>
-<style>
+
 /* CORE */
 .card { background: var(--card); padding: 25px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.05); margin-bottom: 25px; border-top: 5px solid var(--accent); transition: transform 0.2s; }
 .card:hover { transform: translateY(-2px); }
@@ -35,6 +34,26 @@ body { font-family: 'Inter', sans-serif; background-color: var(--bg); margin: 0;
 @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
 h1, h2, h3, h4 { font-family: 'Playfair Display', serif; margin-top: 0; color: var(--accent); }
 
+/* MASTER NAV STYLING */
+.main-nav { background: var(--accent); padding: 12px 0; text-align: center; border-bottom: 4px solid var(--gold); position: sticky; top: 0; z-index: 1000; }
+.main-nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+.main-nav a { color: white; text-decoration: none; font-size: 0.75rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
+.main-nav a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<nav class="main-nav">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about-us-heritage.html">Heritage</a></li>
+        <li><a href="hr-management.html">HR Management</a></li>
+        <li><a href="operations.html">Operations</a></li>
+        <li><a href="marketing-branding.html">Marketing</a></li>
+        <li><a href="cpm.html">CPM</a></li>
+        <li><a href="total-investment.html">Provision</a></li>
+    </ul>
+</nav>
 /* THE VEIL (Stronger Hiding) */
 .granular-only { display: none !important; } 
 .command-mode .granular-only { display: block !important; animation: fadeIn 0.5s; }
@@ -948,6 +967,56 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; margin-top: 0; color: v
 <footer style="background:var(--navy); color:var(--white); padding:50px 20px; text-align:center; margin-top:60px;">
     <h3 style="font-family:'Playfair Display'; margin:0 0 10px 0;">MH Alo Chaya Limited</h3>
     <p style="font-size:0.8rem; opacity:0.7;">Imperial Human Capital Doctrine • 2025 • Section 55 Compliant</p>
+<div class="card" style="border-top: 5px solid var(--harmony); margin-top: 30px;">
+    <h3>Rank Application Gateway (Bureau of Harmony)</h3>
+    <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 20px;">
+        [span_5](start_span)In accordance with the <strong>Doctrine of Al-Amin</strong>, all specialists must submit documented proof of their Techne (Skill)[span_5](end_span).
+    </p>
+
+    <form action="https://formspree.io/f/xnjqepko" method="POST" enctype="multipart/form-data">
+        
+        <input type="hidden" name="_to" value="Alochayariverine.info@gmail.com">
+        <input type="hidden" name="_subject" value="New Specialist Application - Alo Chaya">
+
+        <div class="grid-2">
+            <div class="form-group">
+                <label style="display:block; font-weight:bold; font-size:0.8rem;">FULL NAME</label>
+                <input type="text" name="Candidate_Name" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px;" required>
+            </div>
+            <div class="form-group">
+                <label style="display:block; font-weight:bold; font-size:0.8rem;">TARGET BUREAU</label>
+                <select name="Target_Bureau" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px;" required>
+                    <option value="Harmony">Harmony (HR)</option>
+                    <option value="Efficiency">Efficiency (Ops)</option>
+                    <option value="Provision">Provision (Fin)</option>
+                    <option value="Presence">Presence (Brand)</option>
+                    <option value="Gourmet">Gourmet (Kitchen)</option>
+                </select>
+            </div>
+        </div>
+
+        <div style="margin-top:20px;">
+            <label style="display:block; font-weight:bold; font-size:0.8rem;">THE WHY MIRROR STATEMENT</label>
+            <textarea name="Why_Mirror" rows="4" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px;" placeholder="How does your Ihsan prevent Vices of Excess or Deficiency?" required></textarea>
+        </div>
+
+        <div style="margin-top:20px; background:#f9f9f9; padding:20px; border: 2px dashed var(--gold); border-radius:8px; text-align:center;">
+            <div style="margin-bottom:15px;">
+                <label style="font-weight:bold; font-size:0.8rem;">CURRICULUM VITAE (CV)</label><br>
+                <input type="file" name="CV_Document" accept=".pdf,.docx" required>
+            </div>
+            <hr style="border:0; border-top:1px solid #eee; margin:15px 0;">
+            <div>
+                <label style="font-weight:bold; font-size:0.8rem;">COURSE OUTLINE / CERTIFICATIONS</label><br>
+                <input type="file" name="Course_Outline_Document" accept=".pdf,.docx">
+            </div>
+        </div>
+
+        <button type="submit" class="btn" style="width:100%; margin-top:20px; background:var(--accent); font-size:1rem; padding:15px;">
+            SUBMIT TO IMPERIAL REGISTRY
+        </button>
+    </form>
+</div>
 </footer>
 </body>
 </html>
