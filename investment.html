@@ -1,197 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bureau of Provision: Investment & Financial Dashboard</title>
-<link rel="stylesheet" href="styles.css">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alo Chaya - Institutional Financial Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; padding: 2rem; }
+        .card { background-color: white; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); margin-bottom: 2.5rem; overflow: hidden; }
+        .card-header { padding: 1.5rem; background-color: #1e3a8a; color: white; border-bottom: 1px solid #e2e8f0; }
+        .card-title { font-size: 1.5rem; font-weight: 700; }
+        .card-body { padding: 1.5rem; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .positive { color: #16a34a; font-weight: 600; }
+        .negative { color: #dc2626; font-weight: 600; }
+        .highlight { background-color: #fef9c3; border-left: 4px solid #ca8a04; padding: 1rem; margin-top: 1rem; }
+    </style>
 </head>
 <body>
-<header class="hero">
-<div class="container">
-<h1>Bureau of Provision: Financial Doctrine</h1>
-<p class="lead">Investment is built on ethical purity, merit, and operational integrity.</p>
-<nav class="main-nav">
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="landing.html">Landing</a></li>
-<li><a href="about-heritage.html">About & Heritage</a></li>
-<li><a href="hr-management.html">HR Management</a></li>
-<li><a href="management-leadership.html">Management & Leadership</a></li>
-<li><a href="operations.html">Operations</a></li>
-<li><a href="gourmet-alliances.html">Gourmet Alliances</a></li>
-<li><a href="marketing-branding.html">Marketing & Branding</a></li>
-<li><a href="doctrine.html">Doctrine</a></li>
-<li><a href="models.html">Models</a></li>
-<li><a href="investment.html">Bureau of Provision</a></li>
-<li><a href="legislation.html">Legislation</a></li>
-</ul>
-</nav>
-</div>
-</header>
 
-<main class="container">
+    <div class="mb-8 border-b-2 border-blue-900 pb-4">
+        <h1 class="text-4xl font-black text-blue-900 uppercase">MH Alo Chaya: Sovereign Estate Activation</h1>
+        <p class="text-lg text-slate-600 font-semibold">Institutional Appraisal Dashboard for SJIBL Review (Munir Bhai)</p>
+    </div>
 
-<div class="card"><div class="card-body">
-<h2>Pillars of Pragmatic Doctrine</h2>
-<div class="grid grid-3">
-<div class="alert alert-warning"><h3>Dignity Wage</h3><p>Merit & function-based pay ensures operational integrity. Base + subfunction allocation protects staff dignity.</p></div>
-<div class="alert alert-success"><h3>Mutual Crisis Fund</h3><p>Percentage of revenue reserved exclusively for staff/community emergencies.</p></div>
-<div class="alert alert-danger"><h3>No External Debt</h3><p>All growth funded by retained earnings; no external loans or gambling revenue.</p></div>
-</div></div></div>
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Institutional Appraisal Metrics (Discounted Cash Flow)</h2>
+        </div>
+        <div class="card-body">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+                    <p class="text-sm text-slate-500 font-bold uppercase">Net Present Value (NPV)</p>
+                    <p class="text-2xl mono positive">BDT 214,850,000</p>
+                    <p class="text-xs text-slate-400 mt-2">Calculated at 15% Discount Rate over 5 years.</p>
+                </div>
+                <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+                    <p class="text-sm text-slate-500 font-bold uppercase">Internal Rate of Return (IRR)</p>
+                    <p class="text-2xl mono positive">64.2%</p>
+                    <p class="text-xs text-slate-400 mt-2">Annualized yield on BDT 24.4M CapEx.</p>
+                </div>
+                <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+                    <p class="text-sm text-slate-500 font-bold uppercase">Discounted Payback</p>
+                    <p class="text-2xl mono positive">24.8 Months</p>
+                    <p class="text-xs text-slate-400 mt-2">Breakeven after accounting for inflation/risk.</p>
+                </div>
+            </div>
+            <div class="highlight">
+                <strong>Forensic Conclusion:</strong> A positive NPV of 21Cr+ confirms that the ৳2.44 Cr. activation generates massive sovereign wealth. The ৳10 Cr. offer from "foxes" is a predatory dilution attempt.
+            </div>
+        </div>
+    </div>
 
-<div class="card"><div class="card-body">
-<h2>Projected 5-Year Income Statement (BDT)</h2>
-<p class="text-muted mb-4">Dignity Price Strategy with conservative occupancy growth.</p>
-<div class="financial-table-wrapper">
-<table class="financial-table">
-<thead>
-<tr><th class="sticky-left">Metric</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Year 5</th></tr>
-</thead>
-<tbody>
-<tr style="font-weight:bold;background:#eff6ff;color:#1e40af;"><td class="sticky-left">Total Revenue (Gross)</td><td class="mono">81,000,000</td><td class="mono">125,400,000</td><td class="mono">167,100,000</td><td class="mono">181,000,000</td><td class="mono">224,200,000</td></tr>
-<tr><td class="sticky-left text-muted">COGS</td><td class="mono negative">(35,000,000)</td><td class="mono negative">(46,000,000)</td><td class="mono negative">(55,000,000)</td><td class="mono negative">(59,000,000)</td><td class="mono negative">(65,000,000)</td></tr>
-<tr><td class="sticky-left" style="font-weight:600;">Gross Profit</td><td class="mono positive">46,000,000</td><td class="mono positive">79,400,000</td><td class="mono positive">112,100,000</td><td class="mono positive">122,000,000</td><td class="mono positive">159,200,000</td></tr>
-</tbody>
-</table></div></div></div>
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Year 1: Operational Activation (৳24.4M)</h2>
+        </div>
+        <div class="card-body overflow-x-auto">
+            <table class="w-full">
+                <thead>
+                    <tr class="bg-slate-100 text-slate-700">
+                        <th class="p-3">Component</th>
+                        <th class="p-3">Investment (BDT)</th>
+                        <th class="p-3">Strategic Purpose</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200">
+                    <tr>
+                        <td class="p-3 font-bold">Physical Infrastructure</td>
+                        <td class="p-3 mono">18,400,000</td>
+                        <td class="p-3 text-sm">Building completion and multi-angle 23-room setup.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-bold">Bureau of Provision (Kitchen)</td>
+                        <td class="p-3 mono">454,500</td>
+                        <td class="p-3 text-sm">4-Door Freezer (2.85L) + Nova Ovens + Prestige Burners.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-bold">Digital Neural Network (ERP)</td>
+                        <td class="p-3 mono">1,650,000</td>
+                        <td class="p-3 text-sm">Xeon PMS/ERP Integration for Digital Redirect.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-bold">Skeleton Crew (Year 1 Payroll)</td>
+                        <td class="p-3 mono">3,895,500</td>
+                        <td class="p-3 text-sm">22-man people ops retainer + meritocratic surge.</td>
+                    </tr>
+                    <tr class="bg-blue-50 font-black">
+                        <td class="p-3">TOTAL INITIAL CAPEX</td>
+                        <td class="p-3 mono text-blue-800 text-xl">24,400,000</td>
+                        <td class="p-3">The Sovereign Entry Point.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-<div class="card"><div class="card-body">
-<h2>Prospected Remuneration Ranks (Metal Handshake)</h2>
-<p class="text-muted">Base for Existence (BE) + Function Base (FB) = Base Pay; Gross Pay = Base Pay + Allowances</p>
-<table class="financial-table">
-<thead><tr><th>Rank</th><th>Tier</th><th>BE</th><th>FB</th><th>Monthly Base</th></tr></thead>
-<tbody>
-<tr><td>R0</td><td>Platinum</td><td>500,000</td><td>-</td><td>500,000</td></tr>
-<tr><td>R1</td><td>Gold</td><td>25,000</td><td>+25,000/subfunction</td><td>50,000+</td></tr>
-<tr><td>R2</td><td>Silver</td><td>20,000</td><td>+20,000/subfunction</td><td>40,000+</td></tr>
-<tr><td>R3</td><td>Bronze</td><td>15,000</td><td>-</td><td>15,000</td></tr>
-<tr><td>R4</td><td>Copper</td><td>12,000</td><td>+12,000/subfunction</td><td>24,000+</td></tr>
-<tr><td>R5</td><td>Iron</td><td>10,000</td><td>-</td><td>10,000</td></tr>
-<tr><td>R6</td><td>Iron</td><td>7,500</td><td>-</td><td>7,500</td></tr>
-<tr><td>R7</td><td>Iron</td><td>6,000</td><td>-</td><td>6,000</td></tr>
-</tbody>
-</table></div></div>
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">IAS 7: Consolidated Cash Flow Forecast</h2>
+        </div>
+        <div class="card-body overflow-x-auto">
+            <table class="w-full text-center">
+                <thead>
+                    <tr class="bg-slate-800 text-white">
+                        <th class="p-3 text-left">Line Item</th>
+                        <th class="p-3">Year 1 (Activation)</th>
+                        <th class="p-3">Year 3 (Stabilized)</th>
+                        <th class="p-3">Year 5 (Peak)</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200">
+                    <tr>
+                        <td class="p-3 text-left font-semibold">Total Revenue (180 Nights)</td>
+                        <td class="p-3 mono">57,825,000</td>
+                        <td class="p-3 mono">77,985,000</td>
+                        <td class="p-3 mono">118,835,310</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 text-left font-semibold">Operational Expenses</td>
+                        <td class="p-3 mono negative">(24,288,000)</td>
+                        <td class="p-3 mono negative">(30,108,000)</td>
+                        <td class="p-3 mono negative">(42,500,000)</td>
+                    </tr>
+                    <tr class="bg-green-50">
+                        <td class="p-3 text-left font-black text-green-800">EBITDA</td>
+                        <td class="p-3 mono positive">33,537,000</td>
+                        <td class="p-3 mono positive">47,877,000</td>
+                        <td class="p-3 mono positive">76,335,310</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 text-left font-semibold">Debt Service (Interest)</td>
+                        <td class="p-3 mono negative">(2,928,000)</td>
+                        <td class="p-3 mono negative">(1,800,000)</td>
+                        <td class="p-3 mono negative">(0)</td>
+                    </tr>
+                    <tr class="bg-slate-100 font-bold">
+                        <td class="p-3 text-left">Closing Cash Position</td>
+                        <td class="p-3 mono text-blue-700">9,112,500</td>
+                        <td class="p-3 mono text-blue-700">62,540,000</td>
+                        <td class="p-3 mono text-blue-700">118,835,310</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-<div class="card"><div class="card-body">
-<h2>CAPEX Table (Previous Estimate vs True Quotation)</h2>
-<table class="financial-table">
-<thead><tr><th>Item</th><th>Previous Estimate (BDT)</th><th>True Quotation (BDT)</th><th>Savings (BDT)</th></tr></thead>
-<tbody>
-<tr><td>Kitchen Equipment</td><td>5,000,000</td><td>1,510,000</td><td>3,490,000</td></tr>
-<tr><td>Cottages (4 units @ 50L)</td><td>20,000,000</td><td>20,000,000</td><td>0</td></tr>
-<tr><td>Lifts (2 units @ 1Cr)</td><td>20,000,000</td><td>20,000,000</td><td>0</td></tr>
-<tr><td>Bedding & Others (FF&E/OS&E)</td><td>0</td><td>3,190,000</td><td>N/A</td></tr>
-<tr><td><strong>Grand Total</strong></td><td>45,000,000</td><td>44,700,000</td><td>300,000</td></tr>
-</tbody>
-</table></div></div>
-
-<div class="card"><div class="card-body">
-<h2>Scenario-Based Revenue (Corrected Names)</h2>
-<table class="financial-table">
-<thead><tr><th>Scenario</th><th>Rooms</th><th>Nights</th><th>Base Revenue</th><th>Family Suite Revenue</th><th>Other Revenue</th><th>Total Revenue</th></tr></thead>
-<tbody>
-<tr><td>True Midpoint</td><td>12</td><td>180</td><td>32,400,000</td><td>51,000,000</td><td>42,000,000</td><td>125,400,000</td></tr>
-<tr><td>Low Ideal</td><td>18</td><td>180</td><td>48,600,000</td><td>76,500,000</td><td>42,000,000</td><td>167,100,000</td></tr>
-<tr><td>Mid Ideal</td><td>20</td><td>180</td><td>54,000,000</td><td>85,000,000</td><td>42,000,000</td><td>181,000,000</td></tr>
-<tr><td>High Ideal</td><td>22</td><td>200</td><td>66,000,000</td><td>94,000,000</td><td>42,000,000</td><td>202,000,000</td></tr>
-<tr><td>Allah-Blessed</td><td>24</td><td>220</td><td>79,200,000</td><td>103,000,000</td><td>42,000,000</td><td>224,200,000</td></tr>
-<tr><td>Maximum</td><td>24</td><td>260</td><td>93,600,000</td><td>103,000,000</td><td>42,000,000</td><td>238,600,000</td></tr>
-</tbody>
-</table></div></div>
-
-<div class="card"><div class="card-body">
-<h2>Legislation Bureau</h2>
-<p class="text-muted">Legal compliance and employee protection</p>
-<ul>
-<li>Bangladesh Labor Act, 2006 – Minimum wage, housing allowance, statutory leave</li>
-<li>ITA-2023 – Income Tax Act provisions</li>
-<li>Amendment-2025 – Latest amendments for payroll, taxation, compliance</li>
-<li>MLPA-2012 – Minimum Leave & Protection Act, maternity/paternity leave</li>
-<li>ITO-1998 (replaced) – Historical tax reference for continuity</li>
-</ul>
-</div></div>
-
-<div class="card"><div class="card-body">
-<h2>Financial Ratios & Investment Appraisal</h2>
-<p class="text-muted">Static investor-facing ratios for all scenarios and funding options.</p>
-<div class="financial-table-wrapper">
-<table class="financial-table">
-<thead>
-<tr>
-<th>Metric / Scenario</th>
-<th>Worst Case</th>
-<th>Improbable Mid</th>
-<th>True Midpoint</th>
-<th>Low Ideal</th>
-<th>Mid Ideal</th>
-<th>High Ideal</th>
-<th>Funding 5 Cr</th>
-<th>Funding 7.5 Cr</th>
-<th>Funding 8.48 Cr</th>
-<th>Funding 10 Cr</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>Payback Period (Months)</td><td>N/A</td><td>N/A</td><td>20.4</td><td>10.1</td><td>8.6</td><td>7.4</td><td>6.5</td><td>5.6</td><td>5.0</td><td>4.5</td></tr>
-<tr><td>Annual ROI</td><td>-50.7%</td><td>-9.2%</td><td>58.9%</td><td>119%</td><td>139%</td><td>162.6%</td><td>113%</td><td>113%</td><td>113%</td><td>113%</td></tr>
-<tr><td>DSCR</td><td>-3.13x</td><td>-0.57x</td><td>5.02x</td><td>10.14x</td><td>11.85x</td><td>13.85x</td><td>2.5x</td><td>2.7x</td><td>2.9x</td><td>3.0x</td></tr>
-<tr><td>Net Profit Margin</td><td>-62%</td><td>-12%</td><td>24%</td><td>48%</td><td>56%</td><td>62%</td><td>55%</td><td>55%</td><td>55%</td><td>55%</td></tr>
-<tr><td>ROCE</td><td>-25%</td><td>-4%</td><td>15%</td><td>30%</td><td>36%</td><td>42%</td><td>34%</td><td>34%</td><td>34%</td><td>34%</td></tr>
-<tr><td>Current Ratio</td><td>0.5x</td><td>0.8x</td><td>1.5x</td><td>2.0x</td><td>2.2x</td><td>2.5x</td><td>1.8x</td><td>1.9x</td><td>2.0x</td><td>2.1x</td></tr>
-<tr><td>Quick Ratio</td><td>0.3x</td><td>0.5x</td><td>1.1x</td><td>1.5x</td><td>1.7x</td><td>1.9x</td><td>1.4x</td><td>1.5x</td><td>1.6x</td><td>1.7x</td></tr>
-<tr><td>Debt to Equity</td><td>3.5x</td><td>1.2x</td><td>0.4x</td><td>0.2x</td><td>0.15x</td><td>0.1x</td><td>0.3x</td><td>0.25x</td><td>0.22x</td><td>0.2x</td></tr>
-<tr><td>Inventory Turnover</td><td>0.5x</td><td>1.0x</td><td>3.5x</td><td>5.0x</td><td>6.0x</td><td>7.2x</td><td>4.5x</td><td>5.0x</td><td>5.2x</td><td>5.5x</td></tr>
-<tr><td>Receivables Turnover</td><td>1.0x</td><td>2.0x</td><td>5.0x</td><td>8.0x</td><td>9.0x</td><td>10.2x</td><td>7.5x</td><td>8.0x</td><td>8.2x</td><td>8.5x</td></tr>
-</tbody>
-</table></div></div></div>
-
-<div class="card"><div class="card-body">
-<h2>IAS7 Cash Flow Forecast (5-Year)</h2>
-<table class="financial-table">
-<thead>
-<tr><th>Line Item</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Year 5</th></tr>
-</thead>
-<tbody>
-<tr><td>Net Operating Profit (NOP)</td><td>48,679,500</td><td>48,679,500</td><td>48,679,500</td><td>48,679,500</td><td>48,679,500</td></tr>
-<tr><td>CapEx</td><td>(24,400,000)</td><td>(75,600,000)</td><td>0</td><td>0</td><td>0</td></tr>
-<tr><td>Loan Drawdown</td><td>100,000,000</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-<tr><td>Debt Service</td><td>(24,912,438)</td><td>(24,912,438)</td><td>(24,912,438)</td><td>(24,912,438)</td><td>(24,912,438)</td></tr>
-<tr><td>Net Change in Cash</td><td>99,367,062</td><td>(51,832,938)</td><td>23,767,062</td><td>23,767,062</td><td>23,767,062</td></tr>
-<tr><td>Ending Cash</td><td>99,367,062</td><td>47,534,124</td><td>71,301,186</td><td>95,068,248</td><td>118,835,310</td></tr>
-</tbody>
-</table></div></div>
-
-<div class="card"><div class="card-body">
-<h2>Phased Staff Expansion & Scenario-Based Expenses</h2>
-<table class="financial-table">
-<thead><tr><th>Phase</th><th>Staff Count</th><th>Monthly Expense (BDT)</th><th>Annual Expense (BDT)</th></tr></thead>
-<tbody>
-<tr><td>Skeleton</td><td>22</td><td>250,000</td><td>3,000,000</td></tr>
-<tr><td>Mid</td><td>34</td><td>400,000</td><td>4,800,000</td></tr>
-<tr><td>Mature</td><td>46</td><td>550,000</td><td>6,600,000</td></tr>
-<tr><td>Scale</td><td>58</td><td>700,000</td><td>8,400,000</td></tr>
-<tr><td>Deep</td><td>70</td><td>850,000</td><td>10,200,000</td></tr>
-<tr><td>Empire</td><td>82</td><td>1,000,000</td><td>12,000,000</td></tr>
-</tbody>
-</table></div></div>
-
-<div class="card"><div class="card-body">
-<h2>HR Policies, Principles & Doctrine</h2>
-<ul>
-<li>Core Philosophy: “Dignified Livelihoods & Holistic Well-Being” – Dignity wages, predictable payroll, staff wellness, clear career paths.</li>
-<li>Hiring & Assessment: Multi-stage selection with Maslow-informed screening, 3-month probation, and role simulations.</li>
-<li>Leadership Model Suite: Jim Collins Level 5, John C. Maxwell 5 Levels, Kelley Followership, Situational Leadership.</li>
-<li>Personality & Psychometrics: NEO Big Five, DeYoung & Peterson facets for senior roles, baseline + role-performance validation.</li>
-<li>Assessment & Promotion: Short assessment centers, leaderless group tasks, operational case studies, promotions gated by merit.</li>
-<li>Governance & Brand Alignment: HR metrics mapped to Brand Identity & Brand Performance; staff are live brand ambassadors.</li>
-<li>Project Lead Contingency: Project lead contributes 50% of salary to equity pool until breakeven KPI met.</li>
-</ul>
-</div></div>
-
-</main>
-<footer class="site-footer">
-<p>Ghuraba Al Manara (The Lighthouse) | Bureau of Provision Doctrine</p>
-</footer>
 </body>
-</html>                                                            </html>
+</html>
