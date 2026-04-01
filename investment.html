@@ -2,116 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MH Alo Chaya - COO Investment Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Forensic Unit Audit: Actual vs. Estimated Dimensions</title>
     <style>
-        .mono { font-family: 'JetBrains Mono', monospace; }
-        .shariah { color: #065f46; font-style: italic; font-weight: 700; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #0d0d0d; color: #e0e0e0; padding: 25px; }
+        .audit-table { width: 100%; border-collapse: collapse; margin-top: 20px; background-color: #1a1a1a; }
+        .audit-table th, .audit-table td { border: 1px solid #333; padding: 12px; text-align: left; }
+        .audit-table th { background-color: #262626; color: #d4af37; }
+        .highlight { color: #00ff41; font-weight: bold; }
+        .alert { color: #ff4d4d; font-weight: bold; }
+        .header-box { border-left: 5px solid #d4af37; padding-left: 15px; margin-bottom: 25px; }
     </style>
 </head>
-<body class="bg-slate-100 p-6 md:p-12 text-slate-900">
-    <div class="max-w-7xl mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden border-t-[12px] border-blue-900">
-        
-        <div class="p-8 bg-slate-900 text-white flex justify-between items-center">
-            <div>
-                <h1 class="text-4xl font-black uppercase tracking-tighter text-blue-400 leading-none">MH Alo Chaya</h1>
-                <p class="text-white font-bold uppercase text-[10px] mt-2 tracking-[0.3em] text-blue-200 italic">Institutional HPSM Appraisal | 10-20 Year Viability</p>
-            </div>
-            <div class="text-right border-l-2 border-blue-500 pl-6 uppercase">
-                <p class="text-[10px] font-bold text-slate-400 italic">Structural Status</p>
-                <p class="text-white font-black text-lg">100% COMPLETE MASS</p>
-            </div>
-        </div>
+<body>
 
-        <div class="p-8 bg-blue-50 border-b-4 border-blue-200">
-            <h2 class="text-xl font-black mb-4 uppercase text-blue-900 italic">Executive Summary: Phrasal Investment Ratios</h2>
-            <table class="w-full text-left border text-[9px] bg-white shadow-sm rounded-lg overflow-hidden">
-                <thead class="bg-blue-900 text-white font-bold uppercase">
-                    <tr>
-                        <th class="p-3">Scenario</th>
-                        <th class="p-3 text-right">EBITDA (Annual)</th>
-                        <th class="p-3 text-right">NPV (15%)</th>
-                        <th class="p-3 text-right">Disc. NPV</th>
-                        <th class="p-3 text-center">IRR</th>
-                        <th class="p-3 text-center">PBP (Mo)</th>
-                        <th class="p-3 text-center">DSCR</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y font-bold text-slate-700">
-                    <tr class="bg-red-50 text-red-500 italic">
-                        <td>1. Worst Case</td><td class="text-right mono">(15.17M)</td><td class="text-right mono">(6.8Cr)</td><td class="text-right mono">(7.4Cr)</td><td class="text-center">N/A</td><td class="text-center">Inf.</td><td class="text-center">-3.13x</td>
-                    </tr>
-                    <tr class="bg-blue-900 text-white italic">
-                        <td class="p-3 font-black underline">3. True Midpoint (50/50)</td><td class="p-3 text-right mono">10.36M</td><td class="p-3 text-right mono font-black">21.48Cr</td><td class="p-3 text-right mono">18.6Cr</td><td class="p-3 text-center">58.9%</td><td class="p-3 text-center font-black">20.4</td><td class="p-3 text-center text-blue-200">5.02x</td>
-                    </tr>
-                    <tr class="bg-slate-900 text-blue-300">
-                        <td class="p-3 uppercase">7. Allah-Blessed (T4)</td><td class="p-3 text-right mono">44.63M+</td><td class="p-3 text-right mono">88.9Cr</td><td class="p-3 text-right mono font-black">77.4Cr</td><td class="p-3 text-center">194%+</td><td class="p-3 text-center">5.6</td><td class="p-3 text-center text-green-400">13.85x</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p class="text-[9px] text-slate-500 mt-2 italic font-bold uppercase underline">Ratio Data Sourced from Forensic Dashboard</p>
-        </div>
-
-        <div class="p-8 border-b">
-            <h2 class="text-lg font-black mb-4 uppercase text-slate-800 italic underline decoration-blue-900">Bureau of Provision: Kitchen Infrastructure (HPSM)</h2>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-                <div class="p-3 border rounded bg-slate-50">
-                    <p class="text-[9px] font-bold text-slate-400 uppercase">6-Door Freezer</p>
-                    [span_2](start_span)<p class="text-xs font-black italic">৳320,000[span_2](end_span)</p>
-                </div>
-                <div class="p-3 border rounded bg-slate-50">
-                    <p class="text-[9px] font-bold text-slate-400 uppercase">4-Door Freezer</p>
-                    [span_3](start_span)<p class="text-xs font-black italic">৳285,000[span_3](end_span)</p>
-                </div>
-                <div class="p-3 border rounded bg-slate-50">
-                    <p class="text-[9px] font-bold text-slate-400 uppercase">Double Gas Burners (2)</p>
-                    [span_4](start_span)<p class="text-xs font-black italic">৳144,000[span_4](end_span)</p>
-                </div>
-                <div class="p-3 border rounded bg-blue-100">
-                    <p class="text-[9px] font-bold text-blue-900 uppercase">Kitchen Hood & Ducting</p>
-                    [span_5](start_span)<p class="text-xs font-black italic">৳219,000[span_5](end_span)</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="p-8">
-            <h2 class="text-xl font-black mb-4 uppercase text-slate-800 italic">Facility Breakdown</h2>
-            <table class="w-full text-left border text-[11px] rounded-xl overflow-hidden shadow-md">
-                <thead class="bg-slate-800 text-white font-bold uppercase">
-                    <tr><th class="p-3">Item Classification</th><th class="p-3 text-right">Cost (BDT)</th><th class="p-3">Instrument Type</th></tr>
-                </thead>
-                <tbody class="divide-y font-bold text-slate-700">
-                    <tr><td class="p-3">Interior Furnishing (12 Marble Rooms + Suites)</td><td class="p-3 text-right mono">19,495,000</td><td class="p-3 shariah uppercase">Bai-Muajjal</td></tr>
-                    <tr class="bg-blue-50 text-blue-900 font-black">
-                        <td class="p-3 italic">Full Kitchen Mass (Nobarun International Quote)</td>
-                        <td class="p-3 text-right mono">1,510,000</td>
-                        <td class="p-3 shariah font-black underline">HPSM (10-20 Year)</td>
-                    </tr>
-                    <tr class="bg-yellow-50 text-red-600">
-                        <td class="p-3 italic italic">Equity Paid (Xeon ERP)</td>
-                        <td class="p-3 text-right mono">(75,000)</td>
-                        <td class="p-3 text-[9px] uppercase font-black italic">Digital Neural Network</td>
-                    </tr>
-                    <tr class="bg-blue-900 text-white font-black">
-                        <td class="p-3 uppercase text-lg">Net Investment Facility</td>
-                        <td class="p-3 text-right mono text-xl font-black italic">21,005,000</td>
-                        <td class="p-3 uppercase italic text-blue-300 tracking-widest">৳2.10 Cr</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p class="mt-4 text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Collateral: 87.5 Bigha Ancestral mass free of bank control [cite: 2026-02-02]</p>
-        </div>
-
-        <div class="p-8 bg-slate-900 border-t flex justify-between items-center text-white">
-            <div class="text-[9px] font-bold italic uppercase tracking-widest text-slate-400">
-                Sovereign Financial Framework | MH Alo Chaya
-            </div>
-            <div class="text-right">
-                <p class="text-xs font-bold text-blue-400 uppercase italic leading-none mb-1">Authenticated By:</p>
-                <p class="text-3xl font-black tracking-tighter uppercase leading-none italic">Sajid Hassan</p>
-                <p class="text-[10px] font-bold text-slate-400 uppercase mt-1 italic">Chief Operating Officer (COO)</p>
-            </div>
-        </div>
+    <div class="header-box">
+        <h1>Forensic Unit Audit: Room 3, 4, 7 & 8</h1>
+        <p>Comparison: Measured Dimensions vs. S9 Studio (Happy Nahin) Estimates</p>
     </div>
+
+    <table class="audit-table">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Forensic Calculation (Actual)</th>
+                <th>S9 Studio Estimate (Unhappy)</th>
+                <th>Rate Variance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Ceiling Area (sq. ft.)</strong></td>
+                <td><span class="highlight">400 - 560 sq. ft.</span> (Measured)</td>
+                <td class="alert">600 sq. ft. (Flat Estimate)</td>
+                <td>+40 to 200 sq. ft. Inflation</td>
+            </tr>
+            <tr>
+                <td><strong>Ceiling Rate (sq. ft.)</strong></td>
+                <td><span class="highlight">203 BDT</span> (Anita Verified)</td>
+                <td class="alert">620 BDT (Unitemized)</td>
+                <td><span class="alert">417 BDT Premium</span></td>
+            </tr>
+            <tr>
+                <td><strong>Hardware (Magnetic)</strong></td>
+                <td><span class="highlight">45 BDT</span> (Inayat 9.8ft Track)</td>
+                <td class="alert">Included (Unverified)</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td><strong>Labor & Integration</strong></td>
+                <td><span class="highlight">172 BDT</span> (Premium Allocation)</td>
+                <td class="alert">Included (Unverified)</td>
+                <td>N/A</td>
+            </tr>
+            <tr style="background-color: #262626;">
+                <td><strong>TOTAL ROOM RATE</strong></td>
+                <td><span class="highlight">420 BDT/sq. ft.</span></td>
+                <td><span class="alert">620 BDT/sq. ft.</span></td>
+                <td><span class="alert">200 BDT/sq. ft. Markup</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div style="margin-top: 25px; padding: 20px; border: 1px solid #444; background: #111;">
+        <h3>Forensic Conclusion for Asif Hassan:</h3>
+        <ul>
+            <li><strong>The "Estimated" Drain:</strong> By using a flat 600 sq. ft. estimate for rooms measured as low as 400 sq. ft., the estate pays for 200 "phantom" square feet per room.</li>
+            <li><strong>The 420 Wicket:</strong> Our calculated rate of 420 BDT provides a higher-tier "Lakme finish" using 9.8ft tracks while saving approximately 2.7 Million BDT across the 23-room phase.</li>
+            <li><strong>Verification:</strong> Anita Interior (31/03/2026) and Inayat (01/04/2026) provide itemized transparency that S9 Studio lacks.</li>
+        </ul>
+    </div>
+
 </body>
 </html>
